@@ -1,12 +1,12 @@
 <?php
 class OCISession {
-    private $url      = null;
+    private $url       = null;
     private $userId    = null;
     private $pass      = null; # This is stored as a signed password, added protection of removing clear-text password from session obj
     private $sessionId = null; # We create and re-use this in the XML BroadSoft Document
     private $nonce     = null; # Nonce is handed back to us in a response, used to sign the password
     private $cookie    = null; # Cookie from headers, JSESSIONID
-    private $loggedIn = false;
+    private $loggedIn  = false;
 
     public function __construct($url, $userId) {
         $this->url      = $url;
