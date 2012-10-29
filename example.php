@@ -1,14 +1,11 @@
 <?php
 require_once 'common.php';
 
-$msg = $OCIBuilder->build(
-    OCISchemaUser::UserGetListInGroupRequest('Enterprise-1', 'Group-1'),
-    $OCIClient->getSessionId()
-);
+$enterpriseId = 'Enterprise-1';
+$groupId      = 'Group-1';
 
-if ($OCIClient->send($msg)) {
-    $response = $OCIClient->getXMLResponseBody();
-    print_r($response);
-} else {
-    print_r($errorControl->getErrors());
-}
+$UserGetListInGroupRequest     = OCISchemaUser::UserGetListInGroupRequest($enterpriseId, $groupId);
+$UserGetListInGroupRequestXML  = $OCIClient->ociBuilder->build($UserGetListInGroupRequest);
+$UserGetListInGroupResponse    = ($OCIClient->send($UserGetListInGroupRequestXML)) ? $OCIClient->getXMLResponseBody() : $errorControl->getErrors();
+
+print_r($UserGetListInGroupResponse);

@@ -4,24 +4,24 @@ class OCIClient {
     public $request      = null;
     public $response     = null;
     public $errorControl = null;
+    public $ociBuilder   = null;
 
     private $session    = null;
     private $timeout    = null;
-    private $ociBuilder = null;
 
     public function __construct($url, $userId, $pass, $errorControl=null, $timeout=4) {
         require_once 'HTTP/Request2.php';
         $this->errorControl = $errorControl;
-        $this->ociBuilder   = CoreFactory::getOCIBuilder();
         $this->session      = CoreFactory::getOCISession($url, $userId);
-        $msg = $this->ociBuilder->build(OCISchemaLogin::AuthenticationRequest($this->session->getUserId()), $this->session->getSessionId());
+        $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
+        $msg = $this->ociBuilder->build(OCISchemaLogin::AuthenticationRequest($this->session->getUserId()));
         if ($this->send($msg)) {
             $this->setCookieFromResponse();
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
             $this->session->setSignedPassword($pass);
         }
-        $msg = $this->ociBuilder->build(OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword()), $this->session->getSessionId());
+        $msg = $this->ociBuilder->build(OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword()));
         if ($this->send($msg)) {
             $this->errorControl->addError('NOTICE: Logged in.');
         }
@@ -100,7 +100,7 @@ class OCIClient {
         } elseif (preg_match('/SuccessResponse/', $response)) {
             return true;
         } else {
-            $this->errorControl->addError("Unable to parse response: {$this->getRawResponseBody()}");
+            $this->errorControl->addError("Unable to parse response {$this->getResponseBody()}");
             return false;
         }
         return false;

@@ -2,6 +2,8 @@
 require_once 'OCIDataTypes.php';
 
 class OCIBuilder {
+    public $sessionId = null;
+
     const SOAP_HEAD = '<?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope
  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -15,9 +17,13 @@ class OCIBuilder {
     const BROADSOFT_DOC_HEAD = '<BroadsoftDocument protocol="OCI" xmlns="C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
     const BROADSOFT_DOC_TAIL = '</BroadsoftDocument>';
 
-    public function build($command, $sessionId) {
+    public function __construct($sessionId) {
+        $this->sessionId = $sessionId;
+    }
+
+    public function build($command) {
         $oci = OCIBuilder::BROADSOFT_DOC_HEAD;
-        $oci .= '<sessionId xmlns="">'.$sessionId.'</sessionId>';
+        $oci .= '<sessionId xmlns="">'.$this->sessionId.'</sessionId>';
         $oci .= '<command xsi:type="'.$command[OCIDataTypes::OCI_NAME].'" xmlns="">';
         foreach ($command[OCIDataTypes::OCI_PARAMS] as $key => $value) {
             $oci .= "<$key>$value</$key>";
