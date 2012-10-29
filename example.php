@@ -8,7 +8,6 @@ $UserGetListInGroupRequest     = OCISchemaUser::UserGetListInGroupRequest($enter
 $UserGetListInGroupRequestXML  = $OCIClient->ociBuilder->build($UserGetListInGroupRequest);
 $UserGetListInGroupResponse    = ($OCIClient->send($UserGetListInGroupRequestXML))
                                     ? $OCIClient->getXMLResponseBody()
-                                    : $errorControl->getErrors()
-                                  ;
+                                    : $errorControl->getErrors();
 
 print_r($UserGetListInGroupResponse);
