@@ -1,6 +1,6 @@
 <?php
 class OCISession {
-    private $host      = null;
+    private $url      = null;
     private $userId    = null;
     private $pass      = null; # This is stored as a signed password, added protection of removing clear-text password from session obj
     private $sessionId = null; # We create and re-use this in the XML BroadSoft Document
@@ -8,9 +8,9 @@ class OCISession {
     private $cookie    = null; # Cookie from headers, JSESSIONID
     private $loggedIn = false;
 
-    public function __construct($host, $userId) {
-        $this->host = $host;
-        $this->userId = $userId;
+    public function __construct($url, $userId) {
+        $this->url      = $url;
+        $this->userId    = $userId;
         $this->sessionId = $this->getSessionId();
     }
 
@@ -33,12 +33,12 @@ class OCISession {
 
     public function getLoggedIn()       { return $this->getLoggedIn(); }
     public function getSignedPassword() { return $this->pass;   }
-    public function getHost()           { return $this->host;   }
+    public function getUrl()           { return $this->url;   }
     public function getUserId()         { return $this->userId; }
 
-    public function setNonce($nonce) { $this->nonce = $nonce; }
-    public function getNonce()       { return $this->nonce;   }
+    public function setNonce($nonce)    { $this->nonce = $nonce; }
+    public function getNonce()          { return $this->nonce;   }
 
-    public function setCookie($cookie) { $this->cookie = $cookie; }
-    public function getCookie()        { return $this->cookie;    }
+    public function setCookie($cookie)  { $this->cookie = $cookie; }
+    public function getCookie()         { return $this->cookie;    }
 }

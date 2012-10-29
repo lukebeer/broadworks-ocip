@@ -1,4 +1,6 @@
 <?php
+require_once 'OCIDataTypes.php';
+
 class OCIBuilder {
     const SOAP_HEAD = '<?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope

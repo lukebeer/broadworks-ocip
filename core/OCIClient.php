@@ -1,4 +1,5 @@
 <?php
+require_once 'OCISession.php';
 class OCIClient {
     public $request      = null;
     public $response     = null;
@@ -8,11 +9,11 @@ class OCIClient {
     private $timeout    = null;
     private $ociBuilder = null;
 
-    public function __construct($host, $user, $pass, $errorControl=null, $timeout=4) {
+    public function __construct($url, $userId, $pass, $errorControl=null, $timeout=4) {
         require_once 'HTTP/Request2.php';
         $this->errorControl = $errorControl;
-        $this->ociBuilder   = new OCIBuilder();
-        $this->session      = new OCISession($host, $user);
+        $this->ociBuilder   = CoreFactory::getOCIBuilder();
+        $this->session      = CoreFactory::getOCISession($url, $userId);
         $msg = $this->ociBuilder->build(OCISchemaLogin::AuthenticationRequest($this->session->getUserId()), $this->session->getSessionId());
         if ($this->send($msg)) {
             $this->setCookieFromResponse();
@@ -28,7 +29,7 @@ class OCIClient {
 
     public function getRequest() {
         if ($this->request == null) {
-            $this->request = new HTTP_Request2($this->session->getHost(), [
+            $this->request = new HTTP_Request2($this->session->getUrl(), [
                 'timeout'     => $this->timeout,
                 'readTimeout' => $this->timeout
             ]);
