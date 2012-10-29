@@ -9,7 +9,7 @@ class OCIClient {
     private $ociBuilder = null;
 
     public function __construct($host, $user, $pass, $errorControl=null, $timeout=4) {
-        require_once '/usr/share/php/HTTP/Request2.php';
+        require_once 'HTTP/Request2.php';
         $this->errorControl = $errorControl;
         $this->ociBuilder   = new OCIBuilder();
         $this->session      = new OCISession($host, $user);
