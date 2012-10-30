@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- I N T E L L I G E N T   N E T W O R K   S E R V I C E                  -->
+<!-- C O N T R O L  S E R V I C E                                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- I N T E L L I G E N T   N E T W O R K   S E R V I C E   C O N T R O L              -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemIntelligentNetworkServiceControlGetRequest14    
+    SystemIntelligentNetworkServiceControlModifyRequest    
+    UserIntelligentNetworkServiceControlGetRequest    
+    UserIntelligentNetworkServiceControlModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemIntelligentNetworkServiceControlGetRequest14">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with Intelligent Network Service Control.
+        The response is either a SystemIntelligentNetworkServiceControlGetResponse14
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemIntelligentNetworkServiceControlGetResponse14">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemIntelligentNetworkServiceControlGetRequest14.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="preAnswerActionTimeoutSeconds" type="IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds"/>
+          <xs:element name="msgRejectNoVoiceMail" type="Treatment"/>
+          <xs:element name="msgRejectVoiceMail" type="Treatment"/>
+          <xs:element name="msgPreAnswerWait" type="Treatment"/>
+          <xs:element name="msgBusy" type="Treatment"/>
+          <xs:element name="msgRelease" type="Treatment"/>
+          <xs:element name="msgNoAnswer" type="Treatment"/>
+          <xs:element name="msgOCPReject" type="Treatment"/>
+          <xs:element name="msgForwardLoop" type="Treatment"/>
+          <xs:element name="msgTemporarilyUnavailable" type="Treatment"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemIntelligentNetworkServiceControlModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with Intelligent Network Service Control.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="preAnswerActionTimeoutSeconds" type="IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds" minOccurs="0"/>
+          <xs:element name="msgRejectNoVoiceMail" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgRejectVoiceMail" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgPreAnswerWait" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgBusy" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgRelease" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgNoAnswer" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgOCPReject" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgForwardLoop" type="Treatment" minOccurs="0"/>
+          <xs:element name="msgTemporarilyUnavailable" type="Treatment" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserIntelligentNetworkServiceControlGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Intelligent Network Service Control.
+        The response is either a UserIntelligentNetworkServiceControlGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserIntelligentNetworkServiceControlGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserIntelligentNetworkServiceControlGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="preAnswerActionsEnabled" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserIntelligentNetworkServiceControlModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Intelligent Network Service Control.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="preAnswerActionsEnabled" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds">
+    <xs:annotation>
+      <xs:documentation>
+       Pre-answer action timeout seconds.
+     </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="6"/>
+      <xs:maxInclusive value="36"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

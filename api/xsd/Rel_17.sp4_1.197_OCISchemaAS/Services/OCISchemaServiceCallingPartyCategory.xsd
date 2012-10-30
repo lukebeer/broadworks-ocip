@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C A L L I N G   P A R T Y   C A T E G O R Y  S E R V I C E             -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C A L L I N G   P A R T Y   C A T E G O R Y                                        -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemCallingPartyCategoryAddRequest    
+    SystemCallingPartyCategoryDeleteRequest    
+    SystemCallingPartyCategoryGetListRequest    
+    SystemCallingPartyCategoryGetRequest    
+    SystemCallingPartyCategoryModifyRequest    
+    UserCallingPartyCategoryGetRequest16    
+    UserCallingPartyCategoryModifyRequest16    
+    
+  --> 
+  
+  <xs:complexType name="SystemCallingPartyCategoryAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a Calling Party Category to system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="category" type="CallingPartyCategoryName"/>
+          <xs:element name="cpcValue" type="CallingPartyCategoryValue" minOccurs="0"/>
+          <xs:element name="isupOliValue" type="ISDNUserPartOriginatingLineInformationValue" minOccurs="0"/>
+          <xs:element name="gtdOliValue" type="ISDNGenericTransparencyDescriptorOliValue" minOccurs="0"/>
+          <xs:element name="userCategory" type="xs:boolean"/>
+          <xs:element name="payPhone" type="xs:boolean"/>
+          <xs:element name="operator" type="xs:boolean"/>
+          <xs:element name="default" type="xs:boolean"/>
+          <xs:element name="collectCall" type="xs:boolean"/>
+          <xs:element name="webDisplayKey" type="WebDisplayKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallingPartyCategoryDeleteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Calling Party Category from system. The category cannot be deleted if it is the default or is in use by any users.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="category" type="CallingPartyCategoryName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallingPartyCategoryGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the list of all Calling Party Category in system.
+        The response is either a SystemCallingPartyCategoryGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallingPartyCategoryGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemCallingPartyCategoryGetListRequest.
+        Contains a table of Calling Party Category defined in system.
+        The column headings are: "Category Name", "User Category", "Collect Call", "Default" and "Web Display Key". 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="callingPartyCategoryTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallingPartyCategoryGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get an existing Calling Party Category in system.
+        The response is either a SystemCallingPartyCategoryGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="category" type="CallingPartyCategoryName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallingPartyCategoryGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemCallingPartyCategoryGetRequest.
+        Contains information of a Calling Party Category defined in system.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="cpcValue" type="CallingPartyCategoryValue" minOccurs="0"/>
+          <xs:element name="isupOliValue" type="ISDNUserPartOriginatingLineInformationValue" minOccurs="0"/>
+          <xs:element name="gtdOliValue" type="ISDNGenericTransparencyDescriptorOliValue" minOccurs="0"/>
+          <xs:element name="userCategory" type="xs:boolean"/>
+          <xs:element name="payPhone" type="xs:boolean"/>
+          <xs:element name="operator" type="xs:boolean"/>
+          <xs:element name="default" type="xs:boolean"/>
+          <xs:element name="collectCall" type="xs:boolean"/>
+          <xs:element name="webDisplayKey" type="WebDisplayKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallingPartyCategoryModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a Calling Party Category in system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="category" type="CallingPartyCategoryName"/>
+          <xs:element name="cpcValue" type="CallingPartyCategoryValue" nillable="true" minOccurs="0"/>
+          <xs:element name="isupOliValue" type="ISDNUserPartOriginatingLineInformationValue" nillable="true" minOccurs="0"/>
+          <xs:element name="gtdOliValue" type="ISDNGenericTransparencyDescriptorOliValue" nillable="true" minOccurs="0"/>
+          <xs:element name="userCategory" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="payPhone" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="operator" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="becomeDefault" type="xs:boolean" fixed="true" minOccurs="0"/>
+          <xs:element name="collectCall" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="webDisplayKey" type="WebDisplayKey" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallingPartyCategoryGetRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Calling Party Category.
+        The response is either a UserCallingPartyCategoryGetResponse16 or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallingPartyCategoryGetResponse16">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserCallingPartyCategoryGetRequest16.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="category" type="CallingPartyCategoryName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallingPartyCategoryModifyRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Calling Party Category.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="category" type="CallingPartyCategoryName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CallingPartyCategoryName">
+    <xs:annotation>
+      <xs:documentation>
+        Name for the Calling Party Category.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CallingPartyCategoryValue">
+    <xs:annotation>
+      <xs:documentation>
+        Value for the Calling Party Category used in signaling.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ISDNGenericTransparencyDescriptorOliValue">
+    <xs:annotation>
+      <xs:documentation>
+        ISDN generic transparency descriptor OLI value for the Calling Party Category.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ISDNUserPartOriginatingLineInformationValue">
+    <xs:annotation>
+      <xs:documentation>
+        ISDN user part originating line information value for the Calling Party Category.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="255"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S P E E D   D I A L 100 S E R V I C E                                  -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S P E E D   D I A L 100   R E Q U E S T S  A N D  R E S P O N S E S                -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupSpeedDial100GetRequest17sp1    
+    GroupSpeedDial100ModifyRequest    
+    SystemSpeedDial100GetRequest17sp1    
+    SystemSpeedDial100ModifyRequest    
+    UserSpeedDial100AddListRequest    
+    UserSpeedDial100DeleteListRequest    
+    UserSpeedDial100GetListRequest17sp1    
+    UserSpeedDial100GetRequest    
+    UserSpeedDial100ModifyListRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupSpeedDial100GetRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Get the speed dial 100 service settings for a group.
+        The response is either a GroupSpeedDial100GetResponse17sp1 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupSpeedDial100GetResponse17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupSpeedDial100GetRequest17sp1.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="prefix" type="SpeedDialPrefix" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupSpeedDial100ModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the speed dial 100 prefix setting for a group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="prefix" type="SpeedDialPrefix" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSpeedDial100GetRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Get the speed dial 100 system-wide default setting.
+        The response is either a SystemSpeedDial100GetResponse17sp1 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSpeedDial100GetResponse17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the SystemSpeedDial100GetRequest17sp1.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="prefix" type="SpeedDialPrefix" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSpeedDial100ModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the speed dial 100 system-wide default prefix setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="prefix" type="SpeedDialPrefix" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial100AddListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add one or more speed dial 100 settings for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="speedDialEntry" type="SpeedDial100Entry" minOccurs="1" maxOccurs="100"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial100DeleteListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete one or more speed dial 100 settings for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="speedCode" type="SpeedDial100Code" minOccurs="0" maxOccurs="100"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial100GetListRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Get the speed dial 100 settings for a user.
+        The response is either a UserSpeedDial100GetListResponse17sp1 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial100GetListResponse17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSpeedDial100GetListRequest17sp1.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="prefix" type="SpeedDialPrefix" minOccurs="0"/>
+          <xs:element name="speedDialEntry" type="SpeedDial100Entry" minOccurs="0" maxOccurs="100"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial100GetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get speed dial 100 settings for a speed code.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="speedCode" type="SpeedDial100Code"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial100GetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSpeedDial100GetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="phoneNumber" type="OutgoingDNorSIPURI"/>
+          <xs:element name="description" type="SpeedDialDescription" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial100ModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the speed dial 100 settings for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+        Engineering Note: This command is used internally by Call Processing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="speedDialEntry" type="SpeedDial100EntryModify" minOccurs="0" maxOccurs="100"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SpeedDial100Entry">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the speed dial 100 prefix setting for a group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="speedCode" type="SpeedDial100Code"/>
+      <xs:element name="phoneNumber" type="OutgoingDNorSIPURI"/>
+      <xs:element name="description" type="SpeedDialDescription" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="SpeedDial100EntryModify">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the speed dial 100 prefix setting for a group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="speedCode" type="SpeedDial100Code"/>
+      <xs:element name="phoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+      <xs:element name="description" type="SpeedDialDescription" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="SpeedDial100Code">
+    <xs:annotation>
+      <xs:documentation>
+        Speed Dial 100 codes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

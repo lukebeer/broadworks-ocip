@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- P U S H   T O   T A L K  S E R V I C E                                 -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- P U S H   T O   T A L K    R E Q U E S T S  A N D  R E S P O N S E S               -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserPushToTalkGetAvailableUserListRequest    
+    UserPushToTalkGetRequest    
+    UserPushToTalkModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserPushToTalkGetAvailableUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of available users for the push to talk service.
+        The response is either UserPushToTalkGetAvailableUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+          <xs:element name="searchCriteriaExactUserGroup" type="SearchCriteriaExactUserGroup" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPushToTalkGetAvailableUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserPushToTalkGetAvailableUserListRequest.
+        Returns a 5 column table with column headings:
+          "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPushToTalkGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the push to talk service setting.
+        The response is either a UserPushToTalkGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPushToTalkGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserPushToTalkGetRequest.  It returns the service settings and a
+        5 column selected user table with the following column headings:
+          "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="allowAutoAnswer" type="xs:boolean"/>
+          <xs:element name="outgoingConnectionSelection" type="PushToTalkOutgoingConnectionSelection"/>
+          <xs:element name="accessListSelection" type="PushToTalkAccessListSelection"/>
+          <xs:element name="selectedUserTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPushToTalkModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Change the push to talk service settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="allowAutoAnswer" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="outgoingConnectionSelection" type="PushToTalkOutgoingConnectionSelection" minOccurs="0"/>
+          <xs:element name="accessListSelection" type="PushToTalkAccessListSelection" minOccurs="0"/>
+          <xs:element name="selectedUserIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="PushToTalkOutgoingConnectionSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Push to talk outgoing connection type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="One Way"/>
+      <xs:enumeration value="Two Way"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="PushToTalkAccessListSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Push to talk access list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Allow Calls From Selected Users"/>
+      <xs:enumeration value="Allow Calls From Everyone Except Selected Users"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

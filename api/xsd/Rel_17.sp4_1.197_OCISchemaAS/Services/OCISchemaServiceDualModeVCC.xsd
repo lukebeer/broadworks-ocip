@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- D U A L   M O D E   V   C   C  S E R V I C E                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- D U A L   M O D E   V   C   C    R E Q U E S T S  A N D  R E S P O N S E S         -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserDualModeVCCGetRequest    
+    UserDualModeVCCModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserDualModeVCCGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the user level Dual Mode VCC service attributes
+        Response is either UserDualModeVCCGetResponse or ErrorResponse
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserDualModeVCCGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserDualModeVCCGetRequest
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="subscriberUserName" type="DualModeVCCSubscriberUserName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserDualModeVCCModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify the user level IN Integration service attributes
+        Response is either UserINIntegrationGetResponse or ErrorResponse
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="subscriberUserName" type="DualModeVCCSubscriberUserName" minOccurs="0" nillable="true"/>
+          <xs:element name="subscriberPassword" type="DualModeVCCSubscriberPassword" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="DualModeVCCSubscriberUserName">
+    <xs:annotation>
+      <xs:documentation>
+        Dual Mode VCC Service subscriber user name
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

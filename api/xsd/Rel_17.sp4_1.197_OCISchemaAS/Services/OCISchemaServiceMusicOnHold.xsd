@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- M U S I C   O N   H O L D  S E R V I C E                               -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- M U S I C   O N   H O L D    R E Q U E S T S  A N D  R E S P O N S E S             -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupMusicOnHoldAddInstanceRequest16    
+    GroupMusicOnHoldDeleteInstanceRequest    
+    GroupMusicOnHoldGetInstanceRequest16    
+    GroupMusicOnHoldGetDepartmentListRequest    
+    GroupMusicOnHoldModifyInstanceRequest16    
+    SystemMusicOnHoldGetRequest    
+    SystemMusicOnHoldModifyRequest    
+    UserMusicOnHoldGetRequest    
+    UserMusicOnHoldModifyRequest    
+    UserMusicOnHoldUserGetRequest16    
+    UserMusicOnHoldUserModifyRequest16    
+    
+  --> 
+  
+  <xs:complexType name="GroupMusicOnHoldAddInstanceRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Add a Music on Hold Instance to a department.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="department" type="DepartmentKey"/>
+          <xs:element name="isActiveDuringCallHold" type="xs:boolean"/>
+          <xs:element name="isActiveDuringCallPark" type="xs:boolean"/>
+          <xs:element name="isActiveDuringBusyCampOn" type="xs:boolean"/>
+          <xs:element name="source" type="MusicOnHoldSourceAdd16"/>
+          <xs:element name="useAlternateSourceForInternalCalls" type="xs:boolean"/>
+          <xs:element name="internalSource" type="MusicOnHoldSourceAdd16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupMusicOnHoldDeleteInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Music On Hold department instance.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="department" type="DepartmentKey"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupMusicOnHoldGetInstanceRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Get a Music On Hold data for a group or department instance.
+        The response is either GroupMusicOnHoldGetInstanceResponse16 or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="department" type="DepartmentKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupMusicOnHoldGetInstanceResponse16">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupMusicOnHoldGetInstanceRequest16.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="isActiveDuringCallHold" type="xs:boolean"/>
+          <xs:element name="isActiveDuringCallPark" type="xs:boolean"/>
+          <xs:element name="isActiveDuringBusyCampOn" type="xs:boolean"/>
+          <xs:element name="enableVideo" type="xs:boolean"/>
+          <xs:element name="source" type="MusicOnHoldSourceRead16"/>
+          <xs:element name="useAlternateSourceForInternalCalls" type="xs:boolean"/>
+          <xs:element name="internalSource" type="MusicOnHoldSourceRead16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupMusicOnHoldGetDepartmentListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Returns a list of all departments that have a Music On Hold instance.
+        The response is either GroupMusicOnHoldGetDepartmentListResponse or ErrorResponse.
+        It is possible to get the instances within a specified department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupDepartmentName" type="DepartmentName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupMusicOnHoldGetDepartmentListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupMusicOnHoldGetDepartmentListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="hasDepartment" type="xs:boolean"/>
+          <xs:element name="department" type="DepartmentKey" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="departmentFullPath" type="DepartmentFullPathName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupMusicOnHoldModifyInstanceRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Modify data for a group or department Music On Hold Instance.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="department" type="DepartmentKey" minOccurs="0"/>
+          <xs:element name="isActiveDuringCallHold" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="isActiveDuringCallPark" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="isActiveDuringBusyCampOn" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="source" type="MusicOnHoldSourceModify16" minOccurs="0"/>
+          <xs:element name="useAlternateSourceForInternalCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="internalSource" type="MusicOnHoldSourceModify16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemMusicOnHoldGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with Music On Hold.
+        The response is either a SystemMusicOnHoldGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemMusicOnHoldGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemMusicOnHoldGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="delayMilliseconds" type="MusicOnHoldDelayMilliseconds"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemMusicOnHoldModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with Music On Hold.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="delayMilliseconds" type="MusicOnHoldDelayMilliseconds" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMusicOnHoldGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Music On Hold.
+        The response is either a UserMusicOnHoldGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMusicOnHoldGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserMusicOnHoldGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMusicOnHoldModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Music On Hold.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMusicOnHoldUserGetRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Music On Hold User.
+        The response is either a UserMusicOnHoldUserGetResponse16 or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMusicOnHoldUserGetResponse16">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserMusicOnHoldUserGetRequest16.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableVideo" type="xs:boolean"/>
+          <xs:element name="source" type="MusicOnHoldUserSourceRead16"/>
+          <xs:element name="useAlternateSourceForInternalCalls" type="xs:boolean"/>
+          <xs:element name="internalSource" type="MusicOnHoldUserSourceRead16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMusicOnHoldUserModifyRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Modify data for Music On Hold User.
+        The response is either a SuccessResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="source" type="MusicOnHoldUserSourceModify16" minOccurs="0"/>
+          <xs:element name="useAlternateSourceForInternalCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="internalSource" type="MusicOnHoldUserSourceModify16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="MusicOnHoldDelayMilliseconds">
+    <xs:annotation>
+      <xs:documentation>
+        Delay in milliseconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="5000"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="MusicOnHoldMessageSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Music On Hold Message Selection.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="System"/>
+      <xs:enumeration value="External"/>
+      <xs:enumeration value="Custom"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="MusicOnHoldSourceAdd16">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the music on hold source configuration.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="audioFilePreferredCodec" type="AudioFileCodec"/>
+      <xs:element name="messageSourceSelection" type="MusicOnHoldMessageSelection"/>
+      <xs:element name="customSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="audioFile" type="LabeledMediaFileResource" minOccurs="0"/>
+            <xs:element name="videoFile" type="LabeledMediaFileResource" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="externalSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accessDeviceEndpoint" type="AccessDeviceEndpointAdd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="MusicOnHoldSourceRead16">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the music on hold source configuration.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="audioFilePreferredCodec" type="AudioFileCodec"/>
+      <xs:element name="messageSourceSelection" type="MusicOnHoldMessageSelection"/>
+      <xs:element name="customSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="audioFileDescription" type="FileDescription" minOccurs="0"/>
+            <xs:element name="audioMediaType" type="MediaFileType" minOccurs="0"/>
+            <xs:element name="videoFileDescription" type="FileDescription" minOccurs="0"/>
+            <xs:element name="videoMediaType" type="MediaFileType" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="externalSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accessDeviceEndpoint" type="AccessDeviceEndpointRead14"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="MusicOnHoldSourceModify16">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the music on hold source configuration.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="audioFilePreferredCodec" type="AudioFileCodec" minOccurs="0"/>
+      <xs:element name="messageSourceSelection" type="MusicOnHoldMessageSelection" minOccurs="0"/>
+      <xs:element name="customSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="audioFile" type="LabeledMediaFileResource" minOccurs="0"/>
+            <xs:element name="videoFile" type="LabeledMediaFileResource" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="externalSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="accessDeviceEndpoint" type="AccessDeviceEndpointModify" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="MusicOnHoldUserMessageSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Music On Hold User Message Selection.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Group"/>
+      <xs:enumeration value="Custom"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="MusicOnHoldUserSourceModify16">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the music on hold user source configuration.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageSourceSelection" type="MusicOnHoldUserMessageSelection" minOccurs="0"/>
+      <xs:element name="customSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="audioFile" type="LabeledMediaFileResource" minOccurs="0"/>
+            <xs:element name="videoFile" type="LabeledMediaFileResource" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="MusicOnHoldUserSourceRead16">
+    <xs:annotation>
+      <xs:documentation>
+        Contains the music on hold user source configuration.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="messageSourceSelection" type="MusicOnHoldUserMessageSelection"/>
+      <xs:element name="customSource" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="audioFileDescription" type="FileDescription" minOccurs="0"/>
+            <xs:element name="audioMediaType" type="MediaFileType" minOccurs="0"/>
+            <xs:element name="videoFileDescription" type="FileDescription" minOccurs="0"/>
+            <xs:element name="videoMediaType" type="MediaFileType" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

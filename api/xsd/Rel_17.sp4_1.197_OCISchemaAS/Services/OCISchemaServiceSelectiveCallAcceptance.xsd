@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S E L E C T I V E   C A L L   A C C E P T A N C E  S E R V I C E       -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S E L E C T I V E   C A L L   A C C E P T A N C E                                  -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserSelectiveCallAcceptanceAddCriteriaRequest16    
+    UserSelectiveCallAcceptanceDeleteCriteriaRequest    
+    UserSelectiveCallAcceptanceGetCriteriaListRequest    
+    UserSelectiveCallAcceptanceGetCriteriaRequest16    
+    UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest    
+    UserSelectiveCallAcceptanceModifyCriteriaRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserSelectiveCallAcceptanceAddCriteriaRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Add a criteria to the user's selective call acceptance service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSelectiveCallAcceptanceDeleteCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a criteria from the user's selective call acceptance service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSelectiveCallAcceptanceGetCriteriaListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's selective call acceptance criteria listing.
+        The response is either a UserSelectiveCallAcceptanceGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSelectiveCallAcceptanceGetCriteriaListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSelectiveCallAcceptanceGetCriteriaRequest.
+        The criteria table's column headings are:
+        "Is Active", "Criteria Name", "Time Schedule", "Calls From", "Blacklisted" and "Holiday Schedule".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="criteriaTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSelectiveCallAcceptanceGetCriteriaRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Get a criteria for the user's selective call acceptance service.
+        The response is either a UserSelectiveCallAcceptanceGetCriteriaResponse16 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSelectiveCallAcceptanceGetCriteriaResponse16">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSelectiveCallAcceptanceGetCriteriaRequest16.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Activate the user's selective call acceptance criteria list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaActivation" type="CriteriaActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSelectiveCallAcceptanceModifyCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a criteria for the user's selective call acceptance service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="newCriteriaName" type="CriteriaName" minOccurs="0"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDnModify" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

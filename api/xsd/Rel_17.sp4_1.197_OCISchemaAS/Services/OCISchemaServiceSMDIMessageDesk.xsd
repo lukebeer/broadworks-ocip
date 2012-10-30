@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S   M   D   I   M E S S A G E   D E S K  S E R V I C E                 -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S   M   D   I   M E S S A G E   D E S K                                            -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemSMDIMessageDeskAddServerRequest    
+    SystemSMDIMessageDeskDeleteServerRequest    
+    SystemSMDIMessageDeskGetServerListRequest    
+    SystemSMDIMessageDeskModifyServerRequest    
+    SystemSMDIMessageDeskAddServerRouteRequest    
+    SystemSMDIMessageDeskDeleteServerRouteRequest    
+    SystemSMDIMessageDeskGetServerRouteListRequest    
+    SystemSMDIMessageDeskModifyServerRouteRequest    
+    UserSMDIMessageDeskAddServerRequest    
+    UserSMDIMessageDeskDeleteServerListRequest    
+    UserSMDIMessageDeskGetRequest    
+    UserSMDIMessageDeskGetServerListRequest    
+    UserSMDIMessageDeskModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemSMDIMessageDeskAddServerRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to add a SMDI Server to the system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="deviceName" type="SMDIDeviceName"/>
+          <xs:element name="netAddress" type="NetAddress"/>
+          <xs:element name="port" type="Port"/>
+          <xs:element name="description" type="SMDIServerDescription" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskDeleteServerRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to delete a SMDI Server from the system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="deviceName" type="SMDIDeviceName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskGetServerListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get a list of SMDI Servers defined in the system.
+        The response is either a SystemSMDIMessageDeskGetServerListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskGetServerListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemMediaServerGetListRequest. The SMDI Server table column
+        headings are: "Device Name", "Net Address", "Port" and "Description".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="smdiServerTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskModifyServerRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify a SMDI Server in the system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="deviceName" type="SMDIDeviceName"/>
+          <xs:element name="netAddress" type="NetAddress" minOccurs="0"/>
+          <xs:element name="port" type="Port" minOccurs="0"/>
+          <xs:element name="description" type="SMDIServerDescription" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskAddServerRouteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to add a SMDI Server route to the system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="routeDestination" type="SMDIServerRouteDestination"/>
+          <xs:element name="deviceName" type="SMDIDeviceName" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskDeleteServerRouteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to delete a SMDI Server route from the system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="routeDestination" type="SMDIServerRouteDestination"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskGetServerRouteListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get a list of SMDI Servers routes in the system.
+        The response is either a SystemSMDIMessageDeskGetServerRouteListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskGetServerRouteListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemSMDIMessageDeskGetServerRouteListRequest.
+        The SMDI Server route table column headings are: "Destination" and "SMDI Servers".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="smdiServerRouteTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemSMDIMessageDeskModifyServerRouteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Replace the list of devices associated with a SMDI server route destination.
+        There must be at least one device in the list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="routeDestination" type="SMDIServerRouteDestination"/>
+          <xs:element name="deviceNameList" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="deviceName" type="SMDIDeviceName" minOccurs="1" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSMDIMessageDeskAddServerRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to add a SMDI Server for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="deviceName" type="SMDIDeviceName"/>
+          <xs:element name="netAddress" type="NetAddress"/>
+          <xs:element name="port" type="Port"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSMDIMessageDeskDeleteServerListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to delete a list of SMDI Servers for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="deviceName" type="SMDIDeviceName" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSMDIMessageDeskGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's SMDI Message Desk service personal setting.
+        The response is either a UserSMDIMessageDeskGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSMDIMessageDeskGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSMDIMessageDeskGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="messageDeskNumber" type="SMDIMessageDeskNumber" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSMDIMessageDeskGetServerListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get a list of SMDI Servers defined for a user.
+        The response is either a UserSMDIMessageDeskGetServerListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSMDIMessageDeskGetServerListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSMDIMessageDeskGetServerListRequest.
+        The SMDI Server table column headings are: "Device Name", "Net Address", "Port".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="smdiServerTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSMDIMessageDeskModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's SMDI Message Desk service setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="messageDeskNumber" type="SMDIMessageDeskNumber" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="SMDIDeviceName">
+    <xs:annotation>
+      <xs:documentation>
+        SMDI device name.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="SMDIMessageDeskNumber">
+    <xs:annotation>
+      <xs:documentation>
+        SMDI Message Desk number.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="SMDIServerDescription">
+    <xs:annotation>
+      <xs:documentation>
+        SMDI server description.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="SMDIServerRouteDestination">
+    <xs:annotation>
+      <xs:documentation>
+        SMDI server route destination, a 3 to 10 digits number
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

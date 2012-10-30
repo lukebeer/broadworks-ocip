@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C O M M   P I L O T   E X P R E S S  S E R V I C E                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C O M M   P I L O T   E X P R E S S    R E Q U E S T S  A N D  R E S P O N S E S   -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserCommPilotExpressGetRequest    
+    UserCommPilotExpressModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserCommPilotExpressGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's commPilot express service setting.
+        The response is either a UserCommPilotExpressGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommPilotExpressGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserCommPilotExpressGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="profile" type="CommPilotExpressProfile" minOccurs="0"/>
+          <xs:element name="availableInOffice" type="CommPilotExpressAvailableInOffice"/>
+          <xs:element name="availableOutOfOffice" type="CommPilotExpressAvailableOutOfOffice"/>
+          <xs:element name="busy" type="CommPilotExpressBusy"/>
+          <xs:element name="unavailable" type="CommPilotExpressUnavailable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommPilotExpressModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's commPilot express service setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+        Engineering Note: This command is used internally by Call Processing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="profile" type="CommPilotExpressProfile" nillable="true" minOccurs="0"/>
+          <xs:element name="availableInOffice" type="CommPilotExpressAvailableInOfficeModify" minOccurs="0"/>
+          <xs:element name="availableOutOfOffice" type="CommPilotExpressAvailableOutOfOfficeModify" minOccurs="0"/>
+          <xs:element name="busy" type="CommPilotExpressBusyModify" minOccurs="0"/>
+          <xs:element name="unavailable" type="CommPilotExpressUnavailableModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressAvailableInOffice">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Available In Office Settings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="additionalPhoneNumberToRing" type="OutgoingDNorSIPURI" minOccurs="0"/>
+      <xs:element name="busySetting" type="CommPilotExpressRedirection"/>
+      <xs:element name="noAnswerSetting" type="CommPilotExpressRedirection"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressAvailableInOfficeModify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Available In Office Settings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="additionalPhoneNumberToRing" type="OutgoingDNorSIPURI" nillable="true" minOccurs="0"/>
+      <xs:element name="busySetting" type="CommPilotExpressRedirectionModify" minOccurs="0"/>
+      <xs:element name="noAnswerSetting" type="CommPilotExpressRedirectionModify" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressAvailableOutOfOffice">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Available Out Of Office Configuration used in the context of a get.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="incomingCalls" type="CommPilotExpressRedirection"/>
+      <xs:element name="incomingCallNotify" type="CommPilotExpressEmailNotify"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressAvailableOutOfOfficeModify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Available Out Of Office Configuration used in the context of a modify.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="incomingCalls" type="CommPilotExpressRedirectionModify" minOccurs="0"/>
+      <xs:element name="incomingCallNotify" type="CommPilotExpressEmailNotifyModify" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressBusy">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Available In Office Configuration used in the context of a get.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="incomingCalls" type="CommPilotExpressRedirectionWithException"/>
+      <xs:element name="voiceMailNotify" type="CommPilotExpressEmailNotify"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressBusyModify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Available In Office Configuration used in the context of a modify.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="incomingCalls" type="CommPilotExpressRedirectionWithExceptionModify" minOccurs="0"/>
+      <xs:element name="voiceMailNotify" type="CommPilotExpressEmailNotifyModify" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressUnavailable">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Unavailable Configuration used in the context of a get.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="incomingCalls" type="CommPilotExpressRedirectionWithException"/>
+      <xs:element name="voiceMailGreeting" type="CommPilotExpressVoiceMailGreeting"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressUnavailableModify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Unavailable Configuration used in the context of a modify.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="incomingCalls" type="CommPilotExpressRedirectionWithExceptionModify" minOccurs="0"/>
+      <xs:element name="voiceMailGreeting" type="CommPilotExpressVoiceMailGreeting" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressEmailNotify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Email Notify configuration used in the context of a get.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sendEmail" type="xs:boolean"/>
+      <xs:element name="emailAddress" type="EmailAddress" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressEmailNotifyModify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Email Notify configuration used in the context of a modify.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sendEmail" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="emailAddress" type="EmailAddress" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CommPilotExpressProfile">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Profile Type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Available In Office"/>
+      <xs:enumeration value="Available Out Of Office"/>
+      <xs:enumeration value="Busy"/>
+      <xs:enumeration value="Unavailable"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CommPilotExpressVoiceMailGreeting">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Voice Messaging Greeting Choices.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="No Answer"/>
+      <xs:enumeration value="Unavailable"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CommPilotExpressRedirectionAction">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express Transfer or Forward Options.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Transfer To Voice Mail"/>
+      <xs:enumeration value="Forward"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="CommPilotExpressRedirection">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express type to transfer to voice Mail or forward to a number
+        used in the context of a get.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="action" type="CommPilotExpressRedirectionAction"/>
+      <xs:element name="forwardingPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressRedirectionModify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express type to transfer to voice Mail or forward to a number
+        used in the context of a modify.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="action" type="CommPilotExpressRedirectionAction" minOccurs="0"/>
+      <xs:element name="forwardingPhoneNumber" type="OutgoingDNorSIPURI" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressRedirectionWithException">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express type to transfer to voice mail or forward to a number
+        with certain exceptions used in the context of a get.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sendCallsToVoiceMailExceptExcludedNumbers" type="xs:boolean"/>
+      <xs:element name="excludedPhoneNumber01" type="DN" minOccurs="0"/>
+      <xs:element name="excludedPhoneNumber02" type="DN" minOccurs="0"/>
+      <xs:element name="excludedPhoneNumber03" type="DN" minOccurs="0"/>
+      <xs:element name="forwardExcludedNumbersTo" type="OutgoingDNorSIPURI" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CommPilotExpressRedirectionWithExceptionModify">
+    <xs:annotation>
+      <xs:documentation>
+        CommPilot Express type to transfer to voice mail or forward to a number
+        with certain exceptions used in the context of a modify.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sendCallsToVoiceMailExceptExcludedNumbers" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="excludedPhoneNumber01" type="DN" nillable="true" minOccurs="0"/>
+      <xs:element name="excludedPhoneNumber02" type="DN" nillable="true" minOccurs="0"/>
+      <xs:element name="excludedPhoneNumber03" type="DN" nillable="true" minOccurs="0"/>
+      <xs:element name="forwardExcludedNumbersTo" type="OutgoingDNorSIPURI" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

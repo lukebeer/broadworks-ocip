@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- R E C E P T I O N I S T   E N T E R P R I S E  S E R V I C E           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- R E C E P T I O N I S T   E N T E R P R I S E                                      -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemBroadWorksReceptionistEnterpriseGetRequest    
+    SystemBroadWorksReceptionistEnterpriseModifyRequest    
+    UserBroadWorksReceptionistEnterpriseAddUserListRequest    
+    UserBroadWorksReceptionistEnterpriseDeleteUserListRequest    
+    UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest    
+    UserBroadWorksReceptionistEnterpriseGetRequest    
+    UserBroadWorksReceptionistEnterpriseModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemBroadWorksReceptionistEnterpriseGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the list of BroadWorks Receptionist - Enterprise parameters.
+        The response is either SystemBroadWorksReceptionistEnterpriseGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksReceptionistEnterpriseGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemBroadWorksReceptionistEnterpriseGetRequest.
+        Contains a list of BroadWorks Receptionist - Enterprise parameters.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="maxMonitoredUsers" type="MaximumMonitoredUsers"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksReceptionistEnterpriseModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify BroadWorks Receptionist - Enterprise settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="maxMonitoredUsers" type="MaximumMonitoredUsers" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksReceptionistEnterpriseAddUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add users to the BroadWorks Receptionist - Enterprise monitored user list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="monitoredUserId" type="UserId" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksReceptionistEnterpriseDeleteUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Remove selected users from the BroadWorks Receptionist - Enterprise monitored user list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="monitoredUserId" type="UserId" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of available users for BroadWorks Receptionist - Enterprise monitoring.
+        The response is either UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+          <xs:element name="searchCriteriaExactUserGroup" type="SearchCriteriaExactUserGroup" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest.
+        Returns a 10 column table with column headings:
+          "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name", 
+          "Group Id", "Phone Number", "Extension", "Mobile", "Email Address".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksReceptionistEnterpriseGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the monitored users list for the BroadWorks Receptionist - Enterprise service.
+        The response is either a UserBroadWorksReceptionistEnterpriseGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksReceptionistEnterpriseGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserBroadWorksReceptionistEnterpriseGetRequest.
+        Returns a 10 column table with column headings:
+          "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name", 
+          "Group Id", "Phone Number", "Extension", "Mobile", "Email Address".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="monitoredUserTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksReceptionistEnterpriseModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Replace the BroadWorks Receptionist - Enterprise monitored user list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="monitoredUserIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

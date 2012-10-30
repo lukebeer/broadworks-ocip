@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- Z O N E   C A L L I N G   R E S T R I C T I O N S  S E R V I C E       -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- Z O N E   C A L L I N G   R E S T R I C T I O N S                                  -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    ServiceProviderZoneCallingRestrictionsGetRequest    
+    ServiceProviderZoneCallingRestrictionsModifyRequest    
+    UserZoneCallingRestrictionsGetRequest    
+    UserZoneCallingRestrictionsModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="ServiceProviderZoneCallingRestrictionsGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Gets the Service Provider/Enterprise level Zone Calling Restrictions Policies.
+        The response is ServiceProviderZoneCallingRestrictionsGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderZoneCallingRestrictionsGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+         Response to ServiceProviderZoneCallingRestrictionsGetRequest
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableZoneCallingRestrictions" type="xs:boolean"/>
+          <xs:element name="enableOriginationRoamingRestrictions" type="xs:boolean"/>
+          <xs:element name="enableEmergencyOriginationRoamingRestrictions" type="xs:boolean"/>
+          <xs:element name="enableTerminationRoamingRestrictions" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderZoneCallingRestrictionsModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies the Service Provider/Enterprise level Zone Calling Restrictions Policies.
+        The response is SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="enableZoneCallingRestrictions" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableOriginationRoamingRestrictions" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableEmergencyOriginationRoamingRestrictions" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableTerminationRoamingRestrictions" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserZoneCallingRestrictionsGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+	      Gets the home zone for a user
+        The response is either a UserZoneCallingRestrictionsGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserZoneCallingRestrictionsGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+	Gets the home zone for a user
+        Response to a UserZoneCallingRestrictionsGetRequest
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="homeZoneName" type="ZoneName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserZoneCallingRestrictionsModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the home zone for a user
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="homeZoneName" type="ZoneName" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

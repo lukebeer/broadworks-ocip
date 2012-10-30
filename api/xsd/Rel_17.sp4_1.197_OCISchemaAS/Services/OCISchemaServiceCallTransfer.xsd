@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C A L L   T R A N S F E R  S E R V I C E                               -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C A L L   T R A N S F E R    R E Q U E S T S  A N D  R E S P O N S E S             -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserCallTransferGetRequest14sp4    
+    UserCallTransferModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserCallTransferGetRequest14sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Call Transfer.
+        The response is either a UserCallTransferGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallTransferGetResponse14sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserCallTransferGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isRecallActive" type="xs:boolean"/>
+          <xs:element name="recallNumberOfRings" type="CallTransferRecallNumberOfRings"/>
+          <xs:element name="useDiversionInhibitorForBlindTransfer" type="xs:boolean"/>
+          <xs:element name="useDiversionInhibitorForConsultativeCalls" type="xs:boolean"/>
+          <xs:element name="enableBusyCampOn" type="xs:boolean"/>
+          <xs:element name="busyCampOnSeconds" type="CallTransferBusyCampOnSeconds"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallTransferModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Call Transfer.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isRecallActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="recallNumberOfRings" type="CallTransferRecallNumberOfRings" minOccurs="0"/>
+          <xs:element name="useDiversionInhibitorForBlindTransfer" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="useDiversionInhibitorForConsultativeCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableBusyCampOn" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="busyCampOnSeconds" type="CallTransferBusyCampOnSeconds" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CallTransferRecallNumberOfRings">
+    <xs:annotation>
+      <xs:documentation>
+        Number of Rings until a transferred call is recalled.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="2"/>
+      <xs:maxInclusive value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CallTransferBusyCampOnSeconds">
+    <xs:annotation>
+      <xs:documentation>
+        The allotted time for a call to camp on on busy transefer call.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="30"/>
+      <xs:maxInclusive value="600"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

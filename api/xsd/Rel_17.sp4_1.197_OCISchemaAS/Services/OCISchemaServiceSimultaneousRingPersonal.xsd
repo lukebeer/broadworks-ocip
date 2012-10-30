@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S I M U L T A N E O U S   R I N G   P E R S O N A L  S E R V I C E     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S I M U L T A N E O U S   R I N G   P E R S O N A L                                -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserSimultaneousRingPersonalAddCriteriaRequest    
+    UserSimultaneousRingPersonalDeleteCriteriaRequest    
+    UserSimultaneousRingPersonalGetCriteriaRequest    
+    UserSimultaneousRingPersonalGetRequest17    
+    UserSimultaneousRingPersonalModifyCriteriaRequest    
+    UserSimultaneousRingPersonalModifyRequest17    
+    
+  --> 
+  
+  <xs:complexType name="UserSimultaneousRingPersonalAddCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a criteria to the user's simultaneous ring personal service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSimultaneousRingPersonalDeleteCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a criteria from the user's simultaneous ring personal service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSimultaneousRingPersonalGetCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a criteria for the user's simultaneous ring personal service.
+        The response is either a UserSimultaneousRingPersonalGetCriteriaResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSimultaneousRingPersonalGetCriteriaResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSimultaneousRingPersonalGetCriteriaRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSimultaneousRingPersonalGetRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's simultaneous ring personal service setting.
+        The response is either a UserSimultaneousRingPersonalGetResponse17 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSimultaneousRingPersonalGetResponse17">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSimultaneousRingPersonalGetRequest17.
+        Contains a criteria table with column heading: "Is Active", "Criteria Name", "Time Schedule", "Holiday Schedule", "Calls From" and "Blacklisted".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="doNotRingIfOnCall" type="xs:boolean"/>
+          <xs:element name="simultaneousRingNumber" type="SimultaneousRingNumber" minOccurs="0" maxOccurs="10"/>
+          <xs:element name="criteriaTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSimultaneousRingPersonalModifyCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a criteria for the user's simultaneous ring personal service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="newCriteriaName" type="CriteriaName" minOccurs="0"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDnModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSimultaneousRingPersonalModifyRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's simultaneous ring personal service setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="doNotRingIfOnCall" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="simultaneousRingNumberList" type="SimultaneousRingReplacementNumberList" nillable="true" minOccurs="0"/>
+          <xs:element name="criteriaActivation" type="CriteriaActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

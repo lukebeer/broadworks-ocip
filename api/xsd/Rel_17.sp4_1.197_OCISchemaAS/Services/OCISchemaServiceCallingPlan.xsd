@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C A L L I N G   P L A N  S E R V I C E                                 -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C A L L I N G   P L A N    R E Q U E S T S  A N D  R E S P O N S E S               -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupCallingPlanAddDigitPatternRequest    
+    GroupCallingPlanDeleteDigitPatternListRequest    
+    GroupCallingPlanGetDigitPatternListRequest    
+    GroupCallingPlanModifyDigitPatternRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupCallingPlanAddDigitPatternRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a new calling plan digit string.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="CallingPlanDigitPatternName"/>
+          <xs:element name="digitPattern" type="CallingPlanDigitPattern"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallingPlanDeleteDigitPatternListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete one or more calling plan digit strings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="CallingPlanDigitPatternName" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallingPlanGetDigitPatternListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the list of calling plan digit strings for a group.
+        The response is either a GroupCallingPlanGetDigitPatternListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallingPlanGetDigitPatternListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupCallingPlanGetDigitPatternListRequest.
+        Contains a table with column headings: "Name", "Digit Pattern".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="digitPatternTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallingPlanModifyDigitPatternRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a calling plan digit string. The name is a key; it cannot be changed.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="CallingPlanDigitPatternName"/>
+          <xs:element name="digitPattern" type="CallingPlanDigitPattern" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CallingPlanDigitPattern">
+    <xs:annotation>
+      <xs:documentation>
+        Digit patterns that are used to restrict calls in the Incoming Calling Plan and Outgoing Calling Plan.
+        The digit pattern may contain digits 0-9,+,?, and trailing * digit.
+        Starting in Rel.14.sp4 digit patterns can also contain '#', and '*' digits anywhere in the string. To distinguish between a '*' as a digit from '*' as a wildcard character, a back-slash character shall be used as an escape in front of '*' being a digit. Note that '*' as a wildcard is still only allowed at the end of string.
+        Starting in Rel.17.sp3, the range syntax [n1-n2] is also supported, where n1 and n2 denotes a digit in the range 0 to 9. Also the maximum length is increased to 160.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="160"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

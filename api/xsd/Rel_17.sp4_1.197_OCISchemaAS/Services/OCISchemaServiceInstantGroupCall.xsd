@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- I N S T A N T   G R O U P   C A L L  S E R V I C E                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- I N S T A N T   G R O U P   C A L L    R E Q U E S T S  A N D  R E S P O N S E S   -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupInstantGroupCallAddInstanceRequest14    
+    GroupInstantGroupCallDeleteInstanceRequest    
+    GroupInstantGroupCallGetInstanceListRequest    
+    GroupInstantGroupCallGetInstanceRequest17    
+    GroupInstantGroupCallModifyActiveInstanceListRequest    
+    GroupInstantGroupCallModifyInstanceRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupInstantGroupCallAddInstanceRequest14">
+    <xs:annotation>
+      <xs:documentation>
+        Request to add an Instant Group Call service instance to a group.
+        The domain is required in the serviceUserId.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceAddProfile"/>
+          <xs:element name="destinationPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="isAnswerTimeoutEnabled" type="xs:boolean"/>
+          <xs:element name="answerTimeoutMinutes" type="InstantGroupCallAnswerTimeoutMinutes" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInstantGroupCallDeleteInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to delete an Instant Group Call service instance from a group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInstantGroupCallGetInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get a list of Instant Group Call service instances within a group.
+        The response is either GroupInstantGroupCallGetInstanceListResponse or ErrorResponse.
+        It is possible to get the service instances within a specified department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupDepartmentName" type="DepartmentName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInstantGroupCallGetInstanceListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupInstantGroupCallGetInstanceListRequest.
+        Contains a 6 column table with column headings:
+        "Service User Id", "Name", "Phone Number", "Extension", "Department", "Is Active".
+        The column values for Is Active can either be true, or false.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="instantGroupCallTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInstantGroupCallGetInstanceRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get all the information of an Instant Group Call service instance.
+        The response is either GroupInstantGroupCallGetInstanceResponse17 or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInstantGroupCallGetInstanceResponse17">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupInstantGroupCallGetInstanceRequest17.
+        Contains the service profile information and a list of phone numbers.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceReadProfile17"/>
+          <xs:element name="destinationPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="isAnswerTimeoutEnabled" type="xs:boolean"/>
+          <xs:element name="answerTimeoutMinutes" type="InstantGroupCallAnswerTimeoutMinutes" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInstantGroupCallModifyActiveInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to set the active status of Instant Group Call service instances.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceActivation" type="ServiceActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInstantGroupCallModifyInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify an Instant Group Call service instance.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceModifyProfile" minOccurs="0"/>
+          <xs:element name="destinationPhoneNumberList" type="ReplacementOutgoingDNorSIPURIList" nillable="true" minOccurs="0"/>
+          <xs:element name="isAnswerTimeoutEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="answerTimeoutMinutes" type="InstantGroupCallAnswerTimeoutMinutes" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="InstantGroupCallAnswerTimeoutMinutes">
+    <xs:annotation>
+      <xs:documentation>
+        The maximum duration for unanswered call.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="60"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

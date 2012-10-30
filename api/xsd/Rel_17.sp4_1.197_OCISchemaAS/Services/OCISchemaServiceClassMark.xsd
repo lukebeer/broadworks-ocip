@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C L A S S   M A R K  S E R V I C E                                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C L A S S   M A R K    R E Q U E S T S  A N D  R E S P O N S E S                   -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemClassmarkAddRequest    
+    SystemClassmarkDeleteRequest    
+    SystemClassmarkGetListRequest    
+    SystemClassmarkModifyRequest    
+    SystemClassmarkGetUtilizationListRequest    
+    UserClassmarkGetRequest    
+    UserClassmarkModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemClassmarkAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a Class Mark to system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="classmark" type="Classmark"/>
+          <xs:element name="value" type="ClassmarkValue"/>
+          <xs:element name="webDisplayKey" type="WebDisplayKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemClassmarkDeleteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Class Mark from system. It cannot be deleted if it is in use by any users.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="classmark" type="Classmark"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemClassmarkGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the list of all Class Mark in system.
+        The response is either a SystemClassmarkGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemClassmarkGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemClassmarkGetListRequest. 
+        Contains a table of with the column headings: "Class Mark", "Value" and "Web Display Key". 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="classmarkTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemClassmarkModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a Class Mark in system.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="classmark" type="Classmark"/>
+          <xs:element name="value" type="ClassmarkValue" minOccurs="0"/>
+          <xs:element name="webDisplayKey" type="WebDisplayKey" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemClassmarkGetUtilizationListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the list of all users associated with a Class Mark in system. It is possible to search by various criteria.
+        Multiple search criteria are logically ANDed together.
+        The response is either a SystemClassmarkGetUtilizationListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="classmark" type="Classmark"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaGroupId" type="SearchCriteriaGroupId" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactServiceProviderId" type="SearchCriteriaExactServiceProvider" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaDn" type="SearchCriteriaDn" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemClassmarkGetUtilizationListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemClassmarkGetUtilizationListRequest. 
+        Contains a table with the column headings: "User Id", "Group Id", "Service Provider Id",
+        "Last Name", "First Name", and "Phone Number". 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="classmarkUserTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserClassmarkGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Class Mark data associated with User.
+        The response is either a UserClassmarkGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserClassmarkGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserClassmarkGetRequest.
+        Contains the Class Mark data
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="classmark" type="Classmark" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserClassmarkModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Class Mark.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="classmark" type="Classmark" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="Classmark">
+    <xs:annotation>
+      <xs:documentation>
+        Name for the Class Mark.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ClassmarkValue">
+    <xs:annotation>
+      <xs:documentation>
+        Value for the Class Mark used in signaling.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

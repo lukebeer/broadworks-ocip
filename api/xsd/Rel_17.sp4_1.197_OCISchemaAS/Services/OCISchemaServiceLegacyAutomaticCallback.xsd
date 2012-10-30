@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- L E G A C Y   A U T O M A T I C   C A L L B A C K  S E R V I C E       -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- L E G A C Y   A U T O M A T I C   C A L L B A C K                                  -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemLegacyAutomaticCallbackGetLineTypeListRequest    
+    SystemLegacyAutomaticCallbackGetRequest    
+    SystemLegacyAutomaticCallbackModifyLineTypeRequest    
+    SystemLegacyAutomaticCallbackModifyRequest    
+    UserLegacyAutomaticCallbackGetRequest    
+    UserLegacyAutomaticCallbackModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemLegacyAutomaticCallbackGetLineTypeListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system's legacy automatic callback line type settings.
+        The response is either a SystemLegacyAutomaticCallbackGetTypeLineListResponse or 
+        an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLegacyAutomaticCallbackGetLineTypeListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemLegacyAutomaticCallbackGetLineTypeListRequest. Returns a 3 column
+        table with column headings: "Line Type", "Match" and "No Match". The possible values
+        for the "Match" and "No Match" columns are "Accept" and "Deny".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="lineTypeTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLegacyAutomaticCallbackGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system's legacy automatic callback attributes.
+        The response is either a SystemLegacyAutomaticCallbackGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLegacyAutomaticCallbackGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemLegacyAutomaticCallbackGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="maxMonitorsPerOriginator" type="LegacyAutomaticCallbackMaxMonitorsPerOriginator"/>
+          <xs:element name="maxMonitorsPerTerminator" type="LegacyAutomaticCallbackMaxMonitorsPerTerminator"/>
+          <xs:element name="t2Minutes" type="LegacyAutomaticCallbackT2Minutes"/>
+          <xs:element name="t4Seconds" type="LegacyAutomaticCallbackT4Seconds"/>
+          <xs:element name="t5Seconds" type="LegacyAutomaticCallbackT5Seconds"/>
+          <xs:element name="t6Minutes" type="LegacyAutomaticCallbackT6Minutes"/>
+          <xs:element name="t7Minutes" type="LegacyAutomaticCallbackT7Minutes"/>
+          <xs:element name="t8Seconds" type="LegacyAutomaticCallbackT8Seconds"/>
+          <xs:element name="tRingSeconds" type="LegacyAutomaticCallbackTRingSeconds"/>
+          <xs:element name="t10OMinutes" type="LegacyAutomaticCallbackT10OMinutes"/>
+          <xs:element name="t10TMinutes" type="LegacyAutomaticCallbackT10TMinutes"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLegacyAutomaticCallbackModifyLineTypeRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies the system's legacy automatic callback line type attributes.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="lineType" type="LegacyAutomaticCallbackLineType"/>
+          <xs:element name="matchAction" type="LegacyAutomaticCallbackLineMatchAction" minOccurs="0"/>
+          <xs:element name="noMatchAction" type="LegacyAutomaticCallbackLineMatchAction" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLegacyAutomaticCallbackModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies the system's legacy automatic callback attributes.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="maxMonitorsPerOriginator" type="LegacyAutomaticCallbackMaxMonitorsPerOriginator" minOccurs="0"/>
+          <xs:element name="maxMonitorsPerTerminator" type="LegacyAutomaticCallbackMaxMonitorsPerTerminator" minOccurs="0"/>
+          <xs:element name="t2Minutes" type="LegacyAutomaticCallbackT2Minutes" minOccurs="0"/>
+          <xs:element name="t4Seconds" type="LegacyAutomaticCallbackT4Seconds" minOccurs="0"/>
+          <xs:element name="t5Seconds" type="LegacyAutomaticCallbackT5Seconds" minOccurs="0"/>
+          <xs:element name="t6Minutes" type="LegacyAutomaticCallbackT6Minutes" minOccurs="0"/>
+          <xs:element name="t7Minutes" type="LegacyAutomaticCallbackT7Minutes" minOccurs="0"/>
+          <xs:element name="t8Seconds" type="LegacyAutomaticCallbackT8Seconds" minOccurs="0"/>
+          <xs:element name="tRingSeconds" type="LegacyAutomaticCallbackTRingSeconds" minOccurs="0"/>
+          <xs:element name="t10OMinutes" type="LegacyAutomaticCallbackT10OMinutes" minOccurs="0"/>
+          <xs:element name="t10TMinutes" type="LegacyAutomaticCallbackT10TMinutes" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserLegacyAutomaticCallbackGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Legacy Automatic Callback.
+        The response is either a UserLegacyAutomaticCallbackGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserLegacyAutomaticCallbackGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserLegacyAutomaticCallbackGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserLegacyAutomaticCallbackModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Legacy Automatic Callback.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackLineType">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback line type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Individual"/>
+      <xs:enumeration value="Coin"/>
+      <xs:enumeration value="Series"/>
+      <xs:enumeration value="Hunt"/>
+      <xs:enumeration value="Unassigned"/>
+      <xs:enumeration value="PBX"/>
+      <xs:enumeration value="Multiparty"/>
+      <xs:enumeration value="Choke"/>
+      <xs:enumeration value="Oos"/>
+      <xs:enumeration value="Nonspecific"/>
+      <xs:enumeration value="Telecampus"/>
+      <xs:enumeration value="ISDN"/>
+      <xs:enumeration value="Telekibutz"/>
+      <xs:enumeration value="Spare"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackLineMatchAction">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback line type match action.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Accept"/>
+      <xs:enumeration value="Deny"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackMaxMonitorsPerOriginator">
+    <xs:annotation>
+      <xs:documentation>
+        Maximum monitors per originator.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackMaxMonitorsPerTerminator">
+    <xs:annotation>
+      <xs:documentation>
+        Maximum monitors per terminator.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT10OMinutes">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T10_O timer in minutes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="120"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT10TMinutes">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T10_T timer in minutes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="120"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT2Minutes">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T2 timer in minutes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT4Seconds">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T4 timer in seconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="15"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT5Seconds">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T5 timer in seconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="2"/>
+      <xs:maxInclusive value="10"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT6Minutes">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T6 timer in minutes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="60"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT7Minutes">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T7 timer in minutes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="5"/>
+      <xs:maxInclusive value="180"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackT8Seconds">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback T8 timer in seconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="120"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LegacyAutomaticCallbackTRingSeconds">
+    <xs:annotation>
+      <xs:documentation>
+        Legacy Automatic Callback TRing timer in seconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="120"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- M A L I C I O U S   C A L L   T R A C E  S E R V I C E                 -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- M A L I C I O U S   C A L L   T R A C E                                            -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    ServiceProviderMaliciousCallTraceGetRequest    
+    ServiceProviderMaliciousCallTraceModifyRequest    
+    SystemMaliciousCallTraceGetRequest    
+    SystemMaliciousCallTraceModifyRequest    
+    UserMaliciousCallTraceGetRequest    
+    UserMaliciousCallTraceModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="ServiceProviderMaliciousCallTraceGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the service provider's Malicious Call Trace settings.
+        The response is either a ServiceProviderMaliciousCallTraceGetResponse 
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderMaliciousCallTraceGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the ServiceProviderMaliciousCallTraceGetRequest.
+        The response contains the service provider Malicious Call Trace 
+        settings. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useSystemPlayMCTWarningAnnouncement" type="xs:boolean"/>
+          <xs:element name="playMCTWarningAnnouncement" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderMaliciousCallTraceModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the service provider's Malicious Call Trace settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="useSystemPlayMCTWarningAnnouncement" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="playMCTWarningAnnouncement" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemMaliciousCallTraceGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get Malicious Call Trace system parameters and the list of users that use the 
+        Malicious Call Trace feature.
+        The response is either a SystemMaliciousCallTraceGetResponse or 
+        an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemMaliciousCallTraceGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the SystemMaliciousCallTraceGetRequest.
+        The response contains the Malicious Call Trace system parameters and the list of users
+        that use the Malicious Call Trace feature.
+
+        The column headings are "Service Provider Id",
+        "Group Id", "User Id", "Last Name", "First Name", "Phone Number", "Trace Type", "Status",
+        "Hiragana Last Name" and "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="playMCTWarningAnnouncement" type="xs:boolean"/>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemMaliciousCallTraceModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a Malicious Call Trace system parameter.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="playMCTWarningAnnouncement" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMaliciousCallTraceGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Malicious Call Trace.
+        The response is either a UserMaliciousCallTraceGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMaliciousCallTraceGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserMaliciousCallTraceGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="traceTypeSelection" type="MaliciousCallTraceCallTypeSelection"/>
+          <xs:element name="traceForTimePeriod" type="xs:boolean"/>
+          <xs:element name="traceTimePeriod" type="MaliciousCallTraceTimePeriod" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserMaliciousCallTraceModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Malicious Call Trace.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="traceTypeSelection" type="MaliciousCallTraceCallTypeSelection" minOccurs="0"/>
+          <xs:element name="traceForTimePeriod" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="traceTimePeriod" type="MaliciousCallTraceTimePeriod" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="MaliciousCallTraceCallTypeSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Call Types that are traced for malicious calls
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="All Incoming"/>
+      <xs:enumeration value="Answered Incoming"/>
+      <xs:enumeration value="All Incoming And Outgoing"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="MaliciousCallTraceTimePeriod">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Malicious Call Trace.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="startDateTime" type="xs:dateTime"/>
+      <xs:element name="stopDateTime" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

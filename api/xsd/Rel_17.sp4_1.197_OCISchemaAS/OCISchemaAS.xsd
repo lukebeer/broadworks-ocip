@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!--                 O C I   X M L   S C H E M A                            -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+
+  <xs:import namespace      = "C"
+             schemaLocation = "OCISchemaBASE.xsd"/>
+
+  <xs:include schemaLocation="OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="OCISchemaSearchCriteria.xsd"/>
+
+  <xs:include schemaLocation="OCISchemaEnterprise.xsd"/>
+  <xs:include schemaLocation="OCISchemaGroup.xsd"/>
+  <xs:include schemaLocation="OCISchemaLogin.xsd"/>
+  <xs:include schemaLocation="OCISchemaServiceProvider.xsd"/>
+  <xs:include schemaLocation="OCISchemaSystem.xsd"/>
+  <xs:include schemaLocation="OCISchemaUser.xsd"/>
+
+
+  <xs:include schemaLocation="Services/OCISchemaServiceAccountAuthorizationCodes.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAdviceOfCharge.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAlternateNumbers.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAnonymousCallRejection.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAttendantConsole.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAuthentication.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAutoAttendant.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAutomaticCallback.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceAutomaticHoldRetrieve.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceBargeInExempt.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceBasicCallLogs.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceBroadWorksAnywhere.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceBroadWorksMobility.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceBusyLampField.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallCapacityManagement.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallCenter.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallCenterMonitoring.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallForwardingAlways.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallForwardingBusy.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallForwardingNoAnswer.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallForwardingNotReachable.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallingLineIDBlockingOverride.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallingLineIDDeliveryBlocking.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallingNameDelivery.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallingNameRetrieval.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallingNumberDelivery.xsd"/>  
+  <xs:include schemaLocation="Services/OCISchemaServiceCallingPartyCategory.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallingPlan.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallForwardingSelective.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallMeNow.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallNotify.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallPark.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallPickup.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallReturn.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallRecording.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallTransfer.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCallWaiting.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceChargeNumber.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceClassMark.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCommPilotCallManager.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCommPilotExpress.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCommPilotExpressSR.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCommunicationBarringUserControl.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCommunicator.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceConnectedLineIdentificationRestriction.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceConnectedLineIdentificationPresentation.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceCustomRingback.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceDirectedCallPickupWithBargeIn.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceDirectoryNumberHunting.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceDoNotDisturb.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceDualModeVCC.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceEmergencyZones.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceEnhancedCallLogs.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceExternalCallingLineIDDelivery.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceExternalCustomRingback.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceFaxMessaging.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceGroupPaging.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceHotelingGuest.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceHotelingHost.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceHuntGroup.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceInCallServiceActivation.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceINIntegration.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceIncomingCallingPlan.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceInstantConferencing.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceInstantGroupCall.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceIntelligentNetworkServiceControl.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceInternalCallingLineIDDelivery.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceInventoryReport.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceIntercept.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceLegacyAutomaticCallback.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceLDAPIntegration.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceLocationBasedCallingRestrictions.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceMaliciousCallTrace.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceMeetMeConferencing.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceMusicOnHold.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceMWIDeliveryToMobileEndpoint.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceOutlookIntegration.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceOutgoingCallingPlan.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceOutlookIntegration.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServicePhysicalLocation.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServicePreAlertingAnnouncement.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServicePreferredCarrier.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServicePolycomPhoneServices.xsd"/>  
+  <xs:include schemaLocation="Services/OCISchemaServicePriorityAlert.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServicePrepaid.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServicePrivacy.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServicePushToTalk.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceReceptionistEnterprise.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceReceptionistOffice.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceReceptionistSmallBusiness.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceRemoteOffice.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceRoutePoint.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSelectiveCallAcceptance.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSelectiveCallRejection.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSequentialRing.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSeriesCompletion.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceServiceScripts.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSharedCallAppearance.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSimultaneousRingFamily.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSimultaneousRingPersonal.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSMDIMessageDesk.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSpeedDial8.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceSpeedDial100.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceThirdPartyVoiceMailSupport.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceTrunkGroup.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceTwoStageDialing.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceVideoAddOn.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceVirtualOnNetEnterpriseExtensions.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceVoiceMessaging.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceVoicePortalCalling.xsd"/>
+  <xs:include schemaLocation="Services/OCISchemaServiceZoneCallingRestrictions.xsd"/>  
+  <xs:include schemaLocation="Services/OCISchemaServiceCustomerOriginatedTrace.xsd"/>
+
+  <xs:include schemaLocation="OCISchemaDeprecated14.xsd"/>
+  <xs:include schemaLocation="OCISchemaDeprecated15.xsd"/>
+  <xs:include schemaLocation="OCISchemaDeprecated16.xsd"/>
+  <xs:include schemaLocation="OCISchemaDeprecated17.xsd"/>
+
+
+  <!-- *********************************************************************** -->
+  <!-- N A M I N G   C O N V E N T I O N S                                     -->
+  <!-- *********************************************************************** -->
+  <!--
+  Transactions:
+    Object[Aspect-or-Feature]Verb[Aspect2](Request | Response)
+    Possible verbs are Add, Assign, Delete, Get, Modify, Unassign, etc.
+
+  Transactions involving an array:
+    Object[Aspect-or-Feature]Verb[Aspect2]List(Request | Response)
+
+  Transaction involving a table:
+    Object[Aspect-or-Feature]Get[Aspect2]ListResponse
+    Note: tables are only sent in responses, not requests.
+
+  Array element name:
+    The element name is not plural.
+    For example: tagName
+
+  Table element name:
+    The element name is suffixed with "Table".
+    For example: tagNameTable
+
+  Table column headings:
+    "Capitalized Multiple Words"
+    "Id", not "ID"
+
+  Table boolean column values:
+    "true" or "false"
+
+  -->
+  <!-- *********************************************************************** -->
+  <!-- C O N T E N T   R U L E S                                               -->
+  <!-- *********************************************************************** -->
+  <!--
+  Minimal GET Responses:
+    The elements in a GET request are not sent back in a GET response because the client
+    already knows the values.
+
+  Keys and Display Values:
+    Both keys and display values are returned in a GET command. Display values are
+    ignored in an ADD or MODIFY command.
+
+  Eraseable Elements, Empty Tags, and Missing Tags:
+    Every data element of a MODIFY command is optional, even if there is only one element.
+
+    A MODIFY command with a missing optional element implies the value of the element
+    should not be changed.
+
+    Arrays of replacement objects in a MODIFY command are wrapped in an optional list element
+    so the entire array can be ommitted when no change is required.
+
+    Eraseable elements are indicated by the nillable="true" attribute in a MODIFY command.
+
+    The nillable attribute never appears in any command except MODIFY commands.
+
+    Elements that are optional in an ADD command are both optional and nillable in
+    a MODIFY command and optional in a GET command.
+
+    Booleans cannot be erased
+
+    Ints are erased by setting the element xsi:nill attribute.
+
+    Strings can be erased either with the xsi:nill attribute or by sending a zero-length string.
+
+    Arrays of replacement objects in a MODIFY command can be erased by setting the xsi:nill attribute
+    on the wrapping list element. The embedded array has minOccurs=1.
+
+  Services:
+    Services are referred to as "Service", not "Feature". This is consistent with the
+    web and CLI interfaces and other parts of the schema.
+
+    Each service has its own schema file, for example, OCISchemaServiceAutoAttendant.xsd.
+
+    Services with both a group component and a user component have a single schema file.
+    For example: OCISchemaServiceVoiceMessaging.xsd.
+
+    All the commands for a service are in the same schema file. The commands can be at
+    all levels: system, service provider, group, or user.
+
+    The list of services we expose to clients is enumerated in the schema itself. These
+    are the services that can be authorized. It does not include the default features.
+    When deciding whether or not a command is a service command, we will use the rule that
+    the service must be exposed in the list of services in the schema.
+    For example, Feature Access Codes is not exposed as a service and the commands related
+    to Feature Access Codes will not be placed in a separate schema file.
+
+  -->
+
+</xs:schema>

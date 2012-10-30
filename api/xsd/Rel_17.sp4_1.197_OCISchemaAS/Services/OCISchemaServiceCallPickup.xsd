@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C A L L   P I C K U P  S E R V I C E                                   -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C A L L   P I C K U P    R E Q U E S T S  A N D  R E S P O N S E S                 -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupCallPickupAddInstanceRequest    
+    GroupCallPickupDeleteInstanceRequest    
+    GroupCallPickupGetAvailableUserListRequest    
+    GroupCallPickupGetInstanceListRequest    
+    GroupCallPickupGetInstanceRequest    
+    GroupCallPickupModifyInstanceRequest    
+    UserCallPickupGetRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupCallPickupAddInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Adds a Call Pickup group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+          <xs:element name="userId" type="UserId" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupDeleteInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Deletes a Call Pickup group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupGetAvailableUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of users that can be assigned to a Call Pickup group.
+        The available user list for a new Call Pickup group can be obtained
+        by not setting the name.
+        The response is either GroupCallPickupGetAvailableUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName" minOccurs="0"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupGetAvailableUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupCallPickupGetAvailableUserListRequest.
+        Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupGetInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get a list of Call Pickup instances within a group.
+        The response is either GroupCallPickupGetInstanceListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupGetInstanceListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupCallPickupGetInstanceListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="name" type="ServiceInstanceName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupGetInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Gets a Call Pickup group.
+        The response is either GroupCallPickupGetInstanceResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupGetInstanceResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupCallPickupGetInstanceRequest.
+        Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallPickupModifyInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies a Call Pickup group. Replaces the entire list of users in the group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+          <xs:element name="newName" type="ServiceInstanceName" minOccurs="0"/>
+          <xs:element name="userIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallPickupGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Gets the details of the Call Pickup group that a user belongs to (if any).
+        Any user can only belong to one Call Pickup group.
+        The response is either UserCallPickupGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallPickupGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserCallPickupGetRequest.
+        Identifies which Call Pickup group the user belongs to and the list of users in the group.
+        Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name", "Department".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="name" type="ServiceInstanceName" minOccurs="0"/>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

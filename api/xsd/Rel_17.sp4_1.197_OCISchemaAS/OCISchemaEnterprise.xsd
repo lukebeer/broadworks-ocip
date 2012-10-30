@@ -1,0 +1,1451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  E N T E R P R I S E  P A R T           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- E N T E R P R I S E  P A R T    R E Q U E S T S  A N D  R E S P O N S E S          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    EnterpriseBroadWorksMobileManagerAddRequest    
+    EnterpriseBroadWorksMobileManagerGetRequest    
+    EnterpriseBroadWorksMobileManagerGetDomainListRequest    
+    EnterpriseBroadWorksMobileManagerDeleteRequest    
+    EnterpriseBroadWorksMobileManagerModifyRequest    
+    EnterpriseBroadWorksMobileManagerActivationRequest    
+    EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest    
+    EnterpriseBroadWorksMobileManagerAddHomeZoneRequest    
+    EnterpriseBroadWorksMobileManagerGetHomeZoneListRequest    
+    EnterpriseBroadWorksMobileManagerGetHomeZoneRequest    
+    EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest    
+    EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest    
+    EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest    
+    EnterpriseCommonPhoneListAddListRequest    
+    EnterpriseCommonPhoneListDeleteListRequest    
+    EnterpriseCommonPhoneListGetListRequest    
+    EnterpriseCommonPhoneListModifyRequest    
+    EnterpriseDepartmentAddRequest    
+    EnterpriseDepartmentDeleteRequest    
+    EnterpriseDepartmentGetAvailableParentListRequest    
+    EnterpriseDepartmentGetListRequest    
+    EnterpriseDepartmentModifyRequest    
+    EnterprisePhoneDirectoryGetListRequest17    
+    EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest    
+    EnterpriseSessionAdmissionControlGroupAddDeviceListRequest    
+    EnterpriseSessionAdmissionControlGroupAddRequest    
+    EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest    
+    EnterpriseSessionAdmissionControlGroupDeleteListRequest    
+    EnterpriseSessionAdmissionControlGroupGetListRequest    
+    EnterpriseSessionAdmissionControlGroupGetRequest    
+    EnterpriseSessionAdmissionControlGroupModifyRequest    
+    EnterpriseVoiceVPNAddPolicyRequest    
+    EnterpriseVoiceVPNDeletePolicyRequest    
+    EnterpriseVoiceVPNGetDefaultRequest    
+    EnterpriseVoiceVPNGetPolicyRequest    
+    EnterpriseVoiceVPNGetRequest14sp3    
+    EnterpriseVoiceVPNGetPolicyListRequest    
+    EnterpriseVoiceVPNModifyPolicyRequest    
+    EnterpriseVoiceVPNModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerAddRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Add the BroadWorks Mobile Manager.
+        Only one BroadWorks Mobile Manager can be added per
+        enterprise.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="informationFile" type="BroadWorksMobileManagerInformationFile"/>
+          <xs:element name="certificateFile" type="BroadWorksMobileManagerCertificateFile"/>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="localToCarrier" type="xs:boolean"/>
+          <xs:element name="maxTxPerSecondEnabled" type="xs:boolean"/>
+          <xs:element name="maxTxPerSecond" type="BroadWorksMobileManagerMaxTxPerSecond" minOccurs="0"/>
+          <xs:element name="tldnEnabled" type="xs:boolean"/>
+          <xs:element name="genericNumberEnabled" type="xs:boolean"/>
+          <xs:element name="mobileStateCheckEnabled" type="xs:boolean"/>
+          <xs:element name="locationBasedServicesEnabled" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the BroadWorks Mobile Manager.
+        The response is either EnterpriseBroadWorksMobileManagerGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to the EnterpriseBroadWorksMobileManagerGetRequest
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="mobileManagerId" type="BroadWorksMobileManagerDomainName"/>
+          <xs:element name="name" type="BroadWorksMobileManagerName"/>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="localToCarrier" type="xs:boolean"/>
+          <xs:element name="deactivationReason" type="BroadWorksMobileManagerDeactivationReason" minOccurs="0"/>
+          <xs:element name="maxTxPerSecondEnabled" type="xs:boolean"/>
+          <xs:element name="maxTxPerSecond" type="BroadWorksMobileManagerMaxTxPerSecond" minOccurs="0"/>
+          <xs:element name="tldnEnabled" type="xs:boolean"/>
+          <xs:element name="genericNumberEnabled" type="xs:boolean"/>
+          <xs:element name="mobileStateCheckEnabled" type="xs:boolean"/>
+          <xs:element name="locationBasedServicesEnabled" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetDomainListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the list of domains of the BroadWorks Mobile Manager.
+        The response is either EnterpriseBroadWorksMobileManagerGetDomainListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetDomainListResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to the EnterpriseBroadWorksMobileManagerGetDomainListRequest.
+        Contains the list of domains.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="domainName" type="BroadWorksMobileManagerDomainName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerDeleteRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Delete the BroadWorks Mobile Manager.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the BroadWorks Mobile Manager settings.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="informationFile" type="BroadWorksMobileManagerInformationFile" minOccurs="0"/>
+          <xs:element name="certificateFile" type="BroadWorksMobileManagerCertificateFile" minOccurs="0"/>
+          <xs:element name="localToCarrier" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="maxTxPerSecondEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="maxTxPerSecond" type="BroadWorksMobileManagerMaxTxPerSecond" minOccurs="0"/>
+          <xs:element name="tldnEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="genericNumberEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="mobileStateCheckEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="locationBasedServicesEnabled" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerActivationRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Activates or Deactivates the BroadWorks Mobile Manager.
+        The deactivationReason is required when isActive is set to false. 
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="deactivationReason" type="BroadWorksMobileManagerDeactivationReason" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Sends an email with the carrier information and certificate files.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="emailTo" type="EmailAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerAddHomeZoneRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Add a home zone to the BroadWorks Mobile Manager.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="homeZoneDomainName" type="BroadWorksMobileManagerDomainName"/>
+          <xs:element name="mobileCountryCode" type="BroadWorksMobileManagerHomeZoneMobileCountryCode"/>
+          <xs:element name="mobileNetworkCode" type="BroadWorksMobileManagerHomeZoneNetworkCountryCode"/>
+          <xs:element name="locationAreaCode" type="BroadWorksMobileManagerHomeZoneLocationAreaCode"/>
+          <xs:element name="cellIdentity" type="BroadWorksMobileManagerHomeZoneCellId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetHomeZoneListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the list of home zones of the BroadWorks Mobile Manager.
+        The response is either EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to the
+        EnterpriseBroadWorksMobileManagerGetHomeZoneListRequest.
+        Contains a table with column headings: 
+        "Home Zone Id", "Domain Name", "Mobile Country Code",
+        "Mobile Network Code", "Local Area Code" and "Cell Identity".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="homeZonesTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetHomeZoneRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get a home zone from the BroadWorks Mobile Manager.
+        The response is either EnterpriseBroadWorksMobileManagerGetHomeZoneResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="homeZoneId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerGetHomeZoneResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to the EnterpriseBroadWorksMobileManagerGetHomeZoneRequest
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="homeZoneDomainName" type="BroadWorksMobileManagerDomainName"/>
+          <xs:element name="mobileCountryCode" type="BroadWorksMobileManagerHomeZoneMobileCountryCode"/>
+          <xs:element name="mobileNetworkCode" type="BroadWorksMobileManagerHomeZoneNetworkCountryCode"/>
+          <xs:element name="locationAreaCode" type="BroadWorksMobileManagerHomeZoneLocationAreaCode"/>
+          <xs:element name="cellIdentity" type="BroadWorksMobileManagerHomeZoneCellId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Delete a home zone from the BroadWorks Mobile Manager.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="homeZoneId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Delete a list of home zones from the BroadWorks Mobile Manager.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="homeZoneId" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify an existing home zone in the BroadWorks Mobile Manager.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="homeZoneId" type="xs:string"/>
+          <xs:element name="homeZoneDomainName" type="BroadWorksMobileManagerDomainName" minOccurs="0"/>
+          <xs:element name="mobileCountryCode" type="BroadWorksMobileManagerHomeZoneMobileCountryCode" minOccurs="0"/>
+          <xs:element name="mobileNetworkCode" type="BroadWorksMobileManagerHomeZoneNetworkCountryCode" minOccurs="0"/>
+          <xs:element name="locationAreaCode" type="BroadWorksMobileManagerHomeZoneLocationAreaCode" minOccurs="0"/>
+          <xs:element name="cellIdentity" type="BroadWorksMobileManagerHomeZoneCellId" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseCommonPhoneListAddListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add one or more entries to an enterprise's common phone list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="entry" type="PhoneListEntry" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseCommonPhoneListDeleteListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete one or more entries from an enterprise's common phone list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="entryName" type="PhoneListEntryName" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseCommonPhoneListGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get an enterprise's common phone list.
+        The response is either a EnterpriseCommonPhoneListGetListResponse or an ErrorResponse.
+        The search can be done using multiple criterion.
+        If the searchCriteriaModeOr is present, any result matching any one criteria is included in the results. 
+        Otherwise, only results matching all the search criterion are included in the results. 
+        If no search criteria is specified, all results are returned.
+        Specifying searchCriteriaModeOr without any search criteria results in an ErrorResponse.
+        In all cases, if a responseSizeLimit is specified and the number of matching results is more than this limit, then an
+        ErrorResponse is returned.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaModeOr" type="xs:boolean" fixed="true" minOccurs="0"/>
+          <xs:element name="searchCriteriaEnterpriseCommonPhoneListName" type="SearchCriteriaEnterpriseCommonPhoneListName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaEnterpriseCommonPhoneListNumber" type="SearchCriteriaEnterpriseCommonPhoneListNumber" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseCommonPhoneListGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the EnterpriseCommonPhoneListGetListRequest.
+        The response contains the enterprise's common phone list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="entry" type="PhoneListEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseCommonPhoneListModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify an entry in an enterprise's common phone list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="entryName" type="PhoneListEntryName"/>
+          <xs:element name="newEntryName" type="PhoneListEntryName" minOccurs="0"/>
+          <xs:element name="phoneNumber" type="OutgoingDN" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseDepartmentAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a department to enterprise.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enterpriseId" type="ServiceProviderId"/>
+          <xs:element name="departmentName" type="DepartmentName"/>
+          <xs:element name="parentDepartmentKey" type="EnterpriseDepartmentKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseDepartmentDeleteRequest">
+    <xs:annotation>
+      <xs:documentation>
+       Delete a department from an enterprise.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enterpriseId" type="ServiceProviderId"/>
+          <xs:element name="departmentName" type="DepartmentName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseDepartmentGetAvailableParentListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of enterprise level departments in an enterprise that could be the parent of the
+        specified department. The department itself and all its decendents are not eligible to be
+        the parent department.
+        The response is either EnterpriseDepartmentGetAvailableParentListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enterpriseId" type="ServiceProviderId"/>
+          <xs:element name="departmentName" type="DepartmentName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseDepartmentGetAvailableParentListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseDepartmentGetAvailableParentListRequest.
+        The response includes two parallel arrays of department keys and department display names.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="departmentKey" type="DepartmentKey" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="fullPathName" type="DepartmentFullPathName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseDepartmentGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request a list of departments in an enterprise. You may request only the
+        list of departments defined at the enterprise-level, or you may request
+        the list of all departments in the enterprise including all the departments
+        defined within the groups inside the enterprise.
+        The response is either EnterpriseDepartmentGetListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enterpriseId" type="ServiceProviderId"/>
+          <xs:element name="includeGroupDepartments" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseDepartmentGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseDepartmentGetListRequest.
+        The response includes two parallel arrays of department keys and department display names.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="departmentKey" type="DepartmentKey" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="fullPathName" type="DepartmentFullPathName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseDepartmentModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a department of an enterprise.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enterpriseId" type="ServiceProviderId"/>
+          <xs:element name="departmentName" type="DepartmentName"/>
+          <xs:element name="newDepartmentName" type="DepartmentName" minOccurs="0"/>
+          <xs:element name="newParentDepartmentKey" type="EnterpriseDepartmentKey" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterprisePhoneDirectoryGetListRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Request a table containing the phone directory for an enterprise.
+        The directory includes all users in the enterprise and all entries in the enterprise common phone list.
+        It is possible to search by various criteria to restrict the number of rows returned.
+        Multiple search criteria are logically ANDed together.
+        The response is either EnterprisePhoneDirectoryGetListResponse17 or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enterpriseId" type="ServiceProviderId"/>
+          <xs:element name="isExtendedInfoRequested" type="xs:boolean"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaDn" type="SearchCriteriaDn" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaGroupLocationCode" type="SearchCriteriaGroupLocationCode" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExtension" type="SearchCriteriaExtension" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaMobilePhoneNumber" type="SearchCriteriaMobilePhoneNumber" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaEmailAddress" type="SearchCriteriaEmailAddress" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaYahooId" type="SearchCriteriaYahooId" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserGroup" type="SearchCriteriaExactUserGroup" minOccurs="0"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterprisePhoneDirectoryGetListResponse17">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterprisePhoneDirectoryGetListRequest17.
+        Contains a table with  a row for each phone number and column headings :
+        "Name", "Number", "Extension", "Mobile", "Email Address", 
+        "Department", "Hiragana Name", "Group Id", "Yahoo Id", "Is Virtual On-Net User".
+        If extended directory information is requested, the following columns are also included:
+        "First Name", "Last Name", "User Id", "Pager", "Title", "Time Zone", 
+        "Location", "Address Line 1", "Address Line 2",
+        "City", "State", "Zip", "Country".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="directoryTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the list of devices can be assigned to session admission control group for the enterprise.
+        The response is either an EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaDeviceName" type="SearchCriteriaDeviceName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaDeviceMACAddress" type="SearchCriteriaDeviceMACAddress" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaDeviceNetAddress" type="SearchCriteriaDeviceNetAddress" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaGroupId" type="SearchCriteriaGroupId" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactDeviceType" type="SearchCriteriaExactDeviceType" minOccurs="0"/>
+          <xs:element name="searchCriteriaExactDeviceLevel" type="SearchCriteriaExactDeviceLevel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest.
+        Contains a table of devices can be assigned to session admission control group in the enterprise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="accessDevice" type="EnterpriseAccessDevice" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupAddDeviceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to add one or more devices to an enterprise level session admission control group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="name" type="SessionAdmissionControlGroupName"/>
+          <xs:element name="devices" type="EnterpriseAccessDevice" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to add a session admission control group for the enterprise.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="name" type="SessionAdmissionControlGroupName"/>
+          <xs:element name="maxSession" type="NonNegativeInt"/>
+          <xs:element name="maxUserOriginatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="maxUserTerminatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="reservedSession" type="NonNegativeInt"/>
+          <xs:element name="reservedUserOriginatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="reservedUserTerminatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="becomeDefaultGroup" type="xs:boolean"/>
+          <xs:element name="countIntraSACGroupSessions" type="xs:boolean"/>
+          <xs:element name="devices" type="EnterpriseAccessDevice" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to delete one or more devices from an enterprise level session admission control group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="name" type="SessionAdmissionControlGroupName"/>
+          <xs:element name="devices" type="EnterpriseAccessDevice" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupDeleteListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to delete one or more session admission control groups for the enterprise.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="name" type="SessionAdmissionControlGroupName" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the list of session admission control group for the enterprise.
+        The response is either an EnterpriseSessionAdmissionControlGroupGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseSessionAdmissionControlGroupGetListRequest.
+        Contains a table of session admission control group configured in the enterprise.
+        The column headings are: "Name", "Is Default", "Maximum Sessions", "Maximum Originating Sessions", "Maximum Terminating Sessions"..
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="sessionAdmissionControlGroupTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get a session admission control group for the enterprise.
+        The response is either an EnterpriseSessionAdmissionControlGroupGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="name" type="SessionAdmissionControlGroupName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseSessionAdmissionControlGroupGetRequest.
+        Returns the profile information for the session admission control group.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="maxSession" type="NonNegativeInt"/>
+          <xs:element name="maxUserOriginatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="maxUserTerminatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="reservedSession" type="NonNegativeInt"/>
+          <xs:element name="reservedUserOriginatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="reservedUserTerminatingSessions" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="defaultGroup" type="xs:boolean"/>
+          <xs:element name="countIntraSACGroupSessions" type="xs:boolean"/>
+          <xs:element name="devices" type="EnterpriseAccessDevice" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseSessionAdmissionControlGroupModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify a session admission control group for the enterprise.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="name" type="SessionAdmissionControlGroupName"/>
+          <xs:element name="newName" type="SessionAdmissionControlGroupName" minOccurs="0"/>
+          <xs:element name="maxSession" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="maxUserOriginatingSessions" type="NonNegativeInt" nillable="true" minOccurs="0"/>
+          <xs:element name="maxUserTerminatingSessions" type="NonNegativeInt" nillable="true" minOccurs="0"/>
+          <xs:element name="reservedSession" type="NonNegativeInt" minOccurs="0"/>
+          <xs:element name="reservedUserOriginatingSessions" type="NonNegativeInt" nillable="true" minOccurs="0"/>
+          <xs:element name="reservedUserTerminatingSessions" type="NonNegativeInt" nillable="true" minOccurs="0"/>
+          <xs:element name="becomeDefaultGroup" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="countIntraSACGroupSessions" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="deviceList" type="ReplacementEnterpriseDeviceList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNAddPolicyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add the enterprise level data associated with a Voice VPN location code.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="locationDialingCode" type="EnterpriseVoiceVPNLocationCode"/>
+          <xs:element name="minExtensionLength" type="EnterpriseVoiceVPNExtensionLength"/>
+          <xs:element name="maxExtensionLength" type="EnterpriseVoiceVPNExtensionLength"/>
+          <xs:element name="description" type="EnterpriseVoiceVPNDescription" minOccurs="0"/>
+          <xs:element name="routeGroupId" type="GroupId" minOccurs="0"/>
+          <xs:element name="policySelection" type="EnterpriseVoiceVPNPolicySelection"/>
+          <xs:choice>
+            <xs:element name="digitManipulation" type="EnterpriseVoiceVPNDigitManipulation" minOccurs="0" maxOccurs="8"/>
+            <xs:element name="treatmentId" type="EnterpriseVoiceVPNTreatmentId" minOccurs="0"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNDeletePolicyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a enterprise voice VPN location.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="locationDialingCode" type="EnterpriseVoiceVPNLocationCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetDefaultRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Voice VPN default settings for the enterprise.
+        The response is EnterpriseVoiceVPNGetDefaultResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetDefaultResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseVoiceVPNGetDefaultResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="policySelection" type="EnterpriseVoiceVPNPolicySelection" minOccurs="4" maxOccurs="4"/>
+          <xs:element name="digitManipulationOperation" type="EnterpriseVoiceVPNDigitManipulationOperation" minOccurs="12" maxOccurs="12"/>
+          <xs:element name="routeGroupId" type="GroupId" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="treatment" type="EnterpriseVoiceVPNTreatmentEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetPolicyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the enterprise level data associated with Voice VPN location code.
+        The response is either a EnterpriseVoiceVPNGetPolicyResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="locationDialingCode" type="EnterpriseVoiceVPNLocationCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetPolicyResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseVoiceVPNGetPolicyRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="minExtensionLength" type="EnterpriseVoiceVPNExtensionLength"/>
+          <xs:element name="maxExtensionLength" type="EnterpriseVoiceVPNExtensionLength"/>
+          <xs:element name="description" type="EnterpriseVoiceVPNDescription" minOccurs="0"/>
+          <xs:element name="routeGroupId" type="GroupId" minOccurs="0"/>
+          <xs:element name="policySelection" type="EnterpriseVoiceVPNPolicySelection"/>
+          <xs:choice>
+            <xs:element name="digitManipulation" type="EnterpriseVoiceVPNDigitManipulation" minOccurs="0" maxOccurs="8"/>
+            <xs:element name="treatmentId" type="EnterpriseVoiceVPNTreatmentId" minOccurs="0"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetRequest14sp3">
+    <xs:annotation>
+      <xs:documentation>
+        Request the enterprise level data associated with Voice VPN.
+        The response is either a EnterpriseVoiceVPNGetResponse14sp3 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetResponse14sp3">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseVoiceVPNGetRequest14sp3.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="defaultSelection" type="EnterpriseVoiceVPNDefaultSelection"/>
+          <xs:element name="e164Selection" type="EnterpriseVoiceVPNNonMatchingE164NumberSelection"/>
+          <xs:element name="usePhoneContext" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetPolicyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the list of Voice VPN locations.
+        It is possible to search by various criteria to restrict the number of rows returned.
+        Multiple search criteria are logically ANDed together.
+        The response is either a EnterpriseVoiceVPNGetPolicyListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaGroupLocationCode" type="SearchCriteriaGroupLocationCode" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactPolicySelection" type="SearchCriteriaExactPolicySelection" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNGetPolicyListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to EnterpriseVoiceVPNGetListResponse.
+        Returns a 4 column table with column headings:
+          "Location Code", "Min Extension Length", "Max Extension Length", "Location Selection".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="locationList" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNModifyPolicyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the enterprise level data associated with a Voice VPN location code.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="locationDialingCode" type="EnterpriseVoiceVPNLocationCode"/>
+          <xs:element name="minExtensionLength" type="EnterpriseVoiceVPNExtensionLength" minOccurs="0"/>
+          <xs:element name="maxExtensionLength" type="EnterpriseVoiceVPNExtensionLength" minOccurs="0"/>
+          <xs:element name="description" type="EnterpriseVoiceVPNDescription" nillable="true" minOccurs="0"/>
+          <xs:element name="routeGroupId" type="GroupId" minOccurs="0"/>
+          <xs:element name="policySelection" type="EnterpriseVoiceVPNPolicySelection" minOccurs="0"/>
+          <xs:choice>
+            <xs:element name="digitManipulation" type="EnterpriseVoiceVPNDigitManipulation" minOccurs="0" maxOccurs="8"/>
+            <xs:element name="treatmentId" type="EnterpriseVoiceVPNTreatmentId" minOccurs="0"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the enterprise voice VPN level data associated with voice VPN.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="defaultSelection" type="EnterpriseVoiceVPNDefaultSelection" minOccurs="0"/>
+          <xs:element name="e164Selection" type="EnterpriseVoiceVPNNonMatchingE164NumberSelection" minOccurs="0"/>
+          <xs:element name="usePhoneContext" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseAccessDevice">
+    <xs:annotation>
+      <xs:documentation>
+        Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="accessDevice" type="AccessDevice"/>
+      <xs:element name="groupId" type="GroupId" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNDefaultSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Default Selector.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Public"/>
+      <xs:enumeration value="Private"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNDescription">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN description.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNDigitManipulation" abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation Entry.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence/>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNDigitManipulationNoValue">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation Entry that has no value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EnterpriseVoiceVPNDigitManipulation">
+        <xs:sequence>
+          <xs:element name="operation" type="EnterpriseVoiceVPNDigitManipulationOperationNoValue"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNDigitManipulationOperation">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation operations.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Prepend"/>
+      <xs:enumeration value="End"/>
+      <xs:enumeration value="Overwrite"/>
+      <xs:enumeration value="Right Trim"/>
+      <xs:enumeration value="Replace All"/>
+      <xs:enumeration value="Left Trim"/>
+      <xs:enumeration value="Append"/>
+      <xs:enumeration value="Position"/>
+      <xs:enumeration value="Insert"/>
+      <xs:enumeration value="Trim"/>
+      <xs:enumeration value="Delete"/>
+      <xs:enumeration value="Move"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNDigitManipulationOperationNoValue">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation Operations that have no value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="EnterpriseVoiceVPNDigitManipulationOperation">
+      <xs:enumeration value="End"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNDigitManipulationOperationOptionalValue">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation Operations that may or may not have a value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="EnterpriseVoiceVPNDigitManipulationOperation">
+      <xs:enumeration value="Prepend"/>
+      <xs:enumeration value="Overwrite"/>
+      <xs:enumeration value="Right Trim"/>
+      <xs:enumeration value="Replace All"/>
+      <xs:enumeration value="Left Trim"/>
+      <xs:enumeration value="Append"/>
+      <xs:enumeration value="Insert"/>
+      <xs:enumeration value="Trim"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNDigitManipulationOperationRequiredValue">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation Operations that have a value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="EnterpriseVoiceVPNDigitManipulationOperation">
+      <xs:enumeration value="Position"/>
+      <xs:enumeration value="Delete"/>
+      <xs:enumeration value="Move"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNDigitManipulationOptionalValue">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation Entry that optionally has a value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EnterpriseVoiceVPNDigitManipulation">
+        <xs:sequence>
+          <xs:element name="operation" type="EnterpriseVoiceVPNDigitManipulationOperationOptionalValue"/>
+          <xs:element name="value" type="EnterpriseVoiceVPNDigitManipulationValue" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNDigitManipulationRequiredValue">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation Entry that has a value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EnterpriseVoiceVPNDigitManipulation">
+        <xs:sequence>
+          <xs:element name="operation" type="EnterpriseVoiceVPNDigitManipulationOperationRequiredValue"/>
+          <xs:element name="value" type="EnterpriseVoiceVPNDigitManipulationValue"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNDigitManipulationValue">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Digit Manipulation value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNExtensionLength">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Extension Length.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNNonMatchingE164NumberSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Selector for Non Matching E164 Number.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Public"/>
+      <xs:enumeration value="Default"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNTreatmentDescription">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Treatment Description.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="EnterpriseVoiceVPNTreatmentEntry">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Treatment entry
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="EnterpriseVoiceVPNTreatmentId"/>
+      <xs:element name="description" type="EnterpriseVoiceVPNTreatmentDescription" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNTreatmentId">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN Treatment Id.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="EnterpriseVoiceVPNLocationCode">
+    <xs:annotation>
+      <xs:documentation>
+        Enterprise Voice VPN location code.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="22"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="ReplacementEnterpriseDeviceList">
+    <xs:annotation>
+      <xs:documentation>
+        A list of enterprise accessible devices that replaces a previously configured list.
+        By convention, an element of this type may be set nill to clear the list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="device" type="EnterpriseAccessDevice" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

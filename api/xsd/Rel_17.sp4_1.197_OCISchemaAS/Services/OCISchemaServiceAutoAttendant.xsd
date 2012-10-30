@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- A U T O   A T T E N D A N T  S E R V I C E                             -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- A U T O   A T T E N D A N T    R E Q U E S T S  A N D  R E S P O N S E S           -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupAutoAttendantAddInstanceRequest17sp1    
+    GroupAutoAttendantDeleteInstanceRequest    
+    GroupAutoAttendantGetInstanceListRequest    
+    GroupAutoAttendantGetInstanceRequest17sp1    
+    GroupAutoAttendantModifyActiveInstanceListRequest    
+    GroupAutoAttendantModifyInstanceRequest17sp1    
+    
+  --> 
+  
+  <xs:complexType name="GroupAutoAttendantAddInstanceRequest17sp1">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>true</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Add a Auto Attendant instance to a group.
+        The domain is required in the serviceUserId.
+        Only Group and Enterprise level schedules are accepted.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceAddProfile"/>
+          <xs:element name="enableVideo" type="xs:boolean"/>
+          <xs:element name="businessHours" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="extensionDialingScope" type="AutoAttendantDialingScope"/>
+          <xs:element name="nameDialingScope" type="AutoAttendantDialingScope"/>
+          <xs:element name="nameDialingEntries" type="AutoAttendantNameDialingEntry"/>
+          <xs:element name="businessHoursMenu" type="AutoAttendantAddMenu16" minOccurs="0"/>
+          <xs:element name="afterHoursMenu" type="AutoAttendantAddMenu16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupAutoAttendantDeleteInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Auto Attendant instance from a group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupAutoAttendantGetInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of Auto Attendant instances within a group.
+        The response is either GroupAutoAttendantGetInstanceListResponse or ErrorResponse.
+        It is possible to get the instances within a specified department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupDepartmentName" type="DepartmentName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupAutoAttendantGetInstanceListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupAutoAttendantGetInstanceListRequest.
+        Contains a table with column headings:
+        "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department", "Is Active".
+        The column values for "Video" and "Is Active" can either be true, or false.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="autoAttendantTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupAutoAttendantGetInstanceRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get all the information of a Auto Attendant instance.
+        The response is either GroupAutoAttendantGetInstanceResponse17sp1 or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupAutoAttendantGetInstanceResponse17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupAutoAttendantGetInstanceRequest17sp1.
+        Contains the service profile information.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceReadProfile17"/>
+          <xs:element name="enableVideo" type="xs:boolean"/>
+          <xs:element name="businessHours" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="extensionDialingScope" type="AutoAttendantDialingScope"/>
+          <xs:element name="nameDialingScope" type="AutoAttendantDialingScope"/>
+          <xs:element name="nameDialingEntries" type="AutoAttendantNameDialingEntry"/>
+          <xs:element name="businessHoursMenu" type="AutoAttendantReadMenu16"/>
+          <xs:element name="afterHoursMenu" type="AutoAttendantReadMenu16"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupAutoAttendantModifyActiveInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to set the active status of Auto Attendant instances.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceActivation" type="ServiceActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupAutoAttendantModifyInstanceRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify an Auto Attendant instance.
+        Only Group and Enterprise level schedules are accepted.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceModifyProfile" minOccurs="0"/>
+          <xs:element name="enableVideo" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="businessHours" type="TimeSchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="extensionDialingScope" type="AutoAttendantDialingScope" minOccurs="0"/>
+          <xs:element name="nameDialingScope" type="AutoAttendantDialingScope" minOccurs="0"/>
+          <xs:element name="nameDialingEntries" type="AutoAttendantNameDialingEntry" minOccurs="0"/>
+          <xs:element name="businessHoursMenu" type="AutoAttendantModifyMenu16" minOccurs="0"/>
+          <xs:element name="afterHoursMenu" type="AutoAttendantModifyMenu16" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="AutoAttendantDialingScope">
+    <xs:annotation>
+      <xs:documentation>
+        The scope of extension or name dialing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Enterprise"/>
+      <xs:enumeration value="Group"/>
+      <xs:enumeration value="Department"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutoAttendantKeyAction">
+    <xs:annotation>
+      <xs:documentation>
+        The action of Auto Attendant key.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Transfer With Prompt"/>
+      <xs:enumeration value="Transfer Without Prompt"/>
+      <xs:enumeration value="Transfer To Operator"/>
+      <xs:enumeration value="Name Dialing"/>
+      <xs:enumeration value="Extension Dialing"/>
+      <xs:enumeration value="Repeat Menu"/>
+      <xs:enumeration value="Exit"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="AutoAttendantKeyConfiguration">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of a key for Auto Attendant.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="AutoAttendantMenuKey"/>
+      <xs:element name="entry" type="AutoAttendantKeyConfigurationEntry"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="AutoAttendantKeyModifyConfiguration">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of a key for Auto Attendant.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="key" type="AutoAttendantMenuKey"/>
+      <xs:element name="entry" type="AutoAttendantKeyConfigurationModifyEntry" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="AutoAttendantKeyConfigurationEntry">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of a key for Auto Attendant.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="description" type="AutoAttendantMenuKeyDescription" minOccurs="0"/>
+      <xs:element name="action" type="AutoAttendantKeyAction"/>
+      <xs:element name="phoneNumber" type="OutgoingDN" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="AutoAttendantKeyConfigurationModifyEntry">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of a key for Auto Attendant.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="description" type="AutoAttendantMenuKeyDescription" nillable="true" minOccurs="0"/>
+      <xs:element name="action" type="AutoAttendantKeyAction"/>
+      <xs:element name="phoneNumber" type="OutgoingDN" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="AutoAttendantAddMenu16">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of the automated receptionist greeting
+        prompt and dialing menu to be used during after business hours.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="announcementSelection" type="AnnouncementSelection"/>
+      <xs:element name="audioFile" type="LabeledMediaFileResource" minOccurs="0"/>
+      <xs:element name="videoFile" type="LabeledMediaFileResource" minOccurs="0"/>
+      <xs:element name="enableFirstMenuLevelExtensionDialing" type="xs:boolean"/>
+      <xs:element name="keyConfiguration" type="AutoAttendantKeyConfiguration" minOccurs="0" maxOccurs="12"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="AutoAttendantModifyMenu16">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of the automated receptionist greeting
+        prompt and dialing menu to be used during business hours.
+        It is used when modifying an Auto Attendant group.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="announcementSelection" type="AnnouncementSelection" minOccurs="0"/>
+      <xs:element name="audioFile" type="LabeledMediaFileResource" minOccurs="0"/>
+      <xs:element name="videoFile" type="LabeledMediaFileResource" minOccurs="0"/>
+      <xs:element name="enableFirstMenuLevelExtensionDialing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="keyConfiguration" type="AutoAttendantKeyModifyConfiguration" minOccurs="0" maxOccurs="12"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="AutoAttendantReadMenu16">
+    <xs:annotation>
+      <xs:documentation>
+        The configuration of the automated receptionist greeting
+        prompt and dialing menu to be used during after business hours.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="announcementSelection" type="AnnouncementSelection"/>
+      <xs:element name="audioFileDescription" type="FileDescription" minOccurs="0"/>
+      <xs:element name="audioMediaType" type="MediaFileType" minOccurs="0"/>
+      <xs:element name="videoFileDescription" type="FileDescription" minOccurs="0"/>
+      <xs:element name="videoMediaType" type="MediaFileType" minOccurs="0"/>
+      <xs:element name="enableFirstMenuLevelExtensionDialing" type="xs:boolean"/>
+      <xs:element name="keyConfiguration" type="AutoAttendantKeyConfiguration" minOccurs="0" maxOccurs="12"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="AutoAttendantMenuKey">
+    <xs:annotation>
+      <xs:documentation>
+        The key of Auto Attendant.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+      <xs:enumeration value="5"/>
+      <xs:enumeration value="6"/>
+      <xs:enumeration value="7"/>
+      <xs:enumeration value="8"/>
+      <xs:enumeration value="9"/>
+      <xs:enumeration value="*"/>
+      <xs:enumeration value="#"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutoAttendantMenuKeyDescription">
+    <xs:annotation>
+      <xs:documentation>
+        The description of each menu key.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutoAttendantNameDialingEntry">
+    <xs:annotation>
+      <xs:documentation>
+        The format callers should use when dialing by name.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="LastName + FirstName"/>
+      <xs:enumeration value="LastName + FirstName or FirstName + LastName"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

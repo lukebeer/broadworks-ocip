@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- A T T E N D A N T   C O N S O L E  S E R V I C E                       -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- A T T E N D A N T   C O N S O L E    R E Q U E S T S  A N D  R E S P O N S E S     -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemAttendantConsoleGetRequest    
+    SystemAttendantConsoleModifyRequest    
+    UserAttendantConsoleAddUserListRequest    
+    UserAttendantConsoleDeleteUserListRequest    
+    UserAttendantConsoleGetAvailableUserListRequest    
+    UserAttendantConsoleGetRequest14sp2    
+    UserAttendantConsoleModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemAttendantConsoleGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the list of Attendant Console parameters.
+        The response is either SystemAttendantConsoleGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAttendantConsoleGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemAttendantConsoleGetRequest.
+        Contains a list of Attendant Console parameters.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="maxMonitoredUsers" type="MaximumMonitoredUsers"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAttendantConsoleModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify Attendant Console settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="maxMonitoredUsers" type="MaximumMonitoredUsers" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAttendantConsoleAddUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add users to the Attendant Console monitored users list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="monitoredUserId" type="UserId" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAttendantConsoleDeleteUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Remove users from the Attendant Console monitored users list.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="monitoredUserId" type="UserId" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAttendantConsoleGetAvailableUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of available users for the Attendant Console service.
+        The response is either UserAttendantConsoleGetAvailableUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAttendantConsoleGetAvailableUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserAttendantConsoleGetAvailableUserListRequest.
+        Returns a 5 column table with column headings:
+          "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAttendantConsoleGetRequest14sp2">
+    <xs:annotation>
+      <xs:documentation>
+        Request user's attendant console settings.
+        The response is either a UserAttendantConsoleGetResponse14sp2 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAttendantConsoleGetResponse14sp2">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserAttendantConsoleGetRequest14sp2.
+        Returns a 5 column table with column headings:
+          "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="launchOnLogin" type="xs:boolean"/>
+          <xs:element name="allowUserConfigCallDetails" type="xs:boolean"/>
+          <xs:element name="allowUserViewCallDetails" type="xs:boolean"/>
+          <xs:element name="displayColumn" type="AttendantConsoleDisplayColumn" minOccurs="0" maxOccurs="10"/>
+          <xs:element name="monitoredUserTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAttendantConsoleModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify user's attendant console settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="launchOnLogin" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="allowUserConfigCallDetails" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="allowUserViewCallDetails" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="displayColumnList" type="AttendantConsoleReplacementDisplayColumnList" nillable="true" minOccurs="0"/>
+          <xs:element name="monitoredUserIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="AttendantConsoleDisplayColumn">
+    <xs:annotation>
+      <xs:documentation>
+        Attendant Console Display Columns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Action"/>
+      <xs:enumeration value="Department"/>
+      <xs:enumeration value="Email"/>
+      <xs:enumeration value="Extension"/>
+      <xs:enumeration value="Mobile"/>
+      <xs:enumeration value="Name"/>
+      <xs:enumeration value="Phone Number"/>
+      <xs:enumeration value="Pager"/>
+      <xs:enumeration value="Status"/>
+      <xs:enumeration value="Title"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="AttendantConsoleReplacementDisplayColumnList">
+    <xs:annotation>
+      <xs:documentation>
+        A list of attendant console display columns that replaces a previously configured list.
+        By convention, an element of this type may be set nil to clear the list.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="displayColumn" type="AttendantConsoleDisplayColumn" minOccurs="1" maxOccurs="10"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

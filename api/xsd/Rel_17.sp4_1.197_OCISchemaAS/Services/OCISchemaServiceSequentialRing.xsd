@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S E Q U E N T I A L   R I N G  S E R V I C E                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S E Q U E N T I A L   R I N G    R E Q U E S T S  A N D  R E S P O N S E S         -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserSequentialRingAddCriteriaRequest16    
+    UserSequentialRingDeleteCriteriaRequest    
+    UserSequentialRingGetCriteriaRequest16    
+    UserSequentialRingGetRequest14sp4    
+    UserSequentialRingModifyCriteriaRequest    
+    UserSequentialRingModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserSequentialRingAddCriteriaRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Add a criteria to the user's sequential ring service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSequentialRingDeleteCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a criteria from the user's sequential ring service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSequentialRingGetCriteriaRequest16">
+    <xs:annotation>
+      <xs:documentation>
+        Get a criteria for the user's sequential ring service.
+        The response is either a UserSequentialRingGetCriteriaResponse16 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSequentialRingGetCriteriaResponse16">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSequentialRingGetCriteriaRequest16.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSequentialRingGetRequest14sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's sequential ring service setting.
+        The response is either a UserSequentialRingGetResponse14sp4 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSequentialRingGetResponse14sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSequentialRingGetRequest14sp4. The criteria table's column headings are:
+        "Is Active", "Criteria Name", "Time Schedule", "Calls From", "Blacklisted" and "Holiday Schedule".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="ringBaseLocationFirst" type="xs:boolean"/>
+          <xs:element name="baseLocationNumberOfRings" type="SequentialRingNumberOfRings"/>
+          <xs:element name="continueIfBaseLocationIsBusy" type="xs:boolean"/>
+          <xs:element name="callerMayStopSearch" type="xs:boolean"/>
+          <xs:element name="Location01" type="SequentialRingLocation14sp4"/>
+          <xs:element name="Location02" type="SequentialRingLocation14sp4"/>
+          <xs:element name="Location03" type="SequentialRingLocation14sp4"/>
+          <xs:element name="Location04" type="SequentialRingLocation14sp4"/>
+          <xs:element name="Location05" type="SequentialRingLocation14sp4"/>
+          <xs:element name="criteriaTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSequentialRingModifyCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a criteria for the user's sequential ring service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="newCriteriaName" type="CriteriaName" minOccurs="0"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDnModify" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSequentialRingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's sequential ring service setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="ringBaseLocationFirst" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="baseLocationNumberOfRings" type="SequentialRingNumberOfRings" minOccurs="0"/>
+          <xs:element name="continueIfBaseLocationIsBusy" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="callerMayStopSearch" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Location01" type="SequentialRingLocationModify" minOccurs="0"/>
+          <xs:element name="Location02" type="SequentialRingLocationModify" minOccurs="0"/>
+          <xs:element name="Location03" type="SequentialRingLocationModify" minOccurs="0"/>
+          <xs:element name="Location04" type="SequentialRingLocationModify" minOccurs="0"/>
+          <xs:element name="Location05" type="SequentialRingLocationModify" minOccurs="0"/>
+          <xs:element name="criteriaActivation" type="CriteriaActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SequentialRingLocation14sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Sequential Ring Location.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="phoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+      <xs:element name="numberOfRings" type="SequentialRingNumberOfRings"/>
+      <xs:element name="answerConfirmationRequired" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="SequentialRingLocationModify">
+    <xs:annotation>
+      <xs:documentation>
+        Sequential Ring Location.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="phoneNumber" type="OutgoingDNorSIPURI" nillable="true" minOccurs="0"/>
+      <xs:element name="numberOfRings" type="SequentialRingNumberOfRings" minOccurs="0"/>
+      <xs:element name="answerConfirmationRequired" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="SequentialRingNumberOfRings">
+    <xs:annotation>
+      <xs:documentation>
+        Number of Rings until call is redirected to next location in sequence.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+      <xs:enumeration value="5"/>
+      <xs:enumeration value="6"/>
+      <xs:enumeration value="7"/>
+      <xs:enumeration value="8"/>
+      <xs:enumeration value="9"/>
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="11"/>
+      <xs:enumeration value="12"/>
+      <xs:enumeration value="13"/>
+      <xs:enumeration value="14"/>
+      <xs:enumeration value="15"/>
+      <xs:enumeration value="16"/>
+      <xs:enumeration value="17"/>
+      <xs:enumeration value="18"/>
+      <xs:enumeration value="19"/>
+      <xs:enumeration value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

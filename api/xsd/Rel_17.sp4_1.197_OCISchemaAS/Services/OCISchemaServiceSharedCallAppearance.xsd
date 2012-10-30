@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S H A R E D   C A L L   A P P E A R A N C E  S E R V I C E             -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S H A R E D   C A L L   A P P E A R A N C E                                        -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserSharedCallAppearanceAddEndpointRequest14sp2    
+    UserSharedCallAppearanceDeleteEndpointListRequest14    
+    UserSharedCallAppearanceGetEndpointRequest    
+    UserSharedCallAppearanceGetRequest16sp2    
+    UserSharedCallAppearanceModifyEndpointRequest    
+    UserSharedCallAppearanceModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserSharedCallAppearanceAddEndpointRequest14sp2">
+    <xs:annotation>
+      <xs:documentation>
+        Associate an access device instance to the user's Shared Call Appearance.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="accessDeviceEndpoint" type="AccessDeviceEndpointAdd"/>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="allowOrigination" type="xs:boolean"/>
+          <xs:element name="allowTermination" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSharedCallAppearanceDeleteEndpointListRequest14">
+    <xs:annotation>
+      <xs:documentation>
+        Disassociate one or more of a user's Shared Call Appearance endpoints.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="accessDeviceEndpoint" type="AccessDeviceEndpointKey" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSharedCallAppearanceGetEndpointRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's Shared Call Appearance endpoint setting.
+        The response is either a UserSharedCallAppearanceGetEndpointResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="accessDeviceEndpoint" type="AccessDeviceEndpointKey"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSharedCallAppearanceGetEndpointResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSharedCallAppearanceGetEndpointRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="allowOrigination" type="xs:boolean"/>
+          <xs:element name="allowTermination" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSharedCallAppearanceGetRequest16sp2">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's Shared Call Appearance service setting.
+        The response is either a UserSharedCallAppearanceGetResponse16sp2 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSharedCallAppearanceGetResponse16sp2">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSharedCallAppearanceGetRequest16sp2.
+        The endpointTable contains columns:
+          "Device Level", "Device Name", "Device Type", "Line/Port", "SIP Contact".
+        The "Device Level" column contains one of the AccessDeviceLevel enumerated constants.
+        
+        The following elements are only used in AS data mode:
+         enableCallParkNotification
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="alertAllAppearancesForClickToDialCalls" type="xs:boolean"/>
+          <xs:element name="alertAllAppearancesForGroupPagingCalls" type="xs:boolean"/>
+          <xs:element name="maxAppearances" type="SharedCallAppearanceMaximumAppearances"/>
+          <xs:element name="allowSCACallRetrieve" type="xs:boolean"/>
+          <xs:element name="enableMultipleCallArrangement" type="xs:boolean"/>
+          <xs:element name="multipleCallArrangementIsActive" type="xs:boolean"/>
+          <xs:element name="endpointTable" type="core:OCITable"/>
+          <xs:element name="allowBridgingBetweenLocations" type="xs:boolean"/>
+          <xs:element name="bridgeWarningTone" type="SharedCallAppearanceBridgeWarningTone"/>
+          <xs:element name="enableCallParkNotification" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSharedCallAppearanceModifyEndpointRequest">
+    <xs:annotation>
+      <xs:documentation>
+         Associate/Disassociate an access device instance to the user's Shared Call Appearance.
+         The response is either a SuccessResponse or an ErrorResponse.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="accessDeviceEndpoint" type="AccessDeviceEndpointKey"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="allowOrigination" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="allowTermination" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSharedCallAppearanceModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's Shared Call Appearance service setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+        
+        The following elements are only used in AS data mode:
+         enableCallParkNotification
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="alertAllAppearancesForClickToDialCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="alertAllAppearancesForGroupPagingCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="allowSCACallRetrieve" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="multipleCallArrangementIsActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="allowBridgingBetweenLocations" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="bridgeWarningTone" type="SharedCallAppearanceBridgeWarningTone" minOccurs="0"/>
+          <xs:element name="enableCallParkNotification" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

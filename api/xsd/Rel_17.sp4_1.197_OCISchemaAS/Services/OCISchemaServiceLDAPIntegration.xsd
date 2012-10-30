@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- L   D   A   P   I N T E G R A T I O N  S E R V I C E                   -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- L   D   A   P   I N T E G R A T I O N    R E Q U E S T S  A N D  R E S P O N S E S  -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupLDAPIntegrationGetDirectoryRequest    
+    GroupLDAPIntegrationModifyDirectoryRequest    
+    GroupLDAPIntegrationGetRequest    
+    GroupLDAPIntegrationModifyRequest    
+    ServiceProviderLDAPIntegrationGetDirectoryRequest    
+    ServiceProviderLDAPIntegrationModifyDirectoryRequest    
+    SystemLDAPIntegrationGetDirectoryRequest    
+    SystemLDAPIntegrationModifyDirectoryRequest    
+    UserLDAPIntegrationGetDirectoryListRequest    
+    UserLDAPIntegrationGetDirectoryEntryRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupLDAPIntegrationGetDirectoryRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the LDAP directory attributes for a group.
+        The response is either a GroupLDAPIntegrationGetDirectoryResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupLDAPIntegrationGetDirectoryResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupLDAPIntegrationGetDirectoryRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useLevel" type="GroupLDAPIntegrationLevel"/>
+          <xs:element name="serverNetAddress" type="NetAddress" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port"/>
+          <xs:element name="searchBase" type="LDAPSearchBase" minOccurs="0"/>
+          <xs:element name="useSSL" type="xs:boolean"/>
+          <xs:element name="requireAuthentication" type="xs:boolean"/>
+          <xs:element name="authenticatedDN" type="LDAPAuthenticatedDN" minOccurs="0"/>
+          <xs:element name="authenticatedPassword" type="LDAPAuthenticatedPassword" minOccurs="0"/>
+          <xs:element name="isSortEnabled" type="xs:boolean"/>
+          <xs:element name="isPagedResultEnabled" type="xs:boolean"/>
+          <xs:element name="searchFilter" type="LDAPSearchFilter" minOccurs="0"/>
+          <xs:element name="includeSearchAttributeInSearchFilter" type="xs:boolean"/>
+          <xs:element name="column1AttributeName" type="LDAPColumnAttributeName"/>
+          <xs:element name="column2AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column3AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column4AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column1Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column2Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column3Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column4Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="searchColumn" type="LDAPSearchColumn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupLDAPIntegrationModifyDirectoryRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the LDAP directory attributes for a group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="useLevel" type="GroupLDAPIntegrationLevel" minOccurs="0"/>
+          <xs:element name="serverNetAddress" type="NetAddress" nillable="true" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port" minOccurs="0"/>
+          <xs:element name="searchBase" type="LDAPSearchBase" nillable="true" minOccurs="0"/>
+          <xs:element name="useSSL" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="requireAuthentication" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="authenticatedDN" type="LDAPAuthenticatedDN" nillable="true" minOccurs="0"/>
+          <xs:element name="authenticatedPassword" type="LDAPAuthenticatedPassword" nillable="true" minOccurs="0"/>
+          <xs:element name="isSortEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="isPagedResultEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="searchFilter" type="LDAPSearchFilter" nillable="true" minOccurs="0"/>
+          <xs:element name="includeSearchAttributeInSearchFilter" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="column1AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column2AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column3AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column4AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column1Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column2Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column3Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column4Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="searchColumn" type="LDAPSearchColumn" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupLDAPIntegrationGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group level data associated with LDAP Integration.
+        The response is either a GroupLDAPIntegrationGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupLDAPIntegrationGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupLDAPIntegrationGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupLDAPIntegrationModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the group level data associated with LDAP Integration.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderLDAPIntegrationGetDirectoryRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the LDAP directory attributes for a service provider.
+        The response is either a ServiceProviderLDAPIntegrationGetDirectoryResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderLDAPIntegrationGetDirectoryResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to ServiceProviderLDAPIntegrationGetDirectoryRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serverNetAddress" type="NetAddress" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port"/>
+          <xs:element name="searchBase" type="LDAPSearchBase" minOccurs="0"/>
+          <xs:element name="useSSL" type="xs:boolean"/>
+          <xs:element name="requireAuthentication" type="xs:boolean"/>
+          <xs:element name="authenticatedDN" type="LDAPAuthenticatedDN" minOccurs="0"/>
+          <xs:element name="authenticatedPassword" type="LDAPAuthenticatedPassword" minOccurs="0"/>
+          <xs:element name="isSortEnabled" type="xs:boolean"/>
+          <xs:element name="isPagedResultEnabled" type="xs:boolean"/>
+          <xs:element name="searchFilter" type="LDAPSearchFilter" minOccurs="0"/>
+          <xs:element name="includeSearchAttributeInSearchFilter" type="xs:boolean"/>
+          <xs:element name="column1AttributeName" type="LDAPColumnAttributeName"/>
+          <xs:element name="column2AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column3AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column4AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column1Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column2Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column3Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column4Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="searchColumn" type="LDAPSearchColumn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderLDAPIntegrationModifyDirectoryRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the LDAP directory attributes for a service provider.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="serverNetAddress" type="NetAddress" nillable="true" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port" minOccurs="0"/>
+          <xs:element name="searchBase" type="LDAPSearchBase" nillable="true" minOccurs="0"/>
+          <xs:element name="useSSL" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="requireAuthentication" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="authenticatedDN" type="LDAPAuthenticatedDN" nillable="true" minOccurs="0"/>
+          <xs:element name="authenticatedPassword" type="LDAPAuthenticatedPassword" nillable="true" minOccurs="0"/>
+          <xs:element name="isSortEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="isPagedResultEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="searchFilter" type="LDAPSearchFilter" nillable="true" minOccurs="0"/>
+          <xs:element name="includeSearchAttributeInSearchFilter" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="column1AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column2AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column3AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column4AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column1Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column2Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column3Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column4Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="searchColumn" type="LDAPSearchColumn" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLDAPIntegrationGetDirectoryRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with LDAP Integration.
+        The response is either a SystemLDAPIntegrationGetDirectoryResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLDAPIntegrationGetDirectoryResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemLDAPIntegrationGetDirectoryRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serverNetAddress" type="NetAddress" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port" minOccurs="0"/>
+          <xs:element name="searchBase" type="LDAPSearchBase" minOccurs="0"/>
+          <xs:element name="useSSL" type="xs:boolean"/>
+          <xs:element name="requireAuthentication" type="xs:boolean"/>
+          <xs:element name="authenticatedDN" type="LDAPAuthenticatedDN" minOccurs="0"/>
+          <xs:element name="authenticatedPassword" type="LDAPAuthenticatedPassword" minOccurs="0"/>
+          <xs:element name="isSortEnabled" type="xs:boolean"/>
+          <xs:element name="isPagedResultEnabled" type="xs:boolean"/>
+          <xs:element name="searchFilter" type="LDAPSearchFilter" minOccurs="0"/>
+          <xs:element name="includeSearchAttributeInSearchFilter" type="xs:boolean"/>
+          <xs:element name="column1AttributeName" type="LDAPColumnAttributeName"/>
+          <xs:element name="column2AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column3AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column4AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column1Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column2Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column3Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="column4Label" type="LDAPColumnLabel" minOccurs="0"/>
+          <xs:element name="searchColumn" type="LDAPSearchColumn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemLDAPIntegrationModifyDirectoryRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with LDAP Integration.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serverNetAddress" type="NetAddress" nillable="true" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port" minOccurs="0"/>
+          <xs:element name="searchBase" type="LDAPSearchBase" nillable="true" minOccurs="0"/>
+          <xs:element name="useSSL" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="requireAuthentication" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="authenticatedDN" type="LDAPAuthenticatedDN" nillable="true" minOccurs="0"/>
+          <xs:element name="authenticatedPassword" type="LDAPAuthenticatedPassword" nillable="true" minOccurs="0"/>
+          <xs:element name="isSortEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="isPagedResultEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="searchFilter" type="LDAPSearchFilter" nillable="true" minOccurs="0"/>
+          <xs:element name="includeSearchAttributeInSearchFilter" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="column1AttributeName" type="LDAPColumnAttributeName" minOccurs="0"/>
+          <xs:element name="column2AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column3AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column4AttributeName" type="LDAPColumnAttributeName" nillable="true" minOccurs="0"/>
+          <xs:element name="column1Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column2Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column3Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="column4Label" type="LDAPColumnLabel" nillable="true" minOccurs="0"/>
+          <xs:element name="searchColumn" type="LDAPSearchColumn" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserLDAPIntegrationGetDirectoryListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the LDAP entry lists for a user.
+        The response is either a UserLDAPIntegrationGetDirectoryListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="searchKey" type="LDAPSearchKey" minOccurs="0"/>
+          <xs:element name="page" type="LDAPPage" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserLDAPIntegrationGetDirectoryListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserLDAPIntegrationGetDirectoryListRequest. The table is a 4 column table.
+        The column headings are defined by the group's LDAP settings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="ldapEntryTable" type="core:OCITable"/>
+          <xs:element name="searchLabel" type="LDAPColumnLabel"/>
+          <xs:element name="hasMoreEntries" type="xs:boolean"/>
+          <xs:element name="lastPageNumber" type="LDAPPageNumber" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserLDAPIntegrationGetDirectoryEntryRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request one LDAP entry for a user.
+        The response is either a UserLDAPIntegrationGetDirectoryEntryResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="entryName" type="LDAPEntryName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserLDAPIntegrationGetDirectoryEntryResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserLDAPIntegrationGetDirectoryEntryRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="data" type="LDAPEntryField" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="GroupLDAPIntegrationLevel">
+    <xs:annotation>
+      <xs:documentation>
+        Choices for the group LDAP directory settings to decide which type of settings to use.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="System"/>
+      <xs:enumeration value="Service Provider"/>
+      <xs:enumeration value="Group"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPSearchBase">
+    <xs:annotation>
+      <xs:documentation>LDAP Search Base.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPAuthenticatedDN">
+    <xs:annotation>
+      <xs:documentation>LDAP Authenticated DN.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPAuthenticatedPassword">
+    <xs:annotation>
+      <xs:documentation>LDAP Authenticated Password.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPColumnAttributeName">
+    <xs:annotation>
+      <xs:documentation>LDAP column attribute name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPColumnAttributeValue">
+    <xs:annotation>
+      <xs:documentation>LDAP column attribute value.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPColumnLabel">
+    <xs:annotation>
+      <xs:documentation>LDAP column label.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="LDAPEntryField">
+    <xs:annotation>
+      <xs:documentation>
+        One name value pair for a LDAP entry.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="attributeName" type="LDAPColumnAttributeName"/>
+      <xs:element name="attributeValue" type="LDAPColumnAttributeValue" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="LDAPEntryName">
+    <xs:annotation>
+      <xs:documentation>LDAP Entry Name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="LDAPPage">
+    <xs:annotation>
+      <xs:documentation>
+        Type to retrieve a particular page or the last page.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="lastPage" type="xs:boolean" fixed="true"/>
+      <xs:element name="number" type="LDAPPageNumber"/>
+    </xs:choice>
+  </xs:complexType>    
+    
+  <xs:simpleType name="LDAPPageNumber">
+    <xs:annotation>
+      <xs:documentation>LDAP Page Number</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPSearchColumn">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates the column whose attribute is chosen to be included in
+        the search filter.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPSearchFilter">
+    <xs:annotation>
+      <xs:documentation>LDAP Search Filter.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="LDAPSearchKey">
+    <xs:annotation>
+      <xs:documentation>LDAP Search Key.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

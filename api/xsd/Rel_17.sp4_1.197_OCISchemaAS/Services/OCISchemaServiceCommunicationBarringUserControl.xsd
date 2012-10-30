@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C O M M U N I C A T I O N   B A R R I N G   U S E R                    -->
+<!-- C O N T R O L  S E R V I C E                                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C O M M U N I C A T I O N   B A R R I N G   U S E R   C O N T R O L                -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemCommunicationBarringUserControlGetRequest    
+    SystemCommunicationBarringUserControlModifyRequest    
+    UserCommunicationBarringUserControlGetRequest    
+    UserCommunicationBarringUserControlModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemCommunicationBarringUserControlGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Gets the Communication Barring system level settings.
+        The response is either SystemCommunicationBarringUserControlGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCommunicationBarringUserControlGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the SystemCommunicationBarringUserControlGetRequest.
+        Contains the settings to whole system for Communication Barring User-Control
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableLockout" type="xs:boolean"/>
+          <xs:element name="maxNumberOfFailedAttempts" type="CommunicationBarringUserControlNumberOfAttempts"/>
+          <xs:element name="lockoutMinutes" type="CommunicationBarringUserControlLockoutMinutes"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCommunicationBarringUserControlModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies the system's Communication Barring User-Control settings.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enableLockout" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="maxNumberOfFailedAttempts" type="CommunicationBarringUserControlNumberOfAttempts" minOccurs="0"/>
+          <xs:element name="lockoutMinutes" type="CommunicationBarringUserControlLockoutMinutes" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommunicationBarringUserControlGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Lists the Communication Barring profiles available to a user and
+        indicates which profile if any is currently active for the user..
+        The response is either UserCommunicationBarringUserControlGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommunicationBarringUserControlGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserCommunicationBarringUserControlGetRequest.
+        Identifies the profiles available to the user and which one if any
+        is active as well as the lockout status.
+        Contains a table with column headings: "Name", "Code", "Activated" and "Primary".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="lockoutStatus" type="xs:boolean"/>
+          <xs:element name="profileTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommunicationBarringUserControlModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Enabling a profile automatically disables the currently active profile.
+        Also allows the passcode for the service to be modified and the lockout to be reset.
+        Admins only need to populate the newPasscode field when changing the passcode.  
+        Users must populate both the oldPasscode and new Passcode fields when changing the passcode.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="enableProfile" type="CommunicationBarringUserControlProfileCode" nillable="true" minOccurs="0"/>
+          <xs:element name="oldPasscode" type="Passcode" minOccurs="0"/>
+          <xs:element name="newPasscode" type="Passcode" minOccurs="0"/>
+          <xs:element name="resetLockout" type="xs:boolean" fixed="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CommunicationBarringUserControlLockoutMinutes">
+    <xs:annotation>
+      <xs:documentation>Communication Barring User-Control lockout time in minutes.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="600"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CommunicationBarringUserControlNumberOfAttempts">
+    <xs:annotation>
+      <xs:documentation>Communication Barring User-Control number of attempts to get pin code correct.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="10"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CommunicationBarringUserControlProfileCode">
+    <xs:annotation>
+      <xs:documentation>Communication Barring Profile code identifying a profile within a Network Class of Service.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

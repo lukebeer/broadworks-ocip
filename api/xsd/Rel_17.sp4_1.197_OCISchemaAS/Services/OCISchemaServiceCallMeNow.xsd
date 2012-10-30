@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C A L L   M E   N O W  S E R V I C E                                   -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C A L L   M E   N O W    R E Q U E S T S  A N D  R E S P O N S E S                 -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemCallMeNowGetRequest    
+    SystemCallMeNowModifyRequest    
+    UserCallMeNowAddCriteriaRequest    
+    UserCallMeNowDeleteCriteriaRequest    
+    UserCallMeNowGetCriteriaRequest    
+    UserCallMeNowGetRequest    
+    UserCallMeNowModifyCriteriaRequest    
+    UserCallMeNowModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemCallMeNowGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Request the system level data associated with Call Me Now service.
+        The response is either a SystemCallMeNowGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallMeNowGetResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to SystemCallMeNowGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="passcodeLength" type="CallMeNowPasscodeLength"/>
+          <xs:element name="passcodeTimeoutSeconds" type="CallMeNowPasscodeTimeoutSeconds"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemCallMeNowModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the system level data associated with Call me now service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="passcodeLength" type="CallMeNowPasscodeLength" minOccurs="0"/>
+          <xs:element name="passcodeTimeoutSeconds" type="CallMeNowPasscodeTimeoutSeconds" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowAddCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a criterion to the user's call me now service.  The criterion added is automatically active.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="rejectCall" type="xs:boolean"/>
+          <xs:element name="toDnCriteria" type="CallMeNowToDnCriteria"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowDeleteCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a criteria from the user's call me now service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowGetCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a criteria for the user's call me now service.
+        The response is either a UserCallMeNowGetCriteriaResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowGetCriteriaResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserCallMeNowGetCriteriaRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="rejectCall" type="xs:boolean"/>
+          <xs:element name="toDnCriteria" type="CallMeNowToDnCriteria"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's call me now service setting.
+        The response is either a UserCallMeNowGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserCallMeNowGetRequest. The criteria table's column headings are:
+        "Is Active", "Criteria Name", "Time Schedule", "Call To", "Reject Call" and "Holiday Schedule".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="answerConfirmation" type="CallMeNowAnswerConfirmation"/>
+          <xs:element name="criteriaTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowModifyCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a criteria for the user's call me now service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="newCriteriaName" type="CriteriaName" minOccurs="0"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="rejectCall" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="toDnCriteria" type="CallMeNowToDnCriteriaModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallMeNowModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's call me now service setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="answerConfirmation" type="CallMeNowAnswerConfirmation" minOccurs="0"/>
+          <xs:element name="criteriaActivation" type="CriteriaActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CallMeNowAnswerConfirmation">
+    <xs:annotation>
+      <xs:documentation>
+        Possible type of answer confirmation for Call Me Now.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Any Key"/>
+      <xs:enumeration value="Passcode"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CallMeNowPasscodeLength">
+    <xs:annotation>
+      <xs:documentation>
+        Maximum number of characters for Call Me Now passcode.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="2"/>
+      <xs:maxInclusive value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="CallMeNowPasscodeTimeoutSeconds">
+    <xs:annotation>
+      <xs:documentation>
+        Timeout in seconds for call me now passcode validation.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="30"/>
+      <xs:maxInclusive value="180"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="CallMeNowToDnCriteria">
+    <xs:annotation>
+      <xs:documentation>
+        The To dn criteria used on the call me now external number.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="toDnCriteriaSelection" type="CriteriaDnSelection"/>
+      <xs:element name="phoneNumber" type="DN" minOccurs="0" maxOccurs="12"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="CallMeNowToDnCriteriaModify">
+    <xs:annotation>
+      <xs:documentation>
+        The To dn criteria used on the call me now external number to be modified.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="toDnCriteriaSelection" type="CriteriaDnSelection" minOccurs="0"/>
+      <xs:element name="phoneNumberList" type="CriteriaReplacementDNList" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C O M M   P I L O T   C A L L   M A N A G E R  S E R V I C E           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C O M M   P I L O T   C A L L   M A N A G E R                                      -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupCommPilotCallManagerGetRequest    
+    GroupCommPilotCallManagerModifyRequest    
+    UserCommPilotCallManagerGetRequest    
+    UserCommPilotCallManagerModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupCommPilotCallManagerGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group level data associated with CommPilot Call Manager.
+        The response is either a GroupCommPilotCallManagerGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCommPilotCallManagerGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupCommPilotCallManagerGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupDirectory" type="CommPilotCallManagerGroupDirectoryDisplaySelection"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCommPilotCallManagerModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the group level data associated with CommPilot Call Manager.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupDirectory" type="CommPilotCallManagerGroupDirectoryDisplaySelection" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommPilotCallManagerGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with CommPilot Call Manager.
+        The response is either a UserCommPilotCallManagerGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommPilotCallManagerGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserCommPilotCallManagerGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="launchOnLogin" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCommPilotCallManagerModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with CommPilot Call Manager.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="launchOnLogin" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CommPilotCallManagerGroupDirectoryDisplaySelection">
+    <xs:annotation>
+      <xs:documentation>
+        Choices for commPilot call manager group directory display.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Display"/>
+      <xs:enumeration value="Hide"/>
+      <xs:enumeration value="Search Only"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

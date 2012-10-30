@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- E X T E R N A L   C U S T O M   R I N G B A C K  S E R V I C E         -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- E X T E R N A L   C U S T O M   R I N G B A C K                                    -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    ServiceProviderExternalCustomRingbackGetRequest    
+    ServiceProviderExternalCustomRingbackModifyRequest    
+    UserExternalCustomRingbackGetRequest    
+    UserExternalCustomRingbackModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="ServiceProviderExternalCustomRingbackGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the service provider level data associated with External Custom Ringback.
+        The response is either a ServiceProviderExternalCustomRingbackGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderExternalCustomRingbackGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to ServiceProviderExternalCustomRingbackGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="prefixDigits" type="ExternalCustomRingbackPrefixDigits" minOccurs="0"/>
+          <xs:element name="serverNetAddress" type="NetAddress" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port1025" minOccurs="0"/>
+          <xs:element name="timeoutSeconds" type="ExternalCustomRingbackTimeoutSeconds"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderExternalCustomRingbackModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the service provider level data associated with External Custom Ringback.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="prefixDigits" type="ExternalCustomRingbackPrefixDigits" nillable="true" minOccurs="0"/>
+          <xs:element name="serverNetAddress" type="NetAddress" nillable="true" minOccurs="0"/>
+          <xs:element name="serverPort" type="Port1025" nillable="true" minOccurs="0"/>
+          <xs:element name="timeoutSeconds" type="ExternalCustomRingbackTimeoutSeconds" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserExternalCustomRingbackGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with External Custom Ringback.
+        The response is either a UserExternalCustomRingbackGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserExternalCustomRingbackGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserExternalCustomRingbackGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="useSettingLevel" type="ExternalCustomRingbackSettingLevel"/>
+          <xs:element name="sipRequestURI" type="SIPContact" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserExternalCustomRingbackModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with External Custom Ringback.  
+        The user SIP URI, when selected, it replaces the SP address, port and prefix.  
+        The user SIP URI, if selected, is the Request URI of the SIP INVITE sent 
+        to the external server.  When the service provider data is used instead, 
+        the Request URI is constructed using the prefix, address, port and the user DN.  
+        The timeout value is the only SP configuration used when the user SIP URI is selected.
+        The response is either a SuccessResponse or an ErrorResponse.      
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="useSettingLevel" type="ExternalCustomRingbackSettingLevel" minOccurs="0"/>
+          <xs:element name="sipRequestURI" type="SIPContact" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="ExternalCustomRingbackPrefixDigits">
+    <xs:annotation>
+      <xs:documentation>
+        Prefix digits prepended to the address to reach the external ringback server.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ExternalCustomRingbackSettingLevel">
+    <xs:annotation>
+      <xs:documentation>
+        Choices for the External Custom Ringback feature to decide which type of settings to use.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Service Provider"/>
+      <xs:enumeration value="User"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ExternalCustomRingbackTimeoutSeconds">
+    <xs:annotation>
+      <xs:documentation>
+        Time to wait for any External Media Server to reply with custom ringback.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

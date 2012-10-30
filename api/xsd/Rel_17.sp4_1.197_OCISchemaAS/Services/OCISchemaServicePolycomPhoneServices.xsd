@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- P O L Y C O M   P H O N E   S E R V I C E S  S E R V I C E             -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- P O L Y C O M   P H O N E   S E R V I C E S                                        -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupPolycomPhoneServicesGetRequest    
+    GroupPolycomPhoneServicesModifyRequest    
+    UserPolycomPhoneServicesGetRequest    
+    UserPolycomPhoneServicesModifyRequest    
+    UserPolycomPhoneServicesGetPrimaryEndpointListRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupPolycomPhoneServicesGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group's Polycom Phone Services attributes.
+        The response is either a GroupPolycomPhoneServicesGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPolycomPhoneServicesGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupPolycomPhoneServicesGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="includeGroupCommonPhoneListInDirectory" type="xs:boolean"/>
+          <xs:element name="includeGroupCustomContactDirectoryInDirectory" type="xs:boolean"/>
+          <xs:element name="groupCustomContactDirectory" type="CustomContactDirectoryName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPolycomPhoneServicesModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the group's Polycom Phone Services attributes.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="includeGroupCommonPhoneListInDirectory" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="includeGroupCustomContactDirectoryInDirectory" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="groupCustomContactDirectory" type="CustomContactDirectoryName" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPolycomPhoneServicesGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user's Polycom Phone Services attributes.
+        The response is either a UserPolycomPhoneServicesGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="accessDevice" type="AccessDevice"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPolycomPhoneServicesGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserPolycomPhoneServicesGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="integratePhoneDirectoryWithBroadWorks" type="xs:boolean"/>
+          <xs:element name="includeUserPersonalPhoneListInDirectory" type="xs:boolean"/>
+          <xs:element name="includeGroupCustomContactDirectoryInDirectory" type="xs:boolean"/>
+          <xs:element name="groupCustomContactDirectory" type="CustomContactDirectoryName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPolycomPhoneServicesModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's Polycom Phone Services attributes.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="accessDevice" type="AccessDevice"/>
+          <xs:element name="integratePhoneDirectoryWithBroadWorks" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="includeUserPersonalPhoneListInDirectory" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="includeGroupCustomContactDirectoryInDirectory" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="groupCustomContactDirectory" type="CustomContactDirectoryName" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPolycomPhoneServicesGetPrimaryEndpointListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user's list of device profiles on which the user is the primary user.
+        The response is either a UserPolycomPhoneServicesGetPrimaryEndpointListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPolycomPhoneServicesGetPrimaryEndpointListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserPolycomPhoneServicesGetPrimaryEndpointListRequest.
+        The column headings for the deviceUserTable are: "Device Level", "Device Name", "Line/Port".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="deviceUserTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

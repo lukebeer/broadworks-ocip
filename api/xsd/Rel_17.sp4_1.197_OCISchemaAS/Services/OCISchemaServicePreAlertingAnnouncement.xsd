@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- P R E   A L E R T I N G   A N N O U N C E M E N T  S E R V I C E       -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- P R E   A L E R T I N G   A N N O U N C E M E N T                                  -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    EnterprisePreAlertingAnnouncementGetRequest    
+    EnterprisePreAlertingAnnouncementModifyRequest    
+    GroupPreAlertingAnnouncementGetRequest    
+    GroupPreAlertingAnnouncementModifyRequest    
+    UserPreAlertingAnnouncementGetRequest    
+    UserPreAlertingAnnouncementModifyRequest    
+    UserPreAlertingAnnouncementAddCriteriaRequest    
+    UserPreAlertingAnnouncementModifyCriteriaRequest    
+    UserPreAlertingAnnouncementDeleteCriteriaRequest    
+    UserPreAlertingAnnouncementGetCriteriaRequest    
+    
+  --> 
+  
+  <xs:complexType name="EnterprisePreAlertingAnnouncementGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the Enterprise pre-alerting service settings.
+        The response is either a EnterprisePreAlertingAnnouncementGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterprisePreAlertingAnnouncementGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Get the Enterprise level pre-alerting service settings.
+        The response is either a EnterprisePreAlertingAnnouncementGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="announcementInterruption" type="PreAlertingAnnouncementInterrupt"/>
+          <xs:element name="interruptionDigitSequence" type="PreAlertingAnnouncementInterruptDigits" minOccurs="0"/>
+          <xs:element name="audioSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="audioFileDescription" type="FileDescription" minOccurs="0"/>
+          <xs:element name="audioMediaType" type="MediaFileType" minOccurs="0"/>
+          <xs:element name="audioFileUrl" type="URL" minOccurs="0"/>
+          <xs:element name="videoSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="videoFileDescription" type="FileDescription" minOccurs="0"/>
+          <xs:element name="videoMediaType" type="MediaFileType" minOccurs="0"/>
+          <xs:element name="videoFileUrl" type="URL" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterprisePreAlertingAnnouncementModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the enterprise level pre-alerting service settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="announcementInterruption" type="PreAlertingAnnouncementInterrupt" minOccurs="0"/>
+          <xs:element name="interruptionDigitSequence" type="PreAlertingAnnouncementInterruptDigits" minOccurs="0"/>
+          <xs:element name="audioSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="audioFile" type="ExtendedMediaFileResource" minOccurs="0"/>
+          <xs:element name="videoSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoFile" type="ExtendedMediaFileResource" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPreAlertingAnnouncementGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the group’s PreAlertingservice settings.
+        The response is either a GroupPreAlertingAnnouncementGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPreAlertingAnnouncementGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Get the group level pre-alerting service settings.
+        The response is either a GroupPreAlertingAnnouncementGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="announcementInterruption" type="PreAlertingAnnouncementInterrupt"/>
+          <xs:element name="interruptionDigitSequence" type="PreAlertingAnnouncementInterruptDigits" minOccurs="0"/>
+          <xs:element name="audioSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="audioFileDescription" type="FileDescription" minOccurs="0"/>
+          <xs:element name="audioMediaType" type="MediaFileType" minOccurs="0"/>
+          <xs:element name="audioFileUrl" type="URL" minOccurs="0"/>
+          <xs:element name="videoSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="videoFileDescription" type="FileDescription" minOccurs="0"/>
+          <xs:element name="videoMediaType" type="MediaFileType" minOccurs="0"/>
+          <xs:element name="videoFileUrl" type="URL" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPreAlertingAnnouncementModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the group level pre-alerting service settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="announcementInterruption" type="PreAlertingAnnouncementInterrupt" minOccurs="0"/>
+          <xs:element name="interruptionDigitSequence" type="PreAlertingAnnouncementInterruptDigits" minOccurs="0"/>
+          <xs:element name="audioSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="audioFile" type="ExtendedMediaFileResource" minOccurs="0"/>
+          <xs:element name="videoSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoFile" type="ExtendedMediaFileResource" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the user's pre-alerting service setting.
+        The response is either a UserPreAlertingAnnouncementGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+         Response to a UserPreAlertingAnnouncementGetRequest.
+         The criteria table's column headings are: "Is Active", "Criteria Name", 
+        "Blacklisted", and "Calls From".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="audioSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="audioFileDescription" type="FileDescription" minOccurs="0"/>
+          <xs:element name="audioMediaType" type="MediaFileType" minOccurs="0"/>
+          <xs:element name="audioFileUrl" type="URL" minOccurs="0"/>
+          <xs:element name="videoSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="videoFileDescription" type="FileDescription" minOccurs="0"/>
+          <xs:element name="videoMediaType" type="MediaFileType" minOccurs="0"/>
+          <xs:element name="videoFileUrl" type="URL" minOccurs="0"/>
+          <xs:element name="criteriaTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user's pre-alerting service setting.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="audioSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="audioFile" type="ExtendedMediaFileResource" minOccurs="0"/>
+          <xs:element name="videoSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoFile" type="ExtendedMediaFileResource" minOccurs="0"/>
+          <xs:element name="criteriaActivation" type="CriteriaActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementAddCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a criteria to the user's pre-alerting service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementModifyCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a criteria for the user's pre-alerting service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+          <xs:element name="newCriteriaName" type="CriteriaName" minOccurs="0"/>
+          <xs:element name="timeSchedule" type="TimeSchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" nillable="true" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDnModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementDeleteCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a criteria from the user's pre-alerting service.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementGetCriteriaRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a criteria for the user's pre-alerting service.
+        The response is either a UserPreAlertingAnnouncementGetCriteriaResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="criteriaName" type="CriteriaName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreAlertingAnnouncementGetCriteriaResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserPreAlertingAnnouncementGetCriteriaRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="timeSchedule" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="blacklisted" type="xs:boolean"/>
+          <xs:element name="fromDnCriteria" type="CriteriaFromDn"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="PreAlertingAnnouncementInterrupt">
+    <xs:annotation>
+      <xs:documentation>
+        Pre-alerting Announcement interrupt type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Not Allowed"/>
+      <xs:enumeration value="Any Digit"/>
+      <xs:enumeration value="Digit Sequence"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="PreAlertingAnnouncementInterruptDigits">
+    <xs:annotation>
+      <xs:documentation>
+        Pre-alerting Announcement Interrupt digit sequence.
+        The Interrupt digit sequence may contain digits 0-9, *, and #.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

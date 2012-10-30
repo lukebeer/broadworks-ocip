@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- P R E F E R R E D   C A R R I E R  S E R V I C E                       -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- P R E F E R R E D   C A R R I E R    R E Q U E S T S  A N D  R E S P O N S E S     -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupPreferredCarrierGroupGetRequest    
+    GroupPreferredCarrierGroupModifyRequest    
+    ServiceProviderPreferredCarrierAddRequest    
+    ServiceProviderPreferredCarrierDeleteRequest    
+    ServiceProviderPreferredCarrierGetAvailableCountryCodeListRequest    
+    ServiceProviderPreferredCarrierGetCarrierListRequest    
+    ServiceProviderPreferredCarrierGetListRequest    
+    ServiceProviderPreferredCarrierGetRequest    
+    ServiceProviderPreferredCarrierModifyRequest    
+    SystemPreferredCarrierAddRequest    
+    SystemPreferredCarrierDeleteRequest    
+    SystemPreferredCarrierGetGroupListRequest    
+    SystemPreferredCarrierGetListRequest    
+    SystemPreferredCarrierGetRequest    
+    SystemPreferredCarrierGetUserListRequest    
+    SystemPreferredCarrierModifyRequest    
+    UserPreferredCarrierUserGetRequest    
+    UserPreferredCarrierUserModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupPreferredCarrierGroupGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests the currently configured carriers for a group.
+        The response is either a GroupPreferredCarrierGroupGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPreferredCarrierGroupGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a GroupPreferredCarrierGroupGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="intraLataCarrier" type="GroupPreferredCarrierName"/>
+          <xs:element name="interLataCarrier" type="GroupPreferredCarrierName"/>
+          <xs:element name="internationalCarrier" type="GroupPreferredCarrierName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPreferredCarrierGroupModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies the currently configured carriers for a group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="intraLataCarrier" type="GroupPreferredCarrierNameModify" minOccurs="0"/>
+          <xs:element name="interLataCarrier" type="GroupPreferredCarrierNameModify" minOccurs="0"/>
+          <xs:element name="internationalCarrier" type="GroupPreferredCarrierNameModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add the country code preferred carriers for a service provider or enterprise. For each
+        combination of service provider and country code, you can assign an intra-lata, inter-lata,
+        and international carrier. Each of the three types of carriers is optional.
+        The response is either a SuccessResponse or an ErrorResponse.
+        Note: At the system level, more than one carrier may be assigned to each country code.
+        At the service provider level, you must choose from the carriers assigned at the system level.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="intraLataCarrier" type="PreferredCarrierName" minOccurs="0"/>
+          <xs:element name="interLataCarrier" type="PreferredCarrierName" minOccurs="0"/>
+          <xs:element name="internationalCarrier" type="PreferredCarrierName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierDeleteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete the country code preferred carriers for a service provider or enterprise.
+        Note that this is different from unassigning all 3 types of carriers with
+        the ServiceProviderPreferredCarrierModifyRequest.
+        The response is either a SuccessResponse or an ErrorResponse.
+        An ErrorResponse will be returned if the country code preferred carriers were never added or
+        were already deleted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetAvailableCountryCodeListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests the default country code and the list of unused country codes for a service provider / enterprise.
+        The response is either a ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a ServiceProviderPreferredCarrierGetAvailableCountryCodeListRequest.
+        Contains the default country code and the list of unused country codes for a service provider / enterprise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="defaultCountryCode" type="CountryCode" minOccurs="0"/>
+          <xs:element name="countryCode" type="CountryCode" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetCarrierListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests the lists of carriers for a specified country code for a service provider / enterprise.
+        The response is either a ServiceProviderPreferredCarrierGetCarrierListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetCarrierListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a ServiceProviderPreferredCarrierGetCarrierListRequest.
+        Contains the lists of carriers for a specified country code for a service provider / enterprise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="intraLataCarrier" type="PreferredCarrierName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="interLataCarrier" type="PreferredCarrierName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="internationalCarrier" type="PreferredCarrierName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests a table of all the carriers defined in a specified service provider or enterprise.
+        The response is either a ServiceProviderPreferredCarrierGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a ServiceProviderPreferredCarrierGetListRequest. Contains a table with one row per carrier.
+        The table columns are: "Country Code", "Intra-Lata PIC", "Inter-Lata PIC", "International PIC".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serviceProviderCarrierTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests the currently configured carriers for a specified country code for a service provider / enterprise.
+        The response is either a ServiceProviderPreferredCarrierGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a ServiceProviderPreferredCarrierGetRequest.
+        Contains the currently configured carriers for a specified country code for a service provider / enterprise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="intraLataCarrier" type="PreferredCarrierName" minOccurs="0"/>
+          <xs:element name="interLataCarrier" type="PreferredCarrierName" minOccurs="0"/>
+          <xs:element name="internationalCarrier" type="PreferredCarrierName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderPreferredCarrierModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the country code preferred carriers for a service provider or enterprise. For each
+        combination of service provider and country code, you can assign an intra-lata, inter-lata,
+        and international carrier. Each of the 3 types of carriers is optional.
+        If an optional carrier is not specified, the assignment will not change.
+        To clear a preferred carrier, set the value to an empty string.
+        The response is either a SuccessResponse or an ErrorResponse.
+        Note: At the system level, more than one carrier may be assigned to each country code.
+        At the service provider level, you must choose from the carriers assigned at the system level.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="intraLataCarrier" type="PreferredCarrierName" nillable="true" minOccurs="0"/>
+          <xs:element name="interLataCarrier" type="PreferredCarrierName" nillable="true" minOccurs="0"/>
+          <xs:element name="internationalCarrier" type="PreferredCarrierName" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a carrier to the system.
+        More than one carrier may be assigned to each country code.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="carrier" type="PreferredCarrierName"/>
+          <xs:element name="cic" type="PreferredCarrierIdCode"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="isIntraLata" type="xs:boolean"/>
+          <xs:element name="isInterLata" type="xs:boolean"/>
+          <xs:element name="isInternational" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierDeleteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a carrier from the system.
+        The response is either a SuccessResponse or an ErrorResponse.
+        An ErrorResponse is returned if the carrier is in use, or if the carrier didn't exist prior to deletion..
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="carrier" type="PreferredCarrierName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetGroupListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests a list of groups using the specified carrier.  It is possible to restrict the
+        number of rows returned by specifying various search criteria. Multiple search criteria
+        are logically ANDed together.
+        The response is either a SystemPreferredCarrierGetGroupListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="carrier" type="PreferredCarrierName"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaGroupId" type="SearchCriteriaGroupId" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaGroupName" type="SearchCriteriaGroupName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactServiceProvider" type="SearchCriteriaExactServiceProvider" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetGroupListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a SystemPreferredCarrierGetGroupListRequest.
+        Contains a table with one row per group.
+        The table columns are: "Group Id", "Group Name", "Organization Id", "Organization Type".
+        The "Organization Id" column is populated with either a service provider Id or an enterprise Id.
+        The "Organization Type" column is populated with one of the enumerated strings defined in the
+        OrganizationType OCI data type.  Please see OCISchemaDataTypes.xsd for details on OrganizationType.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupsUsingCarrierTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests a table of all the carriers defined in the system.
+        The response is either a SystemPreferredCarrierGetListResponse
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a SystemPreferredCarrierGetListRequest. Contains a table with one row per carrier.
+        The table columns are: "Carrier", "Country Code", "CIC", "Is Intra-Lata", "Is Inter-Lata", "Is International".
+        The value in the "Is Intra-Lata", "Is Inter-Lata", and "Is International" columns is one of "true" or "false".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="systemCarrierTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests the attributes of carrier.
+        The response is either a SystemPreferreredCarrierGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="carrier" type="PreferredCarrierName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a SystemPreferredCarrierGetRequest.
+        Contains the attributes of a carrier.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="cic" type="PreferredCarrierIdCode"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="isIntraLata" type="xs:boolean"/>
+          <xs:element name="isInterLata" type="xs:boolean"/>
+          <xs:element name="isInternational" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests a list of users using the specified carrier.  It is possible to restrict the
+        number of rows returned by specifying various search criteria. Multiple search criteria
+        are logically ANDed together.
+        The response is either a SystemPreferreredCarrierGetUserListResponse
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="carrier" type="PreferredCarrierName"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaDn" type="SearchCriteriaDn" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaEmailAddress" type="SearchCriteriaEmailAddress" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierGetUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a SystemPreferredCarrierGetUserListRequest.
+        Contains a table with one row per user.
+        The table columns are: "User Id", "Service Provider Id", "Group Id", "Last Name", "First Name", "Phone Number", "Email Address",
+        "Hiragana Last Name", and "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="usersUsingCarrierTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemPreferredCarrierModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the attributes of a carrier.
+        The response is either a SuccessResponse or an ErrorResponse.
+        An ErrorResponse is returned if countryCode modification is attempted while the carrier is assigned to a service provider.
+        An ErrorResponse is returned if an attempt to set isIntraLata to false is made while the carrier is used as an intra-LATA carrier.
+        An ErrorResponse is returned if an attempt to set isInternational to false is made while the carrier is used as an international carrier.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="carrier" type="PreferredCarrierName"/>
+          <xs:element name="cic" type="PreferredCarrierIdCode" minOccurs="0"/>
+          <xs:element name="countryCode" type="CountryCode" minOccurs="0"/>
+          <xs:element name="isIntraLata" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="isInterLata" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="isInternational" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreferredCarrierUserGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests the currently configured preferred carriers for a user.
+        The response is either a UserPreferredCarrierUserGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreferredCarrierUserGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to a UserPreferredCarrierUserGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="intraLataCarrier" type="UserPreferredCarrierName"/>
+          <xs:element name="interLataCarrier" type="UserPreferredCarrierName"/>
+          <xs:element name="internationalCarrier" type="UserPreferredCarrierName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreferredCarrierUserModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies the currently configured preferred carriers for a user.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="intraLataCarrier" type="UserPreferredCarrierNameModify" minOccurs="0"/>
+          <xs:element name="interLataCarrier" type="UserPreferredCarrierNameModify" minOccurs="0"/>
+          <xs:element name="internationalCarrier" type="UserPreferredCarrierNameModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPreferredCarrierName">
+    <xs:annotation>
+      <xs:documentation>
+        Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+        The group carrier name is exposed if it was previously configured.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="useServiceProviderPreferredCarrier" type="xs:boolean"/>
+      <xs:element name="carrier" type="PreferredCarrierName" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupPreferredCarrierNameModify">
+    <xs:annotation>
+      <xs:documentation>
+        Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+        You can use the Service Provider preferred carrier without clearing the group
+        carrier name -- in this case, the group carrier name is retained.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="useServiceProviderPreferredCarrier" type="xs:boolean"/>
+      <xs:element name="carrier" type="PreferredCarrierName" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="PreferredCarrierIdCode">
+    <xs:annotation>
+      <xs:documentation>A digit code used by network signaling to identifiy a carrier.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="PreferredCarrierName">
+    <xs:annotation>
+      <xs:documentation>Uniquely identifies a carrier.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="UserPreferredCarrierName">
+    <xs:annotation>
+      <xs:documentation>
+        User can either use it's group's preferred carrier or use it's own.
+        The user carrier name is exposed if it was previously configured.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="useGroupPreferredCarrier" type="xs:boolean"/>
+      <xs:element name="carrier" type="PreferredCarrierName" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPreferredCarrierNameModify">
+    <xs:annotation>
+      <xs:documentation>
+        User can either use it's group's preferred carrier or use it's own.
+        You can use the group's preferred carrier without clearing the user carrier name --
+        in this case, the user carrier name is retained.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="useGroupPreferredCarrier" type="xs:boolean"/>
+      <xs:element name="carrier" type="PreferredCarrierName" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

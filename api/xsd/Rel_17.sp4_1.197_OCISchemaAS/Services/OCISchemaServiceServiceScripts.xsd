@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S E R V I C E   S C R I P T S  S E R V I C E                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S E R V I C E   S C R I P T S    R E Q U E S T S  A N D  R E S P O N S E S         -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupServiceScriptsGroupClearLogRequest    
+    GroupServiceScriptsGroupGetLogRequest    
+    GroupServiceScriptsGroupGetRequest    
+    GroupServiceScriptsGroupModifyRequest    
+    UserServiceScriptsUserClearLogRequest    
+    UserServiceScriptsUserGetLogRequest    
+    UserServiceScriptsUserGetRequest    
+    UserServiceScriptsUserModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupServiceScriptsGroupClearLogRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Clear the Service Script Group Log.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupServiceScriptsGroupGetLogRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group level data associated with Service Scripts Group Log.
+        The response is either a GroupServiceScriptsGroupGetLogResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupServiceScriptsGroupGetLogResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupServiceScriptsGroupGetLogRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="logContent" type="xs:base64Binary" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupServiceScriptsGroupGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group level data associated with Service Scripts Group Configuration.
+        The response is either a GroupServiceScriptsGroupGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupServiceScriptsGroupGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupServiceScriptsGroupGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="scriptName" type="ServiceScriptsName" minOccurs="0"/>
+          <xs:element name="scriptContent" type="xs:base64Binary" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupServiceScriptsGroupModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the group level data associated with Service Scripts Configuration.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:choice>
+            <xs:element name="scriptFile" type="ServiceScriptsFileResource" minOccurs="0"/>
+            <xs:element name="scriptUrl" type="URL" minOccurs="0"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserServiceScriptsUserClearLogRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Clear the Service Script User Log.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserServiceScriptsUserGetLogRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated Service Scripts User Log.
+        The response is either a UserServiceScriptsGetUserLogResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserServiceScriptsUserGetLogResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserServiceScriptsUserGetLogRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="logContent" type="xs:base64Binary" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserServiceScriptsUserGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Service Scripts User Configuration.
+        The response is either a UserServiceScriptsUserGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserServiceScriptsUserGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserServiceScriptsUserGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="scriptName" type="ServiceScriptsName" minOccurs="0"/>
+          <xs:element name="scriptContent" type="xs:base64Binary" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserServiceScriptsUserModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Service Scripts User Configuration.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:choice>
+            <xs:element name="scriptFile" type="ServiceScriptsFileResource" minOccurs="0"/>
+            <xs:element name="scriptUrl" type="URL" minOccurs="0"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="ServiceScriptsProvisioningMode">
+    <xs:annotation>
+      <xs:documentation>
+        Service Script supported provisioning mode.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Group"/>
+      <xs:enumeration value="User"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ServiceScriptsName">
+    <xs:annotation>
+      <xs:documentation>
+        Service Script name.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="ServiceScriptsFileResource">
+    <xs:annotation>
+      <xs:documentation>
+        Service Scripts File Resource for uploading file content.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fileName" type="FileName"/>
+      <xs:element name="scriptContent" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

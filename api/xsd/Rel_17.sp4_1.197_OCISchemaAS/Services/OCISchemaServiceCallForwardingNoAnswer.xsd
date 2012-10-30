@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C A L L   F O R W A R D I N G   N O   A N S W E R  S E R V I C E       -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C A L L   F O R W A R D I N G   N O   A N S W E R                                  -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserCallForwardingNoAnswerGetRequest13mp16    
+    UserCallForwardingNoAnswerModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserCallForwardingNoAnswerGetRequest13mp16">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Call Forwarding No Answer.
+        The response is either a UserCallForwardingNoAnswerGetResponse13mp16 or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallForwardingNoAnswerGetResponse13mp16">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserCallForwardingNoAnswerGetRequest13mp16.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="forwardToPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="numberOfRings" type="CallForwardingNoAnswerNumberOfRings"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserCallForwardingNoAnswerModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Call Forwarding No Answer.
+        The response is either a SuccessResponse or an ErrorResponse.
+        Engineering Note: This command is used internally by Call Processing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="forwardToPhoneNumber" type="OutgoingDNorSIPURI" nillable="true" minOccurs="0"/>
+          <xs:element name="numberOfRings" type="CallForwardingNoAnswerNumberOfRings" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CallForwardingNoAnswerNumberOfRings">
+    <xs:annotation>
+      <xs:documentation>
+        Number of Rings until call is redirected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+      <xs:enumeration value="5"/>
+      <xs:enumeration value="6"/>
+      <xs:enumeration value="7"/>
+      <xs:enumeration value="8"/>
+      <xs:enumeration value="9"/>
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="11"/>
+      <xs:enumeration value="12"/>
+      <xs:enumeration value="13"/>
+      <xs:enumeration value="14"/>
+      <xs:enumeration value="15"/>
+      <xs:enumeration value="16"/>
+      <xs:enumeration value="17"/>
+      <xs:enumeration value="18"/>
+      <xs:enumeration value="19"/>
+      <xs:enumeration value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

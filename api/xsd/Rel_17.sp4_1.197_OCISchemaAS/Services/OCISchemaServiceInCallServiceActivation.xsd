@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- I N   C A L L   S E R V I C E   A C T I V A T I O N  S E R V I C E     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- I N   C A L L   S E R V I C E   A C T I V A T I O N                                -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserInCallServiceActivationGetRequest    
+    UserInCallServiceActivationModifyRequest    
+    ServiceProviderInCallServiceActivationGetRequest17    
+    ServiceProviderInCallServiceActivationModifyRequest17    
+    SystemInCallServiceActivationGetRequest17    
+    SystemInCallServiceActivationModifyRequest17    
+    
+  --> 
+  
+  <xs:complexType name="UserInCallServiceActivationGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with In-Call Service Activation.
+        The response is either a UserInCallServiceActivationGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserInCallServiceActivationGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserInCallServiceActivationGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserInCallServiceActivationModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with In-Call Service Activation.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderInCallServiceActivationGetRequest17">
+    <xs:annotation>
+      <xs:documentation>
+          Request the service provider's DTMF based in-call service activation trigger attributes.The response is either a ServiceProviderInCallServiceActivationGetResponse17 or an ErrorResponse.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderInCallServiceActivationGetResponse17">
+    <xs:annotation>
+      <xs:documentation>
+          Response to ServiceProviderInCallServiceActivationGetRequest17.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="flashActivationDigits" type="InCallServiceActivationDigits"/>
+          <xs:element name="callTransferActivationDigits" type="InCallServiceActivationDigits"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderInCallServiceActivationModifyRequest17">
+    <xs:annotation>
+      <xs:documentation>
+          Modifies the service provider's DTMF based in-call service activation trigger attributes.The response is either a SuccessResponse or an ErrorResponse.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="flashActivationDigits" type="InCallServiceActivationDigits" minOccurs="0"/>
+          <xs:element name="callTransferActivationDigits" type="InCallServiceActivationDigits" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemInCallServiceActivationGetRequest17">
+    <xs:annotation>
+      <xs:documentation>
+          Request the system's DTMF based in-call service activation trigger attributes. The response is either a SystemInCallServiceActivationGetResponse17 or an ErrorResponse.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemInCallServiceActivationGetResponse17">
+    <xs:annotation>
+      <xs:documentation>
+          Response to SystemInCallServiceActivationGetRequest17.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="defaultFlashActivationDigits" type="InCallServiceActivationDigits"/>
+          <xs:element name="defaultCallTransferActivationDigits" type="InCallServiceActivationDigits"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemInCallServiceActivationModifyRequest17">
+    <xs:annotation>
+      <xs:documentation>
+          Modifies the system's DTMF based in-call service activation trigger  attributes.The response is either a SuccessResponse or an ErrorResponse.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="defaultFlashActivationDigits" type="InCallServiceActivationDigits" minOccurs="0"/>
+          <xs:element name="defaultCallTransferActivationDigits" type="InCallServiceActivationDigits" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

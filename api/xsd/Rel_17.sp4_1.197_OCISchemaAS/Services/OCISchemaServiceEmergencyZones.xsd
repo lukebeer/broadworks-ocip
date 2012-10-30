@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- E M E R G E N C Y   Z O N E S  S E R V I C E                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- E M E R G E N C Y   Z O N E S    R E Q U E S T S  A N D  R E S P O N S E S         -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupEmergencyZonesAddHomeZoneListRequest    
+    GroupEmergencyZonesDeleteHomeZoneListRequest    
+    GroupEmergencyZonesGetHomeZoneListRequest    
+    GroupEmergencyZonesGetRequest    
+    GroupEmergencyZonesModifyHomeZoneListRequest    
+    GroupEmergencyZonesModifyRequest    
+    SystemEmergencyZonesGetRequest    
+    SystemEmergencyZonesModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupEmergencyZonesAddHomeZoneListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a list of home zones and/or home zone ranges to the the group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="homeZoneIpAddress" type="IPAddress" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="homeZoneIpAddressRange" type="IPAddressRange" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupEmergencyZonesDeleteHomeZoneListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a list of home zones and/or home zone ranges to the the group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="homeZoneIpAddress" type="IPAddress" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="homeZoneIpAddressRange" type="IPAddressRange" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupEmergencyZonesGetHomeZoneListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group level data associated with Emergency Zones.
+        The response is either a GroupEmergencyZonesGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupEmergencyZonesGetHomeZoneListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupEmergencyZonesGetHomeZoneListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="homeZoneIpAddress" type="IPAddress" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="homeZoneIpAddressRange" type="IPAddressRange" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupEmergencyZonesGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group level data associated with Emergency Zones.
+        The response is either a GroupEmergencyZonesGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupEmergencyZonesGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupEmergencyZonesGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="emergencyZonesProhibition" type="EmergencyZonesProhibition"/>
+          <xs:element name="sendEmergencyCallNotifyEmail" type="xs:boolean"/>
+          <xs:element name="emergencyCallNotifyEmailAddress" type="EmailAddress" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupEmergencyZonesModifyHomeZoneListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a list of home zones and/or home zone ranges.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="homeZoneIpAddressList" minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="homeZoneIpAddress" type="IPAddress"/>
+                <xs:element name="newHomeZoneIpAddress" type="IPAddress"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="homeZoneIpAddressRangeList" minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="homeZoneIpAddressRange" type="IPAddressRange"/>
+                <xs:element name="newHomeZoneIpAddressRange" type="IPAddressRange"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupEmergencyZonesModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the group level data associated with Emergency Zones.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="emergencyZonesProhibition" type="EmergencyZonesProhibition" minOccurs="0"/>
+          <xs:element name="sendEmergencyCallNotifyEmail" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="emergencyCallNotifyEmailAddress" type="EmailAddress" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemEmergencyZonesGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with Emergency Zones.
+        The response is either a SystemEmergencyZonesGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemEmergencyZonesGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemEmergencyZonesGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="defaultFromAddress" type="EmailAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemEmergencyZonesModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with Emergency Zones.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="defaultFromAddress" type="EmailAddress" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="EmergencyZonesProhibition">
+    <xs:annotation>
+      <xs:documentation>
+        Emergency zone policy to specify what kind of calls will be prohibited by the service when
+        originated from outside the home zone.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Prohibit all registrations and call originations"/>
+      <xs:enumeration value="Prohibit emergency call originations"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

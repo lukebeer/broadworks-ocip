@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- A U T O M A T I C   C A L L B A C K  S E R V I C E                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- A U T O M A T I C   C A L L B A C K    R E Q U E S T S  A N D  R E S P O N S E S   -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemAutomaticCallbackGetRequest17    
+    SystemAutomaticCallbackModifyRequest15    
+    SystemAutomaticCallbackGetReleaseCauseListRequest    
+    SystemAutomaticCallbackAddReleaseCauseListRequest    
+    SystemAutomaticCallbackDeleteReleaseCauseListRequest    
+    UserAutomaticCallbackGetRequest    
+    UserAutomaticCallbackModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemAutomaticCallbackGetRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system's automatic callback attributes.
+        The response is either a SystemAutomaticCallbackGetResponse17 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAutomaticCallbackGetResponse17">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemAutomaticCallbackGetRequest17.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="monitorMinutes" type="AutomaticCallbackMonitorMinutes"/>
+          <xs:element name="maxMonitorsPerOriginator" type="AutomaticCallbackMaxMonitorsPerOriginator"/>
+          <xs:element name="maxCallbackRings" type="AutomaticCallbackMaxCallbackRings"/>
+          <xs:element name="maxMonitorsPerTerminator" type="AutomaticCallbackMaxMonitorsPerTerminator"/>
+          <xs:element name="terminatorIdleGuardSeconds" type="AutomaticCallbackTerminatorIdleGuardSeconds"/>
+          <xs:element name="callbackMethod" type="AutomaticCallbackMethod"/>
+          <xs:element name="pollingIntervalSeconds" type="AutomaticCallbackPollingIntervalSeconds"/>
+          <xs:element name="activationDigit" type="AutomaticCallbackActivationDigit"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAutomaticCallbackModifyRequest15">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies the system's automatic callback attributes.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="monitorMinutes" type="AutomaticCallbackMonitorMinutes" minOccurs="0"/>
+          <xs:element name="maxMonitorsPerOriginator" type="AutomaticCallbackMaxMonitorsPerOriginator" minOccurs="0"/>
+          <xs:element name="maxCallbackRings" type="AutomaticCallbackMaxCallbackRings" minOccurs="0"/>
+          <xs:element name="maxMonitorsPerTerminator" type="AutomaticCallbackMaxMonitorsPerTerminator" minOccurs="0"/>
+          <xs:element name="terminatorIdleGuardSeconds" type="AutomaticCallbackTerminatorIdleGuardSeconds" minOccurs="0"/>
+          <xs:element name="callbackMethod" type="AutomaticCallbackMethod" minOccurs="0"/>
+          <xs:element name="pollingIntervalSeconds" type="AutomaticCallbackPollingIntervalSeconds" minOccurs="0"/>
+          <xs:element name="activationDigit" type="AutomaticCallbackActivationDigit" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAutomaticCallbackGetReleaseCauseListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system's automatic callback attributes.
+        The response is either a SystemAutomaticCallbackGetReleaseCauseListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAutomaticCallbackGetReleaseCauseListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemAutomaticCallbackGetReleaseCauseListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="releaseCause" type="AutomaticCallbackReleaseCause" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAutomaticCallbackAddReleaseCauseListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Adds automatic callback release cause to the releaseCause attribute.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="releaseCause" type="AutomaticCallbackReleaseCause" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAutomaticCallbackDeleteReleaseCauseListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Deletes automatic callback release causes from the release cause attribute.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="releaseCause" type="AutomaticCallbackReleaseCause" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAutomaticCallbackGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Automatic Callback.
+        The response is either a UserAutomaticCallbackGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAutomaticCallbackGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserAutomaticCallbackGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAutomaticCallbackModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Automatic Callback.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="AutomaticCallbackMethod">
+    <xs:annotation>
+      <xs:documentation>
+        Automatic Callback methods.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Notify Only"/>
+      <xs:enumeration value="Notify If Possible And Polling Otherwise"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackMaxCallbackRings">
+    <xs:annotation>
+      <xs:documentation>
+        Maximum callback rings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="3"/>
+      <xs:maxInclusive value="8"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackMaxMonitorsPerOriginator">
+    <xs:annotation>
+      <xs:documentation>
+        Maximum monitors per originator.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackMaxMonitorsPerTerminator">
+    <xs:annotation>
+      <xs:documentation>
+        Maximum monitors per terminator.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="30"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackMonitorMinutes">
+    <xs:annotation>
+      <xs:documentation>
+        Automatic Callback monitor minutes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="5"/>
+      <xs:maxInclusive value="180"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackPollingIntervalSeconds">
+    <xs:annotation>
+      <xs:documentation>
+        Polling interval seconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="60"/>
+      <xs:maxInclusive value="900"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackTerminatorIdleGuardSeconds">
+    <xs:annotation>
+      <xs:documentation>
+        Idle guard timer seconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="5"/>
+      <xs:maxInclusive value="300"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackActivationDigit">
+    <xs:annotation>
+      <xs:documentation>
+        Callback Activation Digit.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="9"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="AutomaticCallbackReleaseCause">
+    <xs:annotation>
+      <xs:documentation>
+        Callback Release Cause.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Busy"/>
+      <xs:enumeration value="Forbidden"/>
+      <xs:enumeration value="Global Failure"/>
+      <xs:enumeration value="Request Failure"/>
+      <xs:enumeration value="Server Failure"/>
+      <xs:enumeration value="Translation Failure"/>
+      <xs:enumeration value="Temporarily Unavailable"/>
+      <xs:enumeration value="User Not Found"/>
+      <xs:enumeration value="Request Timeout"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- I   N   I N T E G R A T I O N  S E R V I C E                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- I   N   I N T E G R A T I O N    R E Q U E S T S  A N D  R E S P O N S E S         -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserINIntegrationGetRequest    
+    UserINIntegrationModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserINIntegrationGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the user level IN Integration service attributes
+        Response is either UserINIntegrationGetResponse or ErrorResponse
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserINIntegrationGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+         Response to UserINIntegrationGetRequest
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="originatingServiceKey" type="MobilityManagerServiceKey" minOccurs="0"/>
+          <xs:element name="terminatingServiceKey" type="MobilityManagerServiceKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserINIntegrationModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify the user level IN Integration service attributes
+        Response is either SuccessResponse or ErrorResponse
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="originatingServiceKey" type="MobilityManagerServiceKey" minOccurs="0" nillable="true"/>
+          <xs:element name="terminatingServiceKey" type="MobilityManagerServiceKey" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

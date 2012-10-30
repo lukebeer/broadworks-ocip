@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- B R O A D   W O R K S   M O B I L I T Y  S E R V I C E                 -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- B R O A D   W O R K S   M O B I L I T Y                                            -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    SystemBroadWorksMobilityAddIMRNListRequest    
+    SystemBroadWorksMobilityDeleteIMRNListRequest    
+    SystemBroadWorksMobilityGetIMRNListRequest    
+    SystemBroadWorksMobilityServiceAccessCodeAddRequest    
+    SystemBroadWorksMobilityServiceAccessCodeDeleteRequest    
+    SystemBroadWorksMobilityServiceAccessCodeGetListRequest    
+    SystemBroadWorksMobilityServiceAccessCodeModifyRequest    
+    SystemBroadWorksMobilityGetRequest    
+    SystemBroadWorksMobilityModifyRequest    
+    ServiceProviderBroadWorksMobilityGetRequest    
+    ServiceProviderBroadWorksMobilityModifyRequest    
+    GroupBroadWorksMobilityGetRequest    
+    GroupBroadWorksMobilityModifyRequest    
+    UserBroadWorksMobilityGetRequest    
+    UserBroadWorksMobilityModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="SystemBroadWorksMobilityAddIMRNListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+     	  Adds BroadWorks Mobility IMRN numbers to the system. It is possible to add either: 
+        a single number, a list of numbers, or a range of numbers, or any combination thereof.
+        The response is either a SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="imrnNumber" type="DN" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="numberRange" type="DNRange" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityDeleteIMRNListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Removes a BroadWorks Mobility IMRN number from the system. 
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="imrnNumber" type="DN" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityGetIMRNListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Request to get the list of BroadWorks Mobility IMRN numbers defined in the system.
+        The response is either a SystemBroadWorksMobilityIMRNGetListResponse
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="searchCriteriaIMRN" type="SearchCriteriaIMRN" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityGetIMRNListResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+          Response to SystemBroadWorksMobilityDnGetListRequest.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="imrnNumber" type="DN" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityServiceAccessCodeAddRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Add a system service access code.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceAccessCode" type="ServiceAccessCode"/>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="description" type="ServiceAccessCodeDescription" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityServiceAccessCodeDeleteRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Delete a system service access code.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="serviceAccessCode" type="ServiceAccessCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityServiceAccessCodeGetListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get a list of system service access codes.
+        The response is either SystemBroadWorksMobilityServiceAccessCodeGetListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityServiceAccessCodeGetListResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to SystemBroadWorksMobilityServiceAccessCodeGetListRequest.
+        Contains a table with column headings: "Country Code", "Service Access Code", "Description"
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serviceAccessCodeTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityServiceAccessCodeModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify a system service access code.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="serviceAccessCode" type="ServiceAccessCode"/>
+          <xs:element name="description" type="ServiceAccessCodeDescription" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the broadworks mobility system parameters.
+        The response is either a SystemBroadWorksMobilityGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityGetResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        The response to a SystemBroadWorksMobilityGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableLocationServices" type="xs:boolean"/>
+          <xs:element name="enableMSRNLookup" type="xs:boolean"/>
+          <xs:element name="enableMobileStateChecking" type="xs:boolean"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean"/>
+          <xs:element name="imrnTimeoutMillisecnds" type="IMRNTimeoutMilliseconds"/>
+          <xs:element name="scfSignalingIPAddress" type="IPAddress" minOccurs="0"/>
+          <xs:element name="scfSignalingPort" type="Port" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemBroadWorksMobilityModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the BroadWorks Mobility system parameters.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="enableLocationServices" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableMSRNLookup" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableMobileStateChecking" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="imrnTimeoutMilliseconds" type="IMRNTimeoutMilliseconds" minOccurs="0"/>
+          <xs:element name="scfSignalingIPAddress" type="IPAddress" minOccurs="0" nillable="true"/>
+          <xs:element name="scfSignalingPort" type="Port" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderBroadWorksMobilityGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the service provider BroadWorks Mobility service settings.
+        The response is either a ServiceProviderBroadWorksMobilityGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderBroadWorksMobilityGetResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        The response to a ServiceProviderBroadWorksMobilityGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useSettingLevel" type="BroadWorksMobilityServiceProviderSettingLevel"/>
+          <xs:element name="enableLocationServices" type="xs:boolean"/>
+          <xs:element name="enableMSRNLookup" type="xs:boolean"/>
+          <xs:element name="enableMobileStateChecking" type="xs:boolean"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ServiceProviderBroadWorksMobilityModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the service provider level BroadWorks Mobility service settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="useSettingLevel" type="BroadWorksMobilityServiceProviderSettingLevel" minOccurs="0"/>
+          <xs:element name="enableLocationServices" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableMSRNLookup" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableMobileStateChecking" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupBroadWorksMobilityGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the group’s BroadWorks Mobility settings.
+        The response is either a GroupBroadWorksMobilityGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupBroadWorksMobilityGetResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        The response to a GroupBroadWorksMobilityGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useSettingLevel" type="BroadWorksMobilityGroupSettingLevel"/>
+          <xs:element name="enableLocationServices" type="xs:boolean"/>
+          <xs:element name="enableMSRNLookup" type="xs:boolean"/>
+          <xs:element name="enableMobileStateChecking" type="xs:boolean"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupBroadWorksMobilityModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the group level broadworks mobility service settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="useSettingLevel" type="BroadWorksMobilityGroupSettingLevel" minOccurs="0"/>
+          <xs:element name="enableLocationServices" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableMSRNLookup" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableMobileStateChecking" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksMobilityGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the user's broadworks mobility service settings.
+        The response is either a UserBroadWorksMobilityGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksMobilityGetResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+         Response to a UserBroadWorksMobilityGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="phonesToRing" type="BroadWorksMobilityPhoneToRing"/>
+          <xs:element name="mobilePhoneNumber" type="DN" minOccurs="0"/>
+          <xs:element name="alertClickToDialCalls" type="xs:boolean"/>
+          <xs:element name="alertGroupPagingCalls" type="xs:boolean"/>
+          <xs:element name="enableDiversionInhibitor" type="xs:boolean"/>
+          <xs:element name="requireAnswerConfirmation" type="xs:boolean"/>
+          <xs:element name="broadworksCallControl" type="xs:boolean"/>
+          <xs:element name="useSettingLevel" type="BroadWorksMobilityUserSettingLevel"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserBroadWorksMobilityModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the user's broadworks mobility service settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="phonesToRing" type="BroadWorksMobilityPhoneToRing" minOccurs="0"/>
+          <xs:element name="mobilePhoneNumber" type="DN" minOccurs="0" nillable="true"/>
+          <xs:element name="alertClickToDialCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="alertGroupPagingCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableDiversionInhibitor" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="requireAnswerConfirmation" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="broadworksCallControl" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="useSettingLevel" type="BroadWorksMobilityUserSettingLevel" minOccurs="0"/>
+          <xs:element name="denyCallOriginations" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="denyCallTerminations" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="BroadWorksMobilityPhoneToRing">
+    <xs:annotation>
+      <xs:documentation>
+        BroadWorks Mobility interrupt type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Fixed"/>
+      <xs:enumeration value="Mobile"/>
+      <xs:enumeration value="Both"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="BroadWorksMobilityServiceProviderSettingLevel">
+    <xs:annotation>
+      <xs:documentation>
+        BroadWorks Mobility setting for the service provider level.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="ServiceProvider"/>
+      <xs:enumeration value="System"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="BroadWorksMobilityGroupSettingLevel">
+    <xs:annotation>
+      <xs:documentation>
+        BroadWorks Mobility setting for the group level.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Group"/>
+      <xs:enumeration value="ServiceProvider"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="BroadWorksMobilityUserSettingLevel">
+    <xs:annotation>
+      <xs:documentation>
+        BroadWorks Mobility setting for the user level.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Group"/>
+      <xs:enumeration value="User"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="IMRNTimeoutMilliseconds">
+    <xs:annotation>
+      <xs:documentation>
+        IMRN Timeout interval in milliseconds.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="100"/>
+      <xs:maxInclusive value="60000"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ServiceAccessCode">
+    <xs:annotation>
+      <xs:documentation>
+        The Service Access Code composed of DTMF digits 0-9, # or *.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ServiceAccessCodeDescription">
+    <xs:annotation>
+      <xs:documentation>
+        Service Access Code description.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

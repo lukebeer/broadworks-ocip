@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- I N V E N T O R Y   R E P O R T  S E R V I C E                         -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- I N V E N T O R Y   R E P O R T    R E Q U E S T S  A N D  R E S P O N S E S       -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupInventoryReportGetRequest    
+    SystemInventoryReportGetRequest    
+    SystemInventoryReportModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupInventoryReportGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group's inventory report.
+        The response is either a GroupInventoryReportGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="includeUsers" type="xs:boolean"/>
+          <xs:element name="includeServices" type="xs:boolean"/>
+          <xs:element name="includeDns" type="xs:boolean"/>
+          <xs:element name="includeAccessDevices" type="xs:boolean"/>
+          <xs:element name="includeDepartments" type="xs:boolean"/>
+          <xs:element name="reportDeliveryEmailAddress" type="EmailAddress" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupInventoryReportGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupInventoryReportGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="inventoryReportTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemInventoryReportGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with Inventory Report.
+        The response is either a SystemInventoryReportGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemInventoryReportGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemInventoryReportGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="defaultFromAddress" type="EmailAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemInventoryReportModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with Inventory Report.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="defaultFromAddress" type="EmailAddress" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

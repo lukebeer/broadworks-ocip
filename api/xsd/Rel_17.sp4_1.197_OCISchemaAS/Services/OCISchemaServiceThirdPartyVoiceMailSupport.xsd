@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- T H I R D   P A R T Y   V O I C E   M A I L                            -->
+<!-- S U P P O R T  S E R V I C E                                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- T H I R D   P A R T Y   V O I C E   M A I L   S U P P O R T                        -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserThirdPartyVoiceMailSupportGetRequest17    
+    UserThirdPartyVoiceMailSupportModifyRequest    
+    GroupThirdPartyVoiceMailSupportGetRequest    
+    GroupThirdPartyVoiceMailSupportModifyRequest    
+    SystemThirdPartyVoiceMailSupportGetRequest    
+    SystemThirdPartyVoiceMailSupportModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserThirdPartyVoiceMailSupportGetRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Third-Party Voice Mail Support.
+        The response is either a UserThirdPartyVoiceMailSupportGetResponse17 or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserThirdPartyVoiceMailSupportGetResponse17">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserThirdPartyVoiceMailSupportGetRequest17.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="busyRedirectToVoiceMail" type="xs:boolean"/>
+          <xs:element name="noAnswerRedirectToVoiceMail" type="xs:boolean"/>
+          <xs:element name="serverSelection" type="ThirdPartyVoiceMailSupportServerSelection"/>
+          <xs:element name="userServer" type="ThirdPartyVoiceMailSupportMailServer" minOccurs="0"/>
+          <xs:element name="mailboxIdType" type="ThirdPartyVoiceMailSupportMailboxIdType"/>
+          <xs:element name="mailboxURL" type="SIPURI" minOccurs="0"/>
+          <xs:element name="noAnswerNumberOfRings" type="ThirdPartyVoiceMailSupportNumberOfRings"/>
+          <xs:element name="alwaysRedirectToVoiceMail" type="xs:boolean"/>
+          <xs:element name="outOfPrimaryZoneRedirectToVoiceMail" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserThirdPartyVoiceMailSupportModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Third Party Voice Mail Support settings for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="busyRedirectToVoiceMail" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="noAnswerRedirectToVoiceMail" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="serverSelection" type="ThirdPartyVoiceMailSupportServerSelection" minOccurs="0"/>
+          <xs:element name="userServer" type="ThirdPartyVoiceMailSupportMailServer" nillable="true" minOccurs="0"/>
+          <xs:element name="mailboxIdType" type="ThirdPartyVoiceMailSupportMailboxIdType" minOccurs="0"/>
+          <xs:element name="mailboxURL" type="SIPURI" nillable="true" minOccurs="0"/>
+          <xs:element name="noAnswerNumberOfRings" type="ThirdPartyVoiceMailSupportNumberOfRings" minOccurs="0"/>
+          <xs:element name="alwaysRedirectToVoiceMail" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="outOfPrimaryZoneRedirectToVoiceMail" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupThirdPartyVoiceMailSupportGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group level data associated with Third-Party Voice Mail Support.
+        The response is either a GroupThirdPartyVoiceMailSupportGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupThirdPartyVoiceMailSupportGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupThirdPartyVoiceMailSupportGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="groupServer" type="ThirdPartyVoiceMailSupportMailServer" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupThirdPartyVoiceMailSupportModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Third Party Voice Mail Support settings for a group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="groupServer" type="ThirdPartyVoiceMailSupportMailServer" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="ThirdPartyVoiceMailSupportServerSelection">
+    <xs:annotation>
+      <xs:documentation>
+        Third Party Voice Mail user-level voice mail server choices.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Group Mail Server"/>
+      <xs:enumeration value="User Specific Mail Server"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ThirdPartyVoiceMailSupportMailboxIdType">
+    <xs:annotation>
+      <xs:documentation>
+        Mailbox Id type on Third Party Voice Mail platform.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="User Or Group Phone Number"/>
+      <xs:enumeration value="URL"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ThirdPartyVoiceMailSupportMailServer">
+    <xs:annotation>
+      <xs:documentation>
+        Uniquely identifies an external voice mail server.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="161"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="ThirdPartyVoiceMailSupportNumberOfRings">
+    <xs:annotation>
+      <xs:documentation>
+        Number of Rings until call is redirected to voice mail.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="2"/>
+      <xs:enumeration value="3"/>
+      <xs:enumeration value="4"/>
+      <xs:enumeration value="5"/>
+      <xs:enumeration value="6"/>
+      <xs:enumeration value="7"/>
+      <xs:enumeration value="8"/>
+      <xs:enumeration value="9"/>
+      <xs:enumeration value="10"/>
+      <xs:enumeration value="11"/>
+      <xs:enumeration value="12"/>
+      <xs:enumeration value="13"/>
+      <xs:enumeration value="14"/>
+      <xs:enumeration value="15"/>
+      <xs:enumeration value="16"/>
+      <xs:enumeration value="17"/>
+      <xs:enumeration value="18"/>
+      <xs:enumeration value="19"/>
+      <xs:enumeration value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="SystemThirdPartyVoiceMailSupportGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with Third-party Voice Mail Support.
+        The response is either a SystemThirdPartyVoiceMailSupportGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemThirdPartyVoiceMailSupportGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemThirdPartyVoiceMailSupportGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="overrideAltCallerIdForVMRetrieval" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemThirdPartyVoiceMailSupportModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with Third-party Voice Mail Support.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="overrideAltCallerIdForVMRetrieval" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

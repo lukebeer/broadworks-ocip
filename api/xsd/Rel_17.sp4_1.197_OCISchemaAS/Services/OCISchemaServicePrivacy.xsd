@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- P R I V A C Y  S E R V I C E                                           -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- P R I V A C Y    R E Q U E S T S  A N D  R E S P O N S E S                         -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupServiceInstancePrivacyGetRequest17sp4    
+    GroupServiceInstancePrivacyModifyRequest    
+    UserPrivacyGetAvailableMonitorsUserListRequest    
+    UserPrivacyGetRequest13mp17    
+    UserPrivacyModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupServiceInstancePrivacyGetRequest17sp4">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Request the data associated with Privacy for a service instance.
+        The response is either a GroupServiceInstancePrivacyGetResponse17sp4
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupServiceInstancePrivacyGetResponse17sp4">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to GroupServiceInstancePrivacyGetRequest17sp4.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableDirectoryPrivacy" type="xs:boolean"/>
+          <xs:element name="enableAutoAttendantExtensionDialingPrivacy" type="xs:boolean"/>
+          <xs:element name="enableAutoAttendantNameDialingPrivacy" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupServiceInstancePrivacyModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the data associated with Privacy for a service instance.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="enableDirectoryPrivacy" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableAutoAttendantExtensionDialingPrivacy" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableAutoAttendantNameDialingPrivacy" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPrivacyGetAvailableMonitorsUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Retrieves a list of users in the enterprise or group available
+        for phone status monitoring the user specified in the userId
+        element.  The response is either
+        UserPrivacyGetAvailableMonitorsUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+          <xs:element name="searchCriteriaExactUserGroup" type="SearchCriteriaExactUserGroup" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPrivacyGetAvailableMonitorsUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserPrivacyGetAvailableMonitorsUserListRequest.
+        Returns a 5 column table with column headings:
+        "User Id", "Last Name", "First Name", "Hiragana Last Name",
+        "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="availableMonitorsTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPrivacyGetRequest13mp17">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Privacy.
+        This command is supported for regular users only.
+        The response is either a UserPrivacyGetResponse13mp17
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPrivacyGetResponse13mp17">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserPrivacyGetRequest13mp17.  The
+        permittedMonitorUserIdTable contains the members of
+        the enterprise or group allowed to monitor the phone
+        status of the user specified in the request.  Members
+        of this table are allowed to monitor the user even if
+        enablePhoneStatusPrivacy is set to true.  The table
+        contains column headings: "User Id", "Last Name",
+        "First Name", "Hiragana Last Name",
+        "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableDirectoryPrivacy" type="xs:boolean"/>
+          <xs:element name="enableAutoAttendantExtensionDialingPrivacy" type="xs:boolean"/>
+          <xs:element name="enableAutoAttendantNameDialingPrivacy" type="xs:boolean"/>
+          <xs:element name="enablePhoneStatusPrivacy" type="xs:boolean"/>
+          <xs:element name="permittedMonitorUserIdTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserPrivacyModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Privacy.
+        This command is supported for regular users only.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="enableDirectoryPrivacy" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableAutoAttendantExtensionDialingPrivacy" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableAutoAttendantNameDialingPrivacy" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enablePhoneStatusPrivacy" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="permittedMonitorUserIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

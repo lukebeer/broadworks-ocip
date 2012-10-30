@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- A N O N Y M O U S   C A L L   R E J E C T I O N  S E R V I C E         -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- A N O N Y M O U S   C A L L   R E J E C T I O N                                    -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserAnonymousCallRejectionGetRequest    
+    UserAnonymousCallRejectionModifyRequest    
+    SystemAnonymousCallRejectionGetRequest    
+    SystemAnonymousCallRejectionModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserAnonymousCallRejectionGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Anonymous Call Rejection.
+        The response is either a UserAnonymousCallRejectionGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAnonymousCallRejectionGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserAnonymousCallRejectionGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserAnonymousCallRejectionModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Anonymous Call Rejection.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAnonymousCallRejectionGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get Anonymous Call Rejection system parameters.
+        The response is either a SystemAnonymousCallRejectionGetResponse or 
+        an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAnonymousCallRejectionGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the SystemAnonymousCallRejectionGetRequest.
+        The response contains the anonymous call rejection system.".        
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="paiRequired" type="xs:boolean"/>
+          <xs:element name="screenOnlyLocalCalls" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemAnonymousCallRejectionModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a system Anonymous Call Rejection parameter.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="paiRequired" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="screenOnlyLocalCalls" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

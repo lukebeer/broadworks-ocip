@@ -1,0 +1,2510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- O U T G O I N G   C A L L I N G   P L A N  S E R V I C E               -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="./OCISchemaServiceCallingPlan.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- O U T G O I N G   C A L L I N G   P L A N                                          -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupOutgoingCallingPlanAuthorizationCodeGetListRequest    
+    GroupOutgoingCallingPlanCallMeNowGetListRequest    
+    GroupOutgoingCallingPlanCallMeNowModifyListRequest    
+    GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest    
+    GroupOutgoingCallingPlanDepartmentAuthorizationCodeDeleteListRequest    
+    GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest    
+    GroupOutgoingCallingPlanDigitPlanCallMeNowGetListRequest    
+    GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest    
+    GroupOutgoingCallingPlanDigitPlanOriginatingGetListRequest    
+    GroupOutgoingCallingPlanDigitPlanOriginatingModifyListRequest    
+    GroupOutgoingCallingPlanDigitPlanRedirectingGetListRequest    
+    GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest    
+    GroupOutgoingCallingPlanOriginatingGetListRequest    
+    GroupOutgoingCallingPlanOriginatingModifyListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPatternAddRequest    
+    GroupOutgoingCallingPlanPinholeDigitPatternDeleteListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPatternModifyRequest    
+    GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPlanOriginatingModifyListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListRequest    
+    GroupOutgoingCallingPlanPinholeDigitPlanRedirectingModifyListRequest    
+    GroupOutgoingCallingPlanRedirectingGetListRequest    
+    GroupOutgoingCallingPlanRedirectingModifyListRequest    
+    GroupOutgoingCallingPlanRedirectedGetListRequest    
+    GroupOutgoingCallingPlanRedirectedModifyListRequest    
+    GroupOutgoingCallingPlanTransferNumbersGetListRequest    
+    GroupOutgoingCallingPlanTransferNumbersModifyListRequest    
+    SystemOutgoingCallingPlanCallTypeAddMappingRequest    
+    SystemOutgoingCallingPlanCallTypeDeleteMappingRequest    
+    SystemOutgoingCallingPlanCallTypeGetListRequest    
+    SystemOutgoingCallingPlanCallTypeGetMappingListRequest    
+    SystemOutgoingCallingPlanGetRequest17sp3    
+    SystemOutgoingCallingPlanModifyRequest    
+    UserOutgoingCallingPlanAuthorizationCodeAddListRequest    
+    UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest    
+    UserOutgoingCallingPlanAuthorizationCodeGetListRequest    
+    UserOutgoingCallingPlanAuthorizationCodeGetRequest    
+    UserOutgoingCallingPlanAuthorizationCodeModifyRequest    
+    UserOutgoingCallingPlanCallMeNowGetRequest    
+    UserOutgoingCallingPlanCallMeNowModifyRequest    
+    UserOutgoingCallingPlanDigitPlanCallMeNowGetRequest    
+    UserOutgoingCallingPlanDigitPlanCallMeNowModifyRequest    
+    UserOutgoingCallingPlanDigitPlanOriginatingGetRequest    
+    UserOutgoingCallingPlanDigitPlanOriginatingModifyRequest    
+    UserOutgoingCallingPlanDigitPlanRedirectingGetRequest    
+    UserOutgoingCallingPlanDigitPlanRedirectingModifyRequest    
+    UserOutgoingCallingPlanOriginatingGetRequest    
+    UserOutgoingCallingPlanOriginatingModifyRequest    
+    UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetRequest    
+    UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest    
+    UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetRequest    
+    UserOutgoingCallingPlanPinholeDigitPlanOriginatingModifyRequest    
+    UserOutgoingCallingPlanPinholeDigitPlanRedirectingGetRequest    
+    UserOutgoingCallingPlanPinholeDigitPlanRedirectingModifyRequest    
+    UserOutgoingCallingPlanRedirectingGetRequest    
+    UserOutgoingCallingPlanRedirectingModifyRequest    
+    UserOutgoingCallingPlanRedirectedGetRequest    
+    UserOutgoingCallingPlanRedirectedModifyRequest    
+    UserOutgoingCallingPlanSustainedAuthorizationCodeGetRequest    
+    UserOutgoingCallingPlanSustainedAuthorizationCodeModifyRequest    
+    UserOutgoingCallingPlanTransferNumbersGetRequest    
+    UserOutgoingCallingPlanTransferNumbersModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupOutgoingCallingPlanAuthorizationCodeGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the list of authorization codes for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanAuthorizationCodeGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanAuthorizationCodeGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanAuthorizationCodeGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupCodeList" type="OutgoingCallingPlanGroupAuthorizationCodes"/>
+          <xs:element name="departmentCodeList" type="OutgoingCallingPlanDepartmentAuthorizationCodes" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanCallMeNowGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Call Me Now call permissions for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanCallMeNowGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanCallMeNowGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanCallMeNowGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanCallMeNowPermissions"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanCallMeNowDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanCallMeNowModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Call Me Now call permissions for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanCallMeNowPermissionsModify" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanCallMeNowDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a list of authorization codes to the group's default or a department. When department is not
+        specified, it is for the group default.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="departmentKey" type="DepartmentKey" minOccurs="0"/>
+          <xs:element name="codeEntry" type="OutgoingCallingPlanAuthorizationCodeEntry" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDepartmentAuthorizationCodeDeleteListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a list of authorization codes from the group's default or a department. When department is not
+        specified, it is for the group default.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="departmentKey" type="DepartmentKey" minOccurs="0"/>
+          <xs:element name="code" type="OutgoingCallingPlanAuthorizationCode" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the list of authorization codes for a group default or a department.  When department is not
+        specified, it is for the group default.
+        The response is either a GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="departmentKey" type="DepartmentKey" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="codeEntry" type="OutgoingCallingPlanAuthorizationCodeEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanCallMeNowGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Call Me Now call permissions for digit patterns for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanDigitPlanCallMeNowGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Call Me Now call permissions for digit patterns for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanOriginatingGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the originating permissions for digit patterns for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanDigitPlanOriginatingGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanOriginatingGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanDigitPlanOriginatingGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanOriginatingModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the originating permissions for digit patterns for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanRedirectingGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the redirecting permissions for digit patterns for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanDigitPlanRedirectingGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the redirecting permissions for digit patterns for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanOriginatingGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the originating permissions for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanOriginatingGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanOriginatingGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanOriginatingGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanOriginatingPermissions"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanOriginatingDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanOriginatingModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the originating permissions for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanOriginatingPermissionsModify" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanOriginatingDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPatternAddRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Add a new calling plan Pinhole digit string.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="CallingPlanDigitPatternName"/>
+          <xs:element name="digitPattern" type="CallingPlanDigitPattern"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPatternDeleteListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Delete one or more calling plan Pinhole digit strings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="CallingPlanDigitPatternName" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Get the list of calling plan Pinhole digit strings for a group.
+        The response is either a GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest.
+        Contains a table with column headings: "Name", "Digit Pattern".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="digitPatternTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPatternModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify a calling plan Pinhole digit string. The name is a key; it cannot be changed.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="CallingPlanDigitPatternName"/>
+          <xs:element name="digitPattern" type="CallingPlanDigitPattern" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Call Me Now permissions for Pinhole digit patterns for a group default and its departments.
+        The response is either a GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Call Me Now permissions for Pinhole digit patterns for a group default and its departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Request the originating permissions for Pinhole digit patterns for a group default and its departments.
+        The response is either a GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanOriginatingModifyListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the originating permissions for Pinhole digit patterns for a group default and its departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Request the redirecting permissions for Pinhole digit patterns for a group default and its departments.
+        The response is either a GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanPinholeDigitPlanRedirectingModifyListRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the redirecting permissions for Pinhole digit patterns for a group default and its departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanRedirectingGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the initiating call forwards/transfer permissions for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanRedirectingGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanRedirectingGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanRedirectingGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanRedirectingPermissions"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanRedirectingDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanRedirectingModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the initiating call forwards/transfer permissions for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanRedirectingPermissionsModify" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanRedirectingDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanRedirectedGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the call forwarded/transferred permissions for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanRedirectedGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanRedirectedGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanRedirectedGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanRedirectedPermissions"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanRedirectedDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanRedirectedModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the call forwarded/transferred permissions for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="OutgoingCallingPlanRedirectedPermissionsModify" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="OutgoingCallingPlanRedirectedDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanTransferNumbersGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the list of transfer numbers for a group default and it's departments.
+        The response is either a GroupOutgoingCallingPlanTransferNumbersGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanTransferNumbersGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupOutgoingCallingPlanTransferNumbersGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupNumbers" type="OutgoingCallingPlanTransferNumbers"/>
+          <xs:element name="departmentNumbers" type="OutgoingCallingPlanDepartmentTransferNumbers" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupOutgoingCallingPlanTransferNumbersModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the list of transfer numbers for a group default and it's departments.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupNumbers" type="OutgoingCallingPlanTransferNumbersModify" minOccurs="0"/>
+          <xs:element name="departmentNumbers" type="OutgoingCallingPlanDepartmentTransferNumbersModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanCallTypeAddMappingRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a system outgoing calling plan call type mapping.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="digitMap" type="CallTypeDigitMap"/>
+          <xs:element name="callType" type="OutgoingCallingPlanCallType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanCallTypeDeleteMappingRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a system outgoing calling plan call type mapping.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="countryCode" type="CountryCode"/>
+          <xs:element name="digitMap" type="CallTypeDigitMap"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanCallTypeGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the list of call types of outgoing calling plan
+        Response is SystemOutgoingCallingPlanCallTypeGetListRequest or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanCallTypeGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemOutgoingCallingPlanCallTypeGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="callType" type="OutgoingCallingPlanCallType" minOccurs="11" maxOccurs="11"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanCallTypeGetMappingListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of system outgoing calling plan call type mappings.
+        The response is either SystemOutgoingCallingPlanCallTypeGetMappingListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="countryCode" type="CountryCode" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanCallTypeGetMappingListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemOutgoingCallingPlanCallTypeGetMappingListRequest. The table columns are:
+        "Country Code", "Digit Map" and "Call Type".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="callTypeMapping" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanGetRequest17sp3">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with Outgoing Calling Plan.
+        The response is either a SystemOutgoingCallingPlanGetResponse17sp3 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanGetResponse17sp3">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemOutgoingCallingPlanGetRequest17sp3.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="directTransferScreening" type="xs:boolean"/>
+          <xs:element name="enableEnhancedTollCallTyping" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemOutgoingCallingPlanModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with Outgoing Calling Plan.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="directTransferScreening" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableEnhancedTollCallTyping" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanAuthorizationCodeAddListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a list of authorization codes to a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="codeEntry" type="OutgoingCallingPlanAuthorizationCodeEntry" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a list of authorization codes from a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="code" type="OutgoingCallingPlanAuthorizationCode" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanAuthorizationCodeGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the list of authorization codes for a user.
+        The response is either a UserOutgoingCallingPlanAuthorizationCodeGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanAuthorizationCodeGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanAuthorizationCodeGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="codeEntry" type="OutgoingCallingPlanAuthorizationCodeEntry" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanAuthorizationCodeGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the authorization code setting for a user.
+        The response is either a UserOutgoingCallingPlanAuthorizationCodeGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanAuthorizationCodeGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanAuthorizationCodeGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanAuthorizationCodeModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the authorization setting for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanCallMeNowGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Call Me Now call permissions for a user.
+        The response is either a UserOutgoingCallingPlanCallMeNowGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanCallMeNowGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanCallMeNowGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanCallMeNowPermissions"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanCallMeNowModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Call Me Now call permissions for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanCallMeNowPermissionsModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanCallMeNowGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Call Me Now call permissions for digit patterns for a user.
+        The response is either a UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanDigitPlanCallMeNowGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanCallMeNowModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Call Me Now call permissions for digit patterns for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanOriginatingGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the originating permissions for digit patterns for a user.
+        The response is either a UserOutgoingCallingPlanDigitPlanOriginatingGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanOriginatingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanDigitPlanOriginatingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanOriginatingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the originating permissions for digit patterns for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanRedirectingGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the redirecting permissions for digit patterns for a user.
+        The response is either a UserOutgoingCallingPlanDigitPlanRedirectingGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanRedirectingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanDigitPlanRedirectingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanDigitPlanRedirectingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the redirecting permissions for digit patterns for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanOriginatingGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the originating permissions for a user.
+        The response is either a UserOutgoingCallingPlanOriginatingGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanOriginatingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanOriginatingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanOriginatingPermissions"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanOriginatingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the originating permissions for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanOriginatingPermissionsModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the Call Me Now permissions for Pinhole digit patterns for a user.
+        The response is either a UserOutgoingCallingPlanPinholeDigitPlanCallMeNowgGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the Call Me Now permissions for Pinhole digit patterns for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Request the originating permissions for Pinhole digit patterns for a user.
+        The response is either a UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanOriginatingModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the originating permissions for Pinhole digit patterns for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanRedirectingGetRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Request the redirecting permissions for Pinhole digit patterns for a user.
+        The response is either a UserOutgoingCallingPlanPinholeDigitPlanRedirectingGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanRedirectingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanPinholeDigitPlanRedirectingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanPinholeDigitPlanRedirectingModifyRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <asDataModeSupported>true</asDataModeSupported>
+        <hssDataModeSupported>false</hssDataModeSupported>
+      </xs:appinfo>
+      <xs:documentation>
+        Modify the redirecting permissions for Pinhole digit patterns for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanRedirectingGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the initiating call forwards/transfer permissions for a user.
+        The response is either a UserOutgoingCallingPlanRedirectingGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanRedirectingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanRedirectingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanRedirectingPermissions"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanRedirectingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the initiating call forwards/transfer permissions for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanRedirectingPermissionsModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanRedirectedGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the call forwarded/transferred permissions for a user.
+        The response is either a UserOutgoingCallingPlanRedirectedGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanRedirectedGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanRedirectedGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanRedirectedPermissions"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanRedirectedModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the call forwarded/transferred permissions for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="OutgoingCallingPlanRedirectedPermissionsModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanSustainedAuthorizationCodeGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the sustained authorization code setting for a user.
+        The response is either a UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse or an ErrorResponse.
+        Engineering Note: This command is used internally by Call Processing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanAuthorizationCodeGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="code" type="OutgoingCallingPlanAuthorizationCode" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanSustainedAuthorizationCodeModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify or clear the sustained authorization code for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+        Engineering Note: This command is used internally by Call Processing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="code" type="OutgoingCallingPlanAuthorizationCode" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanTransferNumbersGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the transfer numbers for a user.
+        The response is either a UserOutgoingCallingPlanTransferNumbersGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanTransferNumbersGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserOutgoingCallingPlanTransferNumbersGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userNumbers" type="OutgoingCallingPlanTransferNumbers"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserOutgoingCallingPlanTransferNumbersModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the transfer numbers for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userNumbers" type="OutgoingCallingPlanTransferNumbersModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="OutgoingCallingPlanAuthorizationCodeDescription">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan Authorization Code Description.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="OutgoingCallingPlanAuthorizationCodeEntry">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan Authorization Code.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="code" type="OutgoingCallingPlanAuthorizationCode"/>
+      <xs:element name="description" type="OutgoingCallingPlanAuthorizationCodeDescription" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanCallMeNowDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+         Outgoing Calling Plan for Call Me Now call permissions for a department.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanCallMeNowPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanCallMeNowDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+         Modify outgoing Calling Plan for Call Me Now call permissions for a department.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanCallMeNowPermissionsModify"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanCallMeNowPermissions">
+    <xs:annotation>
+      <xs:documentation>
+         Outgoing Calling Plan for Call Me Now call permissions.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="group" type="xs:boolean"/>
+      <xs:element name="local" type="xs:boolean"/>
+      <xs:element name="tollFree" type="xs:boolean"/>
+      <xs:element name="toll" type="xs:boolean"/>
+      <xs:element name="international" type="xs:boolean"/>
+      <xs:element name="operatorAssisted" type="xs:boolean"/>
+      <xs:element name="chargeableDirectoryAssisted" type="xs:boolean"/>
+      <xs:element name="specialServicesI" type="xs:boolean"/>
+      <xs:element name="specialServicesII" type="xs:boolean"/>
+      <xs:element name="premiumServicesI" type="xs:boolean"/>
+      <xs:element name="premiumServicesII" type="xs:boolean"/>
+      <xs:element name="casual" type="xs:boolean"/>
+      <xs:element name="urlDialing" type="xs:boolean"/>
+      <xs:element name="unknown" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanCallMeNowPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+         Modify outgoing Calling Plan for Call Me Now call permissions.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="group" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="local" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="tollFree" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="toll" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="international" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="operatorAssisted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="chargeableDirectoryAssisted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="specialServicesI" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="specialServicesII" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="premiumServicesI" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="premiumServicesII" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="casual" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="urlDialing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unknown" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="OutgoingCallingPlanCallType">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan Call Type
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Casual Calls"/>
+      <xs:enumeration value="Chargeable Directory Assistance"/>
+      <xs:enumeration value="International"/>
+      <xs:enumeration value="Local"/>
+      <xs:enumeration value="Operator Assisted"/>
+      <xs:enumeration value="Premium Services I"/>
+      <xs:enumeration value="Premium Services II"/>
+      <xs:enumeration value="Special Services I"/>
+      <xs:enumeration value="Special Services II"/>
+      <xs:enumeration value="Toll"/>
+      <xs:enumeration value="Toll Free"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDepartmentAuthorizationCodes">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan Authorization Code for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="codeEntry" type="OutgoingCallingPlanAuthorizationCodeEntry" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDepartmentTransferNumbers">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan transfer numbers for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="transferNumbers" type="OutgoingCallingPlanTransferNumbers"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDepartmentTransferNumbersModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan transfer numbers for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="transferNumbers" type="OutgoingCallingPlanTransferNumbersModify" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan Call Me Now call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Modify outgoing Calling Plan Call Me Now call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternCallMeNowPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether Call Me Now calls using specified digit patterns are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternName" type="CallingPlanDigitPatternName"/>
+      <xs:element name="permission" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternCallMeNowPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan Call Me Now call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternCallMeNowPermission" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan originating call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternOriginatingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Modify outgoing Calling Plan originating call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternOriginatingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternOriginatingPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether originating calls using specified digit patterns are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternName" type="CallingPlanDigitPatternName"/>
+      <xs:element name="permission" type="OutgoingCallingPlanOriginatingPermission"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternOriginatingPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan originating call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternOriginatingPermission" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan redirecting call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternRedirectingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Modify outgoing Calling Plan redirecting call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternRedirectingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternRedirectingPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether redirecting calls using specified digit patterns are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternName" type="CallingPlanDigitPatternName"/>
+      <xs:element name="permission" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanDigitPatternRedirectingPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan redirecting call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternPermissions" type="OutgoingCallingPlanDigitPatternRedirectingPermission" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanGroupAuthorizationCodes">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan Authorization Code for the group default.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="codeEntry" type="OutgoingCallingPlanAuthorizationCodeEntry" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanOriginatingDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan originating call permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanOriginatingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanOriginatingDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan originating call permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanOriginatingPermissionsModify" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="OutgoingCallingPlanOriginatingPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Choices indicates how originating calls are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Disallow"/>
+      <xs:enumeration value="Allow"/>
+      <xs:enumeration value="Authorization Code Required"/>
+      <xs:enumeration value="Transfer To First Transfer Number"/>
+      <xs:enumeration value="Transfer To Second Transfer Number"/>
+      <xs:enumeration value="Transfer To Third Transfer Number"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="OutgoingCallingPlanOriginatingPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan originating call permissions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="group" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="local" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="tollFree" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="toll" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="international" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="operatorAssisted" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="chargeableDirectoryAssisted" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="specialServicesI" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="specialServicesII" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="premiumServicesI" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="premiumServicesII" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="casual" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="urlDialing" type="OutgoingCallingPlanOriginatingPermission"/>
+      <xs:element name="unknown" type="OutgoingCallingPlanOriginatingPermission"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanOriginatingPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan originating call permissions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="group" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="local" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="tollFree" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="toll" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="international" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="operatorAssisted" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="chargeableDirectoryAssisted" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="specialServicesI" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="specialServicesII" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="premiumServicesI" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="premiumServicesII" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="casual" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="urlDialing" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+      <xs:element name="unknown" type="OutgoingCallingPlanOriginatingPermission" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectedDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan being forwarded/transferred permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanRedirectedPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectedDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan being forwarded/transferred permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanRedirectedPermissionsModify"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectedPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan being forwarded/transferred permissions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="outsideGroup" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectedPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan being forwarded/transferred permissions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="outsideGroup" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectingDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan initiating call forwards/transfer permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanRedirectingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectingDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan initiating call forwards/transfer permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="permissions" type="OutgoingCallingPlanRedirectingPermissionsModify"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectingPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan initiating call forwards/transfer permissions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="group" type="xs:boolean"/>
+      <xs:element name="local" type="xs:boolean"/>
+      <xs:element name="tollFree" type="xs:boolean"/>
+      <xs:element name="toll" type="xs:boolean"/>
+      <xs:element name="international" type="xs:boolean"/>
+      <xs:element name="operatorAssisted" type="xs:boolean"/>
+      <xs:element name="chargeableDirectoryAssisted" type="xs:boolean"/>
+      <xs:element name="specialServicesI" type="xs:boolean"/>
+      <xs:element name="specialServicesII" type="xs:boolean"/>
+      <xs:element name="premiumServicesI" type="xs:boolean"/>
+      <xs:element name="premiumServicesII" type="xs:boolean"/>
+      <xs:element name="casual" type="xs:boolean"/>
+      <xs:element name="urlDialing" type="xs:boolean"/>
+      <xs:element name="unknown" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanRedirectingPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan initiating call forwards/transfer permissions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="group" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="local" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="tollFree" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="toll" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="international" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="operatorAssisted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="chargeableDirectoryAssisted" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="specialServicesI" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="specialServicesII" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="premiumServicesI" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="premiumServicesII" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="casual" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="urlDialing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unknown" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanTransferNumbers">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan transfer numbers.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="phoneNumber01" type="OutgoingDN" minOccurs="0"/>
+      <xs:element name="phoneNumber02" type="OutgoingDN" minOccurs="0"/>
+      <xs:element name="phoneNumber03" type="OutgoingDN" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingCallingPlanTransferNumbersModify">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Calling Plan transfer numbers.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="phoneNumber01" type="OutgoingDN" nillable="true" minOccurs="0"/>
+      <xs:element name="phoneNumber02" type="OutgoingDN" nillable="true" minOccurs="0"/>
+      <xs:element name="phoneNumber03" type="OutgoingDN" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Pinhole Digit Plan Call Me Now call permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="permissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Modify Outgoing Pinhole Digit Plan Call Me Now call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether Call Me Now calls using specified Pinhole digit patterns are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternName" type="CallingPlanDigitPatternName"/>
+      <xs:element name="permission" type="OutgoingPinholeDigitPlanCallMeNowPermission"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Pinhole Digit Plan Call Me Now call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternPermissions" type="OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="OutgoingPinholeDigitPlanCallMeNowPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Permission choices for Pinhole digit patterns on Call Me Now calls.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Ignore"/>
+      <xs:enumeration value="Allow"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Pinhole Digit Plan department originating call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Modify Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternOriginatingPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether originating calls using specified Pinhole digit patterns are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternName" type="CallingPlanDigitPatternName"/>
+      <xs:element name="permission" type="OutgoingPinholeDigitPlanOriginatingPermission"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternPermissions" type="OutgoingPinholeDigitPlanDigitPatternOriginatingPermission" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Pinhole Digit Plan initiating call forwards/transfer permissions for a department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentName" type="DepartmentFullPathName"/>
+      <xs:element name="permissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Modify Outgoing Pinhole Digit Plan redirecting call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="digitPatternPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternRedirectingPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether redirecting calls using specified Pinhole digit patterns are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternName" type="CallingPlanDigitPatternName"/>
+      <xs:element name="permission" type="OutgoingPinholeDigitPlanRedirectingPermission"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Outgoing Pinhole Digit Plan redirecting call permissions for specified digit patterns.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternPermissions" type="OutgoingPinholeDigitPlanDigitPatternRedirectingPermission" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="OutgoingPinholeDigitPlanOriginatingPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Permission choices for Pinhole digit patterns on originating calls.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Ignore"/>
+      <xs:enumeration value="Allow"/>
+      <xs:enumeration value="Authorization Code Required"/>
+      <xs:enumeration value="Transfer To First Transfer Number"/>
+      <xs:enumeration value="Transfer To Second Transfer Number"/>
+      <xs:enumeration value="Transfer To Third Transfer Number"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="OutgoingPinholeDigitPlanRedirectingPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Permission choices for Pinhole digit patterns on redirecting calls.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Ignore"/>
+      <xs:enumeration value="Allow"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

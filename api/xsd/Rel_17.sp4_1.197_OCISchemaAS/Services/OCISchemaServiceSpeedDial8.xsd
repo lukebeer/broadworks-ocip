@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- S P E E D   D I A L 8 S E R V I C E                                    -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- S P E E D   D I A L 8   R E Q U E S T S  A N D  R E S P O N S E S                  -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserSpeedDial8GetListRequest    
+    UserSpeedDial8ModifyListRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserSpeedDial8GetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the speed dial 8 settings for a user.
+        The response is either a UserSpeedDial8GetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial8GetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserSpeedDial8GetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="speedDialEntry" type="SpeedDial8Entry" minOccurs="8" maxOccurs="8"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserSpeedDial8ModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the speed dial 8 settings for a user.
+        The response is either a SuccessResponse or an ErrorResponse.
+        Engineering Note: This command is used internally by Call Processing.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="speedDialEntry" type="SpeedDial8Entry" minOccurs="0" maxOccurs="8"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SpeedDial8Entry">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the speed dial 8 prefix setting for a group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="speedCode" type="SpeedDial8Code"/>
+      <xs:element name="phoneNumber" type="OutgoingDNorSIPURI" nillable="true" minOccurs="0"/>
+      <xs:element name="description" type="SpeedDialDescription" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="SpeedDial8Code">
+    <xs:annotation>
+      <xs:documentation>
+        Speed Dial 8 codes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="2"/>
+      <xs:maxInclusive value="9"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

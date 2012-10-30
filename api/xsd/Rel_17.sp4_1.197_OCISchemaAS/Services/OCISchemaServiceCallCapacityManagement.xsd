@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- C A L L   C A P A C I T Y   M A N A G E M E N T  S E R V I C E         -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- C A L L   C A P A C I T Y   M A N A G E M E N T                                    -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupCallCapacityManagementAddInstanceRequest    
+    GroupCallCapacityManagementDeleteInstanceListRequest    
+    GroupCallCapacityManagementGetAvailableUserListRequest    
+    GroupCallCapacityManagementGetInstanceListRequest    
+    GroupCallCapacityManagementGetInstanceRequest    
+    GroupCallCapacityManagementModifyInstanceRequest    
+    GroupCallCapacityManagementAddUserListRequest    
+    GroupCallCapacityManagementDeleteUserListRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupCallCapacityManagementAddInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Adds a Call Capacity Management group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+          <xs:element name="maxActiveCallsAllowed" type="CallCapacityCallLimit"/>
+          <xs:element name="maxIncomingActiveCallsAllowed" type="CallCapacityCallLimit" minOccurs="0"/>
+          <xs:element name="maxOutgoingActiveCallsAllowed" type="CallCapacityCallLimit" minOccurs="0"/>
+          <xs:element name="becomeDefaultGroupForNewUsers" type="xs:boolean"/>
+          <xs:element name="userId" type="UserId" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementDeleteInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Deletes one or more Call Capacity Management groups.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementGetAvailableUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of users that can be assigned to a Call Capacity Management group.
+        The available user list for a new Call Capacity Management group can be obtained
+        by not setting the name.
+        The response is either GroupCallCapacityManagementGetAvailableUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName" minOccurs="0"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementGetAvailableUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupCallCapacityManagementGetAvailableUserListRequest.
+        Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementGetInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get a list of Call Capacity Management instances within a group.
+        The response is either GroupCallCapacityManagementGetInstanceListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementGetInstanceListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupCallCapacityManagementGetInstanceListRequest.
+        Contains a table with column headings: "Name", "Is Default", "Maximum Calls", "Maximum Incoming Calls", "Maximum Outgoing Calls".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="callCapacityGroupTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementGetInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Gets a Call Capacity Management group.
+        The response is either GroupCallCapacityManagementGetInstanceResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementGetInstanceResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupCallCapacityManagementGetInstanceRequest.
+        Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="name" type="ServiceInstanceName"/>
+          <xs:element name="maxActiveCallsAllowed" type="CallCapacityCallLimit"/>
+          <xs:element name="maxIncomingActiveCallsAllowed" type="CallCapacityCallLimit" minOccurs="0"/>
+          <xs:element name="maxOutgoingActiveCallsAllowed" type="CallCapacityCallLimit" minOccurs="0"/>
+          <xs:element name="defaultGroupForNewUsers" type="xs:boolean"/>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementModifyInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modifies a Call Capacity Management group. Replaces the entire list of users in the group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+          <xs:element name="newName" type="ServiceInstanceName" minOccurs="0"/>
+          <xs:element name="maxActiveCallsAllowed" type="CallCapacityCallLimit" minOccurs="0"/>
+          <xs:element name="maxIncomingActiveCallsAllowed" type="CallCapacityCallLimit" nillable="true" minOccurs="0"/>
+          <xs:element name="maxOutgoingActiveCallsAllowed" type="CallCapacityCallLimit" nillable="true" minOccurs="0"/>
+          <xs:element name="becomeDefaultGroupForNewUsers" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementAddUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Adds one or more users to a Call Capacity Management group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+          <xs:element name="userId" type="UserId" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupCallCapacityManagementDeleteUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Deletes one or more users from a Call Capacity Management group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="name" type="ServiceInstanceName"/>
+          <xs:element name="userId" type="UserId" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="CallCapacityCallLimit">
+    <xs:annotation>
+      <xs:documentation>
+          Range of values for the call capacity of a capacity group.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="99999"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

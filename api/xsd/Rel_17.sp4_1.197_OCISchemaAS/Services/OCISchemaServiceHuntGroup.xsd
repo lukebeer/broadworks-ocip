@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- H U N T   G R O U P  S E R V I C E                                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- H U N T   G R O U P    R E Q U E S T S  A N D  R E S P O N S E S                   -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupHuntGroupAddInstanceRequest17sp4    
+    GroupHuntGroupDeleteInstanceRequest    
+    GroupHuntGroupGetAvailableUserListRequest    
+    GroupHuntGroupGetInstanceListRequest    
+    GroupHuntGroupGetInstanceRequest17sp4    
+    GroupHuntGroupModifyActiveInstanceListRequest    
+    GroupHuntGroupModifyInstanceRequest    
+    GroupHuntGroupModifyInstanceWeightedCallDistributionRequest    
+    SystemHuntGroupGetRequest17    
+    SystemHuntGroupModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupHuntGroupAddInstanceRequest17sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Add a Hunt Group instance to a group.
+        The domain is required in the serviceUserId.
+        The response is either SuccessResponse or ErrorResponse.
+        The following elements are only used in AS data mode:
+           useSystemHuntGroupCLIDSetting, use value "true" in HSS data mode
+           includeHuntGroupNameInCLID, use value "true" in HSS data mode
+           enableNotReachableForwarding, use value "false" in HSS data mode
+           notReachableForwardToPhoneNumber
+           makeBusyWhenNotReachable, use value "false" in HSS data mode
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceAddProfile"/>
+          <xs:element name="policy" type="HuntPolicy"/>
+          <xs:element name="huntAfterNoAnswer" type="xs:boolean"/>
+          <xs:element name="noAnswerNumberOfRings" type="HuntNoAnswerRings"/>
+          <xs:element name="forwardAfterTimeout" type="xs:boolean"/>
+          <xs:element name="forwardTimeoutSeconds" type="HuntForwardTimeoutSeconds"/>
+          <xs:element name="forwardToPhoneNumber" type="OutgoingDN" minOccurs="0"/>
+          <xs:element name="agentUserId" type="UserId" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="allowCallWaitingForAgents" type="xs:boolean"/>
+          <xs:element name="useSystemHuntGroupCLIDSetting" type="xs:boolean"/>
+          <xs:element name="includeHuntGroupNameInCLID" type="xs:boolean"/>
+          <xs:element name="enableNotReachableForwarding" type="xs:boolean"/>
+          <xs:element name="notReachableForwardToPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="makeBusyWhenNotReachable" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupDeleteInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Hunt Group instance from a group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupGetAvailableUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of users that can be assigned to a Hunt Group group.
+        Searching for users by group only makes sense when the hunt group is part of an Enterprise.
+        The response is either GroupHuntGroupGetAvailableUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactUserDepartment" type="SearchCriteriaExactUserDepartment" minOccurs="0"/>
+          <xs:element name="searchCriteriaExactUserGroup" type="SearchCriteriaExactUserGroup" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupGetAvailableUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupHuntGroupGetAvailableUserListRequest.
+        Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupGetInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of Hunt Group instances within a group.
+        The response is either GroupHuntGroupGetInstanceListResponse or ErrorResponse.
+        It is possible to get the instances within a specified department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupDepartmentName" type="DepartmentName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupGetInstanceListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupHuntGroupGetInstanceListRequest.
+        Contains a table with column headings:
+        "Service User Id", "Name", "Phone Number", "Extension", "Department", "Is Active", "Policy".
+        The column values for "Is Active" can either be true, or false.
+        NOTE: prior to release 14, the policy column did not match the HuntPolicy enumerated type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="huntGroupTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupGetInstanceRequest17sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get all the information of a Hunt Group instance.
+        The response is either GroupHuntGroupGetInstanceResponse17sp4 or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupGetInstanceResponse17sp4">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupHuntGroupGetInstanceRequest17sp4.
+        Contains the service profile information and a table of assigned users.
+        The table has column headings: "User Id", "Last Name", "First Name",
+        "Hiragana Last Name", "Hiragana First Name", "Weight".
+        The following elements are only used in AS data mode:
+           useSystemHuntGroupCLIDSetting
+	         includeHuntGroupNameInCLID
+           enableNotReachableForwarding
+           notReachableForwardToPhoneNumber
+           makeBusyWhenNotReachable
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceReadProfile17"/>
+          <xs:element name="policy" type="HuntPolicy"/>
+          <xs:element name="huntAfterNoAnswer" type="xs:boolean"/>
+          <xs:element name="noAnswerNumberOfRings" type="HuntNoAnswerRings"/>
+          <xs:element name="forwardAfterTimeout" type="xs:boolean"/>
+          <xs:element name="forwardTimeoutSeconds" type="HuntForwardTimeoutSeconds"/>
+          <xs:element name="forwardToPhoneNumber" type="OutgoingDN" minOccurs="0"/>
+          <xs:element name="agentUserTable" type="core:OCITable"/>
+          <xs:element name="allowCallWaitingForAgents" type="xs:boolean"/>
+          <xs:element name="useSystemHuntGroupCLIDSetting" type="xs:boolean"/>
+          <xs:element name="includeHuntGroupNameInCLID" type="xs:boolean"/>
+          <xs:element name="enableNotReachableForwarding" type="xs:boolean"/>
+          <xs:element name="notReachableForwardToPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="makeBusyWhenNotReachable" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupModifyActiveInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to set the active status of Hunt Group instances.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceActivation" type="ServiceActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupModifyInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify a Hunt Group instance.
+        The response is either SuccessResponse or ErrorResponse.
+        The following elements are only used in AS data mode:
+           useSystemHuntGroupCLIDSetting
+           includeHuntGroupNameInCLID
+           enableNotReachableForwarding
+           notReachableForwardToPhoneNumber
+           makeBusyWhenNotReachable
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceModifyProfile" minOccurs="0"/>
+          <xs:element name="policy" type="HuntPolicy" minOccurs="0"/>
+          <xs:element name="huntAfterNoAnswer" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="noAnswerNumberOfRings" type="HuntNoAnswerRings" minOccurs="0"/>
+          <xs:element name="forwardAfterTimeout" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="forwardTimeoutSeconds" type="HuntForwardTimeoutSeconds" minOccurs="0"/>
+          <xs:element name="forwardToPhoneNumber" type="OutgoingDN" nillable="true" minOccurs="0"/>
+          <xs:element name="agentUserIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+          <xs:element name="allowCallWaitingForAgents" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="useSystemHuntGroupCLIDSetting" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="includeHuntGroupNameInCLID" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableNotReachableForwarding" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="notReachableForwardToPhoneNumber" type="OutgoingDNorSIPURI" nillable="true" minOccurs="0"/>
+          <xs:element name="makeBusyWhenNotReachable" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupHuntGroupModifyInstanceWeightedCallDistributionRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify the weighted call distribution of a Hunt Group instance.
+        The response is either SuccessResponse or ErrorResponse.
+        NOTE: Prior to release 14, any agents who were not in the list kept their
+        existing weight setting. In release 14, any agents who are not in the list
+        will have their weight set to 0.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="agentWeight" type="HuntAgentWeight" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemHuntGroupGetRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Request the system level data associated with Hunt Group.
+        The response is either a SystemHuntGroupGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemHuntGroupGetResponse17">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemHuntGroupGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="anonymousInsteadOfPrivateCLID" type="xs:boolean"/>
+          <xs:element name="removeHuntGroupNameFromCLID" type="xs:boolean"/>
+          <xs:element name="uniformCallDistributionPolicyScope" type="HuntGroupUniformCallDistributionPolicyScope"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemHuntGroupModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the system level data associated with Hunt Group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="anonymousInsteadOfPrivateCLID" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="removeHuntGroupNameFromCLID" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="uniformCallDistributionPolicyScope" type="HuntGroupUniformCallDistributionPolicyScope" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="HuntGroupUniformCallDistributionPolicyScope">
+    <xs:annotation>
+      <xs:documentation>
+        Hunt group Uniform Call Distribution Policy Scope.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Agent"/>
+      <xs:enumeration value="Hunt Group"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

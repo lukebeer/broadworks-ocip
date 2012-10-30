@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- D I R E C T O R Y   N U M B E R   H U N T I N G  S E R V I C E         -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- D I R E C T O R Y   N U M B E R   H U N T I N G                                    -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupDirectoryNumberHuntingGetAvailableUserListRequest    
+    GroupDirectoryNumberHuntingGetRequest    
+    GroupDirectoryNumberHuntingModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupDirectoryNumberHuntingGetAvailableUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the agents of a call center or hunt group that are available
+        to be assigned to a directory number hunting group.  They are agents that
+        are not already assigned to any other directory number hunting group.
+        The response is either
+        GroupDirectoryNumberHuntingGetAvailableUserListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupDirectoryNumberHuntingGetAvailableUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupDirectoryNumberHuntingGetAvailableUserListRequest.
+        Contains a table with column headings: "User Id", "Last Name",
+        "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupDirectoryNumberHuntingGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get the properties of the DNH service for a specified serviceUserId.
+        It gets the agents of a call center or hunt group that are members
+        of a directory number hunting group.  They are agents that are not already
+        assigned to any other directory number hunting group.
+        The response is either GroupDirectoryNumberHuntingGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupDirectoryNumberHuntingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupDirectoryNumberHuntingGetRequest.
+        Contains a table with column headings: "User Id", "Last Name",
+        "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="agentUserTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupDirectoryNumberHuntingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Replaces a list of users as agents for a directory number hunting group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="agentUserIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- V I R T U A L   O N   N E T   E N T E R P R I S E                      -->
+<!-- E X T E N S I O N S  S E R V I C E                                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- V I R T U A L   O N   N E T   E N T E R P R I S E   E X T E N S I O N S            -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest    
+    GroupVirtualOnNetEnterpriseExtensionsAddUserRequest    
+    GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest    
+    GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest    
+    GroupVirtualOnNetEnterpriseExtensionsGetUserRequest    
+    GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest    
+    SystemVirtualOnNetCallTypeAddRequest    
+    SystemVirtualOnNetCallTypeDeleteRequest    
+    SystemVirtualOnNetCallTypeGetListRequest    
+    SystemVirtualOnNetCallTypeModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the list of Virtual On-Net users in an Enterprise.
+        It is possible to search by various criteria to restrict the number of rows returned.
+        Multiple search criteria are logically ANDed together.
+        The response is either a  EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse or 
+        an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaDn" type="SearchCriteriaDn" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaGroupLocationCode" type="SearchCriteriaGroupLocationCode" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExtension" type="SearchCriteriaExtension" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactVirtualOnNetCallTypeName" type="SearchCriteriaExactVirtualOnNetCallTypeName" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to   EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest.
+        Contains a table with column headings : "Group Id", "Last Name", "First Name", "Phone Number", "Extension", 
+        "Virtual On-Net Call Type" in a row for each user.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupVirtualOnNetEnterpriseExtensionsAddUserRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Adds Virtual On-Net users to a Group. It is possible to add 
+        either: a single user,  or a list of users, or a range of users, 
+        or any combination thereof.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="virtualOnNetUser" type="VirtualOnNetUser" minOccurs="0" maxOccurs="100"/>
+          <xs:element name="virtualOnNetUserRange" type="VirtualOnNetUserRange" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete an existing Virtual On-Net user from a Group.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="phoneNumber" type="DN"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the list of Virtual On-Net users in a Group.
+        It is possible to search by various criteria to restrict the number 
+        of rows returned.
+        Multiple search criteria are logically ANDed together.
+        The response is either a 
+        GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse or an 
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaUserLastName" type="SearchCriteriaUserLastName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaUserFirstName" type="SearchCriteriaUserFirstName" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaDn" type="SearchCriteriaDn" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExtension" type="SearchCriteriaExtension" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="searchCriteriaExactVirtualOnNetCallTypeName" type="SearchCriteriaExactVirtualOnNetCallTypeName" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest.
+        Contains a table with column headings: "Last Name", 
+        "First Name", "Phone Number", "Extension", 
+        "Virtual On-Net Call Type Name"
+        in a row for each user.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupVirtualOnNetEnterpriseExtensionsGetUserRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get an existing Virtual On-Net user from a Group.
+        The response is either a 
+        GroupVirtualOnNetEnterpriseExtensionsGetUserResponse
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="phoneNumber" type="DN"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupVirtualOnNetEnterpriseExtensionsGetUserResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupVirtualOnNetEnterpriseExtensionsGetUserRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="extension" type="Extension17"/>
+          <xs:element name="firstName" type="FirstName"/>
+          <xs:element name="lastName" type="LastName"/>
+          <xs:element name="callingLineIdFirstName" type="CallingLineIdFirstName"/>
+          <xs:element name="callingLineIdLastName" type="CallingLineIdLastName"/>
+          <xs:element name="virtualOnNetCallTypeName" type="VirtualOnNetCallTypeName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify an existing Virtual On-Net user of a Group.
+        The serviceProviderId, groupId and phoneNumber combination uniquely 
+        identifies a Virtual On-Net User. 
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="phoneNumber" type="DN"/>
+          <xs:element name="extension" type="Extension17" minOccurs="0"/>
+          <xs:element name="firstName" type="FirstName" minOccurs="0"/>
+          <xs:element name="lastName" type="LastName" minOccurs="0"/>
+          <xs:element name="callingLineIdFirstName" type="CallingLineIdFirstName" minOccurs="0"/>
+          <xs:element name="callingLineIdLastName" type="CallingLineIdLastName" minOccurs="0"/>
+          <xs:element name="virtualOnNetCallTypeName" type="VirtualOnNetCallTypeName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemVirtualOnNetCallTypeAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+         Add a Virtual On-Net Call Type.
+         The response is either a SuccessResponse or an ErrorResponse.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="virtualOnNetCallTypeName" type="VirtualOnNetCallTypeName"/>
+          <xs:element name="virtualOnNetCallTypeCdrValue" type="VirtualOnNetCallTypeCdrValue"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemVirtualOnNetCallTypeDeleteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Virtual On-Net Call Type.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="virtualOnNetCallTypeName" type="VirtualOnNetCallTypeName"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemVirtualOnNetCallTypeGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the list Virtual On-Net Call Types in the system.
+        The response is either a SystemVirtualOnNetCallTypeGetListResponse 
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemVirtualOnNetCallTypeGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to SystemVirtualOnNetCallTypeGetListRequest.
+        Contains a table with column headings: 
+        "Virtual On-Net Call Type Name", "Virtual On-Net Call Type CDR Value" 
+        in a row for each Virtual On-Net Call Type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="virtualOnNetCallTypeTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="SystemVirtualOnNetCallTypeModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a Virtual On-Net Call Type.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="virtualOnNetCallTypeName" type="VirtualOnNetCallTypeName"/>
+          <xs:element name="virtualOnNetCallTypeCdrValue" type="VirtualOnNetCallTypeCdrValue" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="VirtualOnNetUser">
+    <xs:annotation>
+      <xs:documentation>
+        Virtual On-Net User.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="phoneNumber" type="DN"/>
+      <xs:element name="extension" type="Extension17"/>
+      <xs:element name="firstName" type="FirstName"/>
+      <xs:element name="lastName" type="LastName"/>
+      <xs:element name="callingLineIdFirstName" type="CallingLineIdFirstName"/>
+      <xs:element name="callingLineIdLastName" type="CallingLineIdLastName"/>
+      <xs:element name="virtualOnNetCallTypeName" type="VirtualOnNetCallTypeName"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="VirtualOnNetUserRange">
+    <xs:annotation>
+      <xs:documentation>
+        Virtual On-Net User Range.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dnRange" type="DNRange"/>
+      <xs:element name="extensionRange" type="ExtensionRange17"/>
+      <xs:element name="firstName" type="FirstName"/>
+      <xs:element name="lastName" type="LastName"/>
+      <xs:element name="callingLineIdFirstName" type="CallingLineIdFirstName"/>
+      <xs:element name="callingLineIdLastName" type="CallingLineIdLastName"/>
+      <xs:element name="virtualOnNetCallTypeName" type="VirtualOnNetCallTypeName"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>

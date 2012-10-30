@@ -1,0 +1,1329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- R O U T E   P O I N T  S E R V I C E                                   -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  <xs:include schemaLocation="../OCISchemaSearchCriteria.xsd"/>
+  <xs:include schemaLocation="OCISchemaServiceCallCenter.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- R O U T E   P O I N T    R E Q U E S T S  A N D  R E S P O N S E S                 -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupRoutePointAddDNISRequest    
+    GroupRoutePointAddInstanceRequest    
+    GroupRoutePointBouncedCallGetRequest    
+    GroupRoutePointBouncedCallModifyRequest    
+    GroupRoutePointDeleteDNISRequest    
+    GroupRoutePointDeleteInstanceRequest    
+    GroupRoutePointDistinctiveRingingGetRequest    
+    GroupRoutePointDistinctiveRingingModifyRequest    
+    GroupRoutePointGetAnnouncementRequest    
+    GroupRoutePointGetDNISAgentListRequest    
+    GroupRoutePointGetDNISAnnouncementRequest    
+    GroupRoutePointGetDNISListRequest    
+    GroupRoutePointGetDNISRequest    
+    GroupRoutePointGetFailoverPolicyRequest    
+    GroupRoutePointGetInstanceListRequest    
+    GroupRoutePointGetInstanceRequest    
+    GroupRoutePointForcedForwardingGetRequest    
+    GroupRoutePointForcedForwardingModifyRequest    
+    GroupRoutePointHolidayServiceGetRequest17sp1    
+    GroupRoutePointHolidayServiceModifyRequest17sp1    
+    GroupRoutePointModifyActiveInstanceListRequest    
+    GroupRoutePointModifyAnnouncementRequest    
+    GroupRoutePointModifyDNISAnnouncementRequest    
+    GroupRoutePointModifyDNISParametersRequest    
+    GroupRoutePointModifyDNISRequest    
+    GroupRoutePointManualFailoverRequest    
+    GroupRoutePointModifyFailoverPolicyRequest    
+    GroupRoutePointModifyInstanceRequest    
+    GroupRoutePointNightServiceGetRequest17sp1    
+    GroupRoutePointNightServiceModifyRequest17sp1    
+    GroupRoutePointOverflowGetRequest    
+    GroupRoutePointOverflowModifyRequest    
+    GroupRoutePointQueueCallDispositionCodeAddRequest    
+    GroupRoutePointQueueCallDispositionCodeDeleteRequest    
+    GroupRoutePointQueueCallDispositionCodeGetListRequest    
+    GroupRoutePointQueueCallDispositionCodeGetRequest    
+    GroupRoutePointQueueCallDispositionCodeModifyRequest    
+    GroupRoutePointQueueCallDispositionCodeSettingsGetRequest    
+    GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest    
+    UserRoutePointCallDispositionCodeGetAvailableListRequest    
+    UserRoutePointSupervisorGetListRequest    
+    UserRoutePointSupervisorModifyListRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupRoutePointAddDNISRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a Route Point DNIS.        
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="dnisKey" type="DNISKey"/>
+          <xs:element name="dnisPhoneNumber" type="DN" minOccurs="0"/>
+          <xs:element name="extension" type="Extension17" minOccurs="0"/>
+          <xs:element name="useCustomCLIDSettings" type="xs:boolean"/>
+          <xs:element name="callingLineIdPhoneNumber" type="DN" minOccurs="0"/>
+          <xs:element name="callingLineIdLastName" type="CallingLineIdLastName" minOccurs="0"/>
+          <xs:element name="callingLineIdFirstName" type="CallingLineIdFirstName" minOccurs="0"/>
+          <xs:element name="useCustomDnisAnnouncementSettings" type="xs:boolean"/>
+          <xs:element name="allowOutgoingACDCall" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointAddInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a Route Point instance to a group.
+        The Route Point is a Call Center queue that performs the same function but 
+        allows an external system to perform the distribution of calls instead of making 
+        those decisions itself.
+        The domain is required in the serviceUserId.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceAddProfileCallCenter"/>
+          <xs:element name="networkClassOfService" type="NetworkClassOfServiceName" minOccurs="0"/>
+          <xs:element name="externalPreferredAudioCodec" type="AudioFileCodec"/>
+          <xs:element name="internalPreferredAudioCodec" type="AudioFileCodec"/>
+          <xs:element name="queueLength" type="CallCenterQueueLength16"/>
+          <xs:element name="noAnswerTimeoutRings" type="NoAnswerTimeoutRings"/>
+          <xs:element name="enableVideo" type="xs:boolean"/>
+          <xs:element name="playRingingWhenOfferingCall" type="xs:boolean"/>
+          <xs:element name="overrideAgentWrapUpTime" type="xs:boolean"/>
+          <xs:element name="wrapUpSeconds" type="CallCenterWrapUpSeconds" minOccurs="0"/>
+          <xs:element name="enableAutomaticStateChangeForAgents" type="xs:boolean"/>
+          <xs:element name="agentStateAfterCall" type="AgentACDAutomaticState"/>
+          <xs:element name="agentUnavailableCode" type="CallCenterAgentUnavailableCode" minOccurs="0"/>
+          <xs:element name="forceDeliveryOfCalls" type="xs:boolean"/>
+          <xs:element name="forceDeliveryWaitTimeSeconds" type="CallCenterForceDeliveryWaitTimeSeconds" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointBouncedCallGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's bounced call settings.
+        The response is either a GroupRoutePointBouncedCallGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointBouncedCallGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointBouncedCallGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="numberOfRingsBeforeBouncingCall" type="HuntNoAnswerRings"/>
+          <xs:element name="enableTransfer" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="bounceCallWhenAgentUnavailable" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointBouncedCallModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point's bounced call settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="numberOfRingsBeforeBouncingCall" type="HuntNoAnswerRings" minOccurs="0"/>
+          <xs:element name="enableTransfer" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" nillable="true"/>
+          <xs:element name="bounceCallWhenAgentUnavailable" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointDeleteDNISRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a route point's DNIS.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="dnisKey" type="DNISKey"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointDeleteInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Route Point instance from a group.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointDistinctiveRingingGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the distinctive ringing configuration values for route point.
+        The response is either a GroupRoutePointDistinctiveRingingGetResponse 
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointDistinctiveRingingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointDistinctiveRingingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableDistinctiveRinging" type="xs:boolean"/>
+          <xs:element name="distinctiveRingingRingPattern" type="RingPattern"/>
+          <xs:element name="distinctiveRingingForceDeliveryRingPattern" type="RingPattern"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointDistinctiveRingingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the distinctive ringing configuration values for route point.
+        
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="enableDistinctiveRinging" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="distinctiveRingingRingPattern" type="RingPattern" minOccurs="0"/>
+          <xs:element name="distinctiveRingingForceDeliveryRingPattern" type="RingPattern" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetAnnouncementRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's announcement settings.
+        The response is either a GroupRoutePointGetAnnouncementResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetAnnouncementResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointGetAnnouncementRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="mediaOnHoldSource" type="CallCenterMediaOnHoldSourceRead17"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISAgentListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of agent who selected the DNIS as the outgoing call.
+        The response is either GroupRoutePointGetDNISAgentListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="dnisKey" type="DNISKey"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISAgentListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointGetDNISAgentListRequest.
+        Contains a table with column headings: "User Id", "Last Name",
+        "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="agentTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISAnnouncementRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's DNIS Announcements
+        The response is either a GroupRoutePointGetDNISAnnouncementResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="dnisKey" type="DNISKey"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISAnnouncementResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointGetDNISAnnouncementRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="mediaOnHoldSource" type="CallCenterMediaOnHoldSourceRead17"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of DNIS that are configured for a Route Point.
+        The response is either GroupRoutePointGetDNISListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointGetDNISListRequest.
+        Contains a table with column headings: "Name", "Phone Number", "Extension".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="displayDNISNumber" type="xs:boolean"/>
+          <xs:element name="displayDNISName" type="xs:boolean"/>
+          <xs:element name="dnisTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's DNIS.
+        The response is either a GroupRoutePointGetDNISResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="dnisKey" type="DNISKey"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetDNISResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointGetDNISRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="dnisPhoneNumber" type="DN" minOccurs="0"/>
+          <xs:element name="extension" type="Extension17" minOccurs="0"/>
+          <xs:element name="useCustomCLIDSettings" type="xs:boolean"/>
+          <xs:element name="callingLineIdPhoneNumber" type="DN" minOccurs="0"/>
+          <xs:element name="callingLineIdLastName" type="CallingLineIdLastName" minOccurs="0"/>
+          <xs:element name="callingLineIdFirstName" type="CallingLineIdFirstName" minOccurs="0"/>
+          <xs:element name="useCustomDnisAnnouncementSettings" type="xs:boolean"/>
+          <xs:element name="allowOutgoingACDCall" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetFailoverPolicyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the route point failover policy. 
+        The response is either a GroupRoutePointGetFailoverPolicyResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetFailoverPolicyResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointGetFailoverPolicyRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableFailoverSupport" type="xs:boolean"/>
+          <xs:element name="externalSystem" type="RoutePointExternalSystem" minOccurs="0"/>
+          <xs:element name="failoverPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="failoverStatus" type="RoutePointFailoverStatus"/>
+          <xs:element name="perCallEnableFailoverSupport" type="xs:boolean"/>
+          <xs:element name="perCallCallFailureTimeoutSeconds" type="RoutePointCallFailureTimeout"/>
+          <xs:element name="perCallOutboundCallFailureTimeoutSeconds" type="RoutePointCallFailureTimeout"/>
+          <xs:element name="perCallFailoverPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of Route Point instances within a group. 
+        It is possible to search by various criteria to restrict the number of rows returned.
+        The response is either GroupRoutePointGetInstanceListResponse or ErrorResponse.
+        It is possible to get the instances within a specified department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupDepartmentName" type="DepartmentName" minOccurs="0"/>
+          <xs:element name="responseSizeLimit" type="ResponseSizeLimit" minOccurs="0"/>
+          <xs:element name="searchCriteriaRoutePointName" type="SearchCriteriaRoutePointName" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetInstanceListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointGetInstanceListRequest.
+        Contains a table with column headings:
+        "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department", "Is Active".
+        The column values for "Video" and "Is Active" can either be true, or false.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="routePointTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to get all the information of a Route Point instance.
+        The response is either GroupRoutePointGetInstanceResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointGetInstanceResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupRoutePointGetInstanceRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceReadProfile17"/>
+          <xs:element name="networkClassOfService" type="NetworkClassOfServiceName" minOccurs="0"/>
+          <xs:element name="externalPreferredAudioCodec" type="AudioFileCodec"/>
+          <xs:element name="internalPreferredAudioCodec" type="AudioFileCodec"/>
+          <xs:element name="queueLength" type="CallCenterQueueLength16"/>
+          <xs:element name="noAnswerTimeoutRings" type="NoAnswerTimeoutRings"/>
+          <xs:element name="enableVideo" type="xs:boolean"/>
+          <xs:element name="playRingingWhenOfferingCall" type="xs:boolean"/>
+          <xs:element name="overrideAgentWrapUpTime" type="xs:boolean"/>
+          <xs:element name="wrapUpSeconds" type="CallCenterWrapUpSeconds" minOccurs="0"/>
+          <xs:element name="enableAutomaticStateChangeForAgents" type="xs:boolean"/>
+          <xs:element name="agentStateAfterCall" type="AgentACDAutomaticState"/>
+          <xs:element name="agentUnavailableCode" type="CallCenterAgentUnavailableCode" minOccurs="0"/>
+          <xs:element name="forceDeliveryOfCalls" type="xs:boolean"/>
+          <xs:element name="forceDeliveryWaitTimeSeconds" type="CallCenterForceDeliveryWaitTimeSeconds" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointForcedForwardingGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's forced forwarding settings.
+        The response is either a GroupRoutePointForcedForwardingGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointForcedForwardingGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointForcedForwardingGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="forwardToPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="playAnnouncementBeforeForwarding" type="xs:boolean"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="audioMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="videoMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointForcedForwardingModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point's forced forwarding settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="forwardToPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" nillable="true"/>
+          <xs:element name="playAnnouncementBeforeForwarding" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointHolidayServiceGetRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's holiday service settings.
+        The response is either a GroupRoutePointHolidayServiceGetResponse17sp1 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointHolidayServiceGetResponse17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointHolidayServiceGetRequest17sp1.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="action" type="CallCenterScheduledServiceAction"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="playAnnouncementBeforeAction" type="xs:boolean"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="audioMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="videoMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointHolidayServiceModifyRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point's holiday service settings.
+        Only Group and Enterprise level schedules are accepted.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="action" type="CallCenterScheduledServiceAction" minOccurs="0"/>
+          <xs:element name="holidaySchedule" type="HolidaySchedule" minOccurs="0" nillable="true"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" nillable="true"/>
+          <xs:element name="playAnnouncementBeforeAction" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointModifyActiveInstanceListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to set the active status of Route Point instances.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceActivation" type="ServiceActivation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointModifyAnnouncementRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point's announcement settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="mediaOnHoldSource" type="CallCenterMediaOnHoldSourceModify17" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointModifyDNISAnnouncementRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point DNIS announcement settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="dnisKey" type="DNISKey"/>
+          <xs:element name="mediaOnHoldSource" type="CallCenterMediaOnHoldSourceModify17" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointModifyDNISParametersRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the setting that are configured for all the DNIS in a Route Point.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="displayDNISNumber" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="displayDNISName" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointModifyDNISRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point's DNIS settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="dnisKey" type="DNISKey"/>
+          <xs:element name="newDNISName" type="DNISName" minOccurs="0"/>
+          <xs:element name="dnisPhoneNumber" type="DN" minOccurs="0" nillable="true"/>
+          <xs:element name="extension" type="Extension17" minOccurs="0" nillable="true"/>
+          <xs:element name="useCustomCLIDSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="callingLineIdPhoneNumber" type="DN" minOccurs="0" nillable="true"/>
+          <xs:element name="callingLineIdLastName" type="CallingLineIdLastName" minOccurs="0" nillable="true"/>
+          <xs:element name="callingLineIdFirstName" type="CallingLineIdFirstName" minOccurs="0" nillable="true"/>
+          <xs:element name="useCustomDnisAnnouncementSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="allowOutgoingACDCall" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointManualFailoverRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Initiate manual failover for the Route Point.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointModifyFailoverPolicyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the route point failover policy. 
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="enableFailoverSupport" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="externalSystem" type="RoutePointExternalSystem" minOccurs="0" nillable="true"/>
+          <xs:element name="failoverPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" nillable="true"/>
+          <xs:element name="perCallEnableFailoverSupport" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="perCallCallFailureTimeoutSeconds" type="RoutePointCallFailureTimeout" minOccurs="0"/>
+          <xs:element name="perCallOutboundCallFailureTimeoutSeconds" type="RoutePointCallFailureTimeout" minOccurs="0"/>
+          <xs:element name="perCallFailoverPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointModifyInstanceRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify a Route Point instance.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="serviceInstanceProfile" type="ServiceInstanceModifyProfile" minOccurs="0"/>
+          <xs:element name="networkClassOfService" type="NetworkClassOfServiceName" minOccurs="0"/>
+          <xs:element name="externalPreferredAudioCodec" type="AudioFileCodec" minOccurs="0"/>
+          <xs:element name="internalPreferredAudioCodec" type="AudioFileCodec" minOccurs="0"/>
+          <xs:element name="queueLength" type="CallCenterQueueLength16" minOccurs="0"/>
+          <xs:element name="noAnswerTimeoutRings" type="NoAnswerTimeoutRings" minOccurs="0"/>
+          <xs:element name="enableVideo" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="playRingingWhenOfferingCall" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="overrideAgentWrapUpTime" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="wrapUpSeconds" type="CallCenterWrapUpSeconds" minOccurs="0" nillable="true"/>
+          <xs:element name="enableAutomaticStateChangeForAgents" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="agentStateAfterCall" type="AgentACDAutomaticState" minOccurs="0"/>
+          <xs:element name="agentUnavailableCode" type="CallCenterAgentUnavailableCode" nillable="true" minOccurs="0"/>
+          <xs:element name="forceDeliveryOfCalls" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="forceDeliveryWaitTimeSeconds" type="CallCenterForceDeliveryWaitTimeSeconds" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointNightServiceGetRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's night service settings.
+        The response is either a GroupRoutePointNightServiceGetResponse17sp1 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointNightServiceGetResponse17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointNightServiceGetRequest17sp1.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="action" type="CallCenterScheduledServiceAction"/>
+          <xs:element name="businessHours" type="TimeSchedule" minOccurs="0"/>
+          <xs:element name="forceNightService" type="xs:boolean"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="playAnnouncementBeforeAction" type="xs:boolean"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="audioMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="videoMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+          <xs:element name="manualAnnouncementMode" type="CallCenterManualNightServiceAnnouncementMode"/>
+          <xs:element name="manualAudioMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="manualAudioUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="manualAudioFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="manualAudioMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+          <xs:element name="manualVideoMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="manualVideoUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="manualVideoFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="manualVideoMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointNightServiceModifyRequest17sp1">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point's night service settings.
+        Only Group and Enterprise level schedules are accepted.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="action" type="CallCenterScheduledServiceAction" minOccurs="0"/>
+          <xs:element name="businessHours" type="TimeSchedule" minOccurs="0" nillable="true"/>
+          <xs:element name="forceNightService" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" nillable="true"/>
+          <xs:element name="playAnnouncementBeforeAction" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+          <xs:element name="manualAnnouncementMode" type="CallCenterManualNightServiceAnnouncementMode" minOccurs="0"/>
+          <xs:element name="manualAudioMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="manualAudioUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="manualAudioFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+          <xs:element name="manualVideoMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="manualVideoUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="manualVideoFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointOverflowGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a route point's overflow settings.
+        The response is either a GroupRoutePointOverflowGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointOverflowGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointOverflowGetRequest .
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="action" type="CallCenterOverflowProcessingAction"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0"/>
+          <xs:element name="overflowAfterTimeout" type="xs:boolean"/>
+          <xs:element name="timeoutSeconds" type="HuntForwardTimeoutSeconds"/>
+          <xs:element name="playAnnouncementBeforeOverflowProcessing" type="xs:boolean"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="audioMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLList" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementDescriptionList" minOccurs="0"/>
+          <xs:element name="videoMediaTypeList" type="CallCenterAnnouncementMediaFileTypeList" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointOverflowModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a route point's overflow settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="action" type="CallCenterOverflowProcessingAction" minOccurs="0"/>
+          <xs:element name="transferPhoneNumber" type="OutgoingDNorSIPURI" minOccurs="0" nillable="true"/>
+          <xs:element name="overflowAfterTimeout" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="timeoutSeconds" type="HuntForwardTimeoutSeconds" minOccurs="0"/>
+          <xs:element name="playAnnouncementBeforeOverflowProcessing" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="audioMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="audioUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="audioFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+          <xs:element name="videoMessageSelection" type="ExtendedFileResourceSelection" minOccurs="0"/>
+          <xs:element name="videoUrlList" type="CallCenterAnnouncementURLListModify" minOccurs="0"/>
+          <xs:element name="videoFileList" type="CallCenterAnnouncementFileListModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeAddRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Add a Route Point Call Disposition Code.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="code" type="CallDispositionCode"/>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="description" type="CallDispositionCodeDescription" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeDeleteRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Delete a Route Point Call Disposition Code.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="code" type="CallDispositionCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the list of Route Point Level and Organization Level Call Disposition Codes.
+        The response is either GroupRoutePointQueueCallDispositionCodeGetListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointQueueCallDispositionCodeGetListRequest.
+        Contains a table with column headings: "Is Active", "Code", "Description" and "Level".
+        Level column can be any of the values in the data type CallDispositionCodeLevel.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="dispositionCodesTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a Route Point Call Disposition Code.
+        The response is either GroupRoutePointQueueCallDispositionCodeGetResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="code" type="CallDispositionCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the GroupRoutePointQueueCallDispositionCodeGetRequest
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="isActive" type="xs:boolean"/>
+          <xs:element name="description" type="CallDispositionCodeDescription" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify a Route Point Call Disposition Code.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="code" type="CallDispositionCode"/>
+          <xs:element name="isActive" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="description" type="CallDispositionCodeDescription" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeSettingsGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the queue level data associated with Route Point Call Disposition Code Settings.
+        The response is either an GroupRoutePointQueueCallDispositionCodeSettingsGetResponse or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeSettingsGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupRoutePointQueueCallDispositionCodeSettingsGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableCallDispositionCodes" type="xs:boolean"/>
+          <xs:element name="includeOrganizationCodes" type="xs:boolean"/>
+          <xs:element name="forceUseOfCallDispositionCodes" type="xs:boolean"/>
+          <xs:element name="defaultCallDispositionCode" type="CallDispositionCodeWithLevel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the queue level data associated with Route Point Agents Unavailable Code Settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+          <xs:element name="enableCallDispositionCodes" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="includeOrganizationCodes" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="forceUseOfCallDispositionCodes" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="defaultCallDispositionCode" type="CallDispositionCodeWithLevel" nillable="true" minOccurs="0"/>
+          <xs:element name="callDispositionCodeActivation" type="CallDispositionCodeActivation" minOccurs="0" maxOccurs="1000"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserRoutePointCallDispositionCodeGetAvailableListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the list of available Route Point Call Disposition Codes to be used by a client.
+        The response is either UserRoutePointCallDispositionCodeGetAvailableListResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceUserId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserRoutePointCallDispositionCodeGetAvailableListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserRoutePointCallDispositionCodeGetAvailableListRequest.
+        This list may include Group/Enterprise level codes in addition to the Route Point level codes, 
+        depending on the call center disposition codes settings.
+        Only active codes are included in the list.
+        Contains a table with column headings: "Code", "Description" and "Level".
+        Level column can be any of the values in the data type CallDispositionCodeLevel.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="dispositionCodesTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserRoutePointSupervisorGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get a list of Route Point supervisors assigned to a user.
+        The response is either a
+        UserRoutePointSupervisorGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserRoutePointSupervisorGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the UserRoutePointSupervisorGetListRequest.
+        Contains a table with column headings: "User Id", "Last Name",
+        "First Name", "Hiragana Last Name", "Hiragana First Name".
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="supervisorTable" type="core:OCITable"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserRoutePointSupervisorModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request to modify the Route Point supervisor list for a user.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="supervisorUserIdList" type="ReplacementUserIdList" nillable="true" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="NoAnswerTimeoutRings">
+    <xs:annotation>
+      <xs:documentation>
+        Number of rings to wait before timeout the outgoing call.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="2"/>
+      <xs:maxInclusive value="20"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="RoutePointCallFailureTimeout">
+    <xs:annotation>
+      <xs:documentation>
+        The call failure timeout.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="60"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:simpleType name="RoutePointFailoverStatus">
+    <xs:annotation>
+      <xs:documentation>
+        The Route Point failover status.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Normal"/>
+      <xs:enumeration value="Failover"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  L O G I N  P A R T                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- L O G I N  P A R T    R E Q U E S T S  A N D  R E S P O N S E S                    -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    AuthenticationRequest    
+    AuthenticationVerifyRequest14sp8    
+    AvailabilityTestRequest    
+    DeviceManagementFileAuthLocationGetRequest17    
+    DeviceManagementPutFileRequest    
+    ExternalAuthenticationAuthorizeTokenRequest    
+    LoginRequest14sp4    
+    LogoutRequest    
+    PasswordModifyRequest    
+    PrimaryInfoGetRequest    
+    PublicClusterGetFullyQualifiedDomainNameRequest    
+    TutorialFlagGetRequest    
+    TutorialFlagModifyRequest    
+    UserGetLoginInfoRequest    
+    VerifySessionIsValidRequest    
+    
+  --> 
+  
+  <xs:complexType name="AuthenticationRequest">
+    <xs:annotation>
+      <xs:documentation>
+        AuthenticationRequest is 1st stage of the 2 stage OCI login process.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="AuthenticationResponse">
+    <xs:annotation>
+      <xs:documentation>
+        AuthenticationRequest/Response is 1st stage of the 2 stage OCI login process.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="nonce" type="xs:string"/>
+          <xs:element name="passwordAlgorithm" type="DigitalSignatureAlgorithm"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="AuthenticationVerifyRequest14sp8">
+    <xs:annotation>
+      <xs:documentation>
+        AuthenticationVerifyRequest14sp8 is used to authenticate a user either by userId/password or dn/passcode. 
+        The phone number may be any DN associated with a user.
+        The response is a AuthenticationVerifyResponse14sp8 or an ErrorResponse
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:choice>
+          <xs:sequence>
+            <xs:element name="userId" type="UserId"/>
+            <xs:element name="password" type="Password"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element name="phoneNumber" type="DN"/>
+            <xs:element name="passcode" type="Passcode"/>
+          </xs:sequence>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="AuthenticationVerifyResponse14sp8">
+    <xs:annotation>
+      <xs:documentation>
+        Response to AuthenticationVerifyRequest14sp8
+        If a phoneNumber is returned, it will be the primay DN of the user
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="loginType" type="LoginType"/>
+          <xs:element name="locale" type="OCILocale"/>
+          <xs:element name="encoding" type="Encoding"/>
+          <xs:element name="groupId" type="GroupId" minOccurs="0"/>
+          <xs:element name="serviceProviderId" type="ServiceProviderId" minOccurs="0"/>
+          <xs:element name="isEnterprise" type="xs:boolean"/>
+          <xs:element name="passwordExpiresDays" type="xs:int" minOccurs="0"/>
+          <xs:element name="lastName" type="LastName" minOccurs="0"/>
+          <xs:element name="firstName" type="FirstName" minOccurs="0"/>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="phoneNumber" type="DN" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="AvailabilityTestRequest">
+    <xs:annotation>
+      <xs:documentation>
+        AvailabilityTestRequest is for high-availability support. Response is either SuccessResponse
+        or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="DeviceManagementFileAuthLocationGetRequest17">
+    <xs:annotation>
+      <xs:documentation>
+        Get the address and credentials of the File Repository hosting the requested access device file. 
+        Also get the file name and path on the File Repository. 
+        The response is either a DeviceManagementFileAuthLocationGetResponse17 or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="deviceAccessProtocol" type="DeviceAccessProtocol16"/>
+          <xs:element name="deviceAccessMethod" type="FileRepositoryAccessType"/>
+          <xs:element name="deviceAccessURI" type="DeviceManagementAccessURI"/>
+          <xs:element name="accessDeviceUserName" type="UserId" minOccurs="0"/>
+          <xs:element name="accessDeviceUserPassword" type="Password" minOccurs="0"/>
+          <xs:element name="signedPassword" type="SignedPassword" minOccurs="0"/>
+          <xs:element name="macAddress" type="AccessDeviceMACAddress" minOccurs="0"/>
+          <xs:element name="realmName" type="RealmName" minOccurs="0"/>
+          <xs:element name="digestHa1Complement" type="DigestHa1Complement" minOccurs="0"/>
+          <xs:element name="digestResponse" type="Md5Hash" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="DeviceManagementFileAuthLocationGetResponse17">
+    <xs:annotation>
+      <xs:documentation>
+        Return the address and credentials of the File Repository hosting the requested access device file. 
+        Also return the file name and path on the File Repository. 
+        This is a response to DeviceManagementFileAuthLocationGetRequest17.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIResponse">
+        <xs:sequence>
+          <xs:element name="fileRepositoryUserName" type="FileRepositoryUserName"/>
+          <xs:element name="fileRepositoryPassword" type="FileRepositoryUserPassword"/>
+          <xs:element name="netAddress" type="NetAddress"/>
+          <xs:element name="remoteFileFormat" type="DeviceManagementFileFormat"/>
+          <xs:element name="portNumber" type="Port" minOccurs="0"/>
+          <xs:element name="rootDirectory" type="CPEFileDirectory" minOccurs="0"/>
+          <xs:element name="cpeFileDirectory" type="CPEFileDirectory" minOccurs="0"/>
+          <xs:element name="secure" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="macInNonRequestURI" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="macFormatInNonRequestURI" type="DeviceManagementAccessURI" minOccurs="0"/>
+          <xs:element name="useHttpDigestAuthentication" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="macBasedFileAuthentication" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userNamePasswordFileAuthentication" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="completionNotification" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="fileCategory" type="DeviceManagementFileCategory" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="DeviceManagementPutFileRequest">
+    <xs:annotation>
+      <xs:documentation>
+          Informs BroadWorks that a file was uploaded to the repository. The response is always a SuccessResponse.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="deviceAccessURI" type="DeviceManagementAccessURI"/>
+          <xs:element name="ipAddress" type="NetAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="ExternalAuthenticationAuthorizeTokenRequest">
+    <xs:annotation>
+      <xs:documentation>
+        This command is part of the Portal API.
+        Sent when a Web or CLI user logs in using external authentication.
+        The password must be hashed. The password hashing algorithm is:
+        1) The message digest of the user's plain password is calculated using the SHA algorithm.
+        2) For every four bits in the 160-bit digest, starting from the first bit, it is
+           converted into a character in ASCII Hex format (0 through 9, a through f).
+           The result is a 40-character string, for example, f7a9e24777ec23212c54d7a350bc5bea5477fdbb.
+        3) The above string then is used to populate the password field in the request.
+        The response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="password" type="Password" minOccurs="0"/>
+          <xs:element name="loginToken" type="LoginToken"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="LoginRequest14sp4">
+    <xs:annotation>
+      <xs:documentation>
+        LoginRequest14sp4 is 2nd stage of the 2 stage OCI login process.
+        The signedPassword is not required for external authentication login from a trusted host (ACL).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="signedPassword" type="SignedPassword" minOccurs="0"/>
+          <xs:element name="plainTextPassword" type="Password" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="LoginResponse14sp4">
+    <xs:annotation>
+      <xs:documentation>
+        LoginRequest14sp4/Response14sp4 is 2nd stage of the 2 stage OCI login process.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="loginType" type="LoginType"/>
+          <xs:element name="locale" type="OCILocale"/>
+          <xs:element name="encoding" type="Encoding"/>
+          <xs:element name="groupId" type="GroupId" minOccurs="0"/>
+          <xs:element name="serviceProviderId" type="ServiceProviderId" minOccurs="0"/>
+          <xs:element name="isEnterprise" type="xs:boolean"/>
+          <xs:element name="passwordExpiresDays" type="xs:int" minOccurs="0"/>
+          <xs:element name="userDomain" type="NetAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="LogoutRequest">
+    <xs:annotation>
+      <xs:documentation>
+        LogoutRequest is sent when an OCI user logs out or when connection is lost.
+        This command can be sent either to the server, or to the client from OCS.
+        Response is either SuccessResponse or ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="reason" type="LogoutRequestReason" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="PasswordModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the password for a user/administrator.
+        When oldPassword is specified, password rule applies. If oldPassword in not specified,
+        any password rule related to old password does not apply.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="oldPassword" type="Password" minOccurs="0"/>
+          <xs:element name="newPassword" type="Password"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="PrimaryInfoGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Requests information about the primary server for high-availability support.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="isPrivate" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>
+                Dual homed side is private?
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="isAddressInfoRequested" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>
+                For optimization, we only get the hostname and addresses for primary if
+                they are explicitly requested or if the current server is not the primary.
+                So you might get back the list of server addresses even if you did not
+                ask for the list if the request is not serviced by the primary server.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="PrimaryInfoGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Information about the primary server in the high-availablity cluster.
+        For optimization, we only get the hostname and addresses for primary if they are
+        explicitly requested or if the current server is not the primary.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="isPrimary" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Is the server that processed this request the primary in the cluster?</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="hostnameForPrimary" type="NetAddress" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Primary server's hostname.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="addressForPrimary" type="NetAddress" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>List of addresses for primary server in cluster.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="privateAddressForPrimary" type="NetAddress" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>List of private addresses for primary server in cluster.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="PublicClusterGetFullyQualifiedDomainNameRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the public cluster fully qualified domain name (FQDN).
+        The response is either a PublicClusterGetFullyQualifiedDomainNameResponse
+        or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="PublicClusterGetFullyQualifiedDomainNameResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to PublicClusterGetFullyQualifiedDomainNameRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="publicClusterFQDN" type="DomainName" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="TutorialFlagGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Get the tutorial flag setting for a user or admin.
+        The response is either a TutorialFlagGetResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="TutorialFlagGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to the TutorialFlagGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableTutorial" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="TutorialFlagModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the tutorial flag setting for a user or admin.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="enableTutorial" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserGetLoginInfoRequest">
+    <xs:annotation>
+      <xs:documentation>
+        UserGetLoginInfoRequest is used to access login information for a user
+        either by a userId or dn.  The phone number may be any
+        DN associated with a user.
+        The response is a UserGetLoginInfoResponse or an ErrorResponse
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="userId" type="UserId"/>
+            <xs:element name="phoneNumber" type="DN"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserGetLoginInfoResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserGetLoginInfoRequest
+        If a phoneNumber is returned, it will be the primay DN of the user
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="loginType" type="LoginType"/>
+          <xs:element name="locale" type="OCILocale"/>
+          <xs:element name="encoding" type="Encoding"/>
+          <xs:element name="groupId" type="GroupId" minOccurs="0"/>
+          <xs:element name="serviceProviderId" type="ServiceProviderId" minOccurs="0"/>
+          <xs:element name="isEnterprise" type="xs:boolean"/>
+          <xs:element name="passwordExpiresDays" type="xs:int" minOccurs="0"/>
+          <xs:element name="lastName" type="LastName" minOccurs="0"/>
+          <xs:element name="firstName" type="FirstName" minOccurs="0"/>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="phoneNumber" type="DN" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="VerifySessionIsValidRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Query the provisioning server to verify the session is authorized. Most
+        applications should not need this command, because the provisioning server
+        verifies the session is authorized for all commands.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:simpleType name="LogoutRequestReason">
+    <xs:annotation>
+      <xs:documentation>
+        Logout request reason.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Client Logout"/>
+      <xs:enumeration value="Server Connection Failure"/>
+      <xs:enumeration value="Open Client Server Forced Logout"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+</xs:schema>

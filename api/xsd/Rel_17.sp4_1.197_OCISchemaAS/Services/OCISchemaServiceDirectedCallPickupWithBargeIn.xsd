@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- D I R E C T E D   C A L L   P I C K U P   W I T H   B A R G E          -->
+<!-- I N  S E R V I C E                                                     -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- D I R E C T E D   C A L L   P I C K U P   W I T H   B A R G E   I N                -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    UserDirectedCallPickupWithBargeInGetRequest14sp7    
+    UserDirectedCallPickupWithBargeInModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="UserDirectedCallPickupWithBargeInGetRequest14sp7">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user level data associated with Directed Call Pickup With Barge In.
+        The response is either a UserDirectedCallPickupWithBargeInGetResponse14sp7 or an
+        ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserDirectedCallPickupWithBargeInGetResponse14sp7">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserDirectedCallPickupWithBargeInGetRequest14sp7.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="enableBargeInWarningTone" type="xs:boolean"/>
+          <xs:element name="enableAutomaticTargetSelection" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserDirectedCallPickupWithBargeInModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Modify the user level data associated with Directed Call Pickup With Barge In.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="enableBargeInWarningTone" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="enableAutomaticTargetSelection" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+</xs:schema>

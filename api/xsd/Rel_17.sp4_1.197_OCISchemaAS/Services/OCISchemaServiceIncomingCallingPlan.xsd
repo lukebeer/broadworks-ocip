@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ********************************************************************** -->
+<!-- Copyright (c) 2004-2005 Broadsoft, Inc.  All rights reserved.          -->
+<!-- ********************************************************************** -->
+<!-- O C I   X M L   S C H E M A  :  S E R V I C E  P A R T                 -->
+<!--                                                                        -->
+<!-- I N C O M I N G   C A L L I N G   P L A N  S E R V I C E               -->
+<!--                                                                        -->
+<!-- This file defines the XML Schema for the BroadSoft Application Server  -->
+<!-- Open Client Interface (OCI).                                           -->
+<!-- ********************************************************************** -->
+
+<xs:schema xmlns:xs             = "http://www.w3.org/2001/XMLSchema"
+           xmlns:core           = "C"
+           xmlns                = ""
+           attributeFormDefault = "qualified"
+           elementFormDefault   = "qualified">
+  
+  <xs:import namespace      = "C"
+             schemaLocation = "../OCISchemaBASE.xsd"/>
+  
+  <xs:include schemaLocation="../OCISchemaDataTypes.xsd"/>
+  
+  <!-- ********************************************************************************** -->
+  <!-- I N C O M I N G   C A L L I N G   P L A N                                          -->
+  <!-- R E Q U E S T S  A N D  R E S P O N S E S                                          -->
+  <!-- ********************************************************************************** -->
+  <!--
+  Requests and responses are listed here in alphabetical order.
+  The non-primitive attributes inside the commands are defined in another
+  section of the schema.
+
+  Requests in this schema file:
+    GroupIncomingCallingPlanGetListRequest    
+    GroupIncomingCallingPlanModifyListRequest    
+    UserIncomingCallingPlanGetRequest    
+    UserIncomingCallingPlanModifyRequest    
+    
+  --> 
+  
+  <xs:complexType name="GroupIncomingCallingPlanGetListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the group's incoming calling plan settings.
+        The response is either a GroupIncomingCallingPlanGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupIncomingCallingPlanGetListResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to GroupIncomingCallingPlanGetListRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="groupPermissions" type="IncomingCallingPlanPermissions"/>
+          <xs:element name="departmentPermissions" type="IncomingCallingPlanDepartmentPermissions" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="GroupIncomingCallingPlanModifyListRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Change the group's incoming calling plan settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="serviceProviderId" type="ServiceProviderId"/>
+          <xs:element name="groupId" type="GroupId"/>
+          <xs:element name="groupPermissions" type="IncomingCallingPlanPermissionsModify" minOccurs="0"/>
+          <xs:element name="departmentPermissions" type="IncomingCallingPlanDepartmentPermissionsModify" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserIncomingCallingPlanGetRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Request the user's incoming calling plan settings.
+        The response is either a UserIncomingCallingPlanGetListResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserIncomingCallingPlanGetResponse">
+    <xs:annotation>
+      <xs:documentation>
+        Response to UserIncomingCallingPlanGetRequest.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIDataResponse">
+        <xs:sequence>
+          <xs:element name="useCustomSettings" type="xs:boolean"/>
+          <xs:element name="userPermissions" type="IncomingCallingPlanPermissions"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="UserIncomingCallingPlanModifyRequest">
+    <xs:annotation>
+      <xs:documentation>
+        Change the user's incoming calling plan settings.
+        The response is either a SuccessResponse or an ErrorResponse.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="core:OCIRequest">
+        <xs:sequence>
+          <xs:element name="userId" type="UserId"/>
+          <xs:element name="useCustomSettings" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="userPermissions" type="IncomingCallingPlanPermissionsModify" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>    
+    
+  <xs:complexType name="IncomingCallingPlanDepartmentPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Allows or disallows various types of incoming calls for a specified department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="departmentFullPathName" type="DepartmentFullPathName"/>
+      <xs:element name="allowFromWithinGroup" type="xs:boolean"/>
+      <xs:element name="allowFromOutsideGroup" type="IncomingCallingPlanOutsideCallPermission"/>
+      <xs:element name="allowCollectCalls" type="xs:boolean"/>
+      <xs:element name="digitPatternPermission" type="IncomingCallingPlanDigitPatternPermission" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="IncomingCallingPlanDepartmentPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Allows or disallows various types of incoming calls for a specified department.
+        For use when modifing settings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="departmentKey" type="DepartmentKey"/>
+      <xs:element name="allowFromWithinGroup" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="allowFromOutsideGroup" type="IncomingCallingPlanOutsideCallPermission" minOccurs="0"/>
+      <xs:element name="allowCollectCalls" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="digitPatternPermission" type="IncomingCallingPlanDigitPatternPermission" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="IncomingCallingPlanDigitPatternPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether calls from specified digit patterns are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="digitPatternName" type="CallingPlanDigitPatternName"/>
+      <xs:element name="allow" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:simpleType name="IncomingCallingPlanOutsideCallPermission">
+    <xs:annotation>
+      <xs:documentation>
+        Indicates whether incoming outside calls are permitted.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="Allow"/>
+      <xs:enumeration value="Allow Only If Redirected From Another User"/>
+      <xs:enumeration value="Disallow"/>
+    </xs:restriction>
+  </xs:simpleType>    
+    
+  <xs:complexType name="IncomingCallingPlanPermissions">
+    <xs:annotation>
+      <xs:documentation>
+        Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="allowFromWithinGroup" type="xs:boolean"/>
+      <xs:element name="allowFromOutsideGroup" type="IncomingCallingPlanOutsideCallPermission"/>
+      <xs:element name="allowCollectCalls" type="xs:boolean"/>
+      <xs:element name="digitPatternPermission" type="IncomingCallingPlanDigitPatternPermission" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+  <xs:complexType name="IncomingCallingPlanPermissionsModify">
+    <xs:annotation>
+      <xs:documentation>
+        Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+        For use when modifing settings.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="allowFromWithinGroup" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="allowFromOutsideGroup" type="IncomingCallingPlanOutsideCallPermission" minOccurs="0"/>
+      <xs:element name="allowCollectCalls" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="digitPatternPermission" type="IncomingCallingPlanDigitPatternPermission" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>    
+    
+</xs:schema>
