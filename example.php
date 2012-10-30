@@ -1,9 +1,7 @@
 <?php
 require_once 'common.php';
 
-$enterpriseId = 'Enterprise-1';
-$groupId      = 'Group-1';
-$msg          = OCISchemaUser::UserGetListInGroupRequest($enterpriseId, $groupId);
+$msg          = OCISchemaUser::UserGetListInGroupRequest('Enterprise-1', 'Group-1');
 $xml          = $OCIClient->ociBuilder->build($msg);
 $response     = ($OCIClient->send($xml)) ? $OCIClient->getXMLResponseBody() : $errorControl->getErrors();
 

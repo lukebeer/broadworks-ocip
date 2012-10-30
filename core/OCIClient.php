@@ -23,9 +23,11 @@ class OCIClient {
             $msg = $this->ociBuilder->build(OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword()));
             if ($this->send($msg)) {
                 $this->session->setLoggedIn();
+            } else {
+                $this->errorControl->addError("Incorrect password");
             }
         } else {
-            die("Failed to construct OCIClient, invalid credentials.");
+            $this->errorControl->addError("Incorrect username");
         }
     }
 

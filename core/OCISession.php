@@ -33,7 +33,7 @@ class OCISession {
 
     public function getLoggedIn()       { return $this->getLoggedIn(); }
     public function getSignedPassword() { return $this->pass;   }
-    public function getUrl()           { return $this->url;   }
+    public function getUrl()            { return $this->url;   }
     public function getUserId()         { return $this->userId; }
 
     public function setNonce($nonce)    { $this->nonce = $nonce; }
