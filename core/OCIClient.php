@@ -20,10 +20,12 @@ class OCIClient {
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
             $this->session->setSignedPassword($pass);
-        }
-        $msg = $this->ociBuilder->build(OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword()));
-        if ($this->send($msg)) {
-            $this->errorControl->addError('NOTICE: Logged in.');
+            $msg = $this->ociBuilder->build(OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword()));
+            if ($this->send($msg)) {
+                $this->session->setLoggedIn();
+            }
+        } else {
+            die("Failed to construct OCIClient, invalid credentials.");
         }
     }
 
