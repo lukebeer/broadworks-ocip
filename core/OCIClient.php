@@ -36,9 +36,7 @@ class OCIClient {
             $this->request = new HTTP_Request2(
                 $this->session->getUrl(),
                 HTTP_Request2::METHOD_POST,
-                [
-                    'timeout'     => $this->timeout,
-                ]
+                ['timeout' => $this->timeout]
             );
             $this->request->setHeader([
                 'Content-Type'	=> 'text/xml; charset=utf-8',
