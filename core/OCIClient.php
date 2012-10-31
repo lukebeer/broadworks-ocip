@@ -33,11 +33,14 @@ class OCIClient {
 
     public function getRequest() {
         if ($this->request == null) {
-            $this->request = new HTTP_Request2($this->session->getUrl(), [
-                'timeout'     => $this->timeout,
-                'readTimeout' => $this->timeout
-            ]);
-            $this->request->setMethod(HTTP_Request2::METHOD_POST)->setHeader([
+            $this->request = new HTTP_Request2(
+                $this->session->getUrl(),
+                HTTP_Request2::METHOD_POST,
+                [
+                    'timeout'     => $this->timeout,
+                ]
+            );
+            $this->request->setHeader([
                 'Content-Type'	=> 'text/xml; charset=utf-8',
                 'Accept' => 'application/soap+xml, application/dime, multipart/related, text/*',
                 'User-Agent' => 'Axis/1.3',
