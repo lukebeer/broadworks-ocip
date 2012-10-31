@@ -12,8 +12,8 @@ class OCIClient {
     public function __construct($url, $userId, $pass, $errorControl, $timeout) {
         require_once 'HTTP/Request2.php';
         $this->errorControl = $errorControl;
-        $this->session      = Factory::getOCISession($url, $userId);
-        $this->ociBuilder   = Factory::getOCIBuilder($this->session->getSessionId());
+        $this->session      = CoreFactory::getOCISession($url, $userId);
+        $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
         $msg = $this->ociBuilder->build(OCISchemaLogin::AuthenticationRequest($this->session->getUserId()));
         if ($this->send($msg)) {
             $this->setCookieFromResponse();
@@ -98,6 +98,7 @@ class OCIClient {
             preg_match('/<summaryEnglish>(.*)<\/summaryEnglish>/', $response, $summaryEnglish);
             preg_match('/<detail>(.*)/', $response, $summary);
             $this->errorControl->addError("{$summaryEnglish[1]} :: {$summary[1]}");
+            return false;
         } elseif (preg_match('/<string>(.*)<\/string>/', $response, $string)) {
             $this->errorControl->addError($string[1]);
             return true;
@@ -107,7 +108,6 @@ class OCIClient {
             $this->errorControl->addError("Unable to parse response {$this->getResponseBody()}");
             return false;
         }
-        return false;
     }
 
     public function getSessionId() {
