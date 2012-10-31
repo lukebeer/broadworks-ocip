@@ -20,7 +20,7 @@ class CoreFactory {
 
     public static function getOCIClient() {
         require_once(OCI_PATH . "/core/OCIClient.php");
-        $instance = new OCIClient(OCI_URL, OCI_USER, OCI_PASS, CoreFactory::getErrorControl());
+        $instance = new OCIClient(OCI_URL, OCI_USER, OCI_PASS, CoreFactory::getErrorControl(), 4);
         return $instance;
     }
 
@@ -31,13 +31,5 @@ class CoreFactory {
             $instance = new OCISession($url, $userId);
         }
         return $instance;
-    }
-
-    public static function getOCISchemaLogin() {
-        require_once(OCI_PATH . "/api/OCISchemaAS/OCISchemaLogin.php");
-    }
-
-    public static function getOCISchemaUser() {
-        require_once(OCI_PATH . "/api/OCISchemaAS/OCISchemaUser.php");
     }
 }

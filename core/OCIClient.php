@@ -12,8 +12,8 @@ class OCIClient {
     public function __construct($url, $userId, $pass, $errorControl, $timeout) {
         require_once 'HTTP/Request2.php';
         $this->errorControl = $errorControl;
-        $this->session      = CoreFactory::getOCISession($url, $userId);
-        $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
+        $this->session      = Factory::getOCISession($url, $userId);
+        $this->ociBuilder   = Factory::getOCIBuilder($this->session->getSessionId());
         $msg = $this->ociBuilder->build(OCISchemaLogin::AuthenticationRequest($this->session->getUserId()));
         if ($this->send($msg)) {
             $this->setCookieFromResponse();
