@@ -7,9 +7,9 @@ class OCIClient {
     public $ociBuilder   = null;
 
     private $session    = null;
-    private $timeout    = null;
+    private $timeout    = 4;
 
-    public function __construct($url, $userId, $pass, $errorControl=null, $timeout=4) {
+    public function __construct($url, $userId, $pass, $errorControl, $timeout) {
         require_once 'HTTP/Request2.php';
         $this->errorControl = $errorControl;
         $this->session      = CoreFactory::getOCISession($url, $userId);
