@@ -18,9 +18,9 @@ class CoreFactory {
         return $instance;
     }
 
-    public static function getOCIClient() {
+    public static function getOCIClient($url, $user, $pass) {
         require_once(OCI_PATH . "/core/OCIClient.php");
-        $instance = new OCIClient(OCI_URL, OCI_USER, OCI_PASS, CoreFactory::getErrorControl(), 4);
+        $instance = new OCIClient($url, $user, $pass, CoreFactory::getErrorControl(), 4);
         return $instance;
     }
 
