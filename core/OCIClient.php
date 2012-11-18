@@ -1,33 +1,30 @@
 <?php
 require_once 'OCISession.php';
+require_once 'OCIResponse.php';
+require_once 'HTTP/Request2.php';
+
 class OCIClient {
-    public $request      = null;
-    public $response     = null;
-    public $errorControl = null;
-    public $ociBuilder   = null;
+    public $request    = null;
+    public $response   = null;
+    public $ociBuilder = null;
 
-    private $session    = null;
-    private $timeout    = 4;
+    private $session = null;
+    private $timeout = 4;
 
-    public function __construct($url, $userId, $pass, $errorControl, $timeout) {
-        require_once 'HTTP/Request2.php';
-        $this->errorControl = $errorControl;
+    public function __construct($url, $userId, $pass, $timeout) {
+        $this->errorControl = &CoreFactory::getErrorControl();
         $this->session      = CoreFactory::getOCISession($url, $userId);
         $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
-        $msg = $this->ociBuilder->build(OCISchemaLogin::AuthenticationRequest($this->session->getUserId()));
+        $msg = OCISchemaLogin::AuthenticationRequest($this->session->getUserId());
         if ($this->send($msg)) {
             $this->setCookieFromResponse();
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
             $this->session->setSignedPassword($pass);
-            $msg = $this->ociBuilder->build(OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword()));
+            $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
             if ($this->send($msg)) {
                 $this->session->setLoggedIn();
-            } else {
-                $this->errorControl->addError("Incorrect password");
             }
-        } else {
-            $this->errorControl->addError("Incorrect username");
         }
     }
 
@@ -36,9 +33,9 @@ class OCIClient {
             $this->request = new HTTP_Request2(
                 $this->session->getUrl(),
                 HTTP_Request2::METHOD_POST,
-                ['timeout' => $this->timeout]
+                array('timeout' => $this->timeout)
             );
-            $this->request->setHeader([
+            $this->request->setHeader(array(
                 'Content-Type'	=> 'text/xml; charset=utf-8',
                 'Accept' => 'application/soap+xml, application/dime, multipart/related, text/*',
                 'User-Agent' => 'Axis/1.3',
@@ -47,25 +44,22 @@ class OCIClient {
                 'Pragma' => 'no-cache',
                 'Connection' => null,
                 'Accept-Encoding' => null
-            ]);
+            ));
         }
         return $this->request;
     }
 
     public function send($cmd) {
+        if (gettype($cmd) == 'array') $cmd = $this->ociBuilder->build($cmd);
         $this->getRequest();
         $this->getRequest()->setBody($cmd);
         $this->response = $this->getRequest()->send();
         if ($this->response->getStatus() == 200) {
-            if ($this->getXMLResponseBody()) {
-                $this->session->setLoggedIn();
-                return true;
-            }
+            return true;
         } else {
-            $this->getXMLResponseBody();
             $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
+            return false;
         }
-        return false;
     }
 
     private function setCookieFromResponse() {
@@ -74,7 +68,7 @@ class OCIClient {
 
     private function addCookieToRequest() {
         $cookie = $this->session->getCookie();
-        $this->getRequest()->addCookie($cookie[0]['name'],$cookie[0]['value']);
+        $this->getRequest()->addCookie($cookie[0]['name'], $cookie[0]['value']);
     }
 
     private function setNonceFromResponse() {
@@ -86,31 +80,11 @@ class OCIClient {
         $this->session->setNonce($nonce);
     }
 
-    public function getResponseBody() {
-        return html_entity_decode($this->response->getBody());
+    public function getResponse() {
+        $response = html_entity_decode($this->response->getBody());
+        $response =  new OCIResponse($response);
+        return $response->getResponse();
     }
-
-    public function getXMLResponseBody() {
-        $response = $this->getResponseBody();
-        if (preg_match('/<command .*>(.*)<\/command>/', $response, $regs)) {
-            $utf8 = utf8_encode($regs[0]);
-            return simplexml_load_string($utf8);
-        } elseif (preg_match('/ErrorResponse/', $response)) {
-            preg_match('/<summaryEnglish>(.*)<\/summaryEnglish>/', $response, $summaryEnglish);
-            preg_match('/<detail>(.*)/', $response, $summary);
-            $this->errorControl->addError("{$summaryEnglish[1]} :: {$summary[1]}");
-            return false;
-        } elseif (preg_match('/<string>(.*)<\/string>/', $response, $string)) {
-            $this->errorControl->addError($string[1]);
-            return true;
-        } elseif (preg_match('/SuccessResponse/', $response)) {
-            return true;
-        } else {
-            $this->errorControl->addError("Unable to parse response {$this->getResponseBody()}");
-            return false;
-        }
-    }
-
     public function getSessionId() {
         return $this->session->getSessionId();
     }
