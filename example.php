@@ -1,6 +1,5 @@
 <?php
-// Example to print the user list in an enterprises group.
+// Example to count the number of users in Service Provider..
 require_once 'common.php';
-$msg      = OCISchemaUser::UserGetListInGroupRequest('Enterprise-1', 'Group-1');
-$response = ($OCIClient->send($msg)) ? $OCIClient->getResponse() : $errorControl->getErrors();
-print_r($response);
+$msg = OCISchemaUser::UserGetListInServiceProviderRequest('Enterprise-1');
+if ($OCIClient->send($msg)) echo count($OCIClient->getResponse()->userTable['row']);
