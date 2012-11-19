@@ -1,5 +1,8 @@
 <?php
-// Example to count the number of users in Service Provider..
+// Example to return users in a Service Provider
 require_once 'common.php';
 $msg = OCISchemaUser::UserGetListInServiceProviderRequest('Enterprise-1');
-if ($OCIClient->send($msg)) echo count($OCIClient->getResponse()->userTable['row']);
+$response = (($OCIClient->send($msg)) && ($OCIClient->getResponse()))
+    ? $OCIClient->getResponse()
+    : $errorControl->getErrors();
+print_r($response);
