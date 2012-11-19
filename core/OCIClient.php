@@ -53,7 +53,11 @@ class OCIClient {
         if (gettype($cmd) == 'array') $cmd = $this->ociBuilder->build($cmd);
         $this->getRequest();
         $this->getRequest()->setBody($cmd);
-        $this->response = $this->getRequest()->send();
+        try {
+            $this->response = $this->getRequest()->send();
+        } catch (HTTP_Request2_MessageException $e) {
+            $this->errorControl->addError($e->getMessage());
+        }
         if ($this->response->getStatus() == 200) {
             return true;
         } else {
