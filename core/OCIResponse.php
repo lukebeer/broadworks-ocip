@@ -19,12 +19,14 @@ class OCIResponse {
     }
 
     private function ErrorResponse() {
-        preg_match('/<summaryEnglish>(.*)<\/summaryEnglish>/', $this->response, $summaryEnglish);
-        preg_match('/<detail>(.*)/', $this->response, $detail);
         $errorControl = &CoreFactory::getErrorControl();
-        $errorControl->addError($summaryEnglish[1]);
-        $errorControl->addError($detail[1]);
-        $this->response = &CoreFactory::getErrorControl();
+        if (preg_match('/<summaryEnglish>(.*)<\/summaryEnglish>/', $this->response, $summaryEnglish)) {
+            $errorControl->addError($summaryEnglish[1]);
+        }
+        if (preg_match('/<detail>(.*)/', $this->response, $detail)) {
+            $errorControl->addError($detail[1]);
+        }
+        $this->response = false;
         return false;
     }
 
@@ -35,7 +37,7 @@ class OCIResponse {
     public function UnknownResponse() {
         $errorControl = &CoreFactory::getErrorControl();
         $errorControl->addError("Unable to parse: {$this->response}");
-        $this->response = &CoreFactory::getErrorControl();
+        $this->response = false;
         return null;
     }
 
