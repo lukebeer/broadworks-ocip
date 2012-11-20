@@ -16,15 +16,13 @@ class OCIClient {
         $this->session      = CoreFactory::getOCISession($url, $userId);
         $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
         $msg = OCISchemaLogin::AuthenticationRequest($this->session->getUserId());
-        if ($this->send($msg)) {
+        if (($this->send($msg)) && ($this->getResponse())) {
             $this->setCookieFromResponse();
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
             $this->session->setSignedPassword($pass);
             $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
-            if ($this->send($msg)) {
-                $this->session->setLoggedIn();
-            }
+            if (($this->send($msg)) && ($this->getResponse())) $this->session->setLoggedIn();
         }
     }
 
