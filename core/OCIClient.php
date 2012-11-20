@@ -12,6 +12,8 @@ class OCIClient {
     private $timeout = 4;
 
     public function __construct($url, $userId, $pass, $timeout) {
+        Factory::getOCISchemaLogin();
+        Factory::getOCISchemaUser();
         $this->errorControl = &CoreFactory::getErrorControl();
         $this->session      = CoreFactory::getOCISession($url, $userId);
         $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
