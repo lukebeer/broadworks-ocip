@@ -2,6 +2,8 @@
 require_once 'OCISession.php';
 require_once 'OCIResponse.php';
 require_once 'HTTP/Request2.php';
+Factory::getOCISchemaLogin();
+Factory::getOCISchemaUser();
 
 class OCIClient {
     public $request    = null;
@@ -10,22 +12,38 @@ class OCIClient {
 
     private $session = null;
     private $timeout = 4;
+    private $isAuthed = false;
 
-    public function __construct($url, $userId, $pass, $timeout) {
-        Factory::getOCISchemaLogin();
-        Factory::getOCISchemaUser();
+    public function __construct($url) {
         $this->errorControl = &CoreFactory::getErrorControl();
-        $this->session      = CoreFactory::getOCISession($url, $userId);
+        $this->url = $url;
+    }
+
+    public function authenticate($userId, $pass=null) {
+        $this->session      = CoreFactory::getOCISession($this->url, $userId);
         $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
         $msg = OCISchemaLogin::AuthenticationRequest($this->session->getUserId());
         if (($this->send($msg)) && ($this->getResponse())) {
             $this->setCookieFromResponse();
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
-            $this->session->setSignedPassword($pass);
+            if (isset($pass)) {
+                $this->session->setSignedPassword($pass);
+                return $this->login();
+            }
+            return true;
+        }
+        return false;
+    }
+
+    // Use authenticate with a password to login.
+    private function login() {
+        if ($this->isAuthed) {
             $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
             if (($this->send($msg)) && ($this->getResponse())) $this->session->setLoggedIn();
+            return true;
         }
+        return false;
     }
 
     public function getRequest() {

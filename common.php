@@ -6,4 +6,3 @@ define('OCI_PATH', realpath(dirname(__FILE__)));
 require_once(OCI_PATH . "/corefactory.php");
 require_once(OCI_PATH . "/factory.php");
 $errorControl = &CoreFactory::getErrorControl();
-$OCIClient    = CoreFactory::getOCIClient('http://example.com/webservice/services/ProvisioningService', 'username', 'password');
