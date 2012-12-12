@@ -19,7 +19,8 @@ class OCIClient {
         $this->url = $url;
     }
 
-    public function authenticate($userId, $pass=null) {
+    public function authenticate($userId) {
+        $this->isAuthed = false;
         $this->session      = CoreFactory::getOCISession($this->url, $userId);
         $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
         $msg = OCISchemaLogin::AuthenticationRequest($this->session->getUserId());
@@ -27,17 +28,17 @@ class OCIClient {
             $this->setCookieFromResponse();
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
-            if (isset($pass)) {
-                $this->isAuthed = true;
-                $this->session->setSignedPassword($pass);
-                return $this->login();
-            }
+            $this->isAuthed = true;
             return true;
         }
         return false;
     }
 
-    private function login() {
+    public function login($userId=null, $pass=null) {
+        if (isset($userId) && (isset($pass))) {
+            $this->authenticate($userId);
+            $this->session->setSignedPassword($pass);
+        }
         if ($this->isAuthed) {
             $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
             if (($this->send($msg)) && ($this->getResponse())) $this->session->setLoggedIn();
