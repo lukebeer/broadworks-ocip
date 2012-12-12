@@ -19,6 +19,11 @@ class OCIClient {
         $this->url = $url;
     }
 
+    public function __destruct() {
+        $this->logout();
+        $this->errorControl->addError("Automatically logged out");
+    }
+
     public function authenticate($userId) {
         $this->isAuthed = false;
         $this->session      = CoreFactory::getOCISession($this->url, $userId);
@@ -45,6 +50,12 @@ class OCIClient {
             return true;
         }
         return false;
+    }
+
+    public function logout() {
+        $msg = OCISchemaLogin::LogoutRequest($this->session->getUserId(), "Script called logout()");
+        $this->send($msg);
+        $this->session->setLoggedOut();
     }
 
     public function getRequest() {

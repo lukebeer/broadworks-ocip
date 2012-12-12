@@ -24,6 +24,10 @@ class OCISession {
         $this->loggedIn = true;
     }
 
+    public function setLoggedOut() {
+        $this->loggedIn = false;
+    }
+
     public function getSessionId() {
         if ($this->sessionId == null) {
             $this->sessionId = abs(rand(0, 1000000000000000000));
