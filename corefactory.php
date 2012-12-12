@@ -11,10 +11,7 @@ class CoreFactory {
 
     public static function getOCIBuilder($sessionId) {
         require_once(OCI_PATH . "/core/OCIBuilder.php");
-        static $instance;
-        if (!is_object($instance)) {
-            $instance = new OCIBuilder($sessionId);
-        }
+        $instance = new OCIBuilder($sessionId);
         return $instance;
     }
 
@@ -24,12 +21,9 @@ class CoreFactory {
         return $instance;
     }
 
-    public static function &getOCISession($url, $userId) {
+    public static function getOCISession($url, $userId) {
         require_once(OCI_PATH . "/core/OCISession.php");
-        static $instance;
-        if (!is_object($instance)) {
-            $instance = new OCISession($url, $userId);
-        }
+        $instance = new OCISession($url, $userId);
         return $instance;
     }
 }

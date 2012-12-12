@@ -28,6 +28,7 @@ class OCIClient {
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
             if (isset($pass)) {
+                $this->isAuthed = true;
                 $this->session->setSignedPassword($pass);
                 return $this->login();
             }
@@ -36,7 +37,6 @@ class OCIClient {
         return false;
     }
 
-    // Use authenticate with a password to login.
     private function login() {
         if ($this->isAuthed) {
             $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
@@ -100,6 +100,14 @@ class OCIClient {
         $len = $end_pos - $start_pos;
         $nonce = substr($response, $start_pos, $len);
         $this->session->setNonce($nonce);
+    }
+
+    public function getLastRequestMsg() {
+        return html_entity_decode($this->getRequest()->getBody());
+    }
+
+    public function getLastResponseMsg() {
+        return html_entity_decode($this->response->getBody());
     }
 
     public function getResponse() {
