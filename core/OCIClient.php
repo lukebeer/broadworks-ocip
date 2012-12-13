@@ -12,7 +12,6 @@ class OCIClient {
 
     private $session = null;
     private $timeout = 4;
-    private $isAuthed = false;
     private $autoLogout = true;
 
     public function __construct($url, $autoLogout) {
@@ -26,7 +25,6 @@ class OCIClient {
     }
 
     public function authenticate($userId) {
-        $this->isAuthed = false;
         $this->session      = CoreFactory::getOCISession($this->url, $userId);
         $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
         $msg = OCISchemaLogin::AuthenticationRequest($this->session->getUserId());
@@ -34,7 +32,6 @@ class OCIClient {
             $this->setCookieFromResponse();
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
-            $this->isAuthed = true;
             return true;
         }
         return false;
@@ -42,13 +39,12 @@ class OCIClient {
 
     public function login($userId=null, $pass=null) {
         if (isset($userId) && (isset($pass))) {
-            $this->authenticate($userId);
-            $this->session->setSignedPassword($pass);
-        }
-        if ($this->isAuthed) {
-            $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
-            if (($this->send($msg)) && ($this->getResponse())) $this->session->setLoggedIn();
-            return true;
+            if ($this->authenticate($userId)) {
+                $this->session->setSignedPassword($pass);
+                $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
+                if (($this->send($msg)) && ($this->getResponse())) $this->session->setLoggedIn();
+                return true;
+            }
         }
         return false;
     }
