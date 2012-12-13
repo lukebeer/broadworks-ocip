@@ -35,14 +35,16 @@ class OCISession {
         return $this->sessionId;
     }
 
+    public function setCookie($cookie)  {
+        if (isset($this->cookie)) $this->cookie = null;
+        $this->cookie = $cookie;
+    }
+
     public function getLoggedIn()       { return $this->getLoggedIn(); }
     public function getSignedPassword() { return $this->pass;   }
     public function getUrl()            { return $this->url;    }
     public function getUserId()         { return $this->userId; }
-
     public function setNonce($nonce)    { $this->nonce = $nonce; }
     public function getNonce()          { return $this->nonce;   }
-
-    public function setCookie($cookie)  { $this->cookie = $cookie; }
     public function getCookie()         { return $this->cookie;    }
 }
