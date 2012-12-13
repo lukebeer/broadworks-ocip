@@ -13,15 +13,16 @@ class OCIClient {
     private $session = null;
     private $timeout = 4;
     private $isAuthed = false;
+    private $autoLogout = true;
 
-    public function __construct($url) {
+    public function __construct($url, $autoLogout) {
         $this->errorControl = &CoreFactory::getErrorControl();
         $this->url = $url;
+        $this->autoLogout = $autoLogout;
     }
 
     public function __destruct() {
-        $this->logout();
-        $this->errorControl->addError("Automatically logged out");
+        if ($this->autoLogout) $this->logout();
     }
 
     public function authenticate($userId) {
