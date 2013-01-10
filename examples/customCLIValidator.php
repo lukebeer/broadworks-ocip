@@ -7,7 +7,7 @@ class ValidateCustomCLI {
     public $numbers = [];
     public $structure = false;
 
-    public function __construct($user=null, $pass=null, $host='http://example.com/webservice/services/ProvisioningService') {
+    public function __construct($user=null, $pass=null, $host='http://example/webservice/services/ProvisioningService') {
         $this->client = CoreFactory::getOCIClient($host);
         Factory::getOCISchemaServiceProvider();
         Factory::getOCISchemaGroup();
@@ -105,9 +105,9 @@ class ValidateCustomCLI {
         $this->client->send($msg);
         if ($response = $this->client->getResponse()) {
             foreach($response->dnSummaryTable['row'] as $row) {
-                if (!isset($row['col'][0])) { var_dump($row); die();}
-                if (preg_match('/ - /', $row['col'][0])) {
-                    $item = str_replace(['-', '+'], null, $row['col'][0]);
+                $row = isset($row['col']) ? $row['col'][0] : $row[0];
+                if (preg_match('/ - /', $row)) {
+                    $item = str_replace(['-', '+'], null, $row);
                     preg_match('/(\d+)\s+(\d+)/', $item, $range);
                     while ($range[1] <= $range[2]) {
                         $this->numbers[] = $range[1];
