@@ -3,7 +3,7 @@
 require_once '../common.php';
 
 // Get the OCIClient and set the url to send requests to
-$OCIClient = CoreFactory::getOCIClient('http://bsews1.ipt.intechnology.co.uk/webservice/services/ProvisioningService');
+$OCIClient = CoreFactory::getOCIClient('http://example.com/webservice/services/ProvisioningService');
 
 // Try and login
 if ($OCIClient->login('username', 'password')) {
