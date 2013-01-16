@@ -1,7 +1,7 @@
 <?php
 class NumberingHelpers {
 
-    // Return array of numbers in Service Provider, expanded, NOT ranges.
+    // Return array of numbers as single dimension array individually, not ranges.
     // Accepts response object that returns a dnSummaryTable property.
     public static function getNumbersAsArray($response) {
         $numbers = null;
