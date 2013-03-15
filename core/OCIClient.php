@@ -85,12 +85,14 @@ class OCIClient {
         } catch (HTTP_Request2_MessageException $e) {
             $this->errorControl->addError($e->getMessage());
         }
-        if ($this->response->getStatus() == 200) {
-            return true;
-        } else {
-            $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
-            return false;
-        }
+	if (is_object($this->response)) {
+	        if ($this->response->getStatus() == 200) {
+        	    return true;
+	        } else {
+        	    $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
+	            return false;
+	        }
+	}
     }
 
     private function setCookieFromResponse() {
