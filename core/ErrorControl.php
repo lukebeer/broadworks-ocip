@@ -1,12 +1,22 @@
 <?php
 class ErrorControl {
     var $errors = null;
+    var $lastErrors = null;
 
     public function addError($error) {
         $this->errors[] = $error;
     }
+
     public function getErrors() {
         return $this->errors;
+    }
+
+    public function getLastError() {
+        return $this->lastErrors;
+    }
+
+    public function clearLastError() {
+        $this->lastErrors = null;
     }
 
     public function getErrorList($tabWidth) {
@@ -21,6 +31,7 @@ class ErrorControl {
     public function hasErrors() {
         return ($this->errors != null);
     }
+
     public function getErrorHtml($tabWidthCount) {
         $tabWidth = (is_numeric($tabWidthCount)) ? str_repeat("\t", $tabWidthCount) : "";
         if ($this->errors != null) {

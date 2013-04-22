@@ -21,10 +21,10 @@ class OCIResponse {
     private function ErrorResponse() {
         $errorControl = &CoreFactory::getErrorControl();
         if (preg_match('/<summaryEnglish>(.*)<\/summaryEnglish>/', $this->response, $summaryEnglish)) {
-            $errorControl->addError($summaryEnglish[1]);
+            $errorControl->addError("Summary: {$summaryEnglish[1]}");
         }
         if (preg_match('/<detail>(.*)/', $this->response, $detail)) {
-            $errorControl->addError($detail[1]);
+            $errorControl->addError("Detail: {$detail[1]}");
         }
         $this->response = false;
         return false;
