@@ -144,10 +144,13 @@ class OCISchemaLogin {
         }
 
         # UserGetLoginInfoRequest is used to access login information for a user
-        static public function UserGetLoginInfoRequest() {
+        static public function UserGetLoginInfoRequest($userId=null, $phoneNumber=null) {
             return [
                 OCIDataTypes::OCI_NAME   => __FUNCTION__,
-                OCIDataTypes::OCI_PARAMS => null
+                OCIDataTypes::OCI_PARAMS => [
+                    'userId' => $userId,
+                    'phoneNumber' => $phoneNumber
+                ]
             ];
         }
 
