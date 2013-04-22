@@ -1,10 +1,11 @@
 <?php
 class ErrorControl {
     var $errors = null;
-    var $lastErrors = null;
+    var $lastError = null;
 
     public function addError($error) {
         $this->errors[] = $error;
+        $this->lastError = $error;
     }
 
     public function getErrors() {
@@ -12,11 +13,11 @@ class ErrorControl {
     }
 
     public function getLastError() {
-        return $this->lastErrors;
+        return $this->lastError;
     }
 
     public function clearLastError() {
-        $this->lastErrors = null;
+        $this->lastError= null;
     }
 
     public function getErrorList($tabWidth) {
