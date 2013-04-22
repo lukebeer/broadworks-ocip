@@ -1,0 +1,8 @@
+<map id="OCIClient\authenticate" name="OCIClient\authenticate">
+<area shape="rect" id="node3" href="$a00002.html#ae2bbcee72289db44f5dcbdd84d4b5a2a" title="CoreFactory\\getOCISession" alt="" coords="221,5,408,35"/>
+<area shape="rect" id="node5" href="$a00002.html#a30790a3f351888b66f8334a775381f38" title="CoreFactory\\getOCIBuilder" alt="" coords="225,59,404,88"/>
+<area shape="rect" id="node7" href="$a00018.html#a5a0d241d9eeb8290c6cfe26a02f3bfea" title="OCISchemaLogin\\Authentication\lRequest" alt="" coords="209,111,420,158"/>
+<area shape="rect" id="node9" href="$a00007.html#a94dc46376229cdefe9fcfbdccc8eed32" title="OCIClient\\send" alt="" coords="259,181,371,211"/>
+<area shape="rect" id="node13" href="$a00007.html#a1c4f689ebda25c085876fe3ccbba7d1c" title="OCIClient\\getResponse" alt="" coords="235,235,395,264"/>
+<area shape="rect" id="node11" href="$a00007.html#a8ca9ea20bd035b76ded0a7167c593c02" title="OCIClient\\getRequest" alt="" coords="471,181,620,211"/>
+</map>
