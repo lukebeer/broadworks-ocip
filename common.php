@@ -6,4 +6,5 @@ define('OCI_PATH', realpath(dirname(__FILE__)));
 require_once(OCI_PATH . '/corefactory.php');
 require_once(OCI_PATH . '/factory.php');
 require_once(OCI_PATH . '/helpers/numbering.php');
+require_once(OCI_PATH . '/core/OCIDataTypes.php');
 $errorControl = &CoreFactory::getErrorControl();
