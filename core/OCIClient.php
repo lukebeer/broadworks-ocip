@@ -85,14 +85,15 @@ class OCIClient {
         } catch (HTTP_Request2_MessageException $e) {
             $this->errorControl->addError($e->getMessage());
         }
-	if (is_object($this->response)) {
+	    if (is_object($this->response)) {
 	        if ($this->response->getStatus() == 200) {
         	    return true;
 	        } else {
         	    $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
 	            return false;
 	        }
-	}
+	    }
+        return false;
     }
 
     private function setCookieFromResponse() {
@@ -128,5 +129,9 @@ class OCIClient {
     }
     public function getSessionId() {
         return $this->session->getSessionId();
+    }
+
+    public function setTimeout($timeout=4) {
+        $this->timeout = $timeout;
     }
 }
