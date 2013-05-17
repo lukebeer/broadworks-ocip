@@ -35,7 +35,7 @@ class OCIBuilder {
         return str_replace("\n", "", OCIBuilder::SOAP_HEAD) . htmlentities($oci) . OCIBuilder::SOAP_TAIL;
     }
 
-    public function buildSearch($search) {
+    public static function buildSearch($search) {
         $result = null;
         foreach ($search[OCIDataTypes::OCI_PARAMS] as $key => $value) {
             if ($value) {
