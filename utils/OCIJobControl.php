@@ -28,6 +28,7 @@ class OCIPJobControl extends OCIClient {
         $params = explode(",", $cmd);
         $cmd = array_shift($params);
         $cmd_split = explode("::", $cmd);
+	$this->getRequired($cmd_split[0]);
         $method = new ReflectionMethod($cmd_split[0], $cmd_split[1]);
         $job = $method->invokeArgs(null, $params);
         return $job;
