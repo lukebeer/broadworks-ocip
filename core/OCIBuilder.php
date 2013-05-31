@@ -26,7 +26,9 @@ class OCIBuilder {
         $oci .= '<sessionId xmlns="">'.$this->sessionId.'</sessionId>';
         $oci .= '<command xsi:type="'.$command[OCIDataTypes::OCI_NAME].'" xmlns="">';
         foreach ($command[OCIDataTypes::OCI_PARAMS] as $key => $value) {
-            if ($value != null) {
+            if ($value == OCIDataTypes::XSI_NIL) {
+                $oci .= "<$key ".OCIDataTypes::XSI_NIL.'="true"/>';
+            } elseif ($value != null) {
                 $oci .= "<$key>$value</$key>";
             }
         }
