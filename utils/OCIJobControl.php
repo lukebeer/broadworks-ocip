@@ -18,6 +18,15 @@ class OCIPJobControl extends OCIClient {
         }
     }
 
+    // Creates CSV from request command array
+    public function createConfigCSV($request=['schema' => null, 'command' => null]) {
+        $output = $request['schema'].'::'.$request['command'][OCIDataTypes::OCI_NAME];
+        foreach ($request['command'][OCIDataTypes::OCI_PARAMS] as $k => $v) {
+            $output .= (empty($v)) ? ',' : ",$v";
+        }
+        return $output;
+    }
+
     private function getRequired($schema) {
         $method = new ReflectionMethod('Factory', "get$schema");
         $method->invoke(null);
