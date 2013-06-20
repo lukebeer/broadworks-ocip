@@ -3,19 +3,20 @@
 require_once '../common.php';
 
 // Get the OCIClient and set the url to send requests to
-$OCIClient = CoreFactory::getOCIClient('http://example.com/webservice/services/ProvisioningService');
+$client = CoreFactory::getOCIClient('http://testews1.development.intechnology.co.uk/webservice/services/ProvisioningService');
 
 // Try and login
-if ($OCIClient->login('username', 'password')) {
+if ($client->login('username', 'password')) {
 
 	// Generate OCI-P request
     $msg = OCISchemaUser::UserGetListInServiceProviderRequest('Enterprise-1');
 
-	// If we have a valid response, assign it to $response, else set $response to errors
-    $response = (($OCIClient->send($msg)) && ($OCIClient->getResponse()))
-        ? $OCIClient->getResponse()
-        : $errorControl->getErrors();
+    // Build then send the request
+    $client->send($msg);
 
-	// Print out response, hopefully, the userlist.
-    print_r($response);
+	// If we have a valid response, print it;
+    if ($response = $client->getResponse()) print_r($response);
 }
+
+// Error control comes from CoreFactory, singleton.
+if ($errorControl->hasErrors()) print_r($errorControl->getErrors());
