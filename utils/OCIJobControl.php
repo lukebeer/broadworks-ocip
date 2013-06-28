@@ -1,5 +1,5 @@
 <?php
-require_once '../common.php';
+require_once str_replace('utils', 'common.php', realpath(dirname(__FILE__)));
 require_once(OCI_PATH . "/core/OCIClient.php");
 ini_set("max_execution_time", 0);
 
@@ -37,7 +37,7 @@ class OCIPJobControl extends OCIClient {
         $params = explode(",", $cmd);
         $cmd = array_shift($params);
         $cmd_split = explode("::", $cmd);
-	$this->getRequired($cmd_split[0]);
+        $this->getRequired($cmd_split[0]);
         $method = new ReflectionMethod($cmd_split[0], $cmd_split[1]);
         $job = $method->invokeArgs(null, $params);
         return $job;
@@ -57,8 +57,9 @@ class OCIPJobControl extends OCIClient {
     }
 
     public function addJobsCSV($file) {
-        foreach (file($file, FILE_IGNORE_NEW_LINES) as $line) {
-            if (!preg_match('/^#/', $line)) {
+        foreach (file(realpath($file), FILE_IGNORE_NEW_LINES) as $line) {
+            echo $line;
+            if (preg_match('/^OCISchema/', $line)) {
                 $this->addJob($this->getJobByString($line));
             }
         }
