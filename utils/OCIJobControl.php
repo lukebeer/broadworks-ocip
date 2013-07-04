@@ -18,7 +18,6 @@ class OCIPJobControl extends OCIClient {
         }
     }
 
-    // Creates CSV from request command array
     public function createConfigCSV($request=['schema' => null, 'command' => null]) {
         $output = $request['schema'].'::'.$request['command'][OCIDataTypes::OCI_NAME];
         foreach ($request['command'][OCIDataTypes::OCI_PARAMS] as $k => $v) {
@@ -58,7 +57,6 @@ class OCIPJobControl extends OCIClient {
 
     public function addJobsCSV($file) {
         foreach (file(realpath($file), FILE_IGNORE_NEW_LINES) as $line) {
-            echo $line;
             if (preg_match('/^OCISchema/', $line)) {
                 $this->addJob($this->getJobByString($line));
             }
