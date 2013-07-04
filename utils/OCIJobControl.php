@@ -85,6 +85,7 @@ class OCIPJobControl extends OCIClient {
 
     public function run() {
         foreach ($this->jobs as $job) {
+            echo ".";
             $this->send($job);
             if ($response = $this->getResponse()) {
                 $this->success["{$this->success_count}: {$job['Name']}"] = ($response == true) ? $job : $response;
@@ -94,5 +95,6 @@ class OCIPJobControl extends OCIClient {
                 $this->failed_count++;
             }
         }
+        echo "done\n\n";
     }
 }
