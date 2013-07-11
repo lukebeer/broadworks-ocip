@@ -91,7 +91,8 @@ class OCIPJobControl extends OCIClient {
                 $this->success["{$this->success_count}: {$job['Name']}"] = ($response == true) ? $job : $response;
                 $this->success_count++;
             } else {
-                $this->failed["{$this->failed_count}: {$job['Name']}"] = (string) $this->errorControl->getLastError();
+                $detail = print_r($job, true);
+                $this->failed["{$this->failed_count}: {$job['Name']}"] = (string) $this->errorControl->getLastError() . "\n$detail";
                 $this->failed_count++;
             }
         }
