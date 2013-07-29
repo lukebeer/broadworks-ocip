@@ -7,7 +7,7 @@ class ValidateCustomCLI {
     public $numbers = [];
     public $structure = false;
 
-    public function __construct($user=null, $pass=null, $host='http://example/webservice/services/ProvisioningService') {
+    public function __construct($user = null, $pass = null, $host = 'http://bsews1.ipt.intechnology.co.uk/webservice/services/ProvisioningService') {
         $this->client = CoreFactory::getOCIClient($host);
         Factory::getOCISchemaServiceProvider();
         Factory::getOCISchemaGroup();
@@ -51,8 +51,10 @@ class ValidateCustomCLI {
         $this->client->send($msg);
         $users = null;
         if ($response = $this->client->getResponse()) {
-            foreach ($response->userTable['row'] as $row) {
-                $users[] = isset($row['col']) ? $row['col'][0] : $row[0];
+            if (array_key_exists('row', $response->userTable)) {
+                foreach ($response->userTable['row'] as $row) {
+                    $users[] = isset($row['col']) ? $row['col'][0] : $row[0];
+                }
             }
         }
         return $users;
@@ -104,7 +106,7 @@ class ValidateCustomCLI {
         $msg = OCISchemaServiceProvider::ServiceProviderDnGetSummaryListRequest($serviceProvider);
         $this->client->send($msg);
         if ($response = $this->client->getResponse()) {
-            foreach($response->dnSummaryTable['row'] as $row) {
+            foreach ($response->dnSummaryTable['row'] as $row) {
                 $row = isset($row['col']) ? $row['col'][0] : $row[0];
                 if (preg_match('/ - /', $row)) {
                     $item = str_replace(['-', '+'], null, $row);
@@ -119,20 +121,26 @@ class ValidateCustomCLI {
         return $this->numbers;
     }
 
-    public function run() {
-        foreach ($this->getServiceProviders() as $serviceProvider) {
+    public function run($serviceProvider) {
+        if (isset($serviceProvider)) {
             $this->structure[$serviceProvider] = $this->getGroupsInServiceProvider($serviceProvider);
+        } else {
+            foreach ($this->getServiceProviders() as $serviceProvider) {
+                $this->structure[$serviceProvider] = $this->getGroupsInServiceProvider($serviceProvider);
+            }
         }
         foreach ($this->structure as $sp => $grps) {
-            if (isset($grps)) {
+            if (count($grps) > 0) {
                 foreach ($grps as $grp) {
                     if ($this->checkCLIDConfig($sp, $grp)) {
-                        echo "$sp - $grp uses configurable CLID, checking users.....\n";
-                        foreach ($this->getUsersInGroup($sp, $grp) as $user) {
-                            if ($clid = $this->checkUserCallingLineID($user)) {
-                                if (!$this->validateNumber($clid, $sp)) {
-                                    echo "\tWarning: $user - $clid Does not match any assigned numbers\n";
-                                }
+                        echo "$sp - $grp uses configurable CLID\n";
+                    }
+                    $users = $this->getUsersInGroup($sp, $grp);
+                    if (!$users) continue;
+                    foreach ($users as $user) {
+                        if ($clid = $this->checkUserCallingLineID($user)) {
+                            if (!$this->validateNumber($clid, $sp)) {
+                                echo "\tWarning: $user - $clid Does not match any assigned numbers in group $grp\n";
                             }
                         }
                     }
@@ -144,4 +152,10 @@ class ValidateCustomCLI {
 }
 
 $validator = new ValidateCustomCLI('username', 'password');
-$validator->run();
+if (isset($argv[1])) {
+    $validator->run($argv[1]);
+} else {
+    $validator->run();
+}
+if ($errorControl->hasErrors()) print_r($errorControl->getErrors());
+
