@@ -80,7 +80,7 @@ class OCIPJobControl extends OCIClient {
         foreach ($this->getSuccess() as $name => $param) $msg .= "\t$name\n";
         $msg .= "Failed: {$this->failed_count}\n";
         foreach ($this->getFailed() as $name => $param) $msg .= "\t$name --> $param\n";
-        return $msg;
+        return ['completed' => $this->getSuccess(), 'failed' => $this->getFailed()];
     }
 
     public function run() {
