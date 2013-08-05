@@ -11,10 +11,18 @@ class OCIPJobControl extends OCIClient {
     private $failed        = [];
     private $failed_count  = 0;
 
-    public function __construct($user=null, $pass=null, $host='http://xsp.host/webservice/services/ProvisioningService') {
+    public function __construct($user=null, $pass=null, $host='http://xsp.host/webservice/services/ProvisioningService', $session=null) {
         parent::__construct($host, false);
-        if (!$this->login($user, $pass)) {
-            die($this->errorControl->getLastError());
+        if ($session) {
+            $this->setSession($session);
+            $this->send(OCISchemaLogin::VerifySessionIsValidRequest());
+            if (!$this->getResponse()) {
+                die($this->errorControl->getLastError());
+            }
+        } else {
+            if (!$this->login($user, $pass)) {
+                die($this->errorControl->getLastError());
+            }
         }
     }
 
