@@ -49,21 +49,6 @@ class OCIClient {
         return false;
     }
 
-    public function loginbyCookie($userId=null, $cookie=null) {
-        if (isset($userId) && (isset($cookie))) {
-            $this->session      = CoreFactory::getOCISession($this->url, $userId);
-            $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
-            $msg = OCISchemaLogin::AuthenticationRequest($this->session->getUserId());
-            if (($this->send($msg)) && ($this->getResponse())) {
-                $this->setCookieFromResponse();
-                $this->setNonceFromResponse();
-                $this->addCookieToRequest();
-                return true;
-            }
-        }
-        return false;
-    }
-
     public function logout() {
         $msg = OCISchemaLogin::LogoutRequest($this->session->getUserId(), "Script called logout()");
         $this->send($msg);
@@ -123,7 +108,7 @@ class OCIClient {
     public function getSession() {
         return $this->session;
     }
-    
+
     public function setSession($session) {
         $this->session = $session;
         return $session;
