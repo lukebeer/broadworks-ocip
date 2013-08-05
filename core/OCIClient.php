@@ -123,6 +123,11 @@ class OCIClient {
     public function getSession() {
         return $this->session;
     }
+    
+    public function setSession($session) {
+        $this->session = $session;
+        return $session;
+    }
 
     private function setNonceFromResponse() {
         $response = $this->response->getBody();
