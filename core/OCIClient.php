@@ -105,6 +105,10 @@ class OCIClient {
         $this->getRequest()->addCookie($cookie[0]['name'], $cookie[0]['value']);
     }
 
+    public function getCookie() {
+        return $this->session->getCookie();
+    }
+
     private function setNonceFromResponse() {
         $response = $this->response->getBody();
         $start_pos = stripos($response, '&lt;nonce&gt;') + 13;
