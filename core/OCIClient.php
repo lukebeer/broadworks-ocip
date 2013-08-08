@@ -111,6 +111,7 @@ class OCIClient {
 
     public function setSession($session) {
         $this->session = $session;
+        $this->addCookieToRequest();
         return $session;
     }
 
