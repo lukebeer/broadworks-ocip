@@ -25,11 +25,13 @@ class OCIBuilder {
         $oci = OCIBuilder::BROADSOFT_DOC_HEAD;
         $oci .= '<sessionId xmlns="">'.$this->sessionId.'</sessionId>';
         $oci .= '<command xsi:type="'.$command[OCIDataTypes::OCI_NAME].'" xmlns="">';
-        foreach ($command[OCIDataTypes::OCI_PARAMS] as $key => $value) {
-            if ($value === OCIDataTypes::XSI_NIL) {
-                $oci .= "<$key ".OCIDataTypes::XSI_NIL.'="true"/>';
-            } elseif ($value != null) {
-                $oci .= "<$key>$value</$key>";
+        if (count($command[OCIDataTypes::OCI_PARAMS]) > 0) {
+            foreach ($command[OCIDataTypes::OCI_PARAMS] as $key => $value) {
+                if ($value === OCIDataTypes::XSI_NIL) {
+                    $oci .= "<$key ".OCIDataTypes::XSI_NIL.'="true"/>';
+                } elseif ($value != null) {
+                    $oci .= "<$key>$value</$key>";
+                }
             }
         }
         $oci .= '</command>';
