@@ -6,6 +6,7 @@ ini_set("max_execution_time", 0);
 class OCIPJobControl extends OCIClient {
 
     private $jobs          = [];
+    private $current       = 0;
     private $success       = [];
     private $success_count = 0;
     private $failed        = [];
@@ -70,6 +71,15 @@ class OCIPJobControl extends OCIClient {
                 $this->addJob($this->getJobByString($line));
             }
         }
+        return $this->getTotal();
+    }
+
+    public function getTotal() {
+        return count($this->jobs);
+    }
+
+    public function getCurrent() {
+        return $this->current;
     }
 
     public function getSuccess() {
@@ -90,6 +100,20 @@ class OCIPJobControl extends OCIClient {
         $msg .= "Failed: {$this->failed_count}\n";
         foreach ($this->getFailed() as $name => $param) $msg .= "\t$name --> $param\n";
         return ['completed' => $this->getSuccess(), 'failed' => $this->getFailed()];
+    }
+
+    public function getNext() {
+        if (count($this->jobs) == $this->current) {
+            return null;
+        }
+        $job = $this->jobs[$this->current];
+        $this->current++;
+        return $job;
+    }
+
+    public function execute($job) {
+        $this->send($job);
+        return $this->getResponse();
     }
 
     public function run() {
