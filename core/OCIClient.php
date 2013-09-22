@@ -112,6 +112,7 @@ class OCIClient {
     public function setSession($session) {
         $this->session = $session;
         $this->addCookieToRequest();
+        $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
         return $session;
     }
 
