@@ -84,16 +84,18 @@ class OCIClient {
             $this->response = $this->getRequest()->send();
         } catch (HTTP_Request2_MessageException $e) {
             $this->errorControl->addError($e->getMessage());
+            $this->response = null;
+            return false;
         }
-	    if (is_object($this->response)) {
-	        if ($this->response->getStatus() == 200) {
-        	    return true;
-	        } else {
-        	    $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
-	            return false;
-	        }
-	    }
-        return false;
+        if (is_object($this->response)) {
+            if ($this->response->getStatus() == 200) {
+                return true;
+            } else {
+                $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
+                $this->response = null;
+                return false;
+            }
+        }
     }
 
     private function setCookieFromResponse() {
@@ -134,9 +136,13 @@ class OCIClient {
     }
 
     public function getResponse() {
-        $response = html_entity_decode($this->response->getBody());
-        $response =  new OCIResponse($response);
-        return $response->getResponse();
+        if (is_object($this->response)) {
+            $response = html_entity_decode($this->response->getBody());
+            $response = new OCIResponse($response);
+            return $response->getResponse();
+        } else {
+            return null;
+        }
     }
     public function getSessionId() {
         return $this->session->getSessionId();
