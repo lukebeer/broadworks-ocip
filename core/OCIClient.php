@@ -56,22 +56,23 @@ class OCIClient {
     }
 
     public function getRequest() {
-        if ($this->request == null) {
-            $this->request = new HTTP_Request2(
-                $this->session->getUrl(),
-                HTTP_Request2::METHOD_POST,
-                array('timeout' => $this->timeout)
-            );
-            $this->request->setHeader(array(
-                'Content-Type'	=> 'text/xml; charset=utf-8',
-                'Accept' => 'application/soap+xml, application/dime, multipart/related, text/*',
-                'User-Agent' => 'Axis/1.3',
-                'SOAPAction' => '""',
-                'Cache-Control' => 'no-cache',
-                'Pragma' => 'no-cache',
-                'Connection' => null,
-                'Accept-Encoding' => null
-            ));
+        $this->request = new HTTP_Request2(
+            $this->session->getUrl(),
+            HTTP_Request2::METHOD_POST,
+            array('timeout' => $this->timeout)
+        );
+        $this->request->setHeader(array(
+            'Content-Type'	=> 'text/xml; charset=utf-8',
+            'Accept' => 'application/soap+xml, application/dime, multipart/related, text/*',
+            'User-Agent' => 'Axis/1.3',
+            'SOAPAction' => '""',
+            'Cache-Control' => 'no-cache',
+            'Pragma' => 'no-cache',
+            'Connection' => null,
+            'Accept-Encoding' => null
+        ));
+        if ($this->session->getCookie()) {
+            $this->addCookieToRequest();
         }
         return $this->request;
     }
@@ -81,7 +82,7 @@ class OCIClient {
         $this->getRequest();
         $this->getRequest()->setBody($cmd);
         try {
-            $this->response = $this->getRequest()->send();
+            $this->response = $this->request->send();
         } catch (HTTP_Request2_MessageException $e) {
             $this->errorControl->addError($e->getMessage());
             $this->response = null;
@@ -104,7 +105,7 @@ class OCIClient {
 
     private function addCookieToRequest() {
         $cookie = $this->session->getCookie();
-        $this->getRequest()->addCookie($cookie[0]['name'], $cookie[0]['value']);
+        $this->request->addCookie($cookie[0]['name'], $cookie[0]['value']);
     }
 
     public function getSession() {
@@ -128,7 +129,7 @@ class OCIClient {
     }
 
     public function getLastRequestMsg() {
-        return html_entity_decode($this->getRequest()->getBody());
+        return html_entity_decode($this->request->getBody());
     }
 
     public function getLastResponseMsg() {
