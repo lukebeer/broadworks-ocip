@@ -48,4 +48,46 @@ class OCIBuilder {
         }
         return $result;
     }
+
+    // Maps OCITable into an array of requests, cheat code.
+    //  $device_parmas = $this->mapTable($device['device'], OCISchemaGroup::GroupAccessDeviceModifyUserRequest())[0];
+    //  $user_command  = $this->mapTable($device['userList'], $device_parmas)[0];
+    //  $output       .= $this->createConfigCSV(['schema' => 'OCISchemaGroup', 'command' => $user_command])."\r\n";
+    public static function mapTable($response, $request) {
+        $response = (array) $response;
+        $headings = $requests = [];
+        foreach ($response as $k => $v) {
+            if ((substr($k, -5) == 'Table') && (array_key_exists('row', $response[$k]))) {
+                foreach ($response[$k]['colHeading'] as $heading) {
+                    // 'line/port' to 'linePort'
+                    if (preg_match('/\//', $heading)) {
+                        $heading = str_replace('/', ' ', $heading);
+                    }
+                    // 'Primary Line Port' to 'is Primary Line Port'
+                    if ($heading == 'Primary Line Port') {
+                        $heading = "is $heading";
+                    }
+                    // 'First Name' to 'firstName' etc...
+                    $camelCased = lcfirst(str_replace(' ', '', ucwords(strtolower($heading))));
+                    $headings[$camelCased] = null;
+                }
+                foreach ($response[$k]['row'] as $item) {
+                    $map['Params'] = array_combine(array_keys($headings), array_values($item));
+                    $requests[] = OCIBuilder::map($map, $request);
+                }
+            }
+        }
+        return $requests;
+    }
+
+    // Maps response into a new request
+    public static function map($response, $request) {
+        $response = (array) $response;
+        foreach ($response[OCIDataTypes::OCI_PARAMS] as $k => $v) {
+            if (array_key_exists($k, $request[OCIDataTypes::OCI_PARAMS])) {
+                $request[OCIDataTypes::OCI_PARAMS][$k] = $v;
+            }
+        }
+        return $request;
+    }
 }
