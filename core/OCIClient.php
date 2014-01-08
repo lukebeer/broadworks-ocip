@@ -50,7 +50,7 @@ class OCIClient {
     }
 
     public function logout() {
-        $msg = OCISchemaLogin::LogoutRequest($this->session->getUserId(), "Script called logout()");
+        $msg = OCISchemaLogin::LogoutRequest($this->session->getUserId(), "Client Logout");
         $this->send($msg);
         $this->session->setLoggedOut();
     }
