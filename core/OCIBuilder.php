@@ -27,16 +27,34 @@ class OCIBuilder {
         $oci .= '<command xsi:type="'.$command[OCIDataTypes::OCI_NAME].'" xmlns="">';
         if ($command[OCIDataTypes::OCI_PARAMS] != null) {
             foreach ($command[OCIDataTypes::OCI_PARAMS] as $key => $value) {
-                if ($value === OCIDataTypes::XSI_NIL) {
-                    $oci .= "<$key ".OCIDataTypes::XSI_NIL.'="true"/>';
-                } elseif ($value != null) {
-                    $oci .= "<$key>$value</$key>";
+                if (is_string($value)) {
+                    $oci .= $this->buildElement($key, $value);
+                } elseif (is_array($value)) {
+                    $oci .= $this->buildArray($key, $value);
                 }
             }
         }
         $oci .= '</command>';
         $oci .= OCIBuilder::BROADSOFT_DOC_TAIL;
         return str_replace("\n", "", OCIBuilder::SOAP_HEAD) . htmlentities($oci) . OCIBuilder::SOAP_TAIL;
+    }
+
+    private function buildElement($key, $value) {
+        $return = ($value === OCIDataTypes::XSI_NIL)
+            ? "<$key ".OCIDataTypes::XSI_NIL.'="true"/>'
+            : "<$key>$value</$key>";
+        return $return;
+    }
+
+    private function buildArray($key, $value) {
+        $oci = "<$key>";
+        foreach ($value as $k => $v) {
+            $oci .= (is_array($v))
+                ? $this->buildArray($k, $v)
+                : $this->buildElement($k, $v);
+        }
+        $oci .= "</$key>";
+        return $oci;
     }
 
     public static function buildSearch($search) {
