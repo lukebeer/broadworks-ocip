@@ -62,7 +62,7 @@ class OCIClient {
             array('timeout' => $this->timeout)
         );
         $this->request->setHeader(array(
-            'Content-Type'	=> 'text/xml; charset=utf-8',
+            'Content-Type'  => 'text/xml; charset=utf-8',
             'Accept' => 'application/soap+xml, application/dime, multipart/related, text/*',
             'User-Agent' => 'Axis/1.3',
             'SOAPAction' => '""',
@@ -114,8 +114,8 @@ class OCIClient {
 
     public function setSession($session) {
         $this->session = $session;
-        $this->addCookieToRequest();
-        $this->ociBuilder   = CoreFactory::getOCIBuilder($this->session->getSessionId());
+        $this->getRequest();
+        $this->ociBuilder = CoreFactory::getOCIBuilder($this->session->getSessionId());
         return $session;
     }
 
