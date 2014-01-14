@@ -43,7 +43,7 @@ class OCIPJobControl extends OCIClient {
 
     public function getJobByString($cmd) {
         $cmd = str_replace('"', '', $cmd);
-        $params = explode(",", $cmd);
+        $params = array_map(function($elt) { return $elt === "" ? null : $elt; }, explode(",", $cmd));
         $cmd = array_shift($params);
         $cmd_split = explode("::", $cmd);
         $this->getRequired($cmd_split[0]);
