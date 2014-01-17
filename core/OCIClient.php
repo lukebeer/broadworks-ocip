@@ -42,8 +42,10 @@ class OCIClient {
             if ($this->authenticate($userId)) {
                 $this->session->setSignedPassword($pass);
                 $msg = OCISchemaLogin::LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
-                if (($this->send($msg)) && ($this->getResponse())) $this->session->setLoggedIn();
-                return true;
+                if (($this->send($msg)) && ($this->getResponse())) {
+                    $this->session->setLoggedIn();
+                    return true;
+                }
             }
         }
         return false;
