@@ -61,7 +61,10 @@ class OCIClient {
         $this->request = new HTTP_Request2(
             $this->session->getUrl(),
             HTTP_Request2::METHOD_POST,
-            array('timeout' => $this->timeout)
+            array(
+                'timeout' => $this->timeout,
+                'ssl_verify_peer' => FALSE
+            )
         );
         $this->request->setHeader(array(
             'Content-Type'  => 'text/xml; charset=utf-8',
