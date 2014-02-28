@@ -90,7 +90,7 @@ class OCIBuilder {
                     $headings[$camelCased] = null;
                 }
                 foreach ($response[$k]['row'] as $item) {
-                    $map['Params'] = array_combine(array_keys($headings), array_values($item));
+                    $map = array_combine(array_keys($headings), array_values($item));
                     $requests[] = OCIBuilder::map($map, $request);
                 }
             }
@@ -101,7 +101,7 @@ class OCIBuilder {
     // Maps response into a new request
     public static function map($response, $request) {
         $response = (array) $response;
-        foreach ($response[OCIDataTypes::OCI_PARAMS] as $k => $v) {
+        foreach ($response as $k => $v) {
             if (array_key_exists($k, $request[OCIDataTypes::OCI_PARAMS])) {
                 $request[OCIDataTypes::OCI_PARAMS][$k] = $v;
             }
