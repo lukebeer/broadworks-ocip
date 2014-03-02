@@ -141,15 +141,16 @@ class OCIClient {
         return html_entity_decode($this->response->getBody());
     }
 
-    public function getResponse() {
+    public function getResponse($outputType=OCIResponseOutput::STD) {
         if (is_object($this->response)) {
             $response = html_entity_decode($this->response->getBody());
-            $response = new OCIResponse($response);
+            $response = new OCIResponse($response, $outputType);
             return $response->getResponse();
         } else {
             return null;
         }
     }
+
     public function getSessionId() {
         return $this->session->getSessionId();
     }

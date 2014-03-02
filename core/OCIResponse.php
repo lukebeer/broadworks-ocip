@@ -2,12 +2,12 @@
 class OCIResponse {
     private $response = false;
 
-    public function __construct($response) {
+    public function __construct($response, $outputType) {
         $this->response = $response;
         if (preg_match('/SuccessResponse/', $this->response)) return $this->SuccessResponse();
         if (preg_match('/ErrorResponse/',   $this->response)) return $this->ErrorResponse();
         if (preg_match('/<command .*>(.*)<\/command>/', $this->response, $cmdResponse)) {
-            $this->OCIResponse($cmdResponse[0]);
+            $this->OCIResponse($cmdResponse[0], $outputType);
             return true;
         }
         return false;
@@ -30,8 +30,21 @@ class OCIResponse {
         return false;
     }
 
-    private function OCIResponse($cmdResponse) {
-        $this->response = (object) json_decode(json_encode((array) simplexml_load_string($cmdResponse)), 1);
+    private function OCIResponse($cmdResponse, $outputType) {
+        switch ($outputType) {
+            case OCIResponseOutput::STD:
+                $this->response = (object) json_decode(json_encode((array) simplexml_load_string($cmdResponse)), 1);
+                break;
+            case OCIResponseOutput::XML:
+                $this->response = $cmdResponse;
+                break;
+            case OCIResponseOutput::JSON:
+                $this->response = json_encode(simplexml_load_string($cmdResponse), JSON_PRETTY_PRINT);
+                break;
+            case OCIResponseOutput::SIMPLEXML:
+                $this->response = simplexml_load_string($cmdResponse);
+                break;
+        }
     }
 
     public function UnknownResponse() {
