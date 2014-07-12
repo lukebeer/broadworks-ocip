@@ -40,6 +40,10 @@ class OCISession {
         $this->cookie = $cookie;
     }
 
+    public function setUrl($url) {
+        if (isset($url)) $this->url = $url;
+    }
+
     public function getLoggedIn()       { return $this->getLoggedIn(); }
     public function getSignedPassword() { return $this->pass;   }
     public function getUrl()            { return $this->url;    }

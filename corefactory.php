@@ -15,9 +15,9 @@ class CoreFactory {
         return $instance;
     }
 
-    public static function getOCIClient($url, $autoLogout=true) {
+    public static function getOCIClient($url, $autoLogout=true, $followRedirects=true) {
         require_once(OCI_PATH . "/core/OCIClient.php");
-        $instance = new OCIClient($url, $autoLogout);
+        $instance = new OCIClient($url, $autoLogout, $followRedirects);
         return $instance;
     }
 

@@ -13,11 +13,13 @@ class OCIClient {
     private $session = null;
     private $timeout = 4;
     private $autoLogout = true;
+    private $followRedirects = true;
 
-    public function __construct($url, $autoLogout) {
+    public function __construct($url, $autoLogout, $followRedirects=true) {
         $this->errorControl = &CoreFactory::getErrorControl();
         $this->url = $url;
         $this->autoLogout = $autoLogout;
+        $this->followRedirects = $followRedirects;
     }
 
     public function __destruct() {
@@ -32,6 +34,7 @@ class OCIClient {
             $this->setCookieFromResponse();
             $this->setNonceFromResponse();
             $this->addCookieToRequest();
+            $this->session->setUrl($this->response->getEffectiveUrl());
             return true;
         }
         return false;
@@ -63,7 +66,9 @@ class OCIClient {
             HTTP_Request2::METHOD_POST,
             array(
                 'timeout' => $this->timeout,
-                'ssl_verify_peer' => FALSE
+                'ssl_verify_peer' => FALSE,
+                'follow_redirects' => $this->followRedirects,
+                'strict_redirects' => true
             )
         );
         $this->request->setHeader(array(
@@ -94,12 +99,14 @@ class OCIClient {
             return false;
         }
         if (is_object($this->response)) {
-            if ($this->response->getStatus() == 200) {
-                return true;
-            } else {
-                $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
-                $this->response = null;
-                return false;
+            switch ($this->response->getStatus()) {
+                case 200:
+                    return true;
+                    break;
+                default:
+                    $this->errorControl->addError("Error code returned: {$this->response->getStatus()}");
+                    $this->response = null;
+                    return false;
             }
         }
     }
