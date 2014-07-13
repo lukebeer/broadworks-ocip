@@ -68,7 +68,7 @@ class OCIClient {
                 'timeout' => $this->timeout,
                 'ssl_verify_peer' => FALSE,
                 'follow_redirects' => $this->followRedirects,
-                'strict_redirects' => true
+                'strict_redirects' => $this->followRedirects
             )
         );
         $this->request->setHeader(array(
