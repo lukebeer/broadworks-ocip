@@ -15,7 +15,7 @@ class OCIClient {
     private $autoLogout = true;
     private $followRedirects = true;
 
-    public function __construct($url, $autoLogout, $followRedirects=true) {
+    public function __construct($url=null, $autoLogout=true, $followRedirects=true) {
         $this->errorControl = &CoreFactory::getErrorControl();
         $this->url = $url;
         $this->autoLogout = $autoLogout;
