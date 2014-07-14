@@ -5,21 +5,24 @@ require_once 'HTTP/Request2.php';
 Factory::getOCISchemaLogin();
 Factory::getOCISchemaUser();
 
+
 class OCIClient {
     public $request    = null;
     public $response   = null;
     public $ociBuilder = null;
 
-    private $session = null;
-    private $timeout = 4;
-    private $autoLogout = true;
+    private $session         = null;
+    private $timeout         = 4;
+    private $autoLogout      = true;
     private $followRedirects = true;
+    private $proxy           = null;
 
-    public function __construct($url=null, $autoLogout=true, $followRedirects=true) {
+    public function __construct($url=null, $autoLogout=true, $followRedirects=true, $proxy=null) {
         $this->errorControl = &CoreFactory::getErrorControl();
         $this->url = $url;
         $this->autoLogout = $autoLogout;
         $this->followRedirects = $followRedirects;
+        $this->proxy = $proxy;
     }
 
     public function __destruct() {
@@ -68,7 +71,8 @@ class OCIClient {
                 'timeout' => $this->timeout,
                 'ssl_verify_peer' => FALSE,
                 'follow_redirects' => $this->followRedirects,
-                'strict_redirects' => $this->followRedirects
+                'strict_redirects' => $this->followRedirects,
+                'proxy' => $this->proxy
             )
         );
         $this->request->setHeader(array(
@@ -93,7 +97,7 @@ class OCIClient {
         $this->getRequest()->setBody($cmd);
         try {
             $this->response = $this->request->send();
-        } catch (HTTP_Request2_MessageException $e) {
+        } catch (HTTP_Request2_Exception $e) {
             $this->errorControl->addError($e->getMessage());
             $this->response = null;
             return false;
