@@ -11,6 +11,5 @@ PHP Framework for interacting with the Broadworks OCI Provisioning API
 - Job controller to manage job queues
 - Ability to output commands as CSV - job files can be saved on disk and replayed by the job controler
 
-
-- Basic examples provided in examples/
+- Basic examples provided in examples folder.
 - repo of scripts that uses this framework here: https://github.com/LukeBeer/ocip-scripts
