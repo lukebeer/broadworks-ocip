@@ -169,4 +169,8 @@ class OCIClient {
     public function setTimeout($timeout=4) {
         $this->timeout = $timeout;
     }
+
+    public function getTimeout() {
+        return $this->timeout;
+    }
 }
