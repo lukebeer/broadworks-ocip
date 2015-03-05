@@ -1,6 +1,0 @@
-<map id="OCIClient\__destruct" name="OCIClient\__destruct">
-<area shape="rect" id="node3" href="$a00007.html#a0a105da131406944e381ca8a8127ae27" title="OCIClient\\logout" alt="" coords="201,32,319,61"/>
-<area shape="rect" id="node5" href="$a00018.html#a7e5110be6456ac9b9a389d60d810089d" title="OCISchemaLogin\\LogoutRequest" alt="" coords="369,5,585,35"/>
-<area shape="rect" id="node7" href="$a00007.html#a94dc46376229cdefe9fcfbdccc8eed32" title="OCIClient\\send" alt="" coords="421,59,533,88"/>
-<area shape="rect" id="node9" href="$a00007.html#a8ca9ea20bd035b76ded0a7167c593c02" title="OCIClient\\getRequest" alt="" coords="636,59,785,88"/>
-</map>
