@@ -12,6 +12,6 @@ class Pattern extends Restriction implements RestrictionInterface
 {
     public function validate($input)
     {
-        return in_array($input, $this->value);
+        return preg_match("/$this->value/", $input);
     }
 }
