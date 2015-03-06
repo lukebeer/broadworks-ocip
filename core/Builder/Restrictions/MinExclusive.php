@@ -12,6 +12,10 @@ class MinExclusive extends Restriction implements RestrictionInterface
 {
     public function validate($input)
     {
-        return ((int)$input >= (int)$this->value);
+        $valid = ((int)$input >= (int)$this->value);
+        ($valid)
+            ? $this->detail("Valid: Int $input is valid, min is {$this->value}")
+            : $this->detail("Failed: Int $input is invalid, min is {$this->value}");
+        return $valid;
     }
 }
