@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPPage;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPSearchKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPPage;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $searchKey  = null;
+    protected $page       = null;
 
     public function __construct(
-             $userId,
-             $searchKey=null,
-             $page=null
+         $userId,
+         $searchKey = null,
+         LDAPPage $page = null
     ) {
-        $this->userId    = new UserId($userId);
-        $this->searchKey = $searchKey;
-        $this->page      = $page;
-        $this->args      = func_get_args();
+        $this->setUserId($userId);
+        $this->setSearchKey($searchKey);
+        $this->setPage($page);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +47,11 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setSearchKey($searchKey)
+    public function setSearchKey($searchKey = null)
     {
-        $searchKey and $this->searchKey = new LDAPSearchKey($searchKey);
+        $this->searchKey = ($searchKey InstanceOf LDAPSearchKey)
+             ? $searchKey
+             : new LDAPSearchKey($searchKey);
     }
 
     public function getSearchKey()
@@ -53,9 +59,8 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
         return (!$this->searchKey) ?: $this->searchKey->value();
     }
 
-    public function setPage($page)
+    public function setPage(LDAPPage $page = null)
     {
-        $page and $this->page = new LDAPPage($page);
     }
 
     public function getPage()

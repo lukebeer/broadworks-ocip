@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $deviceLevel  = null;
 
     public function __construct(
-             $deviceLevel
+         $deviceLevel
     ) {
-        $this->deviceLevel = new AccessDeviceLevel($deviceLevel);
-        $this->args        = func_get_args();
+        $this->setDeviceLevel($deviceLevel);
     }
 
-    public function setDeviceLevel($deviceLevel)
+    public function setDeviceLevel($deviceLevel = null)
     {
-        $deviceLevel and $this->deviceLevel = new AccessDeviceLevel($deviceLevel);
+        $this->deviceLevel = ($deviceLevel InstanceOf AccessDeviceLevel)
+             ? $deviceLevel
+             : new AccessDeviceLevel($deviceLevel);
     }
 
     public function getDeviceLevel()

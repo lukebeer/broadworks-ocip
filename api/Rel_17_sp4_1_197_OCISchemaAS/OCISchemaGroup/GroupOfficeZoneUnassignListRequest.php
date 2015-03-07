@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $groupId                = null;
+    protected $officeZoneName         = null;
+    protected $defaultOfficeZoneName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $officeZoneName=null,
-             $defaultOfficeZoneName=null
+         $serviceProviderId,
+         $groupId,
+         $officeZoneName = null,
+         $defaultOfficeZoneName = null
     ) {
-        $this->serviceProviderId     = new ServiceProviderId($serviceProviderId);
-        $this->groupId               = new GroupId($groupId);
-        $this->officeZoneName        = new OfficeZoneName($officeZoneName);
-        $this->defaultOfficeZoneName = new OfficeZoneName($defaultOfficeZoneName);
-        $this->args                  = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setOfficeZoneName($officeZoneName);
+        $this->setDefaultOfficeZoneName($defaultOfficeZoneName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -45,9 +50,11 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -55,9 +62,11 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setOfficeZoneName($officeZoneName)
+    public function setOfficeZoneName($officeZoneName = null)
     {
-        $officeZoneName and $this->officeZoneName = new OfficeZoneName($officeZoneName);
+        $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
+             ? $officeZoneName
+             : new OfficeZoneName($officeZoneName);
     }
 
     public function getOfficeZoneName()
@@ -65,9 +74,11 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
         return (!$this->officeZoneName) ?: $this->officeZoneName->value();
     }
 
-    public function setDefaultOfficeZoneName($defaultOfficeZoneName)
+    public function setDefaultOfficeZoneName($defaultOfficeZoneName = null)
     {
-        $defaultOfficeZoneName and $this->defaultOfficeZoneName = new OfficeZoneName($defaultOfficeZoneName);
+        $this->defaultOfficeZoneName = ($defaultOfficeZoneName InstanceOf OfficeZoneName)
+             ? $defaultOfficeZoneName
+             : new OfficeZoneName($defaultOfficeZoneName);
     }
 
     public function getDefaultOfficeZoneName()

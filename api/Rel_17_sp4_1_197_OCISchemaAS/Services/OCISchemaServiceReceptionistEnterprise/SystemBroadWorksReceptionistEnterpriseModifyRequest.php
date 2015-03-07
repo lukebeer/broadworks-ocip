@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $maxMonitoredUsers  = null;
 
     public function __construct(
-             $maxMonitoredUsers=null
+         $maxMonitoredUsers = null
     ) {
-        $this->maxMonitoredUsers = new MaximumMonitoredUsers($maxMonitoredUsers);
-        $this->args              = func_get_args();
+        $this->setMaxMonitoredUsers($maxMonitoredUsers);
     }
 
-    public function setMaxMonitoredUsers($maxMonitoredUsers)
+    public function setMaxMonitoredUsers($maxMonitoredUsers = null)
     {
-        $maxMonitoredUsers and $this->maxMonitoredUsers = new MaximumMonitoredUsers($maxMonitoredUsers);
+        $this->maxMonitoredUsers = ($maxMonitoredUsers InstanceOf MaximumMonitoredUsers)
+             ? $maxMonitoredUsers
+             : new MaximumMonitoredUsers($maxMonitoredUsers);
     }
 
     public function getMaxMonitoredUsers()

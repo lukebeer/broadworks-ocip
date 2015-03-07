@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterCurrentAndPastDNISGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $name         = null;
+    protected $deletedName  = null;
 
-    public function __construct(
-             $name=null,
-             $deletedName=null
-    ) {
-        $this->name        = new DNISName($name);
-        $this->deletedName = new DNISName($deletedName);
-        $this->args        = func_get_args();
-    }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new DNISName($name);
+        $this->name = ($name InstanceOf DNISName)
+             ? $name
+             : new DNISName($name);
     }
 
     public function getName()
@@ -38,9 +34,11 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListResponse extends ComplexType 
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDeletedName($deletedName)
+    public function setDeletedName($deletedName = null)
     {
-        $deletedName and $this->deletedName = new DNISName($deletedName);
+        $this->deletedName = ($deletedName InstanceOf DNISName)
+             ? $deletedName
+             : new DNISName($deletedName);
     }
 
     public function getDeletedName()

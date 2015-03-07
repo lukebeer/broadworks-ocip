@@ -7,14 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\AutoAttendantNameDialingEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\AutoAttendantModifyMenu16;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\AutoAttendantDialingScope;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutoAttendantDialingScope;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutoAttendantNameDialingEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutoAttendantModifyMenu16;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -26,36 +25,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceUserId           = null;
+    protected $serviceInstanceProfile  = null;
+    protected $enableVideo             = null;
+    protected $businessHours           = null;
+    protected $holidaySchedule         = null;
+    protected $extensionDialingScope   = null;
+    protected $nameDialingScope        = null;
+    protected $nameDialingEntries      = null;
+    protected $businessHoursMenu       = null;
+    protected $afterHoursMenu          = null;
 
     public function __construct(
-             $serviceUserId,
-             ServiceInstanceModifyProfile $serviceInstanceProfile=null,
-             $enableVideo=null,
-             TimeSchedule $businessHours=null,
-             HolidaySchedule $holidaySchedule=null,
-             $extensionDialingScope=null,
-             $nameDialingScope=null,
-             $nameDialingEntries=null,
-             $businessHoursMenu=null,
-             $afterHoursMenu=null
+         $serviceUserId,
+         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $enableVideo = null,
+         TimeSchedule $businessHours = null,
+         HolidaySchedule $holidaySchedule = null,
+         $extensionDialingScope = null,
+         $nameDialingScope = null,
+         $nameDialingEntries = null,
+         AutoAttendantModifyMenu16 $businessHoursMenu = null,
+         AutoAttendantModifyMenu16 $afterHoursMenu = null
     ) {
-        $this->serviceUserId          = new UserId($serviceUserId);
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
-        $this->enableVideo            = $enableVideo;
-        $this->businessHours          = $businessHours;
-        $this->holidaySchedule        = $holidaySchedule;
-        $this->extensionDialingScope  = $extensionDialingScope;
-        $this->nameDialingScope       = $nameDialingScope;
-        $this->nameDialingEntries     = $nameDialingEntries;
-        $this->businessHoursMenu      = $businessHoursMenu;
-        $this->afterHoursMenu         = $afterHoursMenu;
-        $this->args                   = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setEnableVideo($enableVideo);
+        $this->setBusinessHours($businessHours);
+        $this->setHolidaySchedule($holidaySchedule);
+        $this->setExtensionDialingScope($extensionDialingScope);
+        $this->setNameDialingScope($nameDialingScope);
+        $this->setNameDialingEntries($nameDialingEntries);
+        $this->setBusinessHoursMenu($businessHoursMenu);
+        $this->setAfterHoursMenu($afterHoursMenu);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -63,9 +73,8 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceModifyProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -73,9 +82,8 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setEnableVideo($enableVideo)
+    public function setEnableVideo(xs:boolean $enableVideo = null)
     {
-        $enableVideo and $this->enableVideo = new xs:boolean($enableVideo);
     }
 
     public function getEnableVideo()
@@ -83,9 +91,8 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->enableVideo) ?: $this->enableVideo->value();
     }
 
-    public function setBusinessHours($businessHours)
+    public function setBusinessHours(TimeSchedule $businessHours = null)
     {
-        $businessHours and $this->businessHours = new TimeSchedule($businessHours);
     }
 
     public function getBusinessHours()
@@ -93,9 +100,8 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->businessHours) ?: $this->businessHours->value();
     }
 
-    public function setHolidaySchedule($holidaySchedule)
+    public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $holidaySchedule and $this->holidaySchedule = new HolidaySchedule($holidaySchedule);
     }
 
     public function getHolidaySchedule()
@@ -103,9 +109,11 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
     }
 
-    public function setExtensionDialingScope($extensionDialingScope)
+    public function setExtensionDialingScope($extensionDialingScope = null)
     {
-        $extensionDialingScope and $this->extensionDialingScope = new AutoAttendantDialingScope($extensionDialingScope);
+        $this->extensionDialingScope = ($extensionDialingScope InstanceOf AutoAttendantDialingScope)
+             ? $extensionDialingScope
+             : new AutoAttendantDialingScope($extensionDialingScope);
     }
 
     public function getExtensionDialingScope()
@@ -113,9 +121,11 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->extensionDialingScope) ?: $this->extensionDialingScope->value();
     }
 
-    public function setNameDialingScope($nameDialingScope)
+    public function setNameDialingScope($nameDialingScope = null)
     {
-        $nameDialingScope and $this->nameDialingScope = new AutoAttendantDialingScope($nameDialingScope);
+        $this->nameDialingScope = ($nameDialingScope InstanceOf AutoAttendantDialingScope)
+             ? $nameDialingScope
+             : new AutoAttendantDialingScope($nameDialingScope);
     }
 
     public function getNameDialingScope()
@@ -123,9 +133,11 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->nameDialingScope) ?: $this->nameDialingScope->value();
     }
 
-    public function setNameDialingEntries($nameDialingEntries)
+    public function setNameDialingEntries($nameDialingEntries = null)
     {
-        $nameDialingEntries and $this->nameDialingEntries = new AutoAttendantNameDialingEntry($nameDialingEntries);
+        $this->nameDialingEntries = ($nameDialingEntries InstanceOf AutoAttendantNameDialingEntry)
+             ? $nameDialingEntries
+             : new AutoAttendantNameDialingEntry($nameDialingEntries);
     }
 
     public function getNameDialingEntries()
@@ -133,9 +145,8 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->nameDialingEntries) ?: $this->nameDialingEntries->value();
     }
 
-    public function setBusinessHoursMenu($businessHoursMenu)
+    public function setBusinessHoursMenu(AutoAttendantModifyMenu16 $businessHoursMenu = null)
     {
-        $businessHoursMenu and $this->businessHoursMenu = new AutoAttendantModifyMenu16($businessHoursMenu);
     }
 
     public function getBusinessHoursMenu()
@@ -143,9 +154,8 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         return (!$this->businessHoursMenu) ?: $this->businessHoursMenu->value();
     }
 
-    public function setAfterHoursMenu($afterHoursMenu)
+    public function setAfterHoursMenu(AutoAttendantModifyMenu16 $afterHoursMenu = null)
     {
-        $afterHoursMenu and $this->afterHoursMenu = new AutoAttendantModifyMenu16($afterHoursMenu);
     }
 
     public function getAfterHoursMenu()

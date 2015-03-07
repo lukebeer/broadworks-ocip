@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,20 +22,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $groupServicesAuthorizationTable  = null;
+    protected $userServicesAuthorizationTable   = null;
 
-    public function __construct(
-             $groupServicesAuthorizationTable,
-             $userServicesAuthorizationTable
-    ) {
-        $this->groupServicesAuthorizationTable = $groupServicesAuthorizationTable;
-        $this->userServicesAuthorizationTable  = $userServicesAuthorizationTable;
-        $this->args                            = func_get_args();
-    }
 
-    public function setGroupServicesAuthorizationTable($groupServicesAuthorizationTable)
+    public function setGroupServicesAuthorizationTable(core:OCITable $groupServicesAuthorizationTable = null)
     {
-        $groupServicesAuthorizationTable and $this->groupServicesAuthorizationTable = new core:OCITable($groupServicesAuthorizationTable);
     }
 
     public function getGroupServicesAuthorizationTable()
@@ -43,9 +36,8 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
         return (!$this->groupServicesAuthorizationTable) ?: $this->groupServicesAuthorizationTable->value();
     }
 
-    public function setUserServicesAuthorizationTable($userServicesAuthorizationTable)
+    public function setUserServicesAuthorizationTable(core:OCITable $userServicesAuthorizationTable = null)
     {
-        $userServicesAuthorizationTable and $this->userServicesAuthorizationTable = new core:OCITable($userServicesAuthorizationTable);
     }
 
     public function getUserServicesAuthorizationTable()

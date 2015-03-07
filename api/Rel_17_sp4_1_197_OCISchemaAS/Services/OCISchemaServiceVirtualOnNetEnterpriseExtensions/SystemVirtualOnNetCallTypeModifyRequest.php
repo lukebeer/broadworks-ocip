@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeCdrValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $virtualOnNetCallTypeName      = null;
+    protected $virtualOnNetCallTypeCdrValue  = null;
 
     public function __construct(
-             $virtualOnNetCallTypeName,
-             $virtualOnNetCallTypeCdrValue=null
+         $virtualOnNetCallTypeName,
+         $virtualOnNetCallTypeCdrValue = null
     ) {
-        $this->virtualOnNetCallTypeName     = new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
-        $this->virtualOnNetCallTypeCdrValue = new VirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
-        $this->args                         = func_get_args();
+        $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
+        $this->setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
     }
 
-    public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName)
+    public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
-        $virtualOnNetCallTypeName and $this->virtualOnNetCallTypeName = new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
+        $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
+             ? $virtualOnNetCallTypeName
+             : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
 
     public function getVirtualOnNetCallTypeName()
@@ -40,9 +43,11 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
         return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->value();
     }
 
-    public function setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue)
+    public function setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue = null)
     {
-        $virtualOnNetCallTypeCdrValue and $this->virtualOnNetCallTypeCdrValue = new VirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
+        $this->virtualOnNetCallTypeCdrValue = ($virtualOnNetCallTypeCdrValue InstanceOf VirtualOnNetCallTypeCdrValue)
+             ? $virtualOnNetCallTypeCdrValue
+             : new VirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
     }
 
     public function getVirtualOnNetCallTypeCdrValue()

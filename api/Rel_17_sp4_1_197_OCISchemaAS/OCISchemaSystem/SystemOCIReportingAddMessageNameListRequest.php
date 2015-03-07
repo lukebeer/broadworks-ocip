@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCIReportingMessageName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCIReportingMessageName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $netAddress             = null;
+    protected $messageNameStartsWith  = null;
 
     public function __construct(
-             $netAddress,
-             $messageNameStartsWith
+         $netAddress,
+         $messageNameStartsWith
     ) {
-        $this->netAddress            = new NetAddress($netAddress);
-        $this->messageNameStartsWith = $messageNameStartsWith;
-        $this->args                  = func_get_args();
+        $this->setNetAddress($netAddress);
+        $this->setMessageNameStartsWith($messageNameStartsWith);
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -41,9 +44,11 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setMessageNameStartsWith($messageNameStartsWith)
+    public function setMessageNameStartsWith($messageNameStartsWith = null)
     {
-        $messageNameStartsWith and $this->messageNameStartsWith = new OCIReportingMessageName($messageNameStartsWith);
+        $this->messageNameStartsWith = ($messageNameStartsWith InstanceOf OCIReportingMessageName)
+             ? $messageNameStartsWith
+             : new OCIReportingMessageName($messageNameStartsWith);
     }
 
     public function getMessageNameStartsWith()

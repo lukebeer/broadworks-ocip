@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $defaultCountryCode  = null;
+    protected $countryCode         = null;
 
-    public function __construct(
-             $defaultCountryCode=null,
-             $countryCode=null
-    ) {
-        $this->defaultCountryCode = new CountryCode($defaultCountryCode);
-        $this->countryCode        = new CountryCode($countryCode);
-        $this->args               = func_get_args();
-    }
 
-    public function setDefaultCountryCode($defaultCountryCode)
+    public function setDefaultCountryCode($defaultCountryCode = null)
     {
-        $defaultCountryCode and $this->defaultCountryCode = new CountryCode($defaultCountryCode);
+        $this->defaultCountryCode = ($defaultCountryCode InstanceOf CountryCode)
+             ? $defaultCountryCode
+             : new CountryCode($defaultCountryCode);
     }
 
     public function getDefaultCountryCode()
@@ -39,9 +35,11 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
         return (!$this->defaultCountryCode) ?: $this->defaultCountryCode->value();
     }
 
-    public function setCountryCode($countryCode)
+    public function setCountryCode($countryCode = null)
     {
-        $countryCode and $this->countryCode = new CountryCode($countryCode);
+        $this->countryCode = ($countryCode InstanceOf CountryCode)
+             ? $countryCode
+             : new CountryCode($countryCode);
     }
 
     public function getCountryCode()

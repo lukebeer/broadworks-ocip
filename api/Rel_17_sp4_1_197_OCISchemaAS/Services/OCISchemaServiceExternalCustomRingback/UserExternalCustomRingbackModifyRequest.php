@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExternalCustomRingbackSettingLevel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPContact;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -26,24 +25,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserExternalCustomRingbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $userId           = null;
+    protected $isActive         = null;
+    protected $useSettingLevel  = null;
+    protected $sipRequestURI    = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $useSettingLevel=null,
-             $sipRequestURI=null
+         $userId,
+         $isActive = null,
+         $useSettingLevel = null,
+         $sipRequestURI = null
     ) {
-        $this->userId          = new UserId($userId);
-        $this->isActive        = $isActive;
-        $this->useSettingLevel = $useSettingLevel;
-        $this->sipRequestURI   = new SIPContact($sipRequestURI);
-        $this->args            = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setUseSettingLevel($useSettingLevel);
+        $this->setSipRequestURI($sipRequestURI);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -51,9 +55,8 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -61,9 +64,11 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setUseSettingLevel($useSettingLevel)
+    public function setUseSettingLevel($useSettingLevel = null)
     {
-        $useSettingLevel and $this->useSettingLevel = new ExternalCustomRingbackSettingLevel($useSettingLevel);
+        $this->useSettingLevel = ($useSettingLevel InstanceOf ExternalCustomRingbackSettingLevel)
+             ? $useSettingLevel
+             : new ExternalCustomRingbackSettingLevel($useSettingLevel);
     }
 
     public function getUseSettingLevel()
@@ -71,9 +76,11 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         return (!$this->useSettingLevel) ?: $this->useSettingLevel->value();
     }
 
-    public function setSipRequestURI($sipRequestURI)
+    public function setSipRequestURI($sipRequestURI = null)
     {
-        $sipRequestURI and $this->sipRequestURI = new SIPContact($sipRequestURI);
+        $this->sipRequestURI = ($sipRequestURI InstanceOf SIPContact)
+             ? $sipRequestURI
+             : new SIPContact($sipRequestURI);
     }
 
     public function getSipRequestURI()

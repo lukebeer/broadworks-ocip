@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceProviderId                = null;
+    protected $portsAllocatedToServiceProvider  = null;
 
     public function __construct(
-             $serviceProviderId,
-             UnboundedNonNegativeInt $portsAllocatedToServiceProvider=null
+         $serviceProviderId,
+         UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null
     ) {
-        $this->serviceProviderId               = new ServiceProviderId($serviceProviderId);
-        $this->portsAllocatedToServiceProvider = $portsAllocatedToServiceProvider;
-        $this->args                            = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setPortsAllocatedToServiceProvider($portsAllocatedToServiceProvider);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,8 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setPortsAllocatedToServiceProvider($portsAllocatedToServiceProvider)
+    public function setPortsAllocatedToServiceProvider(UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null)
     {
-        $portsAllocatedToServiceProvider and $this->portsAllocatedToServiceProvider = new UnboundedNonNegativeInt($portsAllocatedToServiceProvider);
     }
 
     public function getPortsAllocatedToServiceProvider()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaIMRN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaIMRN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $searchCriteriaIMRN  = null;
 
     public function __construct(
-             $searchCriteriaIMRN=null
+         SearchCriteriaIMRN $searchCriteriaIMRN = null
     ) {
-        $this->searchCriteriaIMRN = $searchCriteriaIMRN;
-        $this->args               = func_get_args();
+        $this->setSearchCriteriaIMRN($searchCriteriaIMRN);
     }
 
-    public function setSearchCriteriaIMRN($searchCriteriaIMRN)
+    public function setSearchCriteriaIMRN(SearchCriteriaIMRN $searchCriteriaIMRN = null)
     {
-        $searchCriteriaIMRN and $this->searchCriteriaIMRN = new SearchCriteriaIMRN($searchCriteriaIMRN);
     }
 
     public function getSearchCriteriaIMRN()

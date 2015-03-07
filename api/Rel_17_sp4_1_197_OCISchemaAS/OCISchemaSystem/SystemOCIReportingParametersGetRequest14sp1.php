@@ -22,6 +22,5 @@ class SystemOCIReportingParametersGetRequest14sp1 extends ComplexType implements
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InternalReleaseCause16;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\InternalReleaseCause16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $internalReleaseCause  = null;
 
     public function __construct(
-             $internalReleaseCause
+         $internalReleaseCause
     ) {
-        $this->internalReleaseCause = $internalReleaseCause;
-        $this->args                 = func_get_args();
+        $this->setInternalReleaseCause($internalReleaseCause);
     }
 
-    public function setInternalReleaseCause($internalReleaseCause)
+    public function setInternalReleaseCause($internalReleaseCause = null)
     {
-        $internalReleaseCause and $this->internalReleaseCause = new InternalReleaseCause16($internalReleaseCause);
+        $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
+             ? $internalReleaseCause
+             : new InternalReleaseCause16($internalReleaseCause);
     }
 
     public function getInternalReleaseCause()

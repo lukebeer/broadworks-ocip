@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterGuardTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,36 +22,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                                  = __CLASS__;
+    protected $serviceProviderId                                     = null;
+    protected $groupId                                               = null;
+    protected $useSystemDefaultGuardTimer                            = null;
+    protected $enableGuardTimer                                      = null;
+    protected $guardTimerSeconds                                     = null;
+    protected $useSystemDefaultUnavailableSettings                   = null;
+    protected $forceAgentUnavailableOnDNDActivation                  = null;
+    protected $forceAgentUnavailableOnPersonalCalls                  = null;
+    protected $forceAgentUnavailableOnBouncedCallLimit               = null;
+    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $useSystemDefaultGuardTimer=null,
-             $enableGuardTimer=null,
-             $guardTimerSeconds=null,
-             $useSystemDefaultUnavailableSettings=null,
-             $forceAgentUnavailableOnDNDActivation=null,
-             $forceAgentUnavailableOnPersonalCalls=null,
-             $forceAgentUnavailableOnBouncedCallLimit=null,
-             $numberConsecutiveBouncedCallsToForceAgentUnavailable=null
+         $serviceProviderId,
+         $groupId,
+         $useSystemDefaultGuardTimer = null,
+         $enableGuardTimer = null,
+         $guardTimerSeconds = null,
+         $useSystemDefaultUnavailableSettings = null,
+         $forceAgentUnavailableOnDNDActivation = null,
+         $forceAgentUnavailableOnPersonalCalls = null,
+         $forceAgentUnavailableOnBouncedCallLimit = null,
+         $numberConsecutiveBouncedCallsToForceAgentUnavailable = null
     ) {
-        $this->serviceProviderId                                    = new ServiceProviderId($serviceProviderId);
-        $this->groupId                                              = new GroupId($groupId);
-        $this->useSystemDefaultGuardTimer                           = $useSystemDefaultGuardTimer;
-        $this->enableGuardTimer                                     = $enableGuardTimer;
-        $this->guardTimerSeconds                                    = $guardTimerSeconds;
-        $this->useSystemDefaultUnavailableSettings                  = $useSystemDefaultUnavailableSettings;
-        $this->forceAgentUnavailableOnDNDActivation                 = $forceAgentUnavailableOnDNDActivation;
-        $this->forceAgentUnavailableOnPersonalCalls                 = $forceAgentUnavailableOnPersonalCalls;
-        $this->forceAgentUnavailableOnBouncedCallLimit              = $forceAgentUnavailableOnBouncedCallLimit;
-        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = $numberConsecutiveBouncedCallsToForceAgentUnavailable;
-        $this->args                                                 = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setUseSystemDefaultGuardTimer($useSystemDefaultGuardTimer);
+        $this->setEnableGuardTimer($enableGuardTimer);
+        $this->setGuardTimerSeconds($guardTimerSeconds);
+        $this->setUseSystemDefaultUnavailableSettings($useSystemDefaultUnavailableSettings);
+        $this->setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation);
+        $this->setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls);
+        $this->setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit);
+        $this->setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -60,9 +70,11 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -70,9 +82,8 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setUseSystemDefaultGuardTimer($useSystemDefaultGuardTimer)
+    public function setUseSystemDefaultGuardTimer(xs:boolean $useSystemDefaultGuardTimer = null)
     {
-        $useSystemDefaultGuardTimer and $this->useSystemDefaultGuardTimer = new xs:boolean($useSystemDefaultGuardTimer);
     }
 
     public function getUseSystemDefaultGuardTimer()
@@ -80,9 +91,8 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer->value();
     }
 
-    public function setEnableGuardTimer($enableGuardTimer)
+    public function setEnableGuardTimer(xs:boolean $enableGuardTimer = null)
     {
-        $enableGuardTimer and $this->enableGuardTimer = new xs:boolean($enableGuardTimer);
     }
 
     public function getEnableGuardTimer()
@@ -90,9 +100,11 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->value();
     }
 
-    public function setGuardTimerSeconds($guardTimerSeconds)
+    public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
-        $guardTimerSeconds and $this->guardTimerSeconds = new CallCenterGuardTimerSeconds($guardTimerSeconds);
+        $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
+             ? $guardTimerSeconds
+             : new CallCenterGuardTimerSeconds($guardTimerSeconds);
     }
 
     public function getGuardTimerSeconds()
@@ -100,9 +112,8 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->value();
     }
 
-    public function setUseSystemDefaultUnavailableSettings($useSystemDefaultUnavailableSettings)
+    public function setUseSystemDefaultUnavailableSettings(xs:boolean $useSystemDefaultUnavailableSettings = null)
     {
-        $useSystemDefaultUnavailableSettings and $this->useSystemDefaultUnavailableSettings = new xs:boolean($useSystemDefaultUnavailableSettings);
     }
 
     public function getUseSystemDefaultUnavailableSettings()
@@ -110,9 +121,8 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->value();
     }
 
-    public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation)
+    public function setForceAgentUnavailableOnDNDActivation(xs:boolean $forceAgentUnavailableOnDNDActivation = null)
     {
-        $forceAgentUnavailableOnDNDActivation and $this->forceAgentUnavailableOnDNDActivation = new xs:boolean($forceAgentUnavailableOnDNDActivation);
     }
 
     public function getForceAgentUnavailableOnDNDActivation()
@@ -120,9 +130,8 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->value();
     }
 
-    public function setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls)
+    public function setForceAgentUnavailableOnPersonalCalls(xs:boolean $forceAgentUnavailableOnPersonalCalls = null)
     {
-        $forceAgentUnavailableOnPersonalCalls and $this->forceAgentUnavailableOnPersonalCalls = new xs:boolean($forceAgentUnavailableOnPersonalCalls);
     }
 
     public function getForceAgentUnavailableOnPersonalCalls()
@@ -130,9 +139,8 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->value();
     }
 
-    public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit)
+    public function setForceAgentUnavailableOnBouncedCallLimit(xs:boolean $forceAgentUnavailableOnBouncedCallLimit = null)
     {
-        $forceAgentUnavailableOnBouncedCallLimit and $this->forceAgentUnavailableOnBouncedCallLimit = new xs:boolean($forceAgentUnavailableOnBouncedCallLimit);
     }
 
     public function getForceAgentUnavailableOnBouncedCallLimit()
@@ -140,9 +148,11 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->value();
     }
 
-    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable)
+    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
-        $numberConsecutiveBouncedCallsToForceAgentUnavailable and $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
+             ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
+             : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
     }
 
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddressExtended;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetAddressExtended;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccountingDeleteChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $address  = null;
 
     public function __construct(
-             $address
+         $address
     ) {
-        $this->address = $address;
-        $this->args    = func_get_args();
+        $this->setAddress($address);
     }
 
-    public function setAddress($address)
+    public function setAddress($address = null)
     {
-        $address and $this->address = new NetAddressExtended($address);
+        $this->address = ($address InstanceOf NetAddressExtended)
+             ? $address
+             : new NetAddressExtended($address);
     }
 
     public function getAddress()

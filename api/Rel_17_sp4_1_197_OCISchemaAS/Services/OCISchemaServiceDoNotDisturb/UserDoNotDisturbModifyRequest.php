@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDoNotDisturb; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $userId      = null;
+    protected $isActive    = null;
+    protected $ringSplash  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $ringSplash=null
+         $userId,
+         $isActive = null,
+         $ringSplash = null
     ) {
-        $this->userId     = new UserId($userId);
-        $this->isActive   = $isActive;
-        $this->ringSplash = $ringSplash;
-        $this->args       = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setRingSplash($ringSplash);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -53,9 +55,8 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setRingSplash($ringSplash)
+    public function setRingSplash(xs:boolean $ringSplash = null)
     {
-        $ringSplash and $this->ringSplash = new xs:boolean($ringSplash);
     }
 
     public function getRingSplash()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingBridgeOwnerList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBridgeOwnerList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name    = __CLASS__;
+    protected $bridge  = null;
 
-    public function __construct(
-             $bridge=null
-    ) {
-        $this->bridge = $bridge;
-        $this->args   = func_get_args();
-    }
 
-    public function setBridge($bridge)
+    public function setBridge(InstantConferencingBridgeOwnerList $bridge = null)
     {
-        $bridge and $this->bridge = new InstantConferencingBridgeOwnerList($bridge);
     }
 
     public function getBridge()

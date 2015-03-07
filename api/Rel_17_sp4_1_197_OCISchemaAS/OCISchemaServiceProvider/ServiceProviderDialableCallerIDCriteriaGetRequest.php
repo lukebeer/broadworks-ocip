@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialableCallerIDCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $name               = null;
 
     public function __construct(
-             $serviceProviderId,
-             $name
+         $serviceProviderId,
+         $name
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->name              = new DialableCallerIDCriteriaName($name);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setName($name);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -41,9 +44,11 @@ class ServiceProviderDialableCallerIDCriteriaGetRequest extends ComplexType impl
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new DialableCallerIDCriteriaName($name);
+        $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
+             ? $name
+             : new DialableCallerIDCriteriaName($name);
     }
 
     public function getName()

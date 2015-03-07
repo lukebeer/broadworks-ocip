@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $userId                   = null;
+    protected $preAnswerActionsEnabled  = null;
 
     public function __construct(
-             $userId,
-             $preAnswerActionsEnabled=null
+         $userId,
+         $preAnswerActionsEnabled = null
     ) {
-        $this->userId                  = new UserId($userId);
-        $this->preAnswerActionsEnabled = $preAnswerActionsEnabled;
-        $this->args                    = func_get_args();
+        $this->setUserId($userId);
+        $this->setPreAnswerActionsEnabled($preAnswerActionsEnabled);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +42,8 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setPreAnswerActionsEnabled($preAnswerActionsEnabled)
+    public function setPreAnswerActionsEnabled(xs:boolean $preAnswerActionsEnabled = null)
     {
-        $preAnswerActionsEnabled and $this->preAnswerActionsEnabled = new xs:boolean($preAnswerActionsEnabled);
     }
 
     public function getPreAnswerActionsEnabled()

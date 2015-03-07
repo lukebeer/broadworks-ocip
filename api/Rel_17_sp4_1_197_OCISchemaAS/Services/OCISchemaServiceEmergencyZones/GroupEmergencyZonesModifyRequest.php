@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\EmergencyZonesProhibition;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmergencyZonesProhibition;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,28 +21,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceProviderId                = null;
+    protected $groupId                          = null;
+    protected $isActive                         = null;
+    protected $emergencyZonesProhibition        = null;
+    protected $sendEmergencyCallNotifyEmail     = null;
+    protected $emergencyCallNotifyEmailAddress  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $isActive=null,
-             $emergencyZonesProhibition=null,
-             $sendEmergencyCallNotifyEmail=null,
-             $emergencyCallNotifyEmailAddress=null
+         $serviceProviderId,
+         $groupId,
+         $isActive = null,
+         $emergencyZonesProhibition = null,
+         $sendEmergencyCallNotifyEmail = null,
+         $emergencyCallNotifyEmailAddress = null
     ) {
-        $this->serviceProviderId               = new ServiceProviderId($serviceProviderId);
-        $this->groupId                         = new GroupId($groupId);
-        $this->isActive                        = $isActive;
-        $this->emergencyZonesProhibition       = $emergencyZonesProhibition;
-        $this->sendEmergencyCallNotifyEmail    = $sendEmergencyCallNotifyEmail;
-        $this->emergencyCallNotifyEmailAddress = new EmailAddress($emergencyCallNotifyEmailAddress);
-        $this->args                            = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setIsActive($isActive);
+        $this->setEmergencyZonesProhibition($emergencyZonesProhibition);
+        $this->setSendEmergencyCallNotifyEmail($sendEmergencyCallNotifyEmail);
+        $this->setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -51,9 +57,11 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -61,9 +69,8 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -71,9 +78,11 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setEmergencyZonesProhibition($emergencyZonesProhibition)
+    public function setEmergencyZonesProhibition($emergencyZonesProhibition = null)
     {
-        $emergencyZonesProhibition and $this->emergencyZonesProhibition = new EmergencyZonesProhibition($emergencyZonesProhibition);
+        $this->emergencyZonesProhibition = ($emergencyZonesProhibition InstanceOf EmergencyZonesProhibition)
+             ? $emergencyZonesProhibition
+             : new EmergencyZonesProhibition($emergencyZonesProhibition);
     }
 
     public function getEmergencyZonesProhibition()
@@ -81,9 +90,8 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
         return (!$this->emergencyZonesProhibition) ?: $this->emergencyZonesProhibition->value();
     }
 
-    public function setSendEmergencyCallNotifyEmail($sendEmergencyCallNotifyEmail)
+    public function setSendEmergencyCallNotifyEmail(xs:boolean $sendEmergencyCallNotifyEmail = null)
     {
-        $sendEmergencyCallNotifyEmail and $this->sendEmergencyCallNotifyEmail = new xs:boolean($sendEmergencyCallNotifyEmail);
     }
 
     public function getSendEmergencyCallNotifyEmail()
@@ -91,9 +99,11 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
         return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail->value();
     }
 
-    public function setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress)
+    public function setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress = null)
     {
-        $emergencyCallNotifyEmailAddress and $this->emergencyCallNotifyEmailAddress = new EmailAddress($emergencyCallNotifyEmailAddress);
+        $this->emergencyCallNotifyEmailAddress = ($emergencyCallNotifyEmailAddress InstanceOf EmailAddress)
+             ? $emergencyCallNotifyEmailAddress
+             : new EmailAddress($emergencyCallNotifyEmailAddress);
     }
 
     public function getEmergencyCallNotifyEmailAddress()

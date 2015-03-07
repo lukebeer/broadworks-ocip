@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPartyCategoryName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $userId    = null;
+    protected $category  = null;
 
     public function __construct(
-             $userId,
-             $category=null
+         $userId,
+         $category = null
     ) {
-        $this->userId   = new UserId($userId);
-        $this->category = $category;
-        $this->args     = func_get_args();
+        $this->setUserId($userId);
+        $this->setCategory($category);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setCategory($category)
+    public function setCategory($category = null)
     {
-        $category and $this->category = new CallingPartyCategoryName($category);
+        $this->category = ($category InstanceOf CallingPartyCategoryName)
+             ? $category
+             : new CallingPartyCategoryName($category);
     }
 
     public function getCategory()

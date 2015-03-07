@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $instantGroupCallTable  = null;
 
-    public function __construct(
-             $instantGroupCallTable
-    ) {
-        $this->instantGroupCallTable = $instantGroupCallTable;
-        $this->args                  = func_get_args();
-    }
 
-    public function setInstantGroupCallTable($instantGroupCallTable)
+    public function setInstantGroupCallTable(core:OCITable $instantGroupCallTable = null)
     {
-        $instantGroupCallTable and $this->instantGroupCallTable = new core:OCITable($instantGroupCallTable);
     }
 
     public function getInstantGroupCallTable()

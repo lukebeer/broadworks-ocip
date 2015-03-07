@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingHost\HotelingHostAccessLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingHostAccessLevel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $userId                   = null;
+    protected $isActive                 = null;
+    protected $enforceAssociationLimit  = null;
+    protected $associationLimitHours    = null;
+    protected $accessLevel              = null;
+    protected $removeGuestAssociation   = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $enforceAssociationLimit=null,
-             $associationLimitHours=null,
-             $accessLevel=null,
-             $removeGuestAssociation=null
+         $userId,
+         $isActive = null,
+         $enforceAssociationLimit = null,
+         $associationLimitHours = null,
+         $accessLevel = null,
+         $removeGuestAssociation = null
     ) {
-        $this->userId                  = new UserId($userId);
-        $this->isActive                = $isActive;
-        $this->enforceAssociationLimit = $enforceAssociationLimit;
-        $this->associationLimitHours   = new HotelingAssociationLimitHours($associationLimitHours);
-        $this->accessLevel             = $accessLevel;
-        $this->removeGuestAssociation  = $removeGuestAssociation;
-        $this->args                    = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setEnforceAssociationLimit($enforceAssociationLimit);
+        $this->setAssociationLimitHours($associationLimitHours);
+        $this->setAccessLevel($accessLevel);
+        $this->setRemoveGuestAssociation($removeGuestAssociation);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -50,9 +56,8 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -60,9 +65,8 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setEnforceAssociationLimit($enforceAssociationLimit)
+    public function setEnforceAssociationLimit(xs:boolean $enforceAssociationLimit = null)
     {
-        $enforceAssociationLimit and $this->enforceAssociationLimit = new xs:boolean($enforceAssociationLimit);
     }
 
     public function getEnforceAssociationLimit()
@@ -70,9 +74,11 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->enforceAssociationLimit) ?: $this->enforceAssociationLimit->value();
     }
 
-    public function setAssociationLimitHours($associationLimitHours)
+    public function setAssociationLimitHours($associationLimitHours = null)
     {
-        $associationLimitHours and $this->associationLimitHours = new HotelingAssociationLimitHours($associationLimitHours);
+        $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
+             ? $associationLimitHours
+             : new HotelingAssociationLimitHours($associationLimitHours);
     }
 
     public function getAssociationLimitHours()
@@ -80,9 +86,11 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->associationLimitHours) ?: $this->associationLimitHours->value();
     }
 
-    public function setAccessLevel($accessLevel)
+    public function setAccessLevel($accessLevel = null)
     {
-        $accessLevel and $this->accessLevel = new HotelingHostAccessLevel($accessLevel);
+        $this->accessLevel = ($accessLevel InstanceOf HotelingHostAccessLevel)
+             ? $accessLevel
+             : new HotelingHostAccessLevel($accessLevel);
     }
 
     public function getAccessLevel()
@@ -90,9 +98,8 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->accessLevel) ?: $this->accessLevel->value();
     }
 
-    public function setRemoveGuestAssociation($removeGuestAssociation)
+    public function setRemoveGuestAssociation(xs:boolean $removeGuestAssociation = null)
     {
-        $removeGuestAssociation and $this->removeGuestAssociation = new xs:boolean($removeGuestAssociation);
     }
 
     public function getRemoveGuestAssociation()

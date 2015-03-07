@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,26 +24,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $serviceProviderId        = null;
+    protected $domain                   = null;
+    protected $responseSizeLimit        = null;
+    protected $searchCriteriaGroupId    = null;
+    protected $searchCriteriaGroupName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $domain,
-             $responseSizeLimit=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaGroupName=null
+         $serviceProviderId,
+         $domain,
+         $responseSizeLimit = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaGroupName $searchCriteriaGroupName = null
     ) {
-        $this->serviceProviderId       = new ServiceProviderId($serviceProviderId);
-        $this->domain                  = new NetAddress($domain);
-        $this->responseSizeLimit       = $responseSizeLimit;
-        $this->searchCriteriaGroupId   = $searchCriteriaGroupId;
-        $this->searchCriteriaGroupName = $searchCriteriaGroupName;
-        $this->args                    = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setDomain($domain);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaGroupName($searchCriteriaGroupName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -51,9 +57,11 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setDomain($domain)
+    public function setDomain($domain = null)
     {
-        $domain and $this->domain = new NetAddress($domain);
+        $this->domain = ($domain InstanceOf NetAddress)
+             ? $domain
+             : new NetAddress($domain);
     }
 
     public function getDomain()
@@ -61,9 +69,11 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
         return (!$this->domain) ?: $this->domain->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -71,9 +81,8 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -81,9 +90,8 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaGroupName($searchCriteriaGroupName)
+    public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $searchCriteriaGroupName and $this->searchCriteriaGroupName = new SearchCriteriaGroupName($searchCriteriaGroupName);
     }
 
     public function getSearchCriteriaGroupName()

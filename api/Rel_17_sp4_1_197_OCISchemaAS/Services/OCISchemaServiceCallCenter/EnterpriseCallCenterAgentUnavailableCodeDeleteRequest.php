@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $code               = null;
 
     public function __construct(
-             $serviceProviderId,
-             $code
+         $serviceProviderId,
+         $code
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->code              = new CallCenterAgentUnavailableCode($code);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setCode($code);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,11 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setCode($code)
+    public function setCode($code = null)
     {
-        $code and $this->code = new CallCenterAgentUnavailableCode($code);
+        $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
+             ? $code
+             : new CallCenterAgentUnavailableCode($code);
     }
 
     public function getCode()

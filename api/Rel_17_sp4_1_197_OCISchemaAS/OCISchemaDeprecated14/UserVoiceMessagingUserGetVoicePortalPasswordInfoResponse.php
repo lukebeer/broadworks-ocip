@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $isLoginDisabled  = null;
+    protected $password         = null;
 
-    public function __construct(
-             $isLoginDisabled,
-             $password
-    ) {
-        $this->isLoginDisabled = $isLoginDisabled;
-        $this->password        = new Password($password);
-        $this->args            = func_get_args();
-    }
 
-    public function setIsLoginDisabled($isLoginDisabled)
+    public function setIsLoginDisabled(xs:boolean $isLoginDisabled = null)
     {
-        $isLoginDisabled and $this->isLoginDisabled = new xs:boolean($isLoginDisabled);
     }
 
     public function getIsLoginDisabled()
@@ -40,9 +32,11 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
         return (!$this->isLoginDisabled) ?: $this->isLoginDisabled->value();
     }
 
-    public function setPassword($password)
+    public function setPassword($password = null)
     {
-        $password and $this->password = new Password($password);
+        $this->password = ($password InstanceOf Password)
+             ? $password
+             : new Password($password);
     }
 
     public function getPassword()

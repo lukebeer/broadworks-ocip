@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutingGetRouteDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $routeDeviceTable  = null;
 
-    public function __construct(
-             $routeDeviceTable
-    ) {
-        $this->routeDeviceTable = $routeDeviceTable;
-        $this->args             = func_get_args();
-    }
 
-    public function setRouteDeviceTable($routeDeviceTable)
+    public function setRouteDeviceTable(core:OCITable $routeDeviceTable = null)
     {
-        $routeDeviceTable and $this->routeDeviceTable = new core:OCITable($routeDeviceTable);
     }
 
     public function getRouteDeviceTable()

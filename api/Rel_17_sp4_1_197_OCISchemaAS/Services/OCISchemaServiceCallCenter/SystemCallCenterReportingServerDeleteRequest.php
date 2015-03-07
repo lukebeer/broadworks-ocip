@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterReportingServerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name  = __CLASS__;
+    protected $name  = null;
 
     public function __construct(
-             $name
+         $name
     ) {
-        $this->name = new CallCenterReportingServerName($name);
-        $this->args = func_get_args();
+        $this->setName($name);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CallCenterReportingServerName($name);
+        $this->name = ($name InstanceOf CallCenterReportingServerName)
+             ? $name
+             : new CallCenterReportingServerName($name);
     }
 
     public function getName()

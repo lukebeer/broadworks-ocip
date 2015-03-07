@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutlookIntegration; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutlookIntegration\OutlookIntegrationContactRetrievalSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutlookIntegrationContactRetrievalSelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutlookIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $userId                     = null;
+    protected $isActive                   = null;
+    protected $contactRetrievalSelection  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $contactRetrievalSelection=null
+         $userId,
+         $isActive = null,
+         $contactRetrievalSelection = null
     ) {
-        $this->userId                    = new UserId($userId);
-        $this->isActive                  = $isActive;
-        $this->contactRetrievalSelection = $contactRetrievalSelection;
-        $this->args                      = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setContactRetrievalSelection($contactRetrievalSelection);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -53,9 +55,11 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setContactRetrievalSelection($contactRetrievalSelection)
+    public function setContactRetrievalSelection($contactRetrievalSelection = null)
     {
-        $contactRetrievalSelection and $this->contactRetrievalSelection = new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
+        $this->contactRetrievalSelection = ($contactRetrievalSelection InstanceOf OutlookIntegrationContactRetrievalSelection)
+             ? $contactRetrievalSelection
+             : new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
     }
 
     public function getContactRetrievalSelection()

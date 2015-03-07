@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementMediaNameList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementMediaNameList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $setName        = null;
+    protected $mediaNameList  = null;
 
     public function __construct(
-             $setName,
-             $mediaNameList=null
+         $setName,
+         ReplacementMediaNameList $mediaNameList = null
     ) {
-        $this->setName       = new MediaSetName($setName);
-        $this->mediaNameList = $mediaNameList;
-        $this->args          = func_get_args();
+        $this->setSetName($setName);
+        $this->setMediaNameList($mediaNameList);
     }
 
-    public function setSetName($setName)
+    public function setSetName($setName = null)
     {
-        $setName and $this->setName = new MediaSetName($setName);
+        $this->setName = ($setName InstanceOf MediaSetName)
+             ? $setName
+             : new MediaSetName($setName);
     }
 
     public function getSetName()
@@ -40,9 +43,8 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
         return (!$this->setName) ?: $this->setName->value();
     }
 
-    public function setMediaNameList($mediaNameList)
+    public function setMediaNameList(ReplacementMediaNameList $mediaNameList = null)
     {
-        $mediaNameList and $this->mediaNameList = new ReplacementMediaNameList($mediaNameList);
     }
 
     public function getMediaNameList()

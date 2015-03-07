@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemSIPContentType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemSIPSupportedInterface;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPSupportedInterface;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPContentType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPAddContentTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $contentType  = null;
+    protected $interface    = null;
 
     public function __construct(
-             $contentType,
-             $interface
+         $contentType,
+         $interface
     ) {
-        $this->contentType = $contentType;
-        $this->interface   = $interface;
-        $this->args        = func_get_args();
+        $this->setContentType($contentType);
+        $this->setInterface($interface);
     }
 
-    public function setContentType($contentType)
+    public function setContentType($contentType = null)
     {
-        $contentType and $this->contentType = new SystemSIPContentType($contentType);
+        $this->contentType = ($contentType InstanceOf SystemSIPContentType)
+             ? $contentType
+             : new SystemSIPContentType($contentType);
     }
 
     public function getContentType()
@@ -40,9 +43,11 @@ class SystemSIPAddContentTypeRequest extends ComplexType implements ComplexInter
         return (!$this->contentType) ?: $this->contentType->value();
     }
 
-    public function setInterface($interface)
+    public function setInterface($interface = null)
     {
-        $interface and $this->interface = new SystemSIPSupportedInterface($interface);
+        $this->interface = ($interface InstanceOf SystemSIPSupportedInterface)
+             ? $interface
+             : new SystemSIPSupportedInterface($interface);
     }
 
     public function getInterface()

@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingPresentationPassword;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingConferenceKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingPresentationPassword;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingModifyConferencePresentationPasswordRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $userId                = null;
+    protected $conferenceKey         = null;
+    protected $presentationPassword  = null;
 
     public function __construct(
-             $userId,
-             $conferenceKey,
-             $presentationPassword=null
+         $userId,
+         InstantConferencingConferenceKey $conferenceKey,
+         $presentationPassword = null
     ) {
-        $this->userId               = new UserId($userId);
-        $this->conferenceKey        = $conferenceKey;
-        $this->presentationPassword = $presentationPassword;
-        $this->args                 = func_get_args();
+        $this->setUserId($userId);
+        $this->setConferenceKey($conferenceKey);
+        $this->setPresentationPassword($presentationPassword);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +47,8 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setConferenceKey($conferenceKey)
+    public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $conferenceKey and $this->conferenceKey = new InstantConferencingConferenceKey($conferenceKey);
     }
 
     public function getConferenceKey()
@@ -53,9 +56,11 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
         return (!$this->conferenceKey) ?: $this->conferenceKey->value();
     }
 
-    public function setPresentationPassword($presentationPassword)
+    public function setPresentationPassword($presentationPassword = null)
     {
-        $presentationPassword and $this->presentationPassword = new InstantConferencingPresentationPassword($presentationPassword);
+        $this->presentationPassword = ($presentationPassword InstanceOf InstantConferencingPresentationPassword)
+             ? $presentationPassword
+             : new InstantConferencingPresentationPassword($presentationPassword);
     }
 
     public function getPresentationPassword()

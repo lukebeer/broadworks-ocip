@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $servicePackName  = null;
 
-    public function __construct(
-             $servicePackName=null
-    ) {
-        $this->servicePackName = new ServicePackName($servicePackName);
-        $this->args            = func_get_args();
-    }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()

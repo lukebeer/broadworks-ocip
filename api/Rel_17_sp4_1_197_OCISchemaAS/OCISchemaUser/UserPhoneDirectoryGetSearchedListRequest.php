@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\PhoneDirectoryNameSearchString;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneDirectoryNameSearchString;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,20 +25,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $userId            = null;
+    protected $nameSearchString  = null;
 
     public function __construct(
-             $userId,
-             $nameSearchString=null
+         $userId,
+         $nameSearchString = null
     ) {
-        $this->userId           = new UserId($userId);
-        $this->nameSearchString = $nameSearchString;
-        $this->args             = func_get_args();
+        $this->setUserId($userId);
+        $this->setNameSearchString($nameSearchString);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -46,9 +49,11 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setNameSearchString($nameSearchString)
+    public function setNameSearchString($nameSearchString = null)
     {
-        $nameSearchString and $this->nameSearchString = new PhoneDirectoryNameSearchString($nameSearchString);
+        $this->nameSearchString = ($nameSearchString InstanceOf PhoneDirectoryNameSearchString)
+             ? $nameSearchString
+             : new PhoneDirectoryNameSearchString($nameSearchString);
     }
 
     public function getNameSearchString()

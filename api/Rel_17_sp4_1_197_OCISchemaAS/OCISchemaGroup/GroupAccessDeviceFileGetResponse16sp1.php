@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,26 +19,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $fileSource             = null;
+    protected $configurationFileName  = null;
+    protected $accessUrl              = null;
+    protected $repositoryUrl          = null;
+    protected $templateUrl            = null;
 
-    public function __construct(
-             $fileSource,
-             $configurationFileName=null,
-             $accessUrl,
-             $repositoryUrl=null,
-             $templateUrl=null
-    ) {
-        $this->fileSource            = new AccessDeviceEnhancedConfigurationMode($fileSource);
-        $this->configurationFileName = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
-        $this->accessUrl             = new URL($accessUrl);
-        $this->repositoryUrl         = new URL($repositoryUrl);
-        $this->templateUrl           = new URL($templateUrl);
-        $this->args                  = func_get_args();
-    }
 
-    public function setFileSource($fileSource)
+    public function setFileSource($fileSource = null)
     {
-        $fileSource and $this->fileSource = new AccessDeviceEnhancedConfigurationMode($fileSource);
+        $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
+             ? $fileSource
+             : new AccessDeviceEnhancedConfigurationMode($fileSource);
     }
 
     public function getFileSource()
@@ -46,9 +39,11 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
         return (!$this->fileSource) ?: $this->fileSource->value();
     }
 
-    public function setConfigurationFileName($configurationFileName)
+    public function setConfigurationFileName($configurationFileName = null)
     {
-        $configurationFileName and $this->configurationFileName = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
+        $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
+             ? $configurationFileName
+             : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
     }
 
     public function getConfigurationFileName()
@@ -56,9 +51,11 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
         return (!$this->configurationFileName) ?: $this->configurationFileName->value();
     }
 
-    public function setAccessUrl($accessUrl)
+    public function setAccessUrl($accessUrl = null)
     {
-        $accessUrl and $this->accessUrl = new URL($accessUrl);
+        $this->accessUrl = ($accessUrl InstanceOf URL)
+             ? $accessUrl
+             : new URL($accessUrl);
     }
 
     public function getAccessUrl()
@@ -66,9 +63,11 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
         return (!$this->accessUrl) ?: $this->accessUrl->value();
     }
 
-    public function setRepositoryUrl($repositoryUrl)
+    public function setRepositoryUrl($repositoryUrl = null)
     {
-        $repositoryUrl and $this->repositoryUrl = new URL($repositoryUrl);
+        $this->repositoryUrl = ($repositoryUrl InstanceOf URL)
+             ? $repositoryUrl
+             : new URL($repositoryUrl);
     }
 
     public function getRepositoryUrl()
@@ -76,9 +75,11 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
         return (!$this->repositoryUrl) ?: $this->repositoryUrl->value();
     }
 
-    public function setTemplateUrl($templateUrl)
+    public function setTemplateUrl($templateUrl = null)
     {
-        $templateUrl and $this->templateUrl = new URL($templateUrl);
+        $this->templateUrl = ($templateUrl InstanceOf URL)
+             ? $templateUrl
+             : new URL($templateUrl);
     }
 
     public function getTemplateUrl()

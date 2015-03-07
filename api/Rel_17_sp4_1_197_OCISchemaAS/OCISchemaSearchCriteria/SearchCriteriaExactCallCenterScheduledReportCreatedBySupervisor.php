@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $createdBySupervisor  = null;
 
     public function __construct(
-             $createdBySupervisor
+         $createdBySupervisor
     ) {
-        $this->createdBySupervisor = $createdBySupervisor;
-        $this->args                = func_get_args();
+        $this->setCreatedBySupervisor($createdBySupervisor);
     }
 
-    public function setCreatedBySupervisor($createdBySupervisor)
+    public function setCreatedBySupervisor(xs:boolean $createdBySupervisor = null)
     {
-        $createdBySupervisor and $this->createdBySupervisor = new xs:boolean($createdBySupervisor);
     }
 
     public function getCreatedBySupervisor()

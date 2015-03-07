@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $imrnNumber   = null;
+    protected $numberRange  = null;
 
     public function __construct(
-             $imrnNumber=null,
-             DNRange $numberRange=null
+         $imrnNumber = null,
+         DNRange $numberRange = null
     ) {
-        $this->imrnNumber  = new DN($imrnNumber);
-        $this->numberRange = $numberRange;
-        $this->args        = func_get_args();
+        $this->setImrnNumber($imrnNumber);
+        $this->setNumberRange($numberRange);
     }
 
-    public function setImrnNumber($imrnNumber)
+    public function setImrnNumber($imrnNumber = null)
     {
-        $imrnNumber and $this->imrnNumber = new DN($imrnNumber);
+        $this->imrnNumber = ($imrnNumber InstanceOf DN)
+             ? $imrnNumber
+             : new DN($imrnNumber);
     }
 
     public function getImrnNumber()
@@ -41,9 +44,8 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
         return (!$this->imrnNumber) ?: $this->imrnNumber->value();
     }
 
-    public function setNumberRange($numberRange)
+    public function setNumberRange(DNRange $numberRange = null)
     {
-        $numberRange and $this->numberRange = new DNRange($numberRange);
     }
 
     public function getNumberRange()

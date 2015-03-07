@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $portsAllocatedToServiceProvider  = null;
 
-    public function __construct(
-             UnboundedNonNegativeInt $portsAllocatedToServiceProvider
-    ) {
-        $this->portsAllocatedToServiceProvider = $portsAllocatedToServiceProvider;
-        $this->args                            = func_get_args();
-    }
 
-    public function setPortsAllocatedToServiceProvider($portsAllocatedToServiceProvider)
+    public function setPortsAllocatedToServiceProvider(UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null)
     {
-        $portsAllocatedToServiceProvider and $this->portsAllocatedToServiceProvider = new UnboundedNonNegativeInt($portsAllocatedToServiceProvider);
     }
 
     public function getPortsAllocatedToServiceProvider()

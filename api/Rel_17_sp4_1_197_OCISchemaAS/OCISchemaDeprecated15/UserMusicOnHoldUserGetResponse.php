@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MusicOnHoldUserSourceRead;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceRead;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,24 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $enableVideo                         = null;
+    protected $source                              = null;
+    protected $useAlternateSourceForInternalCalls  = null;
+    protected $internalSource                      = null;
 
-    public function __construct(
-             $enableVideo,
-             $source,
-             $useAlternateSourceForInternalCalls,
-             $internalSource=null
-    ) {
-        $this->enableVideo                        = $enableVideo;
-        $this->source                             = $source;
-        $this->useAlternateSourceForInternalCalls = $useAlternateSourceForInternalCalls;
-        $this->internalSource                     = $internalSource;
-        $this->args                               = func_get_args();
-    }
 
-    public function setEnableVideo($enableVideo)
+    public function setEnableVideo(xs:boolean $enableVideo = null)
     {
-        $enableVideo and $this->enableVideo = new xs:boolean($enableVideo);
     }
 
     public function getEnableVideo()
@@ -44,9 +34,8 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
         return (!$this->enableVideo) ?: $this->enableVideo->value();
     }
 
-    public function setSource($source)
+    public function setSource(MusicOnHoldUserSourceRead $source = null)
     {
-        $source and $this->source = new MusicOnHoldUserSourceRead($source);
     }
 
     public function getSource()
@@ -54,9 +43,8 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
         return (!$this->source) ?: $this->source->value();
     }
 
-    public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls)
+    public function setUseAlternateSourceForInternalCalls(xs:boolean $useAlternateSourceForInternalCalls = null)
     {
-        $useAlternateSourceForInternalCalls and $this->useAlternateSourceForInternalCalls = new xs:boolean($useAlternateSourceForInternalCalls);
     }
 
     public function getUseAlternateSourceForInternalCalls()
@@ -64,9 +52,8 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
         return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->value();
     }
 
-    public function setInternalSource($internalSource)
+    public function setInternalSource(MusicOnHoldUserSourceRead $internalSource = null)
     {
-        $internalSource and $this->internalSource = new MusicOnHoldUserSourceRead($internalSource);
     }
 
     public function getInternalSource()

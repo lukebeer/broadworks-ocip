@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceFaxMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +19,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $isActive     = null;
+    protected $phoneNumber  = null;
+    protected $extension    = null;
+    protected $alias        = null;
 
-    public function __construct(
-             $isActive,
-             $phoneNumber=null,
-             $extension=null,
-             $alias=null
-    ) {
-        $this->isActive    = $isActive;
-        $this->phoneNumber = new DN($phoneNumber);
-        $this->extension   = new Extension17($extension);
-        $this->alias       = new SIPURI($alias);
-        $this->args        = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -45,9 +35,11 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -55,9 +47,11 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setExtension($extension)
+    public function setExtension($extension = null)
     {
-        $extension and $this->extension = new Extension17($extension);
+        $this->extension = ($extension InstanceOf Extension17)
+             ? $extension
+             : new Extension17($extension);
     }
 
     public function getExtension()
@@ -65,9 +59,11 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
         return (!$this->extension) ?: $this->extension->value();
     }
 
-    public function setAlias($alias)
+    public function setAlias($alias = null)
     {
-        $alias and $this->alias = new SIPURI($alias);
+        $this->alias = ($alias InstanceOf SIPURI)
+             ? $alias
+             : new SIPURI($alias);
     }
 
     public function getAlias()

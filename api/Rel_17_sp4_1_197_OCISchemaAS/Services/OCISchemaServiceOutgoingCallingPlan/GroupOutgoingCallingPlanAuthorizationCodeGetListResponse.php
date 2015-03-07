@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanGroupAuthorizationCodes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanDepartmentAuthorizationCodes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDepartmentAuthorizationCodes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanGroupAuthorizationCodes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $groupCodeList       = null;
+    protected $departmentCodeList  = null;
 
-    public function __construct(
-             $groupCodeList,
-             $departmentCodeList=null
-    ) {
-        $this->groupCodeList      = $groupCodeList;
-        $this->departmentCodeList = $departmentCodeList;
-        $this->args               = func_get_args();
-    }
 
-    public function setGroupCodeList($groupCodeList)
+    public function setGroupCodeList(OutgoingCallingPlanGroupAuthorizationCodes $groupCodeList = null)
     {
-        $groupCodeList and $this->groupCodeList = new OutgoingCallingPlanGroupAuthorizationCodes($groupCodeList);
     }
 
     public function getGroupCodeList()
@@ -39,9 +32,8 @@ class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTy
         return (!$this->groupCodeList) ?: $this->groupCodeList->value();
     }
 
-    public function setDepartmentCodeList($departmentCodeList)
+    public function setDepartmentCodeList(OutgoingCallingPlanDepartmentAuthorizationCodes $departmentCodeList = null)
     {
-        $departmentCodeList and $this->departmentCodeList = new OutgoingCallingPlanDepartmentAuthorizationCodes($departmentCodeList);
     }
 
     public function getDepartmentCodeList()

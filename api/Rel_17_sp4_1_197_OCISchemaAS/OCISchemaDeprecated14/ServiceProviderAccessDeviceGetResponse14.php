@@ -7,18 +7,17 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceProtocol;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceMACAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevicePhysicalLocation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceSerialNumber;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceMACAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceStatus;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevicePhysicalLocation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -29,44 +28,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $deviceType                     = null;
+    protected $protocol                       = null;
+    protected $netAddress                     = null;
+    protected $port                           = null;
+    protected $outboundProxyServerNetAddress  = null;
+    protected $stunServerNetAddress           = null;
+    protected $macAddress                     = null;
+    protected $serialNumber                   = null;
+    protected $description                    = null;
+    protected $numberOfPorts                  = null;
+    protected $numberOfAssignedPorts          = null;
+    protected $status                         = null;
+    protected $physicalLocation               = null;
+    protected $transportProtocol              = null;
 
-    public function __construct(
-             $deviceType,
-             $protocol,
-             $netAddress=null,
-             $port=null,
-             $outboundProxyServerNetAddress=null,
-             $stunServerNetAddress=null,
-             $macAddress=null,
-             $serialNumber=null,
-             $description=null,
-             UnboundedPositiveInt $numberOfPorts,
-             $numberOfAssignedPorts,
-             $status,
-             $physicalLocation=null,
-             $transportProtocol=null
-    ) {
-        $this->deviceType                    = new AccessDeviceType($deviceType);
-        $this->protocol                      = new AccessDeviceProtocol($protocol);
-        $this->netAddress                    = new NetAddress($netAddress);
-        $this->port                          = new Port1025($port);
-        $this->outboundProxyServerNetAddress = new NetAddress($outboundProxyServerNetAddress);
-        $this->stunServerNetAddress          = new NetAddress($stunServerNetAddress);
-        $this->macAddress                    = new AccessDeviceMACAddress($macAddress);
-        $this->serialNumber                  = new AccessDeviceSerialNumber($serialNumber);
-        $this->description                   = new AccessDeviceDescription($description);
-        $this->numberOfPorts                 = $numberOfPorts;
-        $this->numberOfAssignedPorts         = $numberOfAssignedPorts;
-        $this->status                        = new AccessDeviceStatus($status);
-        $this->physicalLocation              = new AccessDevicePhysicalLocation($physicalLocation);
-        $this->transportProtocol             = new TransportProtocol($transportProtocol);
-        $this->args                          = func_get_args();
-    }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -74,9 +57,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setProtocol($protocol)
+    public function setProtocol($protocol = null)
     {
-        $protocol and $this->protocol = new AccessDeviceProtocol($protocol);
+        $this->protocol = ($protocol InstanceOf AccessDeviceProtocol)
+             ? $protocol
+             : new AccessDeviceProtocol($protocol);
     }
 
     public function getProtocol()
@@ -84,9 +69,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->protocol) ?: $this->protocol->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -94,9 +81,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port1025($port);
+        $this->port = ($port InstanceOf Port1025)
+             ? $port
+             : new Port1025($port);
     }
 
     public function getPort()
@@ -104,9 +93,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->port) ?: $this->port->value();
     }
 
-    public function setOutboundProxyServerNetAddress($outboundProxyServerNetAddress)
+    public function setOutboundProxyServerNetAddress($outboundProxyServerNetAddress = null)
     {
-        $outboundProxyServerNetAddress and $this->outboundProxyServerNetAddress = new NetAddress($outboundProxyServerNetAddress);
+        $this->outboundProxyServerNetAddress = ($outboundProxyServerNetAddress InstanceOf NetAddress)
+             ? $outboundProxyServerNetAddress
+             : new NetAddress($outboundProxyServerNetAddress);
     }
 
     public function getOutboundProxyServerNetAddress()
@@ -114,9 +105,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->outboundProxyServerNetAddress) ?: $this->outboundProxyServerNetAddress->value();
     }
 
-    public function setStunServerNetAddress($stunServerNetAddress)
+    public function setStunServerNetAddress($stunServerNetAddress = null)
     {
-        $stunServerNetAddress and $this->stunServerNetAddress = new NetAddress($stunServerNetAddress);
+        $this->stunServerNetAddress = ($stunServerNetAddress InstanceOf NetAddress)
+             ? $stunServerNetAddress
+             : new NetAddress($stunServerNetAddress);
     }
 
     public function getStunServerNetAddress()
@@ -124,9 +117,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->stunServerNetAddress) ?: $this->stunServerNetAddress->value();
     }
 
-    public function setMacAddress($macAddress)
+    public function setMacAddress($macAddress = null)
     {
-        $macAddress and $this->macAddress = new AccessDeviceMACAddress($macAddress);
+        $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
+             ? $macAddress
+             : new AccessDeviceMACAddress($macAddress);
     }
 
     public function getMacAddress()
@@ -134,9 +129,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->macAddress) ?: $this->macAddress->value();
     }
 
-    public function setSerialNumber($serialNumber)
+    public function setSerialNumber($serialNumber = null)
     {
-        $serialNumber and $this->serialNumber = new AccessDeviceSerialNumber($serialNumber);
+        $this->serialNumber = ($serialNumber InstanceOf AccessDeviceSerialNumber)
+             ? $serialNumber
+             : new AccessDeviceSerialNumber($serialNumber);
     }
 
     public function getSerialNumber()
@@ -144,9 +141,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->serialNumber) ?: $this->serialNumber->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new AccessDeviceDescription($description);
+        $this->description = ($description InstanceOf AccessDeviceDescription)
+             ? $description
+             : new AccessDeviceDescription($description);
     }
 
     public function getDescription()
@@ -154,9 +153,8 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setNumberOfPorts($numberOfPorts)
+    public function setNumberOfPorts(UnboundedPositiveInt $numberOfPorts = null)
     {
-        $numberOfPorts and $this->numberOfPorts = new UnboundedPositiveInt($numberOfPorts);
     }
 
     public function getNumberOfPorts()
@@ -164,9 +162,8 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->numberOfPorts) ?: $this->numberOfPorts->value();
     }
 
-    public function setNumberOfAssignedPorts($numberOfAssignedPorts)
+    public function setNumberOfAssignedPorts(xs:int $numberOfAssignedPorts = null)
     {
-        $numberOfAssignedPorts and $this->numberOfAssignedPorts = new xs:int($numberOfAssignedPorts);
     }
 
     public function getNumberOfAssignedPorts()
@@ -174,9 +171,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts->value();
     }
 
-    public function setStatus($status)
+    public function setStatus($status = null)
     {
-        $status and $this->status = new AccessDeviceStatus($status);
+        $this->status = ($status InstanceOf AccessDeviceStatus)
+             ? $status
+             : new AccessDeviceStatus($status);
     }
 
     public function getStatus()
@@ -184,9 +183,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->status) ?: $this->status->value();
     }
 
-    public function setPhysicalLocation($physicalLocation)
+    public function setPhysicalLocation($physicalLocation = null)
     {
-        $physicalLocation and $this->physicalLocation = new AccessDevicePhysicalLocation($physicalLocation);
+        $this->physicalLocation = ($physicalLocation InstanceOf AccessDevicePhysicalLocation)
+             ? $physicalLocation
+             : new AccessDevicePhysicalLocation($physicalLocation);
     }
 
     public function getPhysicalLocation()
@@ -194,9 +195,11 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
         return (!$this->physicalLocation) ?: $this->physicalLocation->value();
     }
 
-    public function setTransportProtocol($transportProtocol)
+    public function setTransportProtocol($transportProtocol = null)
     {
-        $transportProtocol and $this->transportProtocol = new TransportProtocol($transportProtocol);
+        $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
+             ? $transportProtocol
+             : new TransportProtocol($transportProtocol);
     }
 
     public function getTransportProtocol()

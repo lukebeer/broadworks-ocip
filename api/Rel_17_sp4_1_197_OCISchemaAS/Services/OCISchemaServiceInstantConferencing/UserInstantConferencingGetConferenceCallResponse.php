@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingTitle;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,30 +21,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetConferenceCallResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $isBridgeActive      = null;
+    protected $title               = null;
+    protected $isLocked            = null;
+    protected $isRecording         = null;
+    protected $isExpired           = null;
+    protected $isPaused            = null;
+    protected $conferenceLegTable  = null;
 
-    public function __construct(
-             $isBridgeActive,
-             $title,
-             $isLocked,
-             $isRecording,
-             $isExpired,
-             $isPaused,
-             $conferenceLegTable
-    ) {
-        $this->isBridgeActive     = $isBridgeActive;
-        $this->title              = $title;
-        $this->isLocked           = $isLocked;
-        $this->isRecording        = $isRecording;
-        $this->isExpired          = $isExpired;
-        $this->isPaused           = $isPaused;
-        $this->conferenceLegTable = $conferenceLegTable;
-        $this->args               = func_get_args();
-    }
 
-    public function setIsBridgeActive($isBridgeActive)
+    public function setIsBridgeActive(xs:boolean $isBridgeActive = null)
     {
-        $isBridgeActive and $this->isBridgeActive = new xs:boolean($isBridgeActive);
     }
 
     public function getIsBridgeActive()
@@ -54,9 +40,11 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
         return (!$this->isBridgeActive) ?: $this->isBridgeActive->value();
     }
 
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
-        $title and $this->title = new InstantConferencingTitle($title);
+        $this->title = ($title InstanceOf InstantConferencingTitle)
+             ? $title
+             : new InstantConferencingTitle($title);
     }
 
     public function getTitle()
@@ -64,9 +52,8 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
         return (!$this->title) ?: $this->title->value();
     }
 
-    public function setIsLocked($isLocked)
+    public function setIsLocked(xs:boolean $isLocked = null)
     {
-        $isLocked and $this->isLocked = new xs:boolean($isLocked);
     }
 
     public function getIsLocked()
@@ -74,9 +61,8 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
         return (!$this->isLocked) ?: $this->isLocked->value();
     }
 
-    public function setIsRecording($isRecording)
+    public function setIsRecording(xs:boolean $isRecording = null)
     {
-        $isRecording and $this->isRecording = new xs:boolean($isRecording);
     }
 
     public function getIsRecording()
@@ -84,9 +70,8 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
         return (!$this->isRecording) ?: $this->isRecording->value();
     }
 
-    public function setIsExpired($isExpired)
+    public function setIsExpired(xs:boolean $isExpired = null)
     {
-        $isExpired and $this->isExpired = new xs:boolean($isExpired);
     }
 
     public function getIsExpired()
@@ -94,9 +79,8 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
         return (!$this->isExpired) ?: $this->isExpired->value();
     }
 
-    public function setIsPaused($isPaused)
+    public function setIsPaused(xs:boolean $isPaused = null)
     {
-        $isPaused and $this->isPaused = new xs:boolean($isPaused);
     }
 
     public function getIsPaused()
@@ -104,9 +88,8 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
         return (!$this->isPaused) ?: $this->isPaused->value();
     }
 
-    public function setConferenceLegTable($conferenceLegTable)
+    public function setConferenceLegTable(core:OCITable $conferenceLegTable = null)
     {
-        $conferenceLegTable and $this->conferenceLegTable = new core:OCITable($conferenceLegTable);
     }
 
     public function getConferenceLegTable()

@@ -7,27 +7,27 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementSIPAliasList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AddressLocation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InformationalDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementSIPAliasList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InformationalDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AddressLocation;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -37,64 +37,89 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserModifyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $userId                    = null;
+    protected $lastName                  = null;
+    protected $firstName                 = null;
+    protected $callingLineIdLastName     = null;
+    protected $callingLineIdFirstName    = null;
+    protected $hiraganaLastName          = null;
+    protected $hiraganaFirstName         = null;
+    protected $phoneNumber               = null;
+    protected $extension                 = null;
+    protected $callingLineIdPhoneNumber  = null;
+    protected $oldPassword               = null;
+    protected $newPassword               = null;
+    protected $department                = null;
+    protected $language                  = null;
+    protected $timeZone                  = null;
+    protected $sipAliasList              = null;
+    protected $endpoint                  = null;
+    protected $title                     = null;
+    protected $pagerPhoneNumber          = null;
+    protected $mobilePhoneNumber         = null;
+    protected $emailAddress              = null;
+    protected $yahooId                   = null;
+    protected $addressLocation           = null;
+    protected $address                   = null;
 
     public function __construct(
-             $userId,
-             $lastName=null,
-             $firstName=null,
-             $callingLineIdLastName=null,
-             $callingLineIdFirstName=null,
-             $hiraganaLastName=null,
-             $hiraganaFirstName=null,
-             $phoneNumber=null,
-             $extension=null,
-             $callingLineIdPhoneNumber=null,
-             $oldPassword=null,
-             $newPassword=null,
-             DepartmentKey $department=null,
-             $language=null,
-             $timeZone=null,
-             ReplacementSIPAliasList $sipAliasList=null,
-             $endpoint=null,
-             $title=null,
-             $pagerPhoneNumber=null,
-             $mobilePhoneNumber=null,
-             $emailAddress=null,
-             $yahooId=null,
-             $addressLocation=null,
-             StreetAddress $address=null
+         $userId,
+         $lastName = null,
+         $firstName = null,
+         $callingLineIdLastName = null,
+         $callingLineIdFirstName = null,
+         $hiraganaLastName = null,
+         $hiraganaFirstName = null,
+         $phoneNumber = null,
+         $extension = null,
+         $callingLineIdPhoneNumber = null,
+         $oldPassword = null,
+         $newPassword = null,
+         DepartmentKey $department = null,
+         $language = null,
+         $timeZone = null,
+         ReplacementSIPAliasList $sipAliasList = null,
+         $endpoint = null,
+         $title = null,
+         $pagerPhoneNumber = null,
+         $mobilePhoneNumber = null,
+         $emailAddress = null,
+         $yahooId = null,
+         $addressLocation = null,
+         StreetAddress $address = null
     ) {
-        $this->userId                   = new UserId($userId);
-        $this->lastName                 = new LastName($lastName);
-        $this->firstName                = new FirstName($firstName);
-        $this->callingLineIdLastName    = new CallingLineIdLastName($callingLineIdLastName);
-        $this->callingLineIdFirstName   = new CallingLineIdFirstName($callingLineIdFirstName);
-        $this->hiraganaLastName         = new HiraganaLastName($hiraganaLastName);
-        $this->hiraganaFirstName        = new HiraganaFirstName($hiraganaFirstName);
-        $this->phoneNumber              = new DN($phoneNumber);
-        $this->extension                = new Extension($extension);
-        $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
-        $this->oldPassword              = new Password($oldPassword);
-        $this->newPassword              = new Password($newPassword);
-        $this->department               = $department;
-        $this->language                 = new Language($language);
-        $this->timeZone                 = new TimeZone($timeZone);
-        $this->sipAliasList             = $sipAliasList;
-        $this->endpoint                 = $endpoint;
-        $this->title                    = new Title($title);
-        $this->pagerPhoneNumber         = new InformationalDN($pagerPhoneNumber);
-        $this->mobilePhoneNumber        = new OutgoingDN($mobilePhoneNumber);
-        $this->emailAddress             = new EmailAddress($emailAddress);
-        $this->yahooId                  = new YahooId($yahooId);
-        $this->addressLocation          = new AddressLocation($addressLocation);
-        $this->address                  = $address;
-        $this->args                     = func_get_args();
+        $this->setUserId($userId);
+        $this->setLastName($lastName);
+        $this->setFirstName($firstName);
+        $this->setCallingLineIdLastName($callingLineIdLastName);
+        $this->setCallingLineIdFirstName($callingLineIdFirstName);
+        $this->setHiraganaLastName($hiraganaLastName);
+        $this->setHiraganaFirstName($hiraganaFirstName);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setExtension($extension);
+        $this->setCallingLineIdPhoneNumber($callingLineIdPhoneNumber);
+        $this->setOldPassword($oldPassword);
+        $this->setNewPassword($newPassword);
+        $this->setDepartment($department);
+        $this->setLanguage($language);
+        $this->setTimeZone($timeZone);
+        $this->setSipAliasList($sipAliasList);
+        $this->setEndpoint($endpoint);
+        $this->setTitle($title);
+        $this->setPagerPhoneNumber($pagerPhoneNumber);
+        $this->setMobilePhoneNumber($mobilePhoneNumber);
+        $this->setEmailAddress($emailAddress);
+        $this->setYahooId($yahooId);
+        $this->setAddressLocation($addressLocation);
+        $this->setAddress($address);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -102,9 +127,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
-        $lastName and $this->lastName = new LastName($lastName);
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
     }
 
     public function getLastName()
@@ -112,9 +139,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->lastName) ?: $this->lastName->value();
     }
 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
-        $firstName and $this->firstName = new FirstName($firstName);
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
     }
 
     public function getFirstName()
@@ -122,9 +151,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->firstName) ?: $this->firstName->value();
     }
 
-    public function setCallingLineIdLastName($callingLineIdLastName)
+    public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
-        $callingLineIdLastName and $this->callingLineIdLastName = new CallingLineIdLastName($callingLineIdLastName);
+        $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
+             ? $callingLineIdLastName
+             : new CallingLineIdLastName($callingLineIdLastName);
     }
 
     public function getCallingLineIdLastName()
@@ -132,9 +163,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->value();
     }
 
-    public function setCallingLineIdFirstName($callingLineIdFirstName)
+    public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
-        $callingLineIdFirstName and $this->callingLineIdFirstName = new CallingLineIdFirstName($callingLineIdFirstName);
+        $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
+             ? $callingLineIdFirstName
+             : new CallingLineIdFirstName($callingLineIdFirstName);
     }
 
     public function getCallingLineIdFirstName()
@@ -142,9 +175,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->value();
     }
 
-    public function setHiraganaLastName($hiraganaLastName)
+    public function setHiraganaLastName($hiraganaLastName = null)
     {
-        $hiraganaLastName and $this->hiraganaLastName = new HiraganaLastName($hiraganaLastName);
+        $this->hiraganaLastName = ($hiraganaLastName InstanceOf HiraganaLastName)
+             ? $hiraganaLastName
+             : new HiraganaLastName($hiraganaLastName);
     }
 
     public function getHiraganaLastName()
@@ -152,9 +187,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->hiraganaLastName) ?: $this->hiraganaLastName->value();
     }
 
-    public function setHiraganaFirstName($hiraganaFirstName)
+    public function setHiraganaFirstName($hiraganaFirstName = null)
     {
-        $hiraganaFirstName and $this->hiraganaFirstName = new HiraganaFirstName($hiraganaFirstName);
+        $this->hiraganaFirstName = ($hiraganaFirstName InstanceOf HiraganaFirstName)
+             ? $hiraganaFirstName
+             : new HiraganaFirstName($hiraganaFirstName);
     }
 
     public function getHiraganaFirstName()
@@ -162,9 +199,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->hiraganaFirstName) ?: $this->hiraganaFirstName->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -172,9 +211,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setExtension($extension)
+    public function setExtension($extension = null)
     {
-        $extension and $this->extension = new Extension($extension);
+        $this->extension = ($extension InstanceOf Extension)
+             ? $extension
+             : new Extension($extension);
     }
 
     public function getExtension()
@@ -182,9 +223,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->extension) ?: $this->extension->value();
     }
 
-    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber)
+    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        $callingLineIdPhoneNumber and $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
+        $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
+             ? $callingLineIdPhoneNumber
+             : new DN($callingLineIdPhoneNumber);
     }
 
     public function getCallingLineIdPhoneNumber()
@@ -192,9 +235,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->value();
     }
 
-    public function setOldPassword($oldPassword)
+    public function setOldPassword($oldPassword = null)
     {
-        $oldPassword and $this->oldPassword = new Password($oldPassword);
+        $this->oldPassword = ($oldPassword InstanceOf Password)
+             ? $oldPassword
+             : new Password($oldPassword);
     }
 
     public function getOldPassword()
@@ -202,9 +247,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->oldPassword) ?: $this->oldPassword->value();
     }
 
-    public function setNewPassword($newPassword)
+    public function setNewPassword($newPassword = null)
     {
-        $newPassword and $this->newPassword = new Password($newPassword);
+        $this->newPassword = ($newPassword InstanceOf Password)
+             ? $newPassword
+             : new Password($newPassword);
     }
 
     public function getNewPassword()
@@ -212,9 +259,8 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->newPassword) ?: $this->newPassword->value();
     }
 
-    public function setDepartment($department)
+    public function setDepartment(DepartmentKey $department = null)
     {
-        $department and $this->department = new DepartmentKey($department);
     }
 
     public function getDepartment()
@@ -222,9 +268,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->department) ?: $this->department->value();
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()
@@ -232,9 +280,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->language) ?: $this->language->value();
     }
 
-    public function setTimeZone($timeZone)
+    public function setTimeZone($timeZone = null)
     {
-        $timeZone and $this->timeZone = new TimeZone($timeZone);
+        $this->timeZone = ($timeZone InstanceOf TimeZone)
+             ? $timeZone
+             : new TimeZone($timeZone);
     }
 
     public function getTimeZone()
@@ -242,9 +292,8 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->timeZone) ?: $this->timeZone->value();
     }
 
-    public function setSipAliasList($sipAliasList)
+    public function setSipAliasList(ReplacementSIPAliasList $sipAliasList = null)
     {
-        $sipAliasList and $this->sipAliasList = new ReplacementSIPAliasList($sipAliasList);
     }
 
     public function getSipAliasList()
@@ -252,9 +301,9 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->sipAliasList) ?: $this->sipAliasList->value();
     }
 
-    public function setEndpoint($endpoint)
+    public function setEndpoint(ReplacementSIPAliasList $endpoint = null)
     {
-        $endpoint and $this->endpoint = new ($endpoint);
+        $this->endpoint = $endpoint;
     }
 
     public function getEndpoint()
@@ -262,9 +311,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->endpoint) ?: $this->endpoint->value();
     }
 
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
-        $title and $this->title = new Title($title);
+        $this->title = ($title InstanceOf Title)
+             ? $title
+             : new Title($title);
     }
 
     public function getTitle()
@@ -272,9 +323,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->title) ?: $this->title->value();
     }
 
-    public function setPagerPhoneNumber($pagerPhoneNumber)
+    public function setPagerPhoneNumber($pagerPhoneNumber = null)
     {
-        $pagerPhoneNumber and $this->pagerPhoneNumber = new InformationalDN($pagerPhoneNumber);
+        $this->pagerPhoneNumber = ($pagerPhoneNumber InstanceOf InformationalDN)
+             ? $pagerPhoneNumber
+             : new InformationalDN($pagerPhoneNumber);
     }
 
     public function getPagerPhoneNumber()
@@ -282,9 +335,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->pagerPhoneNumber) ?: $this->pagerPhoneNumber->value();
     }
 
-    public function setMobilePhoneNumber($mobilePhoneNumber)
+    public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        $mobilePhoneNumber and $this->mobilePhoneNumber = new OutgoingDN($mobilePhoneNumber);
+        $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf OutgoingDN)
+             ? $mobilePhoneNumber
+             : new OutgoingDN($mobilePhoneNumber);
     }
 
     public function getMobilePhoneNumber()
@@ -292,9 +347,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->mobilePhoneNumber) ?: $this->mobilePhoneNumber->value();
     }
 
-    public function setEmailAddress($emailAddress)
+    public function setEmailAddress($emailAddress = null)
     {
-        $emailAddress and $this->emailAddress = new EmailAddress($emailAddress);
+        $this->emailAddress = ($emailAddress InstanceOf EmailAddress)
+             ? $emailAddress
+             : new EmailAddress($emailAddress);
     }
 
     public function getEmailAddress()
@@ -302,9 +359,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->emailAddress) ?: $this->emailAddress->value();
     }
 
-    public function setYahooId($yahooId)
+    public function setYahooId($yahooId = null)
     {
-        $yahooId and $this->yahooId = new YahooId($yahooId);
+        $this->yahooId = ($yahooId InstanceOf YahooId)
+             ? $yahooId
+             : new YahooId($yahooId);
     }
 
     public function getYahooId()
@@ -312,9 +371,11 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->yahooId) ?: $this->yahooId->value();
     }
 
-    public function setAddressLocation($addressLocation)
+    public function setAddressLocation($addressLocation = null)
     {
-        $addressLocation and $this->addressLocation = new AddressLocation($addressLocation);
+        $this->addressLocation = ($addressLocation InstanceOf AddressLocation)
+             ? $addressLocation
+             : new AddressLocation($addressLocation);
     }
 
     public function getAddressLocation()
@@ -322,9 +383,8 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         return (!$this->addressLocation) ?: $this->addressLocation->value();
     }
 
-    public function setAddress($address)
+    public function setAddress(StreetAddress $address = null)
     {
-        $address and $this->address = new StreetAddress($address);
     }
 
     public function getAddress()

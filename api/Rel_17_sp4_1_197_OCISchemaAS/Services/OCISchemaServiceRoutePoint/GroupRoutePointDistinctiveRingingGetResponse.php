@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                        = __CLASS__;
+    protected $enableDistinctiveRinging                    = null;
+    protected $distinctiveRingingRingPattern               = null;
+    protected $distinctiveRingingForceDeliveryRingPattern  = null;
 
-    public function __construct(
-             $enableDistinctiveRinging,
-             $distinctiveRingingRingPattern,
-             $distinctiveRingingForceDeliveryRingPattern
-    ) {
-        $this->enableDistinctiveRinging                   = $enableDistinctiveRinging;
-        $this->distinctiveRingingRingPattern              = new RingPattern($distinctiveRingingRingPattern);
-        $this->distinctiveRingingForceDeliveryRingPattern = new RingPattern($distinctiveRingingForceDeliveryRingPattern);
-        $this->args                                       = func_get_args();
-    }
 
-    public function setEnableDistinctiveRinging($enableDistinctiveRinging)
+    public function setEnableDistinctiveRinging(xs:boolean $enableDistinctiveRinging = null)
     {
-        $enableDistinctiveRinging and $this->enableDistinctiveRinging = new xs:boolean($enableDistinctiveRinging);
     }
 
     public function getEnableDistinctiveRinging()
@@ -41,9 +32,11 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
         return (!$this->enableDistinctiveRinging) ?: $this->enableDistinctiveRinging->value();
     }
 
-    public function setDistinctiveRingingRingPattern($distinctiveRingingRingPattern)
+    public function setDistinctiveRingingRingPattern($distinctiveRingingRingPattern = null)
     {
-        $distinctiveRingingRingPattern and $this->distinctiveRingingRingPattern = new RingPattern($distinctiveRingingRingPattern);
+        $this->distinctiveRingingRingPattern = ($distinctiveRingingRingPattern InstanceOf RingPattern)
+             ? $distinctiveRingingRingPattern
+             : new RingPattern($distinctiveRingingRingPattern);
     }
 
     public function getDistinctiveRingingRingPattern()
@@ -51,9 +44,11 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
         return (!$this->distinctiveRingingRingPattern) ?: $this->distinctiveRingingRingPattern->value();
     }
 
-    public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern)
+    public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
-        $distinctiveRingingForceDeliveryRingPattern and $this->distinctiveRingingForceDeliveryRingPattern = new RingPattern($distinctiveRingingForceDeliveryRingPattern);
+        $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
+             ? $distinctiveRingingForceDeliveryRingPattern
+             : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
     public function getDistinctiveRingingForceDeliveryRingPattern()

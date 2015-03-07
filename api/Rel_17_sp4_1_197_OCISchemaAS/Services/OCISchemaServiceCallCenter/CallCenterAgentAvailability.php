@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class CallCenterAgentAvailability extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $serviceUserId  = null;
+    protected $available      = null;
 
     public function __construct(
-             $serviceUserId,
-             $available
+         $serviceUserId,
+         $available
     ) {
-        $this->serviceUserId = new UserId($serviceUserId);
-        $this->available     = $available;
-        $this->args          = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setAvailable($available);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -39,9 +41,8 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setAvailable($available)
+    public function setAvailable(xs:boolean $available = null)
     {
-        $available and $this->available = new xs:boolean($available);
     }
 
     public function getAvailable()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,18 +21,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $taskTable  = null;
 
-    public function __construct(
-             $taskTable
-    ) {
-        $this->taskTable = $taskTable;
-        $this->args      = func_get_args();
-    }
 
-    public function setTaskTable($taskTable)
+    public function setTaskTable(core:OCITable $taskTable = null)
     {
-        $taskTable and $this->taskTable = new core:OCITable($taskTable);
     }
 
     public function getTaskTable()

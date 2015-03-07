@@ -7,13 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LicenseStrictness;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserLicenseLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:dateTime;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServerHostId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LicenseName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\GroupUserLicenseLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseStrictness;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServerHostId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,38 +24,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $licenseStrictness           = null;
+    protected $groupUserlimit              = null;
+    protected $expirationDate              = null;
+    protected $hostId                      = null;
+    protected $licenseName                 = null;
+    protected $numberOfTrunkUsers          = null;
+    protected $subscriberLicenseTable      = null;
+    protected $groupServiceLicenseTable    = null;
+    protected $virtualServiceLicenseTable  = null;
+    protected $userServiceLicenseTable     = null;
+    protected $systemParamLicenseTable     = null;
 
-    public function __construct(
-             $licenseStrictness,
-             $groupUserlimit,
-             $expirationDate=null,
-             $hostId=null,
-             $licenseName=null,
-             $numberOfTrunkUsers,
-             $subscriberLicenseTable,
-             $groupServiceLicenseTable,
-             $virtualServiceLicenseTable,
-             $userServiceLicenseTable,
-             $systemParamLicenseTable
-    ) {
-        $this->licenseStrictness          = $licenseStrictness;
-        $this->groupUserlimit             = $groupUserlimit;
-        $this->expirationDate             = $expirationDate;
-        $this->hostId                     = $hostId;
-        $this->licenseName                = $licenseName;
-        $this->numberOfTrunkUsers         = $numberOfTrunkUsers;
-        $this->subscriberLicenseTable     = $subscriberLicenseTable;
-        $this->groupServiceLicenseTable   = $groupServiceLicenseTable;
-        $this->virtualServiceLicenseTable = $virtualServiceLicenseTable;
-        $this->userServiceLicenseTable    = $userServiceLicenseTable;
-        $this->systemParamLicenseTable    = $systemParamLicenseTable;
-        $this->args                       = func_get_args();
-    }
 
-    public function setLicenseStrictness($licenseStrictness)
+    public function setLicenseStrictness($licenseStrictness = null)
     {
-        $licenseStrictness and $this->licenseStrictness = new LicenseStrictness($licenseStrictness);
+        $this->licenseStrictness = ($licenseStrictness InstanceOf LicenseStrictness)
+             ? $licenseStrictness
+             : new LicenseStrictness($licenseStrictness);
     }
 
     public function getLicenseStrictness()
@@ -66,9 +50,11 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->licenseStrictness) ?: $this->licenseStrictness->value();
     }
 
-    public function setGroupUserlimit($groupUserlimit)
+    public function setGroupUserlimit($groupUserlimit = null)
     {
-        $groupUserlimit and $this->groupUserlimit = new GroupUserLicenseLimit($groupUserlimit);
+        $this->groupUserlimit = ($groupUserlimit InstanceOf GroupUserLicenseLimit)
+             ? $groupUserlimit
+             : new GroupUserLicenseLimit($groupUserlimit);
     }
 
     public function getGroupUserlimit()
@@ -76,9 +62,8 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->groupUserlimit) ?: $this->groupUserlimit->value();
     }
 
-    public function setExpirationDate($expirationDate)
+    public function setExpirationDate(xs:dateTime $expirationDate = null)
     {
-        $expirationDate and $this->expirationDate = new xs:dateTime($expirationDate);
     }
 
     public function getExpirationDate()
@@ -86,9 +71,11 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->expirationDate) ?: $this->expirationDate->value();
     }
 
-    public function setHostId($hostId)
+    public function setHostId($hostId = null)
     {
-        $hostId and $this->hostId = new ServerHostId($hostId);
+        $this->hostId = ($hostId InstanceOf ServerHostId)
+             ? $hostId
+             : new ServerHostId($hostId);
     }
 
     public function getHostId()
@@ -96,9 +83,11 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->hostId) ?: $this->hostId->value();
     }
 
-    public function setLicenseName($licenseName)
+    public function setLicenseName($licenseName = null)
     {
-        $licenseName and $this->licenseName = new LicenseName($licenseName);
+        $this->licenseName = ($licenseName InstanceOf LicenseName)
+             ? $licenseName
+             : new LicenseName($licenseName);
     }
 
     public function getLicenseName()
@@ -106,9 +95,8 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->licenseName) ?: $this->licenseName->value();
     }
 
-    public function setNumberOfTrunkUsers($numberOfTrunkUsers)
+    public function setNumberOfTrunkUsers(xs:int $numberOfTrunkUsers = null)
     {
-        $numberOfTrunkUsers and $this->numberOfTrunkUsers = new xs:int($numberOfTrunkUsers);
     }
 
     public function getNumberOfTrunkUsers()
@@ -116,9 +104,8 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->numberOfTrunkUsers) ?: $this->numberOfTrunkUsers->value();
     }
 
-    public function setSubscriberLicenseTable($subscriberLicenseTable)
+    public function setSubscriberLicenseTable(core:OCITable $subscriberLicenseTable = null)
     {
-        $subscriberLicenseTable and $this->subscriberLicenseTable = new core:OCITable($subscriberLicenseTable);
     }
 
     public function getSubscriberLicenseTable()
@@ -126,9 +113,8 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->subscriberLicenseTable) ?: $this->subscriberLicenseTable->value();
     }
 
-    public function setGroupServiceLicenseTable($groupServiceLicenseTable)
+    public function setGroupServiceLicenseTable(core:OCITable $groupServiceLicenseTable = null)
     {
-        $groupServiceLicenseTable and $this->groupServiceLicenseTable = new core:OCITable($groupServiceLicenseTable);
     }
 
     public function getGroupServiceLicenseTable()
@@ -136,9 +122,8 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->groupServiceLicenseTable) ?: $this->groupServiceLicenseTable->value();
     }
 
-    public function setVirtualServiceLicenseTable($virtualServiceLicenseTable)
+    public function setVirtualServiceLicenseTable(core:OCITable $virtualServiceLicenseTable = null)
     {
-        $virtualServiceLicenseTable and $this->virtualServiceLicenseTable = new core:OCITable($virtualServiceLicenseTable);
     }
 
     public function getVirtualServiceLicenseTable()
@@ -146,9 +131,8 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->virtualServiceLicenseTable) ?: $this->virtualServiceLicenseTable->value();
     }
 
-    public function setUserServiceLicenseTable($userServiceLicenseTable)
+    public function setUserServiceLicenseTable(core:OCITable $userServiceLicenseTable = null)
     {
-        $userServiceLicenseTable and $this->userServiceLicenseTable = new core:OCITable($userServiceLicenseTable);
     }
 
     public function getUserServiceLicenseTable()
@@ -156,9 +140,8 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         return (!$this->userServiceLicenseTable) ?: $this->userServiceLicenseTable->value();
     }
 
-    public function setSystemParamLicenseTable($systemParamLicenseTable)
+    public function setSystemParamLicenseTable(core:OCITable $systemParamLicenseTable = null)
     {
-        $systemParamLicenseTable and $this->systemParamLicenseTable = new core:OCITable($systemParamLicenseTable);
     }
 
     public function getSystemParamLicenseTable()

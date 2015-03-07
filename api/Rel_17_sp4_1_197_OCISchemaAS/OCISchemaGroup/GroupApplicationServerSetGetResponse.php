@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupApplicationServerSetGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $applicationServerSetName  = null;
 
-    public function __construct(
-             $applicationServerSetName=null
-    ) {
-        $this->applicationServerSetName = new ApplicationServerSetName($applicationServerSetName);
-        $this->args                     = func_get_args();
-    }
 
-    public function setApplicationServerSetName($applicationServerSetName)
+    public function setApplicationServerSetName($applicationServerSetName = null)
     {
-        $applicationServerSetName and $this->applicationServerSetName = new ApplicationServerSetName($applicationServerSetName);
+        $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
+             ? $applicationServerSetName
+             : new ApplicationServerSetName($applicationServerSetName);
     }
 
     public function getApplicationServerSetName()

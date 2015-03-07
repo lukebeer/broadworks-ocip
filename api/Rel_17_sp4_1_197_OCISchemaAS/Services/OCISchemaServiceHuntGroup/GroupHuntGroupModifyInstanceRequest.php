@@ -7,15 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntForwardTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -32,46 +31,62 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupHuntGroupModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                              = __CLASS__;
+    protected $serviceUserId                     = null;
+    protected $serviceInstanceProfile            = null;
+    protected $policy                            = null;
+    protected $huntAfterNoAnswer                 = null;
+    protected $noAnswerNumberOfRings             = null;
+    protected $forwardAfterTimeout               = null;
+    protected $forwardTimeoutSeconds             = null;
+    protected $forwardToPhoneNumber              = null;
+    protected $agentUserIdList                   = null;
+    protected $allowCallWaitingForAgents         = null;
+    protected $useSystemHuntGroupCLIDSetting     = null;
+    protected $includeHuntGroupNameInCLID        = null;
+    protected $enableNotReachableForwarding      = null;
+    protected $notReachableForwardToPhoneNumber  = null;
+    protected $makeBusyWhenNotReachable          = null;
 
     public function __construct(
-             $serviceUserId,
-             ServiceInstanceModifyProfile $serviceInstanceProfile=null,
-             $policy=null,
-             $huntAfterNoAnswer=null,
-             $noAnswerNumberOfRings=null,
-             $forwardAfterTimeout=null,
-             $forwardTimeoutSeconds=null,
-             $forwardToPhoneNumber=null,
-             ReplacementUserIdList $agentUserIdList=null,
-             $allowCallWaitingForAgents=null,
-             $useSystemHuntGroupCLIDSetting=null,
-             $includeHuntGroupNameInCLID=null,
-             $enableNotReachableForwarding=null,
-             $notReachableForwardToPhoneNumber=null,
-             $makeBusyWhenNotReachable=null
+         $serviceUserId,
+         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $policy = null,
+         $huntAfterNoAnswer = null,
+         $noAnswerNumberOfRings = null,
+         $forwardAfterTimeout = null,
+         $forwardTimeoutSeconds = null,
+         $forwardToPhoneNumber = null,
+         ReplacementUserIdList $agentUserIdList = null,
+         $allowCallWaitingForAgents = null,
+         $useSystemHuntGroupCLIDSetting = null,
+         $includeHuntGroupNameInCLID = null,
+         $enableNotReachableForwarding = null,
+         $notReachableForwardToPhoneNumber = null,
+         $makeBusyWhenNotReachable = null
     ) {
-        $this->serviceUserId                    = new UserId($serviceUserId);
-        $this->serviceInstanceProfile           = $serviceInstanceProfile;
-        $this->policy                           = new HuntPolicy($policy);
-        $this->huntAfterNoAnswer                = $huntAfterNoAnswer;
-        $this->noAnswerNumberOfRings            = new HuntNoAnswerRings($noAnswerNumberOfRings);
-        $this->forwardAfterTimeout              = $forwardAfterTimeout;
-        $this->forwardTimeoutSeconds            = new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
-        $this->forwardToPhoneNumber             = new OutgoingDN($forwardToPhoneNumber);
-        $this->agentUserIdList                  = $agentUserIdList;
-        $this->allowCallWaitingForAgents        = $allowCallWaitingForAgents;
-        $this->useSystemHuntGroupCLIDSetting    = $useSystemHuntGroupCLIDSetting;
-        $this->includeHuntGroupNameInCLID       = $includeHuntGroupNameInCLID;
-        $this->enableNotReachableForwarding     = $enableNotReachableForwarding;
-        $this->notReachableForwardToPhoneNumber = new OutgoingDNorSIPURI($notReachableForwardToPhoneNumber);
-        $this->makeBusyWhenNotReachable         = $makeBusyWhenNotReachable;
-        $this->args                             = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setPolicy($policy);
+        $this->setHuntAfterNoAnswer($huntAfterNoAnswer);
+        $this->setNoAnswerNumberOfRings($noAnswerNumberOfRings);
+        $this->setForwardAfterTimeout($forwardAfterTimeout);
+        $this->setForwardTimeoutSeconds($forwardTimeoutSeconds);
+        $this->setForwardToPhoneNumber($forwardToPhoneNumber);
+        $this->setAgentUserIdList($agentUserIdList);
+        $this->setAllowCallWaitingForAgents($allowCallWaitingForAgents);
+        $this->setUseSystemHuntGroupCLIDSetting($useSystemHuntGroupCLIDSetting);
+        $this->setIncludeHuntGroupNameInCLID($includeHuntGroupNameInCLID);
+        $this->setEnableNotReachableForwarding($enableNotReachableForwarding);
+        $this->setNotReachableForwardToPhoneNumber($notReachableForwardToPhoneNumber);
+        $this->setMakeBusyWhenNotReachable($makeBusyWhenNotReachable);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -79,9 +94,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceModifyProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -89,9 +103,11 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setPolicy($policy)
+    public function setPolicy($policy = null)
     {
-        $policy and $this->policy = new HuntPolicy($policy);
+        $this->policy = ($policy InstanceOf HuntPolicy)
+             ? $policy
+             : new HuntPolicy($policy);
     }
 
     public function getPolicy()
@@ -99,9 +115,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->policy) ?: $this->policy->value();
     }
 
-    public function setHuntAfterNoAnswer($huntAfterNoAnswer)
+    public function setHuntAfterNoAnswer(xs:boolean $huntAfterNoAnswer = null)
     {
-        $huntAfterNoAnswer and $this->huntAfterNoAnswer = new xs:boolean($huntAfterNoAnswer);
     }
 
     public function getHuntAfterNoAnswer()
@@ -109,9 +124,11 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->value();
     }
 
-    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings)
+    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        $noAnswerNumberOfRings and $this->noAnswerNumberOfRings = new HuntNoAnswerRings($noAnswerNumberOfRings);
+        $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
+             ? $noAnswerNumberOfRings
+             : new HuntNoAnswerRings($noAnswerNumberOfRings);
     }
 
     public function getNoAnswerNumberOfRings()
@@ -119,9 +136,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->value();
     }
 
-    public function setForwardAfterTimeout($forwardAfterTimeout)
+    public function setForwardAfterTimeout(xs:boolean $forwardAfterTimeout = null)
     {
-        $forwardAfterTimeout and $this->forwardAfterTimeout = new xs:boolean($forwardAfterTimeout);
     }
 
     public function getForwardAfterTimeout()
@@ -129,9 +145,11 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->value();
     }
 
-    public function setForwardTimeoutSeconds($forwardTimeoutSeconds)
+    public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
-        $forwardTimeoutSeconds and $this->forwardTimeoutSeconds = new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
+        $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
+             ? $forwardTimeoutSeconds
+             : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
     }
 
     public function getForwardTimeoutSeconds()
@@ -139,9 +157,11 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->value();
     }
 
-    public function setForwardToPhoneNumber($forwardToPhoneNumber)
+    public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        $forwardToPhoneNumber and $this->forwardToPhoneNumber = new OutgoingDN($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
+             ? $forwardToPhoneNumber
+             : new OutgoingDN($forwardToPhoneNumber);
     }
 
     public function getForwardToPhoneNumber()
@@ -149,9 +169,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
     }
 
-    public function setAgentUserIdList($agentUserIdList)
+    public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        $agentUserIdList and $this->agentUserIdList = new ReplacementUserIdList($agentUserIdList);
     }
 
     public function getAgentUserIdList()
@@ -159,9 +178,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->agentUserIdList) ?: $this->agentUserIdList->value();
     }
 
-    public function setAllowCallWaitingForAgents($allowCallWaitingForAgents)
+    public function setAllowCallWaitingForAgents(xs:boolean $allowCallWaitingForAgents = null)
     {
-        $allowCallWaitingForAgents and $this->allowCallWaitingForAgents = new xs:boolean($allowCallWaitingForAgents);
     }
 
     public function getAllowCallWaitingForAgents()
@@ -169,9 +187,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->value();
     }
 
-    public function setUseSystemHuntGroupCLIDSetting($useSystemHuntGroupCLIDSetting)
+    public function setUseSystemHuntGroupCLIDSetting(xs:boolean $useSystemHuntGroupCLIDSetting = null)
     {
-        $useSystemHuntGroupCLIDSetting and $this->useSystemHuntGroupCLIDSetting = new xs:boolean($useSystemHuntGroupCLIDSetting);
     }
 
     public function getUseSystemHuntGroupCLIDSetting()
@@ -179,9 +196,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting->value();
     }
 
-    public function setIncludeHuntGroupNameInCLID($includeHuntGroupNameInCLID)
+    public function setIncludeHuntGroupNameInCLID(xs:boolean $includeHuntGroupNameInCLID = null)
     {
-        $includeHuntGroupNameInCLID and $this->includeHuntGroupNameInCLID = new xs:boolean($includeHuntGroupNameInCLID);
     }
 
     public function getIncludeHuntGroupNameInCLID()
@@ -189,9 +205,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID->value();
     }
 
-    public function setEnableNotReachableForwarding($enableNotReachableForwarding)
+    public function setEnableNotReachableForwarding(xs:boolean $enableNotReachableForwarding = null)
     {
-        $enableNotReachableForwarding and $this->enableNotReachableForwarding = new xs:boolean($enableNotReachableForwarding);
     }
 
     public function getEnableNotReachableForwarding()
@@ -199,9 +214,11 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->enableNotReachableForwarding) ?: $this->enableNotReachableForwarding->value();
     }
 
-    public function setNotReachableForwardToPhoneNumber($notReachableForwardToPhoneNumber)
+    public function setNotReachableForwardToPhoneNumber($notReachableForwardToPhoneNumber = null)
     {
-        $notReachableForwardToPhoneNumber and $this->notReachableForwardToPhoneNumber = new OutgoingDNorSIPURI($notReachableForwardToPhoneNumber);
+        $this->notReachableForwardToPhoneNumber = ($notReachableForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $notReachableForwardToPhoneNumber
+             : new OutgoingDNorSIPURI($notReachableForwardToPhoneNumber);
     }
 
     public function getNotReachableForwardToPhoneNumber()
@@ -209,9 +226,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         return (!$this->notReachableForwardToPhoneNumber) ?: $this->notReachableForwardToPhoneNumber->value();
     }
 
-    public function setMakeBusyWhenNotReachable($makeBusyWhenNotReachable)
+    public function setMakeBusyWhenNotReachable(xs:boolean $makeBusyWhenNotReachable = null)
     {
-        $makeBusyWhenNotReachable and $this->makeBusyWhenNotReachable = new xs:boolean($makeBusyWhenNotReachable);
     }
 
     public function getMakeBusyWhenNotReachable()

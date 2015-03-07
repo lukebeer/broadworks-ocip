@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupService;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $serviceName        = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $serviceName
+         $serviceProviderId,
+         $groupId,
+         $serviceName
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->serviceName       = new GroupService($serviceName);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setServiceName($serviceName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -43,9 +47,11 @@ class GroupServiceAssignListRequest extends ComplexType implements ComplexInterf
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -53,9 +59,11 @@ class GroupServiceAssignListRequest extends ComplexType implements ComplexInterf
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceName($serviceName)
+    public function setServiceName($serviceName = null)
     {
-        $serviceName and $this->serviceName = new GroupService($serviceName);
+        $this->serviceName = ($serviceName InstanceOf GroupService)
+             ? $serviceName
+             : new GroupService($serviceName);
     }
 
     public function getServiceName()

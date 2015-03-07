@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallRecordingPlatformName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\MediaStream;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaStream;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallRecordingPlatformDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,28 +23,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallRecordingAddPlatformRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $name           = null;
+    protected $netAddress     = null;
+    protected $port           = null;
+    protected $mediaStream    = null;
+    protected $transportType  = null;
+    protected $description    = null;
 
     public function __construct(
-             $name,
-             $netAddress,
-             $port,
-             $mediaStream,
-             $transportType,
-             $description=null
+         $name,
+         $netAddress,
+         $port,
+         $mediaStream,
+         $transportType,
+         $description = null
     ) {
-        $this->name          = $name;
-        $this->netAddress    = new NetAddress($netAddress);
-        $this->port          = new Port($port);
-        $this->mediaStream   = $mediaStream;
-        $this->transportType = new TransportProtocol($transportType);
-        $this->description   = $description;
-        $this->args          = func_get_args();
+        $this->setName($name);
+        $this->setNetAddress($netAddress);
+        $this->setPort($port);
+        $this->setMediaStream($mediaStream);
+        $this->setTransportType($transportType);
+        $this->setDescription($description);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CallRecordingPlatformName($name);
+        $this->name = ($name InstanceOf CallRecordingPlatformName)
+             ? $name
+             : new CallRecordingPlatformName($name);
     }
 
     public function getName()
@@ -52,9 +59,11 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -62,9 +71,11 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port($port);
+        $this->port = ($port InstanceOf Port)
+             ? $port
+             : new Port($port);
     }
 
     public function getPort()
@@ -72,9 +83,11 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         return (!$this->port) ?: $this->port->value();
     }
 
-    public function setMediaStream($mediaStream)
+    public function setMediaStream($mediaStream = null)
     {
-        $mediaStream and $this->mediaStream = new MediaStream($mediaStream);
+        $this->mediaStream = ($mediaStream InstanceOf MediaStream)
+             ? $mediaStream
+             : new MediaStream($mediaStream);
     }
 
     public function getMediaStream()
@@ -82,9 +95,11 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         return (!$this->mediaStream) ?: $this->mediaStream->value();
     }
 
-    public function setTransportType($transportType)
+    public function setTransportType($transportType = null)
     {
-        $transportType and $this->transportType = new TransportProtocol($transportType);
+        $this->transportType = ($transportType InstanceOf TransportProtocol)
+             ? $transportType
+             : new TransportProtocol($transportType);
     }
 
     public function getTransportType()
@@ -92,9 +107,11 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         return (!$this->transportType) ?: $this->transportType->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new CallRecordingPlatformDescription($description);
+        $this->description = ($description InstanceOf CallRecordingPlatformDescription)
+             ? $description
+             : new CallRecordingPlatformDescription($description);
     }
 
     public function getDescription()

@@ -20,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $accessCode         = null;
+    protected $publicDigitMap     = null;
+    protected $privateDigitMap    = null;
 
     public function __construct(
-             $serviceProviderId,
-             $accessCode=null,
-             $publicDigitMap=null,
-             $privateDigitMap=null
+         $serviceProviderId,
+         $accessCode = null,
+         $publicDigitMap = null,
+         $privateDigitMap = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->accessCode        = new AccessCode($accessCode);
-        $this->publicDigitMap    = new DigitMap($publicDigitMap);
-        $this->privateDigitMap   = new DigitMap($privateDigitMap);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setAccessCode($accessCode);
+        $this->setPublicDigitMap($publicDigitMap);
+        $this->setPrivateDigitMap($privateDigitMap);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -45,9 +50,11 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setAccessCode($accessCode)
+    public function setAccessCode($accessCode = null)
     {
-        $accessCode and $this->accessCode = new AccessCode($accessCode);
+        $this->accessCode = ($accessCode InstanceOf AccessCode)
+             ? $accessCode
+             : new AccessCode($accessCode);
     }
 
     public function getAccessCode()
@@ -55,9 +62,11 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
         return (!$this->accessCode) ?: $this->accessCode->value();
     }
 
-    public function setPublicDigitMap($publicDigitMap)
+    public function setPublicDigitMap($publicDigitMap = null)
     {
-        $publicDigitMap and $this->publicDigitMap = new DigitMap($publicDigitMap);
+        $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
+             ? $publicDigitMap
+             : new DigitMap($publicDigitMap);
     }
 
     public function getPublicDigitMap()
@@ -65,9 +74,11 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
         return (!$this->publicDigitMap) ?: $this->publicDigitMap->value();
     }
 
-    public function setPrivateDigitMap($privateDigitMap)
+    public function setPrivateDigitMap($privateDigitMap = null)
     {
-        $privateDigitMap and $this->privateDigitMap = new DigitMap($privateDigitMap);
+        $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
+             ? $privateDigitMap
+             : new DigitMap($privateDigitMap);
     }
 
     public function getPrivateDigitMap()

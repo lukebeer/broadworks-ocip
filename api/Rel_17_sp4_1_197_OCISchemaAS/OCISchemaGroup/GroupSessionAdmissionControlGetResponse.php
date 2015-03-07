@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,26 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupSessionAdmissionControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $restrictAggregateSessions   = null;
+    protected $maxSessions                 = null;
+    protected $maxUserOriginatingSessions  = null;
+    protected $maxUserTerminatingSessions  = null;
+    protected $countIntraGroupSessions     = null;
 
-    public function __construct(
-             $restrictAggregateSessions,
-             $maxSessions=null,
-             $maxUserOriginatingSessions=null,
-             $maxUserTerminatingSessions=null,
-             $countIntraGroupSessions
-    ) {
-        $this->restrictAggregateSessions  = $restrictAggregateSessions;
-        $this->maxSessions                = new NonNegativeInt($maxSessions);
-        $this->maxUserOriginatingSessions = new NonNegativeInt($maxUserOriginatingSessions);
-        $this->maxUserTerminatingSessions = new NonNegativeInt($maxUserTerminatingSessions);
-        $this->countIntraGroupSessions    = $countIntraGroupSessions;
-        $this->args                       = func_get_args();
-    }
 
-    public function setRestrictAggregateSessions($restrictAggregateSessions)
+    public function setRestrictAggregateSessions(xs:boolean $restrictAggregateSessions = null)
     {
-        $restrictAggregateSessions and $this->restrictAggregateSessions = new xs:boolean($restrictAggregateSessions);
     }
 
     public function getRestrictAggregateSessions()
@@ -46,9 +35,11 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
         return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions->value();
     }
 
-    public function setMaxSessions($maxSessions)
+    public function setMaxSessions($maxSessions = null)
     {
-        $maxSessions and $this->maxSessions = new NonNegativeInt($maxSessions);
+        $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
+             ? $maxSessions
+             : new NonNegativeInt($maxSessions);
     }
 
     public function getMaxSessions()
@@ -56,9 +47,11 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
         return (!$this->maxSessions) ?: $this->maxSessions->value();
     }
 
-    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions)
+    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        $maxUserOriginatingSessions and $this->maxUserOriginatingSessions = new NonNegativeInt($maxUserOriginatingSessions);
+        $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserOriginatingSessions
+             : new NonNegativeInt($maxUserOriginatingSessions);
     }
 
     public function getMaxUserOriginatingSessions()
@@ -66,9 +59,11 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
         return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->value();
     }
 
-    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions)
+    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        $maxUserTerminatingSessions and $this->maxUserTerminatingSessions = new NonNegativeInt($maxUserTerminatingSessions);
+        $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserTerminatingSessions
+             : new NonNegativeInt($maxUserTerminatingSessions);
     }
 
     public function getMaxUserTerminatingSessions()
@@ -76,9 +71,8 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
         return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->value();
     }
 
-    public function setCountIntraGroupSessions($countIntraGroupSessions)
+    public function setCountIntraGroupSessions(xs:boolean $countIntraGroupSessions = null)
     {
-        $countIntraGroupSessions and $this->countIntraGroupSessions = new xs:boolean($countIntraGroupSessions);
     }
 
     public function getCountIntraGroupSessions()

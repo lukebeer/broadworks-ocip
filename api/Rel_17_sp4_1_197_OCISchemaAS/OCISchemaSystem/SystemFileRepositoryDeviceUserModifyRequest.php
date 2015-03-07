@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserPassword;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $fileRepositoryName  = null;
+    protected $userName            = null;
+    protected $password            = null;
+    protected $allowPut            = null;
+    protected $allowDelete         = null;
+    protected $allowGet            = null;
 
     public function __construct(
-             $fileRepositoryName,
-             $userName,
-             $password=null,
-             $allowPut=null,
-             $allowDelete=null,
-             $allowGet=null
+         $fileRepositoryName,
+         $userName,
+         $password = null,
+         $allowPut = null,
+         $allowDelete = null,
+         $allowGet = null
     ) {
-        $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
-        $this->userName           = new FileRepositoryUserName($userName);
-        $this->password           = new FileRepositoryUserPassword($password);
-        $this->allowPut           = $allowPut;
-        $this->allowDelete        = $allowDelete;
-        $this->allowGet           = $allowGet;
-        $this->args               = func_get_args();
+        $this->setFileRepositoryName($fileRepositoryName);
+        $this->setUserName($userName);
+        $this->setPassword($password);
+        $this->setAllowPut($allowPut);
+        $this->setAllowDelete($allowDelete);
+        $this->setAllowGet($allowGet);
     }
 
-    public function setFileRepositoryName($fileRepositoryName)
+    public function setFileRepositoryName($fileRepositoryName = null)
     {
-        $fileRepositoryName and $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
+             ? $fileRepositoryName
+             : new FileRepositoryName($fileRepositoryName);
     }
 
     public function getFileRepositoryName()
@@ -50,9 +56,11 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->value();
     }
 
-    public function setUserName($userName)
+    public function setUserName($userName = null)
     {
-        $userName and $this->userName = new FileRepositoryUserName($userName);
+        $this->userName = ($userName InstanceOf FileRepositoryUserName)
+             ? $userName
+             : new FileRepositoryUserName($userName);
     }
 
     public function getUserName()
@@ -60,9 +68,11 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         return (!$this->userName) ?: $this->userName->value();
     }
 
-    public function setPassword($password)
+    public function setPassword($password = null)
     {
-        $password and $this->password = new FileRepositoryUserPassword($password);
+        $this->password = ($password InstanceOf FileRepositoryUserPassword)
+             ? $password
+             : new FileRepositoryUserPassword($password);
     }
 
     public function getPassword()
@@ -70,9 +80,8 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         return (!$this->password) ?: $this->password->value();
     }
 
-    public function setAllowPut($allowPut)
+    public function setAllowPut(xs:boolean $allowPut = null)
     {
-        $allowPut and $this->allowPut = new xs:boolean($allowPut);
     }
 
     public function getAllowPut()
@@ -80,9 +89,8 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         return (!$this->allowPut) ?: $this->allowPut->value();
     }
 
-    public function setAllowDelete($allowDelete)
+    public function setAllowDelete(xs:boolean $allowDelete = null)
     {
-        $allowDelete and $this->allowDelete = new xs:boolean($allowDelete);
     }
 
     public function getAllowDelete()
@@ -90,9 +98,8 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         return (!$this->allowDelete) ?: $this->allowDelete->value();
     }
 
-    public function setAllowGet($allowGet)
+    public function setAllowGet(xs:boolean $allowGet = null)
     {
-        $allowGet and $this->allowGet = new xs:boolean($allowGet);
     }
 
     public function getAllowGet()

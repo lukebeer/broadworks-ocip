@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointGetAnnouncementResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $mediaOnHoldSource  = null;
 
-    public function __construct(
-             CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource
-    ) {
-        $this->mediaOnHoldSource = $mediaOnHoldSource;
-        $this->args              = func_get_args();
-    }
 
-    public function setMediaOnHoldSource($mediaOnHoldSource)
+    public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource = null)
     {
-        $mediaOnHoldSource and $this->mediaOnHoldSource = new CallCenterMediaOnHoldSourceRead17($mediaOnHoldSource);
     }
 
     public function getMediaOnHoldSource()

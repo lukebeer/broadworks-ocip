@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactSignalingAddressType extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $profile  = null;
 
     public function __construct(
-             $profile
+         $profile
     ) {
-        $this->profile = new SignalingAddressType($profile);
-        $this->args    = func_get_args();
+        $this->setProfile($profile);
     }
 
-    public function setProfile($profile)
+    public function setProfile($profile = null)
     {
-        $profile and $this->profile = new SignalingAddressType($profile);
+        $this->profile = ($profile InstanceOf SignalingAddressType)
+             ? $profile
+             : new SignalingAddressType($profile);
     }
 
     public function getProfile()

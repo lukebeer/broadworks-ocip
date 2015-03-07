@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,10 +22,10 @@ class EnterpriseVoiceVPNDigitManipulationOperationRequiredValue extends SimpleTy
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = EnterpriseVoiceVPNDigitManipulationOperation;
-        $this-addRestriction(new Enumeration([
-                                              'Position',
-                                              'Delete',
-                                              'Move'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Position',
+            'Delete',
+            'Move'
+        ]));
     }
 }

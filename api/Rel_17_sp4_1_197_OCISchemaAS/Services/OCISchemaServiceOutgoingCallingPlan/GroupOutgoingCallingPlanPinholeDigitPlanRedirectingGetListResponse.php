@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $groupPermissions       = null;
+    protected $departmentPermissions  = null;
 
-    public function __construct(
-             $groupPermissions=null,
-             $departmentPermissions=null
-    ) {
-        $this->groupPermissions      = $groupPermissions;
-        $this->departmentPermissions = $departmentPermissions;
-        $this->args                  = func_get_args();
-    }
 
-    public function setGroupPermissions($groupPermissions)
+    public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $groupPermissions = null)
     {
-        $groupPermissions and $this->groupPermissions = new OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions($groupPermissions);
     }
 
     public function getGroupPermissions()
@@ -39,9 +32,8 @@ class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse extends
         return (!$this->groupPermissions) ?: $this->groupPermissions->value();
     }
 
-    public function setDepartmentPermissions($departmentPermissions)
+    public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions = null)
     {
-        $departmentPermissions and $this->departmentPermissions = new OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions($departmentPermissions);
     }
 
     public function getDepartmentPermissions()

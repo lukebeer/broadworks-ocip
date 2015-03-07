@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutingDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingDigits;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutingDeleteTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name    = __CLASS__;
+    protected $digits  = null;
 
     public function __construct(
-             $digits
+         $digits
     ) {
-        $this->digits = $digits;
-        $this->args   = func_get_args();
+        $this->setDigits($digits);
     }
 
-    public function setDigits($digits)
+    public function setDigits($digits = null)
     {
-        $digits and $this->digits = new RoutingDigits($digits);
+        $this->digits = ($digits InstanceOf RoutingDigits)
+             ? $digits
+             : new RoutingDigits($digits);
     }
 
     public function getDigits()

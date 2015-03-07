@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name    = __CLASS__;
+    protected $prefix  = null;
 
     public function __construct(
-             $prefix=null
+         $prefix = null
     ) {
-        $this->prefix = new SpeedDialPrefix($prefix);
-        $this->args   = func_get_args();
+        $this->setPrefix($prefix);
     }
 
-    public function setPrefix($prefix)
+    public function setPrefix($prefix = null)
     {
-        $prefix and $this->prefix = new SpeedDialPrefix($prefix);
+        $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
+             ? $prefix
+             : new SpeedDialPrefix($prefix);
     }
 
     public function getPrefix()

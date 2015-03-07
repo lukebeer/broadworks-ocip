@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCodeDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $code               = null;
+    protected $isActive           = null;
+    protected $description        = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $code,
-             $isActive=null,
-             $description=null
+         $serviceProviderId,
+         $groupId,
+         $code,
+         $isActive = null,
+         $description = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->code              = new CallCenterAgentUnavailableCode($code);
-        $this->isActive          = $isActive;
-        $this->description       = $description;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setCode($code);
+        $this->setIsActive($isActive);
+        $this->setDescription($description);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +54,11 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -59,9 +66,11 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setCode($code)
+    public function setCode($code = null)
     {
-        $code and $this->code = new CallCenterAgentUnavailableCode($code);
+        $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
+             ? $code
+             : new CallCenterAgentUnavailableCode($code);
     }
 
     public function getCode()
@@ -69,9 +78,8 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         return (!$this->code) ?: $this->code->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -79,9 +87,11 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new CallCenterAgentUnavailableCodeDescription($description);
+        $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
+             ? $description
+             : new CallCenterAgentUnavailableCodeDescription($description);
     }
 
     public function getDescription()

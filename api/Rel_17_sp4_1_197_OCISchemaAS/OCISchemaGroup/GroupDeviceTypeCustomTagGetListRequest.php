@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDeviceTypeCustomTagGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $deviceType         = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $deviceType
+         $serviceProviderId,
+         $groupId,
+         $deviceType
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->deviceType        = new AccessDeviceType($deviceType);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setDeviceType($deviceType);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -43,9 +47,11 @@ class GroupDeviceTypeCustomTagGetListRequest extends ComplexType implements Comp
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -53,9 +59,11 @@ class GroupDeviceTypeCustomTagGetListRequest extends ComplexType implements Comp
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()

@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:string;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerHomeZoneMobileCountryCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerHomeZoneNetworkCountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerHomeZoneMobileCountryCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerHomeZoneLocationAreaCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerHomeZoneCellId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDomainName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,30 +23,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $homeZoneId          = null;
+    protected $homeZoneDomainName  = null;
+    protected $mobileCountryCode   = null;
+    protected $mobileNetworkCode   = null;
+    protected $locationAreaCode    = null;
+    protected $cellIdentity        = null;
 
     public function __construct(
-             $serviceProviderId,
-             $homeZoneId,
-             $homeZoneDomainName=null,
-             $mobileCountryCode=null,
-             $mobileNetworkCode=null,
-             $locationAreaCode=null,
-             $cellIdentity=null
+         $serviceProviderId,
+         $homeZoneId,
+         $homeZoneDomainName = null,
+         $mobileCountryCode = null,
+         $mobileNetworkCode = null,
+         $locationAreaCode = null,
+         $cellIdentity = null
     ) {
-        $this->serviceProviderId  = new ServiceProviderId($serviceProviderId);
-        $this->homeZoneId         = $homeZoneId;
-        $this->homeZoneDomainName = new BroadWorksMobileManagerDomainName($homeZoneDomainName);
-        $this->mobileCountryCode  = new BroadWorksMobileManagerHomeZoneMobileCountryCode($mobileCountryCode);
-        $this->mobileNetworkCode  = new BroadWorksMobileManagerHomeZoneNetworkCountryCode($mobileNetworkCode);
-        $this->locationAreaCode   = new BroadWorksMobileManagerHomeZoneLocationAreaCode($locationAreaCode);
-        $this->cellIdentity       = new BroadWorksMobileManagerHomeZoneCellId($cellIdentity);
-        $this->args               = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setHomeZoneId($homeZoneId);
+        $this->setHomeZoneDomainName($homeZoneDomainName);
+        $this->setMobileCountryCode($mobileCountryCode);
+        $this->setMobileNetworkCode($mobileNetworkCode);
+        $this->setLocationAreaCode($locationAreaCode);
+        $this->setCellIdentity($cellIdentity);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -55,9 +62,8 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setHomeZoneId($homeZoneId)
+    public function setHomeZoneId(xs:string $homeZoneId = null)
     {
-        $homeZoneId and $this->homeZoneId = new xs:string($homeZoneId);
     }
 
     public function getHomeZoneId()
@@ -65,9 +71,11 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
         return (!$this->homeZoneId) ?: $this->homeZoneId->value();
     }
 
-    public function setHomeZoneDomainName($homeZoneDomainName)
+    public function setHomeZoneDomainName($homeZoneDomainName = null)
     {
-        $homeZoneDomainName and $this->homeZoneDomainName = new BroadWorksMobileManagerDomainName($homeZoneDomainName);
+        $this->homeZoneDomainName = ($homeZoneDomainName InstanceOf BroadWorksMobileManagerDomainName)
+             ? $homeZoneDomainName
+             : new BroadWorksMobileManagerDomainName($homeZoneDomainName);
     }
 
     public function getHomeZoneDomainName()
@@ -75,9 +83,11 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
         return (!$this->homeZoneDomainName) ?: $this->homeZoneDomainName->value();
     }
 
-    public function setMobileCountryCode($mobileCountryCode)
+    public function setMobileCountryCode($mobileCountryCode = null)
     {
-        $mobileCountryCode and $this->mobileCountryCode = new BroadWorksMobileManagerHomeZoneMobileCountryCode($mobileCountryCode);
+        $this->mobileCountryCode = ($mobileCountryCode InstanceOf BroadWorksMobileManagerHomeZoneMobileCountryCode)
+             ? $mobileCountryCode
+             : new BroadWorksMobileManagerHomeZoneMobileCountryCode($mobileCountryCode);
     }
 
     public function getMobileCountryCode()
@@ -85,9 +95,11 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
         return (!$this->mobileCountryCode) ?: $this->mobileCountryCode->value();
     }
 
-    public function setMobileNetworkCode($mobileNetworkCode)
+    public function setMobileNetworkCode($mobileNetworkCode = null)
     {
-        $mobileNetworkCode and $this->mobileNetworkCode = new BroadWorksMobileManagerHomeZoneNetworkCountryCode($mobileNetworkCode);
+        $this->mobileNetworkCode = ($mobileNetworkCode InstanceOf BroadWorksMobileManagerHomeZoneNetworkCountryCode)
+             ? $mobileNetworkCode
+             : new BroadWorksMobileManagerHomeZoneNetworkCountryCode($mobileNetworkCode);
     }
 
     public function getMobileNetworkCode()
@@ -95,9 +107,11 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
         return (!$this->mobileNetworkCode) ?: $this->mobileNetworkCode->value();
     }
 
-    public function setLocationAreaCode($locationAreaCode)
+    public function setLocationAreaCode($locationAreaCode = null)
     {
-        $locationAreaCode and $this->locationAreaCode = new BroadWorksMobileManagerHomeZoneLocationAreaCode($locationAreaCode);
+        $this->locationAreaCode = ($locationAreaCode InstanceOf BroadWorksMobileManagerHomeZoneLocationAreaCode)
+             ? $locationAreaCode
+             : new BroadWorksMobileManagerHomeZoneLocationAreaCode($locationAreaCode);
     }
 
     public function getLocationAreaCode()
@@ -105,9 +119,11 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
         return (!$this->locationAreaCode) ?: $this->locationAreaCode->value();
     }
 
-    public function setCellIdentity($cellIdentity)
+    public function setCellIdentity($cellIdentity = null)
     {
-        $cellIdentity and $this->cellIdentity = new BroadWorksMobileManagerHomeZoneCellId($cellIdentity);
+        $this->cellIdentity = ($cellIdentity InstanceOf BroadWorksMobileManagerHomeZoneCellId)
+             ? $cellIdentity
+             : new BroadWorksMobileManagerHomeZoneCellId($cellIdentity);
     }
 
     public function getCellIdentity()

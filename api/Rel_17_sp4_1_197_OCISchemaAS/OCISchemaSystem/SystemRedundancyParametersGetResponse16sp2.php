@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RedundancyRollBackTimerMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RedundancyRollBackTimerMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $rollBackTimerMinutes               = null;
+    protected $sendSipOptionMessageUponMigration  = null;
 
-    public function __construct(
-             $rollBackTimerMinutes,
-             $sendSipOptionMessageUponMigration
-    ) {
-        $this->rollBackTimerMinutes              = $rollBackTimerMinutes;
-        $this->sendSipOptionMessageUponMigration = $sendSipOptionMessageUponMigration;
-        $this->args                              = func_get_args();
-    }
 
-    public function setRollBackTimerMinutes($rollBackTimerMinutes)
+    public function setRollBackTimerMinutes($rollBackTimerMinutes = null)
     {
-        $rollBackTimerMinutes and $this->rollBackTimerMinutes = new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
+        $this->rollBackTimerMinutes = ($rollBackTimerMinutes InstanceOf RedundancyRollBackTimerMinutes)
+             ? $rollBackTimerMinutes
+             : new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
     }
 
     public function getRollBackTimerMinutes()
@@ -40,9 +35,8 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
         return (!$this->rollBackTimerMinutes) ?: $this->rollBackTimerMinutes->value();
     }
 
-    public function setSendSipOptionMessageUponMigration($sendSipOptionMessageUponMigration)
+    public function setSendSipOptionMessageUponMigration(xs:boolean $sendSipOptionMessageUponMigration = null)
     {
-        $sendSipOptionMessageUponMigration and $this->sendSipOptionMessageUponMigration = new xs:boolean($sendSipOptionMessageUponMigration);
     }
 
     public function getSendSipOptionMessageUponMigration()

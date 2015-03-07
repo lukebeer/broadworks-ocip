@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaPhysicalLocation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaPhysicalLocation;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $zoneName                        = null;
+    protected $responseSizeLimit               = null;
+    protected $searchCriteriaPhysicalLocation  = null;
 
     public function __construct(
-             $zoneName,
-             $responseSizeLimit=null,
-             $searchCriteriaPhysicalLocation=null
+         $zoneName,
+         $responseSizeLimit = null,
+         SearchCriteriaPhysicalLocation $searchCriteriaPhysicalLocation = null
     ) {
-        $this->zoneName                       = new ZoneName($zoneName);
-        $this->responseSizeLimit              = $responseSizeLimit;
-        $this->searchCriteriaPhysicalLocation = $searchCriteriaPhysicalLocation;
-        $this->args                           = func_get_args();
+        $this->setZoneName($zoneName);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaPhysicalLocation($searchCriteriaPhysicalLocation);
     }
 
-    public function setZoneName($zoneName)
+    public function setZoneName($zoneName = null)
     {
-        $zoneName and $this->zoneName = new ZoneName($zoneName);
+        $this->zoneName = ($zoneName InstanceOf ZoneName)
+             ? $zoneName
+             : new ZoneName($zoneName);
     }
 
     public function getZoneName()
@@ -43,9 +47,11 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
         return (!$this->zoneName) ?: $this->zoneName->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -53,9 +59,8 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaPhysicalLocation($searchCriteriaPhysicalLocation)
+    public function setSearchCriteriaPhysicalLocation(SearchCriteriaPhysicalLocation $searchCriteriaPhysicalLocation = null)
     {
-        $searchCriteriaPhysicalLocation and $this->searchCriteriaPhysicalLocation = new SearchCriteriaPhysicalLocation($searchCriteriaPhysicalLocation);
     }
 
     public function getSearchCriteriaPhysicalLocation()

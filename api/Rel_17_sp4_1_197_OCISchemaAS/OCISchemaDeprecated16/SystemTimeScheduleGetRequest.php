@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTimeScheduleGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $timeScheduleName  = null;
 
     public function __construct(
-             $timeScheduleName
+         $timeScheduleName
     ) {
-        $this->timeScheduleName = new ScheduleName($timeScheduleName);
-        $this->args             = func_get_args();
+        $this->setTimeScheduleName($timeScheduleName);
     }
 
-    public function setTimeScheduleName($timeScheduleName)
+    public function setTimeScheduleName($timeScheduleName = null)
     {
-        $timeScheduleName and $this->timeScheduleName = new ScheduleName($timeScheduleName);
+        $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
+             ? $timeScheduleName
+             : new ScheduleName($timeScheduleName);
     }
 
     public function getTimeScheduleName()

@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\InterceptPhoneNumberDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InterceptPhoneNumberDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $phoneNumber  = null;
+    protected $description  = null;
 
     public function __construct(
-             $phoneNumber,
-             $description=null
+         $phoneNumber,
+         $description = null
     ) {
-        $this->phoneNumber = new DN($phoneNumber);
-        $this->description = $description;
-        $this->args        = func_get_args();
+        $this->setPhoneNumber($phoneNumber);
+        $this->setDescription($description);
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -40,9 +43,11 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new InterceptPhoneNumberDescription($description);
+        $this->description = ($description InstanceOf InterceptPhoneNumberDescription)
+             ? $description
+             : new InterceptPhoneNumberDescription($description);
     }
 
     public function getDescription()

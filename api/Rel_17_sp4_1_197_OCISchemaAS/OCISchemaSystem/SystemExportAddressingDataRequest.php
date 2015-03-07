@@ -19,18 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemExportAddressingDataRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $fileName  = null;
 
     public function __construct(
-             $fileName
+         $fileName
     ) {
-        $this->fileName = new FileName($fileName);
-        $this->args     = func_get_args();
+        $this->setFileName($fileName);
     }
 
-    public function setFileName($fileName)
+    public function setFileName($fileName = null)
     {
-        $fileName and $this->fileName = new FileName($fileName);
+        $this->fileName = ($fileName InstanceOf FileName)
+             ? $fileName
+             : new FileName($fileName);
     }
 
     public function getFileName()

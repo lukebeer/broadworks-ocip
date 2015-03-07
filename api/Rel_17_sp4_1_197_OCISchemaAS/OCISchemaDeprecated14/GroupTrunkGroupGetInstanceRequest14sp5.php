@@ -20,18 +20,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetInstanceRequest14sp5 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $trunkGroupKey  = null;
 
     public function __construct(
-             TrunkGroupKey $trunkGroupKey
+         TrunkGroupKey $trunkGroupKey
     ) {
-        $this->trunkGroupKey = $trunkGroupKey;
-        $this->args          = func_get_args();
+        $this->setTrunkGroupKey($trunkGroupKey);
     }
 
-    public function setTrunkGroupKey($trunkGroupKey)
+    public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        $trunkGroupKey and $this->trunkGroupKey = new TrunkGroupKey($trunkGroupKey);
     }
 
     public function getTrunkGroupKey()

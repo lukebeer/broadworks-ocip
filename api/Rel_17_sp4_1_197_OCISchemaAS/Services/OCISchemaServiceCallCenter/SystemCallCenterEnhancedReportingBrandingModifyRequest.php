@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterEnhancedReportingSystemBrandingChoice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingSystemBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $brandingChoice      = null;
+    protected $customBrandingFile  = null;
 
     public function __construct(
-             $brandingChoice=null,
-             LabeledFileResource $customBrandingFile=null
+         $brandingChoice = null,
+         LabeledFileResource $customBrandingFile = null
     ) {
-        $this->brandingChoice     = $brandingChoice;
-        $this->customBrandingFile = $customBrandingFile;
-        $this->args               = func_get_args();
+        $this->setBrandingChoice($brandingChoice);
+        $this->setCustomBrandingFile($customBrandingFile);
     }
 
-    public function setBrandingChoice($brandingChoice)
+    public function setBrandingChoice($brandingChoice = null)
     {
-        $brandingChoice and $this->brandingChoice = new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
+        $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
+             ? $brandingChoice
+             : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
     }
 
     public function getBrandingChoice()
@@ -40,9 +43,8 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
         return (!$this->brandingChoice) ?: $this->brandingChoice->value();
     }
 
-    public function setCustomBrandingFile($customBrandingFile)
+    public function setCustomBrandingFile(LabeledFileResource $customBrandingFile = null)
     {
-        $customBrandingFile and $this->customBrandingFile = new LabeledFileResource($customBrandingFile);
     }
 
     public function getCustomBrandingFile()

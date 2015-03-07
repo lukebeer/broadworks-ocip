@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $autoAttendantTable  = null;
 
-    public function __construct(
-             $autoAttendantTable
-    ) {
-        $this->autoAttendantTable = $autoAttendantTable;
-        $this->args               = func_get_args();
-    }
 
-    public function setAutoAttendantTable($autoAttendantTable)
+    public function setAutoAttendantTable(core:OCITable $autoAttendantTable = null)
     {
-        $autoAttendantTable and $this->autoAttendantTable = new core:OCITable($autoAttendantTable);
     }
 
     public function getAutoAttendantTable()

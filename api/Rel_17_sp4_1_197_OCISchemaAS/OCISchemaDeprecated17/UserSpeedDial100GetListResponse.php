@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SpeedDial100Entry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDialPrefix;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDial100Entry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSpeedDial100GetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $prefix          = null;
+    protected $speedDialEntry  = null;
 
-    public function __construct(
-             $prefix,
-             $speedDialEntry=null
-    ) {
-        $this->prefix         = new SpeedDialPrefix($prefix);
-        $this->speedDialEntry = $speedDialEntry;
-        $this->args           = func_get_args();
-    }
 
-    public function setPrefix($prefix)
+    public function setPrefix($prefix = null)
     {
-        $prefix and $this->prefix = new SpeedDialPrefix($prefix);
+        $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
+             ? $prefix
+             : new SpeedDialPrefix($prefix);
     }
 
     public function getPrefix()
@@ -39,9 +35,8 @@ class UserSpeedDial100GetListResponse extends ComplexType implements ComplexInte
         return (!$this->prefix) ?: $this->prefix->value();
     }
 
-    public function setSpeedDialEntry($speedDialEntry)
+    public function setSpeedDialEntry(SpeedDial100Entry $speedDialEntry = null)
     {
-        $speedDialEntry and $this->speedDialEntry = new SpeedDial100Entry($speedDialEntry);
     }
 
     public function getSpeedDialEntry()

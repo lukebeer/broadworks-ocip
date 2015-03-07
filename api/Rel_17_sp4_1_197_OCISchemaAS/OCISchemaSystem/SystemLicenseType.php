@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,20 +22,20 @@ class SystemLicenseType extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Lawful Intercept Event Monitoring',
-                                              'Lawful Intercept Media Monitoring',
-                                              'Enterprise Voice Portal',
-                                              'Service Packs',
-                                              'SIP TCP',
-                                              'Realtime Accounting',
-                                              'Network-Wide Messaging',
-                                              'Sh Interface',
-                                              'Destination Trunk Group',
-                                              'Deployment Studio',
-                                              'Session Admission Control',
-                                              'Session Data Replication',
-                                              'BroadWorks Mobile Manager'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Lawful Intercept Event Monitoring',
+            'Lawful Intercept Media Monitoring',
+            'Enterprise Voice Portal',
+            'Service Packs',
+            'SIP TCP',
+            'Realtime Accounting',
+            'Network-Wide Messaging',
+            'Sh Interface',
+            'Destination Trunk Group',
+            'Deployment Studio',
+            'Session Admission Control',
+            'Session Data Replication',
+            'BroadWorks Mobile Manager'
+        ]));
     }
 }

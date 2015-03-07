@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +20,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallForwardingSelectiveModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $userId                       = null;
+    protected $isActive                     = null;
+    protected $defaultForwardToPhoneNumber  = null;
+    protected $playRingReminder             = null;
+    protected $criteriaActivation           = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $defaultForwardToPhoneNumber=null,
-             $playRingReminder=null,
-             CriteriaActivation $criteriaActivation=null
+         $userId,
+         $isActive = null,
+         $defaultForwardToPhoneNumber = null,
+         $playRingReminder = null,
+         CriteriaActivation $criteriaActivation = null
     ) {
-        $this->userId                      = new UserId($userId);
-        $this->isActive                    = $isActive;
-        $this->defaultForwardToPhoneNumber = new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
-        $this->playRingReminder            = $playRingReminder;
-        $this->criteriaActivation          = $criteriaActivation;
-        $this->args                        = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber);
+        $this->setPlayRingReminder($playRingReminder);
+        $this->setCriteriaActivation($criteriaActivation);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -48,9 +53,8 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -58,9 +62,11 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber)
+    public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber = null)
     {
-        $defaultForwardToPhoneNumber and $this->defaultForwardToPhoneNumber = new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
+        $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $defaultForwardToPhoneNumber
+             : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
     }
 
     public function getDefaultForwardToPhoneNumber()
@@ -68,9 +74,8 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         return (!$this->defaultForwardToPhoneNumber) ?: $this->defaultForwardToPhoneNumber->value();
     }
 
-    public function setPlayRingReminder($playRingReminder)
+    public function setPlayRingReminder(xs:boolean $playRingReminder = null)
     {
-        $playRingReminder and $this->playRingReminder = new xs:boolean($playRingReminder);
     }
 
     public function getPlayRingReminder()
@@ -78,9 +83,8 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         return (!$this->playRingReminder) ?: $this->playRingReminder->value();
     }
 
-    public function setCriteriaActivation($criteriaActivation)
+    public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $criteriaActivation and $this->criteriaActivation = new CriteriaActivation($criteriaActivation);
     }
 
     public function getCriteriaActivation()

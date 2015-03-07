@@ -7,14 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterDynamicEntryInactivityTimerHours;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterBusyPeerOutstandingTxnCount;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterRequestTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterTwTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterTcTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterTcTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterTwTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterRequestTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterBusyPeerOutstandingTxnCount;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterDynamicEntryInactivityTimerHours;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,40 +24,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterBaseDataGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $xsRealm                               = null;
+    protected $xsListeningPort                       = null;
+    protected $psRealm                               = null;
+    protected $psListeningPort                       = null;
+    protected $psRelayThroughXs                      = null;
+    protected $xsRelayListeningPort                  = null;
+    protected $tcTimerSeconds                        = null;
+    protected $twTimerSeconds                        = null;
+    protected $requestTimerSeconds                   = null;
+    protected $busyPeerDetectionOutstandingTxnCount  = null;
+    protected $busyPeerRestoreOutstandingTxnCount    = null;
+    protected $dynamicEntryInactivityTimerHours      = null;
 
-    public function __construct(
-             $xsRealm=null,
-             $xsListeningPort,
-             $psRealm=null,
-             $psListeningPort,
-             $psRelayThroughXs,
-             $xsRelayListeningPort,
-             $tcTimerSeconds,
-             $twTimerSeconds,
-             $requestTimerSeconds,
-             $busyPeerDetectionOutstandingTxnCount,
-             $busyPeerRestoreOutstandingTxnCount,
-             $dynamicEntryInactivityTimerHours
-    ) {
-        $this->xsRealm                              = new DomainName($xsRealm);
-        $this->xsListeningPort                      = new Port1025($xsListeningPort);
-        $this->psRealm                              = new DomainName($psRealm);
-        $this->psListeningPort                      = new Port1025($psListeningPort);
-        $this->psRelayThroughXs                     = $psRelayThroughXs;
-        $this->xsRelayListeningPort                 = new Port1025($xsRelayListeningPort);
-        $this->tcTimerSeconds                       = $tcTimerSeconds;
-        $this->twTimerSeconds                       = $twTimerSeconds;
-        $this->requestTimerSeconds                  = $requestTimerSeconds;
-        $this->busyPeerDetectionOutstandingTxnCount = $busyPeerDetectionOutstandingTxnCount;
-        $this->busyPeerRestoreOutstandingTxnCount   = $busyPeerRestoreOutstandingTxnCount;
-        $this->dynamicEntryInactivityTimerHours     = $dynamicEntryInactivityTimerHours;
-        $this->args                                 = func_get_args();
-    }
 
-    public function setXsRealm($xsRealm)
+    public function setXsRealm($xsRealm = null)
     {
-        $xsRealm and $this->xsRealm = new DomainName($xsRealm);
+        $this->xsRealm = ($xsRealm InstanceOf DomainName)
+             ? $xsRealm
+             : new DomainName($xsRealm);
     }
 
     public function getXsRealm()
@@ -66,9 +51,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->xsRealm) ?: $this->xsRealm->value();
     }
 
-    public function setXsListeningPort($xsListeningPort)
+    public function setXsListeningPort($xsListeningPort = null)
     {
-        $xsListeningPort and $this->xsListeningPort = new Port1025($xsListeningPort);
+        $this->xsListeningPort = ($xsListeningPort InstanceOf Port1025)
+             ? $xsListeningPort
+             : new Port1025($xsListeningPort);
     }
 
     public function getXsListeningPort()
@@ -76,9 +63,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->xsListeningPort) ?: $this->xsListeningPort->value();
     }
 
-    public function setPsRealm($psRealm)
+    public function setPsRealm($psRealm = null)
     {
-        $psRealm and $this->psRealm = new DomainName($psRealm);
+        $this->psRealm = ($psRealm InstanceOf DomainName)
+             ? $psRealm
+             : new DomainName($psRealm);
     }
 
     public function getPsRealm()
@@ -86,9 +75,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->psRealm) ?: $this->psRealm->value();
     }
 
-    public function setPsListeningPort($psListeningPort)
+    public function setPsListeningPort($psListeningPort = null)
     {
-        $psListeningPort and $this->psListeningPort = new Port1025($psListeningPort);
+        $this->psListeningPort = ($psListeningPort InstanceOf Port1025)
+             ? $psListeningPort
+             : new Port1025($psListeningPort);
     }
 
     public function getPsListeningPort()
@@ -96,9 +87,8 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->psListeningPort) ?: $this->psListeningPort->value();
     }
 
-    public function setPsRelayThroughXs($psRelayThroughXs)
+    public function setPsRelayThroughXs(xs:boolean $psRelayThroughXs = null)
     {
-        $psRelayThroughXs and $this->psRelayThroughXs = new xs:boolean($psRelayThroughXs);
     }
 
     public function getPsRelayThroughXs()
@@ -106,9 +96,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs->value();
     }
 
-    public function setXsRelayListeningPort($xsRelayListeningPort)
+    public function setXsRelayListeningPort($xsRelayListeningPort = null)
     {
-        $xsRelayListeningPort and $this->xsRelayListeningPort = new Port1025($xsRelayListeningPort);
+        $this->xsRelayListeningPort = ($xsRelayListeningPort InstanceOf Port1025)
+             ? $xsRelayListeningPort
+             : new Port1025($xsRelayListeningPort);
     }
 
     public function getXsRelayListeningPort()
@@ -116,9 +108,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->xsRelayListeningPort) ?: $this->xsRelayListeningPort->value();
     }
 
-    public function setTcTimerSeconds($tcTimerSeconds)
+    public function setTcTimerSeconds($tcTimerSeconds = null)
     {
-        $tcTimerSeconds and $this->tcTimerSeconds = new BwDiameterTcTimerSeconds($tcTimerSeconds);
+        $this->tcTimerSeconds = ($tcTimerSeconds InstanceOf BwDiameterTcTimerSeconds)
+             ? $tcTimerSeconds
+             : new BwDiameterTcTimerSeconds($tcTimerSeconds);
     }
 
     public function getTcTimerSeconds()
@@ -126,9 +120,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->tcTimerSeconds) ?: $this->tcTimerSeconds->value();
     }
 
-    public function setTwTimerSeconds($twTimerSeconds)
+    public function setTwTimerSeconds($twTimerSeconds = null)
     {
-        $twTimerSeconds and $this->twTimerSeconds = new BwDiameterTwTimerSeconds($twTimerSeconds);
+        $this->twTimerSeconds = ($twTimerSeconds InstanceOf BwDiameterTwTimerSeconds)
+             ? $twTimerSeconds
+             : new BwDiameterTwTimerSeconds($twTimerSeconds);
     }
 
     public function getTwTimerSeconds()
@@ -136,9 +132,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->twTimerSeconds) ?: $this->twTimerSeconds->value();
     }
 
-    public function setRequestTimerSeconds($requestTimerSeconds)
+    public function setRequestTimerSeconds($requestTimerSeconds = null)
     {
-        $requestTimerSeconds and $this->requestTimerSeconds = new BwDiameterRequestTimerSeconds($requestTimerSeconds);
+        $this->requestTimerSeconds = ($requestTimerSeconds InstanceOf BwDiameterRequestTimerSeconds)
+             ? $requestTimerSeconds
+             : new BwDiameterRequestTimerSeconds($requestTimerSeconds);
     }
 
     public function getRequestTimerSeconds()
@@ -146,9 +144,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->requestTimerSeconds) ?: $this->requestTimerSeconds->value();
     }
 
-    public function setBusyPeerDetectionOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount)
+    public function setBusyPeerDetectionOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount = null)
     {
-        $busyPeerDetectionOutstandingTxnCount and $this->busyPeerDetectionOutstandingTxnCount = new BwDiameterBusyPeerOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount);
+        $this->busyPeerDetectionOutstandingTxnCount = ($busyPeerDetectionOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
+             ? $busyPeerDetectionOutstandingTxnCount
+             : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount);
     }
 
     public function getBusyPeerDetectionOutstandingTxnCount()
@@ -156,9 +156,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->busyPeerDetectionOutstandingTxnCount) ?: $this->busyPeerDetectionOutstandingTxnCount->value();
     }
 
-    public function setBusyPeerRestoreOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount)
+    public function setBusyPeerRestoreOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount = null)
     {
-        $busyPeerRestoreOutstandingTxnCount and $this->busyPeerRestoreOutstandingTxnCount = new BwDiameterBusyPeerOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount);
+        $this->busyPeerRestoreOutstandingTxnCount = ($busyPeerRestoreOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
+             ? $busyPeerRestoreOutstandingTxnCount
+             : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount);
     }
 
     public function getBusyPeerRestoreOutstandingTxnCount()
@@ -166,9 +168,11 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
         return (!$this->busyPeerRestoreOutstandingTxnCount) ?: $this->busyPeerRestoreOutstandingTxnCount->value();
     }
 
-    public function setDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours)
+    public function setDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours = null)
     {
-        $dynamicEntryInactivityTimerHours and $this->dynamicEntryInactivityTimerHours = new BwDiameterDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours);
+        $this->dynamicEntryInactivityTimerHours = ($dynamicEntryInactivityTimerHours InstanceOf BwDiameterDynamicEntryInactivityTimerHours)
+             ? $dynamicEntryInactivityTimerHours
+             : new BwDiameterDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours);
     }
 
     public function getDynamicEntryInactivityTimerHours()

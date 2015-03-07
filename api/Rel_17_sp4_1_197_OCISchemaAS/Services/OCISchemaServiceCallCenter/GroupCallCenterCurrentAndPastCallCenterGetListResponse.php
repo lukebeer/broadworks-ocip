@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $serviceUserId         = null;
+    protected $deletedServiceUserId  = null;
 
-    public function __construct(
-             $serviceUserId=null,
-             $deletedServiceUserId=null
-    ) {
-        $this->serviceUserId        = new UserId($serviceUserId);
-        $this->deletedServiceUserId = new UserId($deletedServiceUserId);
-        $this->args                 = func_get_args();
-    }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -38,9 +34,11 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setDeletedServiceUserId($deletedServiceUserId)
+    public function setDeletedServiceUserId($deletedServiceUserId = null)
     {
-        $deletedServiceUserId and $this->deletedServiceUserId = new UserId($deletedServiceUserId);
+        $this->deletedServiceUserId = ($deletedServiceUserId InstanceOf UserId)
+             ? $deletedServiceUserId
+             : new UserId($deletedServiceUserId);
     }
 
     public function getDeletedServiceUserId()

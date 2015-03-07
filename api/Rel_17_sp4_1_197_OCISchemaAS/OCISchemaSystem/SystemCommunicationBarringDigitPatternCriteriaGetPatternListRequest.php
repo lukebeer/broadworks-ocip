@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDigitPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $name                        = null;
+    protected $responseSizeLimit           = null;
+    protected $searchCriteriaDigitPattern  = null;
 
     public function __construct(
-             $name,
-             $responseSizeLimit=null,
-             $searchCriteriaDigitPattern=null
+         $name,
+         $responseSizeLimit = null,
+         SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null
     ) {
-        $this->name                       = new DigitPatternCriteriaName($name);
-        $this->responseSizeLimit          = $responseSizeLimit;
-        $this->searchCriteriaDigitPattern = $searchCriteriaDigitPattern;
-        $this->args                       = func_get_args();
+        $this->setName($name);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaDigitPattern($searchCriteriaDigitPattern);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new DigitPatternCriteriaName($name);
+        $this->name = ($name InstanceOf DigitPatternCriteriaName)
+             ? $name
+             : new DigitPatternCriteriaName($name);
     }
 
     public function getName()
@@ -43,9 +47,11 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -53,9 +59,8 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaDigitPattern($searchCriteriaDigitPattern)
+    public function setSearchCriteriaDigitPattern(SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null)
     {
-        $searchCriteriaDigitPattern and $this->searchCriteriaDigitPattern = new SearchCriteriaDigitPattern($searchCriteriaDigitPattern);
     }
 
     public function getSearchCriteriaDigitPattern()

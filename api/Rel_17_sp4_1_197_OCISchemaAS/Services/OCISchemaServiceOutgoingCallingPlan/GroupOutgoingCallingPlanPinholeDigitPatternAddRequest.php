@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPlan\CallingPlanDigitPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPlanDigitPatternName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPlanDigitPatternName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPlanDigitPattern;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $name               = null;
+    protected $digitPattern       = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $name,
-             $digitPattern
+         $serviceProviderId,
+         $groupId,
+         $name,
+         $digitPattern
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->name              = new CallingPlanDigitPatternName($name);
-        $this->digitPattern      = $digitPattern;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setName($name);
+        $this->setDigitPattern($digitPattern);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -46,9 +51,11 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -56,9 +63,11 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CallingPlanDigitPatternName($name);
+        $this->name = ($name InstanceOf CallingPlanDigitPatternName)
+             ? $name
+             : new CallingPlanDigitPatternName($name);
     }
 
     public function getName()
@@ -66,9 +75,11 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDigitPattern($digitPattern)
+    public function setDigitPattern($digitPattern = null)
     {
-        $digitPattern and $this->digitPattern = new CallingPlanDigitPattern($digitPattern);
+        $this->digitPattern = ($digitPattern InstanceOf CallingPlanDigitPattern)
+             ? $digitPattern
+             : new CallingPlanDigitPattern($digitPattern);
     }
 
     public function getDigitPattern()

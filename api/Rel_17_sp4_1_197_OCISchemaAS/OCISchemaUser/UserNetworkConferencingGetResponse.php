@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxConferenceParties;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserNetworkConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $conferenceURI         = null;
+    protected $maxConferenceParties  = null;
 
-    public function __construct(
-             $conferenceURI=null,
-             $maxConferenceParties
-    ) {
-        $this->conferenceURI        = new SIPURI($conferenceURI);
-        $this->maxConferenceParties = new CallProcessingMaxConferenceParties($maxConferenceParties);
-        $this->args                 = func_get_args();
-    }
 
-    public function setConferenceURI($conferenceURI)
+    public function setConferenceURI($conferenceURI = null)
     {
-        $conferenceURI and $this->conferenceURI = new SIPURI($conferenceURI);
+        $this->conferenceURI = ($conferenceURI InstanceOf SIPURI)
+             ? $conferenceURI
+             : new SIPURI($conferenceURI);
     }
 
     public function getConferenceURI()
@@ -39,9 +35,11 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
         return (!$this->conferenceURI) ?: $this->conferenceURI->value();
     }
 
-    public function setMaxConferenceParties($maxConferenceParties)
+    public function setMaxConferenceParties($maxConferenceParties = null)
     {
-        $maxConferenceParties and $this->maxConferenceParties = new CallProcessingMaxConferenceParties($maxConferenceParties);
+        $this->maxConferenceParties = ($maxConferenceParties InstanceOf CallProcessingMaxConferenceParties)
+             ? $maxConferenceParties
+             : new CallProcessingMaxConferenceParties($maxConferenceParties);
     }
 
     public function getMaxConferenceParties()

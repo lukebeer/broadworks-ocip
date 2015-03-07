@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignedPassword;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class LoginRequest13mp10 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $signedPassword  = null;
 
     public function __construct(
-             $userId,
-             $signedPassword=null
+         $userId,
+         $signedPassword = null
     ) {
-        $this->userId         = new UserId($userId);
-        $this->signedPassword = new SignedPassword($signedPassword);
-        $this->args           = func_get_args();
+        $this->setUserId($userId);
+        $this->setSignedPassword($signedPassword);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class LoginRequest13mp10 extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setSignedPassword($signedPassword)
+    public function setSignedPassword($signedPassword = null)
     {
-        $signedPassword and $this->signedPassword = new SignedPassword($signedPassword);
+        $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
+             ? $signedPassword
+             : new SignedPassword($signedPassword);
     }
 
     public function getSignedPassword()

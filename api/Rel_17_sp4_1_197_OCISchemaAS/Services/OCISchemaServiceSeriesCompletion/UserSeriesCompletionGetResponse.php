@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSeriesCompletion; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +19,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $name       = null;
+    protected $userTable  = null;
 
-    public function __construct(
-             $name=null,
-             $userTable
-    ) {
-        $this->name      = new ServiceInstanceName($name);
-        $this->userTable = $userTable;
-        $this->args      = func_get_args();
-    }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new ServiceInstanceName($name);
+        $this->name = ($name InstanceOf ServiceInstanceName)
+             ? $name
+             : new ServiceInstanceName($name);
     }
 
     public function getName()
@@ -41,9 +36,8 @@ class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInte
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setUserTable($userTable)
+    public function setUserTable(core:OCITable $userTable = null)
     {
-        $userTable and $this->userTable = new core:OCITable($userTable);
     }
 
     public function getUserTable()

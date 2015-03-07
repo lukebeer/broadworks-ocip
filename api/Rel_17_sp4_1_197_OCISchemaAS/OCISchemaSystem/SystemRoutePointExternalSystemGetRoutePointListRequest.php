@@ -19,18 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $routePointExternalSystem  = null;
 
     public function __construct(
-             $routePointExternalSystem
+         $routePointExternalSystem
     ) {
-        $this->routePointExternalSystem = new RoutePointExternalSystem($routePointExternalSystem);
-        $this->args                     = func_get_args();
+        $this->setRoutePointExternalSystem($routePointExternalSystem);
     }
 
-    public function setRoutePointExternalSystem($routePointExternalSystem)
+    public function setRoutePointExternalSystem($routePointExternalSystem = null)
     {
-        $routePointExternalSystem and $this->routePointExternalSystem = new RoutePointExternalSystem($routePointExternalSystem);
+        $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
+             ? $routePointExternalSystem
+             : new RoutePointExternalSystem($routePointExternalSystem);
     }
 
     public function getRoutePointExternalSystem()

@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $serviceCode  = null;
 
     public function __construct(
-             $serviceCode
+         $serviceCode
     ) {
-        $this->serviceCode = new ServiceCode($serviceCode);
-        $this->args        = func_get_args();
+        $this->setServiceCode($serviceCode);
     }
 
-    public function setServiceCode($serviceCode)
+    public function setServiceCode($serviceCode = null)
     {
-        $serviceCode and $this->serviceCode = new ServiceCode($serviceCode);
+        $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
+             ? $serviceCode
+             : new ServiceCode($serviceCode);
     }
 
     public function getServiceCode()

@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterGuardTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,32 +18,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                                  = __CLASS__;
+    protected $useSystemDefaultGuardTimer                            = null;
+    protected $enableGuardTimer                                      = null;
+    protected $guardTimerSeconds                                     = null;
+    protected $useSystemDefaultUnavailableSettings                   = null;
+    protected $forceAgentUnavailableOnDNDActivation                  = null;
+    protected $forceAgentUnavailableOnPersonalCalls                  = null;
+    protected $forceAgentUnavailableOnBouncedCallLimit               = null;
+    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable  = null;
 
-    public function __construct(
-             $useSystemDefaultGuardTimer,
-             $enableGuardTimer,
-             $guardTimerSeconds,
-             $useSystemDefaultUnavailableSettings=null,
-             $forceAgentUnavailableOnDNDActivation=null,
-             $forceAgentUnavailableOnPersonalCalls=null,
-             $forceAgentUnavailableOnBouncedCallLimit=null,
-             $numberConsecutiveBouncedCallsToForceAgentUnavailable=null
-    ) {
-        $this->useSystemDefaultGuardTimer                           = $useSystemDefaultGuardTimer;
-        $this->enableGuardTimer                                     = $enableGuardTimer;
-        $this->guardTimerSeconds                                    = $guardTimerSeconds;
-        $this->useSystemDefaultUnavailableSettings                  = $useSystemDefaultUnavailableSettings;
-        $this->forceAgentUnavailableOnDNDActivation                 = $forceAgentUnavailableOnDNDActivation;
-        $this->forceAgentUnavailableOnPersonalCalls                 = $forceAgentUnavailableOnPersonalCalls;
-        $this->forceAgentUnavailableOnBouncedCallLimit              = $forceAgentUnavailableOnBouncedCallLimit;
-        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = $numberConsecutiveBouncedCallsToForceAgentUnavailable;
-        $this->args                                                 = func_get_args();
-    }
 
-    public function setUseSystemDefaultGuardTimer($useSystemDefaultGuardTimer)
+    public function setUseSystemDefaultGuardTimer(xs:boolean $useSystemDefaultGuardTimer = null)
     {
-        $useSystemDefaultGuardTimer and $this->useSystemDefaultGuardTimer = new xs:boolean($useSystemDefaultGuardTimer);
     }
 
     public function getUseSystemDefaultGuardTimer()
@@ -52,9 +38,8 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
         return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer->value();
     }
 
-    public function setEnableGuardTimer($enableGuardTimer)
+    public function setEnableGuardTimer(xs:boolean $enableGuardTimer = null)
     {
-        $enableGuardTimer and $this->enableGuardTimer = new xs:boolean($enableGuardTimer);
     }
 
     public function getEnableGuardTimer()
@@ -62,9 +47,11 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
         return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->value();
     }
 
-    public function setGuardTimerSeconds($guardTimerSeconds)
+    public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
-        $guardTimerSeconds and $this->guardTimerSeconds = new CallCenterGuardTimerSeconds($guardTimerSeconds);
+        $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
+             ? $guardTimerSeconds
+             : new CallCenterGuardTimerSeconds($guardTimerSeconds);
     }
 
     public function getGuardTimerSeconds()
@@ -72,9 +59,8 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
         return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->value();
     }
 
-    public function setUseSystemDefaultUnavailableSettings($useSystemDefaultUnavailableSettings)
+    public function setUseSystemDefaultUnavailableSettings(xs:boolean $useSystemDefaultUnavailableSettings = null)
     {
-        $useSystemDefaultUnavailableSettings and $this->useSystemDefaultUnavailableSettings = new xs:boolean($useSystemDefaultUnavailableSettings);
     }
 
     public function getUseSystemDefaultUnavailableSettings()
@@ -82,9 +68,8 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
         return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->value();
     }
 
-    public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation)
+    public function setForceAgentUnavailableOnDNDActivation(xs:boolean $forceAgentUnavailableOnDNDActivation = null)
     {
-        $forceAgentUnavailableOnDNDActivation and $this->forceAgentUnavailableOnDNDActivation = new xs:boolean($forceAgentUnavailableOnDNDActivation);
     }
 
     public function getForceAgentUnavailableOnDNDActivation()
@@ -92,9 +77,8 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
         return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->value();
     }
 
-    public function setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls)
+    public function setForceAgentUnavailableOnPersonalCalls(xs:boolean $forceAgentUnavailableOnPersonalCalls = null)
     {
-        $forceAgentUnavailableOnPersonalCalls and $this->forceAgentUnavailableOnPersonalCalls = new xs:boolean($forceAgentUnavailableOnPersonalCalls);
     }
 
     public function getForceAgentUnavailableOnPersonalCalls()
@@ -102,9 +86,8 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
         return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->value();
     }
 
-    public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit)
+    public function setForceAgentUnavailableOnBouncedCallLimit(xs:boolean $forceAgentUnavailableOnBouncedCallLimit = null)
     {
-        $forceAgentUnavailableOnBouncedCallLimit and $this->forceAgentUnavailableOnBouncedCallLimit = new xs:boolean($forceAgentUnavailableOnBouncedCallLimit);
     }
 
     public function getForceAgentUnavailableOnBouncedCallLimit()
@@ -112,9 +95,11 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
         return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->value();
     }
 
-    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable)
+    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
-        $numberConsecutiveBouncedCallsToForceAgentUnavailable and $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
+             ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
+             : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
     }
 
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()

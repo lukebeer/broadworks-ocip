@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPagingMaxTargetCapacity;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingMaxTargetCapacity;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                   = __CLASS__;
+    protected $maximumTargetUsersFromServiceProvider  = null;
+    protected $maximumTargetUsers                     = null;
 
-    public function __construct(
-             $maximumTargetUsersFromServiceProvider,
-             $maximumTargetUsers
-    ) {
-        $this->maximumTargetUsersFromServiceProvider = $maximumTargetUsersFromServiceProvider;
-        $this->maximumTargetUsers                    = $maximumTargetUsers;
-        $this->args                                  = func_get_args();
-    }
 
-    public function setMaximumTargetUsersFromServiceProvider($maximumTargetUsersFromServiceProvider)
+    public function setMaximumTargetUsersFromServiceProvider($maximumTargetUsersFromServiceProvider = null)
     {
-        $maximumTargetUsersFromServiceProvider and $this->maximumTargetUsersFromServiceProvider = new GroupPagingMaxTargetCapacity($maximumTargetUsersFromServiceProvider);
+        $this->maximumTargetUsersFromServiceProvider = ($maximumTargetUsersFromServiceProvider InstanceOf GroupPagingMaxTargetCapacity)
+             ? $maximumTargetUsersFromServiceProvider
+             : new GroupPagingMaxTargetCapacity($maximumTargetUsersFromServiceProvider);
     }
 
     public function getMaximumTargetUsersFromServiceProvider()
@@ -38,9 +34,11 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
         return (!$this->maximumTargetUsersFromServiceProvider) ?: $this->maximumTargetUsersFromServiceProvider->value();
     }
 
-    public function setMaximumTargetUsers($maximumTargetUsers)
+    public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
-        $maximumTargetUsers and $this->maximumTargetUsers = new GroupPagingMaxTargetCapacity($maximumTargetUsers);
+        $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
+             ? $maximumTargetUsers
+             : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
     }
 
     public function getMaximumTargetUsers()

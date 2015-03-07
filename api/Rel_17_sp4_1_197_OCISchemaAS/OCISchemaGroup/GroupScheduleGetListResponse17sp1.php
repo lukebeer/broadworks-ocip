@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupScheduleGetListResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $scheduleGlobalKey  = null;
 
-    public function __construct(
-             ScheduleGlobalKey $scheduleGlobalKey=null
-    ) {
-        $this->scheduleGlobalKey = $scheduleGlobalKey;
-        $this->args              = func_get_args();
-    }
 
-    public function setScheduleGlobalKey($scheduleGlobalKey)
+    public function setScheduleGlobalKey(ScheduleGlobalKey $scheduleGlobalKey = null)
     {
-        $scheduleGlobalKey and $this->scheduleGlobalKey = new ScheduleGlobalKey($scheduleGlobalKey);
     }
 
     public function getScheduleGlobalKey()

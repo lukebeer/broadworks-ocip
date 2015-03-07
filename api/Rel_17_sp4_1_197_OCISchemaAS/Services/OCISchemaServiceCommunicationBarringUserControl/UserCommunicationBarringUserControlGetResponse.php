@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,20 +20,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommunicationBarringUserControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $lockoutStatus  = null;
+    protected $profileTable   = null;
 
-    public function __construct(
-             $lockoutStatus,
-             $profileTable
-    ) {
-        $this->lockoutStatus = $lockoutStatus;
-        $this->profileTable  = $profileTable;
-        $this->args          = func_get_args();
-    }
 
-    public function setLockoutStatus($lockoutStatus)
+    public function setLockoutStatus(xs:boolean $lockoutStatus = null)
     {
-        $lockoutStatus and $this->lockoutStatus = new xs:boolean($lockoutStatus);
     }
 
     public function getLockoutStatus()
@@ -42,9 +34,8 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
         return (!$this->lockoutStatus) ?: $this->lockoutStatus->value();
     }
 
-    public function setProfileTable($profileTable)
+    public function setProfileTable(core:OCITable $profileTable = null)
     {
-        $profileTable and $this->profileTable = new core:OCITable($profileTable);
     }
 
     public function getProfileTable()

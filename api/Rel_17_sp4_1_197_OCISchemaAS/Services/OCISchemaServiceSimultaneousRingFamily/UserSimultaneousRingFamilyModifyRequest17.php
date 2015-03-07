@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingReplacementNumberList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +20,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $userId                      = null;
+    protected $isActive                    = null;
+    protected $doNotRingIfOnCall           = null;
+    protected $simultaneousRingNumberList  = null;
+    protected $criteriaActivation          = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $doNotRingIfOnCall=null,
-             SimultaneousRingReplacementNumberList $simultaneousRingNumberList=null,
-             CriteriaActivation $criteriaActivation=null
+         $userId,
+         $isActive = null,
+         $doNotRingIfOnCall = null,
+         SimultaneousRingReplacementNumberList $simultaneousRingNumberList = null,
+         CriteriaActivation $criteriaActivation = null
     ) {
-        $this->userId                     = new UserId($userId);
-        $this->isActive                   = $isActive;
-        $this->doNotRingIfOnCall          = $doNotRingIfOnCall;
-        $this->simultaneousRingNumberList = $simultaneousRingNumberList;
-        $this->criteriaActivation         = $criteriaActivation;
-        $this->args                       = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setDoNotRingIfOnCall($doNotRingIfOnCall);
+        $this->setSimultaneousRingNumberList($simultaneousRingNumberList);
+        $this->setCriteriaActivation($criteriaActivation);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -48,9 +53,8 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -58,9 +62,8 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDoNotRingIfOnCall($doNotRingIfOnCall)
+    public function setDoNotRingIfOnCall(xs:boolean $doNotRingIfOnCall = null)
     {
-        $doNotRingIfOnCall and $this->doNotRingIfOnCall = new xs:boolean($doNotRingIfOnCall);
     }
 
     public function getDoNotRingIfOnCall()
@@ -68,9 +71,8 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
         return (!$this->doNotRingIfOnCall) ?: $this->doNotRingIfOnCall->value();
     }
 
-    public function setSimultaneousRingNumberList($simultaneousRingNumberList)
+    public function setSimultaneousRingNumberList(SimultaneousRingReplacementNumberList $simultaneousRingNumberList = null)
     {
-        $simultaneousRingNumberList and $this->simultaneousRingNumberList = new SimultaneousRingReplacementNumberList($simultaneousRingNumberList);
     }
 
     public function getSimultaneousRingNumberList()
@@ -78,9 +80,8 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
         return (!$this->simultaneousRingNumberList) ?: $this->simultaneousRingNumberList->value();
     }
 
-    public function setCriteriaActivation($criteriaActivation)
+    public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $criteriaActivation and $this->criteriaActivation = new CriteriaActivation($criteriaActivation);
     }
 
     public function getCriteriaActivation()

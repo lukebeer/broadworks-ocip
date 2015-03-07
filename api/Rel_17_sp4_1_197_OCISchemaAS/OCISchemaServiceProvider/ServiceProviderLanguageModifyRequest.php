@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,22 +21,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderLanguageModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $language               = null;
+    protected $becomeDefaultLanguage  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $language,
-             $becomeDefaultLanguage=null
+         $serviceProviderId,
+         $language,
+         $becomeDefaultLanguage = null
     ) {
-        $this->serviceProviderId     = new ServiceProviderId($serviceProviderId);
-        $this->language              = new Language($language);
-        $this->becomeDefaultLanguage = $becomeDefaultLanguage;
-        $this->args                  = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setLanguage($language);
+        $this->setBecomeDefaultLanguage($becomeDefaultLanguage);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -45,9 +48,11 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()
@@ -55,9 +60,8 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
         return (!$this->language) ?: $this->language->value();
     }
 
-    public function setBecomeDefaultLanguage($becomeDefaultLanguage)
+    public function setBecomeDefaultLanguage(xs:boolean $becomeDefaultLanguage = null)
     {
-        $becomeDefaultLanguage and $this->becomeDefaultLanguage = new xs:boolean($becomeDefaultLanguage);
     }
 
     public function getBecomeDefaultLanguage()

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,24 +18,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                        = __CLASS__;
+    protected $serviceUserId                               = null;
+    protected $enableDirectoryPrivacy                      = null;
+    protected $enableAutoAttendantExtensionDialingPrivacy  = null;
+    protected $enableAutoAttendantNameDialingPrivacy       = null;
 
     public function __construct(
-             $serviceUserId,
-             $enableDirectoryPrivacy=null,
-             $enableAutoAttendantExtensionDialingPrivacy=null,
-             $enableAutoAttendantNameDialingPrivacy=null
+         $serviceUserId,
+         $enableDirectoryPrivacy = null,
+         $enableAutoAttendantExtensionDialingPrivacy = null,
+         $enableAutoAttendantNameDialingPrivacy = null
     ) {
-        $this->serviceUserId                              = new UserId($serviceUserId);
-        $this->enableDirectoryPrivacy                     = $enableDirectoryPrivacy;
-        $this->enableAutoAttendantExtensionDialingPrivacy = $enableAutoAttendantExtensionDialingPrivacy;
-        $this->enableAutoAttendantNameDialingPrivacy      = $enableAutoAttendantNameDialingPrivacy;
-        $this->args                                       = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setEnableDirectoryPrivacy($enableDirectoryPrivacy);
+        $this->setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy);
+        $this->setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -44,9 +48,8 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setEnableDirectoryPrivacy($enableDirectoryPrivacy)
+    public function setEnableDirectoryPrivacy(xs:boolean $enableDirectoryPrivacy = null)
     {
-        $enableDirectoryPrivacy and $this->enableDirectoryPrivacy = new xs:boolean($enableDirectoryPrivacy);
     }
 
     public function getEnableDirectoryPrivacy()
@@ -54,9 +57,8 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
         return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->value();
     }
 
-    public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy)
+    public function setEnableAutoAttendantExtensionDialingPrivacy(xs:boolean $enableAutoAttendantExtensionDialingPrivacy = null)
     {
-        $enableAutoAttendantExtensionDialingPrivacy and $this->enableAutoAttendantExtensionDialingPrivacy = new xs:boolean($enableAutoAttendantExtensionDialingPrivacy);
     }
 
     public function getEnableAutoAttendantExtensionDialingPrivacy()
@@ -64,9 +66,8 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
         return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->value();
     }
 
-    public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy)
+    public function setEnableAutoAttendantNameDialingPrivacy(xs:boolean $enableAutoAttendantNameDialingPrivacy = null)
     {
-        $enableAutoAttendantNameDialingPrivacy and $this->enableAutoAttendantNameDialingPrivacy = new xs:boolean($enableAutoAttendantNameDialingPrivacy);
     }
 
     public function getEnableAutoAttendantNameDialingPrivacy()

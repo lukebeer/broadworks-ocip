@@ -7,14 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDnDepartment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDnActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactDnDepartment;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactDnActivation;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,32 +27,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceProviderId                = null;
+    protected $groupId                          = null;
+    protected $responseSizeLimit                = null;
+    protected $searchCriteriaDn                 = null;
+    protected $searchCriteriaUserFirstName      = null;
+    protected $searchCriteriaUserLastName       = null;
+    protected $searchCriteriaExactDnDepartment  = null;
+    protected $searchCriteriaExactDnActivation  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $responseSizeLimit=null,
-             $searchCriteriaDn=null,
-             $searchCriteriaUserFirstName=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaExactDnDepartment=null,
-             $searchCriteriaExactDnActivation=null
+         $serviceProviderId,
+         $groupId,
+         $responseSizeLimit = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment = null,
+         SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation = null
     ) {
-        $this->serviceProviderId               = new ServiceProviderId($serviceProviderId);
-        $this->groupId                         = new GroupId($groupId);
-        $this->responseSizeLimit               = $responseSizeLimit;
-        $this->searchCriteriaDn                = $searchCriteriaDn;
-        $this->searchCriteriaUserFirstName     = $searchCriteriaUserFirstName;
-        $this->searchCriteriaUserLastName      = $searchCriteriaUserLastName;
-        $this->searchCriteriaExactDnDepartment = $searchCriteriaExactDnDepartment;
-        $this->searchCriteriaExactDnActivation = $searchCriteriaExactDnActivation;
-        $this->args                            = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
+        $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaExactDnDepartment($searchCriteriaExactDnDepartment);
+        $this->setSearchCriteriaExactDnActivation($searchCriteriaExactDnActivation);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -60,9 +69,11 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -70,9 +81,11 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -80,9 +93,8 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()
@@ -90,9 +102,8 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
     }
 
-    public function setSearchCriteriaUserFirstName($searchCriteriaUserFirstName)
+    public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $searchCriteriaUserFirstName and $this->searchCriteriaUserFirstName = new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
     }
 
     public function getSearchCriteriaUserFirstName()
@@ -100,9 +111,8 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -110,9 +120,8 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaExactDnDepartment($searchCriteriaExactDnDepartment)
+    public function setSearchCriteriaExactDnDepartment(SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment = null)
     {
-        $searchCriteriaExactDnDepartment and $this->searchCriteriaExactDnDepartment = new SearchCriteriaExactDnDepartment($searchCriteriaExactDnDepartment);
     }
 
     public function getSearchCriteriaExactDnDepartment()
@@ -120,9 +129,8 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaExactDnDepartment) ?: $this->searchCriteriaExactDnDepartment->value();
     }
 
-    public function setSearchCriteriaExactDnActivation($searchCriteriaExactDnActivation)
+    public function setSearchCriteriaExactDnActivation(SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation = null)
     {
-        $searchCriteriaExactDnActivation and $this->searchCriteriaExactDnActivation = new SearchCriteriaExactDnActivation($searchCriteriaExactDnActivation);
     }
 
     public function getSearchCriteriaExactDnActivation()

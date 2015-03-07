@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDeviceTypeFileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $fileSource             = null;
+    protected $configurationFileName  = null;
 
-    public function __construct(
-             $fileSource=null,
-             $configurationFileName=null
-    ) {
-        $this->fileSource            = new AccessDeviceEnhancedConfigurationMode($fileSource);
-        $this->configurationFileName = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
-        $this->args                  = func_get_args();
-    }
 
-    public function setFileSource($fileSource)
+    public function setFileSource($fileSource = null)
     {
-        $fileSource and $this->fileSource = new AccessDeviceEnhancedConfigurationMode($fileSource);
+        $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
+             ? $fileSource
+             : new AccessDeviceEnhancedConfigurationMode($fileSource);
     }
 
     public function getFileSource()
@@ -40,9 +36,11 @@ class GroupDeviceTypeFileGetResponse extends ComplexType implements ComplexInter
         return (!$this->fileSource) ?: $this->fileSource->value();
     }
 
-    public function setConfigurationFileName($configurationFileName)
+    public function setConfigurationFileName($configurationFileName = null)
     {
-        $configurationFileName and $this->configurationFileName = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
+        $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
+             ? $configurationFileName
+             : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
     }
 
     public function getConfigurationFileName()

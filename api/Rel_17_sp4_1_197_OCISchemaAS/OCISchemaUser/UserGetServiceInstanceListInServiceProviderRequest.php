@@ -7,15 +7,15 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserDepartment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactServiceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExtension;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactServiceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExtension;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactUserDepartment;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -28,34 +28,44 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $serviceProviderId                  = null;
+    protected $responseSizeLimit                  = null;
+    protected $SearchCriteriaGroupId              = null;
+    protected $SearchCriteriaExactServiceType     = null;
+    protected $searchCriteriaUserId               = null;
+    protected $searchCriteriaUserLastName         = null;
+    protected $searchCriteriaDn                   = null;
+    protected $searchCriteriaExtension            = null;
+    protected $searchCriteriaExactUserDepartment  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $responseSizeLimit=null,
-             $SearchCriteriaGroupId=null,
-             $SearchCriteriaExactServiceType=null,
-             $searchCriteriaUserId=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaDn=null,
-             $searchCriteriaExtension=null,
-             $searchCriteriaExactUserDepartment=null
+         $serviceProviderId,
+         $responseSizeLimit = null,
+         SearchCriteriaGroupId $SearchCriteriaGroupId = null,
+         SearchCriteriaExactServiceType $SearchCriteriaExactServiceType = null,
+         SearchCriteriaUserId $searchCriteriaUserId = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaExtension $searchCriteriaExtension = null,
+         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
     ) {
-        $this->serviceProviderId                 = new ServiceProviderId($serviceProviderId);
-        $this->responseSizeLimit                 = $responseSizeLimit;
-        $this->SearchCriteriaGroupId             = $SearchCriteriaGroupId;
-        $this->SearchCriteriaExactServiceType    = $SearchCriteriaExactServiceType;
-        $this->searchCriteriaUserId              = $searchCriteriaUserId;
-        $this->searchCriteriaUserLastName        = $searchCriteriaUserLastName;
-        $this->searchCriteriaDn                  = $searchCriteriaDn;
-        $this->searchCriteriaExtension           = $searchCriteriaExtension;
-        $this->searchCriteriaExactUserDepartment = $searchCriteriaExactUserDepartment;
-        $this->args                              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaGroupId($SearchCriteriaGroupId);
+        $this->setSearchCriteriaExactServiceType($SearchCriteriaExactServiceType);
+        $this->setSearchCriteriaUserId($searchCriteriaUserId);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
+        $this->setSearchCriteriaExtension($searchCriteriaExtension);
+        $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -63,9 +73,11 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -73,9 +85,8 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaGroupId($SearchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $SearchCriteriaGroupId = null)
     {
-        $SearchCriteriaGroupId and $this->SearchCriteriaGroupId = new SearchCriteriaGroupId($SearchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -83,9 +94,8 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->SearchCriteriaGroupId) ?: $this->SearchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaExactServiceType($SearchCriteriaExactServiceType)
+    public function setSearchCriteriaExactServiceType(SearchCriteriaExactServiceType $SearchCriteriaExactServiceType = null)
     {
-        $SearchCriteriaExactServiceType and $this->SearchCriteriaExactServiceType = new SearchCriteriaExactServiceType($SearchCriteriaExactServiceType);
     }
 
     public function getSearchCriteriaExactServiceType()
@@ -93,9 +103,8 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->SearchCriteriaExactServiceType) ?: $this->SearchCriteriaExactServiceType->value();
     }
 
-    public function setSearchCriteriaUserId($searchCriteriaUserId)
+    public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $searchCriteriaUserId and $this->searchCriteriaUserId = new SearchCriteriaUserId($searchCriteriaUserId);
     }
 
     public function getSearchCriteriaUserId()
@@ -103,9 +112,8 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -113,9 +121,8 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()
@@ -123,9 +130,8 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
     }
 
-    public function setSearchCriteriaExtension($searchCriteriaExtension)
+    public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $searchCriteriaExtension and $this->searchCriteriaExtension = new SearchCriteriaExtension($searchCriteriaExtension);
     }
 
     public function getSearchCriteriaExtension()
@@ -133,9 +139,8 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->value();
     }
 
-    public function setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment)
+    public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $searchCriteriaExactUserDepartment and $this->searchCriteriaExactUserDepartment = new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
     }
 
     public function getSearchCriteriaExactUserDepartment()

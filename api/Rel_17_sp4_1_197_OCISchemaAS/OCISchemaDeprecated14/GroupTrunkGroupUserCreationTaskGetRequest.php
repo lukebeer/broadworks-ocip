@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupUserCreationTaskName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupUserCreationTaskGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $serviceUserId  = null;
+    protected $taskName       = null;
 
     public function __construct(
-             $serviceUserId,
-             $taskName
+         $serviceUserId,
+         $taskName
     ) {
-        $this->serviceUserId = new UserId($serviceUserId);
-        $this->taskName      = $taskName;
-        $this->args          = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setTaskName($taskName);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -40,9 +43,11 @@ class GroupTrunkGroupUserCreationTaskGetRequest extends ComplexType implements C
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setTaskName($taskName)
+    public function setTaskName($taskName = null)
     {
-        $taskName and $this->taskName = new TrunkGroupUserCreationTaskName($taskName);
+        $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
+             ? $taskName
+             : new TrunkGroupUserCreationTaskName($taskName);
     }
 
     public function getTaskName()

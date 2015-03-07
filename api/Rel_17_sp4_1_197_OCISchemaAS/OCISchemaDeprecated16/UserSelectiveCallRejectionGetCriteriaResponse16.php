@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SelectiveCallRejectionCriteriaCallType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\SelectiveCallRejectionCriteriaCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $timeSchedule     = null;
+    protected $fromDnCriteria   = null;
+    protected $blacklisted      = null;
+    protected $holidaySchedule  = null;
 
-    public function __construct(
-             TimeSchedule $timeSchedule=null,
-             $fromDnCriteria,
-             $blacklisted,
-             HolidaySchedule $holidaySchedule=null
-    ) {
-        $this->timeSchedule    = $timeSchedule;
-        $this->fromDnCriteria  = $fromDnCriteria;
-        $this->blacklisted     = $blacklisted;
-        $this->holidaySchedule = $holidaySchedule;
-        $this->args            = func_get_args();
-    }
 
-    public function setTimeSchedule($timeSchedule)
+    public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $timeSchedule and $this->timeSchedule = new TimeSchedule($timeSchedule);
     }
 
     public function getTimeSchedule()
@@ -46,9 +36,8 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
         return (!$this->timeSchedule) ?: $this->timeSchedule->value();
     }
 
-    public function setFromDnCriteria($fromDnCriteria)
+    public function setFromDnCriteria(SelectiveCallRejectionCriteriaCallType $fromDnCriteria = null)
     {
-        $fromDnCriteria and $this->fromDnCriteria = new SelectiveCallRejectionCriteriaCallType($fromDnCriteria);
     }
 
     public function getFromDnCriteria()
@@ -56,9 +45,8 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
         return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->value();
     }
 
-    public function setBlacklisted($blacklisted)
+    public function setBlacklisted(xs:boolean $blacklisted = null)
     {
-        $blacklisted and $this->blacklisted = new xs:boolean($blacklisted);
     }
 
     public function getBlacklisted()
@@ -66,9 +54,8 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
         return (!$this->blacklisted) ?: $this->blacklisted->value();
     }
 
-    public function setHolidaySchedule($holidaySchedule)
+    public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $holidaySchedule and $this->holidaySchedule = new HolidaySchedule($holidaySchedule);
     }
 
     public function getHolidaySchedule()

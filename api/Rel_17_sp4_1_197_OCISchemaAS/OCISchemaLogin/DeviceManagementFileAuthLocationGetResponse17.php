@@ -7,15 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserPassword;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCategory;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserPassword;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,46 +26,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $fileRepositoryUserName              = null;
+    protected $fileRepositoryPassword              = null;
+    protected $netAddress                          = null;
+    protected $remoteFileFormat                    = null;
+    protected $portNumber                          = null;
+    protected $rootDirectory                       = null;
+    protected $cpeFileDirectory                    = null;
+    protected $secure                              = null;
+    protected $macInNonRequestURI                  = null;
+    protected $macFormatInNonRequestURI            = null;
+    protected $useHttpDigestAuthentication         = null;
+    protected $macBasedFileAuthentication          = null;
+    protected $userNamePasswordFileAuthentication  = null;
+    protected $completionNotification              = null;
+    protected $fileCategory                        = null;
 
-    public function __construct(
-             $fileRepositoryUserName,
-             $fileRepositoryPassword,
-             $netAddress,
-             $remoteFileFormat,
-             $portNumber=null,
-             $rootDirectory=null,
-             $cpeFileDirectory=null,
-             $secure=null,
-             $macInNonRequestURI=null,
-             $macFormatInNonRequestURI=null,
-             $useHttpDigestAuthentication=null,
-             $macBasedFileAuthentication=null,
-             $userNamePasswordFileAuthentication=null,
-             $completionNotification=null,
-             $fileCategory=null
-    ) {
-        $this->fileRepositoryUserName             = new FileRepositoryUserName($fileRepositoryUserName);
-        $this->fileRepositoryPassword             = new FileRepositoryUserPassword($fileRepositoryPassword);
-        $this->netAddress                         = new NetAddress($netAddress);
-        $this->remoteFileFormat                   = new DeviceManagementFileFormat($remoteFileFormat);
-        $this->portNumber                         = new Port($portNumber);
-        $this->rootDirectory                      = new CPEFileDirectory($rootDirectory);
-        $this->cpeFileDirectory                   = new CPEFileDirectory($cpeFileDirectory);
-        $this->secure                             = $secure;
-        $this->macInNonRequestURI                 = $macInNonRequestURI;
-        $this->macFormatInNonRequestURI           = new DeviceManagementAccessURI($macFormatInNonRequestURI);
-        $this->useHttpDigestAuthentication        = $useHttpDigestAuthentication;
-        $this->macBasedFileAuthentication         = $macBasedFileAuthentication;
-        $this->userNamePasswordFileAuthentication = $userNamePasswordFileAuthentication;
-        $this->completionNotification             = $completionNotification;
-        $this->fileCategory                       = new DeviceManagementFileCategory($fileCategory);
-        $this->args                               = func_get_args();
-    }
 
-    public function setFileRepositoryUserName($fileRepositoryUserName)
+    public function setFileRepositoryUserName($fileRepositoryUserName = null)
     {
-        $fileRepositoryUserName and $this->fileRepositoryUserName = new FileRepositoryUserName($fileRepositoryUserName);
+        $this->fileRepositoryUserName = ($fileRepositoryUserName InstanceOf FileRepositoryUserName)
+             ? $fileRepositoryUserName
+             : new FileRepositoryUserName($fileRepositoryUserName);
     }
 
     public function getFileRepositoryUserName()
@@ -74,9 +56,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->fileRepositoryUserName) ?: $this->fileRepositoryUserName->value();
     }
 
-    public function setFileRepositoryPassword($fileRepositoryPassword)
+    public function setFileRepositoryPassword($fileRepositoryPassword = null)
     {
-        $fileRepositoryPassword and $this->fileRepositoryPassword = new FileRepositoryUserPassword($fileRepositoryPassword);
+        $this->fileRepositoryPassword = ($fileRepositoryPassword InstanceOf FileRepositoryUserPassword)
+             ? $fileRepositoryPassword
+             : new FileRepositoryUserPassword($fileRepositoryPassword);
     }
 
     public function getFileRepositoryPassword()
@@ -84,9 +68,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->fileRepositoryPassword) ?: $this->fileRepositoryPassword->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -94,9 +80,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setRemoteFileFormat($remoteFileFormat)
+    public function setRemoteFileFormat($remoteFileFormat = null)
     {
-        $remoteFileFormat and $this->remoteFileFormat = new DeviceManagementFileFormat($remoteFileFormat);
+        $this->remoteFileFormat = ($remoteFileFormat InstanceOf DeviceManagementFileFormat)
+             ? $remoteFileFormat
+             : new DeviceManagementFileFormat($remoteFileFormat);
     }
 
     public function getRemoteFileFormat()
@@ -104,9 +92,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->remoteFileFormat) ?: $this->remoteFileFormat->value();
     }
 
-    public function setPortNumber($portNumber)
+    public function setPortNumber($portNumber = null)
     {
-        $portNumber and $this->portNumber = new Port($portNumber);
+        $this->portNumber = ($portNumber InstanceOf Port)
+             ? $portNumber
+             : new Port($portNumber);
     }
 
     public function getPortNumber()
@@ -114,9 +104,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->portNumber) ?: $this->portNumber->value();
     }
 
-    public function setRootDirectory($rootDirectory)
+    public function setRootDirectory($rootDirectory = null)
     {
-        $rootDirectory and $this->rootDirectory = new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
+             ? $rootDirectory
+             : new CPEFileDirectory($rootDirectory);
     }
 
     public function getRootDirectory()
@@ -124,9 +116,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->rootDirectory) ?: $this->rootDirectory->value();
     }
 
-    public function setCpeFileDirectory($cpeFileDirectory)
+    public function setCpeFileDirectory($cpeFileDirectory = null)
     {
-        $cpeFileDirectory and $this->cpeFileDirectory = new CPEFileDirectory($cpeFileDirectory);
+        $this->cpeFileDirectory = ($cpeFileDirectory InstanceOf CPEFileDirectory)
+             ? $cpeFileDirectory
+             : new CPEFileDirectory($cpeFileDirectory);
     }
 
     public function getCpeFileDirectory()
@@ -134,9 +128,8 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->cpeFileDirectory) ?: $this->cpeFileDirectory->value();
     }
 
-    public function setSecure($secure)
+    public function setSecure(xs:boolean $secure = null)
     {
-        $secure and $this->secure = new xs:boolean($secure);
     }
 
     public function getSecure()
@@ -144,9 +137,8 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->secure) ?: $this->secure->value();
     }
 
-    public function setMacInNonRequestURI($macInNonRequestURI)
+    public function setMacInNonRequestURI(xs:boolean $macInNonRequestURI = null)
     {
-        $macInNonRequestURI and $this->macInNonRequestURI = new xs:boolean($macInNonRequestURI);
     }
 
     public function getMacInNonRequestURI()
@@ -154,9 +146,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI->value();
     }
 
-    public function setMacFormatInNonRequestURI($macFormatInNonRequestURI)
+    public function setMacFormatInNonRequestURI($macFormatInNonRequestURI = null)
     {
-        $macFormatInNonRequestURI and $this->macFormatInNonRequestURI = new DeviceManagementAccessURI($macFormatInNonRequestURI);
+        $this->macFormatInNonRequestURI = ($macFormatInNonRequestURI InstanceOf DeviceManagementAccessURI)
+             ? $macFormatInNonRequestURI
+             : new DeviceManagementAccessURI($macFormatInNonRequestURI);
     }
 
     public function getMacFormatInNonRequestURI()
@@ -164,9 +158,8 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->macFormatInNonRequestURI) ?: $this->macFormatInNonRequestURI->value();
     }
 
-    public function setUseHttpDigestAuthentication($useHttpDigestAuthentication)
+    public function setUseHttpDigestAuthentication(xs:boolean $useHttpDigestAuthentication = null)
     {
-        $useHttpDigestAuthentication and $this->useHttpDigestAuthentication = new xs:boolean($useHttpDigestAuthentication);
     }
 
     public function getUseHttpDigestAuthentication()
@@ -174,9 +167,8 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication->value();
     }
 
-    public function setMacBasedFileAuthentication($macBasedFileAuthentication)
+    public function setMacBasedFileAuthentication(xs:boolean $macBasedFileAuthentication = null)
     {
-        $macBasedFileAuthentication and $this->macBasedFileAuthentication = new xs:boolean($macBasedFileAuthentication);
     }
 
     public function getMacBasedFileAuthentication()
@@ -184,9 +176,8 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication->value();
     }
 
-    public function setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication)
+    public function setUserNamePasswordFileAuthentication(xs:boolean $userNamePasswordFileAuthentication = null)
     {
-        $userNamePasswordFileAuthentication and $this->userNamePasswordFileAuthentication = new xs:boolean($userNamePasswordFileAuthentication);
     }
 
     public function getUserNamePasswordFileAuthentication()
@@ -194,9 +185,8 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication->value();
     }
 
-    public function setCompletionNotification($completionNotification)
+    public function setCompletionNotification(xs:boolean $completionNotification = null)
     {
-        $completionNotification and $this->completionNotification = new xs:boolean($completionNotification);
     }
 
     public function getCompletionNotification()
@@ -204,9 +194,11 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
         return (!$this->completionNotification) ?: $this->completionNotification->value();
     }
 
-    public function setFileCategory($fileCategory)
+    public function setFileCategory($fileCategory = null)
     {
-        $fileCategory and $this->fileCategory = new DeviceManagementFileCategory($fileCategory);
+        $this->fileCategory = ($fileCategory InstanceOf DeviceManagementFileCategory)
+             ? $fileCategory
+             : new DeviceManagementFileCategory($fileCategory);
     }
 
     public function getFileCategory()

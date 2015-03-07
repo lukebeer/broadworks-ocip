@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterStrandedCallProcessingAction;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStrandedCallProcessingAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,36 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $action                 = null;
+    protected $transferPhoneNumber    = null;
+    protected $audioMessageSelection  = null;
+    protected $audioUrlList           = null;
+    protected $audioFileList          = null;
+    protected $audioMediaTypeList     = null;
+    protected $videoMessageSelection  = null;
+    protected $videoUrlList           = null;
+    protected $videoFileList          = null;
+    protected $videoMediaTypeList     = null;
 
-    public function __construct(
-             $action,
-             $transferPhoneNumber=null,
-             $audioMessageSelection=null,
-             CallCenterAnnouncementURLList $audioUrlList=null,
-             CallCenterAnnouncementDescriptionList $audioFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList=null,
-             $videoMessageSelection=null,
-             CallCenterAnnouncementURLList $videoUrlList=null,
-             CallCenterAnnouncementDescriptionList $videoFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList=null
-    ) {
-        $this->action                = $action;
-        $this->transferPhoneNumber   = new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->audioMessageSelection = new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioUrlList          = $audioUrlList;
-        $this->audioFileList         = $audioFileList;
-        $this->audioMediaTypeList    = $audioMediaTypeList;
-        $this->videoMessageSelection = new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoUrlList          = $videoUrlList;
-        $this->videoFileList         = $videoFileList;
-        $this->videoMediaTypeList    = $videoMediaTypeList;
-        $this->args                  = func_get_args();
-    }
 
-    public function setAction($action)
+    public function setAction($action = null)
     {
-        $action and $this->action = new CallCenterStrandedCallProcessingAction($action);
+        $this->action = ($action InstanceOf CallCenterStrandedCallProcessingAction)
+             ? $action
+             : new CallCenterStrandedCallProcessingAction($action);
     }
 
     public function getAction()
@@ -59,9 +47,11 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->action) ?: $this->action->value();
     }
 
-    public function setTransferPhoneNumber($transferPhoneNumber)
+    public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        $transferPhoneNumber and $this->transferPhoneNumber = new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $transferPhoneNumber
+             : new OutgoingDNorSIPURI($transferPhoneNumber);
     }
 
     public function getTransferPhoneNumber()
@@ -69,9 +59,11 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
     }
 
-    public function setAudioMessageSelection($audioMessageSelection)
+    public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        $audioMessageSelection and $this->audioMessageSelection = new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioMessageSelection
+             : new ExtendedFileResourceSelection($audioMessageSelection);
     }
 
     public function getAudioMessageSelection()
@@ -79,9 +71,8 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->value();
     }
 
-    public function setAudioUrlList($audioUrlList)
+    public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $audioUrlList and $this->audioUrlList = new CallCenterAnnouncementURLList($audioUrlList);
     }
 
     public function getAudioUrlList()
@@ -89,9 +80,8 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->audioUrlList) ?: $this->audioUrlList->value();
     }
 
-    public function setAudioFileList($audioFileList)
+    public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $audioFileList and $this->audioFileList = new CallCenterAnnouncementDescriptionList($audioFileList);
     }
 
     public function getAudioFileList()
@@ -99,9 +89,8 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->audioFileList) ?: $this->audioFileList->value();
     }
 
-    public function setAudioMediaTypeList($audioMediaTypeList)
+    public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $audioMediaTypeList and $this->audioMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($audioMediaTypeList);
     }
 
     public function getAudioMediaTypeList()
@@ -109,9 +98,11 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->audioMediaTypeList) ?: $this->audioMediaTypeList->value();
     }
 
-    public function setVideoMessageSelection($videoMessageSelection)
+    public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        $videoMessageSelection and $this->videoMessageSelection = new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoMessageSelection
+             : new ExtendedFileResourceSelection($videoMessageSelection);
     }
 
     public function getVideoMessageSelection()
@@ -119,9 +110,8 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->value();
     }
 
-    public function setVideoUrlList($videoUrlList)
+    public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $videoUrlList and $this->videoUrlList = new CallCenterAnnouncementURLList($videoUrlList);
     }
 
     public function getVideoUrlList()
@@ -129,9 +119,8 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->videoUrlList) ?: $this->videoUrlList->value();
     }
 
-    public function setVideoFileList($videoFileList)
+    public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $videoFileList and $this->videoFileList = new CallCenterAnnouncementDescriptionList($videoFileList);
     }
 
     public function getVideoFileList()
@@ -139,9 +128,8 @@ class GroupCallCenterStrandedCallGetResponse17 extends ComplexType implements Co
         return (!$this->videoFileList) ?: $this->videoFileList->value();
     }
 
-    public function setVideoMediaTypeList($videoMediaTypeList)
+    public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $videoMediaTypeList and $this->videoMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($videoMediaTypeList);
     }
 
     public function getVideoMediaTypeList()

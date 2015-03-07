@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticHoldRetrieve; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticHoldRetrieveRecallTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticHoldRetrieve\AutomaticHoldRetrieveRecallTimerSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $isActive            = null;
+    protected $recallTimerSeconds  = null;
 
-    public function __construct(
-             $isActive,
-             $recallTimerSeconds
-    ) {
-        $this->isActive           = $isActive;
-        $this->recallTimerSeconds = $recallTimerSeconds;
-        $this->args               = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -39,9 +31,11 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setRecallTimerSeconds($recallTimerSeconds)
+    public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
-        $recallTimerSeconds and $this->recallTimerSeconds = new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
+        $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf AutomaticHoldRetrieveRecallTimerSeconds)
+             ? $recallTimerSeconds
+             : new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
     }
 
     public function getRecallTimerSeconds()

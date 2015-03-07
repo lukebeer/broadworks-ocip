@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneNetAddressGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $netAddress       = null;
+    protected $netAddressRange  = null;
 
-    public function __construct(
-             $netAddress=null,
-             IPAddressRange $netAddressRange=null
-    ) {
-        $this->netAddress      = new IPAddress($netAddress);
-        $this->netAddressRange = $netAddressRange;
-        $this->args            = func_get_args();
-    }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new IPAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf IPAddress)
+             ? $netAddress
+             : new IPAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -39,9 +35,8 @@ class SystemZoneNetAddressGetListResponse extends ComplexType implements Complex
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setNetAddressRange($netAddressRange)
+    public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        $netAddressRange and $this->netAddressRange = new IPAddressRange($netAddressRange);
     }
 
     public function getNetAddressRange()

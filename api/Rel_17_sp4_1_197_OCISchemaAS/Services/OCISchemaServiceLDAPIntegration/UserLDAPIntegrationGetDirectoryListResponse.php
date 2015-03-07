@@ -7,10 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPColumnLabel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPPageNumber;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPColumnLabel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPPageNumber;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +19,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $ldapEntryTable  = null;
+    protected $searchLabel     = null;
+    protected $hasMoreEntries  = null;
+    protected $lastPageNumber  = null;
 
-    public function __construct(
-             $ldapEntryTable,
-             $searchLabel,
-             $hasMoreEntries,
-             $lastPageNumber=null
-    ) {
-        $this->ldapEntryTable = $ldapEntryTable;
-        $this->searchLabel    = $searchLabel;
-        $this->hasMoreEntries = $hasMoreEntries;
-        $this->lastPageNumber = $lastPageNumber;
-        $this->args           = func_get_args();
-    }
 
-    public function setLdapEntryTable($ldapEntryTable)
+    public function setLdapEntryTable(core:OCITable $ldapEntryTable = null)
     {
-        $ldapEntryTable and $this->ldapEntryTable = new core:OCITable($ldapEntryTable);
     }
 
     public function getLdapEntryTable()
@@ -46,9 +35,11 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
         return (!$this->ldapEntryTable) ?: $this->ldapEntryTable->value();
     }
 
-    public function setSearchLabel($searchLabel)
+    public function setSearchLabel($searchLabel = null)
     {
-        $searchLabel and $this->searchLabel = new LDAPColumnLabel($searchLabel);
+        $this->searchLabel = ($searchLabel InstanceOf LDAPColumnLabel)
+             ? $searchLabel
+             : new LDAPColumnLabel($searchLabel);
     }
 
     public function getSearchLabel()
@@ -56,9 +47,8 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
         return (!$this->searchLabel) ?: $this->searchLabel->value();
     }
 
-    public function setHasMoreEntries($hasMoreEntries)
+    public function setHasMoreEntries(xs:boolean $hasMoreEntries = null)
     {
-        $hasMoreEntries and $this->hasMoreEntries = new xs:boolean($hasMoreEntries);
     }
 
     public function getHasMoreEntries()
@@ -66,9 +56,11 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
         return (!$this->hasMoreEntries) ?: $this->hasMoreEntries->value();
     }
 
-    public function setLastPageNumber($lastPageNumber)
+    public function setLastPageNumber($lastPageNumber = null)
     {
-        $lastPageNumber and $this->lastPageNumber = new LDAPPageNumber($lastPageNumber);
+        $this->lastPageNumber = ($lastPageNumber InstanceOf LDAPPageNumber)
+             ? $lastPageNumber
+             : new LDAPPageNumber($lastPageNumber);
     }
 
     public function getLastPageNumber()

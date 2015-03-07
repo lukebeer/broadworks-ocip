@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMDIDeleteACLEntryRequest14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $netAddress  = null;
 
     public function __construct(
-             $netAddress
+         $netAddress
     ) {
-        $this->netAddress = new IPAddress($netAddress);
-        $this->args       = func_get_args();
+        $this->setNetAddress($netAddress);
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new IPAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf IPAddress)
+             ? $netAddress
+             : new IPAddress($netAddress);
     }
 
     public function getNetAddress()

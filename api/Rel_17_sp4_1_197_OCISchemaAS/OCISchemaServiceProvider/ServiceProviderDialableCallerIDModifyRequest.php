@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $serviceProviderId           = null;
+    protected $useServiceProviderCriteria  = null;
+    protected $nsScreeningFailurePolicy    = null;
+    protected $criteriaPriorityOrder       = null;
 
     public function __construct(
-             $serviceProviderId,
-             $useServiceProviderCriteria=null,
-             $nsScreeningFailurePolicy=null,
-             DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder=null
+         $serviceProviderId,
+         $useServiceProviderCriteria = null,
+         $nsScreeningFailurePolicy = null,
+         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
     ) {
-        $this->serviceProviderId          = new ServiceProviderId($serviceProviderId);
-        $this->useServiceProviderCriteria = $useServiceProviderCriteria;
-        $this->nsScreeningFailurePolicy   = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
-        $this->criteriaPriorityOrder      = $criteriaPriorityOrder;
-        $this->args                       = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setUseServiceProviderCriteria($useServiceProviderCriteria);
+        $this->setNsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -46,9 +50,8 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setUseServiceProviderCriteria($useServiceProviderCriteria)
+    public function setUseServiceProviderCriteria(xs:boolean $useServiceProviderCriteria = null)
     {
-        $useServiceProviderCriteria and $this->useServiceProviderCriteria = new xs:boolean($useServiceProviderCriteria);
     }
 
     public function getUseServiceProviderCriteria()
@@ -56,9 +59,11 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria->value();
     }
 
-    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy)
+    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
-        $nsScreeningFailurePolicy and $this->nsScreeningFailurePolicy = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
+             ? $nsScreeningFailurePolicy
+             : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
     }
 
     public function getNsScreeningFailurePolicy()
@@ -66,9 +71,8 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->value();
     }
 
-    public function setCriteriaPriorityOrder($criteriaPriorityOrder)
+    public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        $criteriaPriorityOrder and $this->criteriaPriorityOrder = new DialableCallerIDCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
     public function getCriteriaPriorityOrder()

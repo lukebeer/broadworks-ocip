@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -32,23 +31,23 @@ class CallBlockingService extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'OCP',
-                                              'EOCP',
-                                              'ICP',
-                                              'ACR',
-                                              'SCR',
-                                              'SCA',
-                                              'AAC',
-                                              'Intercept',
-                                              'PTT',
-                                              'Communication Barring',
-                                              'SAC',
-                                              'Incoming Communication Barring',
-                                              'Hierarchical Communication Barring',
-                                              'Incoming Hierarchical Communication Barring',
-                                              'BroadWorks Mobility Deny Originations',
-                                              'BroadWorks Mobility Deny Terminations'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'OCP',
+            'EOCP',
+            'ICP',
+            'ACR',
+            'SCR',
+            'SCA',
+            'AAC',
+            'Intercept',
+            'PTT',
+            'Communication Barring',
+            'SAC',
+            'Incoming Communication Barring',
+            'Hierarchical Communication Barring',
+            'Incoming Hierarchical Communication Barring',
+            'BroadWorks Mobility Deny Originations',
+            'BroadWorks Mobility Deny Terminations'
+        ]));
     }
 }

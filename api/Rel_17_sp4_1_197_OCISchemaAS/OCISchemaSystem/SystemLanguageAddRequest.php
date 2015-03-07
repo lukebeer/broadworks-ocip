@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $language  = null;
+    protected $locale    = null;
+    protected $encoding  = null;
 
     public function __construct(
-             $language,
-             $locale,
-             $encoding
+         $language,
+         $locale,
+         $encoding
     ) {
-        $this->language = new Language($language);
-        $this->locale   = new OCILocale($locale);
-        $this->encoding = new Encoding($encoding);
-        $this->args     = func_get_args();
+        $this->setLanguage($language);
+        $this->setLocale($locale);
+        $this->setEncoding($encoding);
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()
@@ -43,9 +47,11 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
         return (!$this->language) ?: $this->language->value();
     }
 
-    public function setLocale($locale)
+    public function setLocale($locale = null)
     {
-        $locale and $this->locale = new OCILocale($locale);
+        $this->locale = ($locale InstanceOf OCILocale)
+             ? $locale
+             : new OCILocale($locale);
     }
 
     public function getLocale()
@@ -53,9 +59,11 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
         return (!$this->locale) ?: $this->locale->value();
     }
 
-    public function setEncoding($encoding)
+    public function setEncoding($encoding = null)
     {
-        $encoding and $this->encoding = new Encoding($encoding);
+        $this->encoding = ($encoding InstanceOf Encoding)
+             ? $encoding
+             : new Encoding($encoding);
     }
 
     public function getEncoding()

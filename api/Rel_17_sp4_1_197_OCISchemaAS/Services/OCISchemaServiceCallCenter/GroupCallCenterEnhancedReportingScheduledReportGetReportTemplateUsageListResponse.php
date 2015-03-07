@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $scheduleReportTable  = null;
 
-    public function __construct(
-             $scheduleReportTable
-    ) {
-        $this->scheduleReportTable = $scheduleReportTable;
-        $this->args                = func_get_args();
-    }
 
-    public function setScheduleReportTable($scheduleReportTable)
+    public function setScheduleReportTable(core:OCITable $scheduleReportTable = null)
     {
-        $scheduleReportTable and $this->scheduleReportTable = new core:OCITable($scheduleReportTable);
     }
 
     public function getScheduleReportTable()

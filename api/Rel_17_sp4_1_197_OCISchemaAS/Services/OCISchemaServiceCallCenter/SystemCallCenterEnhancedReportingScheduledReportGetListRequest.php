@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaCallCenterScheduledReportName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactCallCenterScheduledReportServiceProvider;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaCallCenterReportTemplateName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterScheduledReportName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterReportTemplateName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,28 +23,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                                             = __CLASS__;
+    protected $responseSizeLimit                                                = null;
+    protected $searchCriteriaCallCenterScheduledReportName                      = null;
+    protected $searchCriteriaGroupId                                            = null;
+    protected $searchCriteriaExactCallCenterScheduledReportServiceProvider      = null;
+    protected $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor  = null;
+    protected $searchCriteriaCallCenterReportTemplateName                       = null;
 
     public function __construct(
-             $responseSizeLimit=null,
-             $searchCriteriaCallCenterScheduledReportName=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaExactCallCenterScheduledReportServiceProvider=null,
-             $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor=null,
-             $searchCriteriaCallCenterReportTemplateName=null
+         $responseSizeLimit = null,
+         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider = null,
+         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+         SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName = null
     ) {
-        $this->responseSizeLimit                                               = $responseSizeLimit;
-        $this->searchCriteriaCallCenterScheduledReportName                     = $searchCriteriaCallCenterScheduledReportName;
-        $this->searchCriteriaGroupId                                           = $searchCriteriaGroupId;
-        $this->searchCriteriaExactCallCenterScheduledReportServiceProvider     = $searchCriteriaExactCallCenterScheduledReportServiceProvider;
-        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
-        $this->searchCriteriaCallCenterReportTemplateName                      = $searchCriteriaCallCenterReportTemplateName;
-        $this->args                                                            = func_get_args();
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaExactCallCenterScheduledReportServiceProvider($searchCriteriaExactCallCenterScheduledReportServiceProvider);
+        $this->setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor);
+        $this->setSearchCriteriaCallCenterReportTemplateName($searchCriteriaCallCenterReportTemplateName);
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -52,9 +59,8 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName)
+    public function setSearchCriteriaCallCenterScheduledReportName(SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null)
     {
-        $searchCriteriaCallCenterScheduledReportName and $this->searchCriteriaCallCenterScheduledReportName = new SearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
     }
 
     public function getSearchCriteriaCallCenterScheduledReportName()
@@ -62,9 +68,8 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
         return (!$this->searchCriteriaCallCenterScheduledReportName) ?: $this->searchCriteriaCallCenterScheduledReportName->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -72,9 +77,8 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaExactCallCenterScheduledReportServiceProvider($searchCriteriaExactCallCenterScheduledReportServiceProvider)
+    public function setSearchCriteriaExactCallCenterScheduledReportServiceProvider(SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider = null)
     {
-        $searchCriteriaExactCallCenterScheduledReportServiceProvider and $this->searchCriteriaExactCallCenterScheduledReportServiceProvider = new SearchCriteriaExactCallCenterScheduledReportServiceProvider($searchCriteriaExactCallCenterScheduledReportServiceProvider);
     }
 
     public function getSearchCriteriaExactCallCenterScheduledReportServiceProvider()
@@ -82,9 +86,8 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
         return (!$this->searchCriteriaExactCallCenterScheduledReportServiceProvider) ?: $this->searchCriteriaExactCallCenterScheduledReportServiceProvider->value();
     }
 
-    public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor)
+    public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor(SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null)
     {
-        $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor and $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = new SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor);
     }
 
     public function getSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor()
@@ -92,9 +95,8 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
         return (!$this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor) ?: $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor->value();
     }
 
-    public function setSearchCriteriaCallCenterReportTemplateName($searchCriteriaCallCenterReportTemplateName)
+    public function setSearchCriteriaCallCenterReportTemplateName(SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName = null)
     {
-        $searchCriteriaCallCenterReportTemplateName and $this->searchCriteriaCallCenterReportTemplateName = new SearchCriteriaCallCenterReportTemplateName($searchCriteriaCallCenterReportTemplateName);
     }
 
     public function getSearchCriteriaCallCenterReportTemplateName()

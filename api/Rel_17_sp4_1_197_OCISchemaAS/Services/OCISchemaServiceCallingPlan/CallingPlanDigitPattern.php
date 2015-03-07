@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPlan; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
 use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
@@ -27,7 +26,7 @@ class CallingPlanDigitPattern extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this->addRestriction(new MinLength(1));
-        $this->addRestriction(new MaxLength(160));
+        $this->addRestriction(new MinLength("1"));
+        $this->addRestriction(new MaxLength("160"));
     }
 }

@@ -7,14 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,32 +22,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $loginType            = null;
+    protected $locale               = null;
+    protected $encoding             = null;
+    protected $groupId              = null;
+    protected $serviceProviderId    = null;
+    protected $isEnterprise         = null;
+    protected $passwordExpiresDays  = null;
+    protected $userDomain           = null;
 
-    public function __construct(
-             $loginType,
-             $locale,
-             $encoding,
-             $groupId=null,
-             $serviceProviderId=null,
-             $isEnterprise,
-             $passwordExpiresDays=null,
-             $userDomain
-    ) {
-        $this->loginType           = new LoginType($loginType);
-        $this->locale              = new OCILocale($locale);
-        $this->encoding            = new Encoding($encoding);
-        $this->groupId             = new GroupId($groupId);
-        $this->serviceProviderId   = new ServiceProviderId($serviceProviderId);
-        $this->isEnterprise        = $isEnterprise;
-        $this->passwordExpiresDays = $passwordExpiresDays;
-        $this->userDomain          = new NetAddress($userDomain);
-        $this->args                = func_get_args();
-    }
 
-    public function setLoginType($loginType)
+    public function setLoginType($loginType = null)
     {
-        $loginType and $this->loginType = new LoginType($loginType);
+        $this->loginType = ($loginType InstanceOf LoginType)
+             ? $loginType
+             : new LoginType($loginType);
     }
 
     public function getLoginType()
@@ -57,9 +45,11 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         return (!$this->loginType) ?: $this->loginType->value();
     }
 
-    public function setLocale($locale)
+    public function setLocale($locale = null)
     {
-        $locale and $this->locale = new OCILocale($locale);
+        $this->locale = ($locale InstanceOf OCILocale)
+             ? $locale
+             : new OCILocale($locale);
     }
 
     public function getLocale()
@@ -67,9 +57,11 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         return (!$this->locale) ?: $this->locale->value();
     }
 
-    public function setEncoding($encoding)
+    public function setEncoding($encoding = null)
     {
-        $encoding and $this->encoding = new Encoding($encoding);
+        $this->encoding = ($encoding InstanceOf Encoding)
+             ? $encoding
+             : new Encoding($encoding);
     }
 
     public function getEncoding()
@@ -77,9 +69,11 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         return (!$this->encoding) ?: $this->encoding->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -87,9 +81,11 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -97,9 +93,8 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setIsEnterprise($isEnterprise)
+    public function setIsEnterprise(xs:boolean $isEnterprise = null)
     {
-        $isEnterprise and $this->isEnterprise = new xs:boolean($isEnterprise);
     }
 
     public function getIsEnterprise()
@@ -107,9 +102,8 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         return (!$this->isEnterprise) ?: $this->isEnterprise->value();
     }
 
-    public function setPasswordExpiresDays($passwordExpiresDays)
+    public function setPasswordExpiresDays(xs:int $passwordExpiresDays = null)
     {
-        $passwordExpiresDays and $this->passwordExpiresDays = new xs:int($passwordExpiresDays);
     }
 
     public function getPasswordExpiresDays()
@@ -117,9 +111,11 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->value();
     }
 
-    public function setUserDomain($userDomain)
+    public function setUserDomain($userDomain = null)
     {
-        $userDomain and $this->userDomain = new NetAddress($userDomain);
+        $this->userDomain = ($userDomain InstanceOf NetAddress)
+             ? $userDomain
+             : new NetAddress($userDomain);
     }
 
     public function getUserDomain()

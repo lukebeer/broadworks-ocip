@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ClientSessionTimeoutMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ClientSessionTimeoutMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemClientSessionParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $enableInactivityTimeout   = null;
+    protected $inactivityTimeoutMinutes  = null;
 
-    public function __construct(
-             $enableInactivityTimeout,
-             $inactivityTimeoutMinutes
-    ) {
-        $this->enableInactivityTimeout  = $enableInactivityTimeout;
-        $this->inactivityTimeoutMinutes = $inactivityTimeoutMinutes;
-        $this->args                     = func_get_args();
-    }
 
-    public function setEnableInactivityTimeout($enableInactivityTimeout)
+    public function setEnableInactivityTimeout(xs:boolean $enableInactivityTimeout = null)
     {
-        $enableInactivityTimeout and $this->enableInactivityTimeout = new xs:boolean($enableInactivityTimeout);
     }
 
     public function getEnableInactivityTimeout()
@@ -40,9 +32,11 @@ class SystemClientSessionParametersGetResponse extends ComplexType implements Co
         return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout->value();
     }
 
-    public function setInactivityTimeoutMinutes($inactivityTimeoutMinutes)
+    public function setInactivityTimeoutMinutes($inactivityTimeoutMinutes = null)
     {
-        $inactivityTimeoutMinutes and $this->inactivityTimeoutMinutes = new ClientSessionTimeoutMinutes($inactivityTimeoutMinutes);
+        $this->inactivityTimeoutMinutes = ($inactivityTimeoutMinutes InstanceOf ClientSessionTimeoutMinutes)
+             ? $inactivityTimeoutMinutes
+             : new ClientSessionTimeoutMinutes($inactivityTimeoutMinutes);
     }
 
     public function getInactivityTimeoutMinutes()

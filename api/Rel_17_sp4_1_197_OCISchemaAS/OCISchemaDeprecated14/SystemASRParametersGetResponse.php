@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ASRMaxTransmissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ASRRetransmissionDelayMilliSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRRetransmissionDelayMilliSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRMaxTransmissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,22 +21,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemASRParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $maxTransmissions                 = null;
+    protected $retransmissionDelayMilliSeconds  = null;
+    protected $listeningPort                    = null;
 
-    public function __construct(
-             $maxTransmissions,
-             $retransmissionDelayMilliSeconds,
-             $listeningPort
-    ) {
-        $this->maxTransmissions                = $maxTransmissions;
-        $this->retransmissionDelayMilliSeconds = $retransmissionDelayMilliSeconds;
-        $this->listeningPort                   = new Port1025($listeningPort);
-        $this->args                            = func_get_args();
-    }
 
-    public function setMaxTransmissions($maxTransmissions)
+    public function setMaxTransmissions($maxTransmissions = null)
     {
-        $maxTransmissions and $this->maxTransmissions = new ASRMaxTransmissions($maxTransmissions);
+        $this->maxTransmissions = ($maxTransmissions InstanceOf ASRMaxTransmissions)
+             ? $maxTransmissions
+             : new ASRMaxTransmissions($maxTransmissions);
     }
 
     public function getMaxTransmissions()
@@ -44,9 +39,11 @@ class SystemASRParametersGetResponse extends ComplexType implements ComplexInter
         return (!$this->maxTransmissions) ?: $this->maxTransmissions->value();
     }
 
-    public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds)
+    public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
-        $retransmissionDelayMilliSeconds and $this->retransmissionDelayMilliSeconds = new ASRRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
+        $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf ASRRetransmissionDelayMilliSeconds)
+             ? $retransmissionDelayMilliSeconds
+             : new ASRRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
     }
 
     public function getRetransmissionDelayMilliSeconds()
@@ -54,9 +51,11 @@ class SystemASRParametersGetResponse extends ComplexType implements ComplexInter
         return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->value();
     }
 
-    public function setListeningPort($listeningPort)
+    public function setListeningPort($listeningPort = null)
     {
-        $listeningPort and $this->listeningPort = new Port1025($listeningPort);
+        $this->listeningPort = ($listeningPort InstanceOf Port1025)
+             ? $listeningPort
+             : new Port1025($listeningPort);
     }
 
     public function getListeningPort()

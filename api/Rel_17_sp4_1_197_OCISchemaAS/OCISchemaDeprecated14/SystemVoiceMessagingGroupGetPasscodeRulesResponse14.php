@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMinPasscodeCodeLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMaxPasscodeCodeLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMaxFailedLoginAttempts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingPasscodeExpiresDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\VoiceMessagingMaxFailedLoginAttempts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\VoiceMessagingMinPasscodeCodeLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\VoiceMessagingMaxPasscodeCodeLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\VoiceMessagingPasscodeExpiresDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -25,44 +24,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                     = __CLASS__;
+    protected $disallowRepeatedDigits                   = null;
+    protected $disallowUserNumber                       = null;
+    protected $disallowReversedUserNumber               = null;
+    protected $disallowOldPasscode                      = null;
+    protected $disallowReversedOldPasscode              = null;
+    protected $minCodeLength                            = null;
+    protected $maxCodeLength                            = null;
+    protected $disableLoginAfterMaxFailedLoginAttempts  = null;
+    protected $maxFailedLoginAttempts                   = null;
+    protected $expirePassword                           = null;
+    protected $passcodeExpiresDays                      = null;
+    protected $sendLoginDisabledNotifyEmail             = null;
+    protected $loginDisabledNotifyEmailAddress          = null;
+    protected $defaultPassword                          = null;
 
-    public function __construct(
-             $disallowRepeatedDigits,
-             $disallowUserNumber,
-             $disallowReversedUserNumber,
-             $disallowOldPasscode,
-             $disallowReversedOldPasscode,
-             $minCodeLength,
-             $maxCodeLength,
-             $disableLoginAfterMaxFailedLoginAttempts,
-             $maxFailedLoginAttempts=null,
-             $expirePassword,
-             $passcodeExpiresDays=null,
-             $sendLoginDisabledNotifyEmail,
-             $loginDisabledNotifyEmailAddress=null,
-             $defaultPassword
-    ) {
-        $this->disallowRepeatedDigits                  = $disallowRepeatedDigits;
-        $this->disallowUserNumber                      = $disallowUserNumber;
-        $this->disallowReversedUserNumber              = $disallowReversedUserNumber;
-        $this->disallowOldPasscode                     = $disallowOldPasscode;
-        $this->disallowReversedOldPasscode             = $disallowReversedOldPasscode;
-        $this->minCodeLength                           = $minCodeLength;
-        $this->maxCodeLength                           = $maxCodeLength;
-        $this->disableLoginAfterMaxFailedLoginAttempts = $disableLoginAfterMaxFailedLoginAttempts;
-        $this->maxFailedLoginAttempts                  = $maxFailedLoginAttempts;
-        $this->expirePassword                          = $expirePassword;
-        $this->passcodeExpiresDays                     = $passcodeExpiresDays;
-        $this->sendLoginDisabledNotifyEmail            = $sendLoginDisabledNotifyEmail;
-        $this->loginDisabledNotifyEmailAddress         = new EmailAddress($loginDisabledNotifyEmailAddress);
-        $this->defaultPassword                         = new Password($defaultPassword);
-        $this->args                                    = func_get_args();
-    }
 
-    public function setDisallowRepeatedDigits($disallowRepeatedDigits)
+    public function setDisallowRepeatedDigits(xs:boolean $disallowRepeatedDigits = null)
     {
-        $disallowRepeatedDigits and $this->disallowRepeatedDigits = new xs:boolean($disallowRepeatedDigits);
     }
 
     public function getDisallowRepeatedDigits()
@@ -70,9 +50,8 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits->value();
     }
 
-    public function setDisallowUserNumber($disallowUserNumber)
+    public function setDisallowUserNumber(xs:boolean $disallowUserNumber = null)
     {
-        $disallowUserNumber and $this->disallowUserNumber = new xs:boolean($disallowUserNumber);
     }
 
     public function getDisallowUserNumber()
@@ -80,9 +59,8 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->disallowUserNumber) ?: $this->disallowUserNumber->value();
     }
 
-    public function setDisallowReversedUserNumber($disallowReversedUserNumber)
+    public function setDisallowReversedUserNumber(xs:boolean $disallowReversedUserNumber = null)
     {
-        $disallowReversedUserNumber and $this->disallowReversedUserNumber = new xs:boolean($disallowReversedUserNumber);
     }
 
     public function getDisallowReversedUserNumber()
@@ -90,9 +68,8 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber->value();
     }
 
-    public function setDisallowOldPasscode($disallowOldPasscode)
+    public function setDisallowOldPasscode(xs:boolean $disallowOldPasscode = null)
     {
-        $disallowOldPasscode and $this->disallowOldPasscode = new xs:boolean($disallowOldPasscode);
     }
 
     public function getDisallowOldPasscode()
@@ -100,9 +77,8 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode->value();
     }
 
-    public function setDisallowReversedOldPasscode($disallowReversedOldPasscode)
+    public function setDisallowReversedOldPasscode(xs:boolean $disallowReversedOldPasscode = null)
     {
-        $disallowReversedOldPasscode and $this->disallowReversedOldPasscode = new xs:boolean($disallowReversedOldPasscode);
     }
 
     public function getDisallowReversedOldPasscode()
@@ -110,9 +86,11 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode->value();
     }
 
-    public function setMinCodeLength($minCodeLength)
+    public function setMinCodeLength($minCodeLength = null)
     {
-        $minCodeLength and $this->minCodeLength = new VoiceMessagingMinPasscodeCodeLength($minCodeLength);
+        $this->minCodeLength = ($minCodeLength InstanceOf VoiceMessagingMinPasscodeCodeLength)
+             ? $minCodeLength
+             : new VoiceMessagingMinPasscodeCodeLength($minCodeLength);
     }
 
     public function getMinCodeLength()
@@ -120,9 +98,11 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->minCodeLength) ?: $this->minCodeLength->value();
     }
 
-    public function setMaxCodeLength($maxCodeLength)
+    public function setMaxCodeLength($maxCodeLength = null)
     {
-        $maxCodeLength and $this->maxCodeLength = new VoiceMessagingMaxPasscodeCodeLength($maxCodeLength);
+        $this->maxCodeLength = ($maxCodeLength InstanceOf VoiceMessagingMaxPasscodeCodeLength)
+             ? $maxCodeLength
+             : new VoiceMessagingMaxPasscodeCodeLength($maxCodeLength);
     }
 
     public function getMaxCodeLength()
@@ -130,9 +110,8 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->maxCodeLength) ?: $this->maxCodeLength->value();
     }
 
-    public function setDisableLoginAfterMaxFailedLoginAttempts($disableLoginAfterMaxFailedLoginAttempts)
+    public function setDisableLoginAfterMaxFailedLoginAttempts(xs:boolean $disableLoginAfterMaxFailedLoginAttempts = null)
     {
-        $disableLoginAfterMaxFailedLoginAttempts and $this->disableLoginAfterMaxFailedLoginAttempts = new xs:boolean($disableLoginAfterMaxFailedLoginAttempts);
     }
 
     public function getDisableLoginAfterMaxFailedLoginAttempts()
@@ -140,9 +119,11 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts->value();
     }
 
-    public function setMaxFailedLoginAttempts($maxFailedLoginAttempts)
+    public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        $maxFailedLoginAttempts and $this->maxFailedLoginAttempts = new VoiceMessagingMaxFailedLoginAttempts($maxFailedLoginAttempts);
+        $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf VoiceMessagingMaxFailedLoginAttempts)
+             ? $maxFailedLoginAttempts
+             : new VoiceMessagingMaxFailedLoginAttempts($maxFailedLoginAttempts);
     }
 
     public function getMaxFailedLoginAttempts()
@@ -150,9 +131,8 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->value();
     }
 
-    public function setExpirePassword($expirePassword)
+    public function setExpirePassword(xs:boolean $expirePassword = null)
     {
-        $expirePassword and $this->expirePassword = new xs:boolean($expirePassword);
     }
 
     public function getExpirePassword()
@@ -160,9 +140,11 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->expirePassword) ?: $this->expirePassword->value();
     }
 
-    public function setPasscodeExpiresDays($passcodeExpiresDays)
+    public function setPasscodeExpiresDays($passcodeExpiresDays = null)
     {
-        $passcodeExpiresDays and $this->passcodeExpiresDays = new VoiceMessagingPasscodeExpiresDays($passcodeExpiresDays);
+        $this->passcodeExpiresDays = ($passcodeExpiresDays InstanceOf VoiceMessagingPasscodeExpiresDays)
+             ? $passcodeExpiresDays
+             : new VoiceMessagingPasscodeExpiresDays($passcodeExpiresDays);
     }
 
     public function getPasscodeExpiresDays()
@@ -170,9 +152,8 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->passcodeExpiresDays) ?: $this->passcodeExpiresDays->value();
     }
 
-    public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail)
+    public function setSendLoginDisabledNotifyEmail(xs:boolean $sendLoginDisabledNotifyEmail = null)
     {
-        $sendLoginDisabledNotifyEmail and $this->sendLoginDisabledNotifyEmail = new xs:boolean($sendLoginDisabledNotifyEmail);
     }
 
     public function getSendLoginDisabledNotifyEmail()
@@ -180,9 +161,11 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->value();
     }
 
-    public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress)
+    public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
-        $loginDisabledNotifyEmailAddress and $this->loginDisabledNotifyEmailAddress = new EmailAddress($loginDisabledNotifyEmailAddress);
+        $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
+             ? $loginDisabledNotifyEmailAddress
+             : new EmailAddress($loginDisabledNotifyEmailAddress);
     }
 
     public function getLoginDisabledNotifyEmailAddress()
@@ -190,9 +173,11 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
         return (!$this->loginDisabledNotifyEmailAddress) ?: $this->loginDisabledNotifyEmailAddress->value();
     }
 
-    public function setDefaultPassword($defaultPassword)
+    public function setDefaultPassword($defaultPassword = null)
     {
-        $defaultPassword and $this->defaultPassword = new Password($defaultPassword);
+        $this->defaultPassword = ($defaultPassword InstanceOf Password)
+             ? $defaultPassword
+             : new Password($defaultPassword);
     }
 
     public function getDefaultPassword()

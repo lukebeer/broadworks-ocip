@@ -19,20 +19,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAssignedServicesGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $groupServiceEntry  = null;
+    protected $userServiceEntry   = null;
 
-    public function __construct(
-             AssignedGroupServicesEntry $groupServiceEntry=null,
-             AssignedUserServicesEntry $userServiceEntry=null
-    ) {
-        $this->groupServiceEntry = $groupServiceEntry;
-        $this->userServiceEntry  = $userServiceEntry;
-        $this->args              = func_get_args();
-    }
 
-    public function setGroupServiceEntry($groupServiceEntry)
+    public function setGroupServiceEntry(AssignedGroupServicesEntry $groupServiceEntry = null)
     {
-        $groupServiceEntry and $this->groupServiceEntry = new AssignedGroupServicesEntry($groupServiceEntry);
     }
 
     public function getGroupServiceEntry()
@@ -40,9 +33,8 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
         return (!$this->groupServiceEntry) ?: $this->groupServiceEntry->value();
     }
 
-    public function setUserServiceEntry($userServiceEntry)
+    public function setUserServiceEntry(AssignedUserServicesEntry $userServiceEntry = null)
     {
-        $userServiceEntry and $this->userServiceEntry = new AssignedUserServicesEntry($userServiceEntry);
     }
 
     public function getUserServiceEntry()

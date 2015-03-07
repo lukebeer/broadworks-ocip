@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEDeviceConfigRebuildType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $deviceType   = null;
+    protected $rebuildType  = null;
 
     public function __construct(
-             $deviceType=null,
-             $rebuildType=null
+         $deviceType = null,
+         $rebuildType = null
     ) {
-        $this->deviceType  = new AccessDeviceType($deviceType);
-        $this->rebuildType = new CPEDeviceConfigRebuildType($rebuildType);
-        $this->args        = func_get_args();
+        $this->setDeviceType($deviceType);
+        $this->setRebuildType($rebuildType);
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -41,9 +44,11 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setRebuildType($rebuildType)
+    public function setRebuildType($rebuildType = null)
     {
-        $rebuildType and $this->rebuildType = new CPEDeviceConfigRebuildType($rebuildType);
+        $this->rebuildType = ($rebuildType InstanceOf CPEDeviceConfigRebuildType)
+             ? $rebuildType
+             : new CPEDeviceConfigRebuildType($rebuildType);
     }
 
     public function getRebuildType()

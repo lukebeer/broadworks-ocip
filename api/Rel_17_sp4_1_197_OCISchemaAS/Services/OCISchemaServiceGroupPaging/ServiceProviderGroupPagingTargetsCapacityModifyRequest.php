@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingMaxTargetCapacity;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPagingMaxTargetCapacity;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $maximumTargetUsers  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $maximumTargetUsers=null
+         $serviceProviderId,
+         $maximumTargetUsers = null
     ) {
-        $this->serviceProviderId  = new ServiceProviderId($serviceProviderId);
-        $this->maximumTargetUsers = $maximumTargetUsers;
-        $this->args               = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setMaximumTargetUsers($maximumTargetUsers);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,11 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setMaximumTargetUsers($maximumTargetUsers)
+    public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
-        $maximumTargetUsers and $this->maximumTargetUsers = new GroupPagingMaxTargetCapacity($maximumTargetUsers);
+        $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
+             ? $maximumTargetUsers
+             : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
     }
 
     public function getMaximumTargetUsers()

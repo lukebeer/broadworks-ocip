@@ -7,17 +7,16 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfileTrunkGroup;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointAdd;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncomingCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationPassword;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointAdd;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncomingCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -30,38 +29,50 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $serviceProviderId          = null;
+    protected $groupId                    = null;
+    protected $serviceUserId              = null;
+    protected $serviceInstanceProfile     = null;
+    protected $accessDeviceEndpoint       = null;
+    protected $maxActiveCalls             = null;
+    protected $maxIncomingCalls           = null;
+    protected $maxOutgoingCalls           = null;
+    protected $requireAuthentication      = null;
+    protected $sipAuthenticationUserName  = null;
+    protected $sipAuthenticationPassword  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $serviceUserId,
-             ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile,
-             AccessDeviceEndpointAdd $accessDeviceEndpoint=null,
-             $maxActiveCalls,
-             $maxIncomingCalls=null,
-             $maxOutgoingCalls=null,
-             $requireAuthentication,
-             $sipAuthenticationUserName=null,
-             $sipAuthenticationPassword=null
+         $serviceProviderId,
+         $groupId,
+         $serviceUserId,
+         ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile,
+         AccessDeviceEndpointAdd $accessDeviceEndpoint = null,
+         $maxActiveCalls,
+         $maxIncomingCalls = null,
+         $maxOutgoingCalls = null,
+         $requireAuthentication,
+         $sipAuthenticationUserName = null,
+         $sipAuthenticationPassword = null
     ) {
-        $this->serviceProviderId         = new ServiceProviderId($serviceProviderId);
-        $this->groupId                   = new GroupId($groupId);
-        $this->serviceUserId             = new UserId($serviceUserId);
-        $this->serviceInstanceProfile    = $serviceInstanceProfile;
-        $this->accessDeviceEndpoint      = $accessDeviceEndpoint;
-        $this->maxActiveCalls            = new MaxActiveCalls($maxActiveCalls);
-        $this->maxIncomingCalls          = new MaxIncomingCalls($maxIncomingCalls);
-        $this->maxOutgoingCalls          = new MaxOutgoingCalls($maxOutgoingCalls);
-        $this->requireAuthentication     = $requireAuthentication;
-        $this->sipAuthenticationUserName = new SIPAuthenticationUserName($sipAuthenticationUserName);
-        $this->sipAuthenticationPassword = new SIPAuthenticationPassword($sipAuthenticationPassword);
-        $this->args                      = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
+        $this->setMaxActiveCalls($maxActiveCalls);
+        $this->setMaxIncomingCalls($maxIncomingCalls);
+        $this->setMaxOutgoingCalls($maxOutgoingCalls);
+        $this->setRequireAuthentication($requireAuthentication);
+        $this->setSipAuthenticationUserName($sipAuthenticationUserName);
+        $this->setSipAuthenticationPassword($sipAuthenticationPassword);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -69,9 +80,11 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -79,9 +92,11 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -89,9 +104,8 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceAddProfileTrunkGroup($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -99,9 +113,8 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setAccessDeviceEndpoint($accessDeviceEndpoint)
+    public function setAccessDeviceEndpoint(AccessDeviceEndpointAdd $accessDeviceEndpoint = null)
     {
-        $accessDeviceEndpoint and $this->accessDeviceEndpoint = new AccessDeviceEndpointAdd($accessDeviceEndpoint);
     }
 
     public function getAccessDeviceEndpoint()
@@ -109,9 +122,11 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->value();
     }
 
-    public function setMaxActiveCalls($maxActiveCalls)
+    public function setMaxActiveCalls($maxActiveCalls = null)
     {
-        $maxActiveCalls and $this->maxActiveCalls = new MaxActiveCalls($maxActiveCalls);
+        $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
+             ? $maxActiveCalls
+             : new MaxActiveCalls($maxActiveCalls);
     }
 
     public function getMaxActiveCalls()
@@ -119,9 +134,11 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
     }
 
-    public function setMaxIncomingCalls($maxIncomingCalls)
+    public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
-        $maxIncomingCalls and $this->maxIncomingCalls = new MaxIncomingCalls($maxIncomingCalls);
+        $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
+             ? $maxIncomingCalls
+             : new MaxIncomingCalls($maxIncomingCalls);
     }
 
     public function getMaxIncomingCalls()
@@ -129,9 +146,11 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->maxIncomingCalls) ?: $this->maxIncomingCalls->value();
     }
 
-    public function setMaxOutgoingCalls($maxOutgoingCalls)
+    public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
-        $maxOutgoingCalls and $this->maxOutgoingCalls = new MaxOutgoingCalls($maxOutgoingCalls);
+        $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
+             ? $maxOutgoingCalls
+             : new MaxOutgoingCalls($maxOutgoingCalls);
     }
 
     public function getMaxOutgoingCalls()
@@ -139,9 +158,8 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->maxOutgoingCalls) ?: $this->maxOutgoingCalls->value();
     }
 
-    public function setRequireAuthentication($requireAuthentication)
+    public function setRequireAuthentication(xs:boolean $requireAuthentication = null)
     {
-        $requireAuthentication and $this->requireAuthentication = new xs:boolean($requireAuthentication);
     }
 
     public function getRequireAuthentication()
@@ -149,9 +167,11 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->requireAuthentication) ?: $this->requireAuthentication->value();
     }
 
-    public function setSipAuthenticationUserName($sipAuthenticationUserName)
+    public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
-        $sipAuthenticationUserName and $this->sipAuthenticationUserName = new SIPAuthenticationUserName($sipAuthenticationUserName);
+        $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
+             ? $sipAuthenticationUserName
+             : new SIPAuthenticationUserName($sipAuthenticationUserName);
     }
 
     public function getSipAuthenticationUserName()
@@ -159,9 +179,11 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         return (!$this->sipAuthenticationUserName) ?: $this->sipAuthenticationUserName->value();
     }
 
-    public function setSipAuthenticationPassword($sipAuthenticationPassword)
+    public function setSipAuthenticationPassword($sipAuthenticationPassword = null)
     {
-        $sipAuthenticationPassword and $this->sipAuthenticationPassword = new SIPAuthenticationPassword($sipAuthenticationPassword);
+        $this->sipAuthenticationPassword = ($sipAuthenticationPassword InstanceOf SIPAuthenticationPassword)
+             ? $sipAuthenticationPassword
+             : new SIPAuthenticationPassword($sipAuthenticationPassword);
     }
 
     public function getSipAuthenticationPassword()

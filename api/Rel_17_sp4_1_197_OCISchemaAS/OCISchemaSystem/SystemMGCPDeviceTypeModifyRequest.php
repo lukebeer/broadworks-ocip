@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $deviceType  = null;
+    protected $isObsolete  = null;
 
     public function __construct(
-             $deviceType,
-             $isObsolete=null
+         $deviceType,
+         $isObsolete = null
     ) {
-        $this->deviceType = new AccessDeviceType($deviceType);
-        $this->isObsolete = $isObsolete;
-        $this->args       = func_get_args();
+        $this->setDeviceType($deviceType);
+        $this->setIsObsolete($isObsolete);
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -40,9 +42,8 @@ class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexIn
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setIsObsolete($isObsolete)
+    public function setIsObsolete(xs:boolean $isObsolete = null)
     {
-        $isObsolete and $this->isObsolete = new xs:boolean($isObsolete);
     }
 
     public function getIsObsolete()

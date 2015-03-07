@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $supervisorUserId  = null;
+    protected $name              = null;
 
     public function __construct(
-             $supervisorUserId,
-             $name
+         $supervisorUserId,
+         $name
     ) {
-        $this->supervisorUserId = new UserId($supervisorUserId);
-        $this->name             = new CallCenterScheduledReportName($name);
-        $this->args             = func_get_args();
+        $this->setSupervisorUserId($supervisorUserId);
+        $this->setName($name);
     }
 
-    public function setSupervisorUserId($supervisorUserId)
+    public function setSupervisorUserId($supervisorUserId = null)
     {
-        $supervisorUserId and $this->supervisorUserId = new UserId($supervisorUserId);
+        $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
+             ? $supervisorUserId
+             : new UserId($supervisorUserId);
     }
 
     public function getSupervisorUserId()
@@ -40,9 +43,11 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
         return (!$this->supervisorUserId) ?: $this->supervisorUserId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CallCenterScheduledReportName($name);
+        $this->name = ($name InstanceOf CallCenterScheduledReportName)
+             ? $name
+             : new CallCenterScheduledReportName($name);
     }
 
     public function getName()

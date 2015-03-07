@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserINIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $originatingServiceKey  = null;
+    protected $terminatingServiceKey  = null;
 
-    public function __construct(
-             $originatingServiceKey=null,
-             $terminatingServiceKey=null
-    ) {
-        $this->originatingServiceKey = new MobilityManagerServiceKey($originatingServiceKey);
-        $this->terminatingServiceKey = new MobilityManagerServiceKey($terminatingServiceKey);
-        $this->args                  = func_get_args();
-    }
 
-    public function setOriginatingServiceKey($originatingServiceKey)
+    public function setOriginatingServiceKey($originatingServiceKey = null)
     {
-        $originatingServiceKey and $this->originatingServiceKey = new MobilityManagerServiceKey($originatingServiceKey);
+        $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
+             ? $originatingServiceKey
+             : new MobilityManagerServiceKey($originatingServiceKey);
     }
 
     public function getOriginatingServiceKey()
@@ -38,9 +34,11 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
         return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->value();
     }
 
-    public function setTerminatingServiceKey($terminatingServiceKey)
+    public function setTerminatingServiceKey($terminatingServiceKey = null)
     {
-        $terminatingServiceKey and $this->terminatingServiceKey = new MobilityManagerServiceKey($terminatingServiceKey);
+        $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
+             ? $terminatingServiceKey
+             : new MobilityManagerServiceKey($terminatingServiceKey);
     }
 
     public function getTerminatingServiceKey()

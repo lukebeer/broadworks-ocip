@@ -7,15 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -28,38 +26,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $loginType            = null;
+    protected $locale               = null;
+    protected $encoding             = null;
+    protected $groupId              = null;
+    protected $serviceProviderId    = null;
+    protected $isEnterprise         = null;
+    protected $passwordExpiresDays  = null;
+    protected $lastName             = null;
+    protected $firstName            = null;
+    protected $userId               = null;
+    protected $phoneNumber          = null;
 
-    public function __construct(
-             $loginType,
-             $locale,
-             $encoding,
-             $groupId=null,
-             $serviceProviderId=null,
-             $isEnterprise,
-             $passwordExpiresDays=null,
-             $lastName=null,
-             $firstName=null,
-             $userId,
-             $phoneNumber=null
-    ) {
-        $this->loginType           = new LoginType($loginType);
-        $this->locale              = new OCILocale($locale);
-        $this->encoding            = new Encoding($encoding);
-        $this->groupId             = new GroupId($groupId);
-        $this->serviceProviderId   = new ServiceProviderId($serviceProviderId);
-        $this->isEnterprise        = $isEnterprise;
-        $this->passwordExpiresDays = $passwordExpiresDays;
-        $this->lastName            = new LastName($lastName);
-        $this->firstName           = new FirstName($firstName);
-        $this->userId              = new UserId($userId);
-        $this->phoneNumber         = new DN($phoneNumber);
-        $this->args                = func_get_args();
-    }
 
-    public function setLoginType($loginType)
+    public function setLoginType($loginType = null)
     {
-        $loginType and $this->loginType = new LoginType($loginType);
+        $this->loginType = ($loginType InstanceOf LoginType)
+             ? $loginType
+             : new LoginType($loginType);
     }
 
     public function getLoginType()
@@ -67,9 +52,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->loginType) ?: $this->loginType->value();
     }
 
-    public function setLocale($locale)
+    public function setLocale($locale = null)
     {
-        $locale and $this->locale = new OCILocale($locale);
+        $this->locale = ($locale InstanceOf OCILocale)
+             ? $locale
+             : new OCILocale($locale);
     }
 
     public function getLocale()
@@ -77,9 +64,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->locale) ?: $this->locale->value();
     }
 
-    public function setEncoding($encoding)
+    public function setEncoding($encoding = null)
     {
-        $encoding and $this->encoding = new Encoding($encoding);
+        $this->encoding = ($encoding InstanceOf Encoding)
+             ? $encoding
+             : new Encoding($encoding);
     }
 
     public function getEncoding()
@@ -87,9 +76,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->encoding) ?: $this->encoding->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -97,9 +88,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -107,9 +100,8 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setIsEnterprise($isEnterprise)
+    public function setIsEnterprise(xs:boolean $isEnterprise = null)
     {
-        $isEnterprise and $this->isEnterprise = new xs:boolean($isEnterprise);
     }
 
     public function getIsEnterprise()
@@ -117,9 +109,8 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->isEnterprise) ?: $this->isEnterprise->value();
     }
 
-    public function setPasswordExpiresDays($passwordExpiresDays)
+    public function setPasswordExpiresDays(xs:int $passwordExpiresDays = null)
     {
-        $passwordExpiresDays and $this->passwordExpiresDays = new xs:int($passwordExpiresDays);
     }
 
     public function getPasswordExpiresDays()
@@ -127,9 +118,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->value();
     }
 
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
-        $lastName and $this->lastName = new LastName($lastName);
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
     }
 
     public function getLastName()
@@ -137,9 +130,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->lastName) ?: $this->lastName->value();
     }
 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
-        $firstName and $this->firstName = new FirstName($firstName);
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
     }
 
     public function getFirstName()
@@ -147,9 +142,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->firstName) ?: $this->firstName->value();
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -157,9 +154,11 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()

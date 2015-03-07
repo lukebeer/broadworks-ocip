@@ -7,13 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingSelective\CallForwardingSelectiveNumberSelection16;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDnModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallForwardingSelectiveNumberSelection16;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDnModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,32 +24,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $userId                    = null;
+    protected $criteriaName              = null;
+    protected $newCriteriaName           = null;
+    protected $timeSchedule              = null;
+    protected $holidaySchedule           = null;
+    protected $forwardToNumberSelection  = null;
+    protected $forwardToPhoneNumber      = null;
+    protected $fromDnCriteria            = null;
 
     public function __construct(
-             $userId,
-             $criteriaName,
-             $newCriteriaName=null,
-             TimeSchedule $timeSchedule=null,
-             HolidaySchedule $holidaySchedule=null,
-             $forwardToNumberSelection=null,
-             $forwardToPhoneNumber=null,
-             CriteriaFromDnModify $fromDnCriteria=null
+         $userId,
+         $criteriaName,
+         $newCriteriaName = null,
+         TimeSchedule $timeSchedule = null,
+         HolidaySchedule $holidaySchedule = null,
+         $forwardToNumberSelection = null,
+         $forwardToPhoneNumber = null,
+         CriteriaFromDnModify $fromDnCriteria = null
     ) {
-        $this->userId                   = new UserId($userId);
-        $this->criteriaName             = new CriteriaName($criteriaName);
-        $this->newCriteriaName          = new CriteriaName($newCriteriaName);
-        $this->timeSchedule             = $timeSchedule;
-        $this->holidaySchedule          = $holidaySchedule;
-        $this->forwardToNumberSelection = $forwardToNumberSelection;
-        $this->forwardToPhoneNumber     = new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->fromDnCriteria           = $fromDnCriteria;
-        $this->args                     = func_get_args();
+        $this->setUserId($userId);
+        $this->setCriteriaName($criteriaName);
+        $this->setNewCriteriaName($newCriteriaName);
+        $this->setTimeSchedule($timeSchedule);
+        $this->setHolidaySchedule($holidaySchedule);
+        $this->setForwardToNumberSelection($forwardToNumberSelection);
+        $this->setForwardToPhoneNumber($forwardToPhoneNumber);
+        $this->setFromDnCriteria($fromDnCriteria);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -57,9 +66,11 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setCriteriaName($criteriaName)
+    public function setCriteriaName($criteriaName = null)
     {
-        $criteriaName and $this->criteriaName = new CriteriaName($criteriaName);
+        $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
+             ? $criteriaName
+             : new CriteriaName($criteriaName);
     }
 
     public function getCriteriaName()
@@ -67,9 +78,11 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         return (!$this->criteriaName) ?: $this->criteriaName->value();
     }
 
-    public function setNewCriteriaName($newCriteriaName)
+    public function setNewCriteriaName($newCriteriaName = null)
     {
-        $newCriteriaName and $this->newCriteriaName = new CriteriaName($newCriteriaName);
+        $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
+             ? $newCriteriaName
+             : new CriteriaName($newCriteriaName);
     }
 
     public function getNewCriteriaName()
@@ -77,9 +90,8 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         return (!$this->newCriteriaName) ?: $this->newCriteriaName->value();
     }
 
-    public function setTimeSchedule($timeSchedule)
+    public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $timeSchedule and $this->timeSchedule = new TimeSchedule($timeSchedule);
     }
 
     public function getTimeSchedule()
@@ -87,9 +99,8 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         return (!$this->timeSchedule) ?: $this->timeSchedule->value();
     }
 
-    public function setHolidaySchedule($holidaySchedule)
+    public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $holidaySchedule and $this->holidaySchedule = new HolidaySchedule($holidaySchedule);
     }
 
     public function getHolidaySchedule()
@@ -97,9 +108,11 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
     }
 
-    public function setForwardToNumberSelection($forwardToNumberSelection)
+    public function setForwardToNumberSelection($forwardToNumberSelection = null)
     {
-        $forwardToNumberSelection and $this->forwardToNumberSelection = new CallForwardingSelectiveNumberSelection16($forwardToNumberSelection);
+        $this->forwardToNumberSelection = ($forwardToNumberSelection InstanceOf CallForwardingSelectiveNumberSelection16)
+             ? $forwardToNumberSelection
+             : new CallForwardingSelectiveNumberSelection16($forwardToNumberSelection);
     }
 
     public function getForwardToNumberSelection()
@@ -107,9 +120,11 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         return (!$this->forwardToNumberSelection) ?: $this->forwardToNumberSelection->value();
     }
 
-    public function setForwardToPhoneNumber($forwardToPhoneNumber)
+    public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        $forwardToPhoneNumber and $this->forwardToPhoneNumber = new OutgoingDNorSIPURI($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $forwardToPhoneNumber
+             : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
     public function getForwardToPhoneNumber()
@@ -117,9 +132,8 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
     }
 
-    public function setFromDnCriteria($fromDnCriteria)
+    public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        $fromDnCriteria and $this->fromDnCriteria = new CriteriaFromDnModify($fromDnCriteria);
     }
 
     public function getFromDnCriteria()

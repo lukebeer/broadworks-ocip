@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Q850CauseValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Q850CauseValue;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingQ850CauseDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $q850CauseValue  = null;
 
     public function __construct(
-             $q850CauseValue
+         $q850CauseValue
     ) {
-        $this->q850CauseValue = $q850CauseValue;
-        $this->args           = func_get_args();
+        $this->setQ850CauseValue($q850CauseValue);
     }
 
-    public function setQ850CauseValue($q850CauseValue)
+    public function setQ850CauseValue($q850CauseValue = null)
     {
-        $q850CauseValue and $this->q850CauseValue = new Q850CauseValue($q850CauseValue);
+        $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
+             ? $q850CauseValue
+             : new Q850CauseValue($q850CauseValue);
     }
 
     public function getQ850CauseValue()

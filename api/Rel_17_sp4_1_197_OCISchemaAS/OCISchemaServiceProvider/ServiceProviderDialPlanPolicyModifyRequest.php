@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,28 +19,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                       = __CLASS__;
+    protected $serviceProviderId                          = null;
+    protected $requiresAccessCodeForPublicCalls           = null;
+    protected $allowE164PublicCalls                       = null;
+    protected $preferE164NumberFormatForCallbackServices  = null;
+    protected $publicDigitMap                             = null;
+    protected $privateDigitMap                            = null;
 
     public function __construct(
-             $serviceProviderId,
-             $requiresAccessCodeForPublicCalls=null,
-             $allowE164PublicCalls=null,
-             $preferE164NumberFormatForCallbackServices=null,
-             $publicDigitMap=null,
-             $privateDigitMap=null
+         $serviceProviderId,
+         $requiresAccessCodeForPublicCalls = null,
+         $allowE164PublicCalls = null,
+         $preferE164NumberFormatForCallbackServices = null,
+         $publicDigitMap = null,
+         $privateDigitMap = null
     ) {
-        $this->serviceProviderId                         = new ServiceProviderId($serviceProviderId);
-        $this->requiresAccessCodeForPublicCalls          = $requiresAccessCodeForPublicCalls;
-        $this->allowE164PublicCalls                      = $allowE164PublicCalls;
-        $this->preferE164NumberFormatForCallbackServices = $preferE164NumberFormatForCallbackServices;
-        $this->publicDigitMap                            = new DigitMap($publicDigitMap);
-        $this->privateDigitMap                           = new DigitMap($privateDigitMap);
-        $this->args                                      = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls);
+        $this->setAllowE164PublicCalls($allowE164PublicCalls);
+        $this->setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices);
+        $this->setPublicDigitMap($publicDigitMap);
+        $this->setPrivateDigitMap($privateDigitMap);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +55,8 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls)
+    public function setRequiresAccessCodeForPublicCalls(xs:boolean $requiresAccessCodeForPublicCalls = null)
     {
-        $requiresAccessCodeForPublicCalls and $this->requiresAccessCodeForPublicCalls = new xs:boolean($requiresAccessCodeForPublicCalls);
     }
 
     public function getRequiresAccessCodeForPublicCalls()
@@ -59,9 +64,8 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
         return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls->value();
     }
 
-    public function setAllowE164PublicCalls($allowE164PublicCalls)
+    public function setAllowE164PublicCalls(xs:boolean $allowE164PublicCalls = null)
     {
-        $allowE164PublicCalls and $this->allowE164PublicCalls = new xs:boolean($allowE164PublicCalls);
     }
 
     public function getAllowE164PublicCalls()
@@ -69,9 +73,8 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
         return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls->value();
     }
 
-    public function setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices)
+    public function setPreferE164NumberFormatForCallbackServices(xs:boolean $preferE164NumberFormatForCallbackServices = null)
     {
-        $preferE164NumberFormatForCallbackServices and $this->preferE164NumberFormatForCallbackServices = new xs:boolean($preferE164NumberFormatForCallbackServices);
     }
 
     public function getPreferE164NumberFormatForCallbackServices()
@@ -79,9 +82,11 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
         return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices->value();
     }
 
-    public function setPublicDigitMap($publicDigitMap)
+    public function setPublicDigitMap($publicDigitMap = null)
     {
-        $publicDigitMap and $this->publicDigitMap = new DigitMap($publicDigitMap);
+        $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
+             ? $publicDigitMap
+             : new DigitMap($publicDigitMap);
     }
 
     public function getPublicDigitMap()
@@ -89,9 +94,11 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
         return (!$this->publicDigitMap) ?: $this->publicDigitMap->value();
     }
 
-    public function setPrivateDigitMap($privateDigitMap)
+    public function setPrivateDigitMap($privateDigitMap = null)
     {
-        $privateDigitMap and $this->privateDigitMap = new DigitMap($privateDigitMap);
+        $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
+             ? $privateDigitMap
+             : new DigitMap($privateDigitMap);
     }
 
     public function getPrivateDigitMap()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $playDistinctiveRingback  = null;
 
     public function __construct(
-             $playDistinctiveRingback=null
+         $playDistinctiveRingback = null
     ) {
-        $this->playDistinctiveRingback = $playDistinctiveRingback;
-        $this->args                    = func_get_args();
+        $this->setPlayDistinctiveRingback($playDistinctiveRingback);
     }
 
-    public function setPlayDistinctiveRingback($playDistinctiveRingback)
+    public function setPlayDistinctiveRingback(xs:boolean $playDistinctiveRingback = null)
     {
-        $playDistinctiveRingback and $this->playDistinctiveRingback = new xs:boolean($playDistinctiveRingback);
     }
 
     public function getPlayDistinctiveRingback()

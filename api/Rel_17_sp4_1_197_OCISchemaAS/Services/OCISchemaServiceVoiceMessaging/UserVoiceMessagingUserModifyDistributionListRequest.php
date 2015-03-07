@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingDistributionListId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingDistributionListDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingDistributionListDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingDistributionListId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNorSIPURIList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $userId           = null;
+    protected $listId           = null;
+    protected $description      = null;
+    protected $phoneNumberList  = null;
 
     public function __construct(
-             $userId,
-             $listId,
-             $description=null,
-             ReplacementOutgoingDNorSIPURIList $phoneNumberList=null
+         $userId,
+         $listId,
+         $description = null,
+         ReplacementOutgoingDNorSIPURIList $phoneNumberList = null
     ) {
-        $this->userId          = new UserId($userId);
-        $this->listId          = $listId;
-        $this->description     = $description;
-        $this->phoneNumberList = $phoneNumberList;
-        $this->args            = func_get_args();
+        $this->setUserId($userId);
+        $this->setListId($listId);
+        $this->setDescription($description);
+        $this->setPhoneNumberList($phoneNumberList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -46,9 +51,11 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setListId($listId)
+    public function setListId($listId = null)
     {
-        $listId and $this->listId = new VoiceMessagingDistributionListId($listId);
+        $this->listId = ($listId InstanceOf VoiceMessagingDistributionListId)
+             ? $listId
+             : new VoiceMessagingDistributionListId($listId);
     }
 
     public function getListId()
@@ -56,9 +63,11 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
         return (!$this->listId) ?: $this->listId->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new VoiceMessagingDistributionListDescription($description);
+        $this->description = ($description InstanceOf VoiceMessagingDistributionListDescription)
+             ? $description
+             : new VoiceMessagingDistributionListDescription($description);
     }
 
     public function getDescription()
@@ -66,9 +75,8 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setPhoneNumberList($phoneNumberList)
+    public function setPhoneNumberList(ReplacementOutgoingDNorSIPURIList $phoneNumberList = null)
     {
-        $phoneNumberList and $this->phoneNumberList = new ReplacementOutgoingDNorSIPURIList($phoneNumberList);
     }
 
     public function getPhoneNumberList()

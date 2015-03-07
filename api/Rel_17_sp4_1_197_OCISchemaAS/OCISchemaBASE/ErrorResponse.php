@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:string;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,24 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ErrorResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $errorCode       = null;
+    protected $summary         = null;
+    protected $summaryEnglish  = null;
+    protected $detail          = null;
 
-    public function __construct(
-             $errorCode=null,
-             $summary,
-             $summaryEnglish,
-             $detail=null
-    ) {
-        $this->errorCode      = $errorCode;
-        $this->summary        = $summary;
-        $this->summaryEnglish = $summaryEnglish;
-        $this->detail         = $detail;
-        $this->args           = func_get_args();
-    }
 
-    public function setErrorCode($errorCode)
+    public function setErrorCode(xs:int $errorCode = null)
     {
-        $errorCode and $this->errorCode = new xs:int($errorCode);
     }
 
     public function getErrorCode()
@@ -43,9 +33,8 @@ class ErrorResponse extends ComplexType implements ComplexInterface
         return (!$this->errorCode) ?: $this->errorCode->value();
     }
 
-    public function setSummary($summary)
+    public function setSummary(xs:string $summary = null)
     {
-        $summary and $this->summary = new xs:string($summary);
     }
 
     public function getSummary()
@@ -53,9 +42,8 @@ class ErrorResponse extends ComplexType implements ComplexInterface
         return (!$this->summary) ?: $this->summary->value();
     }
 
-    public function setSummaryEnglish($summaryEnglish)
+    public function setSummaryEnglish(xs:string $summaryEnglish = null)
     {
-        $summaryEnglish and $this->summaryEnglish = new xs:string($summaryEnglish);
     }
 
     public function getSummaryEnglish()
@@ -63,9 +51,8 @@ class ErrorResponse extends ComplexType implements ComplexInterface
         return (!$this->summaryEnglish) ?: $this->summaryEnglish->value();
     }
 
-    public function setDetail($detail)
+    public function setDetail(xs:string $detail = null)
     {
-        $detail and $this->detail = new xs:string($detail);
     }
 
     public function getDetail()

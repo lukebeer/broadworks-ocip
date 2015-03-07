@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $entryName          = null;
+    protected $newEntryName       = null;
+    protected $phoneNumber        = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $entryName,
-             $newEntryName=null,
-             $phoneNumber=null
+         $serviceProviderId,
+         $groupId,
+         $entryName,
+         $newEntryName = null,
+         $phoneNumber = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->entryName         = new PhoneListEntryName($entryName);
-        $this->newEntryName      = new PhoneListEntryName($newEntryName);
-        $this->phoneNumber       = new OutgoingDN($phoneNumber);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setEntryName($entryName);
+        $this->setNewEntryName($newEntryName);
+        $this->setPhoneNumber($phoneNumber);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +54,11 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -58,9 +66,11 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setEntryName($entryName)
+    public function setEntryName($entryName = null)
     {
-        $entryName and $this->entryName = new PhoneListEntryName($entryName);
+        $this->entryName = ($entryName InstanceOf PhoneListEntryName)
+             ? $entryName
+             : new PhoneListEntryName($entryName);
     }
 
     public function getEntryName()
@@ -68,9 +78,11 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         return (!$this->entryName) ?: $this->entryName->value();
     }
 
-    public function setNewEntryName($newEntryName)
+    public function setNewEntryName($newEntryName = null)
     {
-        $newEntryName and $this->newEntryName = new PhoneListEntryName($newEntryName);
+        $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
+             ? $newEntryName
+             : new PhoneListEntryName($newEntryName);
     }
 
     public function getNewEntryName()
@@ -78,9 +90,11 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         return (!$this->newEntryName) ?: $this->newEntryName->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new OutgoingDN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
+             ? $phoneNumber
+             : new OutgoingDN($phoneNumber);
     }
 
     public function getPhoneNumber()

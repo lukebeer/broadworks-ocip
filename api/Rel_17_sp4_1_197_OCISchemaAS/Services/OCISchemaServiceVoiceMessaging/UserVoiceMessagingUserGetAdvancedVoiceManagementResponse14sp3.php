@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingUserMailServerSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingUserMailServerSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMailServerProtocol;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMailServerUserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMailServerUserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMailServerProtocol;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,32 +21,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $mailServerSelection                  = null;
+    protected $groupMailServerEmailAddress          = null;
+    protected $groupMailServerUserId                = null;
+    protected $personalMailServerNetAddress         = null;
+    protected $personalMailServerProtocol           = null;
+    protected $personalMailServerRealDeleteForImap  = null;
+    protected $personalMailServerEmailAddress       = null;
+    protected $personalMailServerUserId             = null;
 
-    public function __construct(
-             $mailServerSelection,
-             $groupMailServerEmailAddress=null,
-             $groupMailServerUserId=null,
-             $personalMailServerNetAddress=null,
-             $personalMailServerProtocol,
-             $personalMailServerRealDeleteForImap,
-             $personalMailServerEmailAddress=null,
-             $personalMailServerUserId=null
-    ) {
-        $this->mailServerSelection                 = $mailServerSelection;
-        $this->groupMailServerEmailAddress         = new EmailAddress($groupMailServerEmailAddress);
-        $this->groupMailServerUserId               = $groupMailServerUserId;
-        $this->personalMailServerNetAddress        = new NetAddress($personalMailServerNetAddress);
-        $this->personalMailServerProtocol          = $personalMailServerProtocol;
-        $this->personalMailServerRealDeleteForImap = $personalMailServerRealDeleteForImap;
-        $this->personalMailServerEmailAddress      = new EmailAddress($personalMailServerEmailAddress);
-        $this->personalMailServerUserId            = $personalMailServerUserId;
-        $this->args                                = func_get_args();
-    }
 
-    public function setMailServerSelection($mailServerSelection)
+    public function setMailServerSelection($mailServerSelection = null)
     {
-        $mailServerSelection and $this->mailServerSelection = new VoiceMessagingUserMailServerSelection($mailServerSelection);
+        $this->mailServerSelection = ($mailServerSelection InstanceOf VoiceMessagingUserMailServerSelection)
+             ? $mailServerSelection
+             : new VoiceMessagingUserMailServerSelection($mailServerSelection);
     }
 
     public function getMailServerSelection()
@@ -55,9 +44,11 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         return (!$this->mailServerSelection) ?: $this->mailServerSelection->value();
     }
 
-    public function setGroupMailServerEmailAddress($groupMailServerEmailAddress)
+    public function setGroupMailServerEmailAddress($groupMailServerEmailAddress = null)
     {
-        $groupMailServerEmailAddress and $this->groupMailServerEmailAddress = new EmailAddress($groupMailServerEmailAddress);
+        $this->groupMailServerEmailAddress = ($groupMailServerEmailAddress InstanceOf EmailAddress)
+             ? $groupMailServerEmailAddress
+             : new EmailAddress($groupMailServerEmailAddress);
     }
 
     public function getGroupMailServerEmailAddress()
@@ -65,9 +56,11 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         return (!$this->groupMailServerEmailAddress) ?: $this->groupMailServerEmailAddress->value();
     }
 
-    public function setGroupMailServerUserId($groupMailServerUserId)
+    public function setGroupMailServerUserId($groupMailServerUserId = null)
     {
-        $groupMailServerUserId and $this->groupMailServerUserId = new VoiceMessagingMailServerUserId($groupMailServerUserId);
+        $this->groupMailServerUserId = ($groupMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
+             ? $groupMailServerUserId
+             : new VoiceMessagingMailServerUserId($groupMailServerUserId);
     }
 
     public function getGroupMailServerUserId()
@@ -75,9 +68,11 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         return (!$this->groupMailServerUserId) ?: $this->groupMailServerUserId->value();
     }
 
-    public function setPersonalMailServerNetAddress($personalMailServerNetAddress)
+    public function setPersonalMailServerNetAddress($personalMailServerNetAddress = null)
     {
-        $personalMailServerNetAddress and $this->personalMailServerNetAddress = new NetAddress($personalMailServerNetAddress);
+        $this->personalMailServerNetAddress = ($personalMailServerNetAddress InstanceOf NetAddress)
+             ? $personalMailServerNetAddress
+             : new NetAddress($personalMailServerNetAddress);
     }
 
     public function getPersonalMailServerNetAddress()
@@ -85,9 +80,11 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         return (!$this->personalMailServerNetAddress) ?: $this->personalMailServerNetAddress->value();
     }
 
-    public function setPersonalMailServerProtocol($personalMailServerProtocol)
+    public function setPersonalMailServerProtocol($personalMailServerProtocol = null)
     {
-        $personalMailServerProtocol and $this->personalMailServerProtocol = new VoiceMessagingMailServerProtocol($personalMailServerProtocol);
+        $this->personalMailServerProtocol = ($personalMailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
+             ? $personalMailServerProtocol
+             : new VoiceMessagingMailServerProtocol($personalMailServerProtocol);
     }
 
     public function getPersonalMailServerProtocol()
@@ -95,9 +92,8 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         return (!$this->personalMailServerProtocol) ?: $this->personalMailServerProtocol->value();
     }
 
-    public function setPersonalMailServerRealDeleteForImap($personalMailServerRealDeleteForImap)
+    public function setPersonalMailServerRealDeleteForImap(xs:boolean $personalMailServerRealDeleteForImap = null)
     {
-        $personalMailServerRealDeleteForImap and $this->personalMailServerRealDeleteForImap = new xs:boolean($personalMailServerRealDeleteForImap);
     }
 
     public function getPersonalMailServerRealDeleteForImap()
@@ -105,9 +101,11 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         return (!$this->personalMailServerRealDeleteForImap) ?: $this->personalMailServerRealDeleteForImap->value();
     }
 
-    public function setPersonalMailServerEmailAddress($personalMailServerEmailAddress)
+    public function setPersonalMailServerEmailAddress($personalMailServerEmailAddress = null)
     {
-        $personalMailServerEmailAddress and $this->personalMailServerEmailAddress = new EmailAddress($personalMailServerEmailAddress);
+        $this->personalMailServerEmailAddress = ($personalMailServerEmailAddress InstanceOf EmailAddress)
+             ? $personalMailServerEmailAddress
+             : new EmailAddress($personalMailServerEmailAddress);
     }
 
     public function getPersonalMailServerEmailAddress()
@@ -115,9 +113,11 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         return (!$this->personalMailServerEmailAddress) ?: $this->personalMailServerEmailAddress->value();
     }
 
-    public function setPersonalMailServerUserId($personalMailServerUserId)
+    public function setPersonalMailServerUserId($personalMailServerUserId = null)
     {
-        $personalMailServerUserId and $this->personalMailServerUserId = new VoiceMessagingMailServerUserId($personalMailServerUserId);
+        $this->personalMailServerUserId = ($personalMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
+             ? $personalMailServerUserId
+             : new VoiceMessagingMailServerUserId($personalMailServerUserId);
     }
 
     public function getPersonalMailServerUserId()

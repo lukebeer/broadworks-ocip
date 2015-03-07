@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterPeerInstance;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterApplicationId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPeerInstance;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterApplicationId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $instance       = null;
+    protected $realm          = null;
+    protected $applicationId  = null;
+    protected $default        = null;
 
     public function __construct(
-             $instance,
-             $realm,
-             $applicationId,
-             $default=null
+         $instance,
+         $realm,
+         $applicationId,
+         $default = null
     ) {
-        $this->instance      = $instance;
-        $this->realm         = new DomainName($realm);
-        $this->applicationId = $applicationId;
-        $this->default       = $default;
-        $this->args          = func_get_args();
+        $this->setInstance($instance);
+        $this->setRealm($realm);
+        $this->setApplicationId($applicationId);
+        $this->setDefault($default);
     }
 
-    public function setInstance($instance)
+    public function setInstance($instance = null)
     {
-        $instance and $this->instance = new BwDiameterPeerInstance($instance);
+        $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
+             ? $instance
+             : new BwDiameterPeerInstance($instance);
     }
 
     public function getInstance()
@@ -46,9 +50,11 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
         return (!$this->instance) ?: $this->instance->value();
     }
 
-    public function setRealm($realm)
+    public function setRealm($realm = null)
     {
-        $realm and $this->realm = new DomainName($realm);
+        $this->realm = ($realm InstanceOf DomainName)
+             ? $realm
+             : new DomainName($realm);
     }
 
     public function getRealm()
@@ -56,9 +62,11 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
         return (!$this->realm) ?: $this->realm->value();
     }
 
-    public function setApplicationId($applicationId)
+    public function setApplicationId($applicationId = null)
     {
-        $applicationId and $this->applicationId = new BwDiameterApplicationId($applicationId);
+        $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
+             ? $applicationId
+             : new BwDiameterApplicationId($applicationId);
     }
 
     public function getApplicationId()
@@ -66,9 +74,8 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
         return (!$this->applicationId) ?: $this->applicationId->value();
     }
 
-    public function setDefault($default)
+    public function setDefault(xs:boolean $default = null)
     {
-        $default and $this->default = new xs:boolean($default);
     }
 
     public function getDefault()

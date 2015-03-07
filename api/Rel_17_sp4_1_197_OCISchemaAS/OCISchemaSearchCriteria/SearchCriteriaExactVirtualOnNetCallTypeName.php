@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $virtualOnNetCallTypeName  = null;
 
     public function __construct(
-             $virtualOnNetCallTypeName
+         $virtualOnNetCallTypeName
     ) {
-        $this->virtualOnNetCallTypeName = new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
-        $this->args                     = func_get_args();
+        $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
 
-    public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName)
+    public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
-        $virtualOnNetCallTypeName and $this->virtualOnNetCallTypeName = new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
+        $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
+             ? $virtualOnNetCallTypeName
+             : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
 
     public function getVirtualOnNetCallTypeName()

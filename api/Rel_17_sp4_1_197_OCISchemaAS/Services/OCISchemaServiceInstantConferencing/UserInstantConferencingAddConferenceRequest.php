@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingTitle;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingConferenceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingBillingCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,36 +22,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingAddConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $userId                          = null;
+    protected $bridgeServiceUserId             = null;
+    protected $conferenceOwnerUserId           = null;
+    protected $title                           = null;
+    protected $leaderRequired                  = null;
+    protected $leaderReleaseDropsParticipants  = null;
+    protected $announceCallers                 = null;
+    protected $conferenceType                  = null;
+    protected $conferenceSchedule              = null;
+    protected $billingCode                     = null;
 
     public function __construct(
-             $userId,
-             $bridgeServiceUserId,
-             $conferenceOwnerUserId,
-             $title,
-             $leaderRequired,
-             $leaderReleaseDropsParticipants,
-             $announceCallers,
-             $conferenceType,
-             $conferenceSchedule,
-             $billingCode=null
+         $userId,
+         $bridgeServiceUserId,
+         $conferenceOwnerUserId,
+         $title,
+         $leaderRequired,
+         $leaderReleaseDropsParticipants,
+         $announceCallers,
+         $conferenceType,
+         InstantConferencingSchedule $conferenceSchedule,
+         $billingCode = null
     ) {
-        $this->userId                         = new UserId($userId);
-        $this->bridgeServiceUserId            = new UserId($bridgeServiceUserId);
-        $this->conferenceOwnerUserId          = new UserId($conferenceOwnerUserId);
-        $this->title                          = $title;
-        $this->leaderRequired                 = $leaderRequired;
-        $this->leaderReleaseDropsParticipants = $leaderReleaseDropsParticipants;
-        $this->announceCallers                = $announceCallers;
-        $this->conferenceType                 = $conferenceType;
-        $this->conferenceSchedule             = $conferenceSchedule;
-        $this->billingCode                    = $billingCode;
-        $this->args                           = func_get_args();
+        $this->setUserId($userId);
+        $this->setBridgeServiceUserId($bridgeServiceUserId);
+        $this->setConferenceOwnerUserId($conferenceOwnerUserId);
+        $this->setTitle($title);
+        $this->setLeaderRequired($leaderRequired);
+        $this->setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants);
+        $this->setAnnounceCallers($announceCallers);
+        $this->setConferenceType($conferenceType);
+        $this->setConferenceSchedule($conferenceSchedule);
+        $this->setBillingCode($billingCode);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -60,9 +70,11 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setBridgeServiceUserId($bridgeServiceUserId)
+    public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        $bridgeServiceUserId and $this->bridgeServiceUserId = new UserId($bridgeServiceUserId);
+        $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
+             ? $bridgeServiceUserId
+             : new UserId($bridgeServiceUserId);
     }
 
     public function getBridgeServiceUserId()
@@ -70,9 +82,11 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
     }
 
-    public function setConferenceOwnerUserId($conferenceOwnerUserId)
+    public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        $conferenceOwnerUserId and $this->conferenceOwnerUserId = new UserId($conferenceOwnerUserId);
+        $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
+             ? $conferenceOwnerUserId
+             : new UserId($conferenceOwnerUserId);
     }
 
     public function getConferenceOwnerUserId()
@@ -80,9 +94,11 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->value();
     }
 
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
-        $title and $this->title = new InstantConferencingTitle($title);
+        $this->title = ($title InstanceOf InstantConferencingTitle)
+             ? $title
+             : new InstantConferencingTitle($title);
     }
 
     public function getTitle()
@@ -90,9 +106,8 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->title) ?: $this->title->value();
     }
 
-    public function setLeaderRequired($leaderRequired)
+    public function setLeaderRequired(xs:boolean $leaderRequired = null)
     {
-        $leaderRequired and $this->leaderRequired = new xs:boolean($leaderRequired);
     }
 
     public function getLeaderRequired()
@@ -100,9 +115,8 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->leaderRequired) ?: $this->leaderRequired->value();
     }
 
-    public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants)
+    public function setLeaderReleaseDropsParticipants(xs:boolean $leaderReleaseDropsParticipants = null)
     {
-        $leaderReleaseDropsParticipants and $this->leaderReleaseDropsParticipants = new xs:boolean($leaderReleaseDropsParticipants);
     }
 
     public function getLeaderReleaseDropsParticipants()
@@ -110,9 +124,8 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->value();
     }
 
-    public function setAnnounceCallers($announceCallers)
+    public function setAnnounceCallers(xs:boolean $announceCallers = null)
     {
-        $announceCallers and $this->announceCallers = new xs:boolean($announceCallers);
     }
 
     public function getAnnounceCallers()
@@ -120,9 +133,11 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->announceCallers) ?: $this->announceCallers->value();
     }
 
-    public function setConferenceType($conferenceType)
+    public function setConferenceType($conferenceType = null)
     {
-        $conferenceType and $this->conferenceType = new InstantConferencingConferenceType($conferenceType);
+        $this->conferenceType = ($conferenceType InstanceOf InstantConferencingConferenceType)
+             ? $conferenceType
+             : new InstantConferencingConferenceType($conferenceType);
     }
 
     public function getConferenceType()
@@ -130,9 +145,8 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->conferenceType) ?: $this->conferenceType->value();
     }
 
-    public function setConferenceSchedule($conferenceSchedule)
+    public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
-        $conferenceSchedule and $this->conferenceSchedule = new InstantConferencingSchedule($conferenceSchedule);
     }
 
     public function getConferenceSchedule()
@@ -140,9 +154,11 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->value();
     }
 
-    public function setBillingCode($billingCode)
+    public function setBillingCode($billingCode = null)
     {
-        $billingCode and $this->billingCode = new InstantConferencingBillingCode($billingCode);
+        $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
+             ? $billingCode
+             : new InstantConferencingBillingCode($billingCode);
     }
 
     public function getBillingCode()

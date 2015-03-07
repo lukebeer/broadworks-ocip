@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMediaSetGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $mediaSetName  = null;
 
-    public function __construct(
-             $mediaSetName=null
-    ) {
-        $this->mediaSetName = new MediaSetName($mediaSetName);
-        $this->args         = func_get_args();
-    }
 
-    public function setMediaSetName($mediaSetName)
+    public function setMediaSetName($mediaSetName = null)
     {
-        $mediaSetName and $this->mediaSetName = new MediaSetName($mediaSetName);
+        $this->mediaSetName = ($mediaSetName InstanceOf MediaSetName)
+             ? $mediaSetName
+             : new MediaSetName($mediaSetName);
     }
 
     public function getMediaSetName()

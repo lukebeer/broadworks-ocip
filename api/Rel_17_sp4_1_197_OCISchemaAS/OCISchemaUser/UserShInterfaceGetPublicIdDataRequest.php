@@ -19,18 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserShInterfaceGetPublicIdDataRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $publicUserIdentity  = null;
 
     public function __construct(
-             PublicUserIdentity $publicUserIdentity
+         PublicUserIdentity $publicUserIdentity
     ) {
-        $this->publicUserIdentity = $publicUserIdentity;
-        $this->args               = func_get_args();
+        $this->setPublicUserIdentity($publicUserIdentity);
     }
 
-    public function setPublicUserIdentity($publicUserIdentity)
+    public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
-        $publicUserIdentity and $this->publicUserIdentity = new PublicUserIdentity($publicUserIdentity);
     }
 
     public function getPublicUserIdentity()

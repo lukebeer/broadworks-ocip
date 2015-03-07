@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name  = __CLASS__;
+    protected $code  = null;
 
-    public function __construct(
-             $code=null
-    ) {
-        $this->code = new OutgoingCallingPlanAuthorizationCode($code);
-        $this->args = func_get_args();
-    }
 
-    public function setCode($code)
+    public function setCode($code = null)
     {
-        $code and $this->code = new OutgoingCallingPlanAuthorizationCode($code);
+        $this->code = ($code InstanceOf OutgoingCallingPlanAuthorizationCode)
+             ? $code
+             : new OutgoingCallingPlanAuthorizationCode($code);
     }
 
     public function getCode()

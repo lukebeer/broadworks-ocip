@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DTMFTransmissionMethod;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DtmfTransmissionSignalingContentType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DtmfTransmissionSignalingContentType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DTMFTransmissionMethod;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDTMFTransmissionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $transmissionMethod    = null;
+    protected $signalingContentType  = null;
 
     public function __construct(
-             $transmissionMethod=null,
-             $signalingContentType=null
+         $transmissionMethod = null,
+         $signalingContentType = null
     ) {
-        $this->transmissionMethod   = $transmissionMethod;
-        $this->signalingContentType = $signalingContentType;
-        $this->args                 = func_get_args();
+        $this->setTransmissionMethod($transmissionMethod);
+        $this->setSignalingContentType($signalingContentType);
     }
 
-    public function setTransmissionMethod($transmissionMethod)
+    public function setTransmissionMethod($transmissionMethod = null)
     {
-        $transmissionMethod and $this->transmissionMethod = new DTMFTransmissionMethod($transmissionMethod);
+        $this->transmissionMethod = ($transmissionMethod InstanceOf DTMFTransmissionMethod)
+             ? $transmissionMethod
+             : new DTMFTransmissionMethod($transmissionMethod);
     }
 
     public function getTransmissionMethod()
@@ -40,9 +43,11 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
         return (!$this->transmissionMethod) ?: $this->transmissionMethod->value();
     }
 
-    public function setSignalingContentType($signalingContentType)
+    public function setSignalingContentType($signalingContentType = null)
     {
-        $signalingContentType and $this->signalingContentType = new DtmfTransmissionSignalingContentType($signalingContentType);
+        $this->signalingContentType = ($signalingContentType InstanceOf DtmfTransmissionSignalingContentType)
+             ? $signalingContentType
+             : new DtmfTransmissionSignalingContentType($signalingContentType);
     }
 
     public function getSignalingContentType()

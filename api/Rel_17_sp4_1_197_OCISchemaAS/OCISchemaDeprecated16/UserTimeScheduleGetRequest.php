@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $userId            = null;
+    protected $timeScheduleName  = null;
 
     public function __construct(
-             $userId,
-             $timeScheduleName
+         $userId,
+         $timeScheduleName
     ) {
-        $this->userId           = new UserId($userId);
-        $this->timeScheduleName = new ScheduleName($timeScheduleName);
-        $this->args             = func_get_args();
+        $this->setUserId($userId);
+        $this->setTimeScheduleName($timeScheduleName);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setTimeScheduleName($timeScheduleName)
+    public function setTimeScheduleName($timeScheduleName = null)
     {
-        $timeScheduleName and $this->timeScheduleName = new ScheduleName($timeScheduleName);
+        $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
+             ? $timeScheduleName
+             : new ScheduleName($timeScheduleName);
     }
 
     public function getTimeScheduleName()

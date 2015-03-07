@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RecordingOption;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\RecordingOption;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $recordingOption  = null;
 
-    public function __construct(
-             $recordingOption
-    ) {
-        $this->recordingOption = $recordingOption;
-        $this->args            = func_get_args();
-    }
 
-    public function setRecordingOption($recordingOption)
+    public function setRecordingOption($recordingOption = null)
     {
-        $recordingOption and $this->recordingOption = new RecordingOption($recordingOption);
+        $this->recordingOption = ($recordingOption InstanceOf RecordingOption)
+             ? $recordingOption
+             : new RecordingOption($recordingOption);
     }
 
     public function getRecordingOption()

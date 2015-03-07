@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseSessionAdmissionControlGroupGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $sessionAdmissionControlGroupTable  = null;
 
-    public function __construct(
-             $sessionAdmissionControlGroupTable
-    ) {
-        $this->sessionAdmissionControlGroupTable = $sessionAdmissionControlGroupTable;
-        $this->args                              = func_get_args();
-    }
 
-    public function setSessionAdmissionControlGroupTable($sessionAdmissionControlGroupTable)
+    public function setSessionAdmissionControlGroupTable(core:OCITable $sessionAdmissionControlGroupTable = null)
     {
-        $sessionAdmissionControlGroupTable and $this->sessionAdmissionControlGroupTable = new core:OCITable($sessionAdmissionControlGroupTable);
     }
 
     public function getSessionAdmissionControlGroupTable()

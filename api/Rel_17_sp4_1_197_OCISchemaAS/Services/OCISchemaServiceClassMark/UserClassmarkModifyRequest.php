@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Classmark;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $classmark  = null;
 
     public function __construct(
-             $userId,
-             $classmark=null
+         $userId,
+         $classmark = null
     ) {
-        $this->userId    = new UserId($userId);
-        $this->classmark = $classmark;
-        $this->args      = func_get_args();
+        $this->setUserId($userId);
+        $this->setClassmark($classmark);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setClassmark($classmark)
+    public function setClassmark($classmark = null)
     {
-        $classmark and $this->classmark = new Classmark($classmark);
+        $this->classmark = ($classmark InstanceOf Classmark)
+             ? $classmark
+             : new Classmark($classmark);
     }
 
     public function getClassmark()

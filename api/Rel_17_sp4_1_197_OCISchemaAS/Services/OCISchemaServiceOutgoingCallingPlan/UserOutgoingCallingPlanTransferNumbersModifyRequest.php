@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanTransferNumbersModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanTransferNumbersModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $useCustomSettings  = null;
+    protected $userNumbers        = null;
 
     public function __construct(
-             $userId,
-             $useCustomSettings=null,
-             $userNumbers=null
+         $userId,
+         $useCustomSettings = null,
+         OutgoingCallingPlanTransferNumbersModify $userNumbers = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->useCustomSettings = $useCustomSettings;
-        $this->userNumbers       = $userNumbers;
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setUseCustomSettings($useCustomSettings);
+        $this->setUserNumbers($userNumbers);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUseCustomSettings($useCustomSettings)
+    public function setUseCustomSettings(xs:boolean $useCustomSettings = null)
     {
-        $useCustomSettings and $this->useCustomSettings = new xs:boolean($useCustomSettings);
     }
 
     public function getUseCustomSettings()
@@ -53,9 +55,8 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
         return (!$this->useCustomSettings) ?: $this->useCustomSettings->value();
     }
 
-    public function setUserNumbers($userNumbers)
+    public function setUserNumbers(OutgoingCallingPlanTransferNumbersModify $userNumbers = null)
     {
-        $userNumbers and $this->userNumbers = new OutgoingCallingPlanTransferNumbersModify($userNumbers);
     }
 
     public function getUserNumbers()

@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $dayOfMonth  = null;
 
     public function __construct(
-             $dayOfMonth
+         $dayOfMonth
     ) {
-        $this->dayOfMonth = new DayOfMonth($dayOfMonth);
-        $this->args       = func_get_args();
+        $this->setDayOfMonth($dayOfMonth);
     }
 
-    public function setDayOfMonth($dayOfMonth)
+    public function setDayOfMonth($dayOfMonth = null)
     {
-        $dayOfMonth and $this->dayOfMonth = new DayOfMonth($dayOfMonth);
+        $this->dayOfMonth = ($dayOfMonth InstanceOf DayOfMonth)
+             ? $dayOfMonth
+             : new DayOfMonth($dayOfMonth);
     }
 
     public function getDayOfMonth()

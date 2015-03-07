@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallParkRecallTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallParkDisplayTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkDisplayTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTimerSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $recallTimerSeconds             = null;
+    protected $displayTimerSeconds            = null;
+    protected $enableDestinationAnnouncement  = null;
 
-    public function __construct(
-             $recallTimerSeconds,
-             $displayTimerSeconds,
-             $enableDestinationAnnouncement
-    ) {
-        $this->recallTimerSeconds            = $recallTimerSeconds;
-        $this->displayTimerSeconds           = $displayTimerSeconds;
-        $this->enableDestinationAnnouncement = $enableDestinationAnnouncement;
-        $this->args                          = func_get_args();
-    }
 
-    public function setRecallTimerSeconds($recallTimerSeconds)
+    public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
-        $recallTimerSeconds and $this->recallTimerSeconds = new CallParkRecallTimerSeconds($recallTimerSeconds);
+        $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf CallParkRecallTimerSeconds)
+             ? $recallTimerSeconds
+             : new CallParkRecallTimerSeconds($recallTimerSeconds);
     }
 
     public function getRecallTimerSeconds()
@@ -43,9 +37,11 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
         return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->value();
     }
 
-    public function setDisplayTimerSeconds($displayTimerSeconds)
+    public function setDisplayTimerSeconds($displayTimerSeconds = null)
     {
-        $displayTimerSeconds and $this->displayTimerSeconds = new CallParkDisplayTimerSeconds($displayTimerSeconds);
+        $this->displayTimerSeconds = ($displayTimerSeconds InstanceOf CallParkDisplayTimerSeconds)
+             ? $displayTimerSeconds
+             : new CallParkDisplayTimerSeconds($displayTimerSeconds);
     }
 
     public function getDisplayTimerSeconds()
@@ -53,9 +49,8 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
         return (!$this->displayTimerSeconds) ?: $this->displayTimerSeconds->value();
     }
 
-    public function setEnableDestinationAnnouncement($enableDestinationAnnouncement)
+    public function setEnableDestinationAnnouncement(xs:boolean $enableDestinationAnnouncement = null)
     {
-        $enableDestinationAnnouncement and $this->enableDestinationAnnouncement = new xs:boolean($enableDestinationAnnouncement);
     }
 
     public function getEnableDestinationAnnouncement()

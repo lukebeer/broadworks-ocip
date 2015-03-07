@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Codec;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Codec;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCodecGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name   = __CLASS__;
+    protected $codec  = null;
 
-    public function __construct(
-             $codec=null
-    ) {
-        $this->codec = $codec;
-        $this->args  = func_get_args();
-    }
 
-    public function setCodec($codec)
+    public function setCodec($codec = null)
     {
-        $codec and $this->codec = new Codec($codec);
+        $this->codec = ($codec InstanceOf Codec)
+             ? $codec
+             : new Codec($codec);
     }
 
     public function getCodec()

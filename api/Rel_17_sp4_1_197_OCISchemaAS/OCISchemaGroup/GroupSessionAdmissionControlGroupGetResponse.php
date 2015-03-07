@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,34 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $maxSession                       = null;
+    protected $maxUserOriginatingSessions       = null;
+    protected $maxUserTerminatingSessions       = null;
+    protected $reservedSession                  = null;
+    protected $reservedUserOriginatingSessions  = null;
+    protected $reservedUserTerminatingSessions  = null;
+    protected $defaultGroup                     = null;
+    protected $countIntraSACGroupSessions       = null;
+    protected $devices                          = null;
 
-    public function __construct(
-             $maxSession,
-             $maxUserOriginatingSessions=null,
-             $maxUserTerminatingSessions=null,
-             $reservedSession,
-             $reservedUserOriginatingSessions=null,
-             $reservedUserTerminatingSessions=null,
-             $defaultGroup,
-             $countIntraSACGroupSessions,
-             AccessDevice $devices=null
-    ) {
-        $this->maxSession                      = new NonNegativeInt($maxSession);
-        $this->maxUserOriginatingSessions      = new NonNegativeInt($maxUserOriginatingSessions);
-        $this->maxUserTerminatingSessions      = new NonNegativeInt($maxUserTerminatingSessions);
-        $this->reservedSession                 = new NonNegativeInt($reservedSession);
-        $this->reservedUserOriginatingSessions = new NonNegativeInt($reservedUserOriginatingSessions);
-        $this->reservedUserTerminatingSessions = new NonNegativeInt($reservedUserTerminatingSessions);
-        $this->defaultGroup                    = $defaultGroup;
-        $this->countIntraSACGroupSessions      = $countIntraSACGroupSessions;
-        $this->devices                         = $devices;
-        $this->args                            = func_get_args();
-    }
 
-    public function setMaxSession($maxSession)
+    public function setMaxSession($maxSession = null)
     {
-        $maxSession and $this->maxSession = new NonNegativeInt($maxSession);
+        $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
+             ? $maxSession
+             : new NonNegativeInt($maxSession);
     }
 
     public function getMaxSession()
@@ -55,9 +43,11 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->maxSession) ?: $this->maxSession->value();
     }
 
-    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions)
+    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        $maxUserOriginatingSessions and $this->maxUserOriginatingSessions = new NonNegativeInt($maxUserOriginatingSessions);
+        $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserOriginatingSessions
+             : new NonNegativeInt($maxUserOriginatingSessions);
     }
 
     public function getMaxUserOriginatingSessions()
@@ -65,9 +55,11 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->value();
     }
 
-    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions)
+    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        $maxUserTerminatingSessions and $this->maxUserTerminatingSessions = new NonNegativeInt($maxUserTerminatingSessions);
+        $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserTerminatingSessions
+             : new NonNegativeInt($maxUserTerminatingSessions);
     }
 
     public function getMaxUserTerminatingSessions()
@@ -75,9 +67,11 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->value();
     }
 
-    public function setReservedSession($reservedSession)
+    public function setReservedSession($reservedSession = null)
     {
-        $reservedSession and $this->reservedSession = new NonNegativeInt($reservedSession);
+        $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
+             ? $reservedSession
+             : new NonNegativeInt($reservedSession);
     }
 
     public function getReservedSession()
@@ -85,9 +79,11 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->reservedSession) ?: $this->reservedSession->value();
     }
 
-    public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions)
+    public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions = null)
     {
-        $reservedUserOriginatingSessions and $this->reservedUserOriginatingSessions = new NonNegativeInt($reservedUserOriginatingSessions);
+        $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
+             ? $reservedUserOriginatingSessions
+             : new NonNegativeInt($reservedUserOriginatingSessions);
     }
 
     public function getReservedUserOriginatingSessions()
@@ -95,9 +91,11 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->reservedUserOriginatingSessions) ?: $this->reservedUserOriginatingSessions->value();
     }
 
-    public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions)
+    public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions = null)
     {
-        $reservedUserTerminatingSessions and $this->reservedUserTerminatingSessions = new NonNegativeInt($reservedUserTerminatingSessions);
+        $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
+             ? $reservedUserTerminatingSessions
+             : new NonNegativeInt($reservedUserTerminatingSessions);
     }
 
     public function getReservedUserTerminatingSessions()
@@ -105,9 +103,8 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->reservedUserTerminatingSessions) ?: $this->reservedUserTerminatingSessions->value();
     }
 
-    public function setDefaultGroup($defaultGroup)
+    public function setDefaultGroup(xs:boolean $defaultGroup = null)
     {
-        $defaultGroup and $this->defaultGroup = new xs:boolean($defaultGroup);
     }
 
     public function getDefaultGroup()
@@ -115,9 +112,8 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->defaultGroup) ?: $this->defaultGroup->value();
     }
 
-    public function setCountIntraSACGroupSessions($countIntraSACGroupSessions)
+    public function setCountIntraSACGroupSessions(xs:boolean $countIntraSACGroupSessions = null)
     {
-        $countIntraSACGroupSessions and $this->countIntraSACGroupSessions = new xs:boolean($countIntraSACGroupSessions);
     }
 
     public function getCountIntraSACGroupSessions()
@@ -125,9 +121,8 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
         return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->value();
     }
 
-    public function setDevices($devices)
+    public function setDevices(AccessDevice $devices = null)
     {
-        $devices and $this->devices = new AccessDevice($devices);
     }
 
     public function getDevices()

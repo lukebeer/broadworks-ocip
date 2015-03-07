@@ -7,17 +7,16 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMaxGreetingLengthMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMaxMessageLengthMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMailboxLengthMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingHoldPeriodDays;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMailServerProtocol;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMessageWaitingIndicatorDelayInSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemVoicePortalScope;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMessageWaitingIndicatorDelayInSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMaxMessageLengthMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMailboxLengthMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMailServerProtocol;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingHoldPeriodDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\SystemVoicePortalScope;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\VoiceMessagingMaxGreetingLengthMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,56 +26,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $realDeleteForImap                     = null;
+    protected $useDnInMailBody                       = null;
+    protected $useShortSubjectLine                   = null;
+    protected $maxGreetingLengthMinutes              = null;
+    protected $maxMessageLengthMinutes               = null;
+    protected $maxMailboxLengthMinutes               = null;
+    protected $doesMessageAge                        = null;
+    protected $holdPeriodDays                        = null;
+    protected $mailServerNetAddress                  = null;
+    protected $mailServerProtocol                    = null;
+    protected $defaultDeliveryFromAddress            = null;
+    protected $defaultNotificationFromAddress        = null;
+    protected $defaultVoicePortalLockoutFromAddress  = null;
+    protected $useOutgoingMWIOnSMDI                  = null;
+    protected $mwiDelayInSeconds                     = null;
+    protected $voicePortalScope                      = null;
+    protected $enterpriseVoicePortalLicensed         = null;
+    protected $networkWideMessaging                  = null;
+    protected $useExternalRouting                    = null;
+    protected $defaultExternalRoutingAddress         = null;
 
-    public function __construct(
-             $realDeleteForImap,
-             $useDnInMailBody,
-             $useShortSubjectLine,
-             $maxGreetingLengthMinutes,
-             $maxMessageLengthMinutes,
-             $maxMailboxLengthMinutes,
-             $doesMessageAge,
-             $holdPeriodDays,
-             $mailServerNetAddress=null,
-             $mailServerProtocol,
-             $defaultDeliveryFromAddress,
-             $defaultNotificationFromAddress,
-             $defaultVoicePortalLockoutFromAddress,
-             $useOutgoingMWIOnSMDI,
-             $mwiDelayInSeconds,
-             $voicePortalScope,
-             $enterpriseVoicePortalLicensed,
-             $networkWideMessaging,
-             $useExternalRouting,
-             $defaultExternalRoutingAddress=null
-    ) {
-        $this->realDeleteForImap                    = $realDeleteForImap;
-        $this->useDnInMailBody                      = $useDnInMailBody;
-        $this->useShortSubjectLine                  = $useShortSubjectLine;
-        $this->maxGreetingLengthMinutes             = $maxGreetingLengthMinutes;
-        $this->maxMessageLengthMinutes              = $maxMessageLengthMinutes;
-        $this->maxMailboxLengthMinutes              = $maxMailboxLengthMinutes;
-        $this->doesMessageAge                       = $doesMessageAge;
-        $this->holdPeriodDays                       = $holdPeriodDays;
-        $this->mailServerNetAddress                 = new NetAddress($mailServerNetAddress);
-        $this->mailServerProtocol                   = $mailServerProtocol;
-        $this->defaultDeliveryFromAddress           = new EmailAddress($defaultDeliveryFromAddress);
-        $this->defaultNotificationFromAddress       = new EmailAddress($defaultNotificationFromAddress);
-        $this->defaultVoicePortalLockoutFromAddress = new EmailAddress($defaultVoicePortalLockoutFromAddress);
-        $this->useOutgoingMWIOnSMDI                 = $useOutgoingMWIOnSMDI;
-        $this->mwiDelayInSeconds                    = $mwiDelayInSeconds;
-        $this->voicePortalScope                     = $voicePortalScope;
-        $this->enterpriseVoicePortalLicensed        = $enterpriseVoicePortalLicensed;
-        $this->networkWideMessaging                 = $networkWideMessaging;
-        $this->useExternalRouting                   = $useExternalRouting;
-        $this->defaultExternalRoutingAddress        = new OutgoingDNorSIPURI($defaultExternalRoutingAddress);
-        $this->args                                 = func_get_args();
-    }
 
-    public function setRealDeleteForImap($realDeleteForImap)
+    public function setRealDeleteForImap(xs:boolean $realDeleteForImap = null)
     {
-        $realDeleteForImap and $this->realDeleteForImap = new xs:boolean($realDeleteForImap);
     }
 
     public function getRealDeleteForImap()
@@ -84,9 +58,8 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->realDeleteForImap) ?: $this->realDeleteForImap->value();
     }
 
-    public function setUseDnInMailBody($useDnInMailBody)
+    public function setUseDnInMailBody(xs:boolean $useDnInMailBody = null)
     {
-        $useDnInMailBody and $this->useDnInMailBody = new xs:boolean($useDnInMailBody);
     }
 
     public function getUseDnInMailBody()
@@ -94,9 +67,8 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->value();
     }
 
-    public function setUseShortSubjectLine($useShortSubjectLine)
+    public function setUseShortSubjectLine(xs:boolean $useShortSubjectLine = null)
     {
-        $useShortSubjectLine and $this->useShortSubjectLine = new xs:boolean($useShortSubjectLine);
     }
 
     public function getUseShortSubjectLine()
@@ -104,9 +76,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->value();
     }
 
-    public function setMaxGreetingLengthMinutes($maxGreetingLengthMinutes)
+    public function setMaxGreetingLengthMinutes($maxGreetingLengthMinutes = null)
     {
-        $maxGreetingLengthMinutes and $this->maxGreetingLengthMinutes = new VoiceMessagingMaxGreetingLengthMinutes($maxGreetingLengthMinutes);
+        $this->maxGreetingLengthMinutes = ($maxGreetingLengthMinutes InstanceOf VoiceMessagingMaxGreetingLengthMinutes)
+             ? $maxGreetingLengthMinutes
+             : new VoiceMessagingMaxGreetingLengthMinutes($maxGreetingLengthMinutes);
     }
 
     public function getMaxGreetingLengthMinutes()
@@ -114,9 +88,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->maxGreetingLengthMinutes) ?: $this->maxGreetingLengthMinutes->value();
     }
 
-    public function setMaxMessageLengthMinutes($maxMessageLengthMinutes)
+    public function setMaxMessageLengthMinutes($maxMessageLengthMinutes = null)
     {
-        $maxMessageLengthMinutes and $this->maxMessageLengthMinutes = new VoiceMessagingMaxMessageLengthMinutes($maxMessageLengthMinutes);
+        $this->maxMessageLengthMinutes = ($maxMessageLengthMinutes InstanceOf VoiceMessagingMaxMessageLengthMinutes)
+             ? $maxMessageLengthMinutes
+             : new VoiceMessagingMaxMessageLengthMinutes($maxMessageLengthMinutes);
     }
 
     public function getMaxMessageLengthMinutes()
@@ -124,9 +100,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->maxMessageLengthMinutes) ?: $this->maxMessageLengthMinutes->value();
     }
 
-    public function setMaxMailboxLengthMinutes($maxMailboxLengthMinutes)
+    public function setMaxMailboxLengthMinutes($maxMailboxLengthMinutes = null)
     {
-        $maxMailboxLengthMinutes and $this->maxMailboxLengthMinutes = new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
+        $this->maxMailboxLengthMinutes = ($maxMailboxLengthMinutes InstanceOf VoiceMessagingMailboxLengthMinutes)
+             ? $maxMailboxLengthMinutes
+             : new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
     }
 
     public function getMaxMailboxLengthMinutes()
@@ -134,9 +112,8 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->maxMailboxLengthMinutes) ?: $this->maxMailboxLengthMinutes->value();
     }
 
-    public function setDoesMessageAge($doesMessageAge)
+    public function setDoesMessageAge(xs:boolean $doesMessageAge = null)
     {
-        $doesMessageAge and $this->doesMessageAge = new xs:boolean($doesMessageAge);
     }
 
     public function getDoesMessageAge()
@@ -144,9 +121,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->doesMessageAge) ?: $this->doesMessageAge->value();
     }
 
-    public function setHoldPeriodDays($holdPeriodDays)
+    public function setHoldPeriodDays($holdPeriodDays = null)
     {
-        $holdPeriodDays and $this->holdPeriodDays = new VoiceMessagingHoldPeriodDays($holdPeriodDays);
+        $this->holdPeriodDays = ($holdPeriodDays InstanceOf VoiceMessagingHoldPeriodDays)
+             ? $holdPeriodDays
+             : new VoiceMessagingHoldPeriodDays($holdPeriodDays);
     }
 
     public function getHoldPeriodDays()
@@ -154,9 +133,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->holdPeriodDays) ?: $this->holdPeriodDays->value();
     }
 
-    public function setMailServerNetAddress($mailServerNetAddress)
+    public function setMailServerNetAddress($mailServerNetAddress = null)
     {
-        $mailServerNetAddress and $this->mailServerNetAddress = new NetAddress($mailServerNetAddress);
+        $this->mailServerNetAddress = ($mailServerNetAddress InstanceOf NetAddress)
+             ? $mailServerNetAddress
+             : new NetAddress($mailServerNetAddress);
     }
 
     public function getMailServerNetAddress()
@@ -164,9 +145,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->mailServerNetAddress) ?: $this->mailServerNetAddress->value();
     }
 
-    public function setMailServerProtocol($mailServerProtocol)
+    public function setMailServerProtocol($mailServerProtocol = null)
     {
-        $mailServerProtocol and $this->mailServerProtocol = new VoiceMessagingMailServerProtocol($mailServerProtocol);
+        $this->mailServerProtocol = ($mailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
+             ? $mailServerProtocol
+             : new VoiceMessagingMailServerProtocol($mailServerProtocol);
     }
 
     public function getMailServerProtocol()
@@ -174,9 +157,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->mailServerProtocol) ?: $this->mailServerProtocol->value();
     }
 
-    public function setDefaultDeliveryFromAddress($defaultDeliveryFromAddress)
+    public function setDefaultDeliveryFromAddress($defaultDeliveryFromAddress = null)
     {
-        $defaultDeliveryFromAddress and $this->defaultDeliveryFromAddress = new EmailAddress($defaultDeliveryFromAddress);
+        $this->defaultDeliveryFromAddress = ($defaultDeliveryFromAddress InstanceOf EmailAddress)
+             ? $defaultDeliveryFromAddress
+             : new EmailAddress($defaultDeliveryFromAddress);
     }
 
     public function getDefaultDeliveryFromAddress()
@@ -184,9 +169,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->defaultDeliveryFromAddress) ?: $this->defaultDeliveryFromAddress->value();
     }
 
-    public function setDefaultNotificationFromAddress($defaultNotificationFromAddress)
+    public function setDefaultNotificationFromAddress($defaultNotificationFromAddress = null)
     {
-        $defaultNotificationFromAddress and $this->defaultNotificationFromAddress = new EmailAddress($defaultNotificationFromAddress);
+        $this->defaultNotificationFromAddress = ($defaultNotificationFromAddress InstanceOf EmailAddress)
+             ? $defaultNotificationFromAddress
+             : new EmailAddress($defaultNotificationFromAddress);
     }
 
     public function getDefaultNotificationFromAddress()
@@ -194,9 +181,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->defaultNotificationFromAddress) ?: $this->defaultNotificationFromAddress->value();
     }
 
-    public function setDefaultVoicePortalLockoutFromAddress($defaultVoicePortalLockoutFromAddress)
+    public function setDefaultVoicePortalLockoutFromAddress($defaultVoicePortalLockoutFromAddress = null)
     {
-        $defaultVoicePortalLockoutFromAddress and $this->defaultVoicePortalLockoutFromAddress = new EmailAddress($defaultVoicePortalLockoutFromAddress);
+        $this->defaultVoicePortalLockoutFromAddress = ($defaultVoicePortalLockoutFromAddress InstanceOf EmailAddress)
+             ? $defaultVoicePortalLockoutFromAddress
+             : new EmailAddress($defaultVoicePortalLockoutFromAddress);
     }
 
     public function getDefaultVoicePortalLockoutFromAddress()
@@ -204,9 +193,8 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->defaultVoicePortalLockoutFromAddress) ?: $this->defaultVoicePortalLockoutFromAddress->value();
     }
 
-    public function setUseOutgoingMWIOnSMDI($useOutgoingMWIOnSMDI)
+    public function setUseOutgoingMWIOnSMDI(xs:boolean $useOutgoingMWIOnSMDI = null)
     {
-        $useOutgoingMWIOnSMDI and $this->useOutgoingMWIOnSMDI = new xs:boolean($useOutgoingMWIOnSMDI);
     }
 
     public function getUseOutgoingMWIOnSMDI()
@@ -214,9 +202,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->useOutgoingMWIOnSMDI) ?: $this->useOutgoingMWIOnSMDI->value();
     }
 
-    public function setMwiDelayInSeconds($mwiDelayInSeconds)
+    public function setMwiDelayInSeconds($mwiDelayInSeconds = null)
     {
-        $mwiDelayInSeconds and $this->mwiDelayInSeconds = new VoiceMessagingMessageWaitingIndicatorDelayInSeconds($mwiDelayInSeconds);
+        $this->mwiDelayInSeconds = ($mwiDelayInSeconds InstanceOf VoiceMessagingMessageWaitingIndicatorDelayInSeconds)
+             ? $mwiDelayInSeconds
+             : new VoiceMessagingMessageWaitingIndicatorDelayInSeconds($mwiDelayInSeconds);
     }
 
     public function getMwiDelayInSeconds()
@@ -224,9 +214,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->mwiDelayInSeconds) ?: $this->mwiDelayInSeconds->value();
     }
 
-    public function setVoicePortalScope($voicePortalScope)
+    public function setVoicePortalScope($voicePortalScope = null)
     {
-        $voicePortalScope and $this->voicePortalScope = new SystemVoicePortalScope($voicePortalScope);
+        $this->voicePortalScope = ($voicePortalScope InstanceOf SystemVoicePortalScope)
+             ? $voicePortalScope
+             : new SystemVoicePortalScope($voicePortalScope);
     }
 
     public function getVoicePortalScope()
@@ -234,9 +226,8 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->voicePortalScope) ?: $this->voicePortalScope->value();
     }
 
-    public function setEnterpriseVoicePortalLicensed($enterpriseVoicePortalLicensed)
+    public function setEnterpriseVoicePortalLicensed(xs:boolean $enterpriseVoicePortalLicensed = null)
     {
-        $enterpriseVoicePortalLicensed and $this->enterpriseVoicePortalLicensed = new xs:boolean($enterpriseVoicePortalLicensed);
     }
 
     public function getEnterpriseVoicePortalLicensed()
@@ -244,9 +235,8 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->enterpriseVoicePortalLicensed) ?: $this->enterpriseVoicePortalLicensed->value();
     }
 
-    public function setNetworkWideMessaging($networkWideMessaging)
+    public function setNetworkWideMessaging(xs:boolean $networkWideMessaging = null)
     {
-        $networkWideMessaging and $this->networkWideMessaging = new xs:boolean($networkWideMessaging);
     }
 
     public function getNetworkWideMessaging()
@@ -254,9 +244,8 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->networkWideMessaging) ?: $this->networkWideMessaging->value();
     }
 
-    public function setUseExternalRouting($useExternalRouting)
+    public function setUseExternalRouting(xs:boolean $useExternalRouting = null)
     {
-        $useExternalRouting and $this->useExternalRouting = new xs:boolean($useExternalRouting);
     }
 
     public function getUseExternalRouting()
@@ -264,9 +253,11 @@ class SystemVoiceMessagingGroupGetResponse14 extends ComplexType implements Comp
         return (!$this->useExternalRouting) ?: $this->useExternalRouting->value();
     }
 
-    public function setDefaultExternalRoutingAddress($defaultExternalRoutingAddress)
+    public function setDefaultExternalRoutingAddress($defaultExternalRoutingAddress = null)
     {
-        $defaultExternalRoutingAddress and $this->defaultExternalRoutingAddress = new OutgoingDNorSIPURI($defaultExternalRoutingAddress);
+        $this->defaultExternalRoutingAddress = ($defaultExternalRoutingAddress InstanceOf OutgoingDNorSIPURI)
+             ? $defaultExternalRoutingAddress
+             : new OutgoingDNorSIPURI($defaultExternalRoutingAddress);
     }
 
     public function getDefaultExternalRoutingAddress()

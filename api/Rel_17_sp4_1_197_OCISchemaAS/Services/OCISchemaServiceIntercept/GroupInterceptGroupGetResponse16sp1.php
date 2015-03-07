@@ -7,14 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\InterceptInboundCall;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InterceptInboundCall;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,48 +23,27 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $isActive                       = null;
+    protected $announcementSelection          = null;
+    protected $audioFileDescription           = null;
+    protected $audioMediaType                 = null;
+    protected $videoFileDescription           = null;
+    protected $videoMediaType                 = null;
+    protected $playNewPhoneNumber             = null;
+    protected $newPhoneNumber                 = null;
+    protected $transferOnZeroToPhoneNumber    = null;
+    protected $transferPhoneNumber            = null;
+    protected $rerouteOutboundCalls           = null;
+    protected $outboundReroutePhoneNumber     = null;
+    protected $allowOutboundLocalCalls        = null;
+    protected $inboundCallMode                = null;
+    protected $alternateBlockingAnnouncement  = null;
+    protected $routeToVoiceMail               = null;
 
-    public function __construct(
-             $isActive,
-             $announcementSelection,
-             $audioFileDescription=null,
-             $audioMediaType=null,
-             $videoFileDescription=null,
-             $videoMediaType=null,
-             $playNewPhoneNumber,
-             $newPhoneNumber=null,
-             $transferOnZeroToPhoneNumber,
-             $transferPhoneNumber=null,
-             $rerouteOutboundCalls,
-             $outboundReroutePhoneNumber=null,
-             $allowOutboundLocalCalls,
-             $inboundCallMode,
-             $alternateBlockingAnnouncement,
-             $routeToVoiceMail
-    ) {
-        $this->isActive                      = $isActive;
-        $this->announcementSelection         = new AnnouncementSelection($announcementSelection);
-        $this->audioFileDescription          = new FileDescription($audioFileDescription);
-        $this->audioMediaType                = new MediaFileType($audioMediaType);
-        $this->videoFileDescription          = new FileDescription($videoFileDescription);
-        $this->videoMediaType                = new MediaFileType($videoMediaType);
-        $this->playNewPhoneNumber            = $playNewPhoneNumber;
-        $this->newPhoneNumber                = new DN($newPhoneNumber);
-        $this->transferOnZeroToPhoneNumber   = $transferOnZeroToPhoneNumber;
-        $this->transferPhoneNumber           = new OutgoingDN($transferPhoneNumber);
-        $this->rerouteOutboundCalls          = $rerouteOutboundCalls;
-        $this->outboundReroutePhoneNumber    = new OutgoingDNorSIPURI($outboundReroutePhoneNumber);
-        $this->allowOutboundLocalCalls       = $allowOutboundLocalCalls;
-        $this->inboundCallMode               = $inboundCallMode;
-        $this->alternateBlockingAnnouncement = $alternateBlockingAnnouncement;
-        $this->routeToVoiceMail              = $routeToVoiceMail;
-        $this->args                          = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -73,9 +51,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAnnouncementSelection($announcementSelection)
+    public function setAnnouncementSelection($announcementSelection = null)
     {
-        $announcementSelection and $this->announcementSelection = new AnnouncementSelection($announcementSelection);
+        $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
+             ? $announcementSelection
+             : new AnnouncementSelection($announcementSelection);
     }
 
     public function getAnnouncementSelection()
@@ -83,9 +63,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->announcementSelection) ?: $this->announcementSelection->value();
     }
 
-    public function setAudioFileDescription($audioFileDescription)
+    public function setAudioFileDescription($audioFileDescription = null)
     {
-        $audioFileDescription and $this->audioFileDescription = new FileDescription($audioFileDescription);
+        $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
+             ? $audioFileDescription
+             : new FileDescription($audioFileDescription);
     }
 
     public function getAudioFileDescription()
@@ -93,9 +75,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
     }
 
-    public function setAudioMediaType($audioMediaType)
+    public function setAudioMediaType($audioMediaType = null)
     {
-        $audioMediaType and $this->audioMediaType = new MediaFileType($audioMediaType);
+        $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
+             ? $audioMediaType
+             : new MediaFileType($audioMediaType);
     }
 
     public function getAudioMediaType()
@@ -103,9 +87,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->audioMediaType) ?: $this->audioMediaType->value();
     }
 
-    public function setVideoFileDescription($videoFileDescription)
+    public function setVideoFileDescription($videoFileDescription = null)
     {
-        $videoFileDescription and $this->videoFileDescription = new FileDescription($videoFileDescription);
+        $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
+             ? $videoFileDescription
+             : new FileDescription($videoFileDescription);
     }
 
     public function getVideoFileDescription()
@@ -113,9 +99,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
     }
 
-    public function setVideoMediaType($videoMediaType)
+    public function setVideoMediaType($videoMediaType = null)
     {
-        $videoMediaType and $this->videoMediaType = new MediaFileType($videoMediaType);
+        $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
+             ? $videoMediaType
+             : new MediaFileType($videoMediaType);
     }
 
     public function getVideoMediaType()
@@ -123,9 +111,8 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->videoMediaType) ?: $this->videoMediaType->value();
     }
 
-    public function setPlayNewPhoneNumber($playNewPhoneNumber)
+    public function setPlayNewPhoneNumber(xs:boolean $playNewPhoneNumber = null)
     {
-        $playNewPhoneNumber and $this->playNewPhoneNumber = new xs:boolean($playNewPhoneNumber);
     }
 
     public function getPlayNewPhoneNumber()
@@ -133,9 +120,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->value();
     }
 
-    public function setNewPhoneNumber($newPhoneNumber)
+    public function setNewPhoneNumber($newPhoneNumber = null)
     {
-        $newPhoneNumber and $this->newPhoneNumber = new DN($newPhoneNumber);
+        $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
+             ? $newPhoneNumber
+             : new DN($newPhoneNumber);
     }
 
     public function getNewPhoneNumber()
@@ -143,9 +132,8 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->value();
     }
 
-    public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber)
+    public function setTransferOnZeroToPhoneNumber(xs:boolean $transferOnZeroToPhoneNumber = null)
     {
-        $transferOnZeroToPhoneNumber and $this->transferOnZeroToPhoneNumber = new xs:boolean($transferOnZeroToPhoneNumber);
     }
 
     public function getTransferOnZeroToPhoneNumber()
@@ -153,9 +141,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->value();
     }
 
-    public function setTransferPhoneNumber($transferPhoneNumber)
+    public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        $transferPhoneNumber and $this->transferPhoneNumber = new OutgoingDN($transferPhoneNumber);
+        $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
+             ? $transferPhoneNumber
+             : new OutgoingDN($transferPhoneNumber);
     }
 
     public function getTransferPhoneNumber()
@@ -163,9 +153,8 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
     }
 
-    public function setRerouteOutboundCalls($rerouteOutboundCalls)
+    public function setRerouteOutboundCalls(xs:boolean $rerouteOutboundCalls = null)
     {
-        $rerouteOutboundCalls and $this->rerouteOutboundCalls = new xs:boolean($rerouteOutboundCalls);
     }
 
     public function getRerouteOutboundCalls()
@@ -173,9 +162,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls->value();
     }
 
-    public function setOutboundReroutePhoneNumber($outboundReroutePhoneNumber)
+    public function setOutboundReroutePhoneNumber($outboundReroutePhoneNumber = null)
     {
-        $outboundReroutePhoneNumber and $this->outboundReroutePhoneNumber = new OutgoingDNorSIPURI($outboundReroutePhoneNumber);
+        $this->outboundReroutePhoneNumber = ($outboundReroutePhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $outboundReroutePhoneNumber
+             : new OutgoingDNorSIPURI($outboundReroutePhoneNumber);
     }
 
     public function getOutboundReroutePhoneNumber()
@@ -183,9 +174,8 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->outboundReroutePhoneNumber) ?: $this->outboundReroutePhoneNumber->value();
     }
 
-    public function setAllowOutboundLocalCalls($allowOutboundLocalCalls)
+    public function setAllowOutboundLocalCalls(xs:boolean $allowOutboundLocalCalls = null)
     {
-        $allowOutboundLocalCalls and $this->allowOutboundLocalCalls = new xs:boolean($allowOutboundLocalCalls);
     }
 
     public function getAllowOutboundLocalCalls()
@@ -193,9 +183,11 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls->value();
     }
 
-    public function setInboundCallMode($inboundCallMode)
+    public function setInboundCallMode($inboundCallMode = null)
     {
-        $inboundCallMode and $this->inboundCallMode = new InterceptInboundCall($inboundCallMode);
+        $this->inboundCallMode = ($inboundCallMode InstanceOf InterceptInboundCall)
+             ? $inboundCallMode
+             : new InterceptInboundCall($inboundCallMode);
     }
 
     public function getInboundCallMode()
@@ -203,9 +195,8 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->inboundCallMode) ?: $this->inboundCallMode->value();
     }
 
-    public function setAlternateBlockingAnnouncement($alternateBlockingAnnouncement)
+    public function setAlternateBlockingAnnouncement(xs:boolean $alternateBlockingAnnouncement = null)
     {
-        $alternateBlockingAnnouncement and $this->alternateBlockingAnnouncement = new xs:boolean($alternateBlockingAnnouncement);
     }
 
     public function getAlternateBlockingAnnouncement()
@@ -213,9 +204,8 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
         return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement->value();
     }
 
-    public function setRouteToVoiceMail($routeToVoiceMail)
+    public function setRouteToVoiceMail(xs:boolean $routeToVoiceMail = null)
     {
-        $routeToVoiceMail and $this->routeToVoiceMail = new xs:boolean($routeToVoiceMail);
     }
 
     public function getRouteToVoiceMail()

@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\FileRepositoryProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -23,32 +22,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $name                   = null;
+    protected $rootDirectory          = null;
+    protected $secure                 = null;
+    protected $netAddress             = null;
+    protected $ftpPassive             = null;
+    protected $protocol               = null;
+    protected $port                   = null;
+    protected $ftpRemoteVerification  = null;
 
     public function __construct(
-             $name,
-             $rootDirectory=null,
-             $secure=null,
-             $netAddress=null,
-             $ftpPassive=null,
-             $protocol=null,
-             $port=null,
-             $ftpRemoteVerification=null
+         $name,
+         $rootDirectory = null,
+         $secure = null,
+         $netAddress = null,
+         $ftpPassive = null,
+         $protocol = null,
+         $port = null,
+         $ftpRemoteVerification = null
     ) {
-        $this->name                  = new FileRepositoryName($name);
-        $this->rootDirectory         = new CPEFileDirectory($rootDirectory);
-        $this->secure                = $secure;
-        $this->netAddress            = new NetAddress($netAddress);
-        $this->ftpPassive            = $ftpPassive;
-        $this->protocol              = $protocol;
-        $this->port                  = new Port($port);
-        $this->ftpRemoteVerification = $ftpRemoteVerification;
-        $this->args                  = func_get_args();
+        $this->setName($name);
+        $this->setRootDirectory($rootDirectory);
+        $this->setSecure($secure);
+        $this->setNetAddress($netAddress);
+        $this->setFtpPassive($ftpPassive);
+        $this->setProtocol($protocol);
+        $this->setPort($port);
+        $this->setFtpRemoteVerification($ftpRemoteVerification);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new FileRepositoryName($name);
+        $this->name = ($name InstanceOf FileRepositoryName)
+             ? $name
+             : new FileRepositoryName($name);
     }
 
     public function getName()
@@ -56,9 +64,11 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setRootDirectory($rootDirectory)
+    public function setRootDirectory($rootDirectory = null)
     {
-        $rootDirectory and $this->rootDirectory = new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
+             ? $rootDirectory
+             : new CPEFileDirectory($rootDirectory);
     }
 
     public function getRootDirectory()
@@ -66,9 +76,8 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         return (!$this->rootDirectory) ?: $this->rootDirectory->value();
     }
 
-    public function setSecure($secure)
+    public function setSecure(xs:boolean $secure = null)
     {
-        $secure and $this->secure = new xs:boolean($secure);
     }
 
     public function getSecure()
@@ -76,9 +85,11 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         return (!$this->secure) ?: $this->secure->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -86,9 +97,8 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setFtpPassive($ftpPassive)
+    public function setFtpPassive(xs:boolean $ftpPassive = null)
     {
-        $ftpPassive and $this->ftpPassive = new xs:boolean($ftpPassive);
     }
 
     public function getFtpPassive()
@@ -96,9 +106,11 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         return (!$this->ftpPassive) ?: $this->ftpPassive->value();
     }
 
-    public function setProtocol($protocol)
+    public function setProtocol($protocol = null)
     {
-        $protocol and $this->protocol = new FileRepositoryProtocol($protocol);
+        $this->protocol = ($protocol InstanceOf FileRepositoryProtocol)
+             ? $protocol
+             : new FileRepositoryProtocol($protocol);
     }
 
     public function getProtocol()
@@ -106,9 +118,11 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         return (!$this->protocol) ?: $this->protocol->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port($port);
+        $this->port = ($port InstanceOf Port)
+             ? $port
+             : new Port($port);
     }
 
     public function getPort()
@@ -116,9 +130,8 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         return (!$this->port) ?: $this->port->value();
     }
 
-    public function setFtpRemoteVerification($ftpRemoteVerification)
+    public function setFtpRemoteVerification(xs:boolean $ftpRemoteVerification = null)
     {
-        $ftpRemoteVerification and $this->ftpRemoteVerification = new xs:boolean($ftpRemoteVerification);
     }
 
     public function getFtpRemoteVerification()

@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,19 +22,19 @@ class InternalReleaseCause16 extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Busy',
-                                              'Forbidden',
-                                              'Routing Failure',
-                                              'Global Failure',
-                                              'Request Failure',
-                                              'Server Failure',
-                                              'Translation Failure',
-                                              'Temporarily Unavailable',
-                                              'User Not Found',
-                                              'Request Timeout',
-                                              'Dial Tone Timeout',
-                                              'Insufficient Credits'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Busy',
+            'Forbidden',
+            'Routing Failure',
+            'Global Failure',
+            'Request Failure',
+            'Server Failure',
+            'Translation Failure',
+            'Temporarily Unavailable',
+            'User Not Found',
+            'Request Timeout',
+            'Dial Tone Timeout',
+            'Insufficient Credits'
+        ]));
     }
 }

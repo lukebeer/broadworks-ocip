@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $tagName  = null;
 
     public function __construct(
-             $tagName=null
+         $tagName = null
     ) {
-        $this->tagName = new DeviceManagementTagName($tagName);
-        $this->args    = func_get_args();
+        $this->setTagName($tagName);
     }
 
-    public function setTagName($tagName)
+    public function setTagName($tagName = null)
     {
-        $tagName and $this->tagName = new DeviceManagementTagName($tagName);
+        $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
+             ? $tagName
+             : new DeviceManagementTagName($tagName);
     }
 
     public function getTagName()

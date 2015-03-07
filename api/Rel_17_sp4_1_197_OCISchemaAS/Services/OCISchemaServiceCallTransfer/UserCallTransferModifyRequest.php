@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallTransfer; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallTransfer\CallTransferRecallNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallTransfer\CallTransferBusyCampOnSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallTransferRecallNumberOfRings;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallTransferBusyCampOnSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,30 +20,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallTransferModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                       = __CLASS__;
+    protected $userId                                     = null;
+    protected $isRecallActive                             = null;
+    protected $recallNumberOfRings                        = null;
+    protected $useDiversionInhibitorForBlindTransfer      = null;
+    protected $useDiversionInhibitorForConsultativeCalls  = null;
+    protected $enableBusyCampOn                           = null;
+    protected $busyCampOnSeconds                          = null;
 
     public function __construct(
-             $userId,
-             $isRecallActive=null,
-             $recallNumberOfRings=null,
-             $useDiversionInhibitorForBlindTransfer=null,
-             $useDiversionInhibitorForConsultativeCalls=null,
-             $enableBusyCampOn=null,
-             $busyCampOnSeconds=null
+         $userId,
+         $isRecallActive = null,
+         $recallNumberOfRings = null,
+         $useDiversionInhibitorForBlindTransfer = null,
+         $useDiversionInhibitorForConsultativeCalls = null,
+         $enableBusyCampOn = null,
+         $busyCampOnSeconds = null
     ) {
-        $this->userId                                    = new UserId($userId);
-        $this->isRecallActive                            = $isRecallActive;
-        $this->recallNumberOfRings                       = $recallNumberOfRings;
-        $this->useDiversionInhibitorForBlindTransfer     = $useDiversionInhibitorForBlindTransfer;
-        $this->useDiversionInhibitorForConsultativeCalls = $useDiversionInhibitorForConsultativeCalls;
-        $this->enableBusyCampOn                          = $enableBusyCampOn;
-        $this->busyCampOnSeconds                         = $busyCampOnSeconds;
-        $this->args                                      = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsRecallActive($isRecallActive);
+        $this->setRecallNumberOfRings($recallNumberOfRings);
+        $this->setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer);
+        $this->setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls);
+        $this->setEnableBusyCampOn($enableBusyCampOn);
+        $this->setBusyCampOnSeconds($busyCampOnSeconds);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -52,9 +59,8 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsRecallActive($isRecallActive)
+    public function setIsRecallActive(xs:boolean $isRecallActive = null)
     {
-        $isRecallActive and $this->isRecallActive = new xs:boolean($isRecallActive);
     }
 
     public function getIsRecallActive()
@@ -62,9 +68,11 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->isRecallActive) ?: $this->isRecallActive->value();
     }
 
-    public function setRecallNumberOfRings($recallNumberOfRings)
+    public function setRecallNumberOfRings($recallNumberOfRings = null)
     {
-        $recallNumberOfRings and $this->recallNumberOfRings = new CallTransferRecallNumberOfRings($recallNumberOfRings);
+        $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
+             ? $recallNumberOfRings
+             : new CallTransferRecallNumberOfRings($recallNumberOfRings);
     }
 
     public function getRecallNumberOfRings()
@@ -72,9 +80,8 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->value();
     }
 
-    public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer)
+    public function setUseDiversionInhibitorForBlindTransfer(xs:boolean $useDiversionInhibitorForBlindTransfer = null)
     {
-        $useDiversionInhibitorForBlindTransfer and $this->useDiversionInhibitorForBlindTransfer = new xs:boolean($useDiversionInhibitorForBlindTransfer);
     }
 
     public function getUseDiversionInhibitorForBlindTransfer()
@@ -82,9 +89,8 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->value();
     }
 
-    public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls)
+    public function setUseDiversionInhibitorForConsultativeCalls(xs:boolean $useDiversionInhibitorForConsultativeCalls = null)
     {
-        $useDiversionInhibitorForConsultativeCalls and $this->useDiversionInhibitorForConsultativeCalls = new xs:boolean($useDiversionInhibitorForConsultativeCalls);
     }
 
     public function getUseDiversionInhibitorForConsultativeCalls()
@@ -92,9 +98,8 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->value();
     }
 
-    public function setEnableBusyCampOn($enableBusyCampOn)
+    public function setEnableBusyCampOn(xs:boolean $enableBusyCampOn = null)
     {
-        $enableBusyCampOn and $this->enableBusyCampOn = new xs:boolean($enableBusyCampOn);
     }
 
     public function getEnableBusyCampOn()
@@ -102,9 +107,11 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->enableBusyCampOn) ?: $this->enableBusyCampOn->value();
     }
 
-    public function setBusyCampOnSeconds($busyCampOnSeconds)
+    public function setBusyCampOnSeconds($busyCampOnSeconds = null)
     {
-        $busyCampOnSeconds and $this->busyCampOnSeconds = new CallTransferBusyCampOnSeconds($busyCampOnSeconds);
+        $this->busyCampOnSeconds = ($busyCampOnSeconds InstanceOf CallTransferBusyCampOnSeconds)
+             ? $busyCampOnSeconds
+             : new CallTransferBusyCampOnSeconds($busyCampOnSeconds);
     }
 
     public function getBusyCampOnSeconds()

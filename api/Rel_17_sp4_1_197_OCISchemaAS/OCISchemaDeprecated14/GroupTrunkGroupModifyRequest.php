@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $groupId                 = null;
+    protected $maxActiveCalls          = null;
+    protected $burstingMaxActiveCalls  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             UnboundedNonNegativeInt $maxActiveCalls=null,
-             UnboundedNonNegativeInt $burstingMaxActiveCalls=null
+         $serviceProviderId,
+         $groupId,
+         UnboundedNonNegativeInt $maxActiveCalls = null,
+         UnboundedNonNegativeInt $burstingMaxActiveCalls = null
     ) {
-        $this->serviceProviderId      = new ServiceProviderId($serviceProviderId);
-        $this->groupId                = new GroupId($groupId);
-        $this->maxActiveCalls         = $maxActiveCalls;
-        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
-        $this->args                   = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setMaxActiveCalls($maxActiveCalls);
+        $this->setBurstingMaxActiveCalls($burstingMaxActiveCalls);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -45,9 +50,11 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -55,9 +62,8 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setMaxActiveCalls($maxActiveCalls)
+    public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        $maxActiveCalls and $this->maxActiveCalls = new UnboundedNonNegativeInt($maxActiveCalls);
     }
 
     public function getMaxActiveCalls()
@@ -65,9 +71,8 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
     }
 
-    public function setBurstingMaxActiveCalls($burstingMaxActiveCalls)
+    public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        $burstingMaxActiveCalls and $this->burstingMaxActiveCalls = new UnboundedNonNegativeInt($burstingMaxActiveCalls);
     }
 
     public function getBurstingMaxActiveCalls()

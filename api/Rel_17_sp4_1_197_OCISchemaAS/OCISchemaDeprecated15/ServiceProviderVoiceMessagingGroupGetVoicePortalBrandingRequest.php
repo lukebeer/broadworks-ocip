@@ -19,18 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
 
     public function __construct(
-             $serviceProviderId
+         $serviceProviderId
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()

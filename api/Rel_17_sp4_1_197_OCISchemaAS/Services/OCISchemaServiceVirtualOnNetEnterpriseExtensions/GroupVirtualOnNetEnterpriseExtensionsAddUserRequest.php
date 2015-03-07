@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\VirtualOnNetUserRange;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\VirtualOnNetUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetUser;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetUserRange;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,24 +23,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $groupId                = null;
+    protected $virtualOnNetUser       = null;
+    protected $virtualOnNetUserRange  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $virtualOnNetUser=null,
-             $virtualOnNetUserRange=null
+         $serviceProviderId,
+         $groupId,
+         VirtualOnNetUser $virtualOnNetUser = null,
+         VirtualOnNetUserRange $virtualOnNetUserRange = null
     ) {
-        $this->serviceProviderId     = new ServiceProviderId($serviceProviderId);
-        $this->groupId               = new GroupId($groupId);
-        $this->virtualOnNetUser      = $virtualOnNetUser;
-        $this->virtualOnNetUserRange = $virtualOnNetUserRange;
-        $this->args                  = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setVirtualOnNetUser($virtualOnNetUser);
+        $this->setVirtualOnNetUserRange($virtualOnNetUserRange);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +53,11 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -58,9 +65,8 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setVirtualOnNetUser($virtualOnNetUser)
+    public function setVirtualOnNetUser(VirtualOnNetUser $virtualOnNetUser = null)
     {
-        $virtualOnNetUser and $this->virtualOnNetUser = new VirtualOnNetUser($virtualOnNetUser);
     }
 
     public function getVirtualOnNetUser()
@@ -68,9 +74,8 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         return (!$this->virtualOnNetUser) ?: $this->virtualOnNetUser->value();
     }
 
-    public function setVirtualOnNetUserRange($virtualOnNetUserRange)
+    public function setVirtualOnNetUserRange(VirtualOnNetUserRange $virtualOnNetUserRange = null)
     {
-        $virtualOnNetUserRange and $this->virtualOnNetUserRange = new VirtualOnNetUserRange($virtualOnNetUserRange);
     }
 
     public function getVirtualOnNetUserRange()

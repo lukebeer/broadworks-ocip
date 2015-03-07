@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtensionLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,26 +20,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupExtensionLengthModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $groupId                 = null;
+    protected $minExtensionLength      = null;
+    protected $maxExtensionLength      = null;
+    protected $defaultExtensionLength  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $minExtensionLength=null,
-             $maxExtensionLength=null,
-             $defaultExtensionLength=null
+         $serviceProviderId,
+         $groupId,
+         $minExtensionLength = null,
+         $maxExtensionLength = null,
+         $defaultExtensionLength = null
     ) {
-        $this->serviceProviderId      = new ServiceProviderId($serviceProviderId);
-        $this->groupId                = new GroupId($groupId);
-        $this->minExtensionLength     = new ExtensionLength($minExtensionLength);
-        $this->maxExtensionLength     = new ExtensionLength($maxExtensionLength);
-        $this->defaultExtensionLength = new ExtensionLength($defaultExtensionLength);
-        $this->args                   = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setMinExtensionLength($minExtensionLength);
+        $this->setMaxExtensionLength($maxExtensionLength);
+        $this->setDefaultExtensionLength($defaultExtensionLength);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -47,9 +53,11 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -57,9 +65,11 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setMinExtensionLength($minExtensionLength)
+    public function setMinExtensionLength($minExtensionLength = null)
     {
-        $minExtensionLength and $this->minExtensionLength = new ExtensionLength($minExtensionLength);
+        $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
+             ? $minExtensionLength
+             : new ExtensionLength($minExtensionLength);
     }
 
     public function getMinExtensionLength()
@@ -67,9 +77,11 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
     }
 
-    public function setMaxExtensionLength($maxExtensionLength)
+    public function setMaxExtensionLength($maxExtensionLength = null)
     {
-        $maxExtensionLength and $this->maxExtensionLength = new ExtensionLength($maxExtensionLength);
+        $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
+             ? $maxExtensionLength
+             : new ExtensionLength($maxExtensionLength);
     }
 
     public function getMaxExtensionLength()
@@ -77,9 +89,11 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
     }
 
-    public function setDefaultExtensionLength($defaultExtensionLength)
+    public function setDefaultExtensionLength($defaultExtensionLength = null)
     {
-        $defaultExtensionLength and $this->defaultExtensionLength = new ExtensionLength($defaultExtensionLength);
+        $this->defaultExtensionLength = ($defaultExtensionLength InstanceOf ExtensionLength)
+             ? $defaultExtensionLength
+             : new ExtensionLength($defaultExtensionLength);
     }
 
     public function getDefaultExtensionLength()

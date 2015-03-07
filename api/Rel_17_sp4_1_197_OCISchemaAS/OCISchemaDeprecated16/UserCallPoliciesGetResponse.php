@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $redirectedCallsCOLPPrivacy  = null;
 
-    public function __construct(
-             $redirectedCallsCOLPPrivacy
-    ) {
-        $this->redirectedCallsCOLPPrivacy = new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
-        $this->args                       = func_get_args();
-    }
 
-    public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy)
+    public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
-        $redirectedCallsCOLPPrivacy and $this->redirectedCallsCOLPPrivacy = new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
+        $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
+             ? $redirectedCallsCOLPPrivacy
+             : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
     }
 
     public function getRedirectedCallsCOLPPrivacy()

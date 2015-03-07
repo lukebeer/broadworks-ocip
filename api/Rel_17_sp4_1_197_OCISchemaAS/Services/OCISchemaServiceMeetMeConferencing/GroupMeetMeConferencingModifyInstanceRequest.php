@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferencePorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,30 +23,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $serviceUserId             = null;
+    protected $serviceInstanceProfile    = null;
+    protected $allocatedPorts            = null;
+    protected $networkClassOfService     = null;
+    protected $allowIndividualOutDial    = null;
+    protected $operatorNumber            = null;
+    protected $conferenceHostUserIdList  = null;
 
     public function __construct(
-             $serviceUserId,
-             ServiceInstanceModifyProfile $serviceInstanceProfile=null,
-             $allocatedPorts=null,
-             $networkClassOfService=null,
-             $allowIndividualOutDial=null,
-             $operatorNumber=null,
-             ReplacementUserIdList $conferenceHostUserIdList=null
+         $serviceUserId,
+         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         MeetMeConferencingConferencePorts $allocatedPorts = null,
+         $networkClassOfService = null,
+         $allowIndividualOutDial = null,
+         $operatorNumber = null,
+         ReplacementUserIdList $conferenceHostUserIdList = null
     ) {
-        $this->serviceUserId            = new UserId($serviceUserId);
-        $this->serviceInstanceProfile   = $serviceInstanceProfile;
-        $this->allocatedPorts           = $allocatedPorts;
-        $this->networkClassOfService    = new NetworkClassOfServiceName($networkClassOfService);
-        $this->allowIndividualOutDial   = $allowIndividualOutDial;
-        $this->operatorNumber           = new OutgoingDNorSIPURI($operatorNumber);
-        $this->conferenceHostUserIdList = $conferenceHostUserIdList;
-        $this->args                     = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setAllocatedPorts($allocatedPorts);
+        $this->setNetworkClassOfService($networkClassOfService);
+        $this->setAllowIndividualOutDial($allowIndividualOutDial);
+        $this->setOperatorNumber($operatorNumber);
+        $this->setConferenceHostUserIdList($conferenceHostUserIdList);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -55,9 +62,8 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceModifyProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -65,9 +71,8 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setAllocatedPorts($allocatedPorts)
+    public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $allocatedPorts and $this->allocatedPorts = new MeetMeConferencingConferencePorts($allocatedPorts);
     }
 
     public function getAllocatedPorts()
@@ -75,9 +80,11 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
         return (!$this->allocatedPorts) ?: $this->allocatedPorts->value();
     }
 
-    public function setNetworkClassOfService($networkClassOfService)
+    public function setNetworkClassOfService($networkClassOfService = null)
     {
-        $networkClassOfService and $this->networkClassOfService = new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
+             ? $networkClassOfService
+             : new NetworkClassOfServiceName($networkClassOfService);
     }
 
     public function getNetworkClassOfService()
@@ -85,9 +92,8 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
         return (!$this->networkClassOfService) ?: $this->networkClassOfService->value();
     }
 
-    public function setAllowIndividualOutDial($allowIndividualOutDial)
+    public function setAllowIndividualOutDial(xs:boolean $allowIndividualOutDial = null)
     {
-        $allowIndividualOutDial and $this->allowIndividualOutDial = new xs:boolean($allowIndividualOutDial);
     }
 
     public function getAllowIndividualOutDial()
@@ -95,9 +101,11 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
         return (!$this->allowIndividualOutDial) ?: $this->allowIndividualOutDial->value();
     }
 
-    public function setOperatorNumber($operatorNumber)
+    public function setOperatorNumber($operatorNumber = null)
     {
-        $operatorNumber and $this->operatorNumber = new OutgoingDNorSIPURI($operatorNumber);
+        $this->operatorNumber = ($operatorNumber InstanceOf OutgoingDNorSIPURI)
+             ? $operatorNumber
+             : new OutgoingDNorSIPURI($operatorNumber);
     }
 
     public function getOperatorNumber()
@@ -105,9 +113,8 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
         return (!$this->operatorNumber) ?: $this->operatorNumber->value();
     }
 
-    public function setConferenceHostUserIdList($conferenceHostUserIdList)
+    public function setConferenceHostUserIdList(ReplacementUserIdList $conferenceHostUserIdList = null)
     {
-        $conferenceHostUserIdList and $this->conferenceHostUserIdList = new ReplacementUserIdList($conferenceHostUserIdList);
     }
 
     public function getConferenceHostUserIdList()

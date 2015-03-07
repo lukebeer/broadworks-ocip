@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterPeerInstance;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPeerInstance;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterPeerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $instance   = null;
+    protected $identity   = null;
+    protected $ipAddress  = null;
+    protected $port       = null;
+    protected $enabled    = null;
 
     public function __construct(
-             $instance,
-             $identity,
-             $ipAddress=null,
-             $port,
-             $enabled
+         $instance,
+         $identity,
+         $ipAddress = null,
+         $port,
+         $enabled
     ) {
-        $this->instance  = $instance;
-        $this->identity  = new DomainName($identity);
-        $this->ipAddress = new IPAddress($ipAddress);
-        $this->port      = new Port1025($port);
-        $this->enabled   = $enabled;
-        $this->args      = func_get_args();
+        $this->setInstance($instance);
+        $this->setIdentity($identity);
+        $this->setIpAddress($ipAddress);
+        $this->setPort($port);
+        $this->setEnabled($enabled);
     }
 
-    public function setInstance($instance)
+    public function setInstance($instance = null)
     {
-        $instance and $this->instance = new BwDiameterPeerInstance($instance);
+        $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
+             ? $instance
+             : new BwDiameterPeerInstance($instance);
     }
 
     public function getInstance()
@@ -49,9 +54,11 @@ class SystemBwDiameterPeerAddRequest extends ComplexType implements ComplexInter
         return (!$this->instance) ?: $this->instance->value();
     }
 
-    public function setIdentity($identity)
+    public function setIdentity($identity = null)
     {
-        $identity and $this->identity = new DomainName($identity);
+        $this->identity = ($identity InstanceOf DomainName)
+             ? $identity
+             : new DomainName($identity);
     }
 
     public function getIdentity()
@@ -59,9 +66,11 @@ class SystemBwDiameterPeerAddRequest extends ComplexType implements ComplexInter
         return (!$this->identity) ?: $this->identity->value();
     }
 
-    public function setIpAddress($ipAddress)
+    public function setIpAddress($ipAddress = null)
     {
-        $ipAddress and $this->ipAddress = new IPAddress($ipAddress);
+        $this->ipAddress = ($ipAddress InstanceOf IPAddress)
+             ? $ipAddress
+             : new IPAddress($ipAddress);
     }
 
     public function getIpAddress()
@@ -69,9 +78,11 @@ class SystemBwDiameterPeerAddRequest extends ComplexType implements ComplexInter
         return (!$this->ipAddress) ?: $this->ipAddress->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port1025($port);
+        $this->port = ($port InstanceOf Port1025)
+             ? $port
+             : new Port1025($port);
     }
 
     public function getPort()
@@ -79,9 +90,8 @@ class SystemBwDiameterPeerAddRequest extends ComplexType implements ComplexInter
         return (!$this->port) ?: $this->port->value();
     }
 
-    public function setEnabled($enabled)
+    public function setEnabled(xs:boolean $enabled = null)
     {
-        $enabled and $this->enabled = new xs:boolean($enabled);
     }
 
     public function getEnabled()

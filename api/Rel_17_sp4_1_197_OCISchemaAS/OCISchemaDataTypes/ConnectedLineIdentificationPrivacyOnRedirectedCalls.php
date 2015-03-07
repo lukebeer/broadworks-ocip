@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,10 +22,10 @@ class ConnectedLineIdentificationPrivacyOnRedirectedCalls extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'No Privacy',
-                                              'Privacy For External Calls',
-                                              'Privacy For All Calls'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'No Privacy',
+            'Privacy For External Calls',
+            'Privacy For All Calls'
+        ]));
     }
 }

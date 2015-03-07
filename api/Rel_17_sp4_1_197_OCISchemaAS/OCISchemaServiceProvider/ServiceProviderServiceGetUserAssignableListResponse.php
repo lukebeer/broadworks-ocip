@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $serviceName  = null;
 
-    public function __construct(
-             $serviceName=null
-    ) {
-        $this->serviceName = new UserService($serviceName);
-        $this->args        = func_get_args();
-    }
 
-    public function setServiceName($serviceName)
+    public function setServiceName($serviceName = null)
     {
-        $serviceName and $this->serviceName = new UserService($serviceName);
+        $this->serviceName = ($serviceName InstanceOf UserService)
+             ? $serviceName
+             : new UserService($serviceName);
     }
 
     public function getServiceName()

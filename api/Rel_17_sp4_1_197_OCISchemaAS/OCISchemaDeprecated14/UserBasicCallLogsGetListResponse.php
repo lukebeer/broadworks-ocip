@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BasicCallLogsEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\BasicCallLogsEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBasicCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $placed    = null;
+    protected $received  = null;
+    protected $missed    = null;
 
-    public function __construct(
-             $placed=null,
-             $received=null,
-             $missed=null
-    ) {
-        $this->placed   = $placed;
-        $this->received = $received;
-        $this->missed   = $missed;
-        $this->args     = func_get_args();
-    }
 
-    public function setPlaced($placed)
+    public function setPlaced(BasicCallLogsEntry $placed = null)
     {
-        $placed and $this->placed = new BasicCallLogsEntry($placed);
     }
 
     public function getPlaced()
@@ -41,9 +33,8 @@ class UserBasicCallLogsGetListResponse extends ComplexType implements ComplexInt
         return (!$this->placed) ?: $this->placed->value();
     }
 
-    public function setReceived($received)
+    public function setReceived(BasicCallLogsEntry $received = null)
     {
-        $received and $this->received = new BasicCallLogsEntry($received);
     }
 
     public function getReceived()
@@ -51,9 +42,8 @@ class UserBasicCallLogsGetListResponse extends ComplexType implements ComplexInt
         return (!$this->received) ?: $this->received->value();
     }
 
-    public function setMissed($missed)
+    public function setMissed(BasicCallLogsEntry $missed = null)
     {
-        $missed and $this->missed = new BasicCallLogsEntry($missed);
     }
 
     public function getMissed()

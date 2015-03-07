@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
 
@@ -23,6 +22,6 @@ class BroadWorksMobileManagerInformationFile extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = xs:base64Binary;
-        $this->addRestriction(new MinLength(1));
+        $this->addRestriction(new MinLength("1"));
     }
 }

@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +22,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $deviceName         = null;
+    protected $tagName            = null;
+    protected $tagValue           = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $deviceName,
-             $tagName,
-             $tagValue=null
+         $serviceProviderId,
+         $groupId,
+         $deviceName,
+         $tagName,
+         $tagValue = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->deviceName        = new AccessDeviceName($deviceName);
-        $this->tagName           = new DeviceManagementTagName($tagName);
-        $this->tagValue          = new DeviceManagementTagValue($tagValue);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setDeviceName($deviceName);
+        $this->setTagName($tagName);
+        $this->setTagValue($tagValue);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +55,11 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -59,9 +67,11 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -69,9 +79,11 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setTagName($tagName)
+    public function setTagName($tagName = null)
     {
-        $tagName and $this->tagName = new DeviceManagementTagName($tagName);
+        $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
+             ? $tagName
+             : new DeviceManagementTagName($tagName);
     }
 
     public function getTagName()
@@ -79,9 +91,11 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
         return (!$this->tagName) ?: $this->tagName->value();
     }
 
-    public function setTagValue($tagValue)
+    public function setTagValue($tagValue = null)
     {
-        $tagValue and $this->tagValue = new DeviceManagementTagValue($tagValue);
+        $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
+             ? $tagValue
+             : new DeviceManagementTagValue($tagValue);
     }
 
     public function getTagValue()

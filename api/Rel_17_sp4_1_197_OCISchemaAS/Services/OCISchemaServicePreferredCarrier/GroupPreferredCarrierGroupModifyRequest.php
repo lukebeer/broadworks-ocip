@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\GroupPreferredCarrierNameModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPreferredCarrierNameModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,26 +20,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $groupId               = null;
+    protected $intraLataCarrier      = null;
+    protected $interLataCarrier      = null;
+    protected $internationalCarrier  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $intraLataCarrier=null,
-             $interLataCarrier=null,
-             $internationalCarrier=null
+         $serviceProviderId,
+         $groupId,
+         GroupPreferredCarrierNameModify $intraLataCarrier = null,
+         GroupPreferredCarrierNameModify $interLataCarrier = null,
+         GroupPreferredCarrierNameModify $internationalCarrier = null
     ) {
-        $this->serviceProviderId    = new ServiceProviderId($serviceProviderId);
-        $this->groupId              = new GroupId($groupId);
-        $this->intraLataCarrier     = $intraLataCarrier;
-        $this->interLataCarrier     = $interLataCarrier;
-        $this->internationalCarrier = $internationalCarrier;
-        $this->args                 = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setIntraLataCarrier($intraLataCarrier);
+        $this->setInterLataCarrier($interLataCarrier);
+        $this->setInternationalCarrier($internationalCarrier);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -47,9 +53,11 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -57,9 +65,8 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setIntraLataCarrier($intraLataCarrier)
+    public function setIntraLataCarrier(GroupPreferredCarrierNameModify $intraLataCarrier = null)
     {
-        $intraLataCarrier and $this->intraLataCarrier = new GroupPreferredCarrierNameModify($intraLataCarrier);
     }
 
     public function getIntraLataCarrier()
@@ -67,9 +74,8 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->value();
     }
 
-    public function setInterLataCarrier($interLataCarrier)
+    public function setInterLataCarrier(GroupPreferredCarrierNameModify $interLataCarrier = null)
     {
-        $interLataCarrier and $this->interLataCarrier = new GroupPreferredCarrierNameModify($interLataCarrier);
     }
 
     public function getInterLataCarrier()
@@ -77,9 +83,8 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         return (!$this->interLataCarrier) ?: $this->interLataCarrier->value();
     }
 
-    public function setInternationalCarrier($internationalCarrier)
+    public function setInternationalCarrier(GroupPreferredCarrierNameModify $internationalCarrier = null)
     {
-        $internationalCarrier and $this->internationalCarrier = new GroupPreferredCarrierNameModify($internationalCarrier);
     }
 
     public function getInternationalCarrier()

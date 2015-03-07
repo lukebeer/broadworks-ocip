@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,17 +22,17 @@ class MeetMeConferencingExpiredConferenceHoldPeriodDays extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'int';
-        $this-addRestriction(new Enumeration([
-                                              '1',
-                                              '2',
-                                              '3',
-                                              '4',
-                                              '5',
-                                              '6',
-                                              '7',
-                                              '15',
-                                              '30',
-                                              '60'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '15',
+            '30',
+            '60'
+        ]));
     }
 }

@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $accessCode         = null;
 
     public function __construct(
-             $serviceProviderId,
-             $accessCode
+         $serviceProviderId,
+         $accessCode
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->accessCode        = new DialPlanAccessCode($accessCode);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setAccessCode($accessCode);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,11 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setAccessCode($accessCode)
+    public function setAccessCode($accessCode = null)
     {
-        $accessCode and $this->accessCode = new DialPlanAccessCode($accessCode);
+        $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
+             ? $accessCode
+             : new DialPlanAccessCode($accessCode);
     }
 
     public function getAccessCode()

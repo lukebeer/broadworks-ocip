@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNDigitManipulationOperationRequiredValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNDigitManipulationValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOperationRequiredValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationValue;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNDigitManipulationRequiredValue extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $operation  = null;
+    protected $value      = null;
 
     public function __construct(
-             $operation,
-             $value
+         $operation,
+         $value
     ) {
-        $this->operation = $operation;
-        $this->value     = $value;
-        $this->args      = func_get_args();
+        $this->setOperation($operation);
+        $this->setValue($value);
     }
 
-    public function setOperation($operation)
+    public function setOperation($operation = null)
     {
-        $operation and $this->operation = new EnterpriseVoiceVPNDigitManipulationOperationRequiredValue($operation);
+        $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationRequiredValue)
+             ? $operation
+             : new EnterpriseVoiceVPNDigitManipulationOperationRequiredValue($operation);
     }
 
     public function getOperation()
@@ -39,9 +42,11 @@ class EnterpriseVoiceVPNDigitManipulationRequiredValue extends ComplexType imple
         return (!$this->operation) ?: $this->operation->value();
     }
 
-    public function setValue($value)
+    public function setValue($value = null)
     {
-        $value and $this->value = new EnterpriseVoiceVPNDigitManipulationValue($value);
+        $this->value = ($value InstanceOf EnterpriseVoiceVPNDigitManipulationValue)
+             ? $value
+             : new EnterpriseVoiceVPNDigitManipulationValue($value);
     }
 
     public function getValue()

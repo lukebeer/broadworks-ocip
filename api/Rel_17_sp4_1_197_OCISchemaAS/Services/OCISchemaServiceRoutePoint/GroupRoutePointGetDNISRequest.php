@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointGetDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $dnisKey  = null;
 
     public function __construct(
-             DNISKey $dnisKey
+         DNISKey $dnisKey
     ) {
-        $this->dnisKey = $dnisKey;
-        $this->args    = func_get_args();
+        $this->setDnisKey($dnisKey);
     }
 
-    public function setDnisKey($dnisKey)
+    public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $dnisKey and $this->dnisKey = new DNISKey($dnisKey);
     }
 
     public function getDnisKey()

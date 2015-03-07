@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $userInTrunkGroup  = null;
 
     public function __construct(
-             $userInTrunkGroup
+         $userInTrunkGroup
     ) {
-        $this->userInTrunkGroup = $userInTrunkGroup;
-        $this->args             = func_get_args();
+        $this->setUserInTrunkGroup($userInTrunkGroup);
     }
 
-    public function setUserInTrunkGroup($userInTrunkGroup)
+    public function setUserInTrunkGroup(xs:boolean $userInTrunkGroup = null)
     {
-        $userInTrunkGroup and $this->userInTrunkGroup = new xs:boolean($userInTrunkGroup);
     }
 
     public function getUserInTrunkGroup()

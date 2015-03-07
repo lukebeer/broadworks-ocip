@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,26 +18,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                           = __CLASS__;
+    protected $serviceProviderId                              = null;
+    protected $enableZoneCallingRestrictions                  = null;
+    protected $enableOriginationRoamingRestrictions           = null;
+    protected $enableEmergencyOriginationRoamingRestrictions  = null;
+    protected $enableTerminationRoamingRestrictions           = null;
 
     public function __construct(
-             $serviceProviderId,
-             $enableZoneCallingRestrictions=null,
-             $enableOriginationRoamingRestrictions=null,
-             $enableEmergencyOriginationRoamingRestrictions=null,
-             $enableTerminationRoamingRestrictions=null
+         $serviceProviderId,
+         $enableZoneCallingRestrictions = null,
+         $enableOriginationRoamingRestrictions = null,
+         $enableEmergencyOriginationRoamingRestrictions = null,
+         $enableTerminationRoamingRestrictions = null
     ) {
-        $this->serviceProviderId                             = new ServiceProviderId($serviceProviderId);
-        $this->enableZoneCallingRestrictions                 = $enableZoneCallingRestrictions;
-        $this->enableOriginationRoamingRestrictions          = $enableOriginationRoamingRestrictions;
-        $this->enableEmergencyOriginationRoamingRestrictions = $enableEmergencyOriginationRoamingRestrictions;
-        $this->enableTerminationRoamingRestrictions          = $enableTerminationRoamingRestrictions;
-        $this->args                                          = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setEnableZoneCallingRestrictions($enableZoneCallingRestrictions);
+        $this->setEnableOriginationRoamingRestrictions($enableOriginationRoamingRestrictions);
+        $this->setEnableEmergencyOriginationRoamingRestrictions($enableEmergencyOriginationRoamingRestrictions);
+        $this->setEnableTerminationRoamingRestrictions($enableTerminationRoamingRestrictions);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -46,9 +51,8 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setEnableZoneCallingRestrictions($enableZoneCallingRestrictions)
+    public function setEnableZoneCallingRestrictions(xs:boolean $enableZoneCallingRestrictions = null)
     {
-        $enableZoneCallingRestrictions and $this->enableZoneCallingRestrictions = new xs:boolean($enableZoneCallingRestrictions);
     }
 
     public function getEnableZoneCallingRestrictions()
@@ -56,9 +60,8 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
         return (!$this->enableZoneCallingRestrictions) ?: $this->enableZoneCallingRestrictions->value();
     }
 
-    public function setEnableOriginationRoamingRestrictions($enableOriginationRoamingRestrictions)
+    public function setEnableOriginationRoamingRestrictions(xs:boolean $enableOriginationRoamingRestrictions = null)
     {
-        $enableOriginationRoamingRestrictions and $this->enableOriginationRoamingRestrictions = new xs:boolean($enableOriginationRoamingRestrictions);
     }
 
     public function getEnableOriginationRoamingRestrictions()
@@ -66,9 +69,8 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
         return (!$this->enableOriginationRoamingRestrictions) ?: $this->enableOriginationRoamingRestrictions->value();
     }
 
-    public function setEnableEmergencyOriginationRoamingRestrictions($enableEmergencyOriginationRoamingRestrictions)
+    public function setEnableEmergencyOriginationRoamingRestrictions(xs:boolean $enableEmergencyOriginationRoamingRestrictions = null)
     {
-        $enableEmergencyOriginationRoamingRestrictions and $this->enableEmergencyOriginationRoamingRestrictions = new xs:boolean($enableEmergencyOriginationRoamingRestrictions);
     }
 
     public function getEnableEmergencyOriginationRoamingRestrictions()
@@ -76,9 +78,8 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
         return (!$this->enableEmergencyOriginationRoamingRestrictions) ?: $this->enableEmergencyOriginationRoamingRestrictions->value();
     }
 
-    public function setEnableTerminationRoamingRestrictions($enableTerminationRoamingRestrictions)
+    public function setEnableTerminationRoamingRestrictions(xs:boolean $enableTerminationRoamingRestrictions = null)
     {
-        $enableTerminationRoamingRestrictions and $this->enableTerminationRoamingRestrictions = new xs:boolean($enableTerminationRoamingRestrictions);
     }
 
     public function getEnableTerminationRoamingRestrictions()

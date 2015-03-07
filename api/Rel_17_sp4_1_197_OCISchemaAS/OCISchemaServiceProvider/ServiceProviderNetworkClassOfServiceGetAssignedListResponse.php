@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderNetworkClassOfServiceGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $networkClassOfServiceTable  = null;
 
-    public function __construct(
-             $networkClassOfServiceTable
-    ) {
-        $this->networkClassOfServiceTable = $networkClassOfServiceTable;
-        $this->args                       = func_get_args();
-    }
 
-    public function setNetworkClassOfServiceTable($networkClassOfServiceTable)
+    public function setNetworkClassOfServiceTable(core:OCITable $networkClassOfServiceTable = null)
     {
-        $networkClassOfServiceTable and $this->networkClassOfServiceTable = new core:OCITable($networkClassOfServiceTable);
     }
 
     public function getNetworkClassOfServiceTable()

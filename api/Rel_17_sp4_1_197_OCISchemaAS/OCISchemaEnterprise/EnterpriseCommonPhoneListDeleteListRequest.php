@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $entryName          = null;
 
     public function __construct(
-             $serviceProviderId,
-             $entryName
+         $serviceProviderId,
+         $entryName
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->entryName         = new PhoneListEntryName($entryName);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setEntryName($entryName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,11 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setEntryName($entryName)
+    public function setEntryName($entryName = null)
     {
-        $entryName and $this->entryName = new PhoneListEntryName($entryName);
+        $this->entryName = ($entryName InstanceOf PhoneListEntryName)
+             ? $entryName
+             : new PhoneListEntryName($entryName);
     }
 
     public function getEntryName()

@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExternalCustomRingbackPrefixDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackPrefixDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExternalCustomRingbackTimeoutSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +20,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $prefixDigits      = null;
+    protected $serverNetAddress  = null;
+    protected $serverPort        = null;
+    protected $timeoutSeconds    = null;
 
-    public function __construct(
-             $prefixDigits=null,
-             $serverNetAddress=null,
-             $serverPort=null,
-             $timeoutSeconds
-    ) {
-        $this->prefixDigits     = $prefixDigits;
-        $this->serverNetAddress = new NetAddress($serverNetAddress);
-        $this->serverPort       = new Port1025($serverPort);
-        $this->timeoutSeconds   = $timeoutSeconds;
-        $this->args             = func_get_args();
-    }
 
-    public function setPrefixDigits($prefixDigits)
+    public function setPrefixDigits($prefixDigits = null)
     {
-        $prefixDigits and $this->prefixDigits = new ExternalCustomRingbackPrefixDigits($prefixDigits);
+        $this->prefixDigits = ($prefixDigits InstanceOf ExternalCustomRingbackPrefixDigits)
+             ? $prefixDigits
+             : new ExternalCustomRingbackPrefixDigits($prefixDigits);
     }
 
     public function getPrefixDigits()
@@ -45,9 +39,11 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
         return (!$this->prefixDigits) ?: $this->prefixDigits->value();
     }
 
-    public function setServerNetAddress($serverNetAddress)
+    public function setServerNetAddress($serverNetAddress = null)
     {
-        $serverNetAddress and $this->serverNetAddress = new NetAddress($serverNetAddress);
+        $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
+             ? $serverNetAddress
+             : new NetAddress($serverNetAddress);
     }
 
     public function getServerNetAddress()
@@ -55,9 +51,11 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
         return (!$this->serverNetAddress) ?: $this->serverNetAddress->value();
     }
 
-    public function setServerPort($serverPort)
+    public function setServerPort($serverPort = null)
     {
-        $serverPort and $this->serverPort = new Port1025($serverPort);
+        $this->serverPort = ($serverPort InstanceOf Port1025)
+             ? $serverPort
+             : new Port1025($serverPort);
     }
 
     public function getServerPort()
@@ -65,9 +63,11 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
         return (!$this->serverPort) ?: $this->serverPort->value();
     }
 
-    public function setTimeoutSeconds($timeoutSeconds)
+    public function setTimeoutSeconds($timeoutSeconds = null)
     {
-        $timeoutSeconds and $this->timeoutSeconds = new ExternalCustomRingbackTimeoutSeconds($timeoutSeconds);
+        $this->timeoutSeconds = ($timeoutSeconds InstanceOf ExternalCustomRingbackTimeoutSeconds)
+             ? $timeoutSeconds
+             : new ExternalCustomRingbackTimeoutSeconds($timeoutSeconds);
     }
 
     public function getTimeoutSeconds()

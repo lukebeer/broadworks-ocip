@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $getDefaultMenuKeys  = null;
 
     public function __construct(
-             $getDefaultMenuKeys
+         $getDefaultMenuKeys
     ) {
-        $this->getDefaultMenuKeys = $getDefaultMenuKeys;
-        $this->args               = func_get_args();
+        $this->setGetDefaultMenuKeys($getDefaultMenuKeys);
     }
 
-    public function setGetDefaultMenuKeys($getDefaultMenuKeys)
+    public function setGetDefaultMenuKeys(xs:boolean $getDefaultMenuKeys = null)
     {
-        $getDefaultMenuKeys and $this->getDefaultMenuKeys = new xs:boolean($getDefaultMenuKeys);
     }
 
     public function getGetDefaultMenuKeys()

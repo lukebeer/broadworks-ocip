@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkServerSyncParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $enableSync                = null;
+    protected $syncLinePorts             = null;
+    protected $syncDeviceManagementInfo  = null;
+    protected $syncTrunkGroups           = null;
 
     public function __construct(
-             $enableSync=null,
-             $syncLinePorts=null,
-             $syncDeviceManagementInfo=null,
-             $syncTrunkGroups=null
+         $enableSync = null,
+         $syncLinePorts = null,
+         $syncDeviceManagementInfo = null,
+         $syncTrunkGroups = null
     ) {
-        $this->enableSync               = $enableSync;
-        $this->syncLinePorts            = $syncLinePorts;
-        $this->syncDeviceManagementInfo = $syncDeviceManagementInfo;
-        $this->syncTrunkGroups          = $syncTrunkGroups;
-        $this->args                     = func_get_args();
+        $this->setEnableSync($enableSync);
+        $this->setSyncLinePorts($syncLinePorts);
+        $this->setSyncDeviceManagementInfo($syncDeviceManagementInfo);
+        $this->setSyncTrunkGroups($syncTrunkGroups);
     }
 
-    public function setEnableSync($enableSync)
+    public function setEnableSync(xs:boolean $enableSync = null)
     {
-        $enableSync and $this->enableSync = new xs:boolean($enableSync);
     }
 
     public function getEnableSync()
@@ -45,9 +47,8 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
         return (!$this->enableSync) ?: $this->enableSync->value();
     }
 
-    public function setSyncLinePorts($syncLinePorts)
+    public function setSyncLinePorts(xs:boolean $syncLinePorts = null)
     {
-        $syncLinePorts and $this->syncLinePorts = new xs:boolean($syncLinePorts);
     }
 
     public function getSyncLinePorts()
@@ -55,9 +56,8 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
         return (!$this->syncLinePorts) ?: $this->syncLinePorts->value();
     }
 
-    public function setSyncDeviceManagementInfo($syncDeviceManagementInfo)
+    public function setSyncDeviceManagementInfo(xs:boolean $syncDeviceManagementInfo = null)
     {
-        $syncDeviceManagementInfo and $this->syncDeviceManagementInfo = new xs:boolean($syncDeviceManagementInfo);
     }
 
     public function getSyncDeviceManagementInfo()
@@ -65,9 +65,8 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
         return (!$this->syncDeviceManagementInfo) ?: $this->syncDeviceManagementInfo->value();
     }
 
-    public function setSyncTrunkGroups($syncTrunkGroups)
+    public function setSyncTrunkGroups(xs:boolean $syncTrunkGroups = null)
     {
-        $syncTrunkGroups and $this->syncTrunkGroups = new xs:boolean($syncTrunkGroups);
     }
 
     public function getSyncTrunkGroups()

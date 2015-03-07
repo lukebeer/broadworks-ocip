@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $deviceType                    = null;
+    protected $supportsPolycomPhoneServices  = null;
 
     public function __construct(
-             $deviceType,
-             $supportsPolycomPhoneServices=null
+         $deviceType,
+         $supportsPolycomPhoneServices = null
     ) {
-        $this->deviceType                   = new AccessDeviceType($deviceType);
-        $this->supportsPolycomPhoneServices = $supportsPolycomPhoneServices;
-        $this->args                         = func_get_args();
+        $this->setDeviceType($deviceType);
+        $this->setSupportsPolycomPhoneServices($supportsPolycomPhoneServices);
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -40,9 +42,8 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setSupportsPolycomPhoneServices($supportsPolycomPhoneServices)
+    public function setSupportsPolycomPhoneServices(xs:boolean $supportsPolycomPhoneServices = null)
     {
-        $supportsPolycomPhoneServices and $this->supportsPolycomPhoneServices = new xs:boolean($supportsPolycomPhoneServices);
     }
 
     public function getSupportsPolycomPhoneServices()

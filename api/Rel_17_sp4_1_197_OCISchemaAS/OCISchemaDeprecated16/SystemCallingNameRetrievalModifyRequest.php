@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingNameRetrievalQueryTimerMilliSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallingNameRetrievalQueryTimerMilliSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallingNameRetrievalModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $queryTimerMilliSeconds   = null;
+    protected $serverNetAddress         = null;
+    protected $serverPort               = null;
+    protected $serverTransportProtocol  = null;
 
     public function __construct(
-             $queryTimerMilliSeconds=null,
-             $serverNetAddress=null,
-             $serverPort=null,
-             $serverTransportProtocol=null
+         $queryTimerMilliSeconds = null,
+         $serverNetAddress = null,
+         $serverPort = null,
+         $serverTransportProtocol = null
     ) {
-        $this->queryTimerMilliSeconds  = $queryTimerMilliSeconds;
-        $this->serverNetAddress        = new NetAddress($serverNetAddress);
-        $this->serverPort              = new Port1025($serverPort);
-        $this->serverTransportProtocol = new TransportProtocol($serverTransportProtocol);
-        $this->args                    = func_get_args();
+        $this->setQueryTimerMilliSeconds($queryTimerMilliSeconds);
+        $this->setServerNetAddress($serverNetAddress);
+        $this->setServerPort($serverPort);
+        $this->setServerTransportProtocol($serverTransportProtocol);
     }
 
-    public function setQueryTimerMilliSeconds($queryTimerMilliSeconds)
+    public function setQueryTimerMilliSeconds($queryTimerMilliSeconds = null)
     {
-        $queryTimerMilliSeconds and $this->queryTimerMilliSeconds = new CallingNameRetrievalQueryTimerMilliSeconds($queryTimerMilliSeconds);
+        $this->queryTimerMilliSeconds = ($queryTimerMilliSeconds InstanceOf CallingNameRetrievalQueryTimerMilliSeconds)
+             ? $queryTimerMilliSeconds
+             : new CallingNameRetrievalQueryTimerMilliSeconds($queryTimerMilliSeconds);
     }
 
     public function getQueryTimerMilliSeconds()
@@ -46,9 +51,11 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
         return (!$this->queryTimerMilliSeconds) ?: $this->queryTimerMilliSeconds->value();
     }
 
-    public function setServerNetAddress($serverNetAddress)
+    public function setServerNetAddress($serverNetAddress = null)
     {
-        $serverNetAddress and $this->serverNetAddress = new NetAddress($serverNetAddress);
+        $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
+             ? $serverNetAddress
+             : new NetAddress($serverNetAddress);
     }
 
     public function getServerNetAddress()
@@ -56,9 +63,11 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
         return (!$this->serverNetAddress) ?: $this->serverNetAddress->value();
     }
 
-    public function setServerPort($serverPort)
+    public function setServerPort($serverPort = null)
     {
-        $serverPort and $this->serverPort = new Port1025($serverPort);
+        $this->serverPort = ($serverPort InstanceOf Port1025)
+             ? $serverPort
+             : new Port1025($serverPort);
     }
 
     public function getServerPort()
@@ -66,9 +75,11 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
         return (!$this->serverPort) ?: $this->serverPort->value();
     }
 
-    public function setServerTransportProtocol($serverTransportProtocol)
+    public function setServerTransportProtocol($serverTransportProtocol = null)
     {
-        $serverTransportProtocol and $this->serverTransportProtocol = new TransportProtocol($serverTransportProtocol);
+        $this->serverTransportProtocol = ($serverTransportProtocol InstanceOf TransportProtocol)
+             ? $serverTransportProtocol
+             : new TransportProtocol($serverTransportProtocol);
     }
 
     public function getServerTransportProtocol()

@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,13 +22,13 @@ class PresentationIndicator extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Anonymous',
-                                              'Anonymous Name',
-                                              'Anonymous URI',
-                                              'Anonymous Unavailable',
-                                              'Public',
-                                              'Unavailable'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Anonymous',
+            'Anonymous Name',
+            'Anonymous URI',
+            'Anonymous Unavailable',
+            'Public',
+            'Unavailable'
+        ]));
     }
 }

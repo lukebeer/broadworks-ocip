@@ -7,15 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterManualNightServiceAnnouncementMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledServiceAction;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterManualNightServiceAnnouncementMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,62 +24,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $action                        = null;
+    protected $businessHours                 = null;
+    protected $forceNightService             = null;
+    protected $allowManualOverrideViaFAC     = null;
+    protected $transferPhoneNumber           = null;
+    protected $playAnnouncementBeforeAction  = null;
+    protected $audioMessageSelection         = null;
+    protected $audioUrlList                  = null;
+    protected $audioFileList                 = null;
+    protected $audioMediaTypeList            = null;
+    protected $videoMessageSelection         = null;
+    protected $videoUrlList                  = null;
+    protected $videoFileList                 = null;
+    protected $videoMediaTypeList            = null;
+    protected $manualAnnouncementMode        = null;
+    protected $manualAudioMessageSelection   = null;
+    protected $manualAudioUrlList            = null;
+    protected $manualAudioFileList           = null;
+    protected $manualAudioMediaTypeList      = null;
+    protected $manualVideoMessageSelection   = null;
+    protected $manualVideoUrlList            = null;
+    protected $manualVideoFileList           = null;
+    protected $manualVideoMediaTypeList      = null;
 
-    public function __construct(
-             $action,
-             TimeSchedule $businessHours=null,
-             $forceNightService,
-             $allowManualOverrideViaFAC,
-             $transferPhoneNumber=null,
-             $playAnnouncementBeforeAction,
-             $audioMessageSelection,
-             CallCenterAnnouncementURLList $audioUrlList=null,
-             CallCenterAnnouncementDescriptionList $audioFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList=null,
-             $videoMessageSelection,
-             CallCenterAnnouncementURLList $videoUrlList=null,
-             CallCenterAnnouncementDescriptionList $videoFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList=null,
-             $manualAnnouncementMode,
-             $manualAudioMessageSelection,
-             CallCenterAnnouncementURLList $manualAudioUrlList=null,
-             CallCenterAnnouncementDescriptionList $manualAudioFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $manualAudioMediaTypeList=null,
-             $manualVideoMessageSelection,
-             CallCenterAnnouncementURLList $manualVideoUrlList=null,
-             CallCenterAnnouncementDescriptionList $manualVideoFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $manualVideoMediaTypeList=null
-    ) {
-        $this->action                       = new CallCenterScheduledServiceAction($action);
-        $this->businessHours                = $businessHours;
-        $this->forceNightService            = $forceNightService;
-        $this->allowManualOverrideViaFAC    = $allowManualOverrideViaFAC;
-        $this->transferPhoneNumber          = new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->playAnnouncementBeforeAction = $playAnnouncementBeforeAction;
-        $this->audioMessageSelection        = new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioUrlList                 = $audioUrlList;
-        $this->audioFileList                = $audioFileList;
-        $this->audioMediaTypeList           = $audioMediaTypeList;
-        $this->videoMessageSelection        = new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoUrlList                 = $videoUrlList;
-        $this->videoFileList                = $videoFileList;
-        $this->videoMediaTypeList           = $videoMediaTypeList;
-        $this->manualAnnouncementMode       = new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
-        $this->manualAudioMessageSelection  = new ExtendedFileResourceSelection($manualAudioMessageSelection);
-        $this->manualAudioUrlList           = $manualAudioUrlList;
-        $this->manualAudioFileList          = $manualAudioFileList;
-        $this->manualAudioMediaTypeList     = $manualAudioMediaTypeList;
-        $this->manualVideoMessageSelection  = new ExtendedFileResourceSelection($manualVideoMessageSelection);
-        $this->manualVideoUrlList           = $manualVideoUrlList;
-        $this->manualVideoFileList          = $manualVideoFileList;
-        $this->manualVideoMediaTypeList     = $manualVideoMediaTypeList;
-        $this->args                         = func_get_args();
-    }
 
-    public function setAction($action)
+    public function setAction($action = null)
     {
-        $action and $this->action = new CallCenterScheduledServiceAction($action);
+        $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
+             ? $action
+             : new CallCenterScheduledServiceAction($action);
     }
 
     public function getAction()
@@ -88,9 +62,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->action) ?: $this->action->value();
     }
 
-    public function setBusinessHours($businessHours)
+    public function setBusinessHours(TimeSchedule $businessHours = null)
     {
-        $businessHours and $this->businessHours = new TimeSchedule($businessHours);
     }
 
     public function getBusinessHours()
@@ -98,9 +71,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->businessHours) ?: $this->businessHours->value();
     }
 
-    public function setForceNightService($forceNightService)
+    public function setForceNightService(xs:boolean $forceNightService = null)
     {
-        $forceNightService and $this->forceNightService = new xs:boolean($forceNightService);
     }
 
     public function getForceNightService()
@@ -108,9 +80,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->forceNightService) ?: $this->forceNightService->value();
     }
 
-    public function setAllowManualOverrideViaFAC($allowManualOverrideViaFAC)
+    public function setAllowManualOverrideViaFAC(xs:boolean $allowManualOverrideViaFAC = null)
     {
-        $allowManualOverrideViaFAC and $this->allowManualOverrideViaFAC = new xs:boolean($allowManualOverrideViaFAC);
     }
 
     public function getAllowManualOverrideViaFAC()
@@ -118,9 +89,11 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->allowManualOverrideViaFAC) ?: $this->allowManualOverrideViaFAC->value();
     }
 
-    public function setTransferPhoneNumber($transferPhoneNumber)
+    public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        $transferPhoneNumber and $this->transferPhoneNumber = new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $transferPhoneNumber
+             : new OutgoingDNorSIPURI($transferPhoneNumber);
     }
 
     public function getTransferPhoneNumber()
@@ -128,9 +101,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
     }
 
-    public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction)
+    public function setPlayAnnouncementBeforeAction(xs:boolean $playAnnouncementBeforeAction = null)
     {
-        $playAnnouncementBeforeAction and $this->playAnnouncementBeforeAction = new xs:boolean($playAnnouncementBeforeAction);
     }
 
     public function getPlayAnnouncementBeforeAction()
@@ -138,9 +110,11 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction->value();
     }
 
-    public function setAudioMessageSelection($audioMessageSelection)
+    public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        $audioMessageSelection and $this->audioMessageSelection = new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioMessageSelection
+             : new ExtendedFileResourceSelection($audioMessageSelection);
     }
 
     public function getAudioMessageSelection()
@@ -148,9 +122,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->value();
     }
 
-    public function setAudioUrlList($audioUrlList)
+    public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $audioUrlList and $this->audioUrlList = new CallCenterAnnouncementURLList($audioUrlList);
     }
 
     public function getAudioUrlList()
@@ -158,9 +131,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->audioUrlList) ?: $this->audioUrlList->value();
     }
 
-    public function setAudioFileList($audioFileList)
+    public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $audioFileList and $this->audioFileList = new CallCenterAnnouncementDescriptionList($audioFileList);
     }
 
     public function getAudioFileList()
@@ -168,9 +140,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->audioFileList) ?: $this->audioFileList->value();
     }
 
-    public function setAudioMediaTypeList($audioMediaTypeList)
+    public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $audioMediaTypeList and $this->audioMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($audioMediaTypeList);
     }
 
     public function getAudioMediaTypeList()
@@ -178,9 +149,11 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->audioMediaTypeList) ?: $this->audioMediaTypeList->value();
     }
 
-    public function setVideoMessageSelection($videoMessageSelection)
+    public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        $videoMessageSelection and $this->videoMessageSelection = new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoMessageSelection
+             : new ExtendedFileResourceSelection($videoMessageSelection);
     }
 
     public function getVideoMessageSelection()
@@ -188,9 +161,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->value();
     }
 
-    public function setVideoUrlList($videoUrlList)
+    public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $videoUrlList and $this->videoUrlList = new CallCenterAnnouncementURLList($videoUrlList);
     }
 
     public function getVideoUrlList()
@@ -198,9 +170,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->videoUrlList) ?: $this->videoUrlList->value();
     }
 
-    public function setVideoFileList($videoFileList)
+    public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $videoFileList and $this->videoFileList = new CallCenterAnnouncementDescriptionList($videoFileList);
     }
 
     public function getVideoFileList()
@@ -208,9 +179,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->videoFileList) ?: $this->videoFileList->value();
     }
 
-    public function setVideoMediaTypeList($videoMediaTypeList)
+    public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $videoMediaTypeList and $this->videoMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($videoMediaTypeList);
     }
 
     public function getVideoMediaTypeList()
@@ -218,9 +188,11 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->videoMediaTypeList) ?: $this->videoMediaTypeList->value();
     }
 
-    public function setManualAnnouncementMode($manualAnnouncementMode)
+    public function setManualAnnouncementMode($manualAnnouncementMode = null)
     {
-        $manualAnnouncementMode and $this->manualAnnouncementMode = new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
+        $this->manualAnnouncementMode = ($manualAnnouncementMode InstanceOf CallCenterManualNightServiceAnnouncementMode)
+             ? $manualAnnouncementMode
+             : new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
     }
 
     public function getManualAnnouncementMode()
@@ -228,9 +200,11 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualAnnouncementMode) ?: $this->manualAnnouncementMode->value();
     }
 
-    public function setManualAudioMessageSelection($manualAudioMessageSelection)
+    public function setManualAudioMessageSelection($manualAudioMessageSelection = null)
     {
-        $manualAudioMessageSelection and $this->manualAudioMessageSelection = new ExtendedFileResourceSelection($manualAudioMessageSelection);
+        $this->manualAudioMessageSelection = ($manualAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $manualAudioMessageSelection
+             : new ExtendedFileResourceSelection($manualAudioMessageSelection);
     }
 
     public function getManualAudioMessageSelection()
@@ -238,9 +212,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualAudioMessageSelection) ?: $this->manualAudioMessageSelection->value();
     }
 
-    public function setManualAudioUrlList($manualAudioUrlList)
+    public function setManualAudioUrlList(CallCenterAnnouncementURLList $manualAudioUrlList = null)
     {
-        $manualAudioUrlList and $this->manualAudioUrlList = new CallCenterAnnouncementURLList($manualAudioUrlList);
     }
 
     public function getManualAudioUrlList()
@@ -248,9 +221,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualAudioUrlList) ?: $this->manualAudioUrlList->value();
     }
 
-    public function setManualAudioFileList($manualAudioFileList)
+    public function setManualAudioFileList(CallCenterAnnouncementDescriptionList $manualAudioFileList = null)
     {
-        $manualAudioFileList and $this->manualAudioFileList = new CallCenterAnnouncementDescriptionList($manualAudioFileList);
     }
 
     public function getManualAudioFileList()
@@ -258,9 +230,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualAudioFileList) ?: $this->manualAudioFileList->value();
     }
 
-    public function setManualAudioMediaTypeList($manualAudioMediaTypeList)
+    public function setManualAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $manualAudioMediaTypeList = null)
     {
-        $manualAudioMediaTypeList and $this->manualAudioMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($manualAudioMediaTypeList);
     }
 
     public function getManualAudioMediaTypeList()
@@ -268,9 +239,11 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualAudioMediaTypeList) ?: $this->manualAudioMediaTypeList->value();
     }
 
-    public function setManualVideoMessageSelection($manualVideoMessageSelection)
+    public function setManualVideoMessageSelection($manualVideoMessageSelection = null)
     {
-        $manualVideoMessageSelection and $this->manualVideoMessageSelection = new ExtendedFileResourceSelection($manualVideoMessageSelection);
+        $this->manualVideoMessageSelection = ($manualVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $manualVideoMessageSelection
+             : new ExtendedFileResourceSelection($manualVideoMessageSelection);
     }
 
     public function getManualVideoMessageSelection()
@@ -278,9 +251,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualVideoMessageSelection) ?: $this->manualVideoMessageSelection->value();
     }
 
-    public function setManualVideoUrlList($manualVideoUrlList)
+    public function setManualVideoUrlList(CallCenterAnnouncementURLList $manualVideoUrlList = null)
     {
-        $manualVideoUrlList and $this->manualVideoUrlList = new CallCenterAnnouncementURLList($manualVideoUrlList);
     }
 
     public function getManualVideoUrlList()
@@ -288,9 +260,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualVideoUrlList) ?: $this->manualVideoUrlList->value();
     }
 
-    public function setManualVideoFileList($manualVideoFileList)
+    public function setManualVideoFileList(CallCenterAnnouncementDescriptionList $manualVideoFileList = null)
     {
-        $manualVideoFileList and $this->manualVideoFileList = new CallCenterAnnouncementDescriptionList($manualVideoFileList);
     }
 
     public function getManualVideoFileList()
@@ -298,9 +269,8 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
         return (!$this->manualVideoFileList) ?: $this->manualVideoFileList->value();
     }
 
-    public function setManualVideoMediaTypeList($manualVideoMediaTypeList)
+    public function setManualVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $manualVideoMediaTypeList = null)
     {
-        $manualVideoMediaTypeList and $this->manualVideoMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($manualVideoMediaTypeList);
     }
 
     public function getManualVideoMediaTypeList()

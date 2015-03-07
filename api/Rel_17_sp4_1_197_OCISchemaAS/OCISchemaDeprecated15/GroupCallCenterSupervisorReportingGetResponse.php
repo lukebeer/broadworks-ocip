@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +19,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $reportingServerName  = null;
+    protected $supervisorTable      = null;
 
-    public function __construct(
-             $reportingServerName=null,
-             $supervisorTable
-    ) {
-        $this->reportingServerName = new CallCenterReportingServerName($reportingServerName);
-        $this->supervisorTable     = $supervisorTable;
-        $this->args                = func_get_args();
-    }
 
-    public function setReportingServerName($reportingServerName)
+    public function setReportingServerName($reportingServerName = null)
     {
-        $reportingServerName and $this->reportingServerName = new CallCenterReportingServerName($reportingServerName);
+        $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
+             ? $reportingServerName
+             : new CallCenterReportingServerName($reportingServerName);
     }
 
     public function getReportingServerName()
@@ -41,9 +36,8 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
         return (!$this->reportingServerName) ?: $this->reportingServerName->value();
     }
 
-    public function setSupervisorTable($supervisorTable)
+    public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
-        $supervisorTable and $this->supervisorTable = new core:OCITable($supervisorTable);
     }
 
     public function getSupervisorTable()

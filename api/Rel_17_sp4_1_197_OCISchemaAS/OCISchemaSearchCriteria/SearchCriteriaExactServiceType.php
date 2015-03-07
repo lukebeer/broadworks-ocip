@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactServiceType extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $serviceType  = null;
 
     public function __construct(
-             $serviceType
+         $serviceType
     ) {
-        $this->serviceType = new ServiceType($serviceType);
-        $this->args        = func_get_args();
+        $this->setServiceType($serviceType);
     }
 
-    public function setServiceType($serviceType)
+    public function setServiceType($serviceType = null)
     {
-        $serviceType and $this->serviceType = new ServiceType($serviceType);
+        $this->serviceType = ($serviceType InstanceOf ServiceType)
+             ? $serviceType
+             : new ServiceType($serviceType);
     }
 
     public function getServiceType()

@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhysicalLocation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneLocationBasedPhysicalLocationDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $zoneName          = null;
+    protected $physicalLocation  = null;
 
     public function __construct(
-             $zoneName,
-             $physicalLocation=null
+         $zoneName,
+         $physicalLocation = null
     ) {
-        $this->zoneName         = new ZoneName($zoneName);
-        $this->physicalLocation = new PhysicalLocation($physicalLocation);
-        $this->args             = func_get_args();
+        $this->setZoneName($zoneName);
+        $this->setPhysicalLocation($physicalLocation);
     }
 
-    public function setZoneName($zoneName)
+    public function setZoneName($zoneName = null)
     {
-        $zoneName and $this->zoneName = new ZoneName($zoneName);
+        $this->zoneName = ($zoneName InstanceOf ZoneName)
+             ? $zoneName
+             : new ZoneName($zoneName);
     }
 
     public function getZoneName()
@@ -40,9 +43,11 @@ class SystemZoneLocationBasedPhysicalLocationDeleteListRequest extends ComplexTy
         return (!$this->zoneName) ?: $this->zoneName->value();
     }
 
-    public function setPhysicalLocation($physicalLocation)
+    public function setPhysicalLocation($physicalLocation = null)
     {
-        $physicalLocation and $this->physicalLocation = new PhysicalLocation($physicalLocation);
+        $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
+             ? $physicalLocation
+             : new PhysicalLocation($physicalLocation);
     }
 
     public function getPhysicalLocation()

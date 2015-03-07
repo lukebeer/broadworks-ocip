@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDPrefixDigits;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAlternateCallIndicator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDPrefixDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,42 +21,56 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $name                         = null;
+    protected $description                  = null;
+    protected $prefixDigits                 = null;
+    protected $matchCallType                = null;
+    protected $matchAlternateCallIndicator  = null;
+    protected $matchLocalCategory           = null;
+    protected $matchNationalCategory        = null;
+    protected $matchInterlataCategory       = null;
+    protected $matchIntralataCategory       = null;
+    protected $matchInternationalCategory   = null;
+    protected $matchPrivateCategory         = null;
+    protected $matchEmergencyCategory       = null;
+    protected $matchOtherCategory           = null;
 
     public function __construct(
-             $name,
-             $description=null,
-             $prefixDigits=null,
-             $matchCallType=null,
-             $matchAlternateCallIndicator=null,
-             $matchLocalCategory,
-             $matchNationalCategory,
-             $matchInterlataCategory,
-             $matchIntralataCategory,
-             $matchInternationalCategory,
-             $matchPrivateCategory,
-             $matchEmergencyCategory,
-             $matchOtherCategory
+         $name,
+         $description = null,
+         $prefixDigits = null,
+         $matchCallType = null,
+         $matchAlternateCallIndicator = null,
+         $matchLocalCategory,
+         $matchNationalCategory,
+         $matchInterlataCategory,
+         $matchIntralataCategory,
+         $matchInternationalCategory,
+         $matchPrivateCategory,
+         $matchEmergencyCategory,
+         $matchOtherCategory
     ) {
-        $this->name                        = new DialableCallerIDCriteriaName($name);
-        $this->description                 = new DialableCallerIDCriteriaDescription($description);
-        $this->prefixDigits                = new DialableCallerIDPrefixDigits($prefixDigits);
-        $this->matchCallType               = new CommunicationBarringCallType($matchCallType);
-        $this->matchAlternateCallIndicator = new CommunicationBarringAlternateCallIndicator($matchAlternateCallIndicator);
-        $this->matchLocalCategory          = $matchLocalCategory;
-        $this->matchNationalCategory       = $matchNationalCategory;
-        $this->matchInterlataCategory      = $matchInterlataCategory;
-        $this->matchIntralataCategory      = $matchIntralataCategory;
-        $this->matchInternationalCategory  = $matchInternationalCategory;
-        $this->matchPrivateCategory        = $matchPrivateCategory;
-        $this->matchEmergencyCategory      = $matchEmergencyCategory;
-        $this->matchOtherCategory          = $matchOtherCategory;
-        $this->args                        = func_get_args();
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setPrefixDigits($prefixDigits);
+        $this->setMatchCallType($matchCallType);
+        $this->setMatchAlternateCallIndicator($matchAlternateCallIndicator);
+        $this->setMatchLocalCategory($matchLocalCategory);
+        $this->setMatchNationalCategory($matchNationalCategory);
+        $this->setMatchInterlataCategory($matchInterlataCategory);
+        $this->setMatchIntralataCategory($matchIntralataCategory);
+        $this->setMatchInternationalCategory($matchInternationalCategory);
+        $this->setMatchPrivateCategory($matchPrivateCategory);
+        $this->setMatchEmergencyCategory($matchEmergencyCategory);
+        $this->setMatchOtherCategory($matchOtherCategory);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new DialableCallerIDCriteriaName($name);
+        $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
+             ? $name
+             : new DialableCallerIDCriteriaName($name);
     }
 
     public function getName()
@@ -65,9 +78,11 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new DialableCallerIDCriteriaDescription($description);
+        $this->description = ($description InstanceOf DialableCallerIDCriteriaDescription)
+             ? $description
+             : new DialableCallerIDCriteriaDescription($description);
     }
 
     public function getDescription()
@@ -75,9 +90,11 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setPrefixDigits($prefixDigits)
+    public function setPrefixDigits($prefixDigits = null)
     {
-        $prefixDigits and $this->prefixDigits = new DialableCallerIDPrefixDigits($prefixDigits);
+        $this->prefixDigits = ($prefixDigits InstanceOf DialableCallerIDPrefixDigits)
+             ? $prefixDigits
+             : new DialableCallerIDPrefixDigits($prefixDigits);
     }
 
     public function getPrefixDigits()
@@ -85,9 +102,11 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->prefixDigits) ?: $this->prefixDigits->value();
     }
 
-    public function setMatchCallType($matchCallType)
+    public function setMatchCallType($matchCallType = null)
     {
-        $matchCallType and $this->matchCallType = new CommunicationBarringCallType($matchCallType);
+        $this->matchCallType = ($matchCallType InstanceOf CommunicationBarringCallType)
+             ? $matchCallType
+             : new CommunicationBarringCallType($matchCallType);
     }
 
     public function getMatchCallType()
@@ -95,9 +114,11 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchCallType) ?: $this->matchCallType->value();
     }
 
-    public function setMatchAlternateCallIndicator($matchAlternateCallIndicator)
+    public function setMatchAlternateCallIndicator($matchAlternateCallIndicator = null)
     {
-        $matchAlternateCallIndicator and $this->matchAlternateCallIndicator = new CommunicationBarringAlternateCallIndicator($matchAlternateCallIndicator);
+        $this->matchAlternateCallIndicator = ($matchAlternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
+             ? $matchAlternateCallIndicator
+             : new CommunicationBarringAlternateCallIndicator($matchAlternateCallIndicator);
     }
 
     public function getMatchAlternateCallIndicator()
@@ -105,9 +126,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchAlternateCallIndicator) ?: $this->matchAlternateCallIndicator->value();
     }
 
-    public function setMatchLocalCategory($matchLocalCategory)
+    public function setMatchLocalCategory(xs:boolean $matchLocalCategory = null)
     {
-        $matchLocalCategory and $this->matchLocalCategory = new xs:boolean($matchLocalCategory);
     }
 
     public function getMatchLocalCategory()
@@ -115,9 +135,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchLocalCategory) ?: $this->matchLocalCategory->value();
     }
 
-    public function setMatchNationalCategory($matchNationalCategory)
+    public function setMatchNationalCategory(xs:boolean $matchNationalCategory = null)
     {
-        $matchNationalCategory and $this->matchNationalCategory = new xs:boolean($matchNationalCategory);
     }
 
     public function getMatchNationalCategory()
@@ -125,9 +144,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchNationalCategory) ?: $this->matchNationalCategory->value();
     }
 
-    public function setMatchInterlataCategory($matchInterlataCategory)
+    public function setMatchInterlataCategory(xs:boolean $matchInterlataCategory = null)
     {
-        $matchInterlataCategory and $this->matchInterlataCategory = new xs:boolean($matchInterlataCategory);
     }
 
     public function getMatchInterlataCategory()
@@ -135,9 +153,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory->value();
     }
 
-    public function setMatchIntralataCategory($matchIntralataCategory)
+    public function setMatchIntralataCategory(xs:boolean $matchIntralataCategory = null)
     {
-        $matchIntralataCategory and $this->matchIntralataCategory = new xs:boolean($matchIntralataCategory);
     }
 
     public function getMatchIntralataCategory()
@@ -145,9 +162,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory->value();
     }
 
-    public function setMatchInternationalCategory($matchInternationalCategory)
+    public function setMatchInternationalCategory(xs:boolean $matchInternationalCategory = null)
     {
-        $matchInternationalCategory and $this->matchInternationalCategory = new xs:boolean($matchInternationalCategory);
     }
 
     public function getMatchInternationalCategory()
@@ -155,9 +171,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory->value();
     }
 
-    public function setMatchPrivateCategory($matchPrivateCategory)
+    public function setMatchPrivateCategory(xs:boolean $matchPrivateCategory = null)
     {
-        $matchPrivateCategory and $this->matchPrivateCategory = new xs:boolean($matchPrivateCategory);
     }
 
     public function getMatchPrivateCategory()
@@ -165,9 +180,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory->value();
     }
 
-    public function setMatchEmergencyCategory($matchEmergencyCategory)
+    public function setMatchEmergencyCategory(xs:boolean $matchEmergencyCategory = null)
     {
-        $matchEmergencyCategory and $this->matchEmergencyCategory = new xs:boolean($matchEmergencyCategory);
     }
 
     public function getMatchEmergencyCategory()
@@ -175,9 +189,8 @@ class SystemDialableCallerIDCriteriaAddRequest extends ComplexType implements Co
         return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory->value();
     }
 
-    public function setMatchOtherCategory($matchOtherCategory)
+    public function setMatchOtherCategory(xs:boolean $matchOtherCategory = null)
     {
-        $matchOtherCategory and $this->matchOtherCategory = new xs:boolean($matchOtherCategory);
     }
 
     public function getMatchOtherCategory()

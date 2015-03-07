@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\InstantGroupCallAnswerTimeoutMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNorSIPURIList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantGroupCallAnswerTimeoutMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $serviceUserId               = null;
+    protected $serviceInstanceProfile      = null;
+    protected $destinationPhoneNumberList  = null;
+    protected $isAnswerTimeoutEnabled      = null;
+    protected $answerTimeoutMinutes        = null;
 
     public function __construct(
-             $serviceUserId,
-             ServiceInstanceModifyProfile $serviceInstanceProfile=null,
-             ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList=null,
-             $isAnswerTimeoutEnabled=null,
-             $answerTimeoutMinutes=null
+         $serviceUserId,
+         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList = null,
+         $isAnswerTimeoutEnabled = null,
+         $answerTimeoutMinutes = null
     ) {
-        $this->serviceUserId              = new UserId($serviceUserId);
-        $this->serviceInstanceProfile     = $serviceInstanceProfile;
-        $this->destinationPhoneNumberList = $destinationPhoneNumberList;
-        $this->isAnswerTimeoutEnabled     = $isAnswerTimeoutEnabled;
-        $this->answerTimeoutMinutes       = $answerTimeoutMinutes;
-        $this->args                       = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setDestinationPhoneNumberList($destinationPhoneNumberList);
+        $this->setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled);
+        $this->setAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -49,9 +54,8 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceModifyProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -59,9 +63,8 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setDestinationPhoneNumberList($destinationPhoneNumberList)
+    public function setDestinationPhoneNumberList(ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList = null)
     {
-        $destinationPhoneNumberList and $this->destinationPhoneNumberList = new ReplacementOutgoingDNorSIPURIList($destinationPhoneNumberList);
     }
 
     public function getDestinationPhoneNumberList()
@@ -69,9 +72,8 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
         return (!$this->destinationPhoneNumberList) ?: $this->destinationPhoneNumberList->value();
     }
 
-    public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled)
+    public function setIsAnswerTimeoutEnabled(xs:boolean $isAnswerTimeoutEnabled = null)
     {
-        $isAnswerTimeoutEnabled and $this->isAnswerTimeoutEnabled = new xs:boolean($isAnswerTimeoutEnabled);
     }
 
     public function getIsAnswerTimeoutEnabled()
@@ -79,9 +81,11 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
         return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->value();
     }
 
-    public function setAnswerTimeoutMinutes($answerTimeoutMinutes)
+    public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
-        $answerTimeoutMinutes and $this->answerTimeoutMinutes = new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
+        $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
+             ? $answerTimeoutMinutes
+             : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
     public function getAnswerTimeoutMinutes()

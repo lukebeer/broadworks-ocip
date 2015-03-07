@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceUserId                    = null;
+    protected $isActive                         = null;
+    protected $numberOfRingsBeforeBouncingCall  = null;
+    protected $enableTransfer                   = null;
+    protected $transferPhoneNumber              = null;
+    protected $bounceCallWhenAgentUnavailable   = null;
 
     public function __construct(
-             $serviceUserId,
-             $isActive=null,
-             $numberOfRingsBeforeBouncingCall=null,
-             $enableTransfer=null,
-             $transferPhoneNumber=null,
-             $bounceCallWhenAgentUnavailable=null
+         $serviceUserId,
+         $isActive = null,
+         $numberOfRingsBeforeBouncingCall = null,
+         $enableTransfer = null,
+         $transferPhoneNumber = null,
+         $bounceCallWhenAgentUnavailable = null
     ) {
-        $this->serviceUserId                   = new UserId($serviceUserId);
-        $this->isActive                        = $isActive;
-        $this->numberOfRingsBeforeBouncingCall = new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
-        $this->enableTransfer                  = $enableTransfer;
-        $this->transferPhoneNumber             = new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->bounceCallWhenAgentUnavailable  = $bounceCallWhenAgentUnavailable;
-        $this->args                            = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setIsActive($isActive);
+        $this->setNumberOfRingsBeforeBouncingCall($numberOfRingsBeforeBouncingCall);
+        $this->setEnableTransfer($enableTransfer);
+        $this->setTransferPhoneNumber($transferPhoneNumber);
+        $this->setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -50,9 +56,8 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -60,9 +65,11 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setNumberOfRingsBeforeBouncingCall($numberOfRingsBeforeBouncingCall)
+    public function setNumberOfRingsBeforeBouncingCall($numberOfRingsBeforeBouncingCall = null)
     {
-        $numberOfRingsBeforeBouncingCall and $this->numberOfRingsBeforeBouncingCall = new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
+        $this->numberOfRingsBeforeBouncingCall = ($numberOfRingsBeforeBouncingCall InstanceOf HuntNoAnswerRings)
+             ? $numberOfRingsBeforeBouncingCall
+             : new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
     }
 
     public function getNumberOfRingsBeforeBouncingCall()
@@ -70,9 +77,8 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         return (!$this->numberOfRingsBeforeBouncingCall) ?: $this->numberOfRingsBeforeBouncingCall->value();
     }
 
-    public function setEnableTransfer($enableTransfer)
+    public function setEnableTransfer(xs:boolean $enableTransfer = null)
     {
-        $enableTransfer and $this->enableTransfer = new xs:boolean($enableTransfer);
     }
 
     public function getEnableTransfer()
@@ -80,9 +86,11 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         return (!$this->enableTransfer) ?: $this->enableTransfer->value();
     }
 
-    public function setTransferPhoneNumber($transferPhoneNumber)
+    public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        $transferPhoneNumber and $this->transferPhoneNumber = new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $transferPhoneNumber
+             : new OutgoingDNorSIPURI($transferPhoneNumber);
     }
 
     public function getTransferPhoneNumber()
@@ -90,9 +98,8 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
     }
 
-    public function setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable)
+    public function setBounceCallWhenAgentUnavailable(xs:boolean $bounceCallWhenAgentUnavailable = null)
     {
-        $bounceCallWhenAgentUnavailable and $this->bounceCallWhenAgentUnavailable = new xs:boolean($bounceCallWhenAgentUnavailable);
     }
 
     public function getBounceCallWhenAgentUnavailable()

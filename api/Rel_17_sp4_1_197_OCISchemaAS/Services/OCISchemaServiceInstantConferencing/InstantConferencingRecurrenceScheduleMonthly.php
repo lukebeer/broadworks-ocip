@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingRecurrenceMonthInterval;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceMonthInterval;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $recurrenceMonthInterval  = null;
 
     public function __construct(
-             $recurrenceMonthInterval
+         $recurrenceMonthInterval
     ) {
-        $this->recurrenceMonthInterval = $recurrenceMonthInterval;
-        $this->args                    = func_get_args();
+        $this->setRecurrenceMonthInterval($recurrenceMonthInterval);
     }
 
-    public function setRecurrenceMonthInterval($recurrenceMonthInterval)
+    public function setRecurrenceMonthInterval($recurrenceMonthInterval = null)
     {
-        $recurrenceMonthInterval and $this->recurrenceMonthInterval = new InstantConferencingRecurrenceMonthInterval($recurrenceMonthInterval);
+        $this->recurrenceMonthInterval = ($recurrenceMonthInterval InstanceOf InstantConferencingRecurrenceMonthInterval)
+             ? $recurrenceMonthInterval
+             : new InstantConferencingRecurrenceMonthInterval($recurrenceMonthInterval);
     }
 
     public function getRecurrenceMonthInterval()

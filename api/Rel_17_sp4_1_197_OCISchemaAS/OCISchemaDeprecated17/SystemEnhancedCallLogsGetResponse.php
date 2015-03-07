@@ -7,14 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRetransmissionDelayMilliSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsSoapTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsMaxTransmissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsSharedSecret;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsSharedSecret;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsRetransmissionDelayMilliSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsMaxTransmissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsSoapTimeoutSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,38 +23,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $isSendEnabled                    = null;
+    protected $server1NetAddress                = null;
+    protected $server1SendPort                  = null;
+    protected $server1RetrievePort              = null;
+    protected $server2NetAddress                = null;
+    protected $server2SendPort                  = null;
+    protected $server2RetrievePort              = null;
+    protected $sharedSecret                     = null;
+    protected $retransmissionDelayMilliSeconds  = null;
+    protected $maxTransmissions                 = null;
+    protected $soapTimeoutSeconds               = null;
 
-    public function __construct(
-             $isSendEnabled,
-             $server1NetAddress=null,
-             $server1SendPort,
-             $server1RetrievePort,
-             $server2NetAddress=null,
-             $server2SendPort,
-             $server2RetrievePort,
-             $sharedSecret=null,
-             $retransmissionDelayMilliSeconds,
-             $maxTransmissions,
-             $soapTimeoutSeconds
-    ) {
-        $this->isSendEnabled                   = $isSendEnabled;
-        $this->server1NetAddress               = new NetAddress($server1NetAddress);
-        $this->server1SendPort                 = new Port1025($server1SendPort);
-        $this->server1RetrievePort             = new Port($server1RetrievePort);
-        $this->server2NetAddress               = new NetAddress($server2NetAddress);
-        $this->server2SendPort                 = new Port1025($server2SendPort);
-        $this->server2RetrievePort             = new Port($server2RetrievePort);
-        $this->sharedSecret                    = $sharedSecret;
-        $this->retransmissionDelayMilliSeconds = $retransmissionDelayMilliSeconds;
-        $this->maxTransmissions                = $maxTransmissions;
-        $this->soapTimeoutSeconds              = $soapTimeoutSeconds;
-        $this->args                            = func_get_args();
-    }
 
-    public function setIsSendEnabled($isSendEnabled)
+    public function setIsSendEnabled(xs:boolean $isSendEnabled = null)
     {
-        $isSendEnabled and $this->isSendEnabled = new xs:boolean($isSendEnabled);
     }
 
     public function getIsSendEnabled()
@@ -63,9 +46,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->isSendEnabled) ?: $this->isSendEnabled->value();
     }
 
-    public function setServer1NetAddress($server1NetAddress)
+    public function setServer1NetAddress($server1NetAddress = null)
     {
-        $server1NetAddress and $this->server1NetAddress = new NetAddress($server1NetAddress);
+        $this->server1NetAddress = ($server1NetAddress InstanceOf NetAddress)
+             ? $server1NetAddress
+             : new NetAddress($server1NetAddress);
     }
 
     public function getServer1NetAddress()
@@ -73,9 +58,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->server1NetAddress) ?: $this->server1NetAddress->value();
     }
 
-    public function setServer1SendPort($server1SendPort)
+    public function setServer1SendPort($server1SendPort = null)
     {
-        $server1SendPort and $this->server1SendPort = new Port1025($server1SendPort);
+        $this->server1SendPort = ($server1SendPort InstanceOf Port1025)
+             ? $server1SendPort
+             : new Port1025($server1SendPort);
     }
 
     public function getServer1SendPort()
@@ -83,9 +70,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->server1SendPort) ?: $this->server1SendPort->value();
     }
 
-    public function setServer1RetrievePort($server1RetrievePort)
+    public function setServer1RetrievePort($server1RetrievePort = null)
     {
-        $server1RetrievePort and $this->server1RetrievePort = new Port($server1RetrievePort);
+        $this->server1RetrievePort = ($server1RetrievePort InstanceOf Port)
+             ? $server1RetrievePort
+             : new Port($server1RetrievePort);
     }
 
     public function getServer1RetrievePort()
@@ -93,9 +82,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->server1RetrievePort) ?: $this->server1RetrievePort->value();
     }
 
-    public function setServer2NetAddress($server2NetAddress)
+    public function setServer2NetAddress($server2NetAddress = null)
     {
-        $server2NetAddress and $this->server2NetAddress = new NetAddress($server2NetAddress);
+        $this->server2NetAddress = ($server2NetAddress InstanceOf NetAddress)
+             ? $server2NetAddress
+             : new NetAddress($server2NetAddress);
     }
 
     public function getServer2NetAddress()
@@ -103,9 +94,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->server2NetAddress) ?: $this->server2NetAddress->value();
     }
 
-    public function setServer2SendPort($server2SendPort)
+    public function setServer2SendPort($server2SendPort = null)
     {
-        $server2SendPort and $this->server2SendPort = new Port1025($server2SendPort);
+        $this->server2SendPort = ($server2SendPort InstanceOf Port1025)
+             ? $server2SendPort
+             : new Port1025($server2SendPort);
     }
 
     public function getServer2SendPort()
@@ -113,9 +106,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->server2SendPort) ?: $this->server2SendPort->value();
     }
 
-    public function setServer2RetrievePort($server2RetrievePort)
+    public function setServer2RetrievePort($server2RetrievePort = null)
     {
-        $server2RetrievePort and $this->server2RetrievePort = new Port($server2RetrievePort);
+        $this->server2RetrievePort = ($server2RetrievePort InstanceOf Port)
+             ? $server2RetrievePort
+             : new Port($server2RetrievePort);
     }
 
     public function getServer2RetrievePort()
@@ -123,9 +118,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->server2RetrievePort) ?: $this->server2RetrievePort->value();
     }
 
-    public function setSharedSecret($sharedSecret)
+    public function setSharedSecret($sharedSecret = null)
     {
-        $sharedSecret and $this->sharedSecret = new EnhancedCallLogsSharedSecret($sharedSecret);
+        $this->sharedSecret = ($sharedSecret InstanceOf EnhancedCallLogsSharedSecret)
+             ? $sharedSecret
+             : new EnhancedCallLogsSharedSecret($sharedSecret);
     }
 
     public function getSharedSecret()
@@ -133,9 +130,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->sharedSecret) ?: $this->sharedSecret->value();
     }
 
-    public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds)
+    public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
-        $retransmissionDelayMilliSeconds and $this->retransmissionDelayMilliSeconds = new EnhancedCallLogsRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
+        $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf EnhancedCallLogsRetransmissionDelayMilliSeconds)
+             ? $retransmissionDelayMilliSeconds
+             : new EnhancedCallLogsRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
     }
 
     public function getRetransmissionDelayMilliSeconds()
@@ -143,9 +142,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->value();
     }
 
-    public function setMaxTransmissions($maxTransmissions)
+    public function setMaxTransmissions($maxTransmissions = null)
     {
-        $maxTransmissions and $this->maxTransmissions = new EnhancedCallLogsMaxTransmissions($maxTransmissions);
+        $this->maxTransmissions = ($maxTransmissions InstanceOf EnhancedCallLogsMaxTransmissions)
+             ? $maxTransmissions
+             : new EnhancedCallLogsMaxTransmissions($maxTransmissions);
     }
 
     public function getMaxTransmissions()
@@ -153,9 +154,11 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
         return (!$this->maxTransmissions) ?: $this->maxTransmissions->value();
     }
 
-    public function setSoapTimeoutSeconds($soapTimeoutSeconds)
+    public function setSoapTimeoutSeconds($soapTimeoutSeconds = null)
     {
-        $soapTimeoutSeconds and $this->soapTimeoutSeconds = new EnhancedCallLogsSoapTimeoutSeconds($soapTimeoutSeconds);
+        $this->soapTimeoutSeconds = ($soapTimeoutSeconds InstanceOf EnhancedCallLogsSoapTimeoutSeconds)
+             ? $soapTimeoutSeconds
+             : new EnhancedCallLogsSoapTimeoutSeconds($soapTimeoutSeconds);
     }
 
     public function getSoapTimeoutSeconds()

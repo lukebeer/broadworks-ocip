@@ -7,13 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDeviceMACAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDeviceNetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactDeviceServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDeviceServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceMACAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceNetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,30 +25,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                      = __CLASS__;
+    protected $responseSizeLimit                         = null;
+    protected $searchCriteriaDeviceName                  = null;
+    protected $searchCriteriaDeviceMACAddress            = null;
+    protected $searchCriteriaDeviceNetAddress            = null;
+    protected $searchCriteriaGroupId                     = null;
+    protected $searchCriteriaExactDeviceType             = null;
+    protected $searchCriteriaExactDeviceServiceProvider  = null;
 
     public function __construct(
-             $responseSizeLimit=null,
-             $searchCriteriaDeviceName=null,
-             $searchCriteriaDeviceMACAddress=null,
-             $searchCriteriaDeviceNetAddress=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaExactDeviceType=null,
-             $searchCriteriaExactDeviceServiceProvider=null
+         $responseSizeLimit = null,
+         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
+         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
+         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null,
+         SearchCriteriaExactDeviceServiceProvider $searchCriteriaExactDeviceServiceProvider = null
     ) {
-        $this->responseSizeLimit                        = $responseSizeLimit;
-        $this->searchCriteriaDeviceName                 = $searchCriteriaDeviceName;
-        $this->searchCriteriaDeviceMACAddress           = $searchCriteriaDeviceMACAddress;
-        $this->searchCriteriaDeviceNetAddress           = $searchCriteriaDeviceNetAddress;
-        $this->searchCriteriaGroupId                    = $searchCriteriaGroupId;
-        $this->searchCriteriaExactDeviceType            = $searchCriteriaExactDeviceType;
-        $this->searchCriteriaExactDeviceServiceProvider = $searchCriteriaExactDeviceServiceProvider;
-        $this->args                                     = func_get_args();
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaDeviceName($searchCriteriaDeviceName);
+        $this->setSearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
+        $this->setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
+        $this->setSearchCriteriaExactDeviceServiceProvider($searchCriteriaExactDeviceServiceProvider);
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -56,9 +64,8 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaDeviceName($searchCriteriaDeviceName)
+    public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $searchCriteriaDeviceName and $this->searchCriteriaDeviceName = new SearchCriteriaDeviceName($searchCriteriaDeviceName);
     }
 
     public function getSearchCriteriaDeviceName()
@@ -66,9 +73,8 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaDeviceName) ?: $this->searchCriteriaDeviceName->value();
     }
 
-    public function setSearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress)
+    public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $searchCriteriaDeviceMACAddress and $this->searchCriteriaDeviceMACAddress = new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
     }
 
     public function getSearchCriteriaDeviceMACAddress()
@@ -76,9 +82,8 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaDeviceMACAddress) ?: $this->searchCriteriaDeviceMACAddress->value();
     }
 
-    public function setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress)
+    public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $searchCriteriaDeviceNetAddress and $this->searchCriteriaDeviceNetAddress = new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
     }
 
     public function getSearchCriteriaDeviceNetAddress()
@@ -86,9 +91,8 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaDeviceNetAddress) ?: $this->searchCriteriaDeviceNetAddress->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -96,9 +100,8 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaExactDeviceType($searchCriteriaExactDeviceType)
+    public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        $searchCriteriaExactDeviceType and $this->searchCriteriaExactDeviceType = new SearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
     }
 
     public function getSearchCriteriaExactDeviceType()
@@ -106,9 +109,8 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaExactDeviceType) ?: $this->searchCriteriaExactDeviceType->value();
     }
 
-    public function setSearchCriteriaExactDeviceServiceProvider($searchCriteriaExactDeviceServiceProvider)
+    public function setSearchCriteriaExactDeviceServiceProvider(SearchCriteriaExactDeviceServiceProvider $searchCriteriaExactDeviceServiceProvider = null)
     {
-        $searchCriteriaExactDeviceServiceProvider and $this->searchCriteriaExactDeviceServiceProvider = new SearchCriteriaExactDeviceServiceProvider($searchCriteriaExactDeviceServiceProvider);
     }
 
     public function getSearchCriteriaExactDeviceServiceProvider()

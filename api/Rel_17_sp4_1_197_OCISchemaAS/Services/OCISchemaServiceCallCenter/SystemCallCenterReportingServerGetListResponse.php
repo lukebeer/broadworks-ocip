@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterReportingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $reportingServerTable  = null;
 
-    public function __construct(
-             $reportingServerTable
-    ) {
-        $this->reportingServerTable = $reportingServerTable;
-        $this->args                 = func_get_args();
-    }
 
-    public function setReportingServerTable($reportingServerTable)
+    public function setReportingServerTable(core:OCITable $reportingServerTable = null)
     {
-        $reportingServerTable and $this->reportingServerTable = new core:OCITable($reportingServerTable);
     }
 
     public function getReportingServerTable()

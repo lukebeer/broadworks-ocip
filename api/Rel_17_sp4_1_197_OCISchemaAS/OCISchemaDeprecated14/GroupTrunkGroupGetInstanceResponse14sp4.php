@@ -7,24 +7,23 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncomingCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BurstingMaxActiveCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUnreachableDestinationAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupInvitationTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupCapacityExceededAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BurstingMaxIncomingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BurstingMaxOutgoingCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupCapacityExceededAction;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BurstingMaxActiveCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrapInitialThreshold;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrapOffsetThreshold;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupUnreachableDestinationAction;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupInvitationTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationUserName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncomingCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -35,62 +34,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                        = __CLASS__;
+    protected $pilotUserId                                 = null;
+    protected $department                                  = null;
+    protected $accessDevice                                = null;
+    protected $maxActiveCalls                              = null;
+    protected $maxIncomingCalls                            = null;
+    protected $maxOutgoingCalls                            = null;
+    protected $enableBursting                              = null;
+    protected $burstingMaxActiveCalls                      = null;
+    protected $burstingMaxIncomingCalls                    = null;
+    protected $burstingMaxOutgoingCalls                    = null;
+    protected $capacityExceededAction                      = null;
+    protected $capacityExceededForwardAddress              = null;
+    protected $capacityExceededRerouteTrunkGroupKey        = null;
+    protected $capacityExceededTrapInitialCalls            = null;
+    protected $capacityExceededTrapOffsetCalls             = null;
+    protected $unreachableDestinationAction                = null;
+    protected $unreachableDestinationForwardAddress        = null;
+    protected $unreachableDestinationRerouteTrunkGroupKey  = null;
+    protected $unreachableDestinationTrapInitialCalls      = null;
+    protected $unreachableDestinationTrapOffsetCalls       = null;
+    protected $invitationTimeout                           = null;
+    protected $requireAuthentication                       = null;
+    protected $sipAuthenticationUserName                   = null;
 
-    public function __construct(
-             $pilotUserId=null,
-             DepartmentKey $department=null,
-             AccessDevice $accessDevice=null,
-             $maxActiveCalls,
-             $maxIncomingCalls=null,
-             $maxOutgoingCalls=null,
-             $enableBursting,
-             $burstingMaxActiveCalls=null,
-             $burstingMaxIncomingCalls=null,
-             $burstingMaxOutgoingCalls=null,
-             $capacityExceededAction=null,
-             $capacityExceededForwardAddress=null,
-             TrunkGroupKey $capacityExceededRerouteTrunkGroupKey=null,
-             $capacityExceededTrapInitialCalls,
-             $capacityExceededTrapOffsetCalls,
-             $unreachableDestinationAction=null,
-             $unreachableDestinationForwardAddress=null,
-             TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey=null,
-             $unreachableDestinationTrapInitialCalls,
-             $unreachableDestinationTrapOffsetCalls,
-             $invitationTimeout,
-             $requireAuthentication,
-             $sipAuthenticationUserName=null
-    ) {
-        $this->pilotUserId                                = new UserId($pilotUserId);
-        $this->department                                 = $department;
-        $this->accessDevice                               = $accessDevice;
-        $this->maxActiveCalls                             = new MaxActiveCalls($maxActiveCalls);
-        $this->maxIncomingCalls                           = new MaxIncomingCalls($maxIncomingCalls);
-        $this->maxOutgoingCalls                           = new MaxOutgoingCalls($maxOutgoingCalls);
-        $this->enableBursting                             = $enableBursting;
-        $this->burstingMaxActiveCalls                     = new BurstingMaxActiveCalls($burstingMaxActiveCalls);
-        $this->burstingMaxIncomingCalls                   = new BurstingMaxIncomingCalls($burstingMaxIncomingCalls);
-        $this->burstingMaxOutgoingCalls                   = new BurstingMaxOutgoingCalls($burstingMaxOutgoingCalls);
-        $this->capacityExceededAction                     = new TrunkGroupCapacityExceededAction($capacityExceededAction);
-        $this->capacityExceededForwardAddress             = new OutgoingDNorSIPURI($capacityExceededForwardAddress);
-        $this->capacityExceededRerouteTrunkGroupKey       = $capacityExceededRerouteTrunkGroupKey;
-        $this->capacityExceededTrapInitialCalls           = new TrapInitialThreshold($capacityExceededTrapInitialCalls);
-        $this->capacityExceededTrapOffsetCalls            = new TrapOffsetThreshold($capacityExceededTrapOffsetCalls);
-        $this->unreachableDestinationAction               = $unreachableDestinationAction;
-        $this->unreachableDestinationForwardAddress       = new OutgoingDNorSIPURI($unreachableDestinationForwardAddress);
-        $this->unreachableDestinationRerouteTrunkGroupKey = $unreachableDestinationRerouteTrunkGroupKey;
-        $this->unreachableDestinationTrapInitialCalls     = new TrapInitialThreshold($unreachableDestinationTrapInitialCalls);
-        $this->unreachableDestinationTrapOffsetCalls      = new TrapOffsetThreshold($unreachableDestinationTrapOffsetCalls);
-        $this->invitationTimeout                          = new TrunkGroupInvitationTimeoutSeconds($invitationTimeout);
-        $this->requireAuthentication                      = $requireAuthentication;
-        $this->sipAuthenticationUserName                  = new SIPAuthenticationUserName($sipAuthenticationUserName);
-        $this->args                                       = func_get_args();
-    }
 
-    public function setPilotUserId($pilotUserId)
+    public function setPilotUserId($pilotUserId = null)
     {
-        $pilotUserId and $this->pilotUserId = new UserId($pilotUserId);
+        $this->pilotUserId = ($pilotUserId InstanceOf UserId)
+             ? $pilotUserId
+             : new UserId($pilotUserId);
     }
 
     public function getPilotUserId()
@@ -98,9 +72,8 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->pilotUserId) ?: $this->pilotUserId->value();
     }
 
-    public function setDepartment($department)
+    public function setDepartment(DepartmentKey $department = null)
     {
-        $department and $this->department = new DepartmentKey($department);
     }
 
     public function getDepartment()
@@ -108,9 +81,8 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->department) ?: $this->department->value();
     }
 
-    public function setAccessDevice($accessDevice)
+    public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $accessDevice and $this->accessDevice = new AccessDevice($accessDevice);
     }
 
     public function getAccessDevice()
@@ -118,9 +90,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->accessDevice) ?: $this->accessDevice->value();
     }
 
-    public function setMaxActiveCalls($maxActiveCalls)
+    public function setMaxActiveCalls($maxActiveCalls = null)
     {
-        $maxActiveCalls and $this->maxActiveCalls = new MaxActiveCalls($maxActiveCalls);
+        $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
+             ? $maxActiveCalls
+             : new MaxActiveCalls($maxActiveCalls);
     }
 
     public function getMaxActiveCalls()
@@ -128,9 +102,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
     }
 
-    public function setMaxIncomingCalls($maxIncomingCalls)
+    public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
-        $maxIncomingCalls and $this->maxIncomingCalls = new MaxIncomingCalls($maxIncomingCalls);
+        $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
+             ? $maxIncomingCalls
+             : new MaxIncomingCalls($maxIncomingCalls);
     }
 
     public function getMaxIncomingCalls()
@@ -138,9 +114,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->maxIncomingCalls) ?: $this->maxIncomingCalls->value();
     }
 
-    public function setMaxOutgoingCalls($maxOutgoingCalls)
+    public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
-        $maxOutgoingCalls and $this->maxOutgoingCalls = new MaxOutgoingCalls($maxOutgoingCalls);
+        $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
+             ? $maxOutgoingCalls
+             : new MaxOutgoingCalls($maxOutgoingCalls);
     }
 
     public function getMaxOutgoingCalls()
@@ -148,9 +126,8 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->maxOutgoingCalls) ?: $this->maxOutgoingCalls->value();
     }
 
-    public function setEnableBursting($enableBursting)
+    public function setEnableBursting(xs:boolean $enableBursting = null)
     {
-        $enableBursting and $this->enableBursting = new xs:boolean($enableBursting);
     }
 
     public function getEnableBursting()
@@ -158,9 +135,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->enableBursting) ?: $this->enableBursting->value();
     }
 
-    public function setBurstingMaxActiveCalls($burstingMaxActiveCalls)
+    public function setBurstingMaxActiveCalls($burstingMaxActiveCalls = null)
     {
-        $burstingMaxActiveCalls and $this->burstingMaxActiveCalls = new BurstingMaxActiveCalls($burstingMaxActiveCalls);
+        $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf BurstingMaxActiveCalls)
+             ? $burstingMaxActiveCalls
+             : new BurstingMaxActiveCalls($burstingMaxActiveCalls);
     }
 
     public function getBurstingMaxActiveCalls()
@@ -168,9 +147,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->value();
     }
 
-    public function setBurstingMaxIncomingCalls($burstingMaxIncomingCalls)
+    public function setBurstingMaxIncomingCalls($burstingMaxIncomingCalls = null)
     {
-        $burstingMaxIncomingCalls and $this->burstingMaxIncomingCalls = new BurstingMaxIncomingCalls($burstingMaxIncomingCalls);
+        $this->burstingMaxIncomingCalls = ($burstingMaxIncomingCalls InstanceOf BurstingMaxIncomingCalls)
+             ? $burstingMaxIncomingCalls
+             : new BurstingMaxIncomingCalls($burstingMaxIncomingCalls);
     }
 
     public function getBurstingMaxIncomingCalls()
@@ -178,9 +159,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->burstingMaxIncomingCalls) ?: $this->burstingMaxIncomingCalls->value();
     }
 
-    public function setBurstingMaxOutgoingCalls($burstingMaxOutgoingCalls)
+    public function setBurstingMaxOutgoingCalls($burstingMaxOutgoingCalls = null)
     {
-        $burstingMaxOutgoingCalls and $this->burstingMaxOutgoingCalls = new BurstingMaxOutgoingCalls($burstingMaxOutgoingCalls);
+        $this->burstingMaxOutgoingCalls = ($burstingMaxOutgoingCalls InstanceOf BurstingMaxOutgoingCalls)
+             ? $burstingMaxOutgoingCalls
+             : new BurstingMaxOutgoingCalls($burstingMaxOutgoingCalls);
     }
 
     public function getBurstingMaxOutgoingCalls()
@@ -188,9 +171,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->burstingMaxOutgoingCalls) ?: $this->burstingMaxOutgoingCalls->value();
     }
 
-    public function setCapacityExceededAction($capacityExceededAction)
+    public function setCapacityExceededAction($capacityExceededAction = null)
     {
-        $capacityExceededAction and $this->capacityExceededAction = new TrunkGroupCapacityExceededAction($capacityExceededAction);
+        $this->capacityExceededAction = ($capacityExceededAction InstanceOf TrunkGroupCapacityExceededAction)
+             ? $capacityExceededAction
+             : new TrunkGroupCapacityExceededAction($capacityExceededAction);
     }
 
     public function getCapacityExceededAction()
@@ -198,9 +183,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->capacityExceededAction) ?: $this->capacityExceededAction->value();
     }
 
-    public function setCapacityExceededForwardAddress($capacityExceededForwardAddress)
+    public function setCapacityExceededForwardAddress($capacityExceededForwardAddress = null)
     {
-        $capacityExceededForwardAddress and $this->capacityExceededForwardAddress = new OutgoingDNorSIPURI($capacityExceededForwardAddress);
+        $this->capacityExceededForwardAddress = ($capacityExceededForwardAddress InstanceOf OutgoingDNorSIPURI)
+             ? $capacityExceededForwardAddress
+             : new OutgoingDNorSIPURI($capacityExceededForwardAddress);
     }
 
     public function getCapacityExceededForwardAddress()
@@ -208,9 +195,8 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->capacityExceededForwardAddress) ?: $this->capacityExceededForwardAddress->value();
     }
 
-    public function setCapacityExceededRerouteTrunkGroupKey($capacityExceededRerouteTrunkGroupKey)
+    public function setCapacityExceededRerouteTrunkGroupKey(TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null)
     {
-        $capacityExceededRerouteTrunkGroupKey and $this->capacityExceededRerouteTrunkGroupKey = new TrunkGroupKey($capacityExceededRerouteTrunkGroupKey);
     }
 
     public function getCapacityExceededRerouteTrunkGroupKey()
@@ -218,9 +204,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->capacityExceededRerouteTrunkGroupKey) ?: $this->capacityExceededRerouteTrunkGroupKey->value();
     }
 
-    public function setCapacityExceededTrapInitialCalls($capacityExceededTrapInitialCalls)
+    public function setCapacityExceededTrapInitialCalls($capacityExceededTrapInitialCalls = null)
     {
-        $capacityExceededTrapInitialCalls and $this->capacityExceededTrapInitialCalls = new TrapInitialThreshold($capacityExceededTrapInitialCalls);
+        $this->capacityExceededTrapInitialCalls = ($capacityExceededTrapInitialCalls InstanceOf TrapInitialThreshold)
+             ? $capacityExceededTrapInitialCalls
+             : new TrapInitialThreshold($capacityExceededTrapInitialCalls);
     }
 
     public function getCapacityExceededTrapInitialCalls()
@@ -228,9 +216,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->capacityExceededTrapInitialCalls) ?: $this->capacityExceededTrapInitialCalls->value();
     }
 
-    public function setCapacityExceededTrapOffsetCalls($capacityExceededTrapOffsetCalls)
+    public function setCapacityExceededTrapOffsetCalls($capacityExceededTrapOffsetCalls = null)
     {
-        $capacityExceededTrapOffsetCalls and $this->capacityExceededTrapOffsetCalls = new TrapOffsetThreshold($capacityExceededTrapOffsetCalls);
+        $this->capacityExceededTrapOffsetCalls = ($capacityExceededTrapOffsetCalls InstanceOf TrapOffsetThreshold)
+             ? $capacityExceededTrapOffsetCalls
+             : new TrapOffsetThreshold($capacityExceededTrapOffsetCalls);
     }
 
     public function getCapacityExceededTrapOffsetCalls()
@@ -238,9 +228,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->capacityExceededTrapOffsetCalls) ?: $this->capacityExceededTrapOffsetCalls->value();
     }
 
-    public function setUnreachableDestinationAction($unreachableDestinationAction)
+    public function setUnreachableDestinationAction($unreachableDestinationAction = null)
     {
-        $unreachableDestinationAction and $this->unreachableDestinationAction = new TrunkGroupUnreachableDestinationAction($unreachableDestinationAction);
+        $this->unreachableDestinationAction = ($unreachableDestinationAction InstanceOf TrunkGroupUnreachableDestinationAction)
+             ? $unreachableDestinationAction
+             : new TrunkGroupUnreachableDestinationAction($unreachableDestinationAction);
     }
 
     public function getUnreachableDestinationAction()
@@ -248,9 +240,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->unreachableDestinationAction) ?: $this->unreachableDestinationAction->value();
     }
 
-    public function setUnreachableDestinationForwardAddress($unreachableDestinationForwardAddress)
+    public function setUnreachableDestinationForwardAddress($unreachableDestinationForwardAddress = null)
     {
-        $unreachableDestinationForwardAddress and $this->unreachableDestinationForwardAddress = new OutgoingDNorSIPURI($unreachableDestinationForwardAddress);
+        $this->unreachableDestinationForwardAddress = ($unreachableDestinationForwardAddress InstanceOf OutgoingDNorSIPURI)
+             ? $unreachableDestinationForwardAddress
+             : new OutgoingDNorSIPURI($unreachableDestinationForwardAddress);
     }
 
     public function getUnreachableDestinationForwardAddress()
@@ -258,9 +252,8 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->unreachableDestinationForwardAddress) ?: $this->unreachableDestinationForwardAddress->value();
     }
 
-    public function setUnreachableDestinationRerouteTrunkGroupKey($unreachableDestinationRerouteTrunkGroupKey)
+    public function setUnreachableDestinationRerouteTrunkGroupKey(TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null)
     {
-        $unreachableDestinationRerouteTrunkGroupKey and $this->unreachableDestinationRerouteTrunkGroupKey = new TrunkGroupKey($unreachableDestinationRerouteTrunkGroupKey);
     }
 
     public function getUnreachableDestinationRerouteTrunkGroupKey()
@@ -268,9 +261,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->unreachableDestinationRerouteTrunkGroupKey) ?: $this->unreachableDestinationRerouteTrunkGroupKey->value();
     }
 
-    public function setUnreachableDestinationTrapInitialCalls($unreachableDestinationTrapInitialCalls)
+    public function setUnreachableDestinationTrapInitialCalls($unreachableDestinationTrapInitialCalls = null)
     {
-        $unreachableDestinationTrapInitialCalls and $this->unreachableDestinationTrapInitialCalls = new TrapInitialThreshold($unreachableDestinationTrapInitialCalls);
+        $this->unreachableDestinationTrapInitialCalls = ($unreachableDestinationTrapInitialCalls InstanceOf TrapInitialThreshold)
+             ? $unreachableDestinationTrapInitialCalls
+             : new TrapInitialThreshold($unreachableDestinationTrapInitialCalls);
     }
 
     public function getUnreachableDestinationTrapInitialCalls()
@@ -278,9 +273,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->unreachableDestinationTrapInitialCalls) ?: $this->unreachableDestinationTrapInitialCalls->value();
     }
 
-    public function setUnreachableDestinationTrapOffsetCalls($unreachableDestinationTrapOffsetCalls)
+    public function setUnreachableDestinationTrapOffsetCalls($unreachableDestinationTrapOffsetCalls = null)
     {
-        $unreachableDestinationTrapOffsetCalls and $this->unreachableDestinationTrapOffsetCalls = new TrapOffsetThreshold($unreachableDestinationTrapOffsetCalls);
+        $this->unreachableDestinationTrapOffsetCalls = ($unreachableDestinationTrapOffsetCalls InstanceOf TrapOffsetThreshold)
+             ? $unreachableDestinationTrapOffsetCalls
+             : new TrapOffsetThreshold($unreachableDestinationTrapOffsetCalls);
     }
 
     public function getUnreachableDestinationTrapOffsetCalls()
@@ -288,9 +285,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->unreachableDestinationTrapOffsetCalls) ?: $this->unreachableDestinationTrapOffsetCalls->value();
     }
 
-    public function setInvitationTimeout($invitationTimeout)
+    public function setInvitationTimeout($invitationTimeout = null)
     {
-        $invitationTimeout and $this->invitationTimeout = new TrunkGroupInvitationTimeoutSeconds($invitationTimeout);
+        $this->invitationTimeout = ($invitationTimeout InstanceOf TrunkGroupInvitationTimeoutSeconds)
+             ? $invitationTimeout
+             : new TrunkGroupInvitationTimeoutSeconds($invitationTimeout);
     }
 
     public function getInvitationTimeout()
@@ -298,9 +297,8 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->invitationTimeout) ?: $this->invitationTimeout->value();
     }
 
-    public function setRequireAuthentication($requireAuthentication)
+    public function setRequireAuthentication(xs:boolean $requireAuthentication = null)
     {
-        $requireAuthentication and $this->requireAuthentication = new xs:boolean($requireAuthentication);
     }
 
     public function getRequireAuthentication()
@@ -308,9 +306,11 @@ class GroupTrunkGroupGetInstanceResponse14sp4 extends ComplexType implements Com
         return (!$this->requireAuthentication) ?: $this->requireAuthentication->value();
     }
 
-    public function setSipAuthenticationUserName($sipAuthenticationUserName)
+    public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
-        $sipAuthenticationUserName and $this->sipAuthenticationUserName = new SIPAuthenticationUserName($sipAuthenticationUserName);
+        $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
+             ? $sipAuthenticationUserName
+             : new SIPAuthenticationUserName($sipAuthenticationUserName);
     }
 
     public function getSipAuthenticationUserName()

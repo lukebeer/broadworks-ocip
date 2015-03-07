@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallDispositionCodeActivation;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $serviceProviderId              = null;
+    protected $callDispositionCodeActivation  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $callDispositionCodeActivation=null
+         $serviceProviderId,
+         CallDispositionCodeActivation $callDispositionCodeActivation = null
     ) {
-        $this->serviceProviderId             = new ServiceProviderId($serviceProviderId);
-        $this->callDispositionCodeActivation = $callDispositionCodeActivation;
-        $this->args                          = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setCallDispositionCodeActivation($callDispositionCodeActivation);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,8 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setCallDispositionCodeActivation($callDispositionCodeActivation)
+    public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        $callDispositionCodeActivation and $this->callDispositionCodeActivation = new CallDispositionCodeActivation($callDispositionCodeActivation);
     }
 
     public function getCallDispositionCodeActivation()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNumberActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $useNumberActivation  = null;
 
     public function __construct(
-             $useNumberActivation=null
+         $useNumberActivation = null
     ) {
-        $this->useNumberActivation = $useNumberActivation;
-        $this->args                = func_get_args();
+        $this->setUseNumberActivation($useNumberActivation);
     }
 
-    public function setUseNumberActivation($useNumberActivation)
+    public function setUseNumberActivation(xs:boolean $useNumberActivation = null)
     {
-        $useNumberActivation and $this->useNumberActivation = new xs:boolean($useNumberActivation);
     }
 
     public function getUseNumberActivation()

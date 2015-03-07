@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $emailTo            = null;
 
     public function __construct(
-             $serviceProviderId,
-             $emailTo
+         $serviceProviderId,
+         $emailTo
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->emailTo           = new EmailAddress($emailTo);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setEmailTo($emailTo);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,11 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setEmailTo($emailTo)
+    public function setEmailTo($emailTo = null)
     {
-        $emailTo and $this->emailTo = new EmailAddress($emailTo);
+        $this->emailTo = ($emailTo InstanceOf EmailAddress)
+             ? $emailTo
+             : new EmailAddress($emailTo);
     }
 
     public function getEmailTo()

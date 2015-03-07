@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingBrandingSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingBrandingSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceProviderId                = null;
+    protected $voicePortalGreetingSelection     = null;
+    protected $voicePortalGreetingFile          = null;
+    protected $voiceMessagingGreetingSelection  = null;
+    protected $voiceMessagingGreetingFile       = null;
 
     public function __construct(
-             $serviceProviderId,
-             $voicePortalGreetingSelection=null,
-             LabeledFileResource $voicePortalGreetingFile=null,
-             $voiceMessagingGreetingSelection=null,
-             LabeledFileResource $voiceMessagingGreetingFile=null
+         $serviceProviderId,
+         $voicePortalGreetingSelection = null,
+         LabeledFileResource $voicePortalGreetingFile = null,
+         $voiceMessagingGreetingSelection = null,
+         LabeledFileResource $voiceMessagingGreetingFile = null
     ) {
-        $this->serviceProviderId               = new ServiceProviderId($serviceProviderId);
-        $this->voicePortalGreetingSelection    = $voicePortalGreetingSelection;
-        $this->voicePortalGreetingFile         = $voicePortalGreetingFile;
-        $this->voiceMessagingGreetingSelection = $voiceMessagingGreetingSelection;
-        $this->voiceMessagingGreetingFile      = $voiceMessagingGreetingFile;
-        $this->args                            = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setVoicePortalGreetingSelection($voicePortalGreetingSelection);
+        $this->setVoicePortalGreetingFile($voicePortalGreetingFile);
+        $this->setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection);
+        $this->setVoiceMessagingGreetingFile($voiceMessagingGreetingFile);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +54,11 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setVoicePortalGreetingSelection($voicePortalGreetingSelection)
+    public function setVoicePortalGreetingSelection($voicePortalGreetingSelection = null)
     {
-        $voicePortalGreetingSelection and $this->voicePortalGreetingSelection = new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
+        $this->voicePortalGreetingSelection = ($voicePortalGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
+             ? $voicePortalGreetingSelection
+             : new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
     }
 
     public function getVoicePortalGreetingSelection()
@@ -58,9 +66,8 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends
         return (!$this->voicePortalGreetingSelection) ?: $this->voicePortalGreetingSelection->value();
     }
 
-    public function setVoicePortalGreetingFile($voicePortalGreetingFile)
+    public function setVoicePortalGreetingFile(LabeledFileResource $voicePortalGreetingFile = null)
     {
-        $voicePortalGreetingFile and $this->voicePortalGreetingFile = new LabeledFileResource($voicePortalGreetingFile);
     }
 
     public function getVoicePortalGreetingFile()
@@ -68,9 +75,11 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends
         return (!$this->voicePortalGreetingFile) ?: $this->voicePortalGreetingFile->value();
     }
 
-    public function setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection)
+    public function setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection = null)
     {
-        $voiceMessagingGreetingSelection and $this->voiceMessagingGreetingSelection = new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
+        $this->voiceMessagingGreetingSelection = ($voiceMessagingGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
+             ? $voiceMessagingGreetingSelection
+             : new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
     }
 
     public function getVoiceMessagingGreetingSelection()
@@ -78,9 +87,8 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends
         return (!$this->voiceMessagingGreetingSelection) ?: $this->voiceMessagingGreetingSelection->value();
     }
 
-    public function setVoiceMessagingGreetingFile($voiceMessagingGreetingFile)
+    public function setVoiceMessagingGreetingFile(LabeledFileResource $voiceMessagingGreetingFile = null)
     {
-        $voiceMessagingGreetingFile and $this->voiceMessagingGreetingFile = new LabeledFileResource($voiceMessagingGreetingFile);
     }
 
     public function getVoiceMessagingGreetingFile()

@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxSimultaneousCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxCallTimeForAnsweredCallsMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallProcessingMaxCallTimeForAnsweredCallsMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxCallTimeForUnansweredCallsMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxSimultaneousCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaPolicySelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -22,38 +21,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallProcessingGetPolicyResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $useUserSetting                        = null;
+    protected $useMaxSimultaneousCalls               = null;
+    protected $maxSimultaneousCalls                  = null;
+    protected $useMaxSimultaneousVideoCalls          = null;
+    protected $maxSimultaneousVideoCalls             = null;
+    protected $useMaxCallTimeForAnsweredCalls        = null;
+    protected $maxCallTimeForAnsweredCallsMinutes    = null;
+    protected $useMaxCallTimeForUnansweredCalls      = null;
+    protected $maxCallTimeForUnansweredCallsMinutes  = null;
+    protected $mediaPolicySelection                  = null;
+    protected $supportedMediaSetName                 = null;
 
-    public function __construct(
-             $useUserSetting,
-             $useMaxSimultaneousCalls,
-             $maxSimultaneousCalls,
-             $useMaxSimultaneousVideoCalls,
-             $maxSimultaneousVideoCalls,
-             $useMaxCallTimeForAnsweredCalls,
-             $maxCallTimeForAnsweredCallsMinutes,
-             $useMaxCallTimeForUnansweredCalls,
-             $maxCallTimeForUnansweredCallsMinutes,
-             $mediaPolicySelection,
-             $supportedMediaSetName=null
-    ) {
-        $this->useUserSetting                       = $useUserSetting;
-        $this->useMaxSimultaneousCalls              = $useMaxSimultaneousCalls;
-        $this->maxSimultaneousCalls                 = new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
-        $this->useMaxSimultaneousVideoCalls         = $useMaxSimultaneousVideoCalls;
-        $this->maxSimultaneousVideoCalls            = new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
-        $this->useMaxCallTimeForAnsweredCalls       = $useMaxCallTimeForAnsweredCalls;
-        $this->maxCallTimeForAnsweredCallsMinutes   = $maxCallTimeForAnsweredCallsMinutes;
-        $this->useMaxCallTimeForUnansweredCalls     = $useMaxCallTimeForUnansweredCalls;
-        $this->maxCallTimeForUnansweredCallsMinutes = new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
-        $this->mediaPolicySelection                 = new MediaPolicySelection($mediaPolicySelection);
-        $this->supportedMediaSetName                = new MediaSetName($supportedMediaSetName);
-        $this->args                                 = func_get_args();
-    }
 
-    public function setUseUserSetting($useUserSetting)
+    public function setUseUserSetting(xs:boolean $useUserSetting = null)
     {
-        $useUserSetting and $this->useUserSetting = new xs:boolean($useUserSetting);
     }
 
     public function getUseUserSetting()
@@ -61,9 +44,8 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->useUserSetting) ?: $this->useUserSetting->value();
     }
 
-    public function setUseMaxSimultaneousCalls($useMaxSimultaneousCalls)
+    public function setUseMaxSimultaneousCalls(xs:boolean $useMaxSimultaneousCalls = null)
     {
-        $useMaxSimultaneousCalls and $this->useMaxSimultaneousCalls = new xs:boolean($useMaxSimultaneousCalls);
     }
 
     public function getUseMaxSimultaneousCalls()
@@ -71,9 +53,11 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->value();
     }
 
-    public function setMaxSimultaneousCalls($maxSimultaneousCalls)
+    public function setMaxSimultaneousCalls($maxSimultaneousCalls = null)
     {
-        $maxSimultaneousCalls and $this->maxSimultaneousCalls = new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
+        $this->maxSimultaneousCalls = ($maxSimultaneousCalls InstanceOf CallProcessingMaxSimultaneousCalls)
+             ? $maxSimultaneousCalls
+             : new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
     }
 
     public function getMaxSimultaneousCalls()
@@ -81,9 +65,8 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->maxSimultaneousCalls) ?: $this->maxSimultaneousCalls->value();
     }
 
-    public function setUseMaxSimultaneousVideoCalls($useMaxSimultaneousVideoCalls)
+    public function setUseMaxSimultaneousVideoCalls(xs:boolean $useMaxSimultaneousVideoCalls = null)
     {
-        $useMaxSimultaneousVideoCalls and $this->useMaxSimultaneousVideoCalls = new xs:boolean($useMaxSimultaneousVideoCalls);
     }
 
     public function getUseMaxSimultaneousVideoCalls()
@@ -91,9 +74,11 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->value();
     }
 
-    public function setMaxSimultaneousVideoCalls($maxSimultaneousVideoCalls)
+    public function setMaxSimultaneousVideoCalls($maxSimultaneousVideoCalls = null)
     {
-        $maxSimultaneousVideoCalls and $this->maxSimultaneousVideoCalls = new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
+        $this->maxSimultaneousVideoCalls = ($maxSimultaneousVideoCalls InstanceOf CallProcessingMaxSimultaneousCalls)
+             ? $maxSimultaneousVideoCalls
+             : new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
     }
 
     public function getMaxSimultaneousVideoCalls()
@@ -101,9 +86,8 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->maxSimultaneousVideoCalls) ?: $this->maxSimultaneousVideoCalls->value();
     }
 
-    public function setUseMaxCallTimeForAnsweredCalls($useMaxCallTimeForAnsweredCalls)
+    public function setUseMaxCallTimeForAnsweredCalls(xs:boolean $useMaxCallTimeForAnsweredCalls = null)
     {
-        $useMaxCallTimeForAnsweredCalls and $this->useMaxCallTimeForAnsweredCalls = new xs:boolean($useMaxCallTimeForAnsweredCalls);
     }
 
     public function getUseMaxCallTimeForAnsweredCalls()
@@ -111,9 +95,11 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->value();
     }
 
-    public function setMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes)
+    public function setMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes = null)
     {
-        $maxCallTimeForAnsweredCallsMinutes and $this->maxCallTimeForAnsweredCallsMinutes = new CallProcessingMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes);
+        $this->maxCallTimeForAnsweredCallsMinutes = ($maxCallTimeForAnsweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForAnsweredCallsMinutes)
+             ? $maxCallTimeForAnsweredCallsMinutes
+             : new CallProcessingMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes);
     }
 
     public function getMaxCallTimeForAnsweredCallsMinutes()
@@ -121,9 +107,8 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->maxCallTimeForAnsweredCallsMinutes) ?: $this->maxCallTimeForAnsweredCallsMinutes->value();
     }
 
-    public function setUseMaxCallTimeForUnansweredCalls($useMaxCallTimeForUnansweredCalls)
+    public function setUseMaxCallTimeForUnansweredCalls(xs:boolean $useMaxCallTimeForUnansweredCalls = null)
     {
-        $useMaxCallTimeForUnansweredCalls and $this->useMaxCallTimeForUnansweredCalls = new xs:boolean($useMaxCallTimeForUnansweredCalls);
     }
 
     public function getUseMaxCallTimeForUnansweredCalls()
@@ -131,9 +116,11 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->value();
     }
 
-    public function setMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes)
+    public function setMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes = null)
     {
-        $maxCallTimeForUnansweredCallsMinutes and $this->maxCallTimeForUnansweredCallsMinutes = new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
+        $this->maxCallTimeForUnansweredCallsMinutes = ($maxCallTimeForUnansweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForUnansweredCallsMinutes)
+             ? $maxCallTimeForUnansweredCallsMinutes
+             : new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
     }
 
     public function getMaxCallTimeForUnansweredCallsMinutes()
@@ -141,9 +128,11 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->maxCallTimeForUnansweredCallsMinutes) ?: $this->maxCallTimeForUnansweredCallsMinutes->value();
     }
 
-    public function setMediaPolicySelection($mediaPolicySelection)
+    public function setMediaPolicySelection($mediaPolicySelection = null)
     {
-        $mediaPolicySelection and $this->mediaPolicySelection = new MediaPolicySelection($mediaPolicySelection);
+        $this->mediaPolicySelection = ($mediaPolicySelection InstanceOf MediaPolicySelection)
+             ? $mediaPolicySelection
+             : new MediaPolicySelection($mediaPolicySelection);
     }
 
     public function getMediaPolicySelection()
@@ -151,9 +140,11 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
         return (!$this->mediaPolicySelection) ?: $this->mediaPolicySelection->value();
     }
 
-    public function setSupportedMediaSetName($supportedMediaSetName)
+    public function setSupportedMediaSetName($supportedMediaSetName = null)
     {
-        $supportedMediaSetName and $this->supportedMediaSetName = new MediaSetName($supportedMediaSetName);
+        $this->supportedMediaSetName = ($supportedMediaSetName InstanceOf MediaSetName)
+             ? $supportedMediaSetName
+             : new MediaSetName($supportedMediaSetName);
     }
 
     public function getSupportedMediaSetName()

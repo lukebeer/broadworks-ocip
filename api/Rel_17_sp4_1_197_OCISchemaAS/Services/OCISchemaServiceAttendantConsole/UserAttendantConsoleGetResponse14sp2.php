@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AttendantConsoleDisplayColumn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleDisplayColumn;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +19,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $launchOnLogin               = null;
+    protected $allowUserConfigCallDetails  = null;
+    protected $allowUserViewCallDetails    = null;
+    protected $displayColumn               = null;
+    protected $monitoredUserTable          = null;
 
-    public function __construct(
-             $launchOnLogin,
-             $allowUserConfigCallDetails,
-             $allowUserViewCallDetails,
-             $displayColumn=null,
-             $monitoredUserTable
-    ) {
-        $this->launchOnLogin              = $launchOnLogin;
-        $this->allowUserConfigCallDetails = $allowUserConfigCallDetails;
-        $this->allowUserViewCallDetails   = $allowUserViewCallDetails;
-        $this->displayColumn              = $displayColumn;
-        $this->monitoredUserTable         = $monitoredUserTable;
-        $this->args                       = func_get_args();
-    }
 
-    public function setLaunchOnLogin($launchOnLogin)
+    public function setLaunchOnLogin(xs:boolean $launchOnLogin = null)
     {
-        $launchOnLogin and $this->launchOnLogin = new xs:boolean($launchOnLogin);
     }
 
     public function getLaunchOnLogin()
@@ -48,9 +36,8 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
         return (!$this->launchOnLogin) ?: $this->launchOnLogin->value();
     }
 
-    public function setAllowUserConfigCallDetails($allowUserConfigCallDetails)
+    public function setAllowUserConfigCallDetails(xs:boolean $allowUserConfigCallDetails = null)
     {
-        $allowUserConfigCallDetails and $this->allowUserConfigCallDetails = new xs:boolean($allowUserConfigCallDetails);
     }
 
     public function getAllowUserConfigCallDetails()
@@ -58,9 +45,8 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
         return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails->value();
     }
 
-    public function setAllowUserViewCallDetails($allowUserViewCallDetails)
+    public function setAllowUserViewCallDetails(xs:boolean $allowUserViewCallDetails = null)
     {
-        $allowUserViewCallDetails and $this->allowUserViewCallDetails = new xs:boolean($allowUserViewCallDetails);
     }
 
     public function getAllowUserViewCallDetails()
@@ -68,9 +54,11 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
         return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails->value();
     }
 
-    public function setDisplayColumn($displayColumn)
+    public function setDisplayColumn($displayColumn = null)
     {
-        $displayColumn and $this->displayColumn = new AttendantConsoleDisplayColumn($displayColumn);
+        $this->displayColumn = ($displayColumn InstanceOf AttendantConsoleDisplayColumn)
+             ? $displayColumn
+             : new AttendantConsoleDisplayColumn($displayColumn);
     }
 
     public function getDisplayColumn()
@@ -78,9 +66,8 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
         return (!$this->displayColumn) ?: $this->displayColumn->value();
     }
 
-    public function setMonitoredUserTable($monitoredUserTable)
+    public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $monitoredUserTable and $this->monitoredUserTable = new core:OCITable($monitoredUserTable);
     }
 
     public function getMonitoredUserTable()

@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceFaxMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementSIPAliasList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $isActive      = null;
+    protected $phoneNumber   = null;
+    protected $extension     = null;
+    protected $sipAliasList  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $phoneNumber=null,
-             $extension=null,
-             ReplacementSIPAliasList $sipAliasList=null
+         $userId,
+         $isActive = null,
+         $phoneNumber = null,
+         $extension = null,
+         ReplacementSIPAliasList $sipAliasList = null
     ) {
-        $this->userId       = new UserId($userId);
-        $this->isActive     = $isActive;
-        $this->phoneNumber  = new DN($phoneNumber);
-        $this->extension    = new Extension17($extension);
-        $this->sipAliasList = $sipAliasList;
-        $this->args         = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setExtension($extension);
+        $this->setSipAliasList($sipAliasList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -49,9 +54,8 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -59,9 +63,11 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -69,9 +75,11 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setExtension($extension)
+    public function setExtension($extension = null)
     {
-        $extension and $this->extension = new Extension17($extension);
+        $this->extension = ($extension InstanceOf Extension17)
+             ? $extension
+             : new Extension17($extension);
     }
 
     public function getExtension()
@@ -79,9 +87,8 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->extension) ?: $this->extension->value();
     }
 
-    public function setSipAliasList($sipAliasList)
+    public function setSipAliasList(ReplacementSIPAliasList $sipAliasList = null)
     {
-        $sipAliasList and $this->sipAliasList = new ReplacementSIPAliasList($sipAliasList);
     }
 
     public function getSipAliasList()

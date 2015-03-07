@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,20 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $isPrivate               = null;
+    protected $isAddressInfoRequested  = null;
 
     public function __construct(
-             $isPrivate,
-             $isAddressInfoRequested
+         $isPrivate,
+         $isAddressInfoRequested
     ) {
-        $this->isPrivate              = $isPrivate;
-        $this->isAddressInfoRequested = $isAddressInfoRequested;
-        $this->args                   = func_get_args();
+        $this->setIsPrivate($isPrivate);
+        $this->setIsAddressInfoRequested($isAddressInfoRequested);
     }
 
-    public function setIsPrivate($isPrivate)
+    public function setIsPrivate(xs:boolean $isPrivate = null)
     {
-        $isPrivate and $this->isPrivate = new xs:boolean($isPrivate);
     }
 
     public function getIsPrivate()
@@ -38,9 +38,8 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
         return (!$this->isPrivate) ?: $this->isPrivate->value();
     }
 
-    public function setIsAddressInfoRequested($isAddressInfoRequested)
+    public function setIsAddressInfoRequested(xs:boolean $isAddressInfoRequested = null)
     {
-        $isAddressInfoRequested and $this->isAddressInfoRequested = new xs:boolean($isAddressInfoRequested);
     }
 
     public function getIsAddressInfoRequested()

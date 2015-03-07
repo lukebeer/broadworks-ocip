@@ -7,12 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingGuest; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:dateTime;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,34 +20,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $isActive                      = null;
+    protected $enableAssociationLimit        = null;
+    protected $associationLimitHours         = null;
+    protected $hostUserId                    = null;
+    protected $hostLastName                  = null;
+    protected $hostFirstName                 = null;
+    protected $hostAssociationDateTime       = null;
+    protected $hostEnforcesAssociationLimit  = null;
+    protected $hostAssociationLimitHours     = null;
 
-    public function __construct(
-             $isActive,
-             $enableAssociationLimit,
-             $associationLimitHours,
-             $hostUserId=null,
-             $hostLastName=null,
-             $hostFirstName=null,
-             $hostAssociationDateTime=null,
-             $hostEnforcesAssociationLimit=null,
-             $hostAssociationLimitHours=null
-    ) {
-        $this->isActive                     = $isActive;
-        $this->enableAssociationLimit       = $enableAssociationLimit;
-        $this->associationLimitHours        = new HotelingAssociationLimitHours($associationLimitHours);
-        $this->hostUserId                   = new UserId($hostUserId);
-        $this->hostLastName                 = new LastName($hostLastName);
-        $this->hostFirstName                = new FirstName($hostFirstName);
-        $this->hostAssociationDateTime      = $hostAssociationDateTime;
-        $this->hostEnforcesAssociationLimit = $hostEnforcesAssociationLimit;
-        $this->hostAssociationLimitHours    = new HotelingAssociationLimitHours($hostAssociationLimitHours);
-        $this->args                         = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -57,9 +41,8 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setEnableAssociationLimit($enableAssociationLimit)
+    public function setEnableAssociationLimit(xs:boolean $enableAssociationLimit = null)
     {
-        $enableAssociationLimit and $this->enableAssociationLimit = new xs:boolean($enableAssociationLimit);
     }
 
     public function getEnableAssociationLimit()
@@ -67,9 +50,11 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->enableAssociationLimit) ?: $this->enableAssociationLimit->value();
     }
 
-    public function setAssociationLimitHours($associationLimitHours)
+    public function setAssociationLimitHours($associationLimitHours = null)
     {
-        $associationLimitHours and $this->associationLimitHours = new HotelingAssociationLimitHours($associationLimitHours);
+        $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
+             ? $associationLimitHours
+             : new HotelingAssociationLimitHours($associationLimitHours);
     }
 
     public function getAssociationLimitHours()
@@ -77,9 +62,11 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->associationLimitHours) ?: $this->associationLimitHours->value();
     }
 
-    public function setHostUserId($hostUserId)
+    public function setHostUserId($hostUserId = null)
     {
-        $hostUserId and $this->hostUserId = new UserId($hostUserId);
+        $this->hostUserId = ($hostUserId InstanceOf UserId)
+             ? $hostUserId
+             : new UserId($hostUserId);
     }
 
     public function getHostUserId()
@@ -87,9 +74,11 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->hostUserId) ?: $this->hostUserId->value();
     }
 
-    public function setHostLastName($hostLastName)
+    public function setHostLastName($hostLastName = null)
     {
-        $hostLastName and $this->hostLastName = new LastName($hostLastName);
+        $this->hostLastName = ($hostLastName InstanceOf LastName)
+             ? $hostLastName
+             : new LastName($hostLastName);
     }
 
     public function getHostLastName()
@@ -97,9 +86,11 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->hostLastName) ?: $this->hostLastName->value();
     }
 
-    public function setHostFirstName($hostFirstName)
+    public function setHostFirstName($hostFirstName = null)
     {
-        $hostFirstName and $this->hostFirstName = new FirstName($hostFirstName);
+        $this->hostFirstName = ($hostFirstName InstanceOf FirstName)
+             ? $hostFirstName
+             : new FirstName($hostFirstName);
     }
 
     public function getHostFirstName()
@@ -107,9 +98,8 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->hostFirstName) ?: $this->hostFirstName->value();
     }
 
-    public function setHostAssociationDateTime($hostAssociationDateTime)
+    public function setHostAssociationDateTime(xs:dateTime $hostAssociationDateTime = null)
     {
-        $hostAssociationDateTime and $this->hostAssociationDateTime = new xs:dateTime($hostAssociationDateTime);
     }
 
     public function getHostAssociationDateTime()
@@ -117,9 +107,8 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->hostAssociationDateTime) ?: $this->hostAssociationDateTime->value();
     }
 
-    public function setHostEnforcesAssociationLimit($hostEnforcesAssociationLimit)
+    public function setHostEnforcesAssociationLimit(xs:boolean $hostEnforcesAssociationLimit = null)
     {
-        $hostEnforcesAssociationLimit and $this->hostEnforcesAssociationLimit = new xs:boolean($hostEnforcesAssociationLimit);
     }
 
     public function getHostEnforcesAssociationLimit()
@@ -127,9 +116,11 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
         return (!$this->hostEnforcesAssociationLimit) ?: $this->hostEnforcesAssociationLimit->value();
     }
 
-    public function setHostAssociationLimitHours($hostAssociationLimitHours)
+    public function setHostAssociationLimitHours($hostAssociationLimitHours = null)
     {
-        $hostAssociationLimitHours and $this->hostAssociationLimitHours = new HotelingAssociationLimitHours($hostAssociationLimitHours);
+        $this->hostAssociationLimitHours = ($hostAssociationLimitHours InstanceOf HotelingAssociationLimitHours)
+             ? $hostAssociationLimitHours
+             : new HotelingAssociationLimitHours($hostAssociationLimitHours);
     }
 
     public function getHostAssociationLimitHours()

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $alertAllLocationsForClickToDialCalls  = null;
+    protected $alertAllLocationsForGroupPagingCalls  = null;
+    protected $phoneNumberTable                      = null;
 
-    public function __construct(
-             $alertAllLocationsForClickToDialCalls,
-             $alertAllLocationsForGroupPagingCalls,
-             $phoneNumberTable
-    ) {
-        $this->alertAllLocationsForClickToDialCalls = $alertAllLocationsForClickToDialCalls;
-        $this->alertAllLocationsForGroupPagingCalls = $alertAllLocationsForGroupPagingCalls;
-        $this->phoneNumberTable                     = $phoneNumberTable;
-        $this->args                                 = func_get_args();
-    }
 
-    public function setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls)
+    public function setAlertAllLocationsForClickToDialCalls(xs:boolean $alertAllLocationsForClickToDialCalls = null)
     {
-        $alertAllLocationsForClickToDialCalls and $this->alertAllLocationsForClickToDialCalls = new xs:boolean($alertAllLocationsForClickToDialCalls);
     }
 
     public function getAlertAllLocationsForClickToDialCalls()
@@ -42,9 +33,8 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
         return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls->value();
     }
 
-    public function setAlertAllLocationsForGroupPagingCalls($alertAllLocationsForGroupPagingCalls)
+    public function setAlertAllLocationsForGroupPagingCalls(xs:boolean $alertAllLocationsForGroupPagingCalls = null)
     {
-        $alertAllLocationsForGroupPagingCalls and $this->alertAllLocationsForGroupPagingCalls = new xs:boolean($alertAllLocationsForGroupPagingCalls);
     }
 
     public function getAlertAllLocationsForGroupPagingCalls()
@@ -52,9 +42,8 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
         return (!$this->alertAllLocationsForGroupPagingCalls) ?: $this->alertAllLocationsForGroupPagingCalls->value();
     }
 
-    public function setPhoneNumberTable($phoneNumberTable)
+    public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
-        $phoneNumberTable and $this->phoneNumberTable = new core:OCITable($phoneNumberTable);
     }
 
     public function getPhoneNumberTable()

@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PreAlertingAnnouncementInterrupt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PreAlertingAnnouncementInterruptDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\PreAlertingAnnouncementInterruptDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\PreAlertingAnnouncementInterrupt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
@@ -23,36 +23,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $announcementInterruption   = null;
+    protected $interruptionDigitSequence  = null;
+    protected $audioSelection             = null;
+    protected $audioFileDescription       = null;
+    protected $audioMediaType             = null;
+    protected $audioFileUrl               = null;
+    protected $videoSelection             = null;
+    protected $videoFileDescription       = null;
+    protected $videoMediaType             = null;
+    protected $videoFileUrl               = null;
 
-    public function __construct(
-             $announcementInterruption,
-             $interruptionDigitSequence=null,
-             $audioSelection,
-             $audioFileDescription=null,
-             $audioMediaType=null,
-             $audioFileUrl=null,
-             $videoSelection,
-             $videoFileDescription=null,
-             $videoMediaType=null,
-             $videoFileUrl=null
-    ) {
-        $this->announcementInterruption  = $announcementInterruption;
-        $this->interruptionDigitSequence = $interruptionDigitSequence;
-        $this->audioSelection            = new ExtendedFileResourceSelection($audioSelection);
-        $this->audioFileDescription      = new FileDescription($audioFileDescription);
-        $this->audioMediaType            = new MediaFileType($audioMediaType);
-        $this->audioFileUrl              = new URL($audioFileUrl);
-        $this->videoSelection            = new ExtendedFileResourceSelection($videoSelection);
-        $this->videoFileDescription      = new FileDescription($videoFileDescription);
-        $this->videoMediaType            = new MediaFileType($videoMediaType);
-        $this->videoFileUrl              = new URL($videoFileUrl);
-        $this->args                      = func_get_args();
-    }
 
-    public function setAnnouncementInterruption($announcementInterruption)
+    public function setAnnouncementInterruption($announcementInterruption = null)
     {
-        $announcementInterruption and $this->announcementInterruption = new PreAlertingAnnouncementInterrupt($announcementInterruption);
+        $this->announcementInterruption = ($announcementInterruption InstanceOf PreAlertingAnnouncementInterrupt)
+             ? $announcementInterruption
+             : new PreAlertingAnnouncementInterrupt($announcementInterruption);
     }
 
     public function getAnnouncementInterruption()
@@ -60,9 +48,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->announcementInterruption) ?: $this->announcementInterruption->value();
     }
 
-    public function setInterruptionDigitSequence($interruptionDigitSequence)
+    public function setInterruptionDigitSequence($interruptionDigitSequence = null)
     {
-        $interruptionDigitSequence and $this->interruptionDigitSequence = new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
+        $this->interruptionDigitSequence = ($interruptionDigitSequence InstanceOf PreAlertingAnnouncementInterruptDigits)
+             ? $interruptionDigitSequence
+             : new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
     }
 
     public function getInterruptionDigitSequence()
@@ -70,9 +60,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->interruptionDigitSequence) ?: $this->interruptionDigitSequence->value();
     }
 
-    public function setAudioSelection($audioSelection)
+    public function setAudioSelection($audioSelection = null)
     {
-        $audioSelection and $this->audioSelection = new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioSelection
+             : new ExtendedFileResourceSelection($audioSelection);
     }
 
     public function getAudioSelection()
@@ -80,9 +72,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->audioSelection) ?: $this->audioSelection->value();
     }
 
-    public function setAudioFileDescription($audioFileDescription)
+    public function setAudioFileDescription($audioFileDescription = null)
     {
-        $audioFileDescription and $this->audioFileDescription = new FileDescription($audioFileDescription);
+        $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
+             ? $audioFileDescription
+             : new FileDescription($audioFileDescription);
     }
 
     public function getAudioFileDescription()
@@ -90,9 +84,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
     }
 
-    public function setAudioMediaType($audioMediaType)
+    public function setAudioMediaType($audioMediaType = null)
     {
-        $audioMediaType and $this->audioMediaType = new MediaFileType($audioMediaType);
+        $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
+             ? $audioMediaType
+             : new MediaFileType($audioMediaType);
     }
 
     public function getAudioMediaType()
@@ -100,9 +96,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->audioMediaType) ?: $this->audioMediaType->value();
     }
 
-    public function setAudioFileUrl($audioFileUrl)
+    public function setAudioFileUrl($audioFileUrl = null)
     {
-        $audioFileUrl and $this->audioFileUrl = new URL($audioFileUrl);
+        $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
+             ? $audioFileUrl
+             : new URL($audioFileUrl);
     }
 
     public function getAudioFileUrl()
@@ -110,9 +108,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->audioFileUrl) ?: $this->audioFileUrl->value();
     }
 
-    public function setVideoSelection($videoSelection)
+    public function setVideoSelection($videoSelection = null)
     {
-        $videoSelection and $this->videoSelection = new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoSelection
+             : new ExtendedFileResourceSelection($videoSelection);
     }
 
     public function getVideoSelection()
@@ -120,9 +120,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->videoSelection) ?: $this->videoSelection->value();
     }
 
-    public function setVideoFileDescription($videoFileDescription)
+    public function setVideoFileDescription($videoFileDescription = null)
     {
-        $videoFileDescription and $this->videoFileDescription = new FileDescription($videoFileDescription);
+        $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
+             ? $videoFileDescription
+             : new FileDescription($videoFileDescription);
     }
 
     public function getVideoFileDescription()
@@ -130,9 +132,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
     }
 
-    public function setVideoMediaType($videoMediaType)
+    public function setVideoMediaType($videoMediaType = null)
     {
-        $videoMediaType and $this->videoMediaType = new MediaFileType($videoMediaType);
+        $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
+             ? $videoMediaType
+             : new MediaFileType($videoMediaType);
     }
 
     public function getVideoMediaType()
@@ -140,9 +144,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         return (!$this->videoMediaType) ?: $this->videoMediaType->value();
     }
 
-    public function setVideoFileUrl($videoFileUrl)
+    public function setVideoFileUrl($videoFileUrl = null)
     {
-        $videoFileUrl and $this->videoFileUrl = new URL($videoFileUrl);
+        $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
+             ? $videoFileUrl
+             : new URL($videoFileUrl);
     }
 
     public function getVideoFileUrl()

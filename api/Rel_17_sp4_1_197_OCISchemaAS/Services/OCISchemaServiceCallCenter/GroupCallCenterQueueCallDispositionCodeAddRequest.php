@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallDispositionCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallDispositionCodeDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $serviceUserId  = null;
+    protected $code           = null;
+    protected $isActive       = null;
+    protected $description    = null;
 
     public function __construct(
-             $serviceUserId,
-             $code,
-             $isActive,
-             $description=null
+         $serviceUserId,
+         $code,
+         $isActive,
+         $description = null
     ) {
-        $this->serviceUserId = new UserId($serviceUserId);
-        $this->code          = $code;
-        $this->isActive      = $isActive;
-        $this->description   = $description;
-        $this->args          = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setCode($code);
+        $this->setIsActive($isActive);
+        $this->setDescription($description);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -46,9 +50,11 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setCode($code)
+    public function setCode($code = null)
     {
-        $code and $this->code = new CallDispositionCode($code);
+        $this->code = ($code InstanceOf CallDispositionCode)
+             ? $code
+             : new CallDispositionCode($code);
     }
 
     public function getCode()
@@ -56,9 +62,8 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
         return (!$this->code) ?: $this->code->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -66,9 +71,11 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new CallDispositionCodeDescription($description);
+        $this->description = ($description InstanceOf CallDispositionCodeDescription)
+             ? $description
+             : new CallDispositionCodeDescription($description);
     }
 
     public function getDescription()

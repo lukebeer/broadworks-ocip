@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EndpointType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IMSUserState;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EndpointType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,26 +23,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $userType      = null;
+    protected $endpointType  = null;
+    protected $SCSCFName     = null;
+    protected $IMSUserState  = null;
 
-    public function __construct(
-             $userId,
-             $userType,
-             $endpointType,
-             $SCSCFName=null,
-             $IMSUserState
-    ) {
-        $this->userId       = new UserId($userId);
-        $this->userType     = new UserType($userType);
-        $this->endpointType = new EndpointType($endpointType);
-        $this->SCSCFName    = new SIPURI($SCSCFName);
-        $this->IMSUserState = new IMSUserState($IMSUserState);
-        $this->args         = func_get_args();
-    }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -50,9 +43,11 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUserType($userType)
+    public function setUserType($userType = null)
     {
-        $userType and $this->userType = new UserType($userType);
+        $this->userType = ($userType InstanceOf UserType)
+             ? $userType
+             : new UserType($userType);
     }
 
     public function getUserType()
@@ -60,9 +55,11 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         return (!$this->userType) ?: $this->userType->value();
     }
 
-    public function setEndpointType($endpointType)
+    public function setEndpointType($endpointType = null)
     {
-        $endpointType and $this->endpointType = new EndpointType($endpointType);
+        $this->endpointType = ($endpointType InstanceOf EndpointType)
+             ? $endpointType
+             : new EndpointType($endpointType);
     }
 
     public function getEndpointType()
@@ -70,9 +67,11 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         return (!$this->endpointType) ?: $this->endpointType->value();
     }
 
-    public function setSCSCFName($SCSCFName)
+    public function setSCSCFName($SCSCFName = null)
     {
-        $SCSCFName and $this->SCSCFName = new SIPURI($SCSCFName);
+        $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
+             ? $SCSCFName
+             : new SIPURI($SCSCFName);
     }
 
     public function getSCSCFName()
@@ -80,9 +79,11 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         return (!$this->SCSCFName) ?: $this->SCSCFName->value();
     }
 
-    public function setIMSUserState($IMSUserState)
+    public function setIMSUserState($IMSUserState = null)
     {
-        $IMSUserState and $this->IMSUserState = new IMSUserState($IMSUserState);
+        $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
+             ? $IMSUserState
+             : new IMSUserState($IMSUserState);
     }
 
     public function getIMSUserState()

@@ -7,13 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingConferenceKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingCallId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingCallControlAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallControlAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingParticipantName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingLegId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingParticipantName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingLegId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,30 +25,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingControlCallRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $userId            = null;
+    protected $conferenceKey     = null;
+    protected $conferenceCallId  = null;
+    protected $action            = null;
+    protected $phoneNumber       = null;
+    protected $userName          = null;
+    protected $legId             = null;
 
     public function __construct(
-             $userId,
-             $conferenceKey,
-             $conferenceCallId,
-             $action,
-             $phoneNumber=null,
-             $userName=null,
-             $legId=null
+         $userId,
+         InstantConferencingConferenceKey $conferenceKey,
+         $conferenceCallId,
+         $action,
+         $phoneNumber = null,
+         $userName = null,
+         $legId = null
     ) {
-        $this->userId           = new UserId($userId);
-        $this->conferenceKey    = $conferenceKey;
-        $this->conferenceCallId = $conferenceCallId;
-        $this->action           = $action;
-        $this->phoneNumber      = new OutgoingDNorSIPURI($phoneNumber);
-        $this->userName         = $userName;
-        $this->legId            = $legId;
-        $this->args             = func_get_args();
+        $this->setUserId($userId);
+        $this->setConferenceKey($conferenceKey);
+        $this->setConferenceCallId($conferenceCallId);
+        $this->setAction($action);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setUserName($userName);
+        $this->setLegId($legId);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -56,9 +64,8 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setConferenceKey($conferenceKey)
+    public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $conferenceKey and $this->conferenceKey = new InstantConferencingConferenceKey($conferenceKey);
     }
 
     public function getConferenceKey()
@@ -66,9 +73,11 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         return (!$this->conferenceKey) ?: $this->conferenceKey->value();
     }
 
-    public function setConferenceCallId($conferenceCallId)
+    public function setConferenceCallId($conferenceCallId = null)
     {
-        $conferenceCallId and $this->conferenceCallId = new InstantConferencingCallId($conferenceCallId);
+        $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
+             ? $conferenceCallId
+             : new InstantConferencingCallId($conferenceCallId);
     }
 
     public function getConferenceCallId()
@@ -76,9 +85,11 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         return (!$this->conferenceCallId) ?: $this->conferenceCallId->value();
     }
 
-    public function setAction($action)
+    public function setAction($action = null)
     {
-        $action and $this->action = new InstantConferencingCallControlAction($action);
+        $this->action = ($action InstanceOf InstantConferencingCallControlAction)
+             ? $action
+             : new InstantConferencingCallControlAction($action);
     }
 
     public function getAction()
@@ -86,9 +97,11 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         return (!$this->action) ?: $this->action->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new OutgoingDNorSIPURI($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $phoneNumber
+             : new OutgoingDNorSIPURI($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -96,9 +109,11 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setUserName($userName)
+    public function setUserName($userName = null)
     {
-        $userName and $this->userName = new InstantConferencingParticipantName($userName);
+        $this->userName = ($userName InstanceOf InstantConferencingParticipantName)
+             ? $userName
+             : new InstantConferencingParticipantName($userName);
     }
 
     public function getUserName()
@@ -106,9 +121,11 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         return (!$this->userName) ?: $this->userName->value();
     }
 
-    public function setLegId($legId)
+    public function setLegId($legId = null)
     {
-        $legId and $this->legId = new InstantConferencingLegId($legId);
+        $this->legId = ($legId InstanceOf InstantConferencingLegId)
+             ? $legId
+             : new InstantConferencingLegId($legId);
     }
 
     public function getLegId()

@@ -19,22 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceGetAuthorizedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $servicePackName   = null;
+    protected $groupServiceName  = null;
+    protected $userServiceName   = null;
 
-    public function __construct(
-             $servicePackName=null,
-             $groupServiceName=null,
-             $userServiceName=null
-    ) {
-        $this->servicePackName  = new ServicePackName($servicePackName);
-        $this->groupServiceName = new GroupService($groupServiceName);
-        $this->userServiceName  = new UserService($userServiceName);
-        $this->args             = func_get_args();
-    }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()
@@ -42,9 +37,11 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
         return (!$this->servicePackName) ?: $this->servicePackName->value();
     }
 
-    public function setGroupServiceName($groupServiceName)
+    public function setGroupServiceName($groupServiceName = null)
     {
-        $groupServiceName and $this->groupServiceName = new GroupService($groupServiceName);
+        $this->groupServiceName = ($groupServiceName InstanceOf GroupService)
+             ? $groupServiceName
+             : new GroupService($groupServiceName);
     }
 
     public function getGroupServiceName()
@@ -52,9 +49,11 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
         return (!$this->groupServiceName) ?: $this->groupServiceName->value();
     }
 
-    public function setUserServiceName($userServiceName)
+    public function setUserServiceName($userServiceName = null)
     {
-        $userServiceName and $this->userServiceName = new UserService($userServiceName);
+        $this->userServiceName = ($userServiceName InstanceOf UserService)
+             ? $userServiceName
+             : new UserService($userServiceName);
     }
 
     public function getUserServiceName()

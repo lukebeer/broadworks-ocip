@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $matchDigitPattern  = null;
 
-    public function __construct(
-             $matchDigitPattern=null
-    ) {
-        $this->matchDigitPattern = new DigitPattern($matchDigitPattern);
-        $this->args              = func_get_args();
-    }
 
-    public function setMatchDigitPattern($matchDigitPattern)
+    public function setMatchDigitPattern($matchDigitPattern = null)
     {
-        $matchDigitPattern and $this->matchDigitPattern = new DigitPattern($matchDigitPattern);
+        $this->matchDigitPattern = ($matchDigitPattern InstanceOf DigitPattern)
+             ? $matchDigitPattern
+             : new DigitPattern($matchDigitPattern);
     }
 
     public function getMatchDigitPattern()

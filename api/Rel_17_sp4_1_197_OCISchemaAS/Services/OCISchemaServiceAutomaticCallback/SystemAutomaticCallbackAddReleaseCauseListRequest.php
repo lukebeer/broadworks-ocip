@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackReleaseCause;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackReleaseCause;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAutomaticCallbackAddReleaseCauseListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $releaseCause  = null;
 
     public function __construct(
-             $releaseCause=null
+         $releaseCause = null
     ) {
-        $this->releaseCause = $releaseCause;
-        $this->args         = func_get_args();
+        $this->setReleaseCause($releaseCause);
     }
 
-    public function setReleaseCause($releaseCause)
+    public function setReleaseCause($releaseCause = null)
     {
-        $releaseCause and $this->releaseCause = new AutomaticCallbackReleaseCause($releaseCause);
+        $this->releaseCause = ($releaseCause InstanceOf AutomaticCallbackReleaseCause)
+             ? $releaseCause
+             : new AutomaticCallbackReleaseCause($releaseCause);
     }
 
     public function getReleaseCause()

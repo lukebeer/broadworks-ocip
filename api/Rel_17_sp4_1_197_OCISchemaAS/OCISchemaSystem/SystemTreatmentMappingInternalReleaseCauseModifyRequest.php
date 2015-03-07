@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InternalReleaseCause16;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\InternalReleaseCause16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $internalReleaseCause  = null;
+    protected $treatmentId           = null;
 
     public function __construct(
-             $internalReleaseCause,
-             $treatmentId=null
+         $internalReleaseCause,
+         $treatmentId = null
     ) {
-        $this->internalReleaseCause = $internalReleaseCause;
-        $this->treatmentId          = new TreatmentId($treatmentId);
-        $this->args                 = func_get_args();
+        $this->setInternalReleaseCause($internalReleaseCause);
+        $this->setTreatmentId($treatmentId);
     }
 
-    public function setInternalReleaseCause($internalReleaseCause)
+    public function setInternalReleaseCause($internalReleaseCause = null)
     {
-        $internalReleaseCause and $this->internalReleaseCause = new InternalReleaseCause16($internalReleaseCause);
+        $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
+             ? $internalReleaseCause
+             : new InternalReleaseCause16($internalReleaseCause);
     }
 
     public function getInternalReleaseCause()
@@ -40,9 +43,11 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
         return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->value();
     }
 
-    public function setTreatmentId($treatmentId)
+    public function setTreatmentId($treatmentId = null)
     {
-        $treatmentId and $this->treatmentId = new TreatmentId($treatmentId);
+        $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
+             ? $treatmentId
+             : new TreatmentId($treatmentId);
     }
 
     public function getTreatmentId()

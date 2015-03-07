@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPattern;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $name               = null;
+    protected $description        = null;
+    protected $matchDigitPattern  = null;
 
     public function __construct(
-             $name,
-             $description=null,
-             $matchDigitPattern=null
+         $name,
+         $description = null,
+         $matchDigitPattern = null
     ) {
-        $this->name              = new DigitPatternCriteriaName($name);
-        $this->description       = new DigitPatternCriteriaDescription($description);
-        $this->matchDigitPattern = new DigitPattern($matchDigitPattern);
-        $this->args              = func_get_args();
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setMatchDigitPattern($matchDigitPattern);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new DigitPatternCriteriaName($name);
+        $this->name = ($name InstanceOf DigitPatternCriteriaName)
+             ? $name
+             : new DigitPatternCriteriaName($name);
     }
 
     public function getName()
@@ -43,9 +47,11 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new DigitPatternCriteriaDescription($description);
+        $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
+             ? $description
+             : new DigitPatternCriteriaDescription($description);
     }
 
     public function getDescription()
@@ -53,9 +59,11 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setMatchDigitPattern($matchDigitPattern)
+    public function setMatchDigitPattern($matchDigitPattern = null)
     {
-        $matchDigitPattern and $this->matchDigitPattern = new DigitPattern($matchDigitPattern);
+        $this->matchDigitPattern = ($matchDigitPattern InstanceOf DigitPattern)
+             ? $matchDigitPattern
+             : new DigitPattern($matchDigitPattern);
     }
 
     public function getMatchDigitPattern()

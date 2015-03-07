@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $groupId             = null;
+    protected $fileRepositoryName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $fileRepositoryName
+         $serviceProviderId,
+         $groupId,
+         $fileRepositoryName
     ) {
-        $this->serviceProviderId  = new ServiceProviderId($serviceProviderId);
-        $this->groupId            = new GroupId($groupId);
-        $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
-        $this->args               = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setFileRepositoryName($fileRepositoryName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -43,9 +47,11 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -53,9 +59,11 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setFileRepositoryName($fileRepositoryName)
+    public function setFileRepositoryName($fileRepositoryName = null)
     {
-        $fileRepositoryName and $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
+             ? $fileRepositoryName
+             : new FileRepositoryName($fileRepositoryName);
     }
 
     public function getFileRepositoryName()

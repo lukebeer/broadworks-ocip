@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IncomingCallingPlanPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IncomingCallingPlanDepartmentPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanDepartmentPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupIncomingCallingPlanGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $groupPermissions       = null;
+    protected $departmentPermissions  = null;
 
-    public function __construct(
-             $groupPermissions,
-             $departmentPermissions=null
-    ) {
-        $this->groupPermissions      = $groupPermissions;
-        $this->departmentPermissions = $departmentPermissions;
-        $this->args                  = func_get_args();
-    }
 
-    public function setGroupPermissions($groupPermissions)
+    public function setGroupPermissions(IncomingCallingPlanPermissions $groupPermissions = null)
     {
-        $groupPermissions and $this->groupPermissions = new IncomingCallingPlanPermissions($groupPermissions);
     }
 
     public function getGroupPermissions()
@@ -39,9 +32,8 @@ class GroupIncomingCallingPlanGetListResponse extends ComplexType implements Com
         return (!$this->groupPermissions) ?: $this->groupPermissions->value();
     }
 
-    public function setDepartmentPermissions($departmentPermissions)
+    public function setDepartmentPermissions(IncomingCallingPlanDepartmentPermissions $departmentPermissions = null)
     {
-        $departmentPermissions and $this->departmentPermissions = new IncomingCallingPlanDepartmentPermissions($departmentPermissions);
     }
 
     public function getDepartmentPermissions()

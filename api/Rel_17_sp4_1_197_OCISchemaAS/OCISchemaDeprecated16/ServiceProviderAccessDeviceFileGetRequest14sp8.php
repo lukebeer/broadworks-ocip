@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,22 +21,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAccessDeviceFileGetRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $deviceName         = null;
+    protected $fileFormat         = null;
 
     public function __construct(
-             $serviceProviderId,
-             $deviceName,
-             $fileFormat
+         $serviceProviderId,
+         $deviceName,
+         $fileFormat
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->deviceName        = new AccessDeviceName($deviceName);
-        $this->fileFormat        = new DeviceManagementFileFormat($fileFormat);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setDeviceName($deviceName);
+        $this->setFileFormat($fileFormat);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -44,9 +48,11 @@ class ServiceProviderAccessDeviceFileGetRequest14sp8 extends ComplexType impleme
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -54,9 +60,11 @@ class ServiceProviderAccessDeviceFileGetRequest14sp8 extends ComplexType impleme
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setFileFormat($fileFormat)
+    public function setFileFormat($fileFormat = null)
     {
-        $fileFormat and $this->fileFormat = new DeviceManagementFileFormat($fileFormat);
+        $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
+             ? $fileFormat
+             : new DeviceManagementFileFormat($fileFormat);
     }
 
     public function getFileFormat()

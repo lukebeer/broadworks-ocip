@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,20 +21,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserServiceGetAssignmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $servicePacksAssignmentTable  = null;
+    protected $userServicesAssignmentTable  = null;
 
-    public function __construct(
-             $servicePacksAssignmentTable,
-             $userServicesAssignmentTable
-    ) {
-        $this->servicePacksAssignmentTable = $servicePacksAssignmentTable;
-        $this->userServicesAssignmentTable = $userServicesAssignmentTable;
-        $this->args                        = func_get_args();
-    }
 
-    public function setServicePacksAssignmentTable($servicePacksAssignmentTable)
+    public function setServicePacksAssignmentTable(core:OCITable $servicePacksAssignmentTable = null)
     {
-        $servicePacksAssignmentTable and $this->servicePacksAssignmentTable = new core:OCITable($servicePacksAssignmentTable);
     }
 
     public function getServicePacksAssignmentTable()
@@ -42,9 +35,8 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
         return (!$this->servicePacksAssignmentTable) ?: $this->servicePacksAssignmentTable->value();
     }
 
-    public function setUserServicesAssignmentTable($userServicesAssignmentTable)
+    public function setUserServicesAssignmentTable(core:OCITable $userServicesAssignmentTable = null)
     {
-        $userServicesAssignmentTable and $this->userServicesAssignmentTable = new core:OCITable($userServicesAssignmentTable);
     }
 
     public function getUserServicesAssignmentTable()

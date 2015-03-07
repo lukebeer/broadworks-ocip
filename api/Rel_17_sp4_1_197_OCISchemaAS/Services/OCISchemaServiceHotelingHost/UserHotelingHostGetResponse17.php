@@ -7,15 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingHost\HotelingHostAccessLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingHostAccessLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LocationDialingCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:dateTime;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,36 +23,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $isActive                  = null;
+    protected $enforceAssociationLimit   = null;
+    protected $associationLimitHours     = null;
+    protected $accessLevel               = null;
+    protected $guestLastName             = null;
+    protected $guestFirstName            = null;
+    protected $guestPhoneNumber          = null;
+    protected $guestExtension            = null;
+    protected $guestLocationDialingCode  = null;
+    protected $guestAssociationDateTime  = null;
 
-    public function __construct(
-             $isActive,
-             $enforceAssociationLimit,
-             $associationLimitHours,
-             $accessLevel,
-             $guestLastName=null,
-             $guestFirstName=null,
-             $guestPhoneNumber=null,
-             $guestExtension=null,
-             $guestLocationDialingCode=null,
-             $guestAssociationDateTime=null
-    ) {
-        $this->isActive                 = $isActive;
-        $this->enforceAssociationLimit  = $enforceAssociationLimit;
-        $this->associationLimitHours    = new HotelingAssociationLimitHours($associationLimitHours);
-        $this->accessLevel              = $accessLevel;
-        $this->guestLastName            = new LastName($guestLastName);
-        $this->guestFirstName           = new FirstName($guestFirstName);
-        $this->guestPhoneNumber         = new DN($guestPhoneNumber);
-        $this->guestExtension           = new Extension17($guestExtension);
-        $this->guestLocationDialingCode = new LocationDialingCode($guestLocationDialingCode);
-        $this->guestAssociationDateTime = $guestAssociationDateTime;
-        $this->args                     = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -62,9 +45,8 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setEnforceAssociationLimit($enforceAssociationLimit)
+    public function setEnforceAssociationLimit(xs:boolean $enforceAssociationLimit = null)
     {
-        $enforceAssociationLimit and $this->enforceAssociationLimit = new xs:boolean($enforceAssociationLimit);
     }
 
     public function getEnforceAssociationLimit()
@@ -72,9 +54,11 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->enforceAssociationLimit) ?: $this->enforceAssociationLimit->value();
     }
 
-    public function setAssociationLimitHours($associationLimitHours)
+    public function setAssociationLimitHours($associationLimitHours = null)
     {
-        $associationLimitHours and $this->associationLimitHours = new HotelingAssociationLimitHours($associationLimitHours);
+        $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
+             ? $associationLimitHours
+             : new HotelingAssociationLimitHours($associationLimitHours);
     }
 
     public function getAssociationLimitHours()
@@ -82,9 +66,11 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->associationLimitHours) ?: $this->associationLimitHours->value();
     }
 
-    public function setAccessLevel($accessLevel)
+    public function setAccessLevel($accessLevel = null)
     {
-        $accessLevel and $this->accessLevel = new HotelingHostAccessLevel($accessLevel);
+        $this->accessLevel = ($accessLevel InstanceOf HotelingHostAccessLevel)
+             ? $accessLevel
+             : new HotelingHostAccessLevel($accessLevel);
     }
 
     public function getAccessLevel()
@@ -92,9 +78,11 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->accessLevel) ?: $this->accessLevel->value();
     }
 
-    public function setGuestLastName($guestLastName)
+    public function setGuestLastName($guestLastName = null)
     {
-        $guestLastName and $this->guestLastName = new LastName($guestLastName);
+        $this->guestLastName = ($guestLastName InstanceOf LastName)
+             ? $guestLastName
+             : new LastName($guestLastName);
     }
 
     public function getGuestLastName()
@@ -102,9 +90,11 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->guestLastName) ?: $this->guestLastName->value();
     }
 
-    public function setGuestFirstName($guestFirstName)
+    public function setGuestFirstName($guestFirstName = null)
     {
-        $guestFirstName and $this->guestFirstName = new FirstName($guestFirstName);
+        $this->guestFirstName = ($guestFirstName InstanceOf FirstName)
+             ? $guestFirstName
+             : new FirstName($guestFirstName);
     }
 
     public function getGuestFirstName()
@@ -112,9 +102,11 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->guestFirstName) ?: $this->guestFirstName->value();
     }
 
-    public function setGuestPhoneNumber($guestPhoneNumber)
+    public function setGuestPhoneNumber($guestPhoneNumber = null)
     {
-        $guestPhoneNumber and $this->guestPhoneNumber = new DN($guestPhoneNumber);
+        $this->guestPhoneNumber = ($guestPhoneNumber InstanceOf DN)
+             ? $guestPhoneNumber
+             : new DN($guestPhoneNumber);
     }
 
     public function getGuestPhoneNumber()
@@ -122,9 +114,11 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->guestPhoneNumber) ?: $this->guestPhoneNumber->value();
     }
 
-    public function setGuestExtension($guestExtension)
+    public function setGuestExtension($guestExtension = null)
     {
-        $guestExtension and $this->guestExtension = new Extension17($guestExtension);
+        $this->guestExtension = ($guestExtension InstanceOf Extension17)
+             ? $guestExtension
+             : new Extension17($guestExtension);
     }
 
     public function getGuestExtension()
@@ -132,9 +126,11 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->guestExtension) ?: $this->guestExtension->value();
     }
 
-    public function setGuestLocationDialingCode($guestLocationDialingCode)
+    public function setGuestLocationDialingCode($guestLocationDialingCode = null)
     {
-        $guestLocationDialingCode and $this->guestLocationDialingCode = new LocationDialingCode($guestLocationDialingCode);
+        $this->guestLocationDialingCode = ($guestLocationDialingCode InstanceOf LocationDialingCode)
+             ? $guestLocationDialingCode
+             : new LocationDialingCode($guestLocationDialingCode);
     }
 
     public function getGuestLocationDialingCode()
@@ -142,9 +138,8 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->guestLocationDialingCode) ?: $this->guestLocationDialingCode->value();
     }
 
-    public function setGuestAssociationDateTime($guestAssociationDateTime)
+    public function setGuestAssociationDateTime(xs:dateTime $guestAssociationDateTime = null)
     {
-        $guestAssociationDateTime and $this->guestAssociationDateTime = new xs:dateTime($guestAssociationDateTime);
     }
 
     public function getGuestAssociationDateTime()

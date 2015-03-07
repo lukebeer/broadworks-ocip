@@ -17,18 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetAvailableDetailListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $trunkGroup  = null;
 
-    public function __construct(
-             $trunkGroup=null
-    ) {
-        $this->trunkGroup = $trunkGroup;
-        $this->args       = func_get_args();
-    }
 
-    public function setTrunkGroup($trunkGroup)
+    public function setTrunkGroup($trunkGroup = null)
     {
-        $trunkGroup and $this->trunkGroup = new ($trunkGroup);
+        $this->trunkGroup = $trunkGroup;
     }
 
     public function getTrunkGroup()

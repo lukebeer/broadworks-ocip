@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallParkRecallTo;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,22 +24,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $recallAlternateUserId  = null;
+    protected $recallTo               = null;
+    protected $userTable              = null;
 
-    public function __construct(
-             $recallAlternateUserId=null,
-             $recallTo,
-             $userTable
-    ) {
-        $this->recallAlternateUserId = new UserId($recallAlternateUserId);
-        $this->recallTo              = $recallTo;
-        $this->userTable             = $userTable;
-        $this->args                  = func_get_args();
-    }
 
-    public function setRecallAlternateUserId($recallAlternateUserId)
+    public function setRecallAlternateUserId($recallAlternateUserId = null)
     {
-        $recallAlternateUserId and $this->recallAlternateUserId = new UserId($recallAlternateUserId);
+        $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
+             ? $recallAlternateUserId
+             : new UserId($recallAlternateUserId);
     }
 
     public function getRecallAlternateUserId()
@@ -48,9 +42,11 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
         return (!$this->recallAlternateUserId) ?: $this->recallAlternateUserId->value();
     }
 
-    public function setRecallTo($recallTo)
+    public function setRecallTo($recallTo = null)
     {
-        $recallTo and $this->recallTo = new CallParkRecallTo($recallTo);
+        $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
+             ? $recallTo
+             : new CallParkRecallTo($recallTo);
     }
 
     public function getRecallTo()
@@ -58,9 +54,8 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
         return (!$this->recallTo) ?: $this->recallTo->value();
     }
 
-    public function setUserTable($userTable)
+    public function setUserTable(core:OCITable $userTable = null)
     {
-        $userTable and $this->userTable = new core:OCITable($userTable);
     }
 
     public function getUserTable()

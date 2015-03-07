@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZoneDisplayName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,26 +22,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingLoginStandAloneResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $locale               = null;
+    protected $encoding             = null;
+    protected $timeZone             = null;
+    protected $timeZoneDisplayName  = null;
+    protected $phoneNumber          = null;
 
-    public function __construct(
-             $locale,
-             $encoding,
-             $timeZone,
-             $timeZoneDisplayName,
-             $phoneNumber=null
-    ) {
-        $this->locale              = new OCILocale($locale);
-        $this->encoding            = new Encoding($encoding);
-        $this->timeZone            = new TimeZone($timeZone);
-        $this->timeZoneDisplayName = new TimeZoneDisplayName($timeZoneDisplayName);
-        $this->phoneNumber         = new DN($phoneNumber);
-        $this->args                = func_get_args();
-    }
 
-    public function setLocale($locale)
+    public function setLocale($locale = null)
     {
-        $locale and $this->locale = new OCILocale($locale);
+        $this->locale = ($locale InstanceOf OCILocale)
+             ? $locale
+             : new OCILocale($locale);
     }
 
     public function getLocale()
@@ -49,9 +42,11 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         return (!$this->locale) ?: $this->locale->value();
     }
 
-    public function setEncoding($encoding)
+    public function setEncoding($encoding = null)
     {
-        $encoding and $this->encoding = new Encoding($encoding);
+        $this->encoding = ($encoding InstanceOf Encoding)
+             ? $encoding
+             : new Encoding($encoding);
     }
 
     public function getEncoding()
@@ -59,9 +54,11 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         return (!$this->encoding) ?: $this->encoding->value();
     }
 
-    public function setTimeZone($timeZone)
+    public function setTimeZone($timeZone = null)
     {
-        $timeZone and $this->timeZone = new TimeZone($timeZone);
+        $this->timeZone = ($timeZone InstanceOf TimeZone)
+             ? $timeZone
+             : new TimeZone($timeZone);
     }
 
     public function getTimeZone()
@@ -69,9 +66,11 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         return (!$this->timeZone) ?: $this->timeZone->value();
     }
 
-    public function setTimeZoneDisplayName($timeZoneDisplayName)
+    public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
-        $timeZoneDisplayName and $this->timeZoneDisplayName = new TimeZoneDisplayName($timeZoneDisplayName);
+        $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
+             ? $timeZoneDisplayName
+             : new TimeZoneDisplayName($timeZoneDisplayName);
     }
 
     public function getTimeZoneDisplayName()
@@ -79,9 +78,11 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()

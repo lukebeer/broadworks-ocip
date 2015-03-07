@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserZoneCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $homeZoneName  = null;
 
-    public function __construct(
-             $homeZoneName=null
-    ) {
-        $this->homeZoneName = new ZoneName($homeZoneName);
-        $this->args         = func_get_args();
-    }
 
-    public function setHomeZoneName($homeZoneName)
+    public function setHomeZoneName($homeZoneName = null)
     {
-        $homeZoneName and $this->homeZoneName = new ZoneName($homeZoneName);
+        $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
+             ? $homeZoneName
+             : new ZoneName($homeZoneName);
     }
 
     public function getHomeZoneName()

@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactPolicySelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupLocationCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupLocationCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactPolicySelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,24 +23,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $serviceProviderId                   = null;
+    protected $responseSizeLimit                   = null;
+    protected $searchCriteriaGroupLocationCode     = null;
+    protected $searchCriteriaExactPolicySelection  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $responseSizeLimit=null,
-             $searchCriteriaGroupLocationCode=null,
-             $searchCriteriaExactPolicySelection=null
+         $serviceProviderId,
+         $responseSizeLimit = null,
+         SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
+         SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null
     ) {
-        $this->serviceProviderId                  = new ServiceProviderId($serviceProviderId);
-        $this->responseSizeLimit                  = $responseSizeLimit;
-        $this->searchCriteriaGroupLocationCode    = $searchCriteriaGroupLocationCode;
-        $this->searchCriteriaExactPolicySelection = $searchCriteriaExactPolicySelection;
-        $this->args                               = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
+        $this->setSearchCriteriaExactPolicySelection($searchCriteriaExactPolicySelection);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +53,11 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -58,9 +65,8 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode)
+    public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        $searchCriteriaGroupLocationCode and $this->searchCriteriaGroupLocationCode = new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
     }
 
     public function getSearchCriteriaGroupLocationCode()
@@ -68,9 +74,8 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
         return (!$this->searchCriteriaGroupLocationCode) ?: $this->searchCriteriaGroupLocationCode->value();
     }
 
-    public function setSearchCriteriaExactPolicySelection($searchCriteriaExactPolicySelection)
+    public function setSearchCriteriaExactPolicySelection(SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null)
     {
-        $searchCriteriaExactPolicySelection and $this->searchCriteriaExactPolicySelection = new SearchCriteriaExactPolicySelection($searchCriteriaExactPolicySelection);
     }
 
     public function getSearchCriteriaExactPolicySelection()

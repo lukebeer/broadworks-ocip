@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanDigitPatternCallMeNowPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternCallMeNowPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $useCustomSettings  = null;
+    protected $userPermissions    = null;
 
-    public function __construct(
-             $useCustomSettings,
-             $userPermissions=null
-    ) {
-        $this->useCustomSettings = $useCustomSettings;
-        $this->userPermissions   = $userPermissions;
-        $this->args              = func_get_args();
-    }
 
-    public function setUseCustomSettings($useCustomSettings)
+    public function setUseCustomSettings(xs:boolean $useCustomSettings = null)
     {
-        $useCustomSettings and $this->useCustomSettings = new xs:boolean($useCustomSettings);
     }
 
     public function getUseCustomSettings()
@@ -39,9 +31,8 @@ class UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse extends ComplexType i
         return (!$this->useCustomSettings) ?: $this->useCustomSettings->value();
     }
 
-    public function setUserPermissions($userPermissions)
+    public function setUserPermissions(OutgoingCallingPlanDigitPatternCallMeNowPermissions $userPermissions = null)
     {
-        $userPermissions and $this->userPermissions = new OutgoingCallingPlanDigitPatternCallMeNowPermissions($userPermissions);
     }
 
     public function getUserPermissions()

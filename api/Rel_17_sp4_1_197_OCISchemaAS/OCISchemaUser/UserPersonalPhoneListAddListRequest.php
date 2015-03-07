@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPersonalPhoneListAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name    = __CLASS__;
+    protected $userId  = null;
+    protected $entry   = null;
 
     public function __construct(
-             $userId,
-             PhoneListEntry $entry
+         $userId,
+         PhoneListEntry $entry
     ) {
-        $this->userId = new UserId($userId);
-        $this->entry  = $entry;
-        $this->args   = func_get_args();
+        $this->setUserId($userId);
+        $this->setEntry($entry);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserPersonalPhoneListAddListRequest extends ComplexType implements Complex
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setEntry($entry)
+    public function setEntry(PhoneListEntry $entry = null)
     {
-        $entry and $this->entry = new PhoneListEntry($entry);
     }
 
     public function getEntry()

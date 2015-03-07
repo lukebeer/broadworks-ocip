@@ -7,12 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterStatisticsCollectionPeriodMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsCollectionPeriodMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterQueueStatistics13mp8;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterAgentStatistics13mp8;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueStatistics13mp8;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentStatistics13mp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,32 +21,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $numberOfCallsQueuedNow    = null;
+    protected $generateDailyReport       = null;
+    protected $collectionPeriodMinutes   = null;
+    protected $reportingEmailAddress1    = null;
+    protected $reportingEmailAddress2    = null;
+    protected $queueStatisticsYesterday  = null;
+    protected $queueStatisticsToday      = null;
+    protected $agentStatistics           = null;
 
-    public function __construct(
-             $numberOfCallsQueuedNow,
-             $generateDailyReport,
-             $collectionPeriodMinutes,
-             $reportingEmailAddress1=null,
-             $reportingEmailAddress2=null,
-             $queueStatisticsYesterday,
-             $queueStatisticsToday,
-             $agentStatistics=null
-    ) {
-        $this->numberOfCallsQueuedNow   = $numberOfCallsQueuedNow;
-        $this->generateDailyReport      = $generateDailyReport;
-        $this->collectionPeriodMinutes  = $collectionPeriodMinutes;
-        $this->reportingEmailAddress1   = new EmailAddress($reportingEmailAddress1);
-        $this->reportingEmailAddress2   = new EmailAddress($reportingEmailAddress2);
-        $this->queueStatisticsYesterday = $queueStatisticsYesterday;
-        $this->queueStatisticsToday     = $queueStatisticsToday;
-        $this->agentStatistics          = $agentStatistics;
-        $this->args                     = func_get_args();
-    }
 
-    public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow)
+    public function setNumberOfCallsQueuedNow(xs:int $numberOfCallsQueuedNow = null)
     {
-        $numberOfCallsQueuedNow and $this->numberOfCallsQueuedNow = new xs:int($numberOfCallsQueuedNow);
     }
 
     public function getNumberOfCallsQueuedNow()
@@ -56,9 +41,8 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow->value();
     }
 
-    public function setGenerateDailyReport($generateDailyReport)
+    public function setGenerateDailyReport(xs:boolean $generateDailyReport = null)
     {
-        $generateDailyReport and $this->generateDailyReport = new xs:boolean($generateDailyReport);
     }
 
     public function getGenerateDailyReport()
@@ -66,9 +50,11 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         return (!$this->generateDailyReport) ?: $this->generateDailyReport->value();
     }
 
-    public function setCollectionPeriodMinutes($collectionPeriodMinutes)
+    public function setCollectionPeriodMinutes($collectionPeriodMinutes = null)
     {
-        $collectionPeriodMinutes and $this->collectionPeriodMinutes = new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
+        $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
+             ? $collectionPeriodMinutes
+             : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
     }
 
     public function getCollectionPeriodMinutes()
@@ -76,9 +62,11 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         return (!$this->collectionPeriodMinutes) ?: $this->collectionPeriodMinutes->value();
     }
 
-    public function setReportingEmailAddress1($reportingEmailAddress1)
+    public function setReportingEmailAddress1($reportingEmailAddress1 = null)
     {
-        $reportingEmailAddress1 and $this->reportingEmailAddress1 = new EmailAddress($reportingEmailAddress1);
+        $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
+             ? $reportingEmailAddress1
+             : new EmailAddress($reportingEmailAddress1);
     }
 
     public function getReportingEmailAddress1()
@@ -86,9 +74,11 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         return (!$this->reportingEmailAddress1) ?: $this->reportingEmailAddress1->value();
     }
 
-    public function setReportingEmailAddress2($reportingEmailAddress2)
+    public function setReportingEmailAddress2($reportingEmailAddress2 = null)
     {
-        $reportingEmailAddress2 and $this->reportingEmailAddress2 = new EmailAddress($reportingEmailAddress2);
+        $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
+             ? $reportingEmailAddress2
+             : new EmailAddress($reportingEmailAddress2);
     }
 
     public function getReportingEmailAddress2()
@@ -96,9 +86,8 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         return (!$this->reportingEmailAddress2) ?: $this->reportingEmailAddress2->value();
     }
 
-    public function setQueueStatisticsYesterday($queueStatisticsYesterday)
+    public function setQueueStatisticsYesterday(CallCenterQueueStatistics13mp8 $queueStatisticsYesterday = null)
     {
-        $queueStatisticsYesterday and $this->queueStatisticsYesterday = new CallCenterQueueStatistics13mp8($queueStatisticsYesterday);
     }
 
     public function getQueueStatisticsYesterday()
@@ -106,9 +95,8 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         return (!$this->queueStatisticsYesterday) ?: $this->queueStatisticsYesterday->value();
     }
 
-    public function setQueueStatisticsToday($queueStatisticsToday)
+    public function setQueueStatisticsToday(CallCenterQueueStatistics13mp8 $queueStatisticsToday = null)
     {
-        $queueStatisticsToday and $this->queueStatisticsToday = new CallCenterQueueStatistics13mp8($queueStatisticsToday);
     }
 
     public function getQueueStatisticsToday()
@@ -116,9 +104,8 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         return (!$this->queueStatisticsToday) ?: $this->queueStatisticsToday->value();
     }
 
-    public function setAgentStatistics($agentStatistics)
+    public function setAgentStatistics(CallCenterAgentStatistics13mp8 $agentStatistics = null)
     {
-        $agentStatistics and $this->agentStatistics = new CallCenterAgentStatistics13mp8($agentStatistics);
     }
 
     public function getAgentStatistics()

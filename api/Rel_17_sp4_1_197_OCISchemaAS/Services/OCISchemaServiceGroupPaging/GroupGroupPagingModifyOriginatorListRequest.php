@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $serviceUserId         = null;
+    protected $originatorUserIdList  = null;
 
     public function __construct(
-             $serviceUserId,
-             ReplacementUserIdList $originatorUserIdList=null
+         $serviceUserId,
+         ReplacementUserIdList $originatorUserIdList = null
     ) {
-        $this->serviceUserId        = new UserId($serviceUserId);
-        $this->originatorUserIdList = $originatorUserIdList;
-        $this->args                 = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setOriginatorUserIdList($originatorUserIdList);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -40,9 +43,8 @@ class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setOriginatorUserIdList($originatorUserIdList)
+    public function setOriginatorUserIdList(ReplacementUserIdList $originatorUserIdList = null)
     {
-        $originatorUserIdList and $this->originatorUserIdList = new ReplacementUserIdList($originatorUserIdList);
     }
 
     public function getOriginatorUserIdList()

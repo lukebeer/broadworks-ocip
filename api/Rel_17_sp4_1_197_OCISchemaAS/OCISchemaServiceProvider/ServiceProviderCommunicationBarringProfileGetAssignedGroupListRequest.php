@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,26 +24,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $serviceProviderId        = null;
+    protected $profile                  = null;
+    protected $responseSizeLimit        = null;
+    protected $searchCriteriaGroupId    = null;
+    protected $searchCriteriaGroupName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $profile,
-             $responseSizeLimit=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaGroupName=null
+         $serviceProviderId,
+         $profile,
+         $responseSizeLimit = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaGroupName $searchCriteriaGroupName = null
     ) {
-        $this->serviceProviderId       = new ServiceProviderId($serviceProviderId);
-        $this->profile                 = new CommunicationBarringProfileName($profile);
-        $this->responseSizeLimit       = $responseSizeLimit;
-        $this->searchCriteriaGroupId   = $searchCriteriaGroupId;
-        $this->searchCriteriaGroupName = $searchCriteriaGroupName;
-        $this->args                    = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setProfile($profile);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaGroupName($searchCriteriaGroupName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -51,9 +57,11 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setProfile($profile)
+    public function setProfile($profile = null)
     {
-        $profile and $this->profile = new CommunicationBarringProfileName($profile);
+        $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
+             ? $profile
+             : new CommunicationBarringProfileName($profile);
     }
 
     public function getProfile()
@@ -61,9 +69,11 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
         return (!$this->profile) ?: $this->profile->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -71,9 +81,8 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -81,9 +90,8 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaGroupName($searchCriteriaGroupName)
+    public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $searchCriteriaGroupName and $this->searchCriteriaGroupName = new SearchCriteriaGroupName($searchCriteriaGroupName);
     }
 
     public function getSearchCriteriaGroupName()

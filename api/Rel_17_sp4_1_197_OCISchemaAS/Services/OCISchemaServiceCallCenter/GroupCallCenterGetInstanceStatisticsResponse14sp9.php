@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterStatisticsRange;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueStatistics14sp9;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentStatistics14sp9;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentStatistics14sp9;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterQueueStatistics14sp9;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsRange;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +19,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $statisticsRange  = null;
+    protected $queueStatistics  = null;
+    protected $agentStatistics  = null;
 
-    public function __construct(
-             $statisticsRange,
-             $queueStatistics,
-             $agentStatistics=null
-    ) {
-        $this->statisticsRange = $statisticsRange;
-        $this->queueStatistics = $queueStatistics;
-        $this->agentStatistics = $agentStatistics;
-        $this->args            = func_get_args();
-    }
 
-    public function setStatisticsRange($statisticsRange)
+    public function setStatisticsRange(CallCenterStatisticsRange $statisticsRange = null)
     {
-        $statisticsRange and $this->statisticsRange = new CallCenterStatisticsRange($statisticsRange);
     }
 
     public function getStatisticsRange()
@@ -42,9 +34,8 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
         return (!$this->statisticsRange) ?: $this->statisticsRange->value();
     }
 
-    public function setQueueStatistics($queueStatistics)
+    public function setQueueStatistics(CallCenterQueueStatistics14sp9 $queueStatistics = null)
     {
-        $queueStatistics and $this->queueStatistics = new CallCenterQueueStatistics14sp9($queueStatistics);
     }
 
     public function getQueueStatistics()
@@ -52,9 +43,8 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
         return (!$this->queueStatistics) ?: $this->queueStatistics->value();
     }
 
-    public function setAgentStatistics($agentStatistics)
+    public function setAgentStatistics(CallCenterAgentStatistics14sp9 $agentStatistics = null)
     {
-        $agentStatistics and $this->agentStatistics = new CallCenterAgentStatistics14sp9($agentStatistics);
     }
 
     public function getAgentStatistics()

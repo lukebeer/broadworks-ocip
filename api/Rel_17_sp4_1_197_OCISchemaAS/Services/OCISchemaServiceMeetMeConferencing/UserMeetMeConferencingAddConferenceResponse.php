@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferencePassCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePassCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $conferenceId  = null;
+    protected $moderatorPin  = null;
 
-    public function __construct(
-             $conferenceId,
-             $moderatorPin
-    ) {
-        $this->conferenceId = $conferenceId;
-        $this->moderatorPin = $moderatorPin;
-        $this->args         = func_get_args();
-    }
 
-    public function setConferenceId($conferenceId)
+    public function setConferenceId($conferenceId = null)
     {
-        $conferenceId and $this->conferenceId = new MeetMeConferencingConferencePassCode($conferenceId);
+        $this->conferenceId = ($conferenceId InstanceOf MeetMeConferencingConferencePassCode)
+             ? $conferenceId
+             : new MeetMeConferencingConferencePassCode($conferenceId);
     }
 
     public function getConferenceId()
@@ -38,9 +34,11 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
         return (!$this->conferenceId) ?: $this->conferenceId->value();
     }
 
-    public function setModeratorPin($moderatorPin)
+    public function setModeratorPin($moderatorPin = null)
     {
-        $moderatorPin and $this->moderatorPin = new MeetMeConferencingConferencePassCode($moderatorPin);
+        $this->moderatorPin = ($moderatorPin InstanceOf MeetMeConferencingConferencePassCode)
+             ? $moderatorPin
+             : new MeetMeConferencingConferencePassCode($moderatorPin);
     }
 
     public function getModeratorPin()

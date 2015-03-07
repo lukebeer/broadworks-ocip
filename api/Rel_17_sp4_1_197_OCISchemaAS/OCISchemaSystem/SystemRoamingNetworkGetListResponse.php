@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoamingNetworkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $roamingNetworkTable  = null;
 
-    public function __construct(
-             $roamingNetworkTable
-    ) {
-        $this->roamingNetworkTable = $roamingNetworkTable;
-        $this->args                = func_get_args();
-    }
 
-    public function setRoamingNetworkTable($roamingNetworkTable)
+    public function setRoamingNetworkTable(core:OCITable $roamingNetworkTable = null)
     {
-        $roamingNetworkTable and $this->roamingNetworkTable = new core:OCITable($roamingNetworkTable);
     }
 
     public function getRoamingNetworkTable()

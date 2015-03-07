@@ -8,9 +8,9 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,24 +23,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $phoneNumber        = null;
+    protected $dnRange            = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $phoneNumber=null,
-             DNRange $dnRange=null
+         $serviceProviderId,
+         $groupId,
+         $phoneNumber = null,
+         DNRange $dnRange = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->phoneNumber       = new DN($phoneNumber);
-        $this->dnRange           = $dnRange;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setDnRange($dnRange);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +53,11 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -58,9 +65,11 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -68,9 +77,8 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setDnRange($dnRange)
+    public function setDnRange(DNRange $dnRange = null)
     {
-        $dnRange and $this->dnRange = new DNRange($dnRange);
     }
 
     public function getDnRange()

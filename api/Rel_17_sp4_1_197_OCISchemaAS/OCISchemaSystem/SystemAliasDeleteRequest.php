@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAliasDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $aliasNetAddress  = null;
 
     public function __construct(
-             $aliasNetAddress
+         $aliasNetAddress
     ) {
-        $this->aliasNetAddress = new NetAddress($aliasNetAddress);
-        $this->args            = func_get_args();
+        $this->setAliasNetAddress($aliasNetAddress);
     }
 
-    public function setAliasNetAddress($aliasNetAddress)
+    public function setAliasNetAddress($aliasNetAddress = null)
     {
-        $aliasNetAddress and $this->aliasNetAddress = new NetAddress($aliasNetAddress);
+        $this->aliasNetAddress = ($aliasNetAddress InstanceOf NetAddress)
+             ? $aliasNetAddress
+             : new NetAddress($aliasNetAddress);
     }
 
     public function getAliasNetAddress()

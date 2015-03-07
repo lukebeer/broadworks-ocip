@@ -7,13 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,30 +24,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $userId             = null;
+    protected $firstName          = null;
+    protected $lastName           = null;
+    protected $password           = null;
+    protected $language           = null;
+    protected $administratorType  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $userId,
-             $firstName=null,
-             $lastName=null,
-             $password=null,
-             $language=null,
-             $administratorType
+         $serviceProviderId,
+         $userId,
+         $firstName = null,
+         $lastName = null,
+         $password = null,
+         $language = null,
+         $administratorType
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->userId            = new UserId($userId);
-        $this->firstName         = new FirstName($firstName);
-        $this->lastName          = new LastName($lastName);
-        $this->password          = new Password($password);
-        $this->language          = new Language($language);
-        $this->administratorType = new ServiceProviderAdminType($administratorType);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setUserId($userId);
+        $this->setFirstName($firstName);
+        $this->setLastName($lastName);
+        $this->setPassword($password);
+        $this->setLanguage($language);
+        $this->setAdministratorType($administratorType);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -55,9 +63,11 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -65,9 +75,11 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
-        $firstName and $this->firstName = new FirstName($firstName);
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
     }
 
     public function getFirstName()
@@ -75,9 +87,11 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         return (!$this->firstName) ?: $this->firstName->value();
     }
 
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
-        $lastName and $this->lastName = new LastName($lastName);
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
     }
 
     public function getLastName()
@@ -85,9 +99,11 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         return (!$this->lastName) ?: $this->lastName->value();
     }
 
-    public function setPassword($password)
+    public function setPassword($password = null)
     {
-        $password and $this->password = new Password($password);
+        $this->password = ($password InstanceOf Password)
+             ? $password
+             : new Password($password);
     }
 
     public function getPassword()
@@ -95,9 +111,11 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         return (!$this->password) ?: $this->password->value();
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()
@@ -105,9 +123,11 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         return (!$this->language) ?: $this->language->value();
     }
 
-    public function setAdministratorType($administratorType)
+    public function setAdministratorType($administratorType = null)
     {
-        $administratorType and $this->administratorType = new ServiceProviderAdminType($administratorType);
+        $this->administratorType = ($administratorType InstanceOf ServiceProviderAdminType)
+             ? $administratorType
+             : new ServiceProviderAdminType($administratorType);
     }
 
     public function getAdministratorType()

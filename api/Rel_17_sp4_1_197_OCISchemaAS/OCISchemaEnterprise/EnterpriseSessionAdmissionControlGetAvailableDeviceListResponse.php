@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseAccessDevice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $accessDevice  = null;
 
-    public function __construct(
-             $accessDevice=null
-    ) {
-        $this->accessDevice = $accessDevice;
-        $this->args         = func_get_args();
-    }
 
-    public function setAccessDevice($accessDevice)
+    public function setAccessDevice(EnterpriseAccessDevice $accessDevice = null)
     {
-        $accessDevice and $this->accessDevice = new EnterpriseAccessDevice($accessDevice);
     }
 
     public function getAccessDevice()

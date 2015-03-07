@@ -8,9 +8,9 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $groupId                 = null;
+    protected $homeZoneIpAddress       = null;
+    protected $homeZoneIpAddressRange  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $homeZoneIpAddress=null,
-             IPAddressRange $homeZoneIpAddressRange=null
+         $serviceProviderId,
+         $groupId,
+         $homeZoneIpAddress = null,
+         IPAddressRange $homeZoneIpAddressRange = null
     ) {
-        $this->serviceProviderId      = new ServiceProviderId($serviceProviderId);
-        $this->groupId                = new GroupId($groupId);
-        $this->homeZoneIpAddress      = new IPAddress($homeZoneIpAddress);
-        $this->homeZoneIpAddressRange = $homeZoneIpAddressRange;
-        $this->args                   = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setHomeZoneIpAddress($homeZoneIpAddress);
+        $this->setHomeZoneIpAddressRange($homeZoneIpAddressRange);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -46,9 +51,11 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -56,9 +63,11 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setHomeZoneIpAddress($homeZoneIpAddress)
+    public function setHomeZoneIpAddress($homeZoneIpAddress = null)
     {
-        $homeZoneIpAddress and $this->homeZoneIpAddress = new IPAddress($homeZoneIpAddress);
+        $this->homeZoneIpAddress = ($homeZoneIpAddress InstanceOf IPAddress)
+             ? $homeZoneIpAddress
+             : new IPAddress($homeZoneIpAddress);
     }
 
     public function getHomeZoneIpAddress()
@@ -66,9 +75,8 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
         return (!$this->homeZoneIpAddress) ?: $this->homeZoneIpAddress->value();
     }
 
-    public function setHomeZoneIpAddressRange($homeZoneIpAddressRange)
+    public function setHomeZoneIpAddressRange(IPAddressRange $homeZoneIpAddressRange = null)
     {
-        $homeZoneIpAddressRange and $this->homeZoneIpAddressRange = new IPAddressRange($homeZoneIpAddressRange);
     }
 
     public function getHomeZoneIpAddressRange()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMediaSetGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $mediaName  = null;
 
-    public function __construct(
-             $mediaName=null
-    ) {
-        $this->mediaName = $mediaName;
-        $this->args      = func_get_args();
-    }
 
-    public function setMediaName($mediaName)
+    public function setMediaName($mediaName = null)
     {
-        $mediaName and $this->mediaName = new MediaName($mediaName);
+        $this->mediaName = ($mediaName InstanceOf MediaName)
+             ? $mediaName
+             : new MediaName($mediaName);
     }
 
     public function getMediaName()

@@ -17,18 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $availableAccessDevice  = null;
 
-    public function __construct(
-             $availableAccessDevice=null
-    ) {
-        $this->availableAccessDevice = $availableAccessDevice;
-        $this->args                  = func_get_args();
-    }
 
-    public function setAvailableAccessDevice($availableAccessDevice)
+    public function setAvailableAccessDevice(xs:boolean $availableAccessDevice = null)
     {
-        $availableAccessDevice and $this->availableAccessDevice = new ($availableAccessDevice);
+        $this->availableAccessDevice = $availableAccessDevice;
     }
 
     public function getAvailableAccessDevice()

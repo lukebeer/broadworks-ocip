@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $deviceName         = null;
+    protected $linePort           = null;
+    protected $isPrimaryLinePort  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $deviceName,
-             $linePort,
-             $isPrimaryLinePort=null
+         $serviceProviderId,
+         $groupId,
+         $deviceName,
+         $linePort,
+         $isPrimaryLinePort = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->deviceName        = new AccessDeviceName($deviceName);
-        $this->linePort          = new AccessDeviceEndpointLinePort($linePort);
-        $this->isPrimaryLinePort = $isPrimaryLinePort;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setDeviceName($deviceName);
+        $this->setLinePort($linePort);
+        $this->setIsPrimaryLinePort($isPrimaryLinePort);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +54,11 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -59,9 +66,11 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -69,9 +78,11 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setLinePort($linePort)
+    public function setLinePort($linePort = null)
     {
-        $linePort and $this->linePort = new AccessDeviceEndpointLinePort($linePort);
+        $this->linePort = ($linePort InstanceOf AccessDeviceEndpointLinePort)
+             ? $linePort
+             : new AccessDeviceEndpointLinePort($linePort);
     }
 
     public function getLinePort()
@@ -79,9 +90,8 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         return (!$this->linePort) ?: $this->linePort->value();
     }
 
-    public function setIsPrimaryLinePort($isPrimaryLinePort)
+    public function setIsPrimaryLinePort(xs:boolean $isPrimaryLinePort = null)
     {
-        $isPrimaryLinePort and $this->isPrimaryLinePort = new xs:boolean($isPrimaryLinePort);
     }
 
     public function getIsPrimaryLinePort()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPreferredCarrierName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\GroupPreferredCarrierName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPreferredCarrierGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $intraLataCarrier      = null;
+    protected $interLataCarrier      = null;
+    protected $internationalCarrier  = null;
 
-    public function __construct(
-             $intraLataCarrier,
-             $interLataCarrier,
-             $internationalCarrier
-    ) {
-        $this->intraLataCarrier     = $intraLataCarrier;
-        $this->interLataCarrier     = $interLataCarrier;
-        $this->internationalCarrier = $internationalCarrier;
-        $this->args                 = func_get_args();
-    }
 
-    public function setIntraLataCarrier($intraLataCarrier)
+    public function setIntraLataCarrier(GroupPreferredCarrierName $intraLataCarrier = null)
     {
-        $intraLataCarrier and $this->intraLataCarrier = new GroupPreferredCarrierName($intraLataCarrier);
     }
 
     public function getIntraLataCarrier()
@@ -40,9 +32,8 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
         return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->value();
     }
 
-    public function setInterLataCarrier($interLataCarrier)
+    public function setInterLataCarrier(GroupPreferredCarrierName $interLataCarrier = null)
     {
-        $interLataCarrier and $this->interLataCarrier = new GroupPreferredCarrierName($interLataCarrier);
     }
 
     public function getInterLataCarrier()
@@ -50,9 +41,8 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
         return (!$this->interLataCarrier) ?: $this->interLataCarrier->value();
     }
 
-    public function setInternationalCarrier($internationalCarrier)
+    public function setInternationalCarrier(GroupPreferredCarrierName $internationalCarrier = null)
     {
-        $internationalCarrier and $this->internationalCarrier = new GroupPreferredCarrierName($internationalCarrier);
     }
 
     public function getInternationalCarrier()

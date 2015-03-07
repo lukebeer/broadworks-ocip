@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceThirdPartyVoiceMailSupport; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemThirdPartyVoiceMailSupportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $overrideAltCallerIdForVMRetrieval  = null;
 
-    public function __construct(
-             $overrideAltCallerIdForVMRetrieval
-    ) {
-        $this->overrideAltCallerIdForVMRetrieval = $overrideAltCallerIdForVMRetrieval;
-        $this->args                              = func_get_args();
-    }
 
-    public function setOverrideAltCallerIdForVMRetrieval($overrideAltCallerIdForVMRetrieval)
+    public function setOverrideAltCallerIdForVMRetrieval(xs:boolean $overrideAltCallerIdForVMRetrieval = null)
     {
-        $overrideAltCallerIdForVMRetrieval and $this->overrideAltCallerIdForVMRetrieval = new xs:boolean($overrideAltCallerIdForVMRetrieval);
     }
 
     public function getOverrideAltCallerIdForVMRetrieval()

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $isRunning                             = null;
+    protected $numberPublicIdentityRefreshesStarted  = null;
+    protected $numberPublicIdentities                = null;
 
-    public function __construct(
-             $isRunning,
-             $numberPublicIdentityRefreshesStarted=null,
-             $numberPublicIdentities=null
-    ) {
-        $this->isRunning                            = $isRunning;
-        $this->numberPublicIdentityRefreshesStarted = $numberPublicIdentityRefreshesStarted;
-        $this->numberPublicIdentities               = $numberPublicIdentities;
-        $this->args                                 = func_get_args();
-    }
 
-    public function setIsRunning($isRunning)
+    public function setIsRunning(xs:boolean $isRunning = null)
     {
-        $isRunning and $this->isRunning = new xs:boolean($isRunning);
     }
 
     public function getIsRunning()
@@ -41,9 +32,8 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
         return (!$this->isRunning) ?: $this->isRunning->value();
     }
 
-    public function setNumberPublicIdentityRefreshesStarted($numberPublicIdentityRefreshesStarted)
+    public function setNumberPublicIdentityRefreshesStarted(xs:int $numberPublicIdentityRefreshesStarted = null)
     {
-        $numberPublicIdentityRefreshesStarted and $this->numberPublicIdentityRefreshesStarted = new xs:int($numberPublicIdentityRefreshesStarted);
     }
 
     public function getNumberPublicIdentityRefreshesStarted()
@@ -51,9 +41,8 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
         return (!$this->numberPublicIdentityRefreshesStarted) ?: $this->numberPublicIdentityRefreshesStarted->value();
     }
 
-    public function setNumberPublicIdentities($numberPublicIdentities)
+    public function setNumberPublicIdentities(xs:int $numberPublicIdentities = null)
     {
-        $numberPublicIdentities and $this->numberPublicIdentities = new xs:int($numberPublicIdentities);
     }
 
     public function getNumberPublicIdentities()

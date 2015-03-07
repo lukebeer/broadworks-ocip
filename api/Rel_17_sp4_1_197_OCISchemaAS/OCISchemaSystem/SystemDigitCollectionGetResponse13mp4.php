@@ -18,22 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $accessCode       = null;
+    protected $publicDigitMap   = null;
+    protected $privateDigitMap  = null;
 
-    public function __construct(
-             $accessCode=null,
-             $publicDigitMap,
-             $privateDigitMap=null
-    ) {
-        $this->accessCode      = new AccessCode($accessCode);
-        $this->publicDigitMap  = new DigitMap($publicDigitMap);
-        $this->privateDigitMap = new DigitMap($privateDigitMap);
-        $this->args            = func_get_args();
-    }
 
-    public function setAccessCode($accessCode)
+    public function setAccessCode($accessCode = null)
     {
-        $accessCode and $this->accessCode = new AccessCode($accessCode);
+        $this->accessCode = ($accessCode InstanceOf AccessCode)
+             ? $accessCode
+             : new AccessCode($accessCode);
     }
 
     public function getAccessCode()
@@ -41,9 +36,11 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
         return (!$this->accessCode) ?: $this->accessCode->value();
     }
 
-    public function setPublicDigitMap($publicDigitMap)
+    public function setPublicDigitMap($publicDigitMap = null)
     {
-        $publicDigitMap and $this->publicDigitMap = new DigitMap($publicDigitMap);
+        $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
+             ? $publicDigitMap
+             : new DigitMap($publicDigitMap);
     }
 
     public function getPublicDigitMap()
@@ -51,9 +48,11 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
         return (!$this->publicDigitMap) ?: $this->publicDigitMap->value();
     }
 
-    public function setPrivateDigitMap($privateDigitMap)
+    public function setPrivateDigitMap($privateDigitMap = null)
     {
-        $privateDigitMap and $this->privateDigitMap = new DigitMap($privateDigitMap);
+        $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
+             ? $privateDigitMap
+             : new DigitMap($privateDigitMap);
     }
 
     public function getPrivateDigitMap()

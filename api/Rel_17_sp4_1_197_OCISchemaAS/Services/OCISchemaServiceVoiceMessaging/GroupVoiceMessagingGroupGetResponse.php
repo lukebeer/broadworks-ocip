@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingGroupMailServerChoices;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingGroupMailServerChoices;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMailboxLengthMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMailServerProtocol;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingHoldPeriodDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMailServerProtocol;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMailboxLengthMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingHoldPeriodDays;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,36 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupVoiceMessagingGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                       = __CLASS__;
+    protected $useMailServerSetting                       = null;
+    protected $warnCallerBeforeRecordingVoiceMessage      = null;
+    protected $allowUsersConfiguringAdvancedSettings      = null;
+    protected $allowComposeOrForwardMessageToEntireGroup  = null;
+    protected $mailServerNetAddress                       = null;
+    protected $mailServerProtocol                         = null;
+    protected $realDeleteForImap                          = null;
+    protected $maxMailboxLengthMinutes                    = null;
+    protected $doesMessageAge                             = null;
+    protected $holdPeriodDays                             = null;
 
-    public function __construct(
-             $useMailServerSetting,
-             $warnCallerBeforeRecordingVoiceMessage,
-             $allowUsersConfiguringAdvancedSettings,
-             $allowComposeOrForwardMessageToEntireGroup,
-             $mailServerNetAddress=null,
-             $mailServerProtocol,
-             $realDeleteForImap,
-             $maxMailboxLengthMinutes,
-             $doesMessageAge,
-             $holdPeriodDays
-    ) {
-        $this->useMailServerSetting                      = $useMailServerSetting;
-        $this->warnCallerBeforeRecordingVoiceMessage     = $warnCallerBeforeRecordingVoiceMessage;
-        $this->allowUsersConfiguringAdvancedSettings     = $allowUsersConfiguringAdvancedSettings;
-        $this->allowComposeOrForwardMessageToEntireGroup = $allowComposeOrForwardMessageToEntireGroup;
-        $this->mailServerNetAddress                      = new NetAddress($mailServerNetAddress);
-        $this->mailServerProtocol                        = $mailServerProtocol;
-        $this->realDeleteForImap                         = $realDeleteForImap;
-        $this->maxMailboxLengthMinutes                   = $maxMailboxLengthMinutes;
-        $this->doesMessageAge                            = $doesMessageAge;
-        $this->holdPeriodDays                            = $holdPeriodDays;
-        $this->args                                      = func_get_args();
-    }
 
-    public function setUseMailServerSetting($useMailServerSetting)
+    public function setUseMailServerSetting($useMailServerSetting = null)
     {
-        $useMailServerSetting and $this->useMailServerSetting = new VoiceMessagingGroupMailServerChoices($useMailServerSetting);
+        $this->useMailServerSetting = ($useMailServerSetting InstanceOf VoiceMessagingGroupMailServerChoices)
+             ? $useMailServerSetting
+             : new VoiceMessagingGroupMailServerChoices($useMailServerSetting);
     }
 
     public function getUseMailServerSetting()
@@ -60,9 +47,8 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->useMailServerSetting) ?: $this->useMailServerSetting->value();
     }
 
-    public function setWarnCallerBeforeRecordingVoiceMessage($warnCallerBeforeRecordingVoiceMessage)
+    public function setWarnCallerBeforeRecordingVoiceMessage(xs:boolean $warnCallerBeforeRecordingVoiceMessage = null)
     {
-        $warnCallerBeforeRecordingVoiceMessage and $this->warnCallerBeforeRecordingVoiceMessage = new xs:boolean($warnCallerBeforeRecordingVoiceMessage);
     }
 
     public function getWarnCallerBeforeRecordingVoiceMessage()
@@ -70,9 +56,8 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->warnCallerBeforeRecordingVoiceMessage) ?: $this->warnCallerBeforeRecordingVoiceMessage->value();
     }
 
-    public function setAllowUsersConfiguringAdvancedSettings($allowUsersConfiguringAdvancedSettings)
+    public function setAllowUsersConfiguringAdvancedSettings(xs:boolean $allowUsersConfiguringAdvancedSettings = null)
     {
-        $allowUsersConfiguringAdvancedSettings and $this->allowUsersConfiguringAdvancedSettings = new xs:boolean($allowUsersConfiguringAdvancedSettings);
     }
 
     public function getAllowUsersConfiguringAdvancedSettings()
@@ -80,9 +65,8 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->allowUsersConfiguringAdvancedSettings) ?: $this->allowUsersConfiguringAdvancedSettings->value();
     }
 
-    public function setAllowComposeOrForwardMessageToEntireGroup($allowComposeOrForwardMessageToEntireGroup)
+    public function setAllowComposeOrForwardMessageToEntireGroup(xs:boolean $allowComposeOrForwardMessageToEntireGroup = null)
     {
-        $allowComposeOrForwardMessageToEntireGroup and $this->allowComposeOrForwardMessageToEntireGroup = new xs:boolean($allowComposeOrForwardMessageToEntireGroup);
     }
 
     public function getAllowComposeOrForwardMessageToEntireGroup()
@@ -90,9 +74,11 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->allowComposeOrForwardMessageToEntireGroup) ?: $this->allowComposeOrForwardMessageToEntireGroup->value();
     }
 
-    public function setMailServerNetAddress($mailServerNetAddress)
+    public function setMailServerNetAddress($mailServerNetAddress = null)
     {
-        $mailServerNetAddress and $this->mailServerNetAddress = new NetAddress($mailServerNetAddress);
+        $this->mailServerNetAddress = ($mailServerNetAddress InstanceOf NetAddress)
+             ? $mailServerNetAddress
+             : new NetAddress($mailServerNetAddress);
     }
 
     public function getMailServerNetAddress()
@@ -100,9 +86,11 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->mailServerNetAddress) ?: $this->mailServerNetAddress->value();
     }
 
-    public function setMailServerProtocol($mailServerProtocol)
+    public function setMailServerProtocol($mailServerProtocol = null)
     {
-        $mailServerProtocol and $this->mailServerProtocol = new VoiceMessagingMailServerProtocol($mailServerProtocol);
+        $this->mailServerProtocol = ($mailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
+             ? $mailServerProtocol
+             : new VoiceMessagingMailServerProtocol($mailServerProtocol);
     }
 
     public function getMailServerProtocol()
@@ -110,9 +98,8 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->mailServerProtocol) ?: $this->mailServerProtocol->value();
     }
 
-    public function setRealDeleteForImap($realDeleteForImap)
+    public function setRealDeleteForImap(xs:boolean $realDeleteForImap = null)
     {
-        $realDeleteForImap and $this->realDeleteForImap = new xs:boolean($realDeleteForImap);
     }
 
     public function getRealDeleteForImap()
@@ -120,9 +107,11 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->realDeleteForImap) ?: $this->realDeleteForImap->value();
     }
 
-    public function setMaxMailboxLengthMinutes($maxMailboxLengthMinutes)
+    public function setMaxMailboxLengthMinutes($maxMailboxLengthMinutes = null)
     {
-        $maxMailboxLengthMinutes and $this->maxMailboxLengthMinutes = new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
+        $this->maxMailboxLengthMinutes = ($maxMailboxLengthMinutes InstanceOf VoiceMessagingMailboxLengthMinutes)
+             ? $maxMailboxLengthMinutes
+             : new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
     }
 
     public function getMaxMailboxLengthMinutes()
@@ -130,9 +119,8 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->maxMailboxLengthMinutes) ?: $this->maxMailboxLengthMinutes->value();
     }
 
-    public function setDoesMessageAge($doesMessageAge)
+    public function setDoesMessageAge(xs:boolean $doesMessageAge = null)
     {
-        $doesMessageAge and $this->doesMessageAge = new xs:boolean($doesMessageAge);
     }
 
     public function getDoesMessageAge()
@@ -140,9 +128,11 @@ class GroupVoiceMessagingGroupGetResponse extends ComplexType implements Complex
         return (!$this->doesMessageAge) ?: $this->doesMessageAge->value();
     }
 
-    public function setHoldPeriodDays($holdPeriodDays)
+    public function setHoldPeriodDays($holdPeriodDays = null)
     {
-        $holdPeriodDays and $this->holdPeriodDays = new VoiceMessagingHoldPeriodDays($holdPeriodDays);
+        $this->holdPeriodDays = ($holdPeriodDays InstanceOf VoiceMessagingHoldPeriodDays)
+             ? $holdPeriodDays
+             : new VoiceMessagingHoldPeriodDays($holdPeriodDays);
     }
 
     public function getHoldPeriodDays()

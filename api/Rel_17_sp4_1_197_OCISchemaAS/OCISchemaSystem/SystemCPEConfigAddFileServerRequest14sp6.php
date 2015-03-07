@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $deviceType          = null;
+    protected $fileRepositoryName  = null;
+    protected $cpeFileDirectory    = null;
 
     public function __construct(
-             $deviceType,
-             $fileRepositoryName,
-             $cpeFileDirectory=null
+         $deviceType,
+         $fileRepositoryName,
+         $cpeFileDirectory = null
     ) {
-        $this->deviceType         = new AccessDeviceType($deviceType);
-        $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
-        $this->cpeFileDirectory   = new CPEFileDirectory($cpeFileDirectory);
-        $this->args               = func_get_args();
+        $this->setDeviceType($deviceType);
+        $this->setFileRepositoryName($fileRepositoryName);
+        $this->setCpeFileDirectory($cpeFileDirectory);
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -43,9 +47,11 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setFileRepositoryName($fileRepositoryName)
+    public function setFileRepositoryName($fileRepositoryName = null)
     {
-        $fileRepositoryName and $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
+             ? $fileRepositoryName
+             : new FileRepositoryName($fileRepositoryName);
     }
 
     public function getFileRepositoryName()
@@ -53,9 +59,11 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
         return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->value();
     }
 
-    public function setCpeFileDirectory($cpeFileDirectory)
+    public function setCpeFileDirectory($cpeFileDirectory = null)
     {
-        $cpeFileDirectory and $this->cpeFileDirectory = new CPEFileDirectory($cpeFileDirectory);
+        $this->cpeFileDirectory = ($cpeFileDirectory InstanceOf CPEFileDirectory)
+             ? $cpeFileDirectory
+             : new CPEFileDirectory($cpeFileDirectory);
     }
 
     public function getCpeFileDirectory()

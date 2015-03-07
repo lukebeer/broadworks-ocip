@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:date;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemScheduleGetEventResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $startDate   = null;
+    protected $endDate     = null;
+    protected $recurrence  = null;
 
-    public function __construct(
-             $startDate,
-             $endDate,
-             Recurrence $recurrence=null
-    ) {
-        $this->startDate  = $startDate;
-        $this->endDate    = $endDate;
-        $this->recurrence = $recurrence;
-        $this->args       = func_get_args();
-    }
 
-    public function setStartDate($startDate)
+    public function setStartDate(xs:date $startDate = null)
     {
-        $startDate and $this->startDate = new xs:date($startDate);
     }
 
     public function getStartDate()
@@ -42,9 +33,8 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
         return (!$this->startDate) ?: $this->startDate->value();
     }
 
-    public function setEndDate($endDate)
+    public function setEndDate(xs:date $endDate = null)
     {
-        $endDate and $this->endDate = new xs:date($endDate);
     }
 
     public function getEndDate()
@@ -52,9 +42,8 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
         return (!$this->endDate) ?: $this->endDate->value();
     }
 
-    public function setRecurrence($recurrence)
+    public function setRecurrence(Recurrence $recurrence = null)
     {
-        $recurrence and $this->recurrence = new Recurrence($recurrence);
     }
 
     public function getRecurrence()

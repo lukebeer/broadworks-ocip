@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterEnhancedReportingBrandingChoice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $brandingChoice     = null;
+    protected $brandingFile       = null;
 
     public function __construct(
-             $serviceProviderId,
-             $brandingChoice=null,
-             LabeledFileResource $brandingFile=null
+         $serviceProviderId,
+         $brandingChoice = null,
+         LabeledFileResource $brandingFile = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->brandingChoice    = $brandingChoice;
-        $this->brandingFile      = $brandingFile;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setBrandingChoice($brandingChoice);
+        $this->setBrandingFile($brandingFile);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -43,9 +47,11 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setBrandingChoice($brandingChoice)
+    public function setBrandingChoice($brandingChoice = null)
     {
-        $brandingChoice and $this->brandingChoice = new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
+        $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
+             ? $brandingChoice
+             : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
     }
 
     public function getBrandingChoice()
@@ -53,9 +59,8 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
         return (!$this->brandingChoice) ?: $this->brandingChoice->value();
     }
 
-    public function setBrandingFile($brandingFile)
+    public function setBrandingFile(LabeledFileResource $brandingFile = null)
     {
-        $brandingFile and $this->brandingFile = new LabeledFileResource($brandingFile);
     }
 
     public function getBrandingFile()

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $isActive     = null;
+    protected $description  = null;
 
-    public function __construct(
-             $isActive,
-             $description=null
-    ) {
-        $this->isActive    = $isActive;
-        $this->description = $description;
-        $this->args        = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -39,9 +31,11 @@ class EnterpriseCallCenterAgentUnavailableCodeGetResponse extends ComplexType im
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new CallCenterAgentUnavailableCodeDescription($description);
+        $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
+             ? $description
+             : new CallCenterAgentUnavailableCodeDescription($description);
     }
 
     public function getDescription()

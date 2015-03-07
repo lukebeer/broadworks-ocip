@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $allowConference        = null;
+    protected $allowMusicOnHold       = null;
+    protected $onlyConference         = null;
+    protected $onlyVideoCapable       = null;
+    protected $onlyOptionalIpAddress  = null;
 
     public function __construct(
-             $allowConference,
-             $allowMusicOnHold,
-             $onlyConference,
-             $onlyVideoCapable,
-             $onlyOptionalIpAddress
+         $allowConference,
+         $allowMusicOnHold,
+         $onlyConference,
+         $onlyVideoCapable,
+         $onlyOptionalIpAddress
     ) {
-        $this->allowConference       = $allowConference;
-        $this->allowMusicOnHold      = $allowMusicOnHold;
-        $this->onlyConference        = $onlyConference;
-        $this->onlyVideoCapable      = $onlyVideoCapable;
-        $this->onlyOptionalIpAddress = $onlyOptionalIpAddress;
-        $this->args                  = func_get_args();
+        $this->setAllowConference($allowConference);
+        $this->setAllowMusicOnHold($allowMusicOnHold);
+        $this->setOnlyConference($onlyConference);
+        $this->setOnlyVideoCapable($onlyVideoCapable);
+        $this->setOnlyOptionalIpAddress($onlyOptionalIpAddress);
     }
 
-    public function setAllowConference($allowConference)
+    public function setAllowConference(xs:boolean $allowConference = null)
     {
-        $allowConference and $this->allowConference = new xs:boolean($allowConference);
     }
 
     public function getAllowConference()
@@ -48,9 +51,8 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
         return (!$this->allowConference) ?: $this->allowConference->value();
     }
 
-    public function setAllowMusicOnHold($allowMusicOnHold)
+    public function setAllowMusicOnHold(xs:boolean $allowMusicOnHold = null)
     {
-        $allowMusicOnHold and $this->allowMusicOnHold = new xs:boolean($allowMusicOnHold);
     }
 
     public function getAllowMusicOnHold()
@@ -58,9 +60,8 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
         return (!$this->allowMusicOnHold) ?: $this->allowMusicOnHold->value();
     }
 
-    public function setOnlyConference($onlyConference)
+    public function setOnlyConference(xs:boolean $onlyConference = null)
     {
-        $onlyConference and $this->onlyConference = new xs:boolean($onlyConference);
     }
 
     public function getOnlyConference()
@@ -68,9 +69,8 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
         return (!$this->onlyConference) ?: $this->onlyConference->value();
     }
 
-    public function setOnlyVideoCapable($onlyVideoCapable)
+    public function setOnlyVideoCapable(xs:boolean $onlyVideoCapable = null)
     {
-        $onlyVideoCapable and $this->onlyVideoCapable = new xs:boolean($onlyVideoCapable);
     }
 
     public function getOnlyVideoCapable()
@@ -78,9 +78,8 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
         return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable->value();
     }
 
-    public function setOnlyOptionalIpAddress($onlyOptionalIpAddress)
+    public function setOnlyOptionalIpAddress(xs:boolean $onlyOptionalIpAddress = null)
     {
-        $onlyOptionalIpAddress and $this->onlyOptionalIpAddress = new xs:boolean($onlyOptionalIpAddress);
     }
 
     public function getOnlyOptionalIpAddress()

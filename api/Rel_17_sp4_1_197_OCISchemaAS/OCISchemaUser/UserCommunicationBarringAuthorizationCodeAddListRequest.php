@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAuthorizationCodeEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name    = __CLASS__;
+    protected $userId  = null;
+    protected $code    = null;
 
     public function __construct(
-             $userId,
-             CommunicationBarringAuthorizationCodeEntry $code=null
+         $userId,
+         CommunicationBarringAuthorizationCodeEntry $code = null
     ) {
-        $this->userId = new UserId($userId);
-        $this->code   = $code;
-        $this->args   = func_get_args();
+        $this->setUserId($userId);
+        $this->setCode($code);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTyp
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setCode($code)
+    public function setCode(CommunicationBarringAuthorizationCodeEntry $code = null)
     {
-        $code and $this->code = new CommunicationBarringAuthorizationCodeEntry($code);
     }
 
     public function getCode()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkServerSyncParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $enableSync  = null;
 
-    public function __construct(
-             $enableSync
-    ) {
-        $this->enableSync = $enableSync;
-        $this->args       = func_get_args();
-    }
 
-    public function setEnableSync($enableSync)
+    public function setEnableSync(xs:boolean $enableSync = null)
     {
-        $enableSync and $this->enableSync = new xs:boolean($enableSync);
     }
 
     public function getEnableSync()

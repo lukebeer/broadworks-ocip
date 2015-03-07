@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaZoneIPAddress extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $mode               = null;
+    protected $value              = null;
+    protected $isCaseInsensitive  = null;
 
     public function __construct(
-             $mode,
-             $value,
-             $isCaseInsensitive
+         $mode,
+         $value,
+         $isCaseInsensitive
     ) {
-        $this->mode              = $mode;
-        $this->value             = new IPAddress($value);
-        $this->isCaseInsensitive = $isCaseInsensitive;
-        $this->args              = func_get_args();
+        $this->setMode($mode);
+        $this->setValue($value);
+        $this->setIsCaseInsensitive($isCaseInsensitive);
     }
 
-    public function setMode($mode)
+    public function setMode($mode = null)
     {
-        $mode and $this->mode = new SearchMode($mode);
+        $this->mode = ($mode InstanceOf SearchMode)
+             ? $mode
+             : new SearchMode($mode);
     }
 
     public function getMode()
@@ -42,9 +45,11 @@ class SearchCriteriaZoneIPAddress extends ComplexType implements ComplexInterfac
         return (!$this->mode) ?: $this->mode->value();
     }
 
-    public function setValue($value)
+    public function setValue($value = null)
     {
-        $value and $this->value = new IPAddress($value);
+        $this->value = ($value InstanceOf IPAddress)
+             ? $value
+             : new IPAddress($value);
     }
 
     public function getValue()
@@ -52,9 +57,8 @@ class SearchCriteriaZoneIPAddress extends ComplexType implements ComplexInterfac
         return (!$this->value) ?: $this->value->value();
     }
 
-    public function setIsCaseInsensitive($isCaseInsensitive)
+    public function setIsCaseInsensitive(xs:boolean $isCaseInsensitive = null)
     {
-        $isCaseInsensitive and $this->isCaseInsensitive = new xs:boolean($isCaseInsensitive);
     }
 
     public function getIsCaseInsensitive()

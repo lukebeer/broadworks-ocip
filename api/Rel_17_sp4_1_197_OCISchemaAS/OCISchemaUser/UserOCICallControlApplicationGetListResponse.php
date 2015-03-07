@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOCICallControlApplicationGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $applicationId  = null;
 
-    public function __construct(
-             $applicationId=null
-    ) {
-        $this->applicationId = new OCICallControlApplicationId($applicationId);
-        $this->args          = func_get_args();
-    }
 
-    public function setApplicationId($applicationId)
+    public function setApplicationId($applicationId = null)
     {
-        $applicationId and $this->applicationId = new OCICallControlApplicationId($applicationId);
+        $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
+             ? $applicationId
+             : new OCICallControlApplicationId($applicationId);
     }
 
     public function getApplicationId()

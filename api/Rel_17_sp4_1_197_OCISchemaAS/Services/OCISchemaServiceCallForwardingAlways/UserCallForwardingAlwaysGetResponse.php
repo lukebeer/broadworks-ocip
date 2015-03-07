@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallForwardingAlwaysGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $isActive              = null;
+    protected $forwardToPhoneNumber  = null;
+    protected $isRingSplashActive    = null;
 
-    public function __construct(
-             $isActive,
-             $forwardToPhoneNumber=null,
-             $isRingSplashActive
-    ) {
-        $this->isActive             = $isActive;
-        $this->forwardToPhoneNumber = new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->isRingSplashActive   = $isRingSplashActive;
-        $this->args                 = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -41,9 +32,11 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setForwardToPhoneNumber($forwardToPhoneNumber)
+    public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        $forwardToPhoneNumber and $this->forwardToPhoneNumber = new OutgoingDNorSIPURI($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $forwardToPhoneNumber
+             : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
     public function getForwardToPhoneNumber()
@@ -51,9 +44,8 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
         return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
     }
 
-    public function setIsRingSplashActive($isRingSplashActive)
+    public function setIsRingSplashActive(xs:boolean $isRingSplashActive = null)
     {
-        $isRingSplashActive and $this->isRingSplashActive = new xs:boolean($isRingSplashActive);
     }
 
     public function getIsRingSplashActive()

@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingNoAnswerGreetingSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\VoiceMessagingAlternateNoAnswerGreetingModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingNoAnswerGreetingSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingAlternateNoAnswerGreetingModify;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,38 +25,50 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $userId                         = null;
+    protected $busyAnnouncementSelection      = null;
+    protected $busyPersonalAudioFile          = null;
+    protected $busyPersonalVideoFile          = null;
+    protected $noAnswerAnnouncementSelection  = null;
+    protected $noAnswerPersonalAudioFile      = null;
+    protected $noAnswerPersonalVideoFile      = null;
+    protected $noAnswerAlternateGreeting01    = null;
+    protected $noAnswerAlternateGreeting02    = null;
+    protected $noAnswerAlternateGreeting03    = null;
+    protected $noAnswerNumberOfRings          = null;
 
     public function __construct(
-             $userId,
-             $busyAnnouncementSelection=null,
-             LabeledFileResource $busyPersonalAudioFile=null,
-             LabeledFileResource $busyPersonalVideoFile=null,
-             $noAnswerAnnouncementSelection=null,
-             LabeledFileResource $noAnswerPersonalAudioFile=null,
-             LabeledFileResource $noAnswerPersonalVideoFile=null,
-             $noAnswerAlternateGreeting01=null,
-             $noAnswerAlternateGreeting02=null,
-             $noAnswerAlternateGreeting03=null,
-             $noAnswerNumberOfRings=null
+         $userId,
+         $busyAnnouncementSelection = null,
+         LabeledFileResource $busyPersonalAudioFile = null,
+         LabeledFileResource $busyPersonalVideoFile = null,
+         $noAnswerAnnouncementSelection = null,
+         LabeledFileResource $noAnswerPersonalAudioFile = null,
+         LabeledFileResource $noAnswerPersonalVideoFile = null,
+         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01 = null,
+         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02 = null,
+         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03 = null,
+         $noAnswerNumberOfRings = null
     ) {
-        $this->userId                        = new UserId($userId);
-        $this->busyAnnouncementSelection     = new AnnouncementSelection($busyAnnouncementSelection);
-        $this->busyPersonalAudioFile         = $busyPersonalAudioFile;
-        $this->busyPersonalVideoFile         = $busyPersonalVideoFile;
-        $this->noAnswerAnnouncementSelection = $noAnswerAnnouncementSelection;
-        $this->noAnswerPersonalAudioFile     = $noAnswerPersonalAudioFile;
-        $this->noAnswerPersonalVideoFile     = $noAnswerPersonalVideoFile;
-        $this->noAnswerAlternateGreeting01   = $noAnswerAlternateGreeting01;
-        $this->noAnswerAlternateGreeting02   = $noAnswerAlternateGreeting02;
-        $this->noAnswerAlternateGreeting03   = $noAnswerAlternateGreeting03;
-        $this->noAnswerNumberOfRings         = $noAnswerNumberOfRings;
-        $this->args                          = func_get_args();
+        $this->setUserId($userId);
+        $this->setBusyAnnouncementSelection($busyAnnouncementSelection);
+        $this->setBusyPersonalAudioFile($busyPersonalAudioFile);
+        $this->setBusyPersonalVideoFile($busyPersonalVideoFile);
+        $this->setNoAnswerAnnouncementSelection($noAnswerAnnouncementSelection);
+        $this->setNoAnswerPersonalAudioFile($noAnswerPersonalAudioFile);
+        $this->setNoAnswerPersonalVideoFile($noAnswerPersonalVideoFile);
+        $this->setNoAnswerAlternateGreeting01($noAnswerAlternateGreeting01);
+        $this->setNoAnswerAlternateGreeting02($noAnswerAlternateGreeting02);
+        $this->setNoAnswerAlternateGreeting03($noAnswerAlternateGreeting03);
+        $this->setNoAnswerNumberOfRings($noAnswerNumberOfRings);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -64,9 +76,11 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setBusyAnnouncementSelection($busyAnnouncementSelection)
+    public function setBusyAnnouncementSelection($busyAnnouncementSelection = null)
     {
-        $busyAnnouncementSelection and $this->busyAnnouncementSelection = new AnnouncementSelection($busyAnnouncementSelection);
+        $this->busyAnnouncementSelection = ($busyAnnouncementSelection InstanceOf AnnouncementSelection)
+             ? $busyAnnouncementSelection
+             : new AnnouncementSelection($busyAnnouncementSelection);
     }
 
     public function getBusyAnnouncementSelection()
@@ -74,9 +88,8 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->busyAnnouncementSelection) ?: $this->busyAnnouncementSelection->value();
     }
 
-    public function setBusyPersonalAudioFile($busyPersonalAudioFile)
+    public function setBusyPersonalAudioFile(LabeledFileResource $busyPersonalAudioFile = null)
     {
-        $busyPersonalAudioFile and $this->busyPersonalAudioFile = new LabeledFileResource($busyPersonalAudioFile);
     }
 
     public function getBusyPersonalAudioFile()
@@ -84,9 +97,8 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->busyPersonalAudioFile) ?: $this->busyPersonalAudioFile->value();
     }
 
-    public function setBusyPersonalVideoFile($busyPersonalVideoFile)
+    public function setBusyPersonalVideoFile(LabeledFileResource $busyPersonalVideoFile = null)
     {
-        $busyPersonalVideoFile and $this->busyPersonalVideoFile = new LabeledFileResource($busyPersonalVideoFile);
     }
 
     public function getBusyPersonalVideoFile()
@@ -94,9 +106,11 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->busyPersonalVideoFile) ?: $this->busyPersonalVideoFile->value();
     }
 
-    public function setNoAnswerAnnouncementSelection($noAnswerAnnouncementSelection)
+    public function setNoAnswerAnnouncementSelection($noAnswerAnnouncementSelection = null)
     {
-        $noAnswerAnnouncementSelection and $this->noAnswerAnnouncementSelection = new VoiceMessagingNoAnswerGreetingSelection($noAnswerAnnouncementSelection);
+        $this->noAnswerAnnouncementSelection = ($noAnswerAnnouncementSelection InstanceOf VoiceMessagingNoAnswerGreetingSelection)
+             ? $noAnswerAnnouncementSelection
+             : new VoiceMessagingNoAnswerGreetingSelection($noAnswerAnnouncementSelection);
     }
 
     public function getNoAnswerAnnouncementSelection()
@@ -104,9 +118,8 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->noAnswerAnnouncementSelection) ?: $this->noAnswerAnnouncementSelection->value();
     }
 
-    public function setNoAnswerPersonalAudioFile($noAnswerPersonalAudioFile)
+    public function setNoAnswerPersonalAudioFile(LabeledFileResource $noAnswerPersonalAudioFile = null)
     {
-        $noAnswerPersonalAudioFile and $this->noAnswerPersonalAudioFile = new LabeledFileResource($noAnswerPersonalAudioFile);
     }
 
     public function getNoAnswerPersonalAudioFile()
@@ -114,9 +127,8 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->noAnswerPersonalAudioFile) ?: $this->noAnswerPersonalAudioFile->value();
     }
 
-    public function setNoAnswerPersonalVideoFile($noAnswerPersonalVideoFile)
+    public function setNoAnswerPersonalVideoFile(LabeledFileResource $noAnswerPersonalVideoFile = null)
     {
-        $noAnswerPersonalVideoFile and $this->noAnswerPersonalVideoFile = new LabeledFileResource($noAnswerPersonalVideoFile);
     }
 
     public function getNoAnswerPersonalVideoFile()
@@ -124,9 +136,8 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->noAnswerPersonalVideoFile) ?: $this->noAnswerPersonalVideoFile->value();
     }
 
-    public function setNoAnswerAlternateGreeting01($noAnswerAlternateGreeting01)
+    public function setNoAnswerAlternateGreeting01(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01 = null)
     {
-        $noAnswerAlternateGreeting01 and $this->noAnswerAlternateGreeting01 = new VoiceMessagingAlternateNoAnswerGreetingModify($noAnswerAlternateGreeting01);
     }
 
     public function getNoAnswerAlternateGreeting01()
@@ -134,9 +145,8 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->noAnswerAlternateGreeting01) ?: $this->noAnswerAlternateGreeting01->value();
     }
 
-    public function setNoAnswerAlternateGreeting02($noAnswerAlternateGreeting02)
+    public function setNoAnswerAlternateGreeting02(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02 = null)
     {
-        $noAnswerAlternateGreeting02 and $this->noAnswerAlternateGreeting02 = new VoiceMessagingAlternateNoAnswerGreetingModify($noAnswerAlternateGreeting02);
     }
 
     public function getNoAnswerAlternateGreeting02()
@@ -144,9 +154,8 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->noAnswerAlternateGreeting02) ?: $this->noAnswerAlternateGreeting02->value();
     }
 
-    public function setNoAnswerAlternateGreeting03($noAnswerAlternateGreeting03)
+    public function setNoAnswerAlternateGreeting03(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03 = null)
     {
-        $noAnswerAlternateGreeting03 and $this->noAnswerAlternateGreeting03 = new VoiceMessagingAlternateNoAnswerGreetingModify($noAnswerAlternateGreeting03);
     }
 
     public function getNoAnswerAlternateGreeting03()
@@ -154,9 +163,11 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         return (!$this->noAnswerAlternateGreeting03) ?: $this->noAnswerAlternateGreeting03->value();
     }
 
-    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings)
+    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        $noAnswerNumberOfRings and $this->noAnswerNumberOfRings = new VoiceMessagingNumberOfRings($noAnswerNumberOfRings);
+        $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf VoiceMessagingNumberOfRings)
+             ? $noAnswerNumberOfRings
+             : new VoiceMessagingNumberOfRings($noAnswerNumberOfRings);
     }
 
     public function getNoAnswerNumberOfRings()

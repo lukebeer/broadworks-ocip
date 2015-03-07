@@ -21,6 +21,5 @@ class SystemCPEConfigGetFileServerListRequest14sp6 extends ComplexType implement
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

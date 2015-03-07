@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementLanguageMapping;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementLanguageMapping;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $deviceType       = null;
+    protected $languageMapping  = null;
 
     public function __construct(
-             $deviceType,
-             $languageMapping=null
+         $deviceType,
+         DeviceManagementLanguageMapping $languageMapping = null
     ) {
-        $this->deviceType      = new AccessDeviceType($deviceType);
-        $this->languageMapping = $languageMapping;
-        $this->args            = func_get_args();
+        $this->setDeviceType($deviceType);
+        $this->setLanguageMapping($languageMapping);
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -40,9 +43,8 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setLanguageMapping($languageMapping)
+    public function setLanguageMapping(DeviceManagementLanguageMapping $languageMapping = null)
     {
-        $languageMapping and $this->languageMapping = new DeviceManagementLanguageMapping($languageMapping);
     }
 
     public function getLanguageMapping()

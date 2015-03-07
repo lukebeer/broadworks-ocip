@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemHomeNetworkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $mscAddress  = null;
 
     public function __construct(
-             $mscAddress
+         $mscAddress
     ) {
-        $this->mscAddress = new DN($mscAddress);
-        $this->args       = func_get_args();
+        $this->setMscAddress($mscAddress);
     }
 
-    public function setMscAddress($mscAddress)
+    public function setMscAddress($mscAddress = null)
     {
-        $mscAddress and $this->mscAddress = new DN($mscAddress);
+        $this->mscAddress = ($mscAddress InstanceOf DN)
+             ? $mscAddress
+             : new DN($mscAddress);
     }
 
     public function getMscAddress()

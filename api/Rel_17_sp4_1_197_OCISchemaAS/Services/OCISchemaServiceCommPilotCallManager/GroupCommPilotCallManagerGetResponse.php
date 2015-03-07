@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotCallManagerGroupDirectoryDisplaySelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\CommPilotCallManagerGroupDirectoryDisplaySelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCommPilotCallManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $groupDirectory  = null;
 
-    public function __construct(
-             $groupDirectory
-    ) {
-        $this->groupDirectory = $groupDirectory;
-        $this->args           = func_get_args();
-    }
 
-    public function setGroupDirectory($groupDirectory)
+    public function setGroupDirectory($groupDirectory = null)
     {
-        $groupDirectory and $this->groupDirectory = new CommPilotCallManagerGroupDirectoryDisplaySelection($groupDirectory);
+        $this->groupDirectory = ($groupDirectory InstanceOf CommPilotCallManagerGroupDirectoryDisplaySelection)
+             ? $groupDirectory
+             : new CommPilotCallManagerGroupDirectoryDisplaySelection($groupDirectory);
     }
 
     public function getGroupDirectory()

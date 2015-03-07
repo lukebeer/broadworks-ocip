@@ -8,9 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,30 +20,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupSessionAdmissionControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $serviceProviderId           = null;
+    protected $groupId                     = null;
+    protected $restrictAggregateSessions   = null;
+    protected $maxSessions                 = null;
+    protected $maxUserOriginatingSessions  = null;
+    protected $maxUserTerminatingSessions  = null;
+    protected $countIntraGroupSessions     = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $restrictAggregateSessions=null,
-             $maxSessions=null,
-             $maxUserOriginatingSessions=null,
-             $maxUserTerminatingSessions=null,
-             $countIntraGroupSessions=null
+         $serviceProviderId,
+         $groupId,
+         $restrictAggregateSessions = null,
+         $maxSessions = null,
+         $maxUserOriginatingSessions = null,
+         $maxUserTerminatingSessions = null,
+         $countIntraGroupSessions = null
     ) {
-        $this->serviceProviderId          = new ServiceProviderId($serviceProviderId);
-        $this->groupId                    = new GroupId($groupId);
-        $this->restrictAggregateSessions  = $restrictAggregateSessions;
-        $this->maxSessions                = new NonNegativeInt($maxSessions);
-        $this->maxUserOriginatingSessions = new NonNegativeInt($maxUserOriginatingSessions);
-        $this->maxUserTerminatingSessions = new NonNegativeInt($maxUserTerminatingSessions);
-        $this->countIntraGroupSessions    = $countIntraGroupSessions;
-        $this->args                       = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setRestrictAggregateSessions($restrictAggregateSessions);
+        $this->setMaxSessions($maxSessions);
+        $this->setMaxUserOriginatingSessions($maxUserOriginatingSessions);
+        $this->setMaxUserTerminatingSessions($maxUserTerminatingSessions);
+        $this->setCountIntraGroupSessions($countIntraGroupSessions);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -52,9 +59,11 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -62,9 +71,8 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setRestrictAggregateSessions($restrictAggregateSessions)
+    public function setRestrictAggregateSessions(xs:boolean $restrictAggregateSessions = null)
     {
-        $restrictAggregateSessions and $this->restrictAggregateSessions = new xs:boolean($restrictAggregateSessions);
     }
 
     public function getRestrictAggregateSessions()
@@ -72,9 +80,11 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
         return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions->value();
     }
 
-    public function setMaxSessions($maxSessions)
+    public function setMaxSessions($maxSessions = null)
     {
-        $maxSessions and $this->maxSessions = new NonNegativeInt($maxSessions);
+        $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
+             ? $maxSessions
+             : new NonNegativeInt($maxSessions);
     }
 
     public function getMaxSessions()
@@ -82,9 +92,11 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
         return (!$this->maxSessions) ?: $this->maxSessions->value();
     }
 
-    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions)
+    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        $maxUserOriginatingSessions and $this->maxUserOriginatingSessions = new NonNegativeInt($maxUserOriginatingSessions);
+        $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserOriginatingSessions
+             : new NonNegativeInt($maxUserOriginatingSessions);
     }
 
     public function getMaxUserOriginatingSessions()
@@ -92,9 +104,11 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
         return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->value();
     }
 
-    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions)
+    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        $maxUserTerminatingSessions and $this->maxUserTerminatingSessions = new NonNegativeInt($maxUserTerminatingSessions);
+        $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserTerminatingSessions
+             : new NonNegativeInt($maxUserTerminatingSessions);
     }
 
     public function getMaxUserTerminatingSessions()
@@ -102,9 +116,8 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
         return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->value();
     }
 
-    public function setCountIntraGroupSessions($countIntraGroupSessions)
+    public function setCountIntraGroupSessions(xs:boolean $countIntraGroupSessions = null)
     {
-        $countIntraGroupSessions and $this->countIntraGroupSessions = new xs:boolean($countIntraGroupSessions);
     }
 
     public function getCountIntraGroupSessions()

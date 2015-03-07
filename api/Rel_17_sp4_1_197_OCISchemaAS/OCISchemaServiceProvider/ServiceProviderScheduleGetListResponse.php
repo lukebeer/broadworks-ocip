@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $scheduleKey  = null;
 
-    public function __construct(
-             ScheduleKey $scheduleKey=null
-    ) {
-        $this->scheduleKey = $scheduleKey;
-        $this->args        = func_get_args();
-    }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()

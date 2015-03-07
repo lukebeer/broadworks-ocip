@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,18 +22,18 @@ class OutgoingCallingPlanCallType extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Casual Calls',
-                                              'Chargeable Directory Assistance',
-                                              'International',
-                                              'Local',
-                                              'Operator Assisted',
-                                              'Premium Services I',
-                                              'Premium Services II',
-                                              'Special Services I',
-                                              'Special Services II',
-                                              'Toll',
-                                              'Toll Free'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Casual Calls',
+            'Chargeable Directory Assistance',
+            'International',
+            'Local',
+            'Operator Assisted',
+            'Premium Services I',
+            'Premium Services II',
+            'Special Services I',
+            'Special Services II',
+            'Toll',
+            'Toll Free'
+        ]));
     }
 }

@@ -21,6 +21,5 @@ class SystemSpeedDial100GetRequest extends ComplexType implements ComplexInterfa
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

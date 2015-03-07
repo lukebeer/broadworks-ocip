@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AttendantConsoleDisplayColumn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleDisplayColumn;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,24 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $launchOnLogin               = null;
+    protected $allowUserConfigCallDetails  = null;
+    protected $allowUserViewCallDetails    = null;
+    protected $displayColumn               = null;
 
-    public function __construct(
-             $launchOnLogin,
-             $allowUserConfigCallDetails,
-             $allowUserViewCallDetails,
-             $displayColumn=null
-    ) {
-        $this->launchOnLogin              = $launchOnLogin;
-        $this->allowUserConfigCallDetails = $allowUserConfigCallDetails;
-        $this->allowUserViewCallDetails   = $allowUserViewCallDetails;
-        $this->displayColumn              = $displayColumn;
-        $this->args                       = func_get_args();
-    }
 
-    public function setLaunchOnLogin($launchOnLogin)
+    public function setLaunchOnLogin(xs:boolean $launchOnLogin = null)
     {
-        $launchOnLogin and $this->launchOnLogin = new xs:boolean($launchOnLogin);
     }
 
     public function getLaunchOnLogin()
@@ -43,9 +33,8 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
         return (!$this->launchOnLogin) ?: $this->launchOnLogin->value();
     }
 
-    public function setAllowUserConfigCallDetails($allowUserConfigCallDetails)
+    public function setAllowUserConfigCallDetails(xs:boolean $allowUserConfigCallDetails = null)
     {
-        $allowUserConfigCallDetails and $this->allowUserConfigCallDetails = new xs:boolean($allowUserConfigCallDetails);
     }
 
     public function getAllowUserConfigCallDetails()
@@ -53,9 +42,8 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
         return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails->value();
     }
 
-    public function setAllowUserViewCallDetails($allowUserViewCallDetails)
+    public function setAllowUserViewCallDetails(xs:boolean $allowUserViewCallDetails = null)
     {
-        $allowUserViewCallDetails and $this->allowUserViewCallDetails = new xs:boolean($allowUserViewCallDetails);
     }
 
     public function getAllowUserViewCallDetails()
@@ -63,9 +51,11 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
         return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails->value();
     }
 
-    public function setDisplayColumn($displayColumn)
+    public function setDisplayColumn($displayColumn = null)
     {
-        $displayColumn and $this->displayColumn = new AttendantConsoleDisplayColumn($displayColumn);
+        $this->displayColumn = ($displayColumn InstanceOf AttendantConsoleDisplayColumn)
+             ? $displayColumn
+             : new AttendantConsoleDisplayColumn($displayColumn);
     }
 
     public function getDisplayColumn()

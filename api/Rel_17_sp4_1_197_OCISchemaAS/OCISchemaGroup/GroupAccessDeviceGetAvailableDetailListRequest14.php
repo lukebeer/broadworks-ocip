@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $isMusicOnHold      = null;
+    protected $onlyVideoCapable   = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $isMusicOnHold,
-             $onlyVideoCapable
+         $serviceProviderId,
+         $groupId,
+         $isMusicOnHold,
+         $onlyVideoCapable
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->isMusicOnHold     = $isMusicOnHold;
-        $this->onlyVideoCapable  = $onlyVideoCapable;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setIsMusicOnHold($isMusicOnHold);
+        $this->setOnlyVideoCapable($onlyVideoCapable);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -47,9 +51,11 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -57,9 +63,8 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setIsMusicOnHold($isMusicOnHold)
+    public function setIsMusicOnHold(xs:boolean $isMusicOnHold = null)
     {
-        $isMusicOnHold and $this->isMusicOnHold = new xs:boolean($isMusicOnHold);
     }
 
     public function getIsMusicOnHold()
@@ -67,9 +72,8 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
         return (!$this->isMusicOnHold) ?: $this->isMusicOnHold->value();
     }
 
-    public function setOnlyVideoCapable($onlyVideoCapable)
+    public function setOnlyVideoCapable(xs:boolean $onlyVideoCapable = null)
     {
-        $onlyVideoCapable and $this->onlyVideoCapable = new xs:boolean($onlyVideoCapable);
     }
 
     public function getOnlyVideoCapable()

@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNDefaultSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNNonMatchingE164NumberSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNNonMatchingE164NumberSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDefaultSelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $isActive          = null;
+    protected $defaultSelection  = null;
+    protected $e164Selection     = null;
 
-    public function __construct(
-             $isActive,
-             $defaultSelection,
-             $e164Selection
-    ) {
-        $this->isActive         = $isActive;
-        $this->defaultSelection = $defaultSelection;
-        $this->e164Selection    = $e164Selection;
-        $this->args             = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -43,9 +34,11 @@ class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterf
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDefaultSelection($defaultSelection)
+    public function setDefaultSelection($defaultSelection = null)
     {
-        $defaultSelection and $this->defaultSelection = new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
+        $this->defaultSelection = ($defaultSelection InstanceOf EnterpriseVoiceVPNDefaultSelection)
+             ? $defaultSelection
+             : new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
     }
 
     public function getDefaultSelection()
@@ -53,9 +46,11 @@ class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterf
         return (!$this->defaultSelection) ?: $this->defaultSelection->value();
     }
 
-    public function setE164Selection($e164Selection)
+    public function setE164Selection($e164Selection = null)
     {
-        $e164Selection and $this->e164Selection = new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
+        $this->e164Selection = ($e164Selection InstanceOf EnterpriseVoiceVPNNonMatchingE164NumberSelection)
+             ? $e164Selection
+             : new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
     }
 
     public function getE164Selection()

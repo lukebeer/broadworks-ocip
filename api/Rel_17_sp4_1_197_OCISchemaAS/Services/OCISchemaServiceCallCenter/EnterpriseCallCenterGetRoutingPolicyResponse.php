@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterRoutingPolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +19,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $routingPolicy    = null;
+    protected $callCenterTable  = null;
 
-    public function __construct(
-             $routingPolicy,
-             $callCenterTable
-    ) {
-        $this->routingPolicy   = $routingPolicy;
-        $this->callCenterTable = $callCenterTable;
-        $this->args            = func_get_args();
-    }
 
-    public function setRoutingPolicy($routingPolicy)
+    public function setRoutingPolicy($routingPolicy = null)
     {
-        $routingPolicy and $this->routingPolicy = new CallCenterRoutingPolicy($routingPolicy);
+        $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
+             ? $routingPolicy
+             : new CallCenterRoutingPolicy($routingPolicy);
     }
 
     public function getRoutingPolicy()
@@ -41,9 +36,8 @@ class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implement
         return (!$this->routingPolicy) ?: $this->routingPolicy->value();
     }
 
-    public function setCallCenterTable($callCenterTable)
+    public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
-        $callCenterTable and $this->callCenterTable = new core:OCITable($callCenterTable);
     }
 
     public function getCallCenterTable()

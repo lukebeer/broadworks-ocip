@@ -7,32 +7,32 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentFullPathName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZoneDisplayName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaFirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InformationalDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AddressLocation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InformationalDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AddressLocation;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -43,72 +43,42 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupId                   = null;
+    protected $lastName                  = null;
+    protected $firstName                 = null;
+    protected $callingLineIdLastName     = null;
+    protected $callingLineIdFirstName    = null;
+    protected $hiraganaLastName          = null;
+    protected $hiraganaFirstName         = null;
+    protected $phoneNumber               = null;
+    protected $extension                 = null;
+    protected $callingLineIdPhoneNumber  = null;
+    protected $department                = null;
+    protected $departmentFullPath        = null;
+    protected $language                  = null;
+    protected $timeZone                  = null;
+    protected $timeZoneDisplayName       = null;
+    protected $defaultAlias              = null;
+    protected $alias                     = null;
+    protected $title                     = null;
+    protected $pagerPhoneNumber          = null;
+    protected $mobilePhoneNumber         = null;
+    protected $emailAddress              = null;
+    protected $yahooId                   = null;
+    protected $addressLocation           = null;
+    protected $address                   = null;
+    protected $countryCode               = null;
+    protected $nationalPrefix            = null;
+    protected $networkClassOfService     = null;
 
-    public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $lastName,
-             $firstName,
-             $callingLineIdLastName,
-             $callingLineIdFirstName,
-             $hiraganaLastName=null,
-             $hiraganaFirstName=null,
-             $phoneNumber=null,
-             $extension=null,
-             $callingLineIdPhoneNumber=null,
-             DepartmentKey $department=null,
-             $departmentFullPath=null,
-             $language,
-             $timeZone,
-             $timeZoneDisplayName,
-             $defaultAlias,
-             $alias=null,
-             $title=null,
-             $pagerPhoneNumber=null,
-             $mobilePhoneNumber=null,
-             $emailAddress=null,
-             $yahooId=null,
-             $addressLocation=null,
-             StreetAddress $address=null,
-             $countryCode=null,
-             $nationalPrefix=null,
-             $networkClassOfService=null
-    ) {
-        $this->serviceProviderId        = new ServiceProviderId($serviceProviderId);
-        $this->groupId                  = new GroupId($groupId);
-        $this->lastName                 = new LastName($lastName);
-        $this->firstName                = new FirstName($firstName);
-        $this->callingLineIdLastName    = new CallingLineIdLastName($callingLineIdLastName);
-        $this->callingLineIdFirstName   = new CallingLineIdFirstName($callingLineIdFirstName);
-        $this->hiraganaLastName         = new HiraganaLastName($hiraganaLastName);
-        $this->hiraganaFirstName        = new HiraganaFirstName($hiraganaFirstName);
-        $this->phoneNumber              = new DN($phoneNumber);
-        $this->extension                = new Extension($extension);
-        $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
-        $this->department               = $department;
-        $this->departmentFullPath       = new DepartmentFullPathName($departmentFullPath);
-        $this->language                 = new Language($language);
-        $this->timeZone                 = new TimeZone($timeZone);
-        $this->timeZoneDisplayName      = new TimeZoneDisplayName($timeZoneDisplayName);
-        $this->defaultAlias             = new SIPURI($defaultAlias);
-        $this->alias                    = new SIPURI($alias);
-        $this->title                    = new Title($title);
-        $this->pagerPhoneNumber         = new InformationalDN($pagerPhoneNumber);
-        $this->mobilePhoneNumber        = new OutgoingDN($mobilePhoneNumber);
-        $this->emailAddress             = new EmailAddress($emailAddress);
-        $this->yahooId                  = new YahooId($yahooId);
-        $this->addressLocation          = new AddressLocation($addressLocation);
-        $this->address                  = $address;
-        $this->countryCode              = new CountryCode($countryCode);
-        $this->nationalPrefix           = new NationalPrefix($nationalPrefix);
-        $this->networkClassOfService    = new NetworkClassOfServiceName($networkClassOfService);
-        $this->args                     = func_get_args();
-    }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -116,9 +86,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -126,9 +98,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
-        $lastName and $this->lastName = new LastName($lastName);
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
     }
 
     public function getLastName()
@@ -136,9 +110,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->lastName) ?: $this->lastName->value();
     }
 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
-        $firstName and $this->firstName = new FirstName($firstName);
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
     }
 
     public function getFirstName()
@@ -146,9 +122,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->firstName) ?: $this->firstName->value();
     }
 
-    public function setCallingLineIdLastName($callingLineIdLastName)
+    public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
-        $callingLineIdLastName and $this->callingLineIdLastName = new CallingLineIdLastName($callingLineIdLastName);
+        $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
+             ? $callingLineIdLastName
+             : new CallingLineIdLastName($callingLineIdLastName);
     }
 
     public function getCallingLineIdLastName()
@@ -156,9 +134,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->value();
     }
 
-    public function setCallingLineIdFirstName($callingLineIdFirstName)
+    public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
-        $callingLineIdFirstName and $this->callingLineIdFirstName = new CallingLineIdFirstName($callingLineIdFirstName);
+        $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
+             ? $callingLineIdFirstName
+             : new CallingLineIdFirstName($callingLineIdFirstName);
     }
 
     public function getCallingLineIdFirstName()
@@ -166,9 +146,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->value();
     }
 
-    public function setHiraganaLastName($hiraganaLastName)
+    public function setHiraganaLastName($hiraganaLastName = null)
     {
-        $hiraganaLastName and $this->hiraganaLastName = new HiraganaLastName($hiraganaLastName);
+        $this->hiraganaLastName = ($hiraganaLastName InstanceOf HiraganaLastName)
+             ? $hiraganaLastName
+             : new HiraganaLastName($hiraganaLastName);
     }
 
     public function getHiraganaLastName()
@@ -176,9 +158,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->hiraganaLastName) ?: $this->hiraganaLastName->value();
     }
 
-    public function setHiraganaFirstName($hiraganaFirstName)
+    public function setHiraganaFirstName($hiraganaFirstName = null)
     {
-        $hiraganaFirstName and $this->hiraganaFirstName = new HiraganaFirstName($hiraganaFirstName);
+        $this->hiraganaFirstName = ($hiraganaFirstName InstanceOf HiraganaFirstName)
+             ? $hiraganaFirstName
+             : new HiraganaFirstName($hiraganaFirstName);
     }
 
     public function getHiraganaFirstName()
@@ -186,9 +170,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->hiraganaFirstName) ?: $this->hiraganaFirstName->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -196,9 +182,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setExtension($extension)
+    public function setExtension($extension = null)
     {
-        $extension and $this->extension = new Extension($extension);
+        $this->extension = ($extension InstanceOf Extension)
+             ? $extension
+             : new Extension($extension);
     }
 
     public function getExtension()
@@ -206,9 +194,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->extension) ?: $this->extension->value();
     }
 
-    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber)
+    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        $callingLineIdPhoneNumber and $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
+        $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
+             ? $callingLineIdPhoneNumber
+             : new DN($callingLineIdPhoneNumber);
     }
 
     public function getCallingLineIdPhoneNumber()
@@ -216,9 +206,8 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->value();
     }
 
-    public function setDepartment($department)
+    public function setDepartment(DepartmentKey $department = null)
     {
-        $department and $this->department = new DepartmentKey($department);
     }
 
     public function getDepartment()
@@ -226,9 +215,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->department) ?: $this->department->value();
     }
 
-    public function setDepartmentFullPath($departmentFullPath)
+    public function setDepartmentFullPath($departmentFullPath = null)
     {
-        $departmentFullPath and $this->departmentFullPath = new DepartmentFullPathName($departmentFullPath);
+        $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentFullPathName)
+             ? $departmentFullPath
+             : new DepartmentFullPathName($departmentFullPath);
     }
 
     public function getDepartmentFullPath()
@@ -236,9 +227,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->departmentFullPath) ?: $this->departmentFullPath->value();
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()
@@ -246,9 +239,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->language) ?: $this->language->value();
     }
 
-    public function setTimeZone($timeZone)
+    public function setTimeZone($timeZone = null)
     {
-        $timeZone and $this->timeZone = new TimeZone($timeZone);
+        $this->timeZone = ($timeZone InstanceOf TimeZone)
+             ? $timeZone
+             : new TimeZone($timeZone);
     }
 
     public function getTimeZone()
@@ -256,9 +251,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->timeZone) ?: $this->timeZone->value();
     }
 
-    public function setTimeZoneDisplayName($timeZoneDisplayName)
+    public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
-        $timeZoneDisplayName and $this->timeZoneDisplayName = new TimeZoneDisplayName($timeZoneDisplayName);
+        $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
+             ? $timeZoneDisplayName
+             : new TimeZoneDisplayName($timeZoneDisplayName);
     }
 
     public function getTimeZoneDisplayName()
@@ -266,9 +263,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->value();
     }
 
-    public function setDefaultAlias($defaultAlias)
+    public function setDefaultAlias($defaultAlias = null)
     {
-        $defaultAlias and $this->defaultAlias = new SIPURI($defaultAlias);
+        $this->defaultAlias = ($defaultAlias InstanceOf SIPURI)
+             ? $defaultAlias
+             : new SIPURI($defaultAlias);
     }
 
     public function getDefaultAlias()
@@ -276,9 +275,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->defaultAlias) ?: $this->defaultAlias->value();
     }
 
-    public function setAlias($alias)
+    public function setAlias($alias = null)
     {
-        $alias and $this->alias = new SIPURI($alias);
+        $this->alias = ($alias InstanceOf SIPURI)
+             ? $alias
+             : new SIPURI($alias);
     }
 
     public function getAlias()
@@ -286,9 +287,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->alias) ?: $this->alias->value();
     }
 
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
-        $title and $this->title = new Title($title);
+        $this->title = ($title InstanceOf Title)
+             ? $title
+             : new Title($title);
     }
 
     public function getTitle()
@@ -296,9 +299,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->title) ?: $this->title->value();
     }
 
-    public function setPagerPhoneNumber($pagerPhoneNumber)
+    public function setPagerPhoneNumber($pagerPhoneNumber = null)
     {
-        $pagerPhoneNumber and $this->pagerPhoneNumber = new InformationalDN($pagerPhoneNumber);
+        $this->pagerPhoneNumber = ($pagerPhoneNumber InstanceOf InformationalDN)
+             ? $pagerPhoneNumber
+             : new InformationalDN($pagerPhoneNumber);
     }
 
     public function getPagerPhoneNumber()
@@ -306,9 +311,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->pagerPhoneNumber) ?: $this->pagerPhoneNumber->value();
     }
 
-    public function setMobilePhoneNumber($mobilePhoneNumber)
+    public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        $mobilePhoneNumber and $this->mobilePhoneNumber = new OutgoingDN($mobilePhoneNumber);
+        $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf OutgoingDN)
+             ? $mobilePhoneNumber
+             : new OutgoingDN($mobilePhoneNumber);
     }
 
     public function getMobilePhoneNumber()
@@ -316,9 +323,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->mobilePhoneNumber) ?: $this->mobilePhoneNumber->value();
     }
 
-    public function setEmailAddress($emailAddress)
+    public function setEmailAddress($emailAddress = null)
     {
-        $emailAddress and $this->emailAddress = new EmailAddress($emailAddress);
+        $this->emailAddress = ($emailAddress InstanceOf EmailAddress)
+             ? $emailAddress
+             : new EmailAddress($emailAddress);
     }
 
     public function getEmailAddress()
@@ -326,9 +335,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->emailAddress) ?: $this->emailAddress->value();
     }
 
-    public function setYahooId($yahooId)
+    public function setYahooId($yahooId = null)
     {
-        $yahooId and $this->yahooId = new YahooId($yahooId);
+        $this->yahooId = ($yahooId InstanceOf YahooId)
+             ? $yahooId
+             : new YahooId($yahooId);
     }
 
     public function getYahooId()
@@ -336,9 +347,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->yahooId) ?: $this->yahooId->value();
     }
 
-    public function setAddressLocation($addressLocation)
+    public function setAddressLocation($addressLocation = null)
     {
-        $addressLocation and $this->addressLocation = new AddressLocation($addressLocation);
+        $this->addressLocation = ($addressLocation InstanceOf AddressLocation)
+             ? $addressLocation
+             : new AddressLocation($addressLocation);
     }
 
     public function getAddressLocation()
@@ -346,9 +359,8 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->addressLocation) ?: $this->addressLocation->value();
     }
 
-    public function setAddress($address)
+    public function setAddress(StreetAddress $address = null)
     {
-        $address and $this->address = new StreetAddress($address);
     }
 
     public function getAddress()
@@ -356,9 +368,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->address) ?: $this->address->value();
     }
 
-    public function setCountryCode($countryCode)
+    public function setCountryCode($countryCode = null)
     {
-        $countryCode and $this->countryCode = new CountryCode($countryCode);
+        $this->countryCode = ($countryCode InstanceOf CountryCode)
+             ? $countryCode
+             : new CountryCode($countryCode);
     }
 
     public function getCountryCode()
@@ -366,9 +380,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->countryCode) ?: $this->countryCode->value();
     }
 
-    public function setNationalPrefix($nationalPrefix)
+    public function setNationalPrefix($nationalPrefix = null)
     {
-        $nationalPrefix and $this->nationalPrefix = new NationalPrefix($nationalPrefix);
+        $this->nationalPrefix = ($nationalPrefix InstanceOf NationalPrefix)
+             ? $nationalPrefix
+             : new NationalPrefix($nationalPrefix);
     }
 
     public function getNationalPrefix()
@@ -376,9 +392,11 @@ class UserGetResponse15sp2 extends ComplexType implements ComplexInterface
         return (!$this->nationalPrefix) ?: $this->nationalPrefix->value();
     }
 
-    public function setNetworkClassOfService($networkClassOfService)
+    public function setNetworkClassOfService($networkClassOfService = null)
     {
-        $networkClassOfService and $this->networkClassOfService = new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
+             ? $networkClassOfService
+             : new NetworkClassOfServiceName($networkClassOfService);
     }
 
     public function getNetworkClassOfService()

@@ -17,18 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactDnDepartment extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $departmentKey  = null;
 
     public function __construct(
-             DepartmentKey $departmentKey
+         DepartmentKey $departmentKey
     ) {
-        $this->departmentKey = $departmentKey;
-        $this->args          = func_get_args();
+        $this->setDepartmentKey($departmentKey);
     }
 
-    public function setDepartmentKey($departmentKey)
+    public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        $departmentKey and $this->departmentKey = new DepartmentKey($departmentKey);
     }
 
     public function getDepartmentKey()

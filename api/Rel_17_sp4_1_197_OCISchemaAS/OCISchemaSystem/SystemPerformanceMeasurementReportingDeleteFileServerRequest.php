@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $ftpHostNetAddress  = null;
 
     public function __construct(
-             $ftpHostNetAddress
+         $ftpHostNetAddress
     ) {
-        $this->ftpHostNetAddress = new NetAddress($ftpHostNetAddress);
-        $this->args              = func_get_args();
+        $this->setFtpHostNetAddress($ftpHostNetAddress);
     }
 
-    public function setFtpHostNetAddress($ftpHostNetAddress)
+    public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
-        $ftpHostNetAddress and $this->ftpHostNetAddress = new NetAddress($ftpHostNetAddress);
+        $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
+             ? $ftpHostNetAddress
+             : new NetAddress($ftpHostNetAddress);
     }
 
     public function getFtpHostNetAddress()

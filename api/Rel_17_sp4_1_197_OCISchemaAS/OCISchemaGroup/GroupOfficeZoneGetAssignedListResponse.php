@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOfficeZoneGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $officeZoneTable  = null;
 
-    public function __construct(
-             $officeZoneTable
-    ) {
-        $this->officeZoneTable = $officeZoneTable;
-        $this->args            = func_get_args();
-    }
 
-    public function setOfficeZoneTable($officeZoneTable)
+    public function setOfficeZoneTable(core:OCITable $officeZoneTable = null)
     {
-        $officeZoneTable and $this->officeZoneTable = new core:OCITable($officeZoneTable);
     }
 
     public function getOfficeZoneTable()

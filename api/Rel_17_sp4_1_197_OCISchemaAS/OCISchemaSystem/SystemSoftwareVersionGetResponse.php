@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:token;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $version  = null;
 
-    public function __construct(
-             $version
-    ) {
-        $this->version = $version;
-        $this->args    = func_get_args();
-    }
 
-    public function setVersion($version)
+    public function setVersion(xs:token $version = null)
     {
-        $version and $this->version = new xs:token($version);
     }
 
     public function getVersion()

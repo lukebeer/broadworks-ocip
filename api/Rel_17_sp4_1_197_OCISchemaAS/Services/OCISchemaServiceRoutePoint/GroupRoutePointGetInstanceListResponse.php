@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $routePointTable  = null;
 
-    public function __construct(
-             $routePointTable
-    ) {
-        $this->routePointTable = $routePointTable;
-        $this->args            = func_get_args();
-    }
 
-    public function setRoutePointTable($routePointTable)
+    public function setRoutePointTable(core:OCITable $routePointTable = null)
     {
-        $routePointTable and $this->routePointTable = new core:OCITable($routePointTable);
     }
 
     public function getRoutePointTable()

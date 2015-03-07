@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemConnectedLineIdentificationPresentationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $enforceUserServiceAssignment  = null;
 
     public function __construct(
-             $enforceUserServiceAssignment=null
+         $enforceUserServiceAssignment = null
     ) {
-        $this->enforceUserServiceAssignment = $enforceUserServiceAssignment;
-        $this->args                         = func_get_args();
+        $this->setEnforceUserServiceAssignment($enforceUserServiceAssignment);
     }
 
-    public function setEnforceUserServiceAssignment($enforceUserServiceAssignment)
+    public function setEnforceUserServiceAssignment(xs:boolean $enforceUserServiceAssignment = null)
     {
-        $enforceUserServiceAssignment and $this->enforceUserServiceAssignment = new xs:boolean($enforceUserServiceAssignment);
     }
 
     public function getEnforceUserServiceAssignment()

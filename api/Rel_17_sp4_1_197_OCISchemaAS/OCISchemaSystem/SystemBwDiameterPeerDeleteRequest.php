@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterPeerInstance;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPeerInstance;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $instance  = null;
+    protected $identity  = null;
 
     public function __construct(
-             $instance,
-             $identity
+         $instance,
+         $identity
     ) {
-        $this->instance = $instance;
-        $this->identity = new DomainName($identity);
-        $this->args     = func_get_args();
+        $this->setInstance($instance);
+        $this->setIdentity($identity);
     }
 
-    public function setInstance($instance)
+    public function setInstance($instance = null)
     {
-        $instance and $this->instance = new BwDiameterPeerInstance($instance);
+        $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
+             ? $instance
+             : new BwDiameterPeerInstance($instance);
     }
 
     public function getInstance()
@@ -40,9 +43,11 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
         return (!$this->instance) ?: $this->instance->value();
     }
 
-    public function setIdentity($identity)
+    public function setIdentity($identity = null)
     {
-        $identity and $this->identity = new DomainName($identity);
+        $this->identity = ($identity InstanceOf DomainName)
+             ? $identity
+             : new DomainName($identity);
     }
 
     public function getIdentity()

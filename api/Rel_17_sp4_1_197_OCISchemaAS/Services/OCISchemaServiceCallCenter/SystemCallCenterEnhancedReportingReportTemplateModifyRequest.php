@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateAccessOption;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDataTemplateQueryFilterValueReplacementList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportTemplateAccessOption;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportTemplateDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportDataTemplateFilterNumber;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportDataTemplateQueryFilterValueReplacementList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,34 +23,44 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $name              = null;
+    protected $newName           = null;
+    protected $description       = null;
+    protected $xsltTemplate      = null;
+    protected $scope             = null;
+    protected $isEnabled         = null;
+    protected $isRealtimeReport  = null;
+    protected $filterNumber      = null;
+    protected $filterValue       = null;
 
     public function __construct(
-             $name,
-             $newName=null,
-             $description=null,
-             LabeledFileResource $xsltTemplate=null,
-             $scope=null,
-             $isEnabled=null,
-             $isRealtimeReport=null,
-             $filterNumber=null,
-             $filterValue=null
+         $name,
+         $newName = null,
+         $description = null,
+         LabeledFileResource $xsltTemplate = null,
+         $scope = null,
+         $isEnabled = null,
+         $isRealtimeReport = null,
+         $filterNumber = null,
+         CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null
     ) {
-        $this->name             = new CallCenterReportTemplateName($name);
-        $this->newName          = new CallCenterReportTemplateName($newName);
-        $this->description      = $description;
-        $this->xsltTemplate     = $xsltTemplate;
-        $this->scope            = $scope;
-        $this->isEnabled        = $isEnabled;
-        $this->isRealtimeReport = $isRealtimeReport;
-        $this->filterNumber     = new CallCenterReportDataTemplateFilterNumber($filterNumber);
-        $this->filterValue      = $filterValue;
-        $this->args             = func_get_args();
+        $this->setName($name);
+        $this->setNewName($newName);
+        $this->setDescription($description);
+        $this->setXsltTemplate($xsltTemplate);
+        $this->setScope($scope);
+        $this->setIsEnabled($isEnabled);
+        $this->setIsRealtimeReport($isRealtimeReport);
+        $this->setFilterNumber($filterNumber);
+        $this->setFilterValue($filterValue);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CallCenterReportTemplateName($name);
+        $this->name = ($name InstanceOf CallCenterReportTemplateName)
+             ? $name
+             : new CallCenterReportTemplateName($name);
     }
 
     public function getName()
@@ -59,9 +68,11 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setNewName($newName)
+    public function setNewName($newName = null)
     {
-        $newName and $this->newName = new CallCenterReportTemplateName($newName);
+        $this->newName = ($newName InstanceOf CallCenterReportTemplateName)
+             ? $newName
+             : new CallCenterReportTemplateName($newName);
     }
 
     public function getNewName()
@@ -69,9 +80,11 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->newName) ?: $this->newName->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new CallCenterReportTemplateDescription($description);
+        $this->description = ($description InstanceOf CallCenterReportTemplateDescription)
+             ? $description
+             : new CallCenterReportTemplateDescription($description);
     }
 
     public function getDescription()
@@ -79,9 +92,8 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setXsltTemplate($xsltTemplate)
+    public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        $xsltTemplate and $this->xsltTemplate = new LabeledFileResource($xsltTemplate);
     }
 
     public function getXsltTemplate()
@@ -89,9 +101,11 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->xsltTemplate) ?: $this->xsltTemplate->value();
     }
 
-    public function setScope($scope)
+    public function setScope($scope = null)
     {
-        $scope and $this->scope = new CallCenterReportTemplateAccessOption($scope);
+        $this->scope = ($scope InstanceOf CallCenterReportTemplateAccessOption)
+             ? $scope
+             : new CallCenterReportTemplateAccessOption($scope);
     }
 
     public function getScope()
@@ -99,9 +113,8 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->scope) ?: $this->scope->value();
     }
 
-    public function setIsEnabled($isEnabled)
+    public function setIsEnabled(xs:boolean $isEnabled = null)
     {
-        $isEnabled and $this->isEnabled = new xs:boolean($isEnabled);
     }
 
     public function getIsEnabled()
@@ -109,9 +122,8 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->isEnabled) ?: $this->isEnabled->value();
     }
 
-    public function setIsRealtimeReport($isRealtimeReport)
+    public function setIsRealtimeReport(xs:boolean $isRealtimeReport = null)
     {
-        $isRealtimeReport and $this->isRealtimeReport = new xs:boolean($isRealtimeReport);
     }
 
     public function getIsRealtimeReport()
@@ -119,9 +131,11 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->isRealtimeReport) ?: $this->isRealtimeReport->value();
     }
 
-    public function setFilterNumber($filterNumber)
+    public function setFilterNumber($filterNumber = null)
     {
-        $filterNumber and $this->filterNumber = new CallCenterReportDataTemplateFilterNumber($filterNumber);
+        $this->filterNumber = ($filterNumber InstanceOf CallCenterReportDataTemplateFilterNumber)
+             ? $filterNumber
+             : new CallCenterReportDataTemplateFilterNumber($filterNumber);
     }
 
     public function getFilterNumber()
@@ -129,9 +143,8 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         return (!$this->filterNumber) ?: $this->filterNumber->value();
     }
 
-    public function setFilterValue($filterValue)
+    public function setFilterValue(CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null)
     {
-        $filterValue and $this->filterValue = new CallCenterReportDataTemplateQueryFilterValueReplacementList($filterValue);
     }
 
     public function getFilterValue()

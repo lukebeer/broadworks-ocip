@@ -7,10 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePushToTalk; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PushToTalkOutgoingConnectionSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PushToTalkAccessListSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkOutgoingConnectionSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkAccessListSelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +20,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $allowAutoAnswer              = null;
+    protected $outgoingConnectionSelection  = null;
+    protected $accessListSelection          = null;
+    protected $selectedUserTable            = null;
 
-    public function __construct(
-             $allowAutoAnswer,
-             $outgoingConnectionSelection,
-             $accessListSelection,
-             $selectedUserTable
-    ) {
-        $this->allowAutoAnswer             = $allowAutoAnswer;
-        $this->outgoingConnectionSelection = $outgoingConnectionSelection;
-        $this->accessListSelection         = $accessListSelection;
-        $this->selectedUserTable           = $selectedUserTable;
-        $this->args                        = func_get_args();
-    }
 
-    public function setAllowAutoAnswer($allowAutoAnswer)
+    public function setAllowAutoAnswer(xs:boolean $allowAutoAnswer = null)
     {
-        $allowAutoAnswer and $this->allowAutoAnswer = new xs:boolean($allowAutoAnswer);
     }
 
     public function getAllowAutoAnswer()
@@ -47,9 +36,11 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
         return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer->value();
     }
 
-    public function setOutgoingConnectionSelection($outgoingConnectionSelection)
+    public function setOutgoingConnectionSelection($outgoingConnectionSelection = null)
     {
-        $outgoingConnectionSelection and $this->outgoingConnectionSelection = new PushToTalkOutgoingConnectionSelection($outgoingConnectionSelection);
+        $this->outgoingConnectionSelection = ($outgoingConnectionSelection InstanceOf PushToTalkOutgoingConnectionSelection)
+             ? $outgoingConnectionSelection
+             : new PushToTalkOutgoingConnectionSelection($outgoingConnectionSelection);
     }
 
     public function getOutgoingConnectionSelection()
@@ -57,9 +48,11 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
         return (!$this->outgoingConnectionSelection) ?: $this->outgoingConnectionSelection->value();
     }
 
-    public function setAccessListSelection($accessListSelection)
+    public function setAccessListSelection($accessListSelection = null)
     {
-        $accessListSelection and $this->accessListSelection = new PushToTalkAccessListSelection($accessListSelection);
+        $this->accessListSelection = ($accessListSelection InstanceOf PushToTalkAccessListSelection)
+             ? $accessListSelection
+             : new PushToTalkAccessListSelection($accessListSelection);
     }
 
     public function getAccessListSelection()
@@ -67,9 +60,8 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
         return (!$this->accessListSelection) ?: $this->accessListSelection->value();
     }
 
-    public function setSelectedUserTable($selectedUserTable)
+    public function setSelectedUserTable(core:OCITable $selectedUserTable = null)
     {
-        $selectedUserTable and $this->selectedUserTable = new core:OCITable($selectedUserTable);
     }
 
     public function getSelectedUserTable()

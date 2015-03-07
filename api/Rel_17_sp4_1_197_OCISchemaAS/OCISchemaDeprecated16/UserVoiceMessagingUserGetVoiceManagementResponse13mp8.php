@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingMessageProcessing;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMessageProcessing;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -21,42 +20,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $isActive                            = null;
+    protected $processing                          = null;
+    protected $voiceMessageDeliveryEmailAddress    = null;
+    protected $usePhoneMessageWaitingIndicator     = null;
+    protected $sendVoiceMessageNotifyEmail         = null;
+    protected $voiceMessageNotifyEmailAddress      = null;
+    protected $sendCarbonCopyVoiceMessage          = null;
+    protected $voiceMessageCarbonCopyEmailAddress  = null;
+    protected $transferOnZeroToPhoneNumber         = null;
+    protected $transferPhoneNumber                 = null;
+    protected $alwaysRedirectToVoiceMail           = null;
+    protected $busyRedirectToVoiceMail             = null;
+    protected $noAnswerRedirectToVoiceMail         = null;
 
-    public function __construct(
-             $isActive,
-             $processing,
-             $voiceMessageDeliveryEmailAddress=null,
-             $usePhoneMessageWaitingIndicator,
-             $sendVoiceMessageNotifyEmail,
-             $voiceMessageNotifyEmailAddress=null,
-             $sendCarbonCopyVoiceMessage,
-             $voiceMessageCarbonCopyEmailAddress=null,
-             $transferOnZeroToPhoneNumber,
-             $transferPhoneNumber=null,
-             $alwaysRedirectToVoiceMail,
-             $busyRedirectToVoiceMail,
-             $noAnswerRedirectToVoiceMail
-    ) {
-        $this->isActive                           = $isActive;
-        $this->processing                         = $processing;
-        $this->voiceMessageDeliveryEmailAddress   = new EmailAddress($voiceMessageDeliveryEmailAddress);
-        $this->usePhoneMessageWaitingIndicator    = $usePhoneMessageWaitingIndicator;
-        $this->sendVoiceMessageNotifyEmail        = $sendVoiceMessageNotifyEmail;
-        $this->voiceMessageNotifyEmailAddress     = new EmailAddress($voiceMessageNotifyEmailAddress);
-        $this->sendCarbonCopyVoiceMessage         = $sendCarbonCopyVoiceMessage;
-        $this->voiceMessageCarbonCopyEmailAddress = new EmailAddress($voiceMessageCarbonCopyEmailAddress);
-        $this->transferOnZeroToPhoneNumber        = $transferOnZeroToPhoneNumber;
-        $this->transferPhoneNumber                = new OutgoingDN($transferPhoneNumber);
-        $this->alwaysRedirectToVoiceMail          = $alwaysRedirectToVoiceMail;
-        $this->busyRedirectToVoiceMail            = $busyRedirectToVoiceMail;
-        $this->noAnswerRedirectToVoiceMail        = $noAnswerRedirectToVoiceMail;
-        $this->args                               = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -64,9 +45,11 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setProcessing($processing)
+    public function setProcessing($processing = null)
     {
-        $processing and $this->processing = new VoiceMessagingMessageProcessing($processing);
+        $this->processing = ($processing InstanceOf VoiceMessagingMessageProcessing)
+             ? $processing
+             : new VoiceMessagingMessageProcessing($processing);
     }
 
     public function getProcessing()
@@ -74,9 +57,11 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->processing) ?: $this->processing->value();
     }
 
-    public function setVoiceMessageDeliveryEmailAddress($voiceMessageDeliveryEmailAddress)
+    public function setVoiceMessageDeliveryEmailAddress($voiceMessageDeliveryEmailAddress = null)
     {
-        $voiceMessageDeliveryEmailAddress and $this->voiceMessageDeliveryEmailAddress = new EmailAddress($voiceMessageDeliveryEmailAddress);
+        $this->voiceMessageDeliveryEmailAddress = ($voiceMessageDeliveryEmailAddress InstanceOf EmailAddress)
+             ? $voiceMessageDeliveryEmailAddress
+             : new EmailAddress($voiceMessageDeliveryEmailAddress);
     }
 
     public function getVoiceMessageDeliveryEmailAddress()
@@ -84,9 +69,8 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->voiceMessageDeliveryEmailAddress) ?: $this->voiceMessageDeliveryEmailAddress->value();
     }
 
-    public function setUsePhoneMessageWaitingIndicator($usePhoneMessageWaitingIndicator)
+    public function setUsePhoneMessageWaitingIndicator(xs:boolean $usePhoneMessageWaitingIndicator = null)
     {
-        $usePhoneMessageWaitingIndicator and $this->usePhoneMessageWaitingIndicator = new xs:boolean($usePhoneMessageWaitingIndicator);
     }
 
     public function getUsePhoneMessageWaitingIndicator()
@@ -94,9 +78,8 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->usePhoneMessageWaitingIndicator) ?: $this->usePhoneMessageWaitingIndicator->value();
     }
 
-    public function setSendVoiceMessageNotifyEmail($sendVoiceMessageNotifyEmail)
+    public function setSendVoiceMessageNotifyEmail(xs:boolean $sendVoiceMessageNotifyEmail = null)
     {
-        $sendVoiceMessageNotifyEmail and $this->sendVoiceMessageNotifyEmail = new xs:boolean($sendVoiceMessageNotifyEmail);
     }
 
     public function getSendVoiceMessageNotifyEmail()
@@ -104,9 +87,11 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->sendVoiceMessageNotifyEmail) ?: $this->sendVoiceMessageNotifyEmail->value();
     }
 
-    public function setVoiceMessageNotifyEmailAddress($voiceMessageNotifyEmailAddress)
+    public function setVoiceMessageNotifyEmailAddress($voiceMessageNotifyEmailAddress = null)
     {
-        $voiceMessageNotifyEmailAddress and $this->voiceMessageNotifyEmailAddress = new EmailAddress($voiceMessageNotifyEmailAddress);
+        $this->voiceMessageNotifyEmailAddress = ($voiceMessageNotifyEmailAddress InstanceOf EmailAddress)
+             ? $voiceMessageNotifyEmailAddress
+             : new EmailAddress($voiceMessageNotifyEmailAddress);
     }
 
     public function getVoiceMessageNotifyEmailAddress()
@@ -114,9 +99,8 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->voiceMessageNotifyEmailAddress) ?: $this->voiceMessageNotifyEmailAddress->value();
     }
 
-    public function setSendCarbonCopyVoiceMessage($sendCarbonCopyVoiceMessage)
+    public function setSendCarbonCopyVoiceMessage(xs:boolean $sendCarbonCopyVoiceMessage = null)
     {
-        $sendCarbonCopyVoiceMessage and $this->sendCarbonCopyVoiceMessage = new xs:boolean($sendCarbonCopyVoiceMessage);
     }
 
     public function getSendCarbonCopyVoiceMessage()
@@ -124,9 +108,11 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->sendCarbonCopyVoiceMessage) ?: $this->sendCarbonCopyVoiceMessage->value();
     }
 
-    public function setVoiceMessageCarbonCopyEmailAddress($voiceMessageCarbonCopyEmailAddress)
+    public function setVoiceMessageCarbonCopyEmailAddress($voiceMessageCarbonCopyEmailAddress = null)
     {
-        $voiceMessageCarbonCopyEmailAddress and $this->voiceMessageCarbonCopyEmailAddress = new EmailAddress($voiceMessageCarbonCopyEmailAddress);
+        $this->voiceMessageCarbonCopyEmailAddress = ($voiceMessageCarbonCopyEmailAddress InstanceOf EmailAddress)
+             ? $voiceMessageCarbonCopyEmailAddress
+             : new EmailAddress($voiceMessageCarbonCopyEmailAddress);
     }
 
     public function getVoiceMessageCarbonCopyEmailAddress()
@@ -134,9 +120,8 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->voiceMessageCarbonCopyEmailAddress) ?: $this->voiceMessageCarbonCopyEmailAddress->value();
     }
 
-    public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber)
+    public function setTransferOnZeroToPhoneNumber(xs:boolean $transferOnZeroToPhoneNumber = null)
     {
-        $transferOnZeroToPhoneNumber and $this->transferOnZeroToPhoneNumber = new xs:boolean($transferOnZeroToPhoneNumber);
     }
 
     public function getTransferOnZeroToPhoneNumber()
@@ -144,9 +129,11 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->value();
     }
 
-    public function setTransferPhoneNumber($transferPhoneNumber)
+    public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        $transferPhoneNumber and $this->transferPhoneNumber = new OutgoingDN($transferPhoneNumber);
+        $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
+             ? $transferPhoneNumber
+             : new OutgoingDN($transferPhoneNumber);
     }
 
     public function getTransferPhoneNumber()
@@ -154,9 +141,8 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
     }
 
-    public function setAlwaysRedirectToVoiceMail($alwaysRedirectToVoiceMail)
+    public function setAlwaysRedirectToVoiceMail(xs:boolean $alwaysRedirectToVoiceMail = null)
     {
-        $alwaysRedirectToVoiceMail and $this->alwaysRedirectToVoiceMail = new xs:boolean($alwaysRedirectToVoiceMail);
     }
 
     public function getAlwaysRedirectToVoiceMail()
@@ -164,9 +150,8 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->alwaysRedirectToVoiceMail) ?: $this->alwaysRedirectToVoiceMail->value();
     }
 
-    public function setBusyRedirectToVoiceMail($busyRedirectToVoiceMail)
+    public function setBusyRedirectToVoiceMail(xs:boolean $busyRedirectToVoiceMail = null)
     {
-        $busyRedirectToVoiceMail and $this->busyRedirectToVoiceMail = new xs:boolean($busyRedirectToVoiceMail);
     }
 
     public function getBusyRedirectToVoiceMail()
@@ -174,9 +159,8 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
         return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail->value();
     }
 
-    public function setNoAnswerRedirectToVoiceMail($noAnswerRedirectToVoiceMail)
+    public function setNoAnswerRedirectToVoiceMail(xs:boolean $noAnswerRedirectToVoiceMail = null)
     {
-        $noAnswerRedirectToVoiceMail and $this->noAnswerRedirectToVoiceMail = new xs:boolean($noAnswerRedirectToVoiceMail);
     }
 
     public function getNoAnswerRedirectToVoiceMail()

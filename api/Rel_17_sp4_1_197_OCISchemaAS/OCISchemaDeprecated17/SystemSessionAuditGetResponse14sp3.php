@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionAuditIntervalSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionAuditTimeoutPeriodSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPSessionExpiresMinimumSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPSessionExpiresMaximumSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPSessionExpiresTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionTimerRefresher;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionAuditTimeoutPeriodSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPSessionExpiresMaximumSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPSessionExpiresMinimumSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPSessionExpiresTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionAuditIntervalSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionTimerRefresher;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,42 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $isAuditActive                       = null;
+    protected $auditIntervalSeconds                = null;
+    protected $auditTimeoutSeconds                 = null;
+    protected $releaseCallOnAuditFailure           = null;
+    protected $isSIPRefreshAllowedOnAudit          = null;
+    protected $allowUpdateForSIPRefresh            = null;
+    protected $isSIPSessionTimerActive             = null;
+    protected $sipSessionExpiresMinimumSeconds     = null;
+    protected $enforceSIPSessionExpiresMaximum     = null;
+    protected $sipSessionExpiresMaximumSeconds     = null;
+    protected $sipSessionExpiresTimerSeconds       = null;
+    protected $alwaysUseSessionTimerWhenSupported  = null;
+    protected $preferredSessionTimerRefresher      = null;
 
-    public function __construct(
-             $isAuditActive,
-             $auditIntervalSeconds,
-             $auditTimeoutSeconds,
-             $releaseCallOnAuditFailure,
-             $isSIPRefreshAllowedOnAudit,
-             $allowUpdateForSIPRefresh,
-             $isSIPSessionTimerActive,
-             $sipSessionExpiresMinimumSeconds,
-             $enforceSIPSessionExpiresMaximum,
-             $sipSessionExpiresMaximumSeconds,
-             $sipSessionExpiresTimerSeconds,
-             $alwaysUseSessionTimerWhenSupported,
-             $preferredSessionTimerRefresher
-    ) {
-        $this->isAuditActive                      = $isAuditActive;
-        $this->auditIntervalSeconds               = $auditIntervalSeconds;
-        $this->auditTimeoutSeconds                = $auditTimeoutSeconds;
-        $this->releaseCallOnAuditFailure          = $releaseCallOnAuditFailure;
-        $this->isSIPRefreshAllowedOnAudit         = $isSIPRefreshAllowedOnAudit;
-        $this->allowUpdateForSIPRefresh           = $allowUpdateForSIPRefresh;
-        $this->isSIPSessionTimerActive            = $isSIPSessionTimerActive;
-        $this->sipSessionExpiresMinimumSeconds    = $sipSessionExpiresMinimumSeconds;
-        $this->enforceSIPSessionExpiresMaximum    = $enforceSIPSessionExpiresMaximum;
-        $this->sipSessionExpiresMaximumSeconds    = $sipSessionExpiresMaximumSeconds;
-        $this->sipSessionExpiresTimerSeconds      = $sipSessionExpiresTimerSeconds;
-        $this->alwaysUseSessionTimerWhenSupported = $alwaysUseSessionTimerWhenSupported;
-        $this->preferredSessionTimerRefresher     = $preferredSessionTimerRefresher;
-        $this->args                               = func_get_args();
-    }
 
-    public function setIsAuditActive($isAuditActive)
+    public function setIsAuditActive(xs:boolean $isAuditActive = null)
     {
-        $isAuditActive and $this->isAuditActive = new xs:boolean($isAuditActive);
     }
 
     public function getIsAuditActive()
@@ -66,9 +47,11 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->isAuditActive) ?: $this->isAuditActive->value();
     }
 
-    public function setAuditIntervalSeconds($auditIntervalSeconds)
+    public function setAuditIntervalSeconds($auditIntervalSeconds = null)
     {
-        $auditIntervalSeconds and $this->auditIntervalSeconds = new SessionAuditIntervalSeconds($auditIntervalSeconds);
+        $this->auditIntervalSeconds = ($auditIntervalSeconds InstanceOf SessionAuditIntervalSeconds)
+             ? $auditIntervalSeconds
+             : new SessionAuditIntervalSeconds($auditIntervalSeconds);
     }
 
     public function getAuditIntervalSeconds()
@@ -76,9 +59,11 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->auditIntervalSeconds) ?: $this->auditIntervalSeconds->value();
     }
 
-    public function setAuditTimeoutSeconds($auditTimeoutSeconds)
+    public function setAuditTimeoutSeconds($auditTimeoutSeconds = null)
     {
-        $auditTimeoutSeconds and $this->auditTimeoutSeconds = new SessionAuditTimeoutPeriodSeconds($auditTimeoutSeconds);
+        $this->auditTimeoutSeconds = ($auditTimeoutSeconds InstanceOf SessionAuditTimeoutPeriodSeconds)
+             ? $auditTimeoutSeconds
+             : new SessionAuditTimeoutPeriodSeconds($auditTimeoutSeconds);
     }
 
     public function getAuditTimeoutSeconds()
@@ -86,9 +71,8 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->auditTimeoutSeconds) ?: $this->auditTimeoutSeconds->value();
     }
 
-    public function setReleaseCallOnAuditFailure($releaseCallOnAuditFailure)
+    public function setReleaseCallOnAuditFailure(xs:boolean $releaseCallOnAuditFailure = null)
     {
-        $releaseCallOnAuditFailure and $this->releaseCallOnAuditFailure = new xs:boolean($releaseCallOnAuditFailure);
     }
 
     public function getReleaseCallOnAuditFailure()
@@ -96,9 +80,8 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->releaseCallOnAuditFailure) ?: $this->releaseCallOnAuditFailure->value();
     }
 
-    public function setIsSIPRefreshAllowedOnAudit($isSIPRefreshAllowedOnAudit)
+    public function setIsSIPRefreshAllowedOnAudit(xs:boolean $isSIPRefreshAllowedOnAudit = null)
     {
-        $isSIPRefreshAllowedOnAudit and $this->isSIPRefreshAllowedOnAudit = new xs:boolean($isSIPRefreshAllowedOnAudit);
     }
 
     public function getIsSIPRefreshAllowedOnAudit()
@@ -106,9 +89,8 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->isSIPRefreshAllowedOnAudit) ?: $this->isSIPRefreshAllowedOnAudit->value();
     }
 
-    public function setAllowUpdateForSIPRefresh($allowUpdateForSIPRefresh)
+    public function setAllowUpdateForSIPRefresh(xs:boolean $allowUpdateForSIPRefresh = null)
     {
-        $allowUpdateForSIPRefresh and $this->allowUpdateForSIPRefresh = new xs:boolean($allowUpdateForSIPRefresh);
     }
 
     public function getAllowUpdateForSIPRefresh()
@@ -116,9 +98,8 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->allowUpdateForSIPRefresh) ?: $this->allowUpdateForSIPRefresh->value();
     }
 
-    public function setIsSIPSessionTimerActive($isSIPSessionTimerActive)
+    public function setIsSIPSessionTimerActive(xs:boolean $isSIPSessionTimerActive = null)
     {
-        $isSIPSessionTimerActive and $this->isSIPSessionTimerActive = new xs:boolean($isSIPSessionTimerActive);
     }
 
     public function getIsSIPSessionTimerActive()
@@ -126,9 +107,11 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->isSIPSessionTimerActive) ?: $this->isSIPSessionTimerActive->value();
     }
 
-    public function setSipSessionExpiresMinimumSeconds($sipSessionExpiresMinimumSeconds)
+    public function setSipSessionExpiresMinimumSeconds($sipSessionExpiresMinimumSeconds = null)
     {
-        $sipSessionExpiresMinimumSeconds and $this->sipSessionExpiresMinimumSeconds = new SIPSessionExpiresMinimumSeconds($sipSessionExpiresMinimumSeconds);
+        $this->sipSessionExpiresMinimumSeconds = ($sipSessionExpiresMinimumSeconds InstanceOf SIPSessionExpiresMinimumSeconds)
+             ? $sipSessionExpiresMinimumSeconds
+             : new SIPSessionExpiresMinimumSeconds($sipSessionExpiresMinimumSeconds);
     }
 
     public function getSipSessionExpiresMinimumSeconds()
@@ -136,9 +119,8 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->sipSessionExpiresMinimumSeconds) ?: $this->sipSessionExpiresMinimumSeconds->value();
     }
 
-    public function setEnforceSIPSessionExpiresMaximum($enforceSIPSessionExpiresMaximum)
+    public function setEnforceSIPSessionExpiresMaximum(xs:boolean $enforceSIPSessionExpiresMaximum = null)
     {
-        $enforceSIPSessionExpiresMaximum and $this->enforceSIPSessionExpiresMaximum = new xs:boolean($enforceSIPSessionExpiresMaximum);
     }
 
     public function getEnforceSIPSessionExpiresMaximum()
@@ -146,9 +128,11 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->enforceSIPSessionExpiresMaximum) ?: $this->enforceSIPSessionExpiresMaximum->value();
     }
 
-    public function setSipSessionExpiresMaximumSeconds($sipSessionExpiresMaximumSeconds)
+    public function setSipSessionExpiresMaximumSeconds($sipSessionExpiresMaximumSeconds = null)
     {
-        $sipSessionExpiresMaximumSeconds and $this->sipSessionExpiresMaximumSeconds = new SIPSessionExpiresMaximumSeconds($sipSessionExpiresMaximumSeconds);
+        $this->sipSessionExpiresMaximumSeconds = ($sipSessionExpiresMaximumSeconds InstanceOf SIPSessionExpiresMaximumSeconds)
+             ? $sipSessionExpiresMaximumSeconds
+             : new SIPSessionExpiresMaximumSeconds($sipSessionExpiresMaximumSeconds);
     }
 
     public function getSipSessionExpiresMaximumSeconds()
@@ -156,9 +140,11 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->sipSessionExpiresMaximumSeconds) ?: $this->sipSessionExpiresMaximumSeconds->value();
     }
 
-    public function setSipSessionExpiresTimerSeconds($sipSessionExpiresTimerSeconds)
+    public function setSipSessionExpiresTimerSeconds($sipSessionExpiresTimerSeconds = null)
     {
-        $sipSessionExpiresTimerSeconds and $this->sipSessionExpiresTimerSeconds = new SIPSessionExpiresTimerSeconds($sipSessionExpiresTimerSeconds);
+        $this->sipSessionExpiresTimerSeconds = ($sipSessionExpiresTimerSeconds InstanceOf SIPSessionExpiresTimerSeconds)
+             ? $sipSessionExpiresTimerSeconds
+             : new SIPSessionExpiresTimerSeconds($sipSessionExpiresTimerSeconds);
     }
 
     public function getSipSessionExpiresTimerSeconds()
@@ -166,9 +152,8 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->sipSessionExpiresTimerSeconds) ?: $this->sipSessionExpiresTimerSeconds->value();
     }
 
-    public function setAlwaysUseSessionTimerWhenSupported($alwaysUseSessionTimerWhenSupported)
+    public function setAlwaysUseSessionTimerWhenSupported(xs:boolean $alwaysUseSessionTimerWhenSupported = null)
     {
-        $alwaysUseSessionTimerWhenSupported and $this->alwaysUseSessionTimerWhenSupported = new xs:boolean($alwaysUseSessionTimerWhenSupported);
     }
 
     public function getAlwaysUseSessionTimerWhenSupported()
@@ -176,9 +161,11 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
         return (!$this->alwaysUseSessionTimerWhenSupported) ?: $this->alwaysUseSessionTimerWhenSupported->value();
     }
 
-    public function setPreferredSessionTimerRefresher($preferredSessionTimerRefresher)
+    public function setPreferredSessionTimerRefresher($preferredSessionTimerRefresher = null)
     {
-        $preferredSessionTimerRefresher and $this->preferredSessionTimerRefresher = new SessionTimerRefresher($preferredSessionTimerRefresher);
+        $this->preferredSessionTimerRefresher = ($preferredSessionTimerRefresher InstanceOf SessionTimerRefresher)
+             ? $preferredSessionTimerRefresher
+             : new SessionTimerRefresher($preferredSessionTimerRefresher);
     }
 
     public function getPreferredSessionTimerRefresher()

@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportServerChoice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportWebStatisticsSource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportWebStatisticsSource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServerChoice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $reportingServer     = null;
+    protected $webStatisticSource  = null;
 
-    public function __construct(
-             $reportingServer,
-             $webStatisticSource
-    ) {
-        $this->reportingServer    = $reportingServer;
-        $this->webStatisticSource = $webStatisticSource;
-        $this->args               = func_get_args();
-    }
 
-    public function setReportingServer($reportingServer)
+    public function setReportingServer($reportingServer = null)
     {
-        $reportingServer and $this->reportingServer = new CallCenterReportServerChoice($reportingServer);
+        $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
+             ? $reportingServer
+             : new CallCenterReportServerChoice($reportingServer);
     }
 
     public function getReportingServer()
@@ -39,9 +35,11 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
         return (!$this->reportingServer) ?: $this->reportingServer->value();
     }
 
-    public function setWebStatisticSource($webStatisticSource)
+    public function setWebStatisticSource($webStatisticSource = null)
     {
-        $webStatisticSource and $this->webStatisticSource = new CallCenterReportWebStatisticsSource($webStatisticSource);
+        $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
+             ? $webStatisticSource
+             : new CallCenterReportWebStatisticsSource($webStatisticSource);
     }
 
     public function getWebStatisticSource()

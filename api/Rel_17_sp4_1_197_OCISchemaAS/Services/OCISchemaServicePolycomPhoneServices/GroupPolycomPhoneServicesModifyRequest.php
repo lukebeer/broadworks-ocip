@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +20,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                           = __CLASS__;
+    protected $serviceProviderId                              = null;
+    protected $groupId                                        = null;
+    protected $includeGroupCommonPhoneListInDirectory         = null;
+    protected $includeGroupCustomContactDirectoryInDirectory  = null;
+    protected $groupCustomContactDirectory                    = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $includeGroupCommonPhoneListInDirectory=null,
-             $includeGroupCustomContactDirectoryInDirectory=null,
-             $groupCustomContactDirectory=null
+         $serviceProviderId,
+         $groupId,
+         $includeGroupCommonPhoneListInDirectory = null,
+         $includeGroupCustomContactDirectoryInDirectory = null,
+         $groupCustomContactDirectory = null
     ) {
-        $this->serviceProviderId                             = new ServiceProviderId($serviceProviderId);
-        $this->groupId                                       = new GroupId($groupId);
-        $this->includeGroupCommonPhoneListInDirectory        = $includeGroupCommonPhoneListInDirectory;
-        $this->includeGroupCustomContactDirectoryInDirectory = $includeGroupCustomContactDirectoryInDirectory;
-        $this->groupCustomContactDirectory                   = new CustomContactDirectoryName($groupCustomContactDirectory);
-        $this->args                                          = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setIncludeGroupCommonPhoneListInDirectory($includeGroupCommonPhoneListInDirectory);
+        $this->setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory);
+        $this->setGroupCustomContactDirectory($groupCustomContactDirectory);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +53,11 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -58,9 +65,8 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setIncludeGroupCommonPhoneListInDirectory($includeGroupCommonPhoneListInDirectory)
+    public function setIncludeGroupCommonPhoneListInDirectory(xs:boolean $includeGroupCommonPhoneListInDirectory = null)
     {
-        $includeGroupCommonPhoneListInDirectory and $this->includeGroupCommonPhoneListInDirectory = new xs:boolean($includeGroupCommonPhoneListInDirectory);
     }
 
     public function getIncludeGroupCommonPhoneListInDirectory()
@@ -68,9 +74,8 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
         return (!$this->includeGroupCommonPhoneListInDirectory) ?: $this->includeGroupCommonPhoneListInDirectory->value();
     }
 
-    public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory)
+    public function setIncludeGroupCustomContactDirectoryInDirectory(xs:boolean $includeGroupCustomContactDirectoryInDirectory = null)
     {
-        $includeGroupCustomContactDirectoryInDirectory and $this->includeGroupCustomContactDirectoryInDirectory = new xs:boolean($includeGroupCustomContactDirectoryInDirectory);
     }
 
     public function getIncludeGroupCustomContactDirectoryInDirectory()
@@ -78,9 +83,11 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
         return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->value();
     }
 
-    public function setGroupCustomContactDirectory($groupCustomContactDirectory)
+    public function setGroupCustomContactDirectory($groupCustomContactDirectory = null)
     {
-        $groupCustomContactDirectory and $this->groupCustomContactDirectory = new CustomContactDirectoryName($groupCustomContactDirectory);
+        $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
+             ? $groupCustomContactDirectory
+             : new CustomContactDirectoryName($groupCustomContactDirectory);
     }
 
     public function getGroupCustomContactDirectory()

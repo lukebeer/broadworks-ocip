@@ -18,22 +18,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $supervisorUserId  = null;
+    protected $serviceUserId     = null;
+    protected $agentUserId       = null;
 
     public function __construct(
-             $supervisorUserId,
-             $serviceUserId,
-             $agentUserId=null
+         $supervisorUserId,
+         $serviceUserId,
+         $agentUserId = null
     ) {
-        $this->supervisorUserId = new UserId($supervisorUserId);
-        $this->serviceUserId    = new UserId($serviceUserId);
-        $this->agentUserId      = new UserId($agentUserId);
-        $this->args             = func_get_args();
+        $this->setSupervisorUserId($supervisorUserId);
+        $this->setServiceUserId($serviceUserId);
+        $this->setAgentUserId($agentUserId);
     }
 
-    public function setSupervisorUserId($supervisorUserId)
+    public function setSupervisorUserId($supervisorUserId = null)
     {
-        $supervisorUserId and $this->supervisorUserId = new UserId($supervisorUserId);
+        $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
+             ? $supervisorUserId
+             : new UserId($supervisorUserId);
     }
 
     public function getSupervisorUserId()
@@ -41,9 +45,11 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
         return (!$this->supervisorUserId) ?: $this->supervisorUserId->value();
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -51,9 +57,11 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setAgentUserId($agentUserId)
+    public function setAgentUserId($agentUserId = null)
     {
-        $agentUserId and $this->agentUserId = new UserId($agentUserId);
+        $this->agentUserId = ($agentUserId InstanceOf UserId)
+             ? $agentUserId
+             : new UserId($agentUserId);
     }
 
     public function getAgentUserId()

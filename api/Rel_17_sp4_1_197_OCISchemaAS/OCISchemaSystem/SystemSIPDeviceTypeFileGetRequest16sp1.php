@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $deviceType  = null;
+    protected $fileFormat  = null;
 
     public function __construct(
-             $deviceType,
-             $fileFormat
+         $deviceType,
+         $fileFormat
     ) {
-        $this->deviceType = new AccessDeviceType($deviceType);
-        $this->fileFormat = new DeviceManagementFileFormat($fileFormat);
-        $this->args       = func_get_args();
+        $this->setDeviceType($deviceType);
+        $this->setFileFormat($fileFormat);
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -40,9 +43,11 @@ class SystemSIPDeviceTypeFileGetRequest16sp1 extends ComplexType implements Comp
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setFileFormat($fileFormat)
+    public function setFileFormat($fileFormat = null)
     {
-        $fileFormat and $this->fileFormat = new DeviceManagementFileFormat($fileFormat);
+        $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
+             ? $fileFormat
+             : new DeviceManagementFileFormat($fileFormat);
     }
 
     public function getFileFormat()

@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupHuntGroupModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceActivation  = null;
 
     public function __construct(
-             ServiceActivation $serviceActivation=null
+         ServiceActivation $serviceActivation = null
     ) {
-        $this->serviceActivation = $serviceActivation;
-        $this->args              = func_get_args();
+        $this->setServiceActivation($serviceActivation);
     }
 
-    public function setServiceActivation($serviceActivation)
+    public function setServiceActivation(ServiceActivation $serviceActivation = null)
     {
-        $serviceActivation and $this->serviceActivation = new ServiceActivation($serviceActivation);
     }
 
     public function getServiceActivation()

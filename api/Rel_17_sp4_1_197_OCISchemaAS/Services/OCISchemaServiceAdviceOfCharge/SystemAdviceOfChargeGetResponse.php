@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AdviceOfChargeDelayBetweenNotificationSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AdviceOfChargeIncomingAocHandling;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeDelayBetweenNotificationSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeIncomingAocHandling;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,22 +20,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $delayBetweenNotificationSeconds  = null;
+    protected $incomingAocHandling              = null;
+    protected $costInformationSource            = null;
 
-    public function __construct(
-             $delayBetweenNotificationSeconds,
-             $incomingAocHandling,
-             $costInformationSource=null
-    ) {
-        $this->delayBetweenNotificationSeconds = $delayBetweenNotificationSeconds;
-        $this->incomingAocHandling             = $incomingAocHandling;
-        $this->costInformationSource           = new NetAddress($costInformationSource);
-        $this->args                            = func_get_args();
-    }
 
-    public function setDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds)
+    public function setDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds = null)
     {
-        $delayBetweenNotificationSeconds and $this->delayBetweenNotificationSeconds = new AdviceOfChargeDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds);
+        $this->delayBetweenNotificationSeconds = ($delayBetweenNotificationSeconds InstanceOf AdviceOfChargeDelayBetweenNotificationSeconds)
+             ? $delayBetweenNotificationSeconds
+             : new AdviceOfChargeDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds);
     }
 
     public function getDelayBetweenNotificationSeconds()
@@ -43,9 +38,11 @@ class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInte
         return (!$this->delayBetweenNotificationSeconds) ?: $this->delayBetweenNotificationSeconds->value();
     }
 
-    public function setIncomingAocHandling($incomingAocHandling)
+    public function setIncomingAocHandling($incomingAocHandling = null)
     {
-        $incomingAocHandling and $this->incomingAocHandling = new AdviceOfChargeIncomingAocHandling($incomingAocHandling);
+        $this->incomingAocHandling = ($incomingAocHandling InstanceOf AdviceOfChargeIncomingAocHandling)
+             ? $incomingAocHandling
+             : new AdviceOfChargeIncomingAocHandling($incomingAocHandling);
     }
 
     public function getIncomingAocHandling()
@@ -53,9 +50,11 @@ class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInte
         return (!$this->incomingAocHandling) ?: $this->incomingAocHandling->value();
     }
 
-    public function setCostInformationSource($costInformationSource)
+    public function setCostInformationSource($costInformationSource = null)
     {
-        $costInformationSource and $this->costInformationSource = new NetAddress($costInformationSource);
+        $this->costInformationSource = ($costInformationSource InstanceOf NetAddress)
+             ? $costInformationSource
+             : new NetAddress($costInformationSource);
     }
 
     public function getCostInformationSource()

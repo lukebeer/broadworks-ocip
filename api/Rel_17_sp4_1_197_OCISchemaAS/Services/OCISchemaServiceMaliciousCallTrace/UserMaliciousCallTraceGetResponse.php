@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaliciousCallTraceCallTypeSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaliciousCallTraceTimePeriod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceCallTypeSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceTimePeriod;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,24 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $isActive            = null;
+    protected $traceTypeSelection  = null;
+    protected $traceForTimePeriod  = null;
+    protected $traceTimePeriod     = null;
 
-    public function __construct(
-             $isActive,
-             $traceTypeSelection,
-             $traceForTimePeriod,
-             $traceTimePeriod=null
-    ) {
-        $this->isActive           = $isActive;
-        $this->traceTypeSelection = $traceTypeSelection;
-        $this->traceForTimePeriod = $traceForTimePeriod;
-        $this->traceTimePeriod    = $traceTimePeriod;
-        $this->args               = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -44,9 +34,11 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setTraceTypeSelection($traceTypeSelection)
+    public function setTraceTypeSelection($traceTypeSelection = null)
     {
-        $traceTypeSelection and $this->traceTypeSelection = new MaliciousCallTraceCallTypeSelection($traceTypeSelection);
+        $this->traceTypeSelection = ($traceTypeSelection InstanceOf MaliciousCallTraceCallTypeSelection)
+             ? $traceTypeSelection
+             : new MaliciousCallTraceCallTypeSelection($traceTypeSelection);
     }
 
     public function getTraceTypeSelection()
@@ -54,9 +46,8 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
         return (!$this->traceTypeSelection) ?: $this->traceTypeSelection->value();
     }
 
-    public function setTraceForTimePeriod($traceForTimePeriod)
+    public function setTraceForTimePeriod(xs:boolean $traceForTimePeriod = null)
     {
-        $traceForTimePeriod and $this->traceForTimePeriod = new xs:boolean($traceForTimePeriod);
     }
 
     public function getTraceForTimePeriod()
@@ -64,9 +55,8 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
         return (!$this->traceForTimePeriod) ?: $this->traceForTimePeriod->value();
     }
 
-    public function setTraceTimePeriod($traceTimePeriod)
+    public function setTraceTimePeriod(MaliciousCallTraceTimePeriod $traceTimePeriod = null)
     {
-        $traceTimePeriod and $this->traceTimePeriod = new MaliciousCallTraceTimePeriod($traceTimePeriod);
     }
 
     public function getTraceTimePeriod()

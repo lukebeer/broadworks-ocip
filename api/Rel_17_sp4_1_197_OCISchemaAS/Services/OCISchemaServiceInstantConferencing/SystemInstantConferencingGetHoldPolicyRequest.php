@@ -22,6 +22,5 @@ class SystemInstantConferencingGetHoldPolicyRequest extends ComplexType implemen
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

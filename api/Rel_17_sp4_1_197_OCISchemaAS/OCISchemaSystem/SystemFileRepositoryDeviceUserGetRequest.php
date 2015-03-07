@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $fileRepositoryName  = null;
+    protected $userName            = null;
 
     public function __construct(
-             $fileRepositoryName,
-             $userName
+         $fileRepositoryName,
+         $userName
     ) {
-        $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
-        $this->userName           = new FileRepositoryUserName($userName);
-        $this->args               = func_get_args();
+        $this->setFileRepositoryName($fileRepositoryName);
+        $this->setUserName($userName);
     }
 
-    public function setFileRepositoryName($fileRepositoryName)
+    public function setFileRepositoryName($fileRepositoryName = null)
     {
-        $fileRepositoryName and $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
+             ? $fileRepositoryName
+             : new FileRepositoryName($fileRepositoryName);
     }
 
     public function getFileRepositoryName()
@@ -40,9 +43,11 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
         return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->value();
     }
 
-    public function setUserName($userName)
+    public function setUserName($userName = null)
     {
-        $userName and $this->userName = new FileRepositoryUserName($userName);
+        $this->userName = ($userName InstanceOf FileRepositoryUserName)
+             ? $userName
+             : new FileRepositoryUserName($userName);
     }
 
     public function getUserName()

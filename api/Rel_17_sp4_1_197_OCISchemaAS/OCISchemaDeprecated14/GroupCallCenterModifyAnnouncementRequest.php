@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,36 +20,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceUserId                    = null;
+    protected $entranceMessageSelection         = null;
+    protected $entranceMessageAudioFile         = null;
+    protected $entranceMessageVideoFile         = null;
+    protected $periodicComfortMessageSelection  = null;
+    protected $periodicComfortMessageAudioFile  = null;
+    protected $periodicComfortMessageVideoFile  = null;
+    protected $onHoldMessageSelection           = null;
+    protected $onHoldMessageAudioFile           = null;
+    protected $onHoldMessageVideoFile           = null;
 
     public function __construct(
-             $serviceUserId,
-             $entranceMessageSelection=null,
-             LabeledFileResource $entranceMessageAudioFile=null,
-             LabeledFileResource $entranceMessageVideoFile=null,
-             $periodicComfortMessageSelection=null,
-             LabeledFileResource $periodicComfortMessageAudioFile=null,
-             LabeledFileResource $periodicComfortMessageVideoFile=null,
-             $onHoldMessageSelection=null,
-             LabeledFileResource $onHoldMessageAudioFile=null,
-             LabeledFileResource $onHoldMessageVideoFile=null
+         $serviceUserId,
+         $entranceMessageSelection = null,
+         LabeledFileResource $entranceMessageAudioFile = null,
+         LabeledFileResource $entranceMessageVideoFile = null,
+         $periodicComfortMessageSelection = null,
+         LabeledFileResource $periodicComfortMessageAudioFile = null,
+         LabeledFileResource $periodicComfortMessageVideoFile = null,
+         $onHoldMessageSelection = null,
+         LabeledFileResource $onHoldMessageAudioFile = null,
+         LabeledFileResource $onHoldMessageVideoFile = null
     ) {
-        $this->serviceUserId                   = new UserId($serviceUserId);
-        $this->entranceMessageSelection        = $entranceMessageSelection;
-        $this->entranceMessageAudioFile        = $entranceMessageAudioFile;
-        $this->entranceMessageVideoFile        = $entranceMessageVideoFile;
-        $this->periodicComfortMessageSelection = $periodicComfortMessageSelection;
-        $this->periodicComfortMessageAudioFile = $periodicComfortMessageAudioFile;
-        $this->periodicComfortMessageVideoFile = $periodicComfortMessageVideoFile;
-        $this->onHoldMessageSelection          = $onHoldMessageSelection;
-        $this->onHoldMessageAudioFile          = $onHoldMessageAudioFile;
-        $this->onHoldMessageVideoFile          = $onHoldMessageVideoFile;
-        $this->args                            = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setEntranceMessageSelection($entranceMessageSelection);
+        $this->setEntranceMessageAudioFile($entranceMessageAudioFile);
+        $this->setEntranceMessageVideoFile($entranceMessageVideoFile);
+        $this->setPeriodicComfortMessageSelection($periodicComfortMessageSelection);
+        $this->setPeriodicComfortMessageAudioFile($periodicComfortMessageAudioFile);
+        $this->setPeriodicComfortMessageVideoFile($periodicComfortMessageVideoFile);
+        $this->setOnHoldMessageSelection($onHoldMessageSelection);
+        $this->setOnHoldMessageAudioFile($onHoldMessageAudioFile);
+        $this->setOnHoldMessageVideoFile($onHoldMessageVideoFile);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -57,9 +68,11 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setEntranceMessageSelection($entranceMessageSelection)
+    public function setEntranceMessageSelection($entranceMessageSelection = null)
     {
-        $entranceMessageSelection and $this->entranceMessageSelection = new CallCenterAnnouncementSelection($entranceMessageSelection);
+        $this->entranceMessageSelection = ($entranceMessageSelection InstanceOf CallCenterAnnouncementSelection)
+             ? $entranceMessageSelection
+             : new CallCenterAnnouncementSelection($entranceMessageSelection);
     }
 
     public function getEntranceMessageSelection()
@@ -67,9 +80,8 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->entranceMessageSelection) ?: $this->entranceMessageSelection->value();
     }
 
-    public function setEntranceMessageAudioFile($entranceMessageAudioFile)
+    public function setEntranceMessageAudioFile(LabeledFileResource $entranceMessageAudioFile = null)
     {
-        $entranceMessageAudioFile and $this->entranceMessageAudioFile = new LabeledFileResource($entranceMessageAudioFile);
     }
 
     public function getEntranceMessageAudioFile()
@@ -77,9 +89,8 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->entranceMessageAudioFile) ?: $this->entranceMessageAudioFile->value();
     }
 
-    public function setEntranceMessageVideoFile($entranceMessageVideoFile)
+    public function setEntranceMessageVideoFile(LabeledFileResource $entranceMessageVideoFile = null)
     {
-        $entranceMessageVideoFile and $this->entranceMessageVideoFile = new LabeledFileResource($entranceMessageVideoFile);
     }
 
     public function getEntranceMessageVideoFile()
@@ -87,9 +98,11 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->entranceMessageVideoFile) ?: $this->entranceMessageVideoFile->value();
     }
 
-    public function setPeriodicComfortMessageSelection($periodicComfortMessageSelection)
+    public function setPeriodicComfortMessageSelection($periodicComfortMessageSelection = null)
     {
-        $periodicComfortMessageSelection and $this->periodicComfortMessageSelection = new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
+        $this->periodicComfortMessageSelection = ($periodicComfortMessageSelection InstanceOf CallCenterAnnouncementSelection)
+             ? $periodicComfortMessageSelection
+             : new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
     }
 
     public function getPeriodicComfortMessageSelection()
@@ -97,9 +110,8 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->periodicComfortMessageSelection) ?: $this->periodicComfortMessageSelection->value();
     }
 
-    public function setPeriodicComfortMessageAudioFile($periodicComfortMessageAudioFile)
+    public function setPeriodicComfortMessageAudioFile(LabeledFileResource $periodicComfortMessageAudioFile = null)
     {
-        $periodicComfortMessageAudioFile and $this->periodicComfortMessageAudioFile = new LabeledFileResource($periodicComfortMessageAudioFile);
     }
 
     public function getPeriodicComfortMessageAudioFile()
@@ -107,9 +119,8 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->periodicComfortMessageAudioFile) ?: $this->periodicComfortMessageAudioFile->value();
     }
 
-    public function setPeriodicComfortMessageVideoFile($periodicComfortMessageVideoFile)
+    public function setPeriodicComfortMessageVideoFile(LabeledFileResource $periodicComfortMessageVideoFile = null)
     {
-        $periodicComfortMessageVideoFile and $this->periodicComfortMessageVideoFile = new LabeledFileResource($periodicComfortMessageVideoFile);
     }
 
     public function getPeriodicComfortMessageVideoFile()
@@ -117,9 +128,11 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->periodicComfortMessageVideoFile) ?: $this->periodicComfortMessageVideoFile->value();
     }
 
-    public function setOnHoldMessageSelection($onHoldMessageSelection)
+    public function setOnHoldMessageSelection($onHoldMessageSelection = null)
     {
-        $onHoldMessageSelection and $this->onHoldMessageSelection = new CallCenterAnnouncementSelection($onHoldMessageSelection);
+        $this->onHoldMessageSelection = ($onHoldMessageSelection InstanceOf CallCenterAnnouncementSelection)
+             ? $onHoldMessageSelection
+             : new CallCenterAnnouncementSelection($onHoldMessageSelection);
     }
 
     public function getOnHoldMessageSelection()
@@ -127,9 +140,8 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->onHoldMessageSelection) ?: $this->onHoldMessageSelection->value();
     }
 
-    public function setOnHoldMessageAudioFile($onHoldMessageAudioFile)
+    public function setOnHoldMessageAudioFile(LabeledFileResource $onHoldMessageAudioFile = null)
     {
-        $onHoldMessageAudioFile and $this->onHoldMessageAudioFile = new LabeledFileResource($onHoldMessageAudioFile);
     }
 
     public function getOnHoldMessageAudioFile()
@@ -137,9 +149,8 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->onHoldMessageAudioFile) ?: $this->onHoldMessageAudioFile->value();
     }
 
-    public function setOnHoldMessageVideoFile($onHoldMessageVideoFile)
+    public function setOnHoldMessageVideoFile(LabeledFileResource $onHoldMessageVideoFile = null)
     {
-        $onHoldMessageVideoFile and $this->onHoldMessageVideoFile = new LabeledFileResource($onHoldMessageVideoFile);
     }
 
     public function getOnHoldMessageVideoFile()

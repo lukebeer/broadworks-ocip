@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactPolicySelection extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $policySelection  = null;
 
     public function __construct(
-             $policySelection
+         $policySelection
     ) {
-        $this->policySelection = new EnterpriseVoiceVPNPolicySelection($policySelection);
-        $this->args            = func_get_args();
+        $this->setPolicySelection($policySelection);
     }
 
-    public function setPolicySelection($policySelection)
+    public function setPolicySelection($policySelection = null)
     {
-        $policySelection and $this->policySelection = new EnterpriseVoiceVPNPolicySelection($policySelection);
+        $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
+             ? $policySelection
+             : new EnterpriseVoiceVPNPolicySelection($policySelection);
     }
 
     public function getPolicySelection()

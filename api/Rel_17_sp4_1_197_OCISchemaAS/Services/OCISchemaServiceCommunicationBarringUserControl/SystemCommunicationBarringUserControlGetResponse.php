@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringUserControlNumberOfAttempts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringUserControlLockoutMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlNumberOfAttempts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlLockoutMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringUserControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $enableLockout              = null;
+    protected $maxNumberOfFailedAttempts  = null;
+    protected $lockoutMinutes             = null;
 
-    public function __construct(
-             $enableLockout,
-             $maxNumberOfFailedAttempts,
-             $lockoutMinutes
-    ) {
-        $this->enableLockout             = $enableLockout;
-        $this->maxNumberOfFailedAttempts = $maxNumberOfFailedAttempts;
-        $this->lockoutMinutes            = $lockoutMinutes;
-        $this->args                      = func_get_args();
-    }
 
-    public function setEnableLockout($enableLockout)
+    public function setEnableLockout(xs:boolean $enableLockout = null)
     {
-        $enableLockout and $this->enableLockout = new xs:boolean($enableLockout);
     }
 
     public function getEnableLockout()
@@ -43,9 +34,11 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
         return (!$this->enableLockout) ?: $this->enableLockout->value();
     }
 
-    public function setMaxNumberOfFailedAttempts($maxNumberOfFailedAttempts)
+    public function setMaxNumberOfFailedAttempts($maxNumberOfFailedAttempts = null)
     {
-        $maxNumberOfFailedAttempts and $this->maxNumberOfFailedAttempts = new CommunicationBarringUserControlNumberOfAttempts($maxNumberOfFailedAttempts);
+        $this->maxNumberOfFailedAttempts = ($maxNumberOfFailedAttempts InstanceOf CommunicationBarringUserControlNumberOfAttempts)
+             ? $maxNumberOfFailedAttempts
+             : new CommunicationBarringUserControlNumberOfAttempts($maxNumberOfFailedAttempts);
     }
 
     public function getMaxNumberOfFailedAttempts()
@@ -53,9 +46,11 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
         return (!$this->maxNumberOfFailedAttempts) ?: $this->maxNumberOfFailedAttempts->value();
     }
 
-    public function setLockoutMinutes($lockoutMinutes)
+    public function setLockoutMinutes($lockoutMinutes = null)
     {
-        $lockoutMinutes and $this->lockoutMinutes = new CommunicationBarringUserControlLockoutMinutes($lockoutMinutes);
+        $this->lockoutMinutes = ($lockoutMinutes InstanceOf CommunicationBarringUserControlLockoutMinutes)
+             ? $lockoutMinutes
+             : new CommunicationBarringUserControlLockoutMinutes($lockoutMinutes);
     }
 
     public function getLockoutMinutes()

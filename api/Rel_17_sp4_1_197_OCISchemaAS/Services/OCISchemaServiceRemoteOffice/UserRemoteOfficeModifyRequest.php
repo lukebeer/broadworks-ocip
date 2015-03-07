@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRemoteOffice; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $userId                   = null;
+    protected $isActive                 = null;
+    protected $remoteOfficePhoneNumber  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $remoteOfficePhoneNumber=null
+         $userId,
+         $isActive = null,
+         $remoteOfficePhoneNumber = null
     ) {
-        $this->userId                  = new UserId($userId);
-        $this->isActive                = $isActive;
-        $this->remoteOfficePhoneNumber = new OutgoingDNorSIPURI($remoteOfficePhoneNumber);
-        $this->args                    = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setRemoteOfficePhoneNumber($remoteOfficePhoneNumber);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -53,9 +55,11 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setRemoteOfficePhoneNumber($remoteOfficePhoneNumber)
+    public function setRemoteOfficePhoneNumber($remoteOfficePhoneNumber = null)
     {
-        $remoteOfficePhoneNumber and $this->remoteOfficePhoneNumber = new OutgoingDNorSIPURI($remoteOfficePhoneNumber);
+        $this->remoteOfficePhoneNumber = ($remoteOfficePhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $remoteOfficePhoneNumber
+             : new OutgoingDNorSIPURI($remoteOfficePhoneNumber);
     }
 
     public function getRemoteOfficePhoneNumber()

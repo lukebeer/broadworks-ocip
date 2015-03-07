@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterModifyAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $serviceUserId    = null;
+    protected $agentUserIdList  = null;
 
     public function __construct(
-             $serviceUserId,
-             ReplacementUserIdList $agentUserIdList=null
+         $serviceUserId,
+         ReplacementUserIdList $agentUserIdList = null
     ) {
-        $this->serviceUserId   = new UserId($serviceUserId);
-        $this->agentUserIdList = $agentUserIdList;
-        $this->args            = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setAgentUserIdList($agentUserIdList);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -40,9 +43,8 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setAgentUserIdList($agentUserIdList)
+    public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        $agentUserIdList and $this->agentUserIdList = new ReplacementUserIdList($agentUserIdList);
     }
 
     public function getAgentUserIdList()

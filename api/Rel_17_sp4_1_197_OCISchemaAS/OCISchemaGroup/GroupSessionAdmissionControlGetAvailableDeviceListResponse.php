@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupSessionAdmissionControlGetAvailableDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $accessDevice  = null;
 
-    public function __construct(
-             AccessDevice $accessDevice=null
-    ) {
-        $this->accessDevice = $accessDevice;
-        $this->args         = func_get_args();
-    }
 
-    public function setAccessDevice($accessDevice)
+    public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $accessDevice and $this->accessDevice = new AccessDevice($accessDevice);
     }
 
     public function getAccessDevice()

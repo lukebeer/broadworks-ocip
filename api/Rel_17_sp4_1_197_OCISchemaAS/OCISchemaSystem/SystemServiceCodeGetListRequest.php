@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaServiceCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaServiceCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaServiceCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaServiceCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,22 +22,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $responseSizeLimit                     = null;
+    protected $searchCriteriaServiceCode             = null;
+    protected $searchCriteriaServiceCodeDescription  = null;
 
     public function __construct(
-             $responseSizeLimit=null,
-             $searchCriteriaServiceCode=null,
-             $searchCriteriaServiceCodeDescription=null
+         $responseSizeLimit = null,
+         SearchCriteriaServiceCode $searchCriteriaServiceCode = null,
+         SearchCriteriaServiceCodeDescription $searchCriteriaServiceCodeDescription = null
     ) {
-        $this->responseSizeLimit                    = $responseSizeLimit;
-        $this->searchCriteriaServiceCode            = $searchCriteriaServiceCode;
-        $this->searchCriteriaServiceCodeDescription = $searchCriteriaServiceCodeDescription;
-        $this->args                                 = func_get_args();
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaServiceCode($searchCriteriaServiceCode);
+        $this->setSearchCriteriaServiceCodeDescription($searchCriteriaServiceCodeDescription);
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -45,9 +49,8 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaServiceCode($searchCriteriaServiceCode)
+    public function setSearchCriteriaServiceCode(SearchCriteriaServiceCode $searchCriteriaServiceCode = null)
     {
-        $searchCriteriaServiceCode and $this->searchCriteriaServiceCode = new SearchCriteriaServiceCode($searchCriteriaServiceCode);
     }
 
     public function getSearchCriteriaServiceCode()
@@ -55,9 +58,8 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
         return (!$this->searchCriteriaServiceCode) ?: $this->searchCriteriaServiceCode->value();
     }
 
-    public function setSearchCriteriaServiceCodeDescription($searchCriteriaServiceCodeDescription)
+    public function setSearchCriteriaServiceCodeDescription(SearchCriteriaServiceCodeDescription $searchCriteriaServiceCodeDescription = null)
     {
-        $searchCriteriaServiceCodeDescription and $this->searchCriteriaServiceCodeDescription = new SearchCriteriaServiceCodeDescription($searchCriteriaServiceCodeDescription);
     }
 
     public function getSearchCriteriaServiceCodeDescription()

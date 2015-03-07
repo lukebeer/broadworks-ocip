@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNExtensionLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNExtensionLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNPolicySelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,26 +20,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $minExtensionLength  = null;
+    protected $maxExtensionLength  = null;
+    protected $description         = null;
+    protected $routeGroupId        = null;
+    protected $policySelection     = null;
 
-    public function __construct(
-             $minExtensionLength,
-             $maxExtensionLength,
-             $description=null,
-             $routeGroupId=null,
-             $policySelection
-    ) {
-        $this->minExtensionLength = $minExtensionLength;
-        $this->maxExtensionLength = $maxExtensionLength;
-        $this->description        = $description;
-        $this->routeGroupId       = new GroupId($routeGroupId);
-        $this->policySelection    = new EnterpriseVoiceVPNPolicySelection($policySelection);
-        $this->args               = func_get_args();
-    }
 
-    public function setMinExtensionLength($minExtensionLength)
+    public function setMinExtensionLength($minExtensionLength = null)
     {
-        $minExtensionLength and $this->minExtensionLength = new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
+        $this->minExtensionLength = ($minExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
+             ? $minExtensionLength
+             : new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
     }
 
     public function getMinExtensionLength()
@@ -47,9 +40,11 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
     }
 
-    public function setMaxExtensionLength($maxExtensionLength)
+    public function setMaxExtensionLength($maxExtensionLength = null)
     {
-        $maxExtensionLength and $this->maxExtensionLength = new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
+        $this->maxExtensionLength = ($maxExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
+             ? $maxExtensionLength
+             : new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
     }
 
     public function getMaxExtensionLength()
@@ -57,9 +52,11 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new EnterpriseVoiceVPNDescription($description);
+        $this->description = ($description InstanceOf EnterpriseVoiceVPNDescription)
+             ? $description
+             : new EnterpriseVoiceVPNDescription($description);
     }
 
     public function getDescription()
@@ -67,9 +64,11 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setRouteGroupId($routeGroupId)
+    public function setRouteGroupId($routeGroupId = null)
     {
-        $routeGroupId and $this->routeGroupId = new GroupId($routeGroupId);
+        $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
+             ? $routeGroupId
+             : new GroupId($routeGroupId);
     }
 
     public function getRouteGroupId()
@@ -77,9 +76,11 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         return (!$this->routeGroupId) ?: $this->routeGroupId->value();
     }
 
-    public function setPolicySelection($policySelection)
+    public function setPolicySelection($policySelection = null)
     {
-        $policySelection and $this->policySelection = new EnterpriseVoiceVPNPolicySelection($policySelection);
+        $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
+             ? $policySelection
+             : new EnterpriseVoiceVPNPolicySelection($policySelection);
     }
 
     public function getPolicySelection()

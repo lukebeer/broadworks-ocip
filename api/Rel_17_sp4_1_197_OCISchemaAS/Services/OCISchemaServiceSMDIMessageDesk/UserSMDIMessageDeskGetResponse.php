@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SMDIMessageDeskNumber;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIMessageDeskNumber;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $isActive           = null;
+    protected $messageDeskNumber  = null;
 
-    public function __construct(
-             $isActive,
-             $messageDeskNumber=null
-    ) {
-        $this->isActive          = $isActive;
-        $this->messageDeskNumber = $messageDeskNumber;
-        $this->args              = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -39,9 +31,11 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setMessageDeskNumber($messageDeskNumber)
+    public function setMessageDeskNumber($messageDeskNumber = null)
     {
-        $messageDeskNumber and $this->messageDeskNumber = new SMDIMessageDeskNumber($messageDeskNumber);
+        $this->messageDeskNumber = ($messageDeskNumber InstanceOf SMDIMessageDeskNumber)
+             ? $messageDeskNumber
+             : new SMDIMessageDeskNumber($messageDeskNumber);
     }
 
     public function getMessageDeskNumber()

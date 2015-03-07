@@ -20,18 +20,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $zoneName  = null;
 
     public function __construct(
-             $zoneName
+         $zoneName
     ) {
-        $this->zoneName = new ZoneName($zoneName);
-        $this->args     = func_get_args();
+        $this->setZoneName($zoneName);
     }
 
-    public function setZoneName($zoneName)
+    public function setZoneName($zoneName = null)
     {
-        $zoneName and $this->zoneName = new ZoneName($zoneName);
+        $this->zoneName = ($zoneName InstanceOf ZoneName)
+             ? $zoneName
+             : new ZoneName($zoneName);
     }
 
     public function getZoneName()

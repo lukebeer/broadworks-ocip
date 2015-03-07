@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                        = __CLASS__;
+    protected $enableDirectoryPrivacy                      = null;
+    protected $enableAutoAttendantExtensionDialingPrivacy  = null;
+    protected $enableAutoAttendantNameDialingPrivacy       = null;
 
-    public function __construct(
-             $enableDirectoryPrivacy,
-             $enableAutoAttendantExtensionDialingPrivacy,
-             $enableAutoAttendantNameDialingPrivacy
-    ) {
-        $this->enableDirectoryPrivacy                     = $enableDirectoryPrivacy;
-        $this->enableAutoAttendantExtensionDialingPrivacy = $enableAutoAttendantExtensionDialingPrivacy;
-        $this->enableAutoAttendantNameDialingPrivacy      = $enableAutoAttendantNameDialingPrivacy;
-        $this->args                                       = func_get_args();
-    }
 
-    public function setEnableDirectoryPrivacy($enableDirectoryPrivacy)
+    public function setEnableDirectoryPrivacy(xs:boolean $enableDirectoryPrivacy = null)
     {
-        $enableDirectoryPrivacy and $this->enableDirectoryPrivacy = new xs:boolean($enableDirectoryPrivacy);
     }
 
     public function getEnableDirectoryPrivacy()
@@ -40,9 +32,8 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
         return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->value();
     }
 
-    public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy)
+    public function setEnableAutoAttendantExtensionDialingPrivacy(xs:boolean $enableAutoAttendantExtensionDialingPrivacy = null)
     {
-        $enableAutoAttendantExtensionDialingPrivacy and $this->enableAutoAttendantExtensionDialingPrivacy = new xs:boolean($enableAutoAttendantExtensionDialingPrivacy);
     }
 
     public function getEnableAutoAttendantExtensionDialingPrivacy()
@@ -50,9 +41,8 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
         return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->value();
     }
 
-    public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy)
+    public function setEnableAutoAttendantNameDialingPrivacy(xs:boolean $enableAutoAttendantNameDialingPrivacy = null)
     {
-        $enableAutoAttendantNameDialingPrivacy and $this->enableAutoAttendantNameDialingPrivacy = new xs:boolean($enableAutoAttendantNameDialingPrivacy);
     }
 
     public function getEnableAutoAttendantNameDialingPrivacy()

@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerCertificateFile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerInformationFile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerMaxTxPerSecond;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerInformationFile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerCertificateFile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerMaxTxPerSecond;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,38 +22,50 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $informationFile               = null;
+    protected $certificateFile               = null;
+    protected $localToCarrier                = null;
+    protected $maxTxPerSecondEnabled         = null;
+    protected $maxTxPerSecond                = null;
+    protected $tldnEnabled                   = null;
+    protected $genericNumberEnabled          = null;
+    protected $mobileStateCheckEnabled       = null;
+    protected $locationBasedServicesEnabled  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $informationFile=null,
-             $certificateFile=null,
-             $localToCarrier=null,
-             $maxTxPerSecondEnabled=null,
-             $maxTxPerSecond=null,
-             $tldnEnabled=null,
-             $genericNumberEnabled=null,
-             $mobileStateCheckEnabled=null,
-             $locationBasedServicesEnabled=null
+         $serviceProviderId,
+         $groupId,
+         $informationFile = null,
+         $certificateFile = null,
+         $localToCarrier = null,
+         $maxTxPerSecondEnabled = null,
+         $maxTxPerSecond = null,
+         $tldnEnabled = null,
+         $genericNumberEnabled = null,
+         $mobileStateCheckEnabled = null,
+         $locationBasedServicesEnabled = null
     ) {
-        $this->serviceProviderId            = new ServiceProviderId($serviceProviderId);
-        $this->groupId                      = new GroupId($groupId);
-        $this->informationFile              = new BroadWorksMobileManagerInformationFile($informationFile);
-        $this->certificateFile              = new BroadWorksMobileManagerCertificateFile($certificateFile);
-        $this->localToCarrier               = $localToCarrier;
-        $this->maxTxPerSecondEnabled        = $maxTxPerSecondEnabled;
-        $this->maxTxPerSecond               = new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
-        $this->tldnEnabled                  = $tldnEnabled;
-        $this->genericNumberEnabled         = $genericNumberEnabled;
-        $this->mobileStateCheckEnabled      = $mobileStateCheckEnabled;
-        $this->locationBasedServicesEnabled = $locationBasedServicesEnabled;
-        $this->args                         = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setInformationFile($informationFile);
+        $this->setCertificateFile($certificateFile);
+        $this->setLocalToCarrier($localToCarrier);
+        $this->setMaxTxPerSecondEnabled($maxTxPerSecondEnabled);
+        $this->setMaxTxPerSecond($maxTxPerSecond);
+        $this->setTldnEnabled($tldnEnabled);
+        $this->setGenericNumberEnabled($genericNumberEnabled);
+        $this->setMobileStateCheckEnabled($mobileStateCheckEnabled);
+        $this->setLocationBasedServicesEnabled($locationBasedServicesEnabled);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -62,9 +73,11 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -72,9 +85,11 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setInformationFile($informationFile)
+    public function setInformationFile($informationFile = null)
     {
-        $informationFile and $this->informationFile = new BroadWorksMobileManagerInformationFile($informationFile);
+        $this->informationFile = ($informationFile InstanceOf BroadWorksMobileManagerInformationFile)
+             ? $informationFile
+             : new BroadWorksMobileManagerInformationFile($informationFile);
     }
 
     public function getInformationFile()
@@ -82,9 +97,11 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->informationFile) ?: $this->informationFile->value();
     }
 
-    public function setCertificateFile($certificateFile)
+    public function setCertificateFile($certificateFile = null)
     {
-        $certificateFile and $this->certificateFile = new BroadWorksMobileManagerCertificateFile($certificateFile);
+        $this->certificateFile = ($certificateFile InstanceOf BroadWorksMobileManagerCertificateFile)
+             ? $certificateFile
+             : new BroadWorksMobileManagerCertificateFile($certificateFile);
     }
 
     public function getCertificateFile()
@@ -92,9 +109,8 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->certificateFile) ?: $this->certificateFile->value();
     }
 
-    public function setLocalToCarrier($localToCarrier)
+    public function setLocalToCarrier(xs:boolean $localToCarrier = null)
     {
-        $localToCarrier and $this->localToCarrier = new xs:boolean($localToCarrier);
     }
 
     public function getLocalToCarrier()
@@ -102,9 +118,8 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->localToCarrier) ?: $this->localToCarrier->value();
     }
 
-    public function setMaxTxPerSecondEnabled($maxTxPerSecondEnabled)
+    public function setMaxTxPerSecondEnabled(xs:boolean $maxTxPerSecondEnabled = null)
     {
-        $maxTxPerSecondEnabled and $this->maxTxPerSecondEnabled = new xs:boolean($maxTxPerSecondEnabled);
     }
 
     public function getMaxTxPerSecondEnabled()
@@ -112,9 +127,11 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->maxTxPerSecondEnabled) ?: $this->maxTxPerSecondEnabled->value();
     }
 
-    public function setMaxTxPerSecond($maxTxPerSecond)
+    public function setMaxTxPerSecond($maxTxPerSecond = null)
     {
-        $maxTxPerSecond and $this->maxTxPerSecond = new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
+        $this->maxTxPerSecond = ($maxTxPerSecond InstanceOf BroadWorksMobileManagerMaxTxPerSecond)
+             ? $maxTxPerSecond
+             : new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
     }
 
     public function getMaxTxPerSecond()
@@ -122,9 +139,8 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->maxTxPerSecond) ?: $this->maxTxPerSecond->value();
     }
 
-    public function setTldnEnabled($tldnEnabled)
+    public function setTldnEnabled(xs:boolean $tldnEnabled = null)
     {
-        $tldnEnabled and $this->tldnEnabled = new xs:boolean($tldnEnabled);
     }
 
     public function getTldnEnabled()
@@ -132,9 +148,8 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->tldnEnabled) ?: $this->tldnEnabled->value();
     }
 
-    public function setGenericNumberEnabled($genericNumberEnabled)
+    public function setGenericNumberEnabled(xs:boolean $genericNumberEnabled = null)
     {
-        $genericNumberEnabled and $this->genericNumberEnabled = new xs:boolean($genericNumberEnabled);
     }
 
     public function getGenericNumberEnabled()
@@ -142,9 +157,8 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->genericNumberEnabled) ?: $this->genericNumberEnabled->value();
     }
 
-    public function setMobileStateCheckEnabled($mobileStateCheckEnabled)
+    public function setMobileStateCheckEnabled(xs:boolean $mobileStateCheckEnabled = null)
     {
-        $mobileStateCheckEnabled and $this->mobileStateCheckEnabled = new xs:boolean($mobileStateCheckEnabled);
     }
 
     public function getMobileStateCheckEnabled()
@@ -152,9 +166,8 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         return (!$this->mobileStateCheckEnabled) ?: $this->mobileStateCheckEnabled->value();
     }
 
-    public function setLocationBasedServicesEnabled($locationBasedServicesEnabled)
+    public function setLocationBasedServicesEnabled(xs:boolean $locationBasedServicesEnabled = null)
     {
-        $locationBasedServicesEnabled and $this->locationBasedServicesEnabled = new xs:boolean($locationBasedServicesEnabled);
     }
 
     public function getLocationBasedServicesEnabled()

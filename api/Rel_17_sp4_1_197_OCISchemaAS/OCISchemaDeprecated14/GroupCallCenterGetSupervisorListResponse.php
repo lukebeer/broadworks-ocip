@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,20 +20,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetSupervisorListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $reportingServerURL  = null;
+    protected $supervisorTable     = null;
 
-    public function __construct(
-             $reportingServerURL=null,
-             $supervisorTable
-    ) {
-        $this->reportingServerURL = new URL($reportingServerURL);
-        $this->supervisorTable    = $supervisorTable;
-        $this->args               = func_get_args();
-    }
 
-    public function setReportingServerURL($reportingServerURL)
+    public function setReportingServerURL($reportingServerURL = null)
     {
-        $reportingServerURL and $this->reportingServerURL = new URL($reportingServerURL);
+        $this->reportingServerURL = ($reportingServerURL InstanceOf URL)
+             ? $reportingServerURL
+             : new URL($reportingServerURL);
     }
 
     public function getReportingServerURL()
@@ -42,9 +37,8 @@ class GroupCallCenterGetSupervisorListResponse extends ComplexType implements Co
         return (!$this->reportingServerURL) ?: $this->reportingServerURL->value();
     }
 
-    public function setSupervisorTable($supervisorTable)
+    public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
-        $supervisorTable and $this->supervisorTable = new core:OCITable($supervisorTable);
     }
 
     public function getSupervisorTable()

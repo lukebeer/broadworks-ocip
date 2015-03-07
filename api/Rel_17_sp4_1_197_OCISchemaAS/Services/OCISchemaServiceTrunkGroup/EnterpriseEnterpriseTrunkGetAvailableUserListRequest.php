@@ -7,14 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaAlternateTrunkIdentity;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaAlternateTrunkIdentity;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,32 +27,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $serviceProviderId                     = null;
+    protected $responseSizeLimit                     = null;
+    protected $searchCriteriaUserLastName            = null;
+    protected $searchCriteriaUserFirstName           = null;
+    protected $searchCriteriaDn                      = null;
+    protected $searchCriteriaUserId                  = null;
+    protected $searchCriteriaGroupId                 = null;
+    protected $searchCriteriaAlternateTrunkIdentity  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $responseSizeLimit=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaUserFirstName=null,
-             $searchCriteriaDn=null,
-             $searchCriteriaUserId=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaAlternateTrunkIdentity=null
+         $serviceProviderId,
+         $responseSizeLimit = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaUserId $searchCriteriaUserId = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null
     ) {
-        $this->serviceProviderId                    = new ServiceProviderId($serviceProviderId);
-        $this->responseSizeLimit                    = $responseSizeLimit;
-        $this->searchCriteriaUserLastName           = $searchCriteriaUserLastName;
-        $this->searchCriteriaUserFirstName          = $searchCriteriaUserFirstName;
-        $this->searchCriteriaDn                     = $searchCriteriaDn;
-        $this->searchCriteriaUserId                 = $searchCriteriaUserId;
-        $this->searchCriteriaGroupId                = $searchCriteriaGroupId;
-        $this->searchCriteriaAlternateTrunkIdentity = $searchCriteriaAlternateTrunkIdentity;
-        $this->args                                 = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
+        $this->setSearchCriteriaUserId($searchCriteriaUserId);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -60,9 +69,11 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -70,9 +81,8 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -80,9 +90,8 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaUserFirstName($searchCriteriaUserFirstName)
+    public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $searchCriteriaUserFirstName and $this->searchCriteriaUserFirstName = new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
     }
 
     public function getSearchCriteriaUserFirstName()
@@ -90,9 +99,8 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()
@@ -100,9 +108,8 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
     }
 
-    public function setSearchCriteriaUserId($searchCriteriaUserId)
+    public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $searchCriteriaUserId and $this->searchCriteriaUserId = new SearchCriteriaUserId($searchCriteriaUserId);
     }
 
     public function getSearchCriteriaUserId()
@@ -110,9 +117,8 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -120,9 +126,8 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity)
+    public function setSearchCriteriaAlternateTrunkIdentity(SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null)
     {
-        $searchCriteriaAlternateTrunkIdentity and $this->searchCriteriaAlternateTrunkIdentity = new SearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);
     }
 
     public function getSearchCriteriaAlternateTrunkIdentity()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPEntryField;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPEntryField;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name  = __CLASS__;
+    protected $data  = null;
 
-    public function __construct(
-             $data=null
-    ) {
-        $this->data = $data;
-        $this->args = func_get_args();
-    }
 
-    public function setData($data)
+    public function setData(LDAPEntryField $data = null)
     {
-        $data and $this->data = new LDAPEntryField($data);
     }
 
     public function getData()

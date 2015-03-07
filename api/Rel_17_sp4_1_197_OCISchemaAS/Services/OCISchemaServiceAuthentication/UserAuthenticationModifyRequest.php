@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAuthentication; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationUserName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAuthenticationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $userId    = null;
+    protected $userName  = null;
 
     public function __construct(
-             $userId,
-             $userName=null
+         $userId,
+         $userName = null
     ) {
-        $this->userId   = new UserId($userId);
-        $this->userName = new SIPAuthenticationUserName($userName);
-        $this->args     = func_get_args();
+        $this->setUserId($userId);
+        $this->setUserName($userName);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUserName($userName)
+    public function setUserName($userName = null)
     {
-        $userName and $this->userName = new SIPAuthenticationUserName($userName);
+        $this->userName = ($userName InstanceOf SIPAuthenticationUserName)
+             ? $userName
+             : new SIPAuthenticationUserName($userName);
     }
 
     public function getUserName()

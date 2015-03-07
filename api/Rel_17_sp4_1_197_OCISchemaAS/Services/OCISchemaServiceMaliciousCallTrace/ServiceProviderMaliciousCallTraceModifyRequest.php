@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $serviceProviderId                    = null;
+    protected $useSystemPlayMCTWarningAnnouncement  = null;
+    protected $playMCTWarningAnnouncement           = null;
 
     public function __construct(
-             $serviceProviderId,
-             $useSystemPlayMCTWarningAnnouncement=null,
-             $playMCTWarningAnnouncement=null
+         $serviceProviderId,
+         $useSystemPlayMCTWarningAnnouncement = null,
+         $playMCTWarningAnnouncement = null
     ) {
-        $this->serviceProviderId                   = new ServiceProviderId($serviceProviderId);
-        $this->useSystemPlayMCTWarningAnnouncement = $useSystemPlayMCTWarningAnnouncement;
-        $this->playMCTWarningAnnouncement          = $playMCTWarningAnnouncement;
-        $this->args                                = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement);
+        $this->setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -42,9 +45,8 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement)
+    public function setUseSystemPlayMCTWarningAnnouncement(xs:boolean $useSystemPlayMCTWarningAnnouncement = null)
     {
-        $useSystemPlayMCTWarningAnnouncement and $this->useSystemPlayMCTWarningAnnouncement = new xs:boolean($useSystemPlayMCTWarningAnnouncement);
     }
 
     public function getUseSystemPlayMCTWarningAnnouncement()
@@ -52,9 +54,8 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
         return (!$this->useSystemPlayMCTWarningAnnouncement) ?: $this->useSystemPlayMCTWarningAnnouncement->value();
     }
 
-    public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement)
+    public function setPlayMCTWarningAnnouncement(xs:boolean $playMCTWarningAnnouncement = null)
     {
-        $playMCTWarningAnnouncement and $this->playMCTWarningAnnouncement = new xs:boolean($playMCTWarningAnnouncement);
     }
 
     public function getPlayMCTWarningAnnouncement()

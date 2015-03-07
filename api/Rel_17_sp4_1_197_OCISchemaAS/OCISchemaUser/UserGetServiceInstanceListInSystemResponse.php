@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetServiceInstanceListInSystemResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $serviceInstanceTable  = null;
 
-    public function __construct(
-             $serviceInstanceTable
-    ) {
-        $this->serviceInstanceTable = $serviceInstanceTable;
-        $this->args                 = func_get_args();
-    }
 
-    public function setServiceInstanceTable($serviceInstanceTable)
+    public function setServiceInstanceTable(core:OCITable $serviceInstanceTable = null)
     {
-        $serviceInstanceTable and $this->serviceInstanceTable = new core:OCITable($serviceInstanceTable);
     }
 
     public function getServiceInstanceTable()

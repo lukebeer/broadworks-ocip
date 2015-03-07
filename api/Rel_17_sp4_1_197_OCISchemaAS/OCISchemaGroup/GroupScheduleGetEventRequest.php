@@ -8,9 +8,9 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $scheduleKey        = null;
+    protected $eventName          = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             ScheduleKey $scheduleKey,
-             $eventName
+         $serviceProviderId,
+         $groupId,
+         ScheduleKey $scheduleKey,
+         $eventName
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->scheduleKey       = $scheduleKey;
-        $this->eventName         = new EventName($eventName);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setScheduleKey($scheduleKey);
+        $this->setEventName($eventName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -46,9 +51,11 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -56,9 +63,8 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()
@@ -66,9 +72,11 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
         return (!$this->scheduleKey) ?: $this->scheduleKey->value();
     }
 
-    public function setEventName($eventName)
+    public function setEventName($eventName = null)
     {
-        $eventName and $this->eventName = new EventName($eventName);
+        $this->eventName = ($eventName InstanceOf EventName)
+             ? $eventName
+             : new EventName($eventName);
     }
 
     public function getEventName()

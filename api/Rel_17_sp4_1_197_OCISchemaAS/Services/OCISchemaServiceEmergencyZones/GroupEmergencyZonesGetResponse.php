@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmergencyZonesProhibition;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\EmergencyZonesProhibition;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,24 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $isActive                         = null;
+    protected $emergencyZonesProhibition        = null;
+    protected $sendEmergencyCallNotifyEmail     = null;
+    protected $emergencyCallNotifyEmailAddress  = null;
 
-    public function __construct(
-             $isActive,
-             $emergencyZonesProhibition,
-             $sendEmergencyCallNotifyEmail,
-             $emergencyCallNotifyEmailAddress=null
-    ) {
-        $this->isActive                        = $isActive;
-        $this->emergencyZonesProhibition       = $emergencyZonesProhibition;
-        $this->sendEmergencyCallNotifyEmail    = $sendEmergencyCallNotifyEmail;
-        $this->emergencyCallNotifyEmailAddress = new EmailAddress($emergencyCallNotifyEmailAddress);
-        $this->args                            = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -44,9 +34,11 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setEmergencyZonesProhibition($emergencyZonesProhibition)
+    public function setEmergencyZonesProhibition($emergencyZonesProhibition = null)
     {
-        $emergencyZonesProhibition and $this->emergencyZonesProhibition = new EmergencyZonesProhibition($emergencyZonesProhibition);
+        $this->emergencyZonesProhibition = ($emergencyZonesProhibition InstanceOf EmergencyZonesProhibition)
+             ? $emergencyZonesProhibition
+             : new EmergencyZonesProhibition($emergencyZonesProhibition);
     }
 
     public function getEmergencyZonesProhibition()
@@ -54,9 +46,8 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
         return (!$this->emergencyZonesProhibition) ?: $this->emergencyZonesProhibition->value();
     }
 
-    public function setSendEmergencyCallNotifyEmail($sendEmergencyCallNotifyEmail)
+    public function setSendEmergencyCallNotifyEmail(xs:boolean $sendEmergencyCallNotifyEmail = null)
     {
-        $sendEmergencyCallNotifyEmail and $this->sendEmergencyCallNotifyEmail = new xs:boolean($sendEmergencyCallNotifyEmail);
     }
 
     public function getSendEmergencyCallNotifyEmail()
@@ -64,9 +55,11 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
         return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail->value();
     }
 
-    public function setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress)
+    public function setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress = null)
     {
-        $emergencyCallNotifyEmailAddress and $this->emergencyCallNotifyEmailAddress = new EmailAddress($emergencyCallNotifyEmailAddress);
+        $this->emergencyCallNotifyEmailAddress = ($emergencyCallNotifyEmailAddress InstanceOf EmailAddress)
+             ? $emergencyCallNotifyEmailAddress
+             : new EmailAddress($emergencyCallNotifyEmailAddress);
     }
 
     public function getEmergencyCallNotifyEmailAddress()

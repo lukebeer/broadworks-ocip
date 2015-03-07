@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $numberOfCallsQueuedNow  = null;
+    protected $agentsCurrentlyStaffed  = null;
 
-    public function __construct(
-             $numberOfCallsQueuedNow,
-             $agentsCurrentlyStaffed
-    ) {
-        $this->numberOfCallsQueuedNow = $numberOfCallsQueuedNow;
-        $this->agentsCurrentlyStaffed = $agentsCurrentlyStaffed;
-        $this->args                   = func_get_args();
-    }
 
-    public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow)
+    public function setNumberOfCallsQueuedNow(xs:int $numberOfCallsQueuedNow = null)
     {
-        $numberOfCallsQueuedNow and $this->numberOfCallsQueuedNow = new xs:int($numberOfCallsQueuedNow);
     }
 
     public function getNumberOfCallsQueuedNow()
@@ -39,9 +31,8 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
         return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow->value();
     }
 
-    public function setAgentsCurrentlyStaffed($agentsCurrentlyStaffed)
+    public function setAgentsCurrentlyStaffed(core:OCITable $agentsCurrentlyStaffed = null)
     {
-        $agentsCurrentlyStaffed and $this->agentsCurrentlyStaffed = new core:OCITable($agentsCurrentlyStaffed);
     }
 
     public function getAgentsCurrentlyStaffed()

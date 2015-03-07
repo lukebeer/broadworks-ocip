@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPhysicalLocationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $alwaysAllowEmergencyCalls  = null;
 
     public function __construct(
-             $alwaysAllowEmergencyCalls=null
+         $alwaysAllowEmergencyCalls = null
     ) {
-        $this->alwaysAllowEmergencyCalls = $alwaysAllowEmergencyCalls;
-        $this->args                      = func_get_args();
+        $this->setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls);
     }
 
-    public function setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls)
+    public function setAlwaysAllowEmergencyCalls(xs:boolean $alwaysAllowEmergencyCalls = null)
     {
-        $alwaysAllowEmergencyCalls and $this->alwaysAllowEmergencyCalls = new xs:boolean($alwaysAllowEmergencyCalls);
     }
 
     public function getAlwaysAllowEmergencyCalls()

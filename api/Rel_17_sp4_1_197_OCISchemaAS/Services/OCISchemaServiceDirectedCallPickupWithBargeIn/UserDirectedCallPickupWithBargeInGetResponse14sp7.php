@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectedCallPickupWithBargeIn; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $enableBargeInWarningTone        = null;
+    protected $enableAutomaticTargetSelection  = null;
 
-    public function __construct(
-             $enableBargeInWarningTone,
-             $enableAutomaticTargetSelection
-    ) {
-        $this->enableBargeInWarningTone       = $enableBargeInWarningTone;
-        $this->enableAutomaticTargetSelection = $enableAutomaticTargetSelection;
-        $this->args                           = func_get_args();
-    }
 
-    public function setEnableBargeInWarningTone($enableBargeInWarningTone)
+    public function setEnableBargeInWarningTone(xs:boolean $enableBargeInWarningTone = null)
     {
-        $enableBargeInWarningTone and $this->enableBargeInWarningTone = new xs:boolean($enableBargeInWarningTone);
     }
 
     public function getEnableBargeInWarningTone()
@@ -38,9 +31,8 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
         return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone->value();
     }
 
-    public function setEnableAutomaticTargetSelection($enableAutomaticTargetSelection)
+    public function setEnableAutomaticTargetSelection(xs:boolean $enableAutomaticTargetSelection = null)
     {
-        $enableAutomaticTargetSelection and $this->enableAutomaticTargetSelection = new xs:boolean($enableAutomaticTargetSelection);
     }
 
     public function getEnableAutomaticTargetSelection()

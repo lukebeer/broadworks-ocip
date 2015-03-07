@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallParkRecallTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallParkDisplayTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkDisplayTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallParkRecallTo;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -29,30 +28,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $recallTimerSeconds               = null;
+    protected $displayTimerSeconds              = null;
+    protected $enableDestinationAnnouncement    = null;
+    protected $recallAlternateUserId            = null;
+    protected $recallRingPattern                = null;
+    protected $recallTo                         = null;
+    protected $alternateUserRecallTimerSeconds  = null;
 
-    public function __construct(
-             $recallTimerSeconds,
-             $displayTimerSeconds,
-             $enableDestinationAnnouncement,
-             $recallAlternateUserId=null,
-             $recallRingPattern,
-             $recallTo,
-             $alternateUserRecallTimerSeconds
-    ) {
-        $this->recallTimerSeconds              = $recallTimerSeconds;
-        $this->displayTimerSeconds             = $displayTimerSeconds;
-        $this->enableDestinationAnnouncement   = $enableDestinationAnnouncement;
-        $this->recallAlternateUserId           = new UserId($recallAlternateUserId);
-        $this->recallRingPattern               = new RingPattern($recallRingPattern);
-        $this->recallTo                        = $recallTo;
-        $this->alternateUserRecallTimerSeconds = $alternateUserRecallTimerSeconds;
-        $this->args                            = func_get_args();
-    }
 
-    public function setRecallTimerSeconds($recallTimerSeconds)
+    public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
-        $recallTimerSeconds and $this->recallTimerSeconds = new CallParkRecallTimerSeconds($recallTimerSeconds);
+        $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf CallParkRecallTimerSeconds)
+             ? $recallTimerSeconds
+             : new CallParkRecallTimerSeconds($recallTimerSeconds);
     }
 
     public function getRecallTimerSeconds()
@@ -60,9 +50,11 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
         return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->value();
     }
 
-    public function setDisplayTimerSeconds($displayTimerSeconds)
+    public function setDisplayTimerSeconds($displayTimerSeconds = null)
     {
-        $displayTimerSeconds and $this->displayTimerSeconds = new CallParkDisplayTimerSeconds($displayTimerSeconds);
+        $this->displayTimerSeconds = ($displayTimerSeconds InstanceOf CallParkDisplayTimerSeconds)
+             ? $displayTimerSeconds
+             : new CallParkDisplayTimerSeconds($displayTimerSeconds);
     }
 
     public function getDisplayTimerSeconds()
@@ -70,9 +62,8 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
         return (!$this->displayTimerSeconds) ?: $this->displayTimerSeconds->value();
     }
 
-    public function setEnableDestinationAnnouncement($enableDestinationAnnouncement)
+    public function setEnableDestinationAnnouncement(xs:boolean $enableDestinationAnnouncement = null)
     {
-        $enableDestinationAnnouncement and $this->enableDestinationAnnouncement = new xs:boolean($enableDestinationAnnouncement);
     }
 
     public function getEnableDestinationAnnouncement()
@@ -80,9 +71,11 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
         return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement->value();
     }
 
-    public function setRecallAlternateUserId($recallAlternateUserId)
+    public function setRecallAlternateUserId($recallAlternateUserId = null)
     {
-        $recallAlternateUserId and $this->recallAlternateUserId = new UserId($recallAlternateUserId);
+        $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
+             ? $recallAlternateUserId
+             : new UserId($recallAlternateUserId);
     }
 
     public function getRecallAlternateUserId()
@@ -90,9 +83,11 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
         return (!$this->recallAlternateUserId) ?: $this->recallAlternateUserId->value();
     }
 
-    public function setRecallRingPattern($recallRingPattern)
+    public function setRecallRingPattern($recallRingPattern = null)
     {
-        $recallRingPattern and $this->recallRingPattern = new RingPattern($recallRingPattern);
+        $this->recallRingPattern = ($recallRingPattern InstanceOf RingPattern)
+             ? $recallRingPattern
+             : new RingPattern($recallRingPattern);
     }
 
     public function getRecallRingPattern()
@@ -100,9 +95,11 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
         return (!$this->recallRingPattern) ?: $this->recallRingPattern->value();
     }
 
-    public function setRecallTo($recallTo)
+    public function setRecallTo($recallTo = null)
     {
-        $recallTo and $this->recallTo = new CallParkRecallTo($recallTo);
+        $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
+             ? $recallTo
+             : new CallParkRecallTo($recallTo);
     }
 
     public function getRecallTo()
@@ -110,9 +107,11 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
         return (!$this->recallTo) ?: $this->recallTo->value();
     }
 
-    public function setAlternateUserRecallTimerSeconds($alternateUserRecallTimerSeconds)
+    public function setAlternateUserRecallTimerSeconds($alternateUserRecallTimerSeconds = null)
     {
-        $alternateUserRecallTimerSeconds and $this->alternateUserRecallTimerSeconds = new CallParkRecallTimerSeconds($alternateUserRecallTimerSeconds);
+        $this->alternateUserRecallTimerSeconds = ($alternateUserRecallTimerSeconds InstanceOf CallParkRecallTimerSeconds)
+             ? $alternateUserRecallTimerSeconds
+             : new CallParkRecallTimerSeconds($alternateUserRecallTimerSeconds);
     }
 
     public function getAlternateUserRecallTimerSeconds()

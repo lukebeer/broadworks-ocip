@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupUserCreationTaskName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $trunkGroupKey  = null;
+    protected $taskName       = null;
 
     public function __construct(
-             TrunkGroupKey $trunkGroupKey,
-             $taskName
+         TrunkGroupKey $trunkGroupKey,
+         $taskName
     ) {
-        $this->trunkGroupKey = $trunkGroupKey;
-        $this->taskName      = $taskName;
-        $this->args          = func_get_args();
+        $this->setTrunkGroupKey($trunkGroupKey);
+        $this->setTaskName($taskName);
     }
 
-    public function setTrunkGroupKey($trunkGroupKey)
+    public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        $trunkGroupKey and $this->trunkGroupKey = new TrunkGroupKey($trunkGroupKey);
     }
 
     public function getTrunkGroupKey()
@@ -40,9 +40,11 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
         return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->value();
     }
 
-    public function setTaskName($taskName)
+    public function setTaskName($taskName = null)
     {
-        $taskName and $this->taskName = new TrunkGroupUserCreationTaskName($taskName);
+        $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
+             ? $taskName
+             : new TrunkGroupUserCreationTaskName($taskName);
     }
 
     public function getTaskName()

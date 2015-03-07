@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
@@ -21,30 +20,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCustomRingbackGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $isActive              = null;
+    protected $audioSelection        = null;
+    protected $audioFileDescription  = null;
+    protected $audioFileUrl          = null;
+    protected $videoSelection        = null;
+    protected $videoFileDescription  = null;
+    protected $videoFileUrl          = null;
 
-    public function __construct(
-             $isActive,
-             $audioSelection,
-             $audioFileDescription=null,
-             $audioFileUrl=null,
-             $videoSelection,
-             $videoFileDescription=null,
-             $videoFileUrl=null
-    ) {
-        $this->isActive             = $isActive;
-        $this->audioSelection       = new ExtendedFileResourceSelection($audioSelection);
-        $this->audioFileDescription = new FileDescription($audioFileDescription);
-        $this->audioFileUrl         = new URL($audioFileUrl);
-        $this->videoSelection       = new ExtendedFileResourceSelection($videoSelection);
-        $this->videoFileDescription = new FileDescription($videoFileDescription);
-        $this->videoFileUrl         = new URL($videoFileUrl);
-        $this->args                 = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -52,9 +39,11 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAudioSelection($audioSelection)
+    public function setAudioSelection($audioSelection = null)
     {
-        $audioSelection and $this->audioSelection = new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioSelection
+             : new ExtendedFileResourceSelection($audioSelection);
     }
 
     public function getAudioSelection()
@@ -62,9 +51,11 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
         return (!$this->audioSelection) ?: $this->audioSelection->value();
     }
 
-    public function setAudioFileDescription($audioFileDescription)
+    public function setAudioFileDescription($audioFileDescription = null)
     {
-        $audioFileDescription and $this->audioFileDescription = new FileDescription($audioFileDescription);
+        $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
+             ? $audioFileDescription
+             : new FileDescription($audioFileDescription);
     }
 
     public function getAudioFileDescription()
@@ -72,9 +63,11 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
         return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
     }
 
-    public function setAudioFileUrl($audioFileUrl)
+    public function setAudioFileUrl($audioFileUrl = null)
     {
-        $audioFileUrl and $this->audioFileUrl = new URL($audioFileUrl);
+        $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
+             ? $audioFileUrl
+             : new URL($audioFileUrl);
     }
 
     public function getAudioFileUrl()
@@ -82,9 +75,11 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
         return (!$this->audioFileUrl) ?: $this->audioFileUrl->value();
     }
 
-    public function setVideoSelection($videoSelection)
+    public function setVideoSelection($videoSelection = null)
     {
-        $videoSelection and $this->videoSelection = new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoSelection
+             : new ExtendedFileResourceSelection($videoSelection);
     }
 
     public function getVideoSelection()
@@ -92,9 +87,11 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
         return (!$this->videoSelection) ?: $this->videoSelection->value();
     }
 
-    public function setVideoFileDescription($videoFileDescription)
+    public function setVideoFileDescription($videoFileDescription = null)
     {
-        $videoFileDescription and $this->videoFileDescription = new FileDescription($videoFileDescription);
+        $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
+             ? $videoFileDescription
+             : new FileDescription($videoFileDescription);
     }
 
     public function getVideoFileDescription()
@@ -102,9 +99,11 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
         return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
     }
 
-    public function setVideoFileUrl($videoFileUrl)
+    public function setVideoFileUrl($videoFileUrl = null)
     {
-        $videoFileUrl and $this->videoFileUrl = new URL($videoFileUrl);
+        $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
+             ? $videoFileUrl
+             : new URL($videoFileUrl);
     }
 
     public function getVideoFileUrl()

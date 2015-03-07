@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $flashActivationDigits         = null;
+    protected $callTransferActivationDigits  = null;
 
-    public function __construct(
-             $flashActivationDigits,
-             $callTransferActivationDigits
-    ) {
-        $this->flashActivationDigits        = new InCallServiceActivationDigits($flashActivationDigits);
-        $this->callTransferActivationDigits = new InCallServiceActivationDigits($callTransferActivationDigits);
-        $this->args                         = func_get_args();
-    }
 
-    public function setFlashActivationDigits($flashActivationDigits)
+    public function setFlashActivationDigits($flashActivationDigits = null)
     {
-        $flashActivationDigits and $this->flashActivationDigits = new InCallServiceActivationDigits($flashActivationDigits);
+        $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
+             ? $flashActivationDigits
+             : new InCallServiceActivationDigits($flashActivationDigits);
     }
 
     public function getFlashActivationDigits()
@@ -38,9 +34,11 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
         return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->value();
     }
 
-    public function setCallTransferActivationDigits($callTransferActivationDigits)
+    public function setCallTransferActivationDigits($callTransferActivationDigits = null)
     {
-        $callTransferActivationDigits and $this->callTransferActivationDigits = new InCallServiceActivationDigits($callTransferActivationDigits);
+        $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
+             ? $callTransferActivationDigits
+             : new InCallServiceActivationDigits($callTransferActivationDigits);
     }
 
     public function getCallTransferActivationDigits()

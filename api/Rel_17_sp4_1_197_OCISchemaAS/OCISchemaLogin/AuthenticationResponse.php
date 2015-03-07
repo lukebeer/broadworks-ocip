@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:string;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitalSignatureAlgorithm;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class AuthenticationResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $nonce              = null;
+    protected $passwordAlgorithm  = null;
 
-    public function __construct(
-             $userId,
-             $nonce,
-             $passwordAlgorithm
-    ) {
-        $this->userId            = new UserId($userId);
-        $this->nonce             = $nonce;
-        $this->passwordAlgorithm = new DigitalSignatureAlgorithm($passwordAlgorithm);
-        $this->args              = func_get_args();
-    }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -42,9 +36,8 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setNonce($nonce)
+    public function setNonce(xs:string $nonce = null)
     {
-        $nonce and $this->nonce = new xs:string($nonce);
     }
 
     public function getNonce()
@@ -52,9 +45,11 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
         return (!$this->nonce) ?: $this->nonce->value();
     }
 
-    public function setPasswordAlgorithm($passwordAlgorithm)
+    public function setPasswordAlgorithm($passwordAlgorithm = null)
     {
-        $passwordAlgorithm and $this->passwordAlgorithm = new DigitalSignatureAlgorithm($passwordAlgorithm);
+        $this->passwordAlgorithm = ($passwordAlgorithm InstanceOf DigitalSignatureAlgorithm)
+             ? $passwordAlgorithm
+             : new DigitalSignatureAlgorithm($passwordAlgorithm);
     }
 
     public function getPasswordAlgorithm()

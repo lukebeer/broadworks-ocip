@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentAvailability;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentAvailability;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,20 +21,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterModifyAvailabilityListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $userId                  = null;
+    protected $callCenterAvailability  = null;
 
     public function __construct(
-             $userId,
-             $callCenterAvailability=null
+         $userId,
+         CallCenterAgentAvailability $callCenterAvailability = null
     ) {
-        $this->userId                 = new UserId($userId);
-        $this->callCenterAvailability = $callCenterAvailability;
-        $this->args                   = func_get_args();
+        $this->setUserId($userId);
+        $this->setCallCenterAvailability($callCenterAvailability);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -42,9 +45,8 @@ class UserCallCenterModifyAvailabilityListRequest extends ComplexType implements
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setCallCenterAvailability($callCenterAvailability)
+    public function setCallCenterAvailability(CallCenterAgentAvailability $callCenterAvailability = null)
     {
-        $callCenterAvailability and $this->callCenterAvailability = new CallCenterAgentAvailability($callCenterAvailability);
     }
 
     public function getCallCenterAvailability()

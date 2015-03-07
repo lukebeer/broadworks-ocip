@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MobilityManagerServiceKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserINIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $userId                 = null;
+    protected $originatingServiceKey  = null;
+    protected $terminatingServiceKey  = null;
 
     public function __construct(
-             $userId,
-             $originatingServiceKey=null,
-             $terminatingServiceKey=null
+         $userId,
+         $originatingServiceKey = null,
+         $terminatingServiceKey = null
     ) {
-        $this->userId                = new UserId($userId);
-        $this->originatingServiceKey = new MobilityManagerServiceKey($originatingServiceKey);
-        $this->terminatingServiceKey = new MobilityManagerServiceKey($terminatingServiceKey);
-        $this->args                  = func_get_args();
+        $this->setUserId($userId);
+        $this->setOriginatingServiceKey($originatingServiceKey);
+        $this->setTerminatingServiceKey($terminatingServiceKey);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -42,9 +46,11 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setOriginatingServiceKey($originatingServiceKey)
+    public function setOriginatingServiceKey($originatingServiceKey = null)
     {
-        $originatingServiceKey and $this->originatingServiceKey = new MobilityManagerServiceKey($originatingServiceKey);
+        $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
+             ? $originatingServiceKey
+             : new MobilityManagerServiceKey($originatingServiceKey);
     }
 
     public function getOriginatingServiceKey()
@@ -52,9 +58,11 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
         return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->value();
     }
 
-    public function setTerminatingServiceKey($terminatingServiceKey)
+    public function setTerminatingServiceKey($terminatingServiceKey = null)
     {
-        $terminatingServiceKey and $this->terminatingServiceKey = new MobilityManagerServiceKey($terminatingServiceKey);
+        $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
+             ? $terminatingServiceKey
+             : new MobilityManagerServiceKey($terminatingServiceKey);
     }
 
     public function getTerminatingServiceKey()

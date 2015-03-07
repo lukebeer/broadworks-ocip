@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $networkClassOfService         = null;
+    protected $defaultNetworkClassOfService  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $networkClassOfService=null,
-             $defaultNetworkClassOfService=null
+         $serviceProviderId,
+         $groupId,
+         $networkClassOfService = null,
+         $defaultNetworkClassOfService = null
     ) {
-        $this->serviceProviderId            = new ServiceProviderId($serviceProviderId);
-        $this->groupId                      = new GroupId($groupId);
-        $this->networkClassOfService        = new NetworkClassOfServiceName($networkClassOfService);
-        $this->defaultNetworkClassOfService = new NetworkClassOfServiceName($defaultNetworkClassOfService);
-        $this->args                         = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setNetworkClassOfService($networkClassOfService);
+        $this->setDefaultNetworkClassOfService($defaultNetworkClassOfService);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -45,9 +50,11 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -55,9 +62,11 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setNetworkClassOfService($networkClassOfService)
+    public function setNetworkClassOfService($networkClassOfService = null)
     {
-        $networkClassOfService and $this->networkClassOfService = new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
+             ? $networkClassOfService
+             : new NetworkClassOfServiceName($networkClassOfService);
     }
 
     public function getNetworkClassOfService()
@@ -65,9 +74,11 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
         return (!$this->networkClassOfService) ?: $this->networkClassOfService->value();
     }
 
-    public function setDefaultNetworkClassOfService($defaultNetworkClassOfService)
+    public function setDefaultNetworkClassOfService($defaultNetworkClassOfService = null)
     {
-        $defaultNetworkClassOfService and $this->defaultNetworkClassOfService = new NetworkClassOfServiceName($defaultNetworkClassOfService);
+        $this->defaultNetworkClassOfService = ($defaultNetworkClassOfService InstanceOf NetworkClassOfServiceName)
+             ? $defaultNetworkClassOfService
+             : new NetworkClassOfServiceName($defaultNetworkClassOfService);
     }
 
     public function getDefaultNetworkClassOfService()

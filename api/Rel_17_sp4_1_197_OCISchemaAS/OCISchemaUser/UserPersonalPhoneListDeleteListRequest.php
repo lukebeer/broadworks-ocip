@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPersonalPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $entryName  = null;
 
     public function __construct(
-             $userId,
-             $entryName
+         $userId,
+         $entryName
     ) {
-        $this->userId    = new UserId($userId);
-        $this->entryName = new PhoneListEntryName($entryName);
-        $this->args      = func_get_args();
+        $this->setUserId($userId);
+        $this->setEntryName($entryName);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setEntryName($entryName)
+    public function setEntryName($entryName = null)
     {
-        $entryName and $this->entryName = new PhoneListEntryName($entryName);
+        $this->entryName = ($entryName InstanceOf PhoneListEntryName)
+             ? $entryName
+             : new PhoneListEntryName($entryName);
     }
 
     public function getEntryName()

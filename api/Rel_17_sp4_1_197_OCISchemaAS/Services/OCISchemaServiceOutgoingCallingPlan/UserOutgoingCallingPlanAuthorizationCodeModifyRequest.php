@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanAuthorizationCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $useCustomSettings  = null;
 
     public function __construct(
-             $userId,
-             $useCustomSettings=null
+         $userId,
+         $useCustomSettings = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->useCustomSettings = $useCustomSettings;
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setUseCustomSettings($useCustomSettings);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +42,8 @@ class UserOutgoingCallingPlanAuthorizationCodeModifyRequest extends ComplexType 
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUseCustomSettings($useCustomSettings)
+    public function setUseCustomSettings(xs:boolean $useCustomSettings = null)
     {
-        $useCustomSettings and $this->useCustomSettings = new xs:boolean($useCustomSettings);
     }
 
     public function getUseCustomSettings()

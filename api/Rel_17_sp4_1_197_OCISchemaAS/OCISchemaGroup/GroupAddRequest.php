@@ -7,16 +7,16 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingLineIdName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LocationDialingCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupUserLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,36 +27,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $serviceProviderId    = null;
+    protected $groupId              = null;
+    protected $defaultDomain        = null;
+    protected $userLimit            = null;
+    protected $groupName            = null;
+    protected $callingLineIdName    = null;
+    protected $timeZone             = null;
+    protected $locationDialingCode  = null;
+    protected $contact              = null;
+    protected $address              = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $defaultDomain,
-             $userLimit,
-             $groupName=null,
-             $callingLineIdName=null,
-             $timeZone=null,
-             $locationDialingCode=null,
-             Contact $contact=null,
-             StreetAddress $address=null
+         $serviceProviderId,
+         $groupId,
+         $defaultDomain,
+         $userLimit,
+         $groupName = null,
+         $callingLineIdName = null,
+         $timeZone = null,
+         $locationDialingCode = null,
+         Contact $contact = null,
+         StreetAddress $address = null
     ) {
-        $this->serviceProviderId   = new ServiceProviderId($serviceProviderId);
-        $this->groupId             = new GroupId($groupId);
-        $this->defaultDomain       = new NetAddress($defaultDomain);
-        $this->userLimit           = $userLimit;
-        $this->groupName           = new GroupName($groupName);
-        $this->callingLineIdName   = new GroupCallingLineIdName($callingLineIdName);
-        $this->timeZone            = new TimeZone($timeZone);
-        $this->locationDialingCode = new LocationDialingCode($locationDialingCode);
-        $this->contact             = $contact;
-        $this->address             = $address;
-        $this->args                = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setDefaultDomain($defaultDomain);
+        $this->setUserLimit($userLimit);
+        $this->setGroupName($groupName);
+        $this->setCallingLineIdName($callingLineIdName);
+        $this->setTimeZone($timeZone);
+        $this->setLocationDialingCode($locationDialingCode);
+        $this->setContact($contact);
+        $this->setAddress($address);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -64,9 +75,11 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -74,9 +87,11 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setDefaultDomain($defaultDomain)
+    public function setDefaultDomain($defaultDomain = null)
     {
-        $defaultDomain and $this->defaultDomain = new NetAddress($defaultDomain);
+        $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
+             ? $defaultDomain
+             : new NetAddress($defaultDomain);
     }
 
     public function getDefaultDomain()
@@ -84,9 +99,11 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->defaultDomain) ?: $this->defaultDomain->value();
     }
 
-    public function setUserLimit($userLimit)
+    public function setUserLimit($userLimit = null)
     {
-        $userLimit and $this->userLimit = new GroupUserLimit($userLimit);
+        $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
+             ? $userLimit
+             : new GroupUserLimit($userLimit);
     }
 
     public function getUserLimit()
@@ -94,9 +111,11 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->userLimit) ?: $this->userLimit->value();
     }
 
-    public function setGroupName($groupName)
+    public function setGroupName($groupName = null)
     {
-        $groupName and $this->groupName = new GroupName($groupName);
+        $this->groupName = ($groupName InstanceOf GroupName)
+             ? $groupName
+             : new GroupName($groupName);
     }
 
     public function getGroupName()
@@ -104,9 +123,11 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->groupName) ?: $this->groupName->value();
     }
 
-    public function setCallingLineIdName($callingLineIdName)
+    public function setCallingLineIdName($callingLineIdName = null)
     {
-        $callingLineIdName and $this->callingLineIdName = new GroupCallingLineIdName($callingLineIdName);
+        $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
+             ? $callingLineIdName
+             : new GroupCallingLineIdName($callingLineIdName);
     }
 
     public function getCallingLineIdName()
@@ -114,9 +135,11 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->callingLineIdName) ?: $this->callingLineIdName->value();
     }
 
-    public function setTimeZone($timeZone)
+    public function setTimeZone($timeZone = null)
     {
-        $timeZone and $this->timeZone = new TimeZone($timeZone);
+        $this->timeZone = ($timeZone InstanceOf TimeZone)
+             ? $timeZone
+             : new TimeZone($timeZone);
     }
 
     public function getTimeZone()
@@ -124,9 +147,11 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->timeZone) ?: $this->timeZone->value();
     }
 
-    public function setLocationDialingCode($locationDialingCode)
+    public function setLocationDialingCode($locationDialingCode = null)
     {
-        $locationDialingCode and $this->locationDialingCode = new LocationDialingCode($locationDialingCode);
+        $this->locationDialingCode = ($locationDialingCode InstanceOf LocationDialingCode)
+             ? $locationDialingCode
+             : new LocationDialingCode($locationDialingCode);
     }
 
     public function getLocationDialingCode()
@@ -134,9 +159,8 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->locationDialingCode) ?: $this->locationDialingCode->value();
     }
 
-    public function setContact($contact)
+    public function setContact(Contact $contact = null)
     {
-        $contact and $this->contact = new Contact($contact);
     }
 
     public function getContact()
@@ -144,9 +168,8 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
         return (!$this->contact) ?: $this->contact->value();
     }
 
-    public function setAddress($address)
+    public function setAddress(StreetAddress $address = null)
     {
-        $address and $this->address = new StreetAddress($address);
     }
 
     public function getAddress()

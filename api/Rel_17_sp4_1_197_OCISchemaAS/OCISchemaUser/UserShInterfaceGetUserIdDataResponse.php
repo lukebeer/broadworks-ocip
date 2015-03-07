@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ShInterfaceUserIdDataEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ShInterfaceUserIdDataEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserShInterfaceGetUserIdDataResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name   = __CLASS__;
+    protected $entry  = null;
 
-    public function __construct(
-             $entry=null
-    ) {
-        $this->entry = $entry;
-        $this->args  = func_get_args();
-    }
 
-    public function setEntry($entry)
+    public function setEntry(ShInterfaceUserIdDataEntry $entry = null)
     {
-        $entry and $this->entry = new ShInterfaceUserIdDataEntry($entry);
     }
 
     public function getEntry()

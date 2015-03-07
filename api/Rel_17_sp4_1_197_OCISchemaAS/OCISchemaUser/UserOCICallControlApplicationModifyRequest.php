@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ReplacementOCICallControlApplicationIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOCICallControlApplicationIdList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOCICallControlApplicationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $applicationIdList  = null;
 
     public function __construct(
-             $userId,
-             $applicationIdList=null
+         $userId,
+         ReplacementOCICallControlApplicationIdList $applicationIdList = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->applicationIdList = $applicationIdList;
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setApplicationIdList($applicationIdList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setApplicationIdList($applicationIdList)
+    public function setApplicationIdList(ReplacementOCICallControlApplicationIdList $applicationIdList = null)
     {
-        $applicationIdList and $this->applicationIdList = new ReplacementOCICallControlApplicationIdList($applicationIdList);
     }
 
     public function getApplicationIdList()

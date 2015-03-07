@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGroupPagingGetOriginatorListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $originatorTable  = null;
 
-    public function __construct(
-             $originatorTable
-    ) {
-        $this->originatorTable = $originatorTable;
-        $this->args            = func_get_args();
-    }
 
-    public function setOriginatorTable($originatorTable)
+    public function setOriginatorTable(core:OCITable $originatorTable = null)
     {
-        $originatorTable and $this->originatorTable = new core:OCITable($originatorTable);
     }
 
     public function getOriginatorTable()

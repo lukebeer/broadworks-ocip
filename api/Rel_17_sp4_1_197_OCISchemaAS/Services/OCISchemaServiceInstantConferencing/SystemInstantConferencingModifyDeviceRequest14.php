@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingIntegratedDeviceModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingDeviceDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingDeviceDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingIntegratedDeviceModify;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,28 +23,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $deviceName         = null;
+    protected $clusterNetAddress  = null;
+    protected $signalingPort      = null;
+    protected $description        = null;
+    protected $integrated         = null;
+    protected $transportProtocol  = null;
 
     public function __construct(
-             $deviceName,
-             $clusterNetAddress=null,
-             $signalingPort=null,
-             $description=null,
-             $integrated=null,
-             $transportProtocol=null
+         $deviceName,
+         $clusterNetAddress = null,
+         $signalingPort = null,
+         $description = null,
+         InstantConferencingIntegratedDeviceModify $integrated = null,
+         $transportProtocol = null
     ) {
-        $this->deviceName        = new AccessDeviceName($deviceName);
-        $this->clusterNetAddress = new NetAddress($clusterNetAddress);
-        $this->signalingPort     = new Port1025($signalingPort);
-        $this->description       = $description;
-        $this->integrated        = $integrated;
-        $this->transportProtocol = new TransportProtocol($transportProtocol);
-        $this->args              = func_get_args();
+        $this->setDeviceName($deviceName);
+        $this->setClusterNetAddress($clusterNetAddress);
+        $this->setSignalingPort($signalingPort);
+        $this->setDescription($description);
+        $this->setIntegrated($integrated);
+        $this->setTransportProtocol($transportProtocol);
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -52,9 +59,11 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setClusterNetAddress($clusterNetAddress)
+    public function setClusterNetAddress($clusterNetAddress = null)
     {
-        $clusterNetAddress and $this->clusterNetAddress = new NetAddress($clusterNetAddress);
+        $this->clusterNetAddress = ($clusterNetAddress InstanceOf NetAddress)
+             ? $clusterNetAddress
+             : new NetAddress($clusterNetAddress);
     }
 
     public function getClusterNetAddress()
@@ -62,9 +71,11 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         return (!$this->clusterNetAddress) ?: $this->clusterNetAddress->value();
     }
 
-    public function setSignalingPort($signalingPort)
+    public function setSignalingPort($signalingPort = null)
     {
-        $signalingPort and $this->signalingPort = new Port1025($signalingPort);
+        $this->signalingPort = ($signalingPort InstanceOf Port1025)
+             ? $signalingPort
+             : new Port1025($signalingPort);
     }
 
     public function getSignalingPort()
@@ -72,9 +83,11 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         return (!$this->signalingPort) ?: $this->signalingPort->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new InstantConferencingDeviceDescription($description);
+        $this->description = ($description InstanceOf InstantConferencingDeviceDescription)
+             ? $description
+             : new InstantConferencingDeviceDescription($description);
     }
 
     public function getDescription()
@@ -82,9 +95,8 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setIntegrated($integrated)
+    public function setIntegrated(InstantConferencingIntegratedDeviceModify $integrated = null)
     {
-        $integrated and $this->integrated = new InstantConferencingIntegratedDeviceModify($integrated);
     }
 
     public function getIntegrated()
@@ -92,9 +104,11 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         return (!$this->integrated) ?: $this->integrated->value();
     }
 
-    public function setTransportProtocol($transportProtocol)
+    public function setTransportProtocol($transportProtocol = null)
     {
-        $transportProtocol and $this->transportProtocol = new TransportProtocol($transportProtocol);
+        $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
+             ? $transportProtocol
+             : new TransportProtocol($transportProtocol);
     }
 
     public function getTransportProtocol()

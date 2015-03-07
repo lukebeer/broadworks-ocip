@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingFamilyGetPhoneNumberResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $answerConfirmationRequired  = null;
 
-    public function __construct(
-             $answerConfirmationRequired
-    ) {
-        $this->answerConfirmationRequired = $answerConfirmationRequired;
-        $this->args                       = func_get_args();
-    }
 
-    public function setAnswerConfirmationRequired($answerConfirmationRequired)
+    public function setAnswerConfirmationRequired(xs:boolean $answerConfirmationRequired = null)
     {
-        $answerConfirmationRequired and $this->answerConfirmationRequired = new xs:boolean($answerConfirmationRequired);
     }
 
     public function getAnswerConfirmationRequired()

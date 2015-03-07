@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AdviceOfChargeType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $userId    = null;
+    protected $isActive  = null;
+    protected $aocType   = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $aocType=null
+         $userId,
+         $isActive = null,
+         $aocType = null
     ) {
-        $this->userId   = new UserId($userId);
-        $this->isActive = $isActive;
-        $this->aocType  = $aocType;
-        $this->args     = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setAocType($aocType);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -53,9 +55,11 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAocType($aocType)
+    public function setAocType($aocType = null)
     {
-        $aocType and $this->aocType = new AdviceOfChargeType($aocType);
+        $this->aocType = ($aocType InstanceOf AdviceOfChargeType)
+             ? $aocType
+             : new AdviceOfChargeType($aocType);
     }
 
     public function getAocType()

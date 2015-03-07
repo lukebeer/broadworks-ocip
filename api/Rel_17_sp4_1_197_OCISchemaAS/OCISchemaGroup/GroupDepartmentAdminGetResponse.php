@@ -10,8 +10,8 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +22,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $departmentKey       = null;
+    protected $departmentFullPath  = null;
+    protected $firstName           = null;
+    protected $lastName            = null;
+    protected $language            = null;
 
-    public function __construct(
-             GroupDepartmentKey $departmentKey,
-             $departmentFullPath,
-             $firstName=null,
-             $lastName=null,
-             $language
-    ) {
-        $this->departmentKey      = $departmentKey;
-        $this->departmentFullPath = new DepartmentName($departmentFullPath);
-        $this->firstName          = new FirstName($firstName);
-        $this->lastName           = new LastName($lastName);
-        $this->language           = new Language($language);
-        $this->args               = func_get_args();
-    }
 
-    public function setDepartmentKey($departmentKey)
+    public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $departmentKey and $this->departmentKey = new GroupDepartmentKey($departmentKey);
     }
 
     public function getDepartmentKey()
@@ -49,9 +39,11 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
         return (!$this->departmentKey) ?: $this->departmentKey->value();
     }
 
-    public function setDepartmentFullPath($departmentFullPath)
+    public function setDepartmentFullPath($departmentFullPath = null)
     {
-        $departmentFullPath and $this->departmentFullPath = new DepartmentName($departmentFullPath);
+        $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentName)
+             ? $departmentFullPath
+             : new DepartmentName($departmentFullPath);
     }
 
     public function getDepartmentFullPath()
@@ -59,9 +51,11 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
         return (!$this->departmentFullPath) ?: $this->departmentFullPath->value();
     }
 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
-        $firstName and $this->firstName = new FirstName($firstName);
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
     }
 
     public function getFirstName()
@@ -69,9 +63,11 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
         return (!$this->firstName) ?: $this->firstName->value();
     }
 
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
-        $lastName and $this->lastName = new LastName($lastName);
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
     }
 
     public function getLastName()
@@ -79,9 +75,11 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
         return (!$this->lastName) ?: $this->lastName->value();
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()

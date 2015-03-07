@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $accessDeviceTable  = null;
 
-    public function __construct(
-             $accessDeviceTable
-    ) {
-        $this->accessDeviceTable = $accessDeviceTable;
-        $this->args              = func_get_args();
-    }
 
-    public function setAccessDeviceTable($accessDeviceTable)
+    public function setAccessDeviceTable(core:OCITable $accessDeviceTable = null)
     {
-        $accessDeviceTable and $this->accessDeviceTable = new core:OCITable($accessDeviceTable);
     }
 
     public function getAccessDeviceTable()

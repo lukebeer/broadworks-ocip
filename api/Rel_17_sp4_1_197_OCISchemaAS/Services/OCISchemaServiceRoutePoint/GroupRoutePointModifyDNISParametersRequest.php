@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceUserId      = null;
+    protected $displayDNISNumber  = null;
+    protected $displayDNISName    = null;
 
     public function __construct(
-             $serviceUserId,
-             $displayDNISNumber=null,
-             $displayDNISName=null
+         $serviceUserId,
+         $displayDNISNumber = null,
+         $displayDNISName = null
     ) {
-        $this->serviceUserId     = new UserId($serviceUserId);
-        $this->displayDNISNumber = $displayDNISNumber;
-        $this->displayDNISName   = $displayDNISName;
-        $this->args              = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setDisplayDNISNumber($displayDNISNumber);
+        $this->setDisplayDNISName($displayDNISName);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -42,9 +45,8 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setDisplayDNISNumber($displayDNISNumber)
+    public function setDisplayDNISNumber(xs:boolean $displayDNISNumber = null)
     {
-        $displayDNISNumber and $this->displayDNISNumber = new xs:boolean($displayDNISNumber);
     }
 
     public function getDisplayDNISNumber()
@@ -52,9 +54,8 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
         return (!$this->displayDNISNumber) ?: $this->displayDNISNumber->value();
     }
 
-    public function setDisplayDNISName($displayDNISName)
+    public function setDisplayDNISName(xs:boolean $displayDNISName = null)
     {
-        $displayDNISName and $this->displayDNISName = new xs:boolean($displayDNISName);
     }
 
     public function getDisplayDNISName()

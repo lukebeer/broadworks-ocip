@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderLanguageGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $language         = null;
+    protected $defaultLanguage  = null;
 
-    public function __construct(
-             $language=null,
-             $defaultLanguage=null
-    ) {
-        $this->language        = new Language($language);
-        $this->defaultLanguage = new Language($defaultLanguage);
-        $this->args            = func_get_args();
-    }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()
@@ -38,9 +34,11 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
         return (!$this->language) ?: $this->language->value();
     }
 
-    public function setDefaultLanguage($defaultLanguage)
+    public function setDefaultLanguage($defaultLanguage = null)
     {
-        $defaultLanguage and $this->defaultLanguage = new Language($defaultLanguage);
+        $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
+             ? $defaultLanguage
+             : new Language($defaultLanguage);
     }
 
     public function getDefaultLanguage()

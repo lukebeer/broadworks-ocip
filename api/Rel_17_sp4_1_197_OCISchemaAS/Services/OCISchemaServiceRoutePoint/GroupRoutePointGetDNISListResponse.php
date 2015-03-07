@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $displayDNISNumber  = null;
+    protected $displayDNISName    = null;
+    protected $dnisTable          = null;
 
-    public function __construct(
-             $displayDNISNumber,
-             $displayDNISName,
-             $dnisTable
-    ) {
-        $this->displayDNISNumber = $displayDNISNumber;
-        $this->displayDNISName   = $displayDNISName;
-        $this->dnisTable         = $dnisTable;
-        $this->args              = func_get_args();
-    }
 
-    public function setDisplayDNISNumber($displayDNISNumber)
+    public function setDisplayDNISNumber(xs:boolean $displayDNISNumber = null)
     {
-        $displayDNISNumber and $this->displayDNISNumber = new xs:boolean($displayDNISNumber);
     }
 
     public function getDisplayDNISNumber()
@@ -42,9 +33,8 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
         return (!$this->displayDNISNumber) ?: $this->displayDNISNumber->value();
     }
 
-    public function setDisplayDNISName($displayDNISName)
+    public function setDisplayDNISName(xs:boolean $displayDNISName = null)
     {
-        $displayDNISName and $this->displayDNISName = new xs:boolean($displayDNISName);
     }
 
     public function getDisplayDNISName()
@@ -52,9 +42,8 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
         return (!$this->displayDNISName) ?: $this->displayDNISName->value();
     }
 
-    public function setDnisTable($dnisTable)
+    public function setDnisTable(core:OCITable $dnisTable = null)
     {
-        $dnisTable and $this->dnisTable = new core:OCITable($dnisTable);
     }
 
     public function getDnisTable()

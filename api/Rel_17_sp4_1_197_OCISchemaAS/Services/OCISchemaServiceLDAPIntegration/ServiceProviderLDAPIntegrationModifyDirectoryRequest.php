@@ -7,17 +7,16 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPAuthenticatedPassword;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPColumnAttributeName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPAuthenticatedDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchColumn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchFilter;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPColumnLabel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchBase;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPSearchBase;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPAuthenticatedDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPAuthenticatedPassword;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPSearchFilter;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPColumnAttributeName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPColumnLabel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LDAPSearchColumn;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -28,58 +27,80 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $serviceProviderId                     = null;
+    protected $serverNetAddress                      = null;
+    protected $serverPort                            = null;
+    protected $searchBase                            = null;
+    protected $useSSL                                = null;
+    protected $requireAuthentication                 = null;
+    protected $authenticatedDN                       = null;
+    protected $authenticatedPassword                 = null;
+    protected $isSortEnabled                         = null;
+    protected $isPagedResultEnabled                  = null;
+    protected $searchFilter                          = null;
+    protected $includeSearchAttributeInSearchFilter  = null;
+    protected $column1AttributeName                  = null;
+    protected $column2AttributeName                  = null;
+    protected $column3AttributeName                  = null;
+    protected $column4AttributeName                  = null;
+    protected $column1Label                          = null;
+    protected $column2Label                          = null;
+    protected $column3Label                          = null;
+    protected $column4Label                          = null;
+    protected $searchColumn                          = null;
 
     public function __construct(
-             $serviceProviderId,
-             $serverNetAddress=null,
-             $serverPort=null,
-             $searchBase=null,
-             $useSSL=null,
-             $requireAuthentication=null,
-             $authenticatedDN=null,
-             $authenticatedPassword=null,
-             $isSortEnabled=null,
-             $isPagedResultEnabled=null,
-             $searchFilter=null,
-             $includeSearchAttributeInSearchFilter=null,
-             $column1AttributeName=null,
-             $column2AttributeName=null,
-             $column3AttributeName=null,
-             $column4AttributeName=null,
-             $column1Label=null,
-             $column2Label=null,
-             $column3Label=null,
-             $column4Label=null,
-             $searchColumn=null
+         $serviceProviderId,
+         $serverNetAddress = null,
+         $serverPort = null,
+         $searchBase = null,
+         $useSSL = null,
+         $requireAuthentication = null,
+         $authenticatedDN = null,
+         $authenticatedPassword = null,
+         $isSortEnabled = null,
+         $isPagedResultEnabled = null,
+         $searchFilter = null,
+         $includeSearchAttributeInSearchFilter = null,
+         $column1AttributeName = null,
+         $column2AttributeName = null,
+         $column3AttributeName = null,
+         $column4AttributeName = null,
+         $column1Label = null,
+         $column2Label = null,
+         $column3Label = null,
+         $column4Label = null,
+         $searchColumn = null
     ) {
-        $this->serviceProviderId                    = new ServiceProviderId($serviceProviderId);
-        $this->serverNetAddress                     = new NetAddress($serverNetAddress);
-        $this->serverPort                           = new Port($serverPort);
-        $this->searchBase                           = $searchBase;
-        $this->useSSL                               = $useSSL;
-        $this->requireAuthentication                = $requireAuthentication;
-        $this->authenticatedDN                      = $authenticatedDN;
-        $this->authenticatedPassword                = $authenticatedPassword;
-        $this->isSortEnabled                        = $isSortEnabled;
-        $this->isPagedResultEnabled                 = $isPagedResultEnabled;
-        $this->searchFilter                         = $searchFilter;
-        $this->includeSearchAttributeInSearchFilter = $includeSearchAttributeInSearchFilter;
-        $this->column1AttributeName                 = $column1AttributeName;
-        $this->column2AttributeName                 = $column2AttributeName;
-        $this->column3AttributeName                 = $column3AttributeName;
-        $this->column4AttributeName                 = $column4AttributeName;
-        $this->column1Label                         = $column1Label;
-        $this->column2Label                         = $column2Label;
-        $this->column3Label                         = $column3Label;
-        $this->column4Label                         = $column4Label;
-        $this->searchColumn                         = $searchColumn;
-        $this->args                                 = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setServerNetAddress($serverNetAddress);
+        $this->setServerPort($serverPort);
+        $this->setSearchBase($searchBase);
+        $this->setUseSSL($useSSL);
+        $this->setRequireAuthentication($requireAuthentication);
+        $this->setAuthenticatedDN($authenticatedDN);
+        $this->setAuthenticatedPassword($authenticatedPassword);
+        $this->setIsSortEnabled($isSortEnabled);
+        $this->setIsPagedResultEnabled($isPagedResultEnabled);
+        $this->setSearchFilter($searchFilter);
+        $this->setIncludeSearchAttributeInSearchFilter($includeSearchAttributeInSearchFilter);
+        $this->setColumn1AttributeName($column1AttributeName);
+        $this->setColumn2AttributeName($column2AttributeName);
+        $this->setColumn3AttributeName($column3AttributeName);
+        $this->setColumn4AttributeName($column4AttributeName);
+        $this->setColumn1Label($column1Label);
+        $this->setColumn2Label($column2Label);
+        $this->setColumn3Label($column3Label);
+        $this->setColumn4Label($column4Label);
+        $this->setSearchColumn($searchColumn);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -87,9 +108,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setServerNetAddress($serverNetAddress)
+    public function setServerNetAddress($serverNetAddress = null)
     {
-        $serverNetAddress and $this->serverNetAddress = new NetAddress($serverNetAddress);
+        $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
+             ? $serverNetAddress
+             : new NetAddress($serverNetAddress);
     }
 
     public function getServerNetAddress()
@@ -97,9 +120,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->serverNetAddress) ?: $this->serverNetAddress->value();
     }
 
-    public function setServerPort($serverPort)
+    public function setServerPort($serverPort = null)
     {
-        $serverPort and $this->serverPort = new Port($serverPort);
+        $this->serverPort = ($serverPort InstanceOf Port)
+             ? $serverPort
+             : new Port($serverPort);
     }
 
     public function getServerPort()
@@ -107,9 +132,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->serverPort) ?: $this->serverPort->value();
     }
 
-    public function setSearchBase($searchBase)
+    public function setSearchBase($searchBase = null)
     {
-        $searchBase and $this->searchBase = new LDAPSearchBase($searchBase);
+        $this->searchBase = ($searchBase InstanceOf LDAPSearchBase)
+             ? $searchBase
+             : new LDAPSearchBase($searchBase);
     }
 
     public function getSearchBase()
@@ -117,9 +144,8 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->searchBase) ?: $this->searchBase->value();
     }
 
-    public function setUseSSL($useSSL)
+    public function setUseSSL(xs:boolean $useSSL = null)
     {
-        $useSSL and $this->useSSL = new xs:boolean($useSSL);
     }
 
     public function getUseSSL()
@@ -127,9 +153,8 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->useSSL) ?: $this->useSSL->value();
     }
 
-    public function setRequireAuthentication($requireAuthentication)
+    public function setRequireAuthentication(xs:boolean $requireAuthentication = null)
     {
-        $requireAuthentication and $this->requireAuthentication = new xs:boolean($requireAuthentication);
     }
 
     public function getRequireAuthentication()
@@ -137,9 +162,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->requireAuthentication) ?: $this->requireAuthentication->value();
     }
 
-    public function setAuthenticatedDN($authenticatedDN)
+    public function setAuthenticatedDN($authenticatedDN = null)
     {
-        $authenticatedDN and $this->authenticatedDN = new LDAPAuthenticatedDN($authenticatedDN);
+        $this->authenticatedDN = ($authenticatedDN InstanceOf LDAPAuthenticatedDN)
+             ? $authenticatedDN
+             : new LDAPAuthenticatedDN($authenticatedDN);
     }
 
     public function getAuthenticatedDN()
@@ -147,9 +174,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->authenticatedDN) ?: $this->authenticatedDN->value();
     }
 
-    public function setAuthenticatedPassword($authenticatedPassword)
+    public function setAuthenticatedPassword($authenticatedPassword = null)
     {
-        $authenticatedPassword and $this->authenticatedPassword = new LDAPAuthenticatedPassword($authenticatedPassword);
+        $this->authenticatedPassword = ($authenticatedPassword InstanceOf LDAPAuthenticatedPassword)
+             ? $authenticatedPassword
+             : new LDAPAuthenticatedPassword($authenticatedPassword);
     }
 
     public function getAuthenticatedPassword()
@@ -157,9 +186,8 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->authenticatedPassword) ?: $this->authenticatedPassword->value();
     }
 
-    public function setIsSortEnabled($isSortEnabled)
+    public function setIsSortEnabled(xs:boolean $isSortEnabled = null)
     {
-        $isSortEnabled and $this->isSortEnabled = new xs:boolean($isSortEnabled);
     }
 
     public function getIsSortEnabled()
@@ -167,9 +195,8 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->isSortEnabled) ?: $this->isSortEnabled->value();
     }
 
-    public function setIsPagedResultEnabled($isPagedResultEnabled)
+    public function setIsPagedResultEnabled(xs:boolean $isPagedResultEnabled = null)
     {
-        $isPagedResultEnabled and $this->isPagedResultEnabled = new xs:boolean($isPagedResultEnabled);
     }
 
     public function getIsPagedResultEnabled()
@@ -177,9 +204,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->isPagedResultEnabled) ?: $this->isPagedResultEnabled->value();
     }
 
-    public function setSearchFilter($searchFilter)
+    public function setSearchFilter($searchFilter = null)
     {
-        $searchFilter and $this->searchFilter = new LDAPSearchFilter($searchFilter);
+        $this->searchFilter = ($searchFilter InstanceOf LDAPSearchFilter)
+             ? $searchFilter
+             : new LDAPSearchFilter($searchFilter);
     }
 
     public function getSearchFilter()
@@ -187,9 +216,8 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->searchFilter) ?: $this->searchFilter->value();
     }
 
-    public function setIncludeSearchAttributeInSearchFilter($includeSearchAttributeInSearchFilter)
+    public function setIncludeSearchAttributeInSearchFilter(xs:boolean $includeSearchAttributeInSearchFilter = null)
     {
-        $includeSearchAttributeInSearchFilter and $this->includeSearchAttributeInSearchFilter = new xs:boolean($includeSearchAttributeInSearchFilter);
     }
 
     public function getIncludeSearchAttributeInSearchFilter()
@@ -197,9 +225,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->includeSearchAttributeInSearchFilter) ?: $this->includeSearchAttributeInSearchFilter->value();
     }
 
-    public function setColumn1AttributeName($column1AttributeName)
+    public function setColumn1AttributeName($column1AttributeName = null)
     {
-        $column1AttributeName and $this->column1AttributeName = new LDAPColumnAttributeName($column1AttributeName);
+        $this->column1AttributeName = ($column1AttributeName InstanceOf LDAPColumnAttributeName)
+             ? $column1AttributeName
+             : new LDAPColumnAttributeName($column1AttributeName);
     }
 
     public function getColumn1AttributeName()
@@ -207,9 +237,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column1AttributeName) ?: $this->column1AttributeName->value();
     }
 
-    public function setColumn2AttributeName($column2AttributeName)
+    public function setColumn2AttributeName($column2AttributeName = null)
     {
-        $column2AttributeName and $this->column2AttributeName = new LDAPColumnAttributeName($column2AttributeName);
+        $this->column2AttributeName = ($column2AttributeName InstanceOf LDAPColumnAttributeName)
+             ? $column2AttributeName
+             : new LDAPColumnAttributeName($column2AttributeName);
     }
 
     public function getColumn2AttributeName()
@@ -217,9 +249,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column2AttributeName) ?: $this->column2AttributeName->value();
     }
 
-    public function setColumn3AttributeName($column3AttributeName)
+    public function setColumn3AttributeName($column3AttributeName = null)
     {
-        $column3AttributeName and $this->column3AttributeName = new LDAPColumnAttributeName($column3AttributeName);
+        $this->column3AttributeName = ($column3AttributeName InstanceOf LDAPColumnAttributeName)
+             ? $column3AttributeName
+             : new LDAPColumnAttributeName($column3AttributeName);
     }
 
     public function getColumn3AttributeName()
@@ -227,9 +261,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column3AttributeName) ?: $this->column3AttributeName->value();
     }
 
-    public function setColumn4AttributeName($column4AttributeName)
+    public function setColumn4AttributeName($column4AttributeName = null)
     {
-        $column4AttributeName and $this->column4AttributeName = new LDAPColumnAttributeName($column4AttributeName);
+        $this->column4AttributeName = ($column4AttributeName InstanceOf LDAPColumnAttributeName)
+             ? $column4AttributeName
+             : new LDAPColumnAttributeName($column4AttributeName);
     }
 
     public function getColumn4AttributeName()
@@ -237,9 +273,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column4AttributeName) ?: $this->column4AttributeName->value();
     }
 
-    public function setColumn1Label($column1Label)
+    public function setColumn1Label($column1Label = null)
     {
-        $column1Label and $this->column1Label = new LDAPColumnLabel($column1Label);
+        $this->column1Label = ($column1Label InstanceOf LDAPColumnLabel)
+             ? $column1Label
+             : new LDAPColumnLabel($column1Label);
     }
 
     public function getColumn1Label()
@@ -247,9 +285,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column1Label) ?: $this->column1Label->value();
     }
 
-    public function setColumn2Label($column2Label)
+    public function setColumn2Label($column2Label = null)
     {
-        $column2Label and $this->column2Label = new LDAPColumnLabel($column2Label);
+        $this->column2Label = ($column2Label InstanceOf LDAPColumnLabel)
+             ? $column2Label
+             : new LDAPColumnLabel($column2Label);
     }
 
     public function getColumn2Label()
@@ -257,9 +297,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column2Label) ?: $this->column2Label->value();
     }
 
-    public function setColumn3Label($column3Label)
+    public function setColumn3Label($column3Label = null)
     {
-        $column3Label and $this->column3Label = new LDAPColumnLabel($column3Label);
+        $this->column3Label = ($column3Label InstanceOf LDAPColumnLabel)
+             ? $column3Label
+             : new LDAPColumnLabel($column3Label);
     }
 
     public function getColumn3Label()
@@ -267,9 +309,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column3Label) ?: $this->column3Label->value();
     }
 
-    public function setColumn4Label($column4Label)
+    public function setColumn4Label($column4Label = null)
     {
-        $column4Label and $this->column4Label = new LDAPColumnLabel($column4Label);
+        $this->column4Label = ($column4Label InstanceOf LDAPColumnLabel)
+             ? $column4Label
+             : new LDAPColumnLabel($column4Label);
     }
 
     public function getColumn4Label()
@@ -277,9 +321,11 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
         return (!$this->column4Label) ?: $this->column4Label->value();
     }
 
-    public function setSearchColumn($searchColumn)
+    public function setSearchColumn($searchColumn = null)
     {
-        $searchColumn and $this->searchColumn = new LDAPSearchColumn($searchColumn);
+        $this->searchColumn = ($searchColumn InstanceOf LDAPSearchColumn)
+             ? $searchColumn
+             : new LDAPSearchColumn($searchColumn);
     }
 
     public function getSearchColumn()

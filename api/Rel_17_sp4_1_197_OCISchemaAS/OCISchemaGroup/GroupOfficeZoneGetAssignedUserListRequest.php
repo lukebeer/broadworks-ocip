@@ -7,15 +7,15 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserDepartment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaEmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaEmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactUserDepartment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,34 +27,44 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $serviceProviderId                  = null;
+    protected $groupId                            = null;
+    protected $officeZoneName                     = null;
+    protected $responseSizeLimit                  = null;
+    protected $searchCriteriaUserLastName         = null;
+    protected $searchCriteriaUserFirstName        = null;
+    protected $searchCriteriaDn                   = null;
+    protected $searchCriteriaEmailAddress         = null;
+    protected $searchCriteriaExactUserDepartment  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $officeZoneName,
-             $responseSizeLimit=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaUserFirstName=null,
-             $searchCriteriaDn=null,
-             $searchCriteriaEmailAddress=null,
-             $searchCriteriaExactUserDepartment=null
+         $serviceProviderId,
+         $groupId,
+         $officeZoneName,
+         $responseSizeLimit = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
+         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
     ) {
-        $this->serviceProviderId                 = new ServiceProviderId($serviceProviderId);
-        $this->groupId                           = new GroupId($groupId);
-        $this->officeZoneName                    = new OfficeZoneName($officeZoneName);
-        $this->responseSizeLimit                 = $responseSizeLimit;
-        $this->searchCriteriaUserLastName        = $searchCriteriaUserLastName;
-        $this->searchCriteriaUserFirstName       = $searchCriteriaUserFirstName;
-        $this->searchCriteriaDn                  = $searchCriteriaDn;
-        $this->searchCriteriaEmailAddress        = $searchCriteriaEmailAddress;
-        $this->searchCriteriaExactUserDepartment = $searchCriteriaExactUserDepartment;
-        $this->args                              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setOfficeZoneName($officeZoneName);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
+        $this->setSearchCriteriaEmailAddress($searchCriteriaEmailAddress);
+        $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -62,9 +72,11 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -72,9 +84,11 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setOfficeZoneName($officeZoneName)
+    public function setOfficeZoneName($officeZoneName = null)
     {
-        $officeZoneName and $this->officeZoneName = new OfficeZoneName($officeZoneName);
+        $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
+             ? $officeZoneName
+             : new OfficeZoneName($officeZoneName);
     }
 
     public function getOfficeZoneName()
@@ -82,9 +96,11 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->officeZoneName) ?: $this->officeZoneName->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -92,9 +108,8 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -102,9 +117,8 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaUserFirstName($searchCriteriaUserFirstName)
+    public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $searchCriteriaUserFirstName and $this->searchCriteriaUserFirstName = new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
     }
 
     public function getSearchCriteriaUserFirstName()
@@ -112,9 +126,8 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()
@@ -122,9 +135,8 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
     }
 
-    public function setSearchCriteriaEmailAddress($searchCriteriaEmailAddress)
+    public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        $searchCriteriaEmailAddress and $this->searchCriteriaEmailAddress = new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
     }
 
     public function getSearchCriteriaEmailAddress()
@@ -132,9 +144,8 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         return (!$this->searchCriteriaEmailAddress) ?: $this->searchCriteriaEmailAddress->value();
     }
 
-    public function setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment)
+    public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $searchCriteriaExactUserDepartment and $this->searchCriteriaExactUserDepartment = new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
     }
 
     public function getSearchCriteriaExactUserDepartment()

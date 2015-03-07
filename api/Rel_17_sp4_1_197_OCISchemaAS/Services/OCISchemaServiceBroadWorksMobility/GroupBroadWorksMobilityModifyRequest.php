@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityGroupSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobilityGroupSettingLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,32 +20,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $serviceProviderId          = null;
+    protected $groupId                    = null;
+    protected $useSettingLevel            = null;
+    protected $enableLocationServices     = null;
+    protected $enableMSRNLookup           = null;
+    protected $enableMobileStateChecking  = null;
+    protected $denyCallOriginations       = null;
+    protected $denyCallTerminations       = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $useSettingLevel=null,
-             $enableLocationServices=null,
-             $enableMSRNLookup=null,
-             $enableMobileStateChecking=null,
-             $denyCallOriginations=null,
-             $denyCallTerminations=null
+         $serviceProviderId,
+         $groupId,
+         $useSettingLevel = null,
+         $enableLocationServices = null,
+         $enableMSRNLookup = null,
+         $enableMobileStateChecking = null,
+         $denyCallOriginations = null,
+         $denyCallTerminations = null
     ) {
-        $this->serviceProviderId         = new ServiceProviderId($serviceProviderId);
-        $this->groupId                   = new GroupId($groupId);
-        $this->useSettingLevel           = $useSettingLevel;
-        $this->enableLocationServices    = $enableLocationServices;
-        $this->enableMSRNLookup          = $enableMSRNLookup;
-        $this->enableMobileStateChecking = $enableMobileStateChecking;
-        $this->denyCallOriginations      = $denyCallOriginations;
-        $this->denyCallTerminations      = $denyCallTerminations;
-        $this->args                      = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setUseSettingLevel($useSettingLevel);
+        $this->setEnableLocationServices($enableLocationServices);
+        $this->setEnableMSRNLookup($enableMSRNLookup);
+        $this->setEnableMobileStateChecking($enableMobileStateChecking);
+        $this->setDenyCallOriginations($denyCallOriginations);
+        $this->setDenyCallTerminations($denyCallTerminations);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -54,9 +62,11 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -64,9 +74,11 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setUseSettingLevel($useSettingLevel)
+    public function setUseSettingLevel($useSettingLevel = null)
     {
-        $useSettingLevel and $this->useSettingLevel = new BroadWorksMobilityGroupSettingLevel($useSettingLevel);
+        $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityGroupSettingLevel)
+             ? $useSettingLevel
+             : new BroadWorksMobilityGroupSettingLevel($useSettingLevel);
     }
 
     public function getUseSettingLevel()
@@ -74,9 +86,8 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
         return (!$this->useSettingLevel) ?: $this->useSettingLevel->value();
     }
 
-    public function setEnableLocationServices($enableLocationServices)
+    public function setEnableLocationServices(xs:boolean $enableLocationServices = null)
     {
-        $enableLocationServices and $this->enableLocationServices = new xs:boolean($enableLocationServices);
     }
 
     public function getEnableLocationServices()
@@ -84,9 +95,8 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
         return (!$this->enableLocationServices) ?: $this->enableLocationServices->value();
     }
 
-    public function setEnableMSRNLookup($enableMSRNLookup)
+    public function setEnableMSRNLookup(xs:boolean $enableMSRNLookup = null)
     {
-        $enableMSRNLookup and $this->enableMSRNLookup = new xs:boolean($enableMSRNLookup);
     }
 
     public function getEnableMSRNLookup()
@@ -94,9 +104,8 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
         return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup->value();
     }
 
-    public function setEnableMobileStateChecking($enableMobileStateChecking)
+    public function setEnableMobileStateChecking(xs:boolean $enableMobileStateChecking = null)
     {
-        $enableMobileStateChecking and $this->enableMobileStateChecking = new xs:boolean($enableMobileStateChecking);
     }
 
     public function getEnableMobileStateChecking()
@@ -104,9 +113,8 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
         return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking->value();
     }
 
-    public function setDenyCallOriginations($denyCallOriginations)
+    public function setDenyCallOriginations(xs:boolean $denyCallOriginations = null)
     {
-        $denyCallOriginations and $this->denyCallOriginations = new xs:boolean($denyCallOriginations);
     }
 
     public function getDenyCallOriginations()
@@ -114,9 +122,8 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
         return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->value();
     }
 
-    public function setDenyCallTerminations($denyCallTerminations)
+    public function setDenyCallTerminations(xs:boolean $denyCallTerminations = null)
     {
-        $denyCallTerminations and $this->denyCallTerminations = new xs:boolean($denyCallTerminations);
     }
 
     public function getDenyCallTerminations()

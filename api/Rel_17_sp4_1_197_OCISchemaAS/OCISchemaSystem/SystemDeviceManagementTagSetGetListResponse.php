@@ -19,18 +19,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $tagSetName  = null;
 
-    public function __construct(
-             $tagSetName=null
-    ) {
-        $this->tagSetName = new DeviceManagementTagSetName($tagSetName);
-        $this->args       = func_get_args();
-    }
 
-    public function setTagSetName($tagSetName)
+    public function setTagSetName($tagSetName = null)
     {
-        $tagSetName and $this->tagSetName = new DeviceManagementTagSetName($tagSetName);
+        $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
+             ? $tagSetName
+             : new DeviceManagementTagSetName($tagSetName);
     }
 
     public function getTagSetName()

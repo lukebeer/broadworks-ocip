@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LogoutRequestReason;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LogoutRequestReason;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class LogoutRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name    = __CLASS__;
+    protected $userId  = null;
+    protected $reason  = null;
 
     public function __construct(
-             $userId,
-             $reason=null
+         $userId,
+         $reason = null
     ) {
-        $this->userId = new UserId($userId);
-        $this->reason = $reason;
-        $this->args   = func_get_args();
+        $this->setUserId($userId);
+        $this->setReason($reason);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -41,9 +44,11 @@ class LogoutRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setReason($reason)
+    public function setReason($reason = null)
     {
-        $reason and $this->reason = new LogoutRequestReason($reason);
+        $this->reason = ($reason InstanceOf LogoutRequestReason)
+             ? $reason
+             : new LogoutRequestReason($reason);
     }
 
     public function getReason()

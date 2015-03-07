@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistSmallBusiness; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $userId               = null;
+    protected $monitoredUserIdList  = null;
 
     public function __construct(
-             $userId,
-             ReplacementUserIdList $monitoredUserIdList=null
+         $userId,
+         ReplacementUserIdList $monitoredUserIdList = null
     ) {
-        $this->userId              = new UserId($userId);
-        $this->monitoredUserIdList = $monitoredUserIdList;
-        $this->args                = func_get_args();
+        $this->setUserId($userId);
+        $this->setMonitoredUserIdList($monitoredUserIdList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType i
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setMonitoredUserIdList($monitoredUserIdList)
+    public function setMonitoredUserIdList(ReplacementUserIdList $monitoredUserIdList = null)
     {
-        $monitoredUserIdList and $this->monitoredUserIdList = new ReplacementUserIdList($monitoredUserIdList);
     }
 
     public function getMonitoredUserIdList()

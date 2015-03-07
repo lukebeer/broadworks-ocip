@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemMaxLoginAttempts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemMinLoginIdLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMinLoginIdLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMaxLoginAttempts;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSubscriberGetLoginParametersResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $maxFailedLoginAttempts  = null;
+    protected $minLoginIdLength        = null;
 
-    public function __construct(
-             $maxFailedLoginAttempts,
-             $minLoginIdLength
-    ) {
-        $this->maxFailedLoginAttempts = $maxFailedLoginAttempts;
-        $this->minLoginIdLength       = $minLoginIdLength;
-        $this->args                   = func_get_args();
-    }
 
-    public function setMaxFailedLoginAttempts($maxFailedLoginAttempts)
+    public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        $maxFailedLoginAttempts and $this->maxFailedLoginAttempts = new SystemMaxLoginAttempts($maxFailedLoginAttempts);
+        $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf SystemMaxLoginAttempts)
+             ? $maxFailedLoginAttempts
+             : new SystemMaxLoginAttempts($maxFailedLoginAttempts);
     }
 
     public function getMaxFailedLoginAttempts()
@@ -39,9 +35,11 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
         return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->value();
     }
 
-    public function setMinLoginIdLength($minLoginIdLength)
+    public function setMinLoginIdLength($minLoginIdLength = null)
     {
-        $minLoginIdLength and $this->minLoginIdLength = new SystemMinLoginIdLength($minLoginIdLength);
+        $this->minLoginIdLength = ($minLoginIdLength InstanceOf SystemMinLoginIdLength)
+             ? $minLoginIdLength
+             : new SystemMinLoginIdLength($minLoginIdLength);
     }
 
     public function getMinLoginIdLength()

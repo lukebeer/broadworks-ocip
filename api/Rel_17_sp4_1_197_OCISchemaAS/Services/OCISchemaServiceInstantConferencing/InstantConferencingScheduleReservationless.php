@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:date;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingScheduleReservationless extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $endDate  = null;
 
     public function __construct(
-             $endDate
+         $endDate
     ) {
-        $this->endDate = $endDate;
-        $this->args    = func_get_args();
+        $this->setEndDate($endDate);
     }
 
-    public function setEndDate($endDate)
+    public function setEndDate(xs:date $endDate = null)
     {
-        $endDate and $this->endDate = new xs:date($endDate);
     }
 
     public function getEndDate()

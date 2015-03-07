@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,38 +21,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                              = __CLASS__;
+    protected $isActive                          = null;
+    protected $forwardToPhoneNumber              = null;
+    protected $playAnnouncementBeforeForwarding  = null;
+    protected $audioMessageSelection             = null;
+    protected $audioUrlList                      = null;
+    protected $audioFileList                     = null;
+    protected $audioMediaTypeList                = null;
+    protected $videoMessageSelection             = null;
+    protected $videoUrlList                      = null;
+    protected $videoFileList                     = null;
+    protected $videoMediaTypeList                = null;
 
-    public function __construct(
-             $isActive,
-             $forwardToPhoneNumber=null,
-             $playAnnouncementBeforeForwarding,
-             $audioMessageSelection,
-             CallCenterAnnouncementURLList $audioUrlList=null,
-             CallCenterAnnouncementDescriptionList $audioFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList=null,
-             $videoMessageSelection,
-             CallCenterAnnouncementURLList $videoUrlList=null,
-             CallCenterAnnouncementDescriptionList $videoFileList=null,
-             CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList=null
-    ) {
-        $this->isActive                         = $isActive;
-        $this->forwardToPhoneNumber             = new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->playAnnouncementBeforeForwarding = $playAnnouncementBeforeForwarding;
-        $this->audioMessageSelection            = new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioUrlList                     = $audioUrlList;
-        $this->audioFileList                    = $audioFileList;
-        $this->audioMediaTypeList               = $audioMediaTypeList;
-        $this->videoMessageSelection            = new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoUrlList                     = $videoUrlList;
-        $this->videoFileList                    = $videoFileList;
-        $this->videoMediaTypeList               = $videoMediaTypeList;
-        $this->args                             = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -61,9 +44,11 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setForwardToPhoneNumber($forwardToPhoneNumber)
+    public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        $forwardToPhoneNumber and $this->forwardToPhoneNumber = new OutgoingDNorSIPURI($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $forwardToPhoneNumber
+             : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
     public function getForwardToPhoneNumber()
@@ -71,9 +56,8 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
     }
 
-    public function setPlayAnnouncementBeforeForwarding($playAnnouncementBeforeForwarding)
+    public function setPlayAnnouncementBeforeForwarding(xs:boolean $playAnnouncementBeforeForwarding = null)
     {
-        $playAnnouncementBeforeForwarding and $this->playAnnouncementBeforeForwarding = new xs:boolean($playAnnouncementBeforeForwarding);
     }
 
     public function getPlayAnnouncementBeforeForwarding()
@@ -81,9 +65,11 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding->value();
     }
 
-    public function setAudioMessageSelection($audioMessageSelection)
+    public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        $audioMessageSelection and $this->audioMessageSelection = new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioMessageSelection
+             : new ExtendedFileResourceSelection($audioMessageSelection);
     }
 
     public function getAudioMessageSelection()
@@ -91,9 +77,8 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->value();
     }
 
-    public function setAudioUrlList($audioUrlList)
+    public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $audioUrlList and $this->audioUrlList = new CallCenterAnnouncementURLList($audioUrlList);
     }
 
     public function getAudioUrlList()
@@ -101,9 +86,8 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->audioUrlList) ?: $this->audioUrlList->value();
     }
 
-    public function setAudioFileList($audioFileList)
+    public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $audioFileList and $this->audioFileList = new CallCenterAnnouncementDescriptionList($audioFileList);
     }
 
     public function getAudioFileList()
@@ -111,9 +95,8 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->audioFileList) ?: $this->audioFileList->value();
     }
 
-    public function setAudioMediaTypeList($audioMediaTypeList)
+    public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $audioMediaTypeList and $this->audioMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($audioMediaTypeList);
     }
 
     public function getAudioMediaTypeList()
@@ -121,9 +104,11 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->audioMediaTypeList) ?: $this->audioMediaTypeList->value();
     }
 
-    public function setVideoMessageSelection($videoMessageSelection)
+    public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        $videoMessageSelection and $this->videoMessageSelection = new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoMessageSelection
+             : new ExtendedFileResourceSelection($videoMessageSelection);
     }
 
     public function getVideoMessageSelection()
@@ -131,9 +116,8 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->value();
     }
 
-    public function setVideoUrlList($videoUrlList)
+    public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $videoUrlList and $this->videoUrlList = new CallCenterAnnouncementURLList($videoUrlList);
     }
 
     public function getVideoUrlList()
@@ -141,9 +125,8 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->videoUrlList) ?: $this->videoUrlList->value();
     }
 
-    public function setVideoFileList($videoFileList)
+    public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $videoFileList and $this->videoFileList = new CallCenterAnnouncementDescriptionList($videoFileList);
     }
 
     public function getVideoFileList()
@@ -151,9 +134,8 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
         return (!$this->videoFileList) ?: $this->videoFileList->value();
     }
 
-    public function setVideoMediaTypeList($videoMediaTypeList)
+    public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $videoMediaTypeList and $this->videoMediaTypeList = new CallCenterAnnouncementMediaFileTypeList($videoMediaTypeList);
     }
 
     public function getVideoMediaTypeList()

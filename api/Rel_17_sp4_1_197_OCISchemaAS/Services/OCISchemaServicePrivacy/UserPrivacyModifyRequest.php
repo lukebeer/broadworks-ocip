@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                        = __CLASS__;
+    protected $userId                                      = null;
+    protected $enableDirectoryPrivacy                      = null;
+    protected $enableAutoAttendantExtensionDialingPrivacy  = null;
+    protected $enableAutoAttendantNameDialingPrivacy       = null;
+    protected $enablePhoneStatusPrivacy                    = null;
+    protected $permittedMonitorUserIdList                  = null;
 
     public function __construct(
-             $userId,
-             $enableDirectoryPrivacy=null,
-             $enableAutoAttendantExtensionDialingPrivacy=null,
-             $enableAutoAttendantNameDialingPrivacy=null,
-             $enablePhoneStatusPrivacy=null,
-             ReplacementUserIdList $permittedMonitorUserIdList=null
+         $userId,
+         $enableDirectoryPrivacy = null,
+         $enableAutoAttendantExtensionDialingPrivacy = null,
+         $enableAutoAttendantNameDialingPrivacy = null,
+         $enablePhoneStatusPrivacy = null,
+         ReplacementUserIdList $permittedMonitorUserIdList = null
     ) {
-        $this->userId                                     = new UserId($userId);
-        $this->enableDirectoryPrivacy                     = $enableDirectoryPrivacy;
-        $this->enableAutoAttendantExtensionDialingPrivacy = $enableAutoAttendantExtensionDialingPrivacy;
-        $this->enableAutoAttendantNameDialingPrivacy      = $enableAutoAttendantNameDialingPrivacy;
-        $this->enablePhoneStatusPrivacy                   = $enablePhoneStatusPrivacy;
-        $this->permittedMonitorUserIdList                 = $permittedMonitorUserIdList;
-        $this->args                                       = func_get_args();
+        $this->setUserId($userId);
+        $this->setEnableDirectoryPrivacy($enableDirectoryPrivacy);
+        $this->setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy);
+        $this->setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy);
+        $this->setEnablePhoneStatusPrivacy($enablePhoneStatusPrivacy);
+        $this->setPermittedMonitorUserIdList($permittedMonitorUserIdList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -50,9 +56,8 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setEnableDirectoryPrivacy($enableDirectoryPrivacy)
+    public function setEnableDirectoryPrivacy(xs:boolean $enableDirectoryPrivacy = null)
     {
-        $enableDirectoryPrivacy and $this->enableDirectoryPrivacy = new xs:boolean($enableDirectoryPrivacy);
     }
 
     public function getEnableDirectoryPrivacy()
@@ -60,9 +65,8 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->value();
     }
 
-    public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy)
+    public function setEnableAutoAttendantExtensionDialingPrivacy(xs:boolean $enableAutoAttendantExtensionDialingPrivacy = null)
     {
-        $enableAutoAttendantExtensionDialingPrivacy and $this->enableAutoAttendantExtensionDialingPrivacy = new xs:boolean($enableAutoAttendantExtensionDialingPrivacy);
     }
 
     public function getEnableAutoAttendantExtensionDialingPrivacy()
@@ -70,9 +74,8 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->value();
     }
 
-    public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy)
+    public function setEnableAutoAttendantNameDialingPrivacy(xs:boolean $enableAutoAttendantNameDialingPrivacy = null)
     {
-        $enableAutoAttendantNameDialingPrivacy and $this->enableAutoAttendantNameDialingPrivacy = new xs:boolean($enableAutoAttendantNameDialingPrivacy);
     }
 
     public function getEnableAutoAttendantNameDialingPrivacy()
@@ -80,9 +83,8 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->value();
     }
 
-    public function setEnablePhoneStatusPrivacy($enablePhoneStatusPrivacy)
+    public function setEnablePhoneStatusPrivacy(xs:boolean $enablePhoneStatusPrivacy = null)
     {
-        $enablePhoneStatusPrivacy and $this->enablePhoneStatusPrivacy = new xs:boolean($enablePhoneStatusPrivacy);
     }
 
     public function getEnablePhoneStatusPrivacy()
@@ -90,9 +92,8 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy->value();
     }
 
-    public function setPermittedMonitorUserIdList($permittedMonitorUserIdList)
+    public function setPermittedMonitorUserIdList(ReplacementUserIdList $permittedMonitorUserIdList = null)
     {
-        $permittedMonitorUserIdList and $this->permittedMonitorUserIdList = new ReplacementUserIdList($permittedMonitorUserIdList);
     }
 
     public function getPermittedMonitorUserIdList()

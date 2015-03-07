@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNLocationCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNExtensionLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNExtensionLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNPolicySelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNLocationCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,30 +23,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $serviceProviderId    = null;
+    protected $locationDialingCode  = null;
+    protected $minExtensionLength   = null;
+    protected $maxExtensionLength   = null;
+    protected $description          = null;
+    protected $routeGroupId         = null;
+    protected $policySelection      = null;
 
     public function __construct(
-             $serviceProviderId,
-             $locationDialingCode,
-             $minExtensionLength,
-             $maxExtensionLength,
-             $description=null,
-             $routeGroupId=null,
-             $policySelection
+         $serviceProviderId,
+         $locationDialingCode,
+         $minExtensionLength,
+         $maxExtensionLength,
+         $description = null,
+         $routeGroupId = null,
+         $policySelection
     ) {
-        $this->serviceProviderId   = new ServiceProviderId($serviceProviderId);
-        $this->locationDialingCode = $locationDialingCode;
-        $this->minExtensionLength  = $minExtensionLength;
-        $this->maxExtensionLength  = $maxExtensionLength;
-        $this->description         = $description;
-        $this->routeGroupId        = new GroupId($routeGroupId);
-        $this->policySelection     = new EnterpriseVoiceVPNPolicySelection($policySelection);
-        $this->args                = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setLocationDialingCode($locationDialingCode);
+        $this->setMinExtensionLength($minExtensionLength);
+        $this->setMaxExtensionLength($maxExtensionLength);
+        $this->setDescription($description);
+        $this->setRouteGroupId($routeGroupId);
+        $this->setPolicySelection($policySelection);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -54,9 +62,11 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setLocationDialingCode($locationDialingCode)
+    public function setLocationDialingCode($locationDialingCode = null)
     {
-        $locationDialingCode and $this->locationDialingCode = new EnterpriseVoiceVPNLocationCode($locationDialingCode);
+        $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
+             ? $locationDialingCode
+             : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
     }
 
     public function getLocationDialingCode()
@@ -64,9 +74,11 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         return (!$this->locationDialingCode) ?: $this->locationDialingCode->value();
     }
 
-    public function setMinExtensionLength($minExtensionLength)
+    public function setMinExtensionLength($minExtensionLength = null)
     {
-        $minExtensionLength and $this->minExtensionLength = new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
+        $this->minExtensionLength = ($minExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
+             ? $minExtensionLength
+             : new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
     }
 
     public function getMinExtensionLength()
@@ -74,9 +86,11 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
     }
 
-    public function setMaxExtensionLength($maxExtensionLength)
+    public function setMaxExtensionLength($maxExtensionLength = null)
     {
-        $maxExtensionLength and $this->maxExtensionLength = new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
+        $this->maxExtensionLength = ($maxExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
+             ? $maxExtensionLength
+             : new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
     }
 
     public function getMaxExtensionLength()
@@ -84,9 +98,11 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new EnterpriseVoiceVPNDescription($description);
+        $this->description = ($description InstanceOf EnterpriseVoiceVPNDescription)
+             ? $description
+             : new EnterpriseVoiceVPNDescription($description);
     }
 
     public function getDescription()
@@ -94,9 +110,11 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setRouteGroupId($routeGroupId)
+    public function setRouteGroupId($routeGroupId = null)
     {
-        $routeGroupId and $this->routeGroupId = new GroupId($routeGroupId);
+        $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
+             ? $routeGroupId
+             : new GroupId($routeGroupId);
     }
 
     public function getRouteGroupId()
@@ -104,9 +122,11 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         return (!$this->routeGroupId) ?: $this->routeGroupId->value();
     }
 
-    public function setPolicySelection($policySelection)
+    public function setPolicySelection($policySelection = null)
     {
-        $policySelection and $this->policySelection = new EnterpriseVoiceVPNPolicySelection($policySelection);
+        $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
+             ? $policySelection
+             : new EnterpriseVoiceVPNPolicySelection($policySelection);
     }
 
     public function getPolicySelection()

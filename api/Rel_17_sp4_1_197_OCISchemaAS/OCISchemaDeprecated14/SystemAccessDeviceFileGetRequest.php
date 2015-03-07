@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\DeviceManagementFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $deviceName  = null;
+    protected $fileType    = null;
 
     public function __construct(
-             $deviceName,
-             $fileType
+         $deviceName,
+         $fileType
     ) {
-        $this->deviceName = new AccessDeviceName($deviceName);
-        $this->fileType   = $fileType;
-        $this->args       = func_get_args();
+        $this->setDeviceName($deviceName);
+        $this->setFileType($fileType);
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -41,9 +44,11 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setFileType($fileType)
+    public function setFileType($fileType = null)
     {
-        $fileType and $this->fileType = new DeviceManagementFileType($fileType);
+        $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
+             ? $fileType
+             : new DeviceManagementFileType($fileType);
     }
 
     public function getFileType()

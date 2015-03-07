@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackMigrationTaskName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $taskName           = null;
 
     public function __construct(
-             $serviceProviderId,
-             $taskName
+         $serviceProviderId,
+         $taskName
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->taskName          = $taskName;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setTaskName($taskName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -41,9 +44,11 @@ class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType i
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setTaskName($taskName)
+    public function setTaskName($taskName = null)
     {
-        $taskName and $this->taskName = new ServicePackMigrationTaskName($taskName);
+        $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
+             ? $taskName
+             : new ServicePackMigrationTaskName($taskName);
     }
 
     public function getTaskName()

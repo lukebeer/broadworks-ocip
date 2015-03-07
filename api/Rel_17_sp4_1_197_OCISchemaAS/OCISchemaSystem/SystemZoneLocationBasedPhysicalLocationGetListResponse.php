@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $physicalLocation  = null;
 
-    public function __construct(
-             $physicalLocation=null
-    ) {
-        $this->physicalLocation = new PhysicalLocation($physicalLocation);
-        $this->args             = func_get_args();
-    }
 
-    public function setPhysicalLocation($physicalLocation)
+    public function setPhysicalLocation($physicalLocation = null)
     {
-        $physicalLocation and $this->physicalLocation = new PhysicalLocation($physicalLocation);
+        $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
+             ? $physicalLocation
+             : new PhysicalLocation($physicalLocation);
     }
 
     public function getPhysicalLocation()

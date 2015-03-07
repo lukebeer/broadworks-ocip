@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
 use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
@@ -24,7 +23,7 @@ class HuntForwardTimeoutSeconds extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'int';
-        $this->addRestriction(new MinInclusive(0));
-        $this->addRestriction(new MaxInclusive(7200));
+        $this->addRestriction(new MinInclusive("0"));
+        $this->addRestriction(new MaxInclusive("7200"));
     }
 }

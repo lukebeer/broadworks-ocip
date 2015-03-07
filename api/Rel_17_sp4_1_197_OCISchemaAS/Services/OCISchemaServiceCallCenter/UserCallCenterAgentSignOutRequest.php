@@ -24,18 +24,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $agentUserId  = null;
 
     public function __construct(
-             $agentUserId
+         $agentUserId
     ) {
-        $this->agentUserId = new UserId($agentUserId);
-        $this->args        = func_get_args();
+        $this->setAgentUserId($agentUserId);
     }
 
-    public function setAgentUserId($agentUserId)
+    public function setAgentUserId($agentUserId = null)
     {
-        $agentUserId and $this->agentUserId = new UserId($agentUserId);
+        $this->agentUserId = ($agentUserId InstanceOf UserId)
+             ? $agentUserId
+             : new UserId($agentUserId);
     }
 
     public function getAgentUserId()

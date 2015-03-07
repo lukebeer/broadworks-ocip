@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,10 +22,10 @@ class CallCenterReportType extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Agent',
-                                              'Call Center Dnis',
-                                              'Call Center'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Agent',
+            'Call Center Dnis',
+            'Call Center'
+        ]));
     }
 }

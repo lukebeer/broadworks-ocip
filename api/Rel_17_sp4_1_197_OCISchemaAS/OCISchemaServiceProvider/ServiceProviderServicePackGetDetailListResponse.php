@@ -7,12 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,30 +22,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackGetDetailListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $servicePackName         = null;
+    protected $servicePackDescription  = null;
+    protected $isAvailableForUse       = null;
+    protected $servicePackQuantity     = null;
+    protected $assignedQuantity        = null;
+    protected $allowedQuantity         = null;
+    protected $userServiceTable        = null;
 
-    public function __construct(
-             $servicePackName,
-             $servicePackDescription=null,
-             $isAvailableForUse,
-             UnboundedPositiveInt $servicePackQuantity,
-             UnboundedNonNegativeInt $assignedQuantity,
-             UnboundedPositiveInt $allowedQuantity,
-             $userServiceTable
-    ) {
-        $this->servicePackName        = new ServicePackName($servicePackName);
-        $this->servicePackDescription = new ServicePackDescription($servicePackDescription);
-        $this->isAvailableForUse      = $isAvailableForUse;
-        $this->servicePackQuantity    = $servicePackQuantity;
-        $this->assignedQuantity       = $assignedQuantity;
-        $this->allowedQuantity        = $allowedQuantity;
-        $this->userServiceTable       = $userServiceTable;
-        $this->args                   = func_get_args();
-    }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()
@@ -55,9 +44,11 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
         return (!$this->servicePackName) ?: $this->servicePackName->value();
     }
 
-    public function setServicePackDescription($servicePackDescription)
+    public function setServicePackDescription($servicePackDescription = null)
     {
-        $servicePackDescription and $this->servicePackDescription = new ServicePackDescription($servicePackDescription);
+        $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
+             ? $servicePackDescription
+             : new ServicePackDescription($servicePackDescription);
     }
 
     public function getServicePackDescription()
@@ -65,9 +56,8 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
         return (!$this->servicePackDescription) ?: $this->servicePackDescription->value();
     }
 
-    public function setIsAvailableForUse($isAvailableForUse)
+    public function setIsAvailableForUse(xs:boolean $isAvailableForUse = null)
     {
-        $isAvailableForUse and $this->isAvailableForUse = new xs:boolean($isAvailableForUse);
     }
 
     public function getIsAvailableForUse()
@@ -75,9 +65,8 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
         return (!$this->isAvailableForUse) ?: $this->isAvailableForUse->value();
     }
 
-    public function setServicePackQuantity($servicePackQuantity)
+    public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        $servicePackQuantity and $this->servicePackQuantity = new UnboundedPositiveInt($servicePackQuantity);
     }
 
     public function getServicePackQuantity()
@@ -85,9 +74,8 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
         return (!$this->servicePackQuantity) ?: $this->servicePackQuantity->value();
     }
 
-    public function setAssignedQuantity($assignedQuantity)
+    public function setAssignedQuantity(UnboundedNonNegativeInt $assignedQuantity = null)
     {
-        $assignedQuantity and $this->assignedQuantity = new UnboundedNonNegativeInt($assignedQuantity);
     }
 
     public function getAssignedQuantity()
@@ -95,9 +83,8 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
         return (!$this->assignedQuantity) ?: $this->assignedQuantity->value();
     }
 
-    public function setAllowedQuantity($allowedQuantity)
+    public function setAllowedQuantity(UnboundedPositiveInt $allowedQuantity = null)
     {
-        $allowedQuantity and $this->allowedQuantity = new UnboundedPositiveInt($allowedQuantity);
     }
 
     public function getAllowedQuantity()
@@ -105,9 +92,8 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
         return (!$this->allowedQuantity) ?: $this->allowedQuantity->value();
     }
 
-    public function setUserServiceTable($userServiceTable)
+    public function setUserServiceTable(core:OCITable $userServiceTable = null)
     {
-        $userServiceTable and $this->userServiceTable = new core:OCITable($userServiceTable);
     }
 
     public function getUserServiceTable()

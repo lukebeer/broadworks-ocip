@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupFeatureAccessCodeLevel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $useFeatureAccessCodeLevel  = null;
+    protected $featureAccessCode          = null;
 
-    public function __construct(
-             $useFeatureAccessCodeLevel,
-             FeatureAccessCodeEntry $featureAccessCode=null
-    ) {
-        $this->useFeatureAccessCodeLevel = $useFeatureAccessCodeLevel;
-        $this->featureAccessCode         = $featureAccessCode;
-        $this->args                      = func_get_args();
-    }
 
-    public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel)
+    public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel = null)
     {
-        $useFeatureAccessCodeLevel and $this->useFeatureAccessCodeLevel = new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
+        $this->useFeatureAccessCodeLevel = ($useFeatureAccessCodeLevel InstanceOf GroupFeatureAccessCodeLevel)
+             ? $useFeatureAccessCodeLevel
+             : new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
     }
 
     public function getUseFeatureAccessCodeLevel()
@@ -39,9 +35,8 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
         return (!$this->useFeatureAccessCodeLevel) ?: $this->useFeatureAccessCodeLevel->value();
     }
 
-    public function setFeatureAccessCode($featureAccessCode)
+    public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        $featureAccessCode and $this->featureAccessCode = new FeatureAccessCodeEntry($featureAccessCode);
     }
 
     public function getFeatureAccessCode()

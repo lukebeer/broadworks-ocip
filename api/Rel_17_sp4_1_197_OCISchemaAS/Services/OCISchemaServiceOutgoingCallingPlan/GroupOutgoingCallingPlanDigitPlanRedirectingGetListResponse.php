@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanDigitPatternRedirectingPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternRedirectingPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $groupPermissions       = null;
+    protected $departmentPermissions  = null;
 
-    public function __construct(
-             $groupPermissions=null,
-             $departmentPermissions=null
-    ) {
-        $this->groupPermissions      = $groupPermissions;
-        $this->departmentPermissions = $departmentPermissions;
-        $this->args                  = func_get_args();
-    }
 
-    public function setGroupPermissions($groupPermissions)
+    public function setGroupPermissions(OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions = null)
     {
-        $groupPermissions and $this->groupPermissions = new OutgoingCallingPlanDigitPatternRedirectingPermissions($groupPermissions);
     }
 
     public function getGroupPermissions()
@@ -39,9 +32,8 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends Comple
         return (!$this->groupPermissions) ?: $this->groupPermissions->value();
     }
 
-    public function setDepartmentPermissions($departmentPermissions)
+    public function setDepartmentPermissions(OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions = null)
     {
-        $departmentPermissions and $this->departmentPermissions = new OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions($departmentPermissions);
     }
 
     public function getDepartmentPermissions()

@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCharg
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +19,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                    = __CLASS__;
+    protected $userId                                  = null;
+    protected $phoneNumber                             = null;
+    protected $useChargeNumberForEnhancedTranslations  = null;
+    protected $sendChargeNumberToNetwork               = null;
 
     public function __construct(
-             $userId,
-             $phoneNumber=null,
-             $useChargeNumberForEnhancedTranslations=null,
-             $sendChargeNumberToNetwork=null
+         $userId,
+         $phoneNumber = null,
+         $useChargeNumberForEnhancedTranslations = null,
+         $sendChargeNumberToNetwork = null
     ) {
-        $this->userId                                 = new UserId($userId);
-        $this->phoneNumber                            = new DN($phoneNumber);
-        $this->useChargeNumberForEnhancedTranslations = $useChargeNumberForEnhancedTranslations;
-        $this->sendChargeNumberToNetwork              = $sendChargeNumberToNetwork;
-        $this->args                                   = func_get_args();
+        $this->setUserId($userId);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setUseChargeNumberForEnhancedTranslations($useChargeNumberForEnhancedTranslations);
+        $this->setSendChargeNumberToNetwork($sendChargeNumberToNetwork);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -45,9 +49,11 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -55,9 +61,8 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setUseChargeNumberForEnhancedTranslations($useChargeNumberForEnhancedTranslations)
+    public function setUseChargeNumberForEnhancedTranslations(xs:boolean $useChargeNumberForEnhancedTranslations = null)
     {
-        $useChargeNumberForEnhancedTranslations and $this->useChargeNumberForEnhancedTranslations = new xs:boolean($useChargeNumberForEnhancedTranslations);
     }
 
     public function getUseChargeNumberForEnhancedTranslations()
@@ -65,9 +70,8 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->useChargeNumberForEnhancedTranslations) ?: $this->useChargeNumberForEnhancedTranslations->value();
     }
 
-    public function setSendChargeNumberToNetwork($sendChargeNumberToNetwork)
+    public function setSendChargeNumberToNetwork(xs:boolean $sendChargeNumberToNetwork = null)
     {
-        $sendChargeNumberToNetwork and $this->sendChargeNumberToNetwork = new xs:boolean($sendChargeNumberToNetwork);
     }
 
     public function getSendChargeNumberToNetwork()

@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceScriptsName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:base64Binary;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\ServiceScriptsName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceScriptsGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $isActive       = null;
+    protected $scriptName     = null;
+    protected $scriptContent  = null;
 
-    public function __construct(
-             $isActive,
-             $scriptName=null,
-             $scriptContent=null
-    ) {
-        $this->isActive      = $isActive;
-        $this->scriptName    = $scriptName;
-        $this->scriptContent = $scriptContent;
-        $this->args          = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -42,9 +32,11 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setScriptName($scriptName)
+    public function setScriptName($scriptName = null)
     {
-        $scriptName and $this->scriptName = new ServiceScriptsName($scriptName);
+        $this->scriptName = ($scriptName InstanceOf ServiceScriptsName)
+             ? $scriptName
+             : new ServiceScriptsName($scriptName);
     }
 
     public function getScriptName()
@@ -52,9 +44,8 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
         return (!$this->scriptName) ?: $this->scriptName->value();
     }
 
-    public function setScriptContent($scriptContent)
+    public function setScriptContent(xs:base64Binary $scriptContent = null)
     {
-        $scriptContent and $this->scriptContent = new xs:base64Binary($scriptContent);
     }
 
     public function getScriptContent()

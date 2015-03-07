@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSequentialRing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SequentialRingNumberOfRings;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SequentialRingLocationModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingLocationModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingNumberOfRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,38 +21,50 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSequentialRingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $userId                        = null;
+    protected $ringBaseLocationFirst         = null;
+    protected $baseLocationNumberOfRings     = null;
+    protected $continueIfBaseLocationIsBusy  = null;
+    protected $callerMayStopSearch           = null;
+    protected $Location01                    = null;
+    protected $Location02                    = null;
+    protected $Location03                    = null;
+    protected $Location04                    = null;
+    protected $Location05                    = null;
+    protected $criteriaActivation            = null;
 
     public function __construct(
-             $userId,
-             $ringBaseLocationFirst=null,
-             $baseLocationNumberOfRings=null,
-             $continueIfBaseLocationIsBusy=null,
-             $callerMayStopSearch=null,
-             $Location01=null,
-             $Location02=null,
-             $Location03=null,
-             $Location04=null,
-             $Location05=null,
-             CriteriaActivation $criteriaActivation=null
+         $userId,
+         $ringBaseLocationFirst = null,
+         $baseLocationNumberOfRings = null,
+         $continueIfBaseLocationIsBusy = null,
+         $callerMayStopSearch = null,
+         SequentialRingLocationModify $Location01 = null,
+         SequentialRingLocationModify $Location02 = null,
+         SequentialRingLocationModify $Location03 = null,
+         SequentialRingLocationModify $Location04 = null,
+         SequentialRingLocationModify $Location05 = null,
+         CriteriaActivation $criteriaActivation = null
     ) {
-        $this->userId                       = new UserId($userId);
-        $this->ringBaseLocationFirst        = $ringBaseLocationFirst;
-        $this->baseLocationNumberOfRings    = $baseLocationNumberOfRings;
-        $this->continueIfBaseLocationIsBusy = $continueIfBaseLocationIsBusy;
-        $this->callerMayStopSearch          = $callerMayStopSearch;
-        $this->Location01                   = $Location01;
-        $this->Location02                   = $Location02;
-        $this->Location03                   = $Location03;
-        $this->Location04                   = $Location04;
-        $this->Location05                   = $Location05;
-        $this->criteriaActivation           = $criteriaActivation;
-        $this->args                         = func_get_args();
+        $this->setUserId($userId);
+        $this->setRingBaseLocationFirst($ringBaseLocationFirst);
+        $this->setBaseLocationNumberOfRings($baseLocationNumberOfRings);
+        $this->setContinueIfBaseLocationIsBusy($continueIfBaseLocationIsBusy);
+        $this->setCallerMayStopSearch($callerMayStopSearch);
+        $this->setLocation01($Location01);
+        $this->setLocation02($Location02);
+        $this->setLocation03($Location03);
+        $this->setLocation04($Location04);
+        $this->setLocation05($Location05);
+        $this->setCriteriaActivation($criteriaActivation);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -61,9 +72,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setRingBaseLocationFirst($ringBaseLocationFirst)
+    public function setRingBaseLocationFirst(xs:boolean $ringBaseLocationFirst = null)
     {
-        $ringBaseLocationFirst and $this->ringBaseLocationFirst = new xs:boolean($ringBaseLocationFirst);
     }
 
     public function getRingBaseLocationFirst()
@@ -71,9 +81,11 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->ringBaseLocationFirst) ?: $this->ringBaseLocationFirst->value();
     }
 
-    public function setBaseLocationNumberOfRings($baseLocationNumberOfRings)
+    public function setBaseLocationNumberOfRings($baseLocationNumberOfRings = null)
     {
-        $baseLocationNumberOfRings and $this->baseLocationNumberOfRings = new SequentialRingNumberOfRings($baseLocationNumberOfRings);
+        $this->baseLocationNumberOfRings = ($baseLocationNumberOfRings InstanceOf SequentialRingNumberOfRings)
+             ? $baseLocationNumberOfRings
+             : new SequentialRingNumberOfRings($baseLocationNumberOfRings);
     }
 
     public function getBaseLocationNumberOfRings()
@@ -81,9 +93,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->baseLocationNumberOfRings) ?: $this->baseLocationNumberOfRings->value();
     }
 
-    public function setContinueIfBaseLocationIsBusy($continueIfBaseLocationIsBusy)
+    public function setContinueIfBaseLocationIsBusy(xs:boolean $continueIfBaseLocationIsBusy = null)
     {
-        $continueIfBaseLocationIsBusy and $this->continueIfBaseLocationIsBusy = new xs:boolean($continueIfBaseLocationIsBusy);
     }
 
     public function getContinueIfBaseLocationIsBusy()
@@ -91,9 +102,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->continueIfBaseLocationIsBusy) ?: $this->continueIfBaseLocationIsBusy->value();
     }
 
-    public function setCallerMayStopSearch($callerMayStopSearch)
+    public function setCallerMayStopSearch(xs:boolean $callerMayStopSearch = null)
     {
-        $callerMayStopSearch and $this->callerMayStopSearch = new xs:boolean($callerMayStopSearch);
     }
 
     public function getCallerMayStopSearch()
@@ -101,9 +111,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->callerMayStopSearch) ?: $this->callerMayStopSearch->value();
     }
 
-    public function setLocation01($Location01)
+    public function setLocation01(SequentialRingLocationModify $Location01 = null)
     {
-        $Location01 and $this->Location01 = new SequentialRingLocationModify($Location01);
     }
 
     public function getLocation01()
@@ -111,9 +120,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->Location01) ?: $this->Location01->value();
     }
 
-    public function setLocation02($Location02)
+    public function setLocation02(SequentialRingLocationModify $Location02 = null)
     {
-        $Location02 and $this->Location02 = new SequentialRingLocationModify($Location02);
     }
 
     public function getLocation02()
@@ -121,9 +129,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->Location02) ?: $this->Location02->value();
     }
 
-    public function setLocation03($Location03)
+    public function setLocation03(SequentialRingLocationModify $Location03 = null)
     {
-        $Location03 and $this->Location03 = new SequentialRingLocationModify($Location03);
     }
 
     public function getLocation03()
@@ -131,9 +138,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->Location03) ?: $this->Location03->value();
     }
 
-    public function setLocation04($Location04)
+    public function setLocation04(SequentialRingLocationModify $Location04 = null)
     {
-        $Location04 and $this->Location04 = new SequentialRingLocationModify($Location04);
     }
 
     public function getLocation04()
@@ -141,9 +147,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->Location04) ?: $this->Location04->value();
     }
 
-    public function setLocation05($Location05)
+    public function setLocation05(SequentialRingLocationModify $Location05 = null)
     {
-        $Location05 and $this->Location05 = new SequentialRingLocationModify($Location05);
     }
 
     public function getLocation05()
@@ -151,9 +156,8 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
         return (!$this->Location05) ?: $this->Location05->value();
     }
 
-    public function setCriteriaActivation($criteriaActivation)
+    public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $criteriaActivation and $this->criteriaActivation = new CriteriaActivation($criteriaActivation);
     }
 
     public function getCriteriaActivation()

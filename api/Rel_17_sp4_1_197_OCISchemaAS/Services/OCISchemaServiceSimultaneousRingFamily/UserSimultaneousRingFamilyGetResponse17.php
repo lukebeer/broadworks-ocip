@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingNumber;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $isActive                = null;
+    protected $doNotRingIfOnCall       = null;
+    protected $simultaneousRingNumber  = null;
+    protected $criteriaTable           = null;
 
-    public function __construct(
-             $isActive,
-             $doNotRingIfOnCall,
-             SimultaneousRingNumber $simultaneousRingNumber=null,
-             $criteriaTable
-    ) {
-        $this->isActive               = $isActive;
-        $this->doNotRingIfOnCall      = $doNotRingIfOnCall;
-        $this->simultaneousRingNumber = $simultaneousRingNumber;
-        $this->criteriaTable          = $criteriaTable;
-        $this->args                   = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -45,9 +34,8 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDoNotRingIfOnCall($doNotRingIfOnCall)
+    public function setDoNotRingIfOnCall(xs:boolean $doNotRingIfOnCall = null)
     {
-        $doNotRingIfOnCall and $this->doNotRingIfOnCall = new xs:boolean($doNotRingIfOnCall);
     }
 
     public function getDoNotRingIfOnCall()
@@ -55,9 +43,8 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
         return (!$this->doNotRingIfOnCall) ?: $this->doNotRingIfOnCall->value();
     }
 
-    public function setSimultaneousRingNumber($simultaneousRingNumber)
+    public function setSimultaneousRingNumber(SimultaneousRingNumber $simultaneousRingNumber = null)
     {
-        $simultaneousRingNumber and $this->simultaneousRingNumber = new SimultaneousRingNumber($simultaneousRingNumber);
     }
 
     public function getSimultaneousRingNumber()
@@ -65,9 +52,8 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
         return (!$this->simultaneousRingNumber) ?: $this->simultaneousRingNumber->value();
     }
 
-    public function setCriteriaTable($criteriaTable)
+    public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $criteriaTable and $this->criteriaTable = new core:OCITable($criteriaTable);
     }
 
     public function getCriteriaTable()

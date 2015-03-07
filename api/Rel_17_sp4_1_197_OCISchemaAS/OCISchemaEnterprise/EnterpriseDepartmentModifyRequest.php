@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseDepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseDepartmentKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $enterpriseId            = null;
+    protected $departmentName          = null;
+    protected $newDepartmentName       = null;
+    protected $newParentDepartmentKey  = null;
 
     public function __construct(
-             $enterpriseId,
-             $departmentName,
-             $newDepartmentName=null,
-             EnterpriseDepartmentKey $newParentDepartmentKey=null
+         $enterpriseId,
+         $departmentName,
+         $newDepartmentName = null,
+         EnterpriseDepartmentKey $newParentDepartmentKey = null
     ) {
-        $this->enterpriseId           = new ServiceProviderId($enterpriseId);
-        $this->departmentName         = new DepartmentName($departmentName);
-        $this->newDepartmentName      = new DepartmentName($newDepartmentName);
-        $this->newParentDepartmentKey = $newParentDepartmentKey;
-        $this->args                   = func_get_args();
+        $this->setEnterpriseId($enterpriseId);
+        $this->setDepartmentName($departmentName);
+        $this->setNewDepartmentName($newDepartmentName);
+        $this->setNewParentDepartmentKey($newParentDepartmentKey);
     }
 
-    public function setEnterpriseId($enterpriseId)
+    public function setEnterpriseId($enterpriseId = null)
     {
-        $enterpriseId and $this->enterpriseId = new ServiceProviderId($enterpriseId);
+        $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
+             ? $enterpriseId
+             : new ServiceProviderId($enterpriseId);
     }
 
     public function getEnterpriseId()
@@ -45,9 +50,11 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
         return (!$this->enterpriseId) ?: $this->enterpriseId->value();
     }
 
-    public function setDepartmentName($departmentName)
+    public function setDepartmentName($departmentName = null)
     {
-        $departmentName and $this->departmentName = new DepartmentName($departmentName);
+        $this->departmentName = ($departmentName InstanceOf DepartmentName)
+             ? $departmentName
+             : new DepartmentName($departmentName);
     }
 
     public function getDepartmentName()
@@ -55,9 +62,11 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
         return (!$this->departmentName) ?: $this->departmentName->value();
     }
 
-    public function setNewDepartmentName($newDepartmentName)
+    public function setNewDepartmentName($newDepartmentName = null)
     {
-        $newDepartmentName and $this->newDepartmentName = new DepartmentName($newDepartmentName);
+        $this->newDepartmentName = ($newDepartmentName InstanceOf DepartmentName)
+             ? $newDepartmentName
+             : new DepartmentName($newDepartmentName);
     }
 
     public function getNewDepartmentName()
@@ -65,9 +74,8 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
         return (!$this->newDepartmentName) ?: $this->newDepartmentName->value();
     }
 
-    public function setNewParentDepartmentKey($newParentDepartmentKey)
+    public function setNewParentDepartmentKey(EnterpriseDepartmentKey $newParentDepartmentKey = null)
     {
-        $newParentDepartmentKey and $this->newParentDepartmentKey = new EnterpriseDepartmentKey($newParentDepartmentKey);
     }
 
     public function getNewParentDepartmentKey()

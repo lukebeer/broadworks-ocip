@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistOffice; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksReceptionistOfficeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $monitoredUserTable  = null;
 
-    public function __construct(
-             $monitoredUserTable
-    ) {
-        $this->monitoredUserTable = $monitoredUserTable;
-        $this->args               = func_get_args();
-    }
 
-    public function setMonitoredUserTable($monitoredUserTable)
+    public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $monitoredUserTable and $this->monitoredUserTable = new core:OCITable($monitoredUserTable);
     }
 
     public function getMonitoredUserTable()

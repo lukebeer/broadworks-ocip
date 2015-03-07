@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIMessageDeskNumber;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SMDIMessageDeskNumber;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $isActive           = null;
+    protected $messageDeskNumber  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $messageDeskNumber=null
+         $userId,
+         $isActive = null,
+         $messageDeskNumber = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->isActive          = $isActive;
-        $this->messageDeskNumber = $messageDeskNumber;
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setMessageDeskNumber($messageDeskNumber);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -53,9 +55,11 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setMessageDeskNumber($messageDeskNumber)
+    public function setMessageDeskNumber($messageDeskNumber = null)
     {
-        $messageDeskNumber and $this->messageDeskNumber = new SMDIMessageDeskNumber($messageDeskNumber);
+        $this->messageDeskNumber = ($messageDeskNumber InstanceOf SMDIMessageDeskNumber)
+             ? $messageDeskNumber
+             : new SMDIMessageDeskNumber($messageDeskNumber);
     }
 
     public function getMessageDeskNumber()

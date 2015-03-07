@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommPilotCallManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $userId         = null;
+    protected $launchOnLogin  = null;
 
     public function __construct(
-             $userId,
-             $launchOnLogin=null
+         $userId,
+         $launchOnLogin = null
     ) {
-        $this->userId        = new UserId($userId);
-        $this->launchOnLogin = $launchOnLogin;
-        $this->args          = func_get_args();
+        $this->setUserId($userId);
+        $this->setLaunchOnLogin($launchOnLogin);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +42,8 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setLaunchOnLogin($launchOnLogin)
+    public function setLaunchOnLogin(xs:boolean $launchOnLogin = null)
     {
-        $launchOnLogin and $this->launchOnLogin = new xs:boolean($launchOnLogin);
     }
 
     public function getLaunchOnLogin()

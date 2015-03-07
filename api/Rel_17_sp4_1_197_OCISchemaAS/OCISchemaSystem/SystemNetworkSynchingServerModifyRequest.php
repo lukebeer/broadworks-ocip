@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkServerDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkSynchingServerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $netAddress       = null;
+    protected $port             = null;
+    protected $description      = null;
+    protected $becomePreferred  = null;
 
     public function __construct(
-             $netAddress,
-             $port=null,
-             $description=null,
-             $becomePreferred=null
+         $netAddress,
+         $port = null,
+         $description = null,
+         $becomePreferred = null
     ) {
-        $this->netAddress      = new NetAddress($netAddress);
-        $this->port            = new Port1025($port);
-        $this->description     = $description;
-        $this->becomePreferred = $becomePreferred;
-        $this->args            = func_get_args();
+        $this->setNetAddress($netAddress);
+        $this->setPort($port);
+        $this->setDescription($description);
+        $this->setBecomePreferred($becomePreferred);
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -46,9 +50,11 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port1025($port);
+        $this->port = ($port InstanceOf Port1025)
+             ? $port
+             : new Port1025($port);
     }
 
     public function getPort()
@@ -56,9 +62,11 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
         return (!$this->port) ?: $this->port->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new NetworkServerDescription($description);
+        $this->description = ($description InstanceOf NetworkServerDescription)
+             ? $description
+             : new NetworkServerDescription($description);
     }
 
     public function getDescription()
@@ -66,9 +74,8 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setBecomePreferred($becomePreferred)
+    public function setBecomePreferred(xs:boolean $becomePreferred = null)
     {
-        $becomePreferred and $this->becomePreferred = new xs:boolean($becomePreferred);
     }
 
     public function getBecomePreferred()

@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFeatureAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $featureAccessCode  = null;
 
-    public function __construct(
-             FeatureAccessCodeEntry $featureAccessCode=null
-    ) {
-        $this->featureAccessCode = $featureAccessCode;
-        $this->args              = func_get_args();
-    }
 
-    public function setFeatureAccessCode($featureAccessCode)
+    public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        $featureAccessCode and $this->featureAccessCode = new FeatureAccessCodeEntry($featureAccessCode);
     }
 
     public function getFeatureAccessCode()

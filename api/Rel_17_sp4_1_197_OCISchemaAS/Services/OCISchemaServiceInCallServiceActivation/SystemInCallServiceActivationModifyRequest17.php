@@ -17,20 +17,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemInCallServiceActivationModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $defaultFlashActivationDigits         = null;
+    protected $defaultCallTransferActivationDigits  = null;
 
     public function __construct(
-             $defaultFlashActivationDigits=null,
-             $defaultCallTransferActivationDigits=null
+         $defaultFlashActivationDigits = null,
+         $defaultCallTransferActivationDigits = null
     ) {
-        $this->defaultFlashActivationDigits        = new InCallServiceActivationDigits($defaultFlashActivationDigits);
-        $this->defaultCallTransferActivationDigits = new InCallServiceActivationDigits($defaultCallTransferActivationDigits);
-        $this->args                                = func_get_args();
+        $this->setDefaultFlashActivationDigits($defaultFlashActivationDigits);
+        $this->setDefaultCallTransferActivationDigits($defaultCallTransferActivationDigits);
     }
 
-    public function setDefaultFlashActivationDigits($defaultFlashActivationDigits)
+    public function setDefaultFlashActivationDigits($defaultFlashActivationDigits = null)
     {
-        $defaultFlashActivationDigits and $this->defaultFlashActivationDigits = new InCallServiceActivationDigits($defaultFlashActivationDigits);
+        $this->defaultFlashActivationDigits = ($defaultFlashActivationDigits InstanceOf InCallServiceActivationDigits)
+             ? $defaultFlashActivationDigits
+             : new InCallServiceActivationDigits($defaultFlashActivationDigits);
     }
 
     public function getDefaultFlashActivationDigits()
@@ -38,9 +41,11 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
         return (!$this->defaultFlashActivationDigits) ?: $this->defaultFlashActivationDigits->value();
     }
 
-    public function setDefaultCallTransferActivationDigits($defaultCallTransferActivationDigits)
+    public function setDefaultCallTransferActivationDigits($defaultCallTransferActivationDigits = null)
     {
-        $defaultCallTransferActivationDigits and $this->defaultCallTransferActivationDigits = new InCallServiceActivationDigits($defaultCallTransferActivationDigits);
+        $this->defaultCallTransferActivationDigits = ($defaultCallTransferActivationDigits InstanceOf InCallServiceActivationDigits)
+             ? $defaultCallTransferActivationDigits
+             : new InCallServiceActivationDigits($defaultCallTransferActivationDigits);
     }
 
     public function getDefaultCallTransferActivationDigits()

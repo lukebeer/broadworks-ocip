@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationControllerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ApplicationControllerName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutePointExternalSystemApplicationControllerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $applicationController  = null;
 
-    public function __construct(
-             $applicationController=null
-    ) {
-        $this->applicationController = $applicationController;
-        $this->args                  = func_get_args();
-    }
 
-    public function setApplicationController($applicationController)
+    public function setApplicationController($applicationController = null)
     {
-        $applicationController and $this->applicationController = new ApplicationControllerName($applicationController);
+        $this->applicationController = ($applicationController InstanceOf ApplicationControllerName)
+             ? $applicationController
+             : new ApplicationControllerName($applicationController);
     }
 
     public function getApplicationController()

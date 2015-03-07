@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,28 +21,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $servicePackName         = null;
+    protected $newServicePackName      = null;
+    protected $servicePackDescription  = null;
+    protected $isAvailableForUse       = null;
+    protected $servicePackQuantity     = null;
 
     public function __construct(
-             $serviceProviderId,
-             $servicePackName,
-             $newServicePackName=null,
-             $servicePackDescription=null,
-             $isAvailableForUse=null,
-             UnboundedPositiveInt $servicePackQuantity=null
+         $serviceProviderId,
+         $servicePackName,
+         $newServicePackName = null,
+         $servicePackDescription = null,
+         $isAvailableForUse = null,
+         UnboundedPositiveInt $servicePackQuantity = null
     ) {
-        $this->serviceProviderId      = new ServiceProviderId($serviceProviderId);
-        $this->servicePackName        = new ServicePackName($servicePackName);
-        $this->newServicePackName     = new ServicePackName($newServicePackName);
-        $this->servicePackDescription = new ServicePackDescription($servicePackDescription);
-        $this->isAvailableForUse      = $isAvailableForUse;
-        $this->servicePackQuantity    = $servicePackQuantity;
-        $this->args                   = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setServicePackName($servicePackName);
+        $this->setNewServicePackName($newServicePackName);
+        $this->setServicePackDescription($servicePackDescription);
+        $this->setIsAvailableForUse($isAvailableForUse);
+        $this->setServicePackQuantity($servicePackQuantity);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -51,9 +57,11 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()
@@ -61,9 +69,11 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         return (!$this->servicePackName) ?: $this->servicePackName->value();
     }
 
-    public function setNewServicePackName($newServicePackName)
+    public function setNewServicePackName($newServicePackName = null)
     {
-        $newServicePackName and $this->newServicePackName = new ServicePackName($newServicePackName);
+        $this->newServicePackName = ($newServicePackName InstanceOf ServicePackName)
+             ? $newServicePackName
+             : new ServicePackName($newServicePackName);
     }
 
     public function getNewServicePackName()
@@ -71,9 +81,11 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         return (!$this->newServicePackName) ?: $this->newServicePackName->value();
     }
 
-    public function setServicePackDescription($servicePackDescription)
+    public function setServicePackDescription($servicePackDescription = null)
     {
-        $servicePackDescription and $this->servicePackDescription = new ServicePackDescription($servicePackDescription);
+        $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
+             ? $servicePackDescription
+             : new ServicePackDescription($servicePackDescription);
     }
 
     public function getServicePackDescription()
@@ -81,9 +93,8 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         return (!$this->servicePackDescription) ?: $this->servicePackDescription->value();
     }
 
-    public function setIsAvailableForUse($isAvailableForUse)
+    public function setIsAvailableForUse(xs:boolean $isAvailableForUse = null)
     {
-        $isAvailableForUse and $this->isAvailableForUse = new xs:boolean($isAvailableForUse);
     }
 
     public function getIsAvailableForUse()
@@ -91,9 +102,8 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         return (!$this->isAvailableForUse) ?: $this->isAvailableForUse->value();
     }
 
-    public function setServicePackQuantity($servicePackQuantity)
+    public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        $servicePackQuantity and $this->servicePackQuantity = new UnboundedPositiveInt($servicePackQuantity);
     }
 
     public function getServicePackQuantity()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:base64Binary;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileGetContentResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $fileContent  = null;
 
-    public function __construct(
-             $fileContent
-    ) {
-        $this->fileContent = $fileContent;
-        $this->args        = func_get_args();
-    }
 
-    public function setFileContent($fileContent)
+    public function setFileContent(xs:base64Binary $fileContent = null)
     {
-        $fileContent and $this->fileContent = new xs:base64Binary($fileContent);
     }
 
     public function getFileContent()

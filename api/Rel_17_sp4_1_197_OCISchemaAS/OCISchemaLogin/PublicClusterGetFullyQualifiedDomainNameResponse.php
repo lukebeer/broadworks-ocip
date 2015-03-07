@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $publicClusterFQDN  = null;
 
-    public function __construct(
-             $publicClusterFQDN=null
-    ) {
-        $this->publicClusterFQDN = new DomainName($publicClusterFQDN);
-        $this->args              = func_get_args();
-    }
 
-    public function setPublicClusterFQDN($publicClusterFQDN)
+    public function setPublicClusterFQDN($publicClusterFQDN = null)
     {
-        $publicClusterFQDN and $this->publicClusterFQDN = new DomainName($publicClusterFQDN);
+        $this->publicClusterFQDN = ($publicClusterFQDN InstanceOf DomainName)
+             ? $publicClusterFQDN
+             : new DomainName($publicClusterFQDN);
     }
 
     public function getPublicClusterFQDN()

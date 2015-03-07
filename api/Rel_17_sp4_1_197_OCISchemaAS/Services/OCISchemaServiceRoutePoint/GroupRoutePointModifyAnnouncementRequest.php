@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterMediaOnHoldSourceModify17;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceUserId      = null;
+    protected $mediaOnHoldSource  = null;
 
     public function __construct(
-             $serviceUserId,
-             CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource=null
+         $serviceUserId,
+         CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null
     ) {
-        $this->serviceUserId     = new UserId($serviceUserId);
-        $this->mediaOnHoldSource = $mediaOnHoldSource;
-        $this->args              = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setMediaOnHoldSource($mediaOnHoldSource);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -40,9 +43,8 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setMediaOnHoldSource($mediaOnHoldSource)
+    public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
-        $mediaOnHoldSource and $this->mediaOnHoldSource = new CallCenterMediaOnHoldSourceModify17($mediaOnHoldSource);
     }
 
     public function getMediaOnHoldSource()

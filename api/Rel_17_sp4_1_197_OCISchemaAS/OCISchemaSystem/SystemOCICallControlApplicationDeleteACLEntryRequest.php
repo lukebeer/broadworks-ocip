@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $applicationId  = null;
+    protected $netAddress     = null;
 
     public function __construct(
-             $applicationId,
-             $netAddress
+         $applicationId,
+         $netAddress
     ) {
-        $this->applicationId = new OCICallControlApplicationId($applicationId);
-        $this->netAddress    = new IPAddress($netAddress);
-        $this->args          = func_get_args();
+        $this->setApplicationId($applicationId);
+        $this->setNetAddress($netAddress);
     }
 
-    public function setApplicationId($applicationId)
+    public function setApplicationId($applicationId = null)
     {
-        $applicationId and $this->applicationId = new OCICallControlApplicationId($applicationId);
+        $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
+             ? $applicationId
+             : new OCICallControlApplicationId($applicationId);
     }
 
     public function getApplicationId()
@@ -40,9 +43,11 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
         return (!$this->applicationId) ?: $this->applicationId->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new IPAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf IPAddress)
+             ? $netAddress
+             : new IPAddress($netAddress);
     }
 
     public function getNetAddress()

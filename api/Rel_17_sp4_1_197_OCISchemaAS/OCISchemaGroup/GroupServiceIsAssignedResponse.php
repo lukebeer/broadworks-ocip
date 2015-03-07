@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceIsAssignedResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $isAssigned  = null;
 
-    public function __construct(
-             $isAssigned
-    ) {
-        $this->isAssigned = $isAssigned;
-        $this->args       = func_get_args();
-    }
 
-    public function setIsAssigned($isAssigned)
+    public function setIsAssigned(xs:boolean $isAssigned = null)
     {
-        $isAssigned and $this->isAssigned = new xs:boolean($isAssigned);
     }
 
     public function getIsAssigned()

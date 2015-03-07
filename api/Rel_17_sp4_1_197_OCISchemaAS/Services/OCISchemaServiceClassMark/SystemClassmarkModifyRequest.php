@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Classmark;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ClassmarkValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\ClassmarkValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebDisplayKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $classmark      = null;
+    protected $value          = null;
+    protected $webDisplayKey  = null;
 
     public function __construct(
-             $classmark,
-             $value=null,
-             $webDisplayKey=null
+         $classmark,
+         $value = null,
+         $webDisplayKey = null
     ) {
-        $this->classmark     = $classmark;
-        $this->value         = $value;
-        $this->webDisplayKey = new WebDisplayKey($webDisplayKey);
-        $this->args          = func_get_args();
+        $this->setClassmark($classmark);
+        $this->setValue($value);
+        $this->setWebDisplayKey($webDisplayKey);
     }
 
-    public function setClassmark($classmark)
+    public function setClassmark($classmark = null)
     {
-        $classmark and $this->classmark = new Classmark($classmark);
+        $this->classmark = ($classmark InstanceOf Classmark)
+             ? $classmark
+             : new Classmark($classmark);
     }
 
     public function getClassmark()
@@ -43,9 +47,11 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->classmark) ?: $this->classmark->value();
     }
 
-    public function setValue($value)
+    public function setValue($value = null)
     {
-        $value and $this->value = new ClassmarkValue($value);
+        $this->value = ($value InstanceOf ClassmarkValue)
+             ? $value
+             : new ClassmarkValue($value);
     }
 
     public function getValue()
@@ -53,9 +59,11 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->value) ?: $this->value->value();
     }
 
-    public function setWebDisplayKey($webDisplayKey)
+    public function setWebDisplayKey($webDisplayKey = null)
     {
-        $webDisplayKey and $this->webDisplayKey = new WebDisplayKey($webDisplayKey);
+        $this->webDisplayKey = ($webDisplayKey InstanceOf WebDisplayKey)
+             ? $webDisplayKey
+             : new WebDisplayKey($webDisplayKey);
     }
 
     public function getWebDisplayKey()

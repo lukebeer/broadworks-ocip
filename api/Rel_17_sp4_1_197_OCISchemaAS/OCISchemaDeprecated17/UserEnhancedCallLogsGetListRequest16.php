@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,22 +22,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $userId                 = null;
+    protected $callLogType            = null;
+    protected $responsePagingControl  = null;
 
     public function __construct(
-             $userId,
-             $callLogType=null,
-             ResponsePagingControl $responsePagingControl=null
+         $userId,
+         $callLogType = null,
+         ResponsePagingControl $responsePagingControl = null
     ) {
-        $this->userId                = new UserId($userId);
-        $this->callLogType           = new CallLogsType($callLogType);
-        $this->responsePagingControl = $responsePagingControl;
-        $this->args                  = func_get_args();
+        $this->setUserId($userId);
+        $this->setCallLogType($callLogType);
+        $this->setResponsePagingControl($responsePagingControl);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -45,9 +49,11 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setCallLogType($callLogType)
+    public function setCallLogType($callLogType = null)
     {
-        $callLogType and $this->callLogType = new CallLogsType($callLogType);
+        $this->callLogType = ($callLogType InstanceOf CallLogsType)
+             ? $callLogType
+             : new CallLogsType($callLogType);
     }
 
     public function getCallLogType()
@@ -55,9 +61,8 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
         return (!$this->callLogType) ?: $this->callLogType->value();
     }
 
-    public function setResponsePagingControl($responsePagingControl)
+    public function setResponsePagingControl(ResponsePagingControl $responsePagingControl = null)
     {
-        $responsePagingControl and $this->responsePagingControl = new ResponsePagingControl($responsePagingControl);
     }
 
     public function getResponsePagingControl()

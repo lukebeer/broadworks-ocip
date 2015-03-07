@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCommunicationBarringProfileDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $name               = null;
+    protected $defaultProfile     = null;
 
     public function __construct(
-             $serviceProviderId,
-             $name,
-             $defaultProfile=null
+         $serviceProviderId,
+         $name,
+         $defaultProfile = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->name              = new CommunicationBarringProfileName($name);
-        $this->defaultProfile    = new CommunicationBarringProfileName($defaultProfile);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setName($name);
+        $this->setDefaultProfile($defaultProfile);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -42,9 +46,11 @@ class ServiceProviderCommunicationBarringProfileDeleteRequest extends ComplexTyp
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CommunicationBarringProfileName($name);
+        $this->name = ($name InstanceOf CommunicationBarringProfileName)
+             ? $name
+             : new CommunicationBarringProfileName($name);
     }
 
     public function getName()
@@ -52,9 +58,11 @@ class ServiceProviderCommunicationBarringProfileDeleteRequest extends ComplexTyp
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDefaultProfile($defaultProfile)
+    public function setDefaultProfile($defaultProfile = null)
     {
-        $defaultProfile and $this->defaultProfile = new CommunicationBarringProfileName($defaultProfile);
+        $this->defaultProfile = ($defaultProfile InstanceOf CommunicationBarringProfileName)
+             ? $defaultProfile
+             : new CommunicationBarringProfileName($defaultProfile);
     }
 
     public function getDefaultProfile()

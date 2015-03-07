@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserScheduleGetEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $userId       = null;
+    protected $scheduleKey  = null;
 
     public function __construct(
-             $userId,
-             ScheduleKey $scheduleKey
+         $userId,
+         ScheduleKey $scheduleKey
     ) {
-        $this->userId      = new UserId($userId);
-        $this->scheduleKey = $scheduleKey;
-        $this->args        = func_get_args();
+        $this->setUserId($userId);
+        $this->setScheduleKey($scheduleKey);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserScheduleGetEventListRequest extends ComplexType implements ComplexInte
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()

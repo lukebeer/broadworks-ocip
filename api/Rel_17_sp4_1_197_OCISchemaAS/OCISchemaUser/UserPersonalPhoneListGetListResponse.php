@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPersonalPhoneListGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name   = __CLASS__;
+    protected $entry  = null;
 
-    public function __construct(
-             PhoneListEntry $entry=null
-    ) {
-        $this->entry = $entry;
-        $this->args  = func_get_args();
-    }
 
-    public function setEntry($entry)
+    public function setEntry(PhoneListEntry $entry = null)
     {
-        $entry and $this->entry = new PhoneListEntry($entry);
     }
 
     public function getEntry()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkServerAlternateCallIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemExpensiveCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $alternateCallIndicator  = null;
 
-    public function __construct(
-             $alternateCallIndicator=null
-    ) {
-        $this->alternateCallIndicator = $alternateCallIndicator;
-        $this->args                   = func_get_args();
-    }
 
-    public function setAlternateCallIndicator($alternateCallIndicator)
+    public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
-        $alternateCallIndicator and $this->alternateCallIndicator = new NetworkServerAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
+             ? $alternateCallIndicator
+             : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
     }
 
     public function getAlternateCallIndicator()

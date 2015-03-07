@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +19,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $enableSync                = null;
+    protected $syncLinePorts             = null;
+    protected $syncDeviceManagementInfo  = null;
 
-    public function __construct(
-             $enableSync,
-             $syncLinePorts,
-             $syncDeviceManagementInfo
-    ) {
-        $this->enableSync               = $enableSync;
-        $this->syncLinePorts            = $syncLinePorts;
-        $this->syncDeviceManagementInfo = $syncDeviceManagementInfo;
-        $this->args                     = func_get_args();
-    }
 
-    public function setEnableSync($enableSync)
+    public function setEnableSync(xs:boolean $enableSync = null)
     {
-        $enableSync and $this->enableSync = new xs:boolean($enableSync);
     }
 
     public function getEnableSync()
@@ -42,9 +34,8 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
         return (!$this->enableSync) ?: $this->enableSync->value();
     }
 
-    public function setSyncLinePorts($syncLinePorts)
+    public function setSyncLinePorts(xs:boolean $syncLinePorts = null)
     {
-        $syncLinePorts and $this->syncLinePorts = new xs:boolean($syncLinePorts);
     }
 
     public function getSyncLinePorts()
@@ -52,9 +43,8 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
         return (!$this->syncLinePorts) ?: $this->syncLinePorts->value();
     }
 
-    public function setSyncDeviceManagementInfo($syncDeviceManagementInfo)
+    public function setSyncDeviceManagementInfo(xs:boolean $syncDeviceManagementInfo = null)
     {
-        $syncDeviceManagementInfo and $this->syncDeviceManagementInfo = new xs:boolean($syncDeviceManagementInfo);
     }
 
     public function getSyncDeviceManagementInfo()

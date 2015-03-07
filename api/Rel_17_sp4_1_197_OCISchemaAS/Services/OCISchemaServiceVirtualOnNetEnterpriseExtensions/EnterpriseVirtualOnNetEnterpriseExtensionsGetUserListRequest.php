@@ -7,14 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactVirtualOnNetCallTypeName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupLocationCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExtension;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupLocationCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExtension;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactVirtualOnNetCallTypeName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -28,32 +28,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                         = __CLASS__;
+    protected $serviceProviderId                            = null;
+    protected $responseSizeLimit                            = null;
+    protected $searchCriteriaUserLastName                   = null;
+    protected $searchCriteriaUserFirstName                  = null;
+    protected $searchCriteriaDn                             = null;
+    protected $searchCriteriaGroupLocationCode              = null;
+    protected $searchCriteriaExtension                      = null;
+    protected $searchCriteriaExactVirtualOnNetCallTypeName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $responseSizeLimit=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaUserFirstName=null,
-             $searchCriteriaDn=null,
-             $searchCriteriaGroupLocationCode=null,
-             $searchCriteriaExtension=null,
-             $searchCriteriaExactVirtualOnNetCallTypeName=null
+         $serviceProviderId,
+         $responseSizeLimit = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
+         SearchCriteriaExtension $searchCriteriaExtension = null,
+         SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName = null
     ) {
-        $this->serviceProviderId                           = new ServiceProviderId($serviceProviderId);
-        $this->responseSizeLimit                           = $responseSizeLimit;
-        $this->searchCriteriaUserLastName                  = $searchCriteriaUserLastName;
-        $this->searchCriteriaUserFirstName                 = $searchCriteriaUserFirstName;
-        $this->searchCriteriaDn                            = $searchCriteriaDn;
-        $this->searchCriteriaGroupLocationCode             = $searchCriteriaGroupLocationCode;
-        $this->searchCriteriaExtension                     = $searchCriteriaExtension;
-        $this->searchCriteriaExactVirtualOnNetCallTypeName = $searchCriteriaExactVirtualOnNetCallTypeName;
-        $this->args                                        = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
+        $this->setSearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
+        $this->setSearchCriteriaExtension($searchCriteriaExtension);
+        $this->setSearchCriteriaExactVirtualOnNetCallTypeName($searchCriteriaExactVirtualOnNetCallTypeName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -61,9 +70,11 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -71,9 +82,8 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -81,9 +91,8 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaUserFirstName($searchCriteriaUserFirstName)
+    public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $searchCriteriaUserFirstName and $this->searchCriteriaUserFirstName = new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
     }
 
     public function getSearchCriteriaUserFirstName()
@@ -91,9 +100,8 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()
@@ -101,9 +109,8 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
     }
 
-    public function setSearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode)
+    public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        $searchCriteriaGroupLocationCode and $this->searchCriteriaGroupLocationCode = new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
     }
 
     public function getSearchCriteriaGroupLocationCode()
@@ -111,9 +118,8 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         return (!$this->searchCriteriaGroupLocationCode) ?: $this->searchCriteriaGroupLocationCode->value();
     }
 
-    public function setSearchCriteriaExtension($searchCriteriaExtension)
+    public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $searchCriteriaExtension and $this->searchCriteriaExtension = new SearchCriteriaExtension($searchCriteriaExtension);
     }
 
     public function getSearchCriteriaExtension()
@@ -121,9 +127,8 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->value();
     }
 
-    public function setSearchCriteriaExactVirtualOnNetCallTypeName($searchCriteriaExactVirtualOnNetCallTypeName)
+    public function setSearchCriteriaExactVirtualOnNetCallTypeName(SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName = null)
     {
-        $searchCriteriaExactVirtualOnNetCallTypeName and $this->searchCriteriaExactVirtualOnNetCallTypeName = new SearchCriteriaExactVirtualOnNetCallTypeName($searchCriteriaExactVirtualOnNetCallTypeName);
     }
 
     public function getSearchCriteriaExactVirtualOnNetCallTypeName()

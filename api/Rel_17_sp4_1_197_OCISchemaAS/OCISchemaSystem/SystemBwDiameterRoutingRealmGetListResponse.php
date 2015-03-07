@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $routingRealmTable  = null;
 
-    public function __construct(
-             $routingRealmTable
-    ) {
-        $this->routingRealmTable = $routingRealmTable;
-        $this->args              = func_get_args();
-    }
 
-    public function setRoutingRealmTable($routingRealmTable)
+    public function setRoutingRealmTable(core:OCITable $routingRealmTable = null)
     {
-        $routingRealmTable and $this->routingRealmTable = new core:OCITable($routingRealmTable);
     }
 
     public function getRoutingRealmTable()

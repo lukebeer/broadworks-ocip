@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $configFile  = null;
 
     public function __construct(
-             FileResource $configFile=null
+         FileResource $configFile = null
     ) {
-        $this->configFile = $configFile;
-        $this->args       = func_get_args();
+        $this->setConfigFile($configFile);
     }
 
-    public function setConfigFile($configFile)
+    public function setConfigFile(FileResource $configFile = null)
     {
-        $configFile and $this->configFile = new FileResource($configFile);
     }
 
     public function getConfigFile()

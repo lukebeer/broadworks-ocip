@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkMaximumRerouteAttempts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkRouteExhaustionAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkMaximumRerouteAttempts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkRouteExhaustionAction;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,30 +23,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $serviceProviderId              = null;
+    protected $groupId                        = null;
+    protected $enterpriseTrunkName            = null;
+    protected $newEnterpriseTrunkName         = null;
+    protected $maximumRerouteAttempts         = null;
+    protected $routeExhaustionAction          = null;
+    protected $routeExhaustionForwardAddress  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $enterpriseTrunkName,
-             $newEnterpriseTrunkName=null,
-             $maximumRerouteAttempts=null,
-             $routeExhaustionAction=null,
-             $routeExhaustionForwardAddress=null
+         $serviceProviderId,
+         $groupId,
+         $enterpriseTrunkName,
+         $newEnterpriseTrunkName = null,
+         $maximumRerouteAttempts = null,
+         $routeExhaustionAction = null,
+         $routeExhaustionForwardAddress = null
     ) {
-        $this->serviceProviderId             = new ServiceProviderId($serviceProviderId);
-        $this->groupId                       = new GroupId($groupId);
-        $this->enterpriseTrunkName           = new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->newEnterpriseTrunkName        = new EnterpriseTrunkName($newEnterpriseTrunkName);
-        $this->maximumRerouteAttempts        = $maximumRerouteAttempts;
-        $this->routeExhaustionAction         = $routeExhaustionAction;
-        $this->routeExhaustionForwardAddress = new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
-        $this->args                          = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setEnterpriseTrunkName($enterpriseTrunkName);
+        $this->setNewEnterpriseTrunkName($newEnterpriseTrunkName);
+        $this->setMaximumRerouteAttempts($maximumRerouteAttempts);
+        $this->setRouteExhaustionAction($routeExhaustionAction);
+        $this->setRouteExhaustionForwardAddress($routeExhaustionForwardAddress);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -54,9 +62,11 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -64,9 +74,11 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setEnterpriseTrunkName($enterpriseTrunkName)
+    public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        $enterpriseTrunkName and $this->enterpriseTrunkName = new EnterpriseTrunkName($enterpriseTrunkName);
+        $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
+             ? $enterpriseTrunkName
+             : new EnterpriseTrunkName($enterpriseTrunkName);
     }
 
     public function getEnterpriseTrunkName()
@@ -74,9 +86,11 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
         return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->value();
     }
 
-    public function setNewEnterpriseTrunkName($newEnterpriseTrunkName)
+    public function setNewEnterpriseTrunkName($newEnterpriseTrunkName = null)
     {
-        $newEnterpriseTrunkName and $this->newEnterpriseTrunkName = new EnterpriseTrunkName($newEnterpriseTrunkName);
+        $this->newEnterpriseTrunkName = ($newEnterpriseTrunkName InstanceOf EnterpriseTrunkName)
+             ? $newEnterpriseTrunkName
+             : new EnterpriseTrunkName($newEnterpriseTrunkName);
     }
 
     public function getNewEnterpriseTrunkName()
@@ -84,9 +98,11 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
         return (!$this->newEnterpriseTrunkName) ?: $this->newEnterpriseTrunkName->value();
     }
 
-    public function setMaximumRerouteAttempts($maximumRerouteAttempts)
+    public function setMaximumRerouteAttempts($maximumRerouteAttempts = null)
     {
-        $maximumRerouteAttempts and $this->maximumRerouteAttempts = new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
+        $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
+             ? $maximumRerouteAttempts
+             : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
     }
 
     public function getMaximumRerouteAttempts()
@@ -94,9 +110,11 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
         return (!$this->maximumRerouteAttempts) ?: $this->maximumRerouteAttempts->value();
     }
 
-    public function setRouteExhaustionAction($routeExhaustionAction)
+    public function setRouteExhaustionAction($routeExhaustionAction = null)
     {
-        $routeExhaustionAction and $this->routeExhaustionAction = new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
+        $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
+             ? $routeExhaustionAction
+             : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
     }
 
     public function getRouteExhaustionAction()
@@ -104,9 +122,11 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
         return (!$this->routeExhaustionAction) ?: $this->routeExhaustionAction->value();
     }
 
-    public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress)
+    public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress = null)
     {
-        $routeExhaustionForwardAddress and $this->routeExhaustionForwardAddress = new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
+        $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
+             ? $routeExhaustionForwardAddress
+             : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
     }
 
     public function getRouteExhaustionForwardAddress()

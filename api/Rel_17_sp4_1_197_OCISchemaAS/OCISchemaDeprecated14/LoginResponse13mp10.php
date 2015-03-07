@@ -19,22 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $loginType  = null;
+    protected $locale     = null;
+    protected $encoding   = null;
 
-    public function __construct(
-             $loginType,
-             $locale,
-             $encoding
-    ) {
-        $this->loginType = new LoginType($loginType);
-        $this->locale    = new OCILocale($locale);
-        $this->encoding  = new Encoding($encoding);
-        $this->args      = func_get_args();
-    }
 
-    public function setLoginType($loginType)
+    public function setLoginType($loginType = null)
     {
-        $loginType and $this->loginType = new LoginType($loginType);
+        $this->loginType = ($loginType InstanceOf LoginType)
+             ? $loginType
+             : new LoginType($loginType);
     }
 
     public function getLoginType()
@@ -42,9 +37,11 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
         return (!$this->loginType) ?: $this->loginType->value();
     }
 
-    public function setLocale($locale)
+    public function setLocale($locale = null)
     {
-        $locale and $this->locale = new OCILocale($locale);
+        $this->locale = ($locale InstanceOf OCILocale)
+             ? $locale
+             : new OCILocale($locale);
     }
 
     public function getLocale()
@@ -52,9 +49,11 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
         return (!$this->locale) ?: $this->locale->value();
     }
 
-    public function setEncoding($encoding)
+    public function setEncoding($encoding = null)
     {
-        $encoding and $this->encoding = new Encoding($encoding);
+        $this->encoding = ($encoding InstanceOf Encoding)
+             ? $encoding
+             : new Encoding($encoding);
     }
 
     public function getEncoding()

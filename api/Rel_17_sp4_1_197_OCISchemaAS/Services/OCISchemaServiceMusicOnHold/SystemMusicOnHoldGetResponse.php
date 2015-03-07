@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MusicOnHoldDelayMilliseconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\MusicOnHoldDelayMilliseconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMusicOnHoldGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $delayMilliseconds  = null;
 
-    public function __construct(
-             $delayMilliseconds
-    ) {
-        $this->delayMilliseconds = $delayMilliseconds;
-        $this->args              = func_get_args();
-    }
 
-    public function setDelayMilliseconds($delayMilliseconds)
+    public function setDelayMilliseconds($delayMilliseconds = null)
     {
-        $delayMilliseconds and $this->delayMilliseconds = new MusicOnHoldDelayMilliseconds($delayMilliseconds);
+        $this->delayMilliseconds = ($delayMilliseconds InstanceOf MusicOnHoldDelayMilliseconds)
+             ? $delayMilliseconds
+             : new MusicOnHoldDelayMilliseconds($delayMilliseconds);
     }
 
     public function getDelayMilliseconds()

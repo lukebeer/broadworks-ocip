@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkServerAlternateCallIndicator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaTreatmentFileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaTreatmentFileName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $alternateCallIndicator  = null;
+    protected $treatmentAudioFile      = null;
 
     public function __construct(
-             $alternateCallIndicator,
-             $treatmentAudioFile=null
+         $alternateCallIndicator,
+         $treatmentAudioFile = null
     ) {
-        $this->alternateCallIndicator = $alternateCallIndicator;
-        $this->treatmentAudioFile     = $treatmentAudioFile;
-        $this->args                   = func_get_args();
+        $this->setAlternateCallIndicator($alternateCallIndicator);
+        $this->setTreatmentAudioFile($treatmentAudioFile);
     }
 
-    public function setAlternateCallIndicator($alternateCallIndicator)
+    public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
-        $alternateCallIndicator and $this->alternateCallIndicator = new NetworkServerAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
+             ? $alternateCallIndicator
+             : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
     }
 
     public function getAlternateCallIndicator()
@@ -40,9 +43,11 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
         return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->value();
     }
 
-    public function setTreatmentAudioFile($treatmentAudioFile)
+    public function setTreatmentAudioFile($treatmentAudioFile = null)
     {
-        $treatmentAudioFile and $this->treatmentAudioFile = new MediaTreatmentFileName($treatmentAudioFile);
+        $this->treatmentAudioFile = ($treatmentAudioFile InstanceOf MediaTreatmentFileName)
+             ? $treatmentAudioFile
+             : new MediaTreatmentFileName($treatmentAudioFile);
     }
 
     public function getTreatmentAudioFile()

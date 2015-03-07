@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\ServiceAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceAccessCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $countryCode        = null;
+    protected $serviceAccessCode  = null;
 
     public function __construct(
-             $countryCode,
-             $serviceAccessCode
+         $countryCode,
+         $serviceAccessCode
     ) {
-        $this->countryCode       = new CountryCode($countryCode);
-        $this->serviceAccessCode = $serviceAccessCode;
-        $this->args              = func_get_args();
+        $this->setCountryCode($countryCode);
+        $this->setServiceAccessCode($serviceAccessCode);
     }
 
-    public function setCountryCode($countryCode)
+    public function setCountryCode($countryCode = null)
     {
-        $countryCode and $this->countryCode = new CountryCode($countryCode);
+        $this->countryCode = ($countryCode InstanceOf CountryCode)
+             ? $countryCode
+             : new CountryCode($countryCode);
     }
 
     public function getCountryCode()
@@ -40,9 +43,11 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
         return (!$this->countryCode) ?: $this->countryCode->value();
     }
 
-    public function setServiceAccessCode($serviceAccessCode)
+    public function setServiceAccessCode($serviceAccessCode = null)
     {
-        $serviceAccessCode and $this->serviceAccessCode = new ServiceAccessCode($serviceAccessCode);
+        $this->serviceAccessCode = ($serviceAccessCode InstanceOf ServiceAccessCode)
+             ? $serviceAccessCode
+             : new ServiceAccessCode($serviceAccessCode);
     }
 
     public function getServiceAccessCode()

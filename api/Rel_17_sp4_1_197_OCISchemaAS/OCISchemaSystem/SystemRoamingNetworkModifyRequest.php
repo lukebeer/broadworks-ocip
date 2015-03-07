@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkTranslationIndex;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkTranslationIndex;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $mscAddress               = null;
+    protected $networkTranslationIndex  = null;
 
     public function __construct(
-             $mscAddress,
-             $networkTranslationIndex=null
+         $mscAddress,
+         $networkTranslationIndex = null
     ) {
-        $this->mscAddress              = new DN($mscAddress);
-        $this->networkTranslationIndex = $networkTranslationIndex;
-        $this->args                    = func_get_args();
+        $this->setMscAddress($mscAddress);
+        $this->setNetworkTranslationIndex($networkTranslationIndex);
     }
 
-    public function setMscAddress($mscAddress)
+    public function setMscAddress($mscAddress = null)
     {
-        $mscAddress and $this->mscAddress = new DN($mscAddress);
+        $this->mscAddress = ($mscAddress InstanceOf DN)
+             ? $mscAddress
+             : new DN($mscAddress);
     }
 
     public function getMscAddress()
@@ -40,9 +43,11 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
         return (!$this->mscAddress) ?: $this->mscAddress->value();
     }
 
-    public function setNetworkTranslationIndex($networkTranslationIndex)
+    public function setNetworkTranslationIndex($networkTranslationIndex = null)
     {
-        $networkTranslationIndex and $this->networkTranslationIndex = new NetworkTranslationIndex($networkTranslationIndex);
+        $this->networkTranslationIndex = ($networkTranslationIndex InstanceOf NetworkTranslationIndex)
+             ? $networkTranslationIndex
+             : new NetworkTranslationIndex($networkTranslationIndex);
     }
 
     public function getNetworkTranslationIndex()

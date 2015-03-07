@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNDigitManipulationOperationNoValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOperationNoValue;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $operation  = null;
 
     public function __construct(
-             $operation
+         $operation
     ) {
-        $this->operation = $operation;
-        $this->args      = func_get_args();
+        $this->setOperation($operation);
     }
 
-    public function setOperation($operation)
+    public function setOperation($operation = null)
     {
-        $operation and $this->operation = new EnterpriseVoiceVPNDigitManipulationOperationNoValue($operation);
+        $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationNoValue)
+             ? $operation
+             : new EnterpriseVoiceVPNDigitManipulationOperationNoValue($operation);
     }
 
     public function getOperation()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCIReportingMessageName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCIReportingMessageName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCIReportingGetMessageNameListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $messageNameStartsWith  = null;
 
-    public function __construct(
-             $messageNameStartsWith=null
-    ) {
-        $this->messageNameStartsWith = $messageNameStartsWith;
-        $this->args                  = func_get_args();
-    }
 
-    public function setMessageNameStartsWith($messageNameStartsWith)
+    public function setMessageNameStartsWith($messageNameStartsWith = null)
     {
-        $messageNameStartsWith and $this->messageNameStartsWith = new OCIReportingMessageName($messageNameStartsWith);
+        $this->messageNameStartsWith = ($messageNameStartsWith InstanceOf OCIReportingMessageName)
+             ? $messageNameStartsWith
+             : new OCIReportingMessageName($messageNameStartsWith);
     }
 
     public function getMessageNameStartsWith()

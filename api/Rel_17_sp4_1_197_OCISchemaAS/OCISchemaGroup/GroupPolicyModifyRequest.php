@@ -7,20 +7,20 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingPlanAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupLDAPIntegrationAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupVoiceMessagingAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminUserAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminTrunkGroupAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminPhoneNumberExtensionAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminCallingLineIdNumberAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserAuthenticationAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminTrunkGroupAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminUserAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserGroupDirectoryAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserProfileAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserAuthenticationAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupLDAPIntegrationAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupVoiceMessagingAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserCallLogAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserProfileAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingPlanAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -31,44 +31,59 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                       = __CLASS__;
+    protected $serviceProviderId                          = null;
+    protected $groupId                                    = null;
+    protected $callingPlanAccess                          = null;
+    protected $extensionAccess                            = null;
+    protected $ldapIntegrationAccess                      = null;
+    protected $voiceMessagingAccess                       = null;
+    protected $departmentAdminUserAccess                  = null;
+    protected $departmentAdminTrunkGroupAccess            = null;
+    protected $departmentAdminPhoneNumberExtensionAccess  = null;
+    protected $departmentAdminCallingLineIdNumberAccess   = null;
+    protected $userAuthenticationAccess                   = null;
+    protected $userGroupDirectoryAccess                   = null;
+    protected $userProfileAccess                          = null;
+    protected $userEnhancedCallLogAccess                  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $callingPlanAccess=null,
-             $extensionAccess=null,
-             $ldapIntegrationAccess=null,
-             $voiceMessagingAccess=null,
-             $departmentAdminUserAccess=null,
-             $departmentAdminTrunkGroupAccess=null,
-             $departmentAdminPhoneNumberExtensionAccess=null,
-             $departmentAdminCallingLineIdNumberAccess=null,
-             $userAuthenticationAccess=null,
-             $userGroupDirectoryAccess=null,
-             $userProfileAccess=null,
-             $userEnhancedCallLogAccess=null
+         $serviceProviderId,
+         $groupId,
+         $callingPlanAccess = null,
+         $extensionAccess = null,
+         $ldapIntegrationAccess = null,
+         $voiceMessagingAccess = null,
+         $departmentAdminUserAccess = null,
+         $departmentAdminTrunkGroupAccess = null,
+         $departmentAdminPhoneNumberExtensionAccess = null,
+         $departmentAdminCallingLineIdNumberAccess = null,
+         $userAuthenticationAccess = null,
+         $userGroupDirectoryAccess = null,
+         $userProfileAccess = null,
+         $userEnhancedCallLogAccess = null
     ) {
-        $this->serviceProviderId                         = new ServiceProviderId($serviceProviderId);
-        $this->groupId                                   = new GroupId($groupId);
-        $this->callingPlanAccess                         = new GroupCallingPlanAccess($callingPlanAccess);
-        $this->extensionAccess                           = new GroupExtensionAccess($extensionAccess);
-        $this->ldapIntegrationAccess                     = new GroupLDAPIntegrationAccess($ldapIntegrationAccess);
-        $this->voiceMessagingAccess                      = new GroupVoiceMessagingAccess($voiceMessagingAccess);
-        $this->departmentAdminUserAccess                 = new GroupDepartmentAdminUserAccess($departmentAdminUserAccess);
-        $this->departmentAdminTrunkGroupAccess           = new GroupDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
-        $this->departmentAdminPhoneNumberExtensionAccess = new GroupDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess);
-        $this->departmentAdminCallingLineIdNumberAccess  = new GroupDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess);
-        $this->userAuthenticationAccess                  = new GroupUserAuthenticationAccess($userAuthenticationAccess);
-        $this->userGroupDirectoryAccess                  = new GroupUserGroupDirectoryAccess($userGroupDirectoryAccess);
-        $this->userProfileAccess                         = new GroupUserProfileAccess($userProfileAccess);
-        $this->userEnhancedCallLogAccess                 = new GroupUserCallLogAccess($userEnhancedCallLogAccess);
-        $this->args                                      = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setCallingPlanAccess($callingPlanAccess);
+        $this->setExtensionAccess($extensionAccess);
+        $this->setLdapIntegrationAccess($ldapIntegrationAccess);
+        $this->setVoiceMessagingAccess($voiceMessagingAccess);
+        $this->setDepartmentAdminUserAccess($departmentAdminUserAccess);
+        $this->setDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
+        $this->setDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess);
+        $this->setDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess);
+        $this->setUserAuthenticationAccess($userAuthenticationAccess);
+        $this->setUserGroupDirectoryAccess($userGroupDirectoryAccess);
+        $this->setUserProfileAccess($userProfileAccess);
+        $this->setUserEnhancedCallLogAccess($userEnhancedCallLogAccess);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -76,9 +91,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -86,9 +103,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setCallingPlanAccess($callingPlanAccess)
+    public function setCallingPlanAccess($callingPlanAccess = null)
     {
-        $callingPlanAccess and $this->callingPlanAccess = new GroupCallingPlanAccess($callingPlanAccess);
+        $this->callingPlanAccess = ($callingPlanAccess InstanceOf GroupCallingPlanAccess)
+             ? $callingPlanAccess
+             : new GroupCallingPlanAccess($callingPlanAccess);
     }
 
     public function getCallingPlanAccess()
@@ -96,9 +115,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->callingPlanAccess) ?: $this->callingPlanAccess->value();
     }
 
-    public function setExtensionAccess($extensionAccess)
+    public function setExtensionAccess($extensionAccess = null)
     {
-        $extensionAccess and $this->extensionAccess = new GroupExtensionAccess($extensionAccess);
+        $this->extensionAccess = ($extensionAccess InstanceOf GroupExtensionAccess)
+             ? $extensionAccess
+             : new GroupExtensionAccess($extensionAccess);
     }
 
     public function getExtensionAccess()
@@ -106,9 +127,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->extensionAccess) ?: $this->extensionAccess->value();
     }
 
-    public function setLdapIntegrationAccess($ldapIntegrationAccess)
+    public function setLdapIntegrationAccess($ldapIntegrationAccess = null)
     {
-        $ldapIntegrationAccess and $this->ldapIntegrationAccess = new GroupLDAPIntegrationAccess($ldapIntegrationAccess);
+        $this->ldapIntegrationAccess = ($ldapIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
+             ? $ldapIntegrationAccess
+             : new GroupLDAPIntegrationAccess($ldapIntegrationAccess);
     }
 
     public function getLdapIntegrationAccess()
@@ -116,9 +139,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->ldapIntegrationAccess) ?: $this->ldapIntegrationAccess->value();
     }
 
-    public function setVoiceMessagingAccess($voiceMessagingAccess)
+    public function setVoiceMessagingAccess($voiceMessagingAccess = null)
     {
-        $voiceMessagingAccess and $this->voiceMessagingAccess = new GroupVoiceMessagingAccess($voiceMessagingAccess);
+        $this->voiceMessagingAccess = ($voiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
+             ? $voiceMessagingAccess
+             : new GroupVoiceMessagingAccess($voiceMessagingAccess);
     }
 
     public function getVoiceMessagingAccess()
@@ -126,9 +151,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->voiceMessagingAccess) ?: $this->voiceMessagingAccess->value();
     }
 
-    public function setDepartmentAdminUserAccess($departmentAdminUserAccess)
+    public function setDepartmentAdminUserAccess($departmentAdminUserAccess = null)
     {
-        $departmentAdminUserAccess and $this->departmentAdminUserAccess = new GroupDepartmentAdminUserAccess($departmentAdminUserAccess);
+        $this->departmentAdminUserAccess = ($departmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
+             ? $departmentAdminUserAccess
+             : new GroupDepartmentAdminUserAccess($departmentAdminUserAccess);
     }
 
     public function getDepartmentAdminUserAccess()
@@ -136,9 +163,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->departmentAdminUserAccess) ?: $this->departmentAdminUserAccess->value();
     }
 
-    public function setDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess)
+    public function setDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess = null)
     {
-        $departmentAdminTrunkGroupAccess and $this->departmentAdminTrunkGroupAccess = new GroupDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
+        $this->departmentAdminTrunkGroupAccess = ($departmentAdminTrunkGroupAccess InstanceOf GroupDepartmentAdminTrunkGroupAccess)
+             ? $departmentAdminTrunkGroupAccess
+             : new GroupDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
     }
 
     public function getDepartmentAdminTrunkGroupAccess()
@@ -146,9 +175,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->departmentAdminTrunkGroupAccess) ?: $this->departmentAdminTrunkGroupAccess->value();
     }
 
-    public function setDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess)
+    public function setDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess = null)
     {
-        $departmentAdminPhoneNumberExtensionAccess and $this->departmentAdminPhoneNumberExtensionAccess = new GroupDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess);
+        $this->departmentAdminPhoneNumberExtensionAccess = ($departmentAdminPhoneNumberExtensionAccess InstanceOf GroupDepartmentAdminPhoneNumberExtensionAccess)
+             ? $departmentAdminPhoneNumberExtensionAccess
+             : new GroupDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess);
     }
 
     public function getDepartmentAdminPhoneNumberExtensionAccess()
@@ -156,9 +187,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->departmentAdminPhoneNumberExtensionAccess) ?: $this->departmentAdminPhoneNumberExtensionAccess->value();
     }
 
-    public function setDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess)
+    public function setDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess = null)
     {
-        $departmentAdminCallingLineIdNumberAccess and $this->departmentAdminCallingLineIdNumberAccess = new GroupDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess);
+        $this->departmentAdminCallingLineIdNumberAccess = ($departmentAdminCallingLineIdNumberAccess InstanceOf GroupDepartmentAdminCallingLineIdNumberAccess)
+             ? $departmentAdminCallingLineIdNumberAccess
+             : new GroupDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess);
     }
 
     public function getDepartmentAdminCallingLineIdNumberAccess()
@@ -166,9 +199,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->departmentAdminCallingLineIdNumberAccess) ?: $this->departmentAdminCallingLineIdNumberAccess->value();
     }
 
-    public function setUserAuthenticationAccess($userAuthenticationAccess)
+    public function setUserAuthenticationAccess($userAuthenticationAccess = null)
     {
-        $userAuthenticationAccess and $this->userAuthenticationAccess = new GroupUserAuthenticationAccess($userAuthenticationAccess);
+        $this->userAuthenticationAccess = ($userAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
+             ? $userAuthenticationAccess
+             : new GroupUserAuthenticationAccess($userAuthenticationAccess);
     }
 
     public function getUserAuthenticationAccess()
@@ -176,9 +211,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->userAuthenticationAccess) ?: $this->userAuthenticationAccess->value();
     }
 
-    public function setUserGroupDirectoryAccess($userGroupDirectoryAccess)
+    public function setUserGroupDirectoryAccess($userGroupDirectoryAccess = null)
     {
-        $userGroupDirectoryAccess and $this->userGroupDirectoryAccess = new GroupUserGroupDirectoryAccess($userGroupDirectoryAccess);
+        $this->userGroupDirectoryAccess = ($userGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
+             ? $userGroupDirectoryAccess
+             : new GroupUserGroupDirectoryAccess($userGroupDirectoryAccess);
     }
 
     public function getUserGroupDirectoryAccess()
@@ -186,9 +223,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->userGroupDirectoryAccess) ?: $this->userGroupDirectoryAccess->value();
     }
 
-    public function setUserProfileAccess($userProfileAccess)
+    public function setUserProfileAccess($userProfileAccess = null)
     {
-        $userProfileAccess and $this->userProfileAccess = new GroupUserProfileAccess($userProfileAccess);
+        $this->userProfileAccess = ($userProfileAccess InstanceOf GroupUserProfileAccess)
+             ? $userProfileAccess
+             : new GroupUserProfileAccess($userProfileAccess);
     }
 
     public function getUserProfileAccess()
@@ -196,9 +235,11 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->userProfileAccess) ?: $this->userProfileAccess->value();
     }
 
-    public function setUserEnhancedCallLogAccess($userEnhancedCallLogAccess)
+    public function setUserEnhancedCallLogAccess($userEnhancedCallLogAccess = null)
     {
-        $userEnhancedCallLogAccess and $this->userEnhancedCallLogAccess = new GroupUserCallLogAccess($userEnhancedCallLogAccess);
+        $this->userEnhancedCallLogAccess = ($userEnhancedCallLogAccess InstanceOf GroupUserCallLogAccess)
+             ? $userEnhancedCallLogAccess
+             : new GroupUserCallLogAccess($userEnhancedCallLogAccess);
     }
 
     public function getUserEnhancedCallLogAccess()

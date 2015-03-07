@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $agentUserId    = null;
+    protected $serviceUserId  = null;
 
     public function __construct(
-             $agentUserId,
-             $serviceUserId
+         $agentUserId,
+         $serviceUserId
     ) {
-        $this->agentUserId   = new UserId($agentUserId);
-        $this->serviceUserId = new UserId($serviceUserId);
-        $this->args          = func_get_args();
+        $this->setAgentUserId($agentUserId);
+        $this->setServiceUserId($serviceUserId);
     }
 
-    public function setAgentUserId($agentUserId)
+    public function setAgentUserId($agentUserId = null)
     {
-        $agentUserId and $this->agentUserId = new UserId($agentUserId);
+        $this->agentUserId = ($agentUserId InstanceOf UserId)
+             ? $agentUserId
+             : new UserId($agentUserId);
     }
 
     public function getAgentUserId()
@@ -40,9 +43,11 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
         return (!$this->agentUserId) ?: $this->agentUserId->value();
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()

@@ -7,12 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingOutcallProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingAllocatedPorts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingOutcallProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,30 +23,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $serviceInstanceProfile          = null;
+    protected $conferenceBridgeLinePort        = null;
+    protected $allocatedPorts                  = null;
+    protected $serviceProfileAppliedOnOutcall  = null;
+    protected $allowOutdialInInvitation        = null;
+    protected $allowDocumentDownload           = null;
+    protected $bridgeAdministratorUserTable    = null;
 
-    public function __construct(
-             $serviceInstanceProfile,
-             $conferenceBridgeLinePort,
-             $allocatedPorts,
-             $serviceProfileAppliedOnOutcall,
-             $allowOutdialInInvitation,
-             $allowDocumentDownload,
-             $bridgeAdministratorUserTable
-    ) {
-        $this->serviceInstanceProfile         = $serviceInstanceProfile;
-        $this->conferenceBridgeLinePort       = new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
-        $this->allocatedPorts                 = $allocatedPorts;
-        $this->serviceProfileAppliedOnOutcall = $serviceProfileAppliedOnOutcall;
-        $this->allowOutdialInInvitation       = $allowOutdialInInvitation;
-        $this->allowDocumentDownload          = $allowDocumentDownload;
-        $this->bridgeAdministratorUserTable   = $bridgeAdministratorUserTable;
-        $this->args                           = func_get_args();
-    }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceReadProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -56,9 +42,11 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setConferenceBridgeLinePort($conferenceBridgeLinePort)
+    public function setConferenceBridgeLinePort($conferenceBridgeLinePort = null)
     {
-        $conferenceBridgeLinePort and $this->conferenceBridgeLinePort = new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
+        $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
+             ? $conferenceBridgeLinePort
+             : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
     }
 
     public function getConferenceBridgeLinePort()
@@ -66,9 +54,8 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         return (!$this->conferenceBridgeLinePort) ?: $this->conferenceBridgeLinePort->value();
     }
 
-    public function setAllocatedPorts($allocatedPorts)
+    public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $allocatedPorts and $this->allocatedPorts = new InstantConferencingAllocatedPorts($allocatedPorts);
     }
 
     public function getAllocatedPorts()
@@ -76,9 +63,11 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         return (!$this->allocatedPorts) ?: $this->allocatedPorts->value();
     }
 
-    public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall)
+    public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall = null)
     {
-        $serviceProfileAppliedOnOutcall and $this->serviceProfileAppliedOnOutcall = new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
+        $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
+             ? $serviceProfileAppliedOnOutcall
+             : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
     }
 
     public function getServiceProfileAppliedOnOutcall()
@@ -86,9 +75,8 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         return (!$this->serviceProfileAppliedOnOutcall) ?: $this->serviceProfileAppliedOnOutcall->value();
     }
 
-    public function setAllowOutdialInInvitation($allowOutdialInInvitation)
+    public function setAllowOutdialInInvitation(xs:boolean $allowOutdialInInvitation = null)
     {
-        $allowOutdialInInvitation and $this->allowOutdialInInvitation = new xs:boolean($allowOutdialInInvitation);
     }
 
     public function getAllowOutdialInInvitation()
@@ -96,9 +84,8 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->value();
     }
 
-    public function setAllowDocumentDownload($allowDocumentDownload)
+    public function setAllowDocumentDownload(xs:boolean $allowDocumentDownload = null)
     {
-        $allowDocumentDownload and $this->allowDocumentDownload = new xs:boolean($allowDocumentDownload);
     }
 
     public function getAllowDocumentDownload()
@@ -106,9 +93,8 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload->value();
     }
 
-    public function setBridgeAdministratorUserTable($bridgeAdministratorUserTable)
+    public function setBridgeAdministratorUserTable(core:OCITable $bridgeAdministratorUserTable = null)
     {
-        $bridgeAdministratorUserTable and $this->bridgeAdministratorUserTable = new core:OCITable($bridgeAdministratorUserTable);
     }
 
     public function getBridgeAdministratorUserTable()

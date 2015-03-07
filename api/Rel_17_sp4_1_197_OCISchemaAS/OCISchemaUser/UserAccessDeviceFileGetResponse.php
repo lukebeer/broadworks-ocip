@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $templateUrl  = null;
 
-    public function __construct(
-             $templateUrl=null
-    ) {
-        $this->templateUrl = new URL($templateUrl);
-        $this->args        = func_get_args();
-    }
 
-    public function setTemplateUrl($templateUrl)
+    public function setTemplateUrl($templateUrl = null)
     {
-        $templateUrl and $this->templateUrl = new URL($templateUrl);
+        $this->templateUrl = ($templateUrl InstanceOf URL)
+             ? $templateUrl
+             : new URL($templateUrl);
     }
 
     public function getTemplateUrl()

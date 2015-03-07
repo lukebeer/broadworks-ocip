@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceAttendeeNotification;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceAccountCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingNumberOfParticipants;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferenceTitle;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingNumberOfParticipants;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferenceAccountCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferenceAttendeeNotification;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferenceSchedule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,36 +23,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $userId                        = null;
+    protected $bridgeId                      = null;
+    protected $title                         = null;
+    protected $estimatedParticipants         = null;
+    protected $accountCode                   = null;
+    protected $muteAllAttendeesOnEntry       = null;
+    protected $endConferenceOnModeratorExit  = null;
+    protected $moderatorRequired             = null;
+    protected $attendeeNotification          = null;
+    protected $conferenceSchedule            = null;
 
     public function __construct(
-             $userId,
-             $bridgeId,
-             $title,
-             $estimatedParticipants=null,
-             $accountCode=null,
-             $muteAllAttendeesOnEntry,
-             $endConferenceOnModeratorExit,
-             $moderatorRequired,
-             $attendeeNotification,
-             $conferenceSchedule
+         $userId,
+         $bridgeId,
+         $title,
+         $estimatedParticipants = null,
+         $accountCode = null,
+         $muteAllAttendeesOnEntry,
+         $endConferenceOnModeratorExit,
+         $moderatorRequired,
+         $attendeeNotification,
+         MeetMeConferencingConferenceSchedule $conferenceSchedule
     ) {
-        $this->userId                       = new UserId($userId);
-        $this->bridgeId                     = new UserId($bridgeId);
-        $this->title                        = $title;
-        $this->estimatedParticipants        = $estimatedParticipants;
-        $this->accountCode                  = $accountCode;
-        $this->muteAllAttendeesOnEntry      = $muteAllAttendeesOnEntry;
-        $this->endConferenceOnModeratorExit = $endConferenceOnModeratorExit;
-        $this->moderatorRequired            = $moderatorRequired;
-        $this->attendeeNotification         = $attendeeNotification;
-        $this->conferenceSchedule           = $conferenceSchedule;
-        $this->args                         = func_get_args();
+        $this->setUserId($userId);
+        $this->setBridgeId($bridgeId);
+        $this->setTitle($title);
+        $this->setEstimatedParticipants($estimatedParticipants);
+        $this->setAccountCode($accountCode);
+        $this->setMuteAllAttendeesOnEntry($muteAllAttendeesOnEntry);
+        $this->setEndConferenceOnModeratorExit($endConferenceOnModeratorExit);
+        $this->setModeratorRequired($moderatorRequired);
+        $this->setAttendeeNotification($attendeeNotification);
+        $this->setConferenceSchedule($conferenceSchedule);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -61,9 +71,11 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setBridgeId($bridgeId)
+    public function setBridgeId($bridgeId = null)
     {
-        $bridgeId and $this->bridgeId = new UserId($bridgeId);
+        $this->bridgeId = ($bridgeId InstanceOf UserId)
+             ? $bridgeId
+             : new UserId($bridgeId);
     }
 
     public function getBridgeId()
@@ -71,9 +83,11 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->bridgeId) ?: $this->bridgeId->value();
     }
 
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
-        $title and $this->title = new MeetMeConferencingConferenceTitle($title);
+        $this->title = ($title InstanceOf MeetMeConferencingConferenceTitle)
+             ? $title
+             : new MeetMeConferencingConferenceTitle($title);
     }
 
     public function getTitle()
@@ -81,9 +95,11 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->title) ?: $this->title->value();
     }
 
-    public function setEstimatedParticipants($estimatedParticipants)
+    public function setEstimatedParticipants($estimatedParticipants = null)
     {
-        $estimatedParticipants and $this->estimatedParticipants = new MeetMeConferencingNumberOfParticipants($estimatedParticipants);
+        $this->estimatedParticipants = ($estimatedParticipants InstanceOf MeetMeConferencingNumberOfParticipants)
+             ? $estimatedParticipants
+             : new MeetMeConferencingNumberOfParticipants($estimatedParticipants);
     }
 
     public function getEstimatedParticipants()
@@ -91,9 +107,11 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->estimatedParticipants) ?: $this->estimatedParticipants->value();
     }
 
-    public function setAccountCode($accountCode)
+    public function setAccountCode($accountCode = null)
     {
-        $accountCode and $this->accountCode = new MeetMeConferencingConferenceAccountCode($accountCode);
+        $this->accountCode = ($accountCode InstanceOf MeetMeConferencingConferenceAccountCode)
+             ? $accountCode
+             : new MeetMeConferencingConferenceAccountCode($accountCode);
     }
 
     public function getAccountCode()
@@ -101,9 +119,8 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->accountCode) ?: $this->accountCode->value();
     }
 
-    public function setMuteAllAttendeesOnEntry($muteAllAttendeesOnEntry)
+    public function setMuteAllAttendeesOnEntry(xs:boolean $muteAllAttendeesOnEntry = null)
     {
-        $muteAllAttendeesOnEntry and $this->muteAllAttendeesOnEntry = new xs:boolean($muteAllAttendeesOnEntry);
     }
 
     public function getMuteAllAttendeesOnEntry()
@@ -111,9 +128,8 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->muteAllAttendeesOnEntry) ?: $this->muteAllAttendeesOnEntry->value();
     }
 
-    public function setEndConferenceOnModeratorExit($endConferenceOnModeratorExit)
+    public function setEndConferenceOnModeratorExit(xs:boolean $endConferenceOnModeratorExit = null)
     {
-        $endConferenceOnModeratorExit and $this->endConferenceOnModeratorExit = new xs:boolean($endConferenceOnModeratorExit);
     }
 
     public function getEndConferenceOnModeratorExit()
@@ -121,9 +137,8 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->endConferenceOnModeratorExit) ?: $this->endConferenceOnModeratorExit->value();
     }
 
-    public function setModeratorRequired($moderatorRequired)
+    public function setModeratorRequired(xs:boolean $moderatorRequired = null)
     {
-        $moderatorRequired and $this->moderatorRequired = new xs:boolean($moderatorRequired);
     }
 
     public function getModeratorRequired()
@@ -131,9 +146,11 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->moderatorRequired) ?: $this->moderatorRequired->value();
     }
 
-    public function setAttendeeNotification($attendeeNotification)
+    public function setAttendeeNotification($attendeeNotification = null)
     {
-        $attendeeNotification and $this->attendeeNotification = new MeetMeConferencingConferenceAttendeeNotification($attendeeNotification);
+        $this->attendeeNotification = ($attendeeNotification InstanceOf MeetMeConferencingConferenceAttendeeNotification)
+             ? $attendeeNotification
+             : new MeetMeConferencingConferenceAttendeeNotification($attendeeNotification);
     }
 
     public function getAttendeeNotification()
@@ -141,9 +158,8 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         return (!$this->attendeeNotification) ?: $this->attendeeNotification->value();
     }
 
-    public function setConferenceSchedule($conferenceSchedule)
+    public function setConferenceSchedule(MeetMeConferencingConferenceSchedule $conferenceSchedule = null)
     {
-        $conferenceSchedule and $this->conferenceSchedule = new MeetMeConferencingConferenceSchedule($conferenceSchedule);
     }
 
     public function getConferenceSchedule()

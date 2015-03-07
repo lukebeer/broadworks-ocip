@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterAddSupervisorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $serviceUserId     = null;
+    protected $supervisorUserId  = null;
 
     public function __construct(
-             $serviceUserId,
-             $supervisorUserId=null
+         $serviceUserId,
+         $supervisorUserId = null
     ) {
-        $this->serviceUserId    = new UserId($serviceUserId);
-        $this->supervisorUserId = new UserId($supervisorUserId);
-        $this->args             = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setSupervisorUserId($supervisorUserId);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -39,9 +42,11 @@ class GroupCallCenterAddSupervisorListRequest extends ComplexType implements Com
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setSupervisorUserId($supervisorUserId)
+    public function setSupervisorUserId($supervisorUserId = null)
     {
-        $supervisorUserId and $this->supervisorUserId = new UserId($supervisorUserId);
+        $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
+             ? $supervisorUserId
+             : new UserId($supervisorUserId);
     }
 
     public function getSupervisorUserId()

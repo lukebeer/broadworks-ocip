@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDualModeVCC; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DualModeVCCSubscriberUserName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDualModeVCC\DualModeVCCSubscriberUserName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $subscriberUserName  = null;
 
-    public function __construct(
-             $subscriberUserName=null
-    ) {
-        $this->subscriberUserName = $subscriberUserName;
-        $this->args               = func_get_args();
-    }
 
-    public function setSubscriberUserName($subscriberUserName)
+    public function setSubscriberUserName($subscriberUserName = null)
     {
-        $subscriberUserName and $this->subscriberUserName = new DualModeVCCSubscriberUserName($subscriberUserName);
+        $this->subscriberUserName = ($subscriberUserName InstanceOf DualModeVCCSubscriberUserName)
+             ? $subscriberUserName
+             : new DualModeVCCSubscriberUserName($subscriberUserName);
     }
 
     public function getSubscriberUserName()

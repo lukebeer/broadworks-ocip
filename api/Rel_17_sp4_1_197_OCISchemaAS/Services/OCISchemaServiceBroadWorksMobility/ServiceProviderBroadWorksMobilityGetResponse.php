@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobilityServiceProviderSettingLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityServiceProviderSettingLevel;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,28 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $useSettingLevel            = null;
+    protected $enableLocationServices     = null;
+    protected $enableMSRNLookup           = null;
+    protected $enableMobileStateChecking  = null;
+    protected $denyCallOriginations       = null;
+    protected $denyCallTerminations       = null;
 
-    public function __construct(
-             $useSettingLevel,
-             $enableLocationServices,
-             $enableMSRNLookup,
-             $enableMobileStateChecking,
-             $denyCallOriginations,
-             $denyCallTerminations
-    ) {
-        $this->useSettingLevel           = $useSettingLevel;
-        $this->enableLocationServices    = $enableLocationServices;
-        $this->enableMSRNLookup          = $enableMSRNLookup;
-        $this->enableMobileStateChecking = $enableMobileStateChecking;
-        $this->denyCallOriginations      = $denyCallOriginations;
-        $this->denyCallTerminations      = $denyCallTerminations;
-        $this->args                      = func_get_args();
-    }
 
-    public function setUseSettingLevel($useSettingLevel)
+    public function setUseSettingLevel($useSettingLevel = null)
     {
-        $useSettingLevel and $this->useSettingLevel = new BroadWorksMobilityServiceProviderSettingLevel($useSettingLevel);
+        $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityServiceProviderSettingLevel)
+             ? $useSettingLevel
+             : new BroadWorksMobilityServiceProviderSettingLevel($useSettingLevel);
     }
 
     public function getUseSettingLevel()
@@ -47,9 +38,8 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
         return (!$this->useSettingLevel) ?: $this->useSettingLevel->value();
     }
 
-    public function setEnableLocationServices($enableLocationServices)
+    public function setEnableLocationServices(xs:boolean $enableLocationServices = null)
     {
-        $enableLocationServices and $this->enableLocationServices = new xs:boolean($enableLocationServices);
     }
 
     public function getEnableLocationServices()
@@ -57,9 +47,8 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
         return (!$this->enableLocationServices) ?: $this->enableLocationServices->value();
     }
 
-    public function setEnableMSRNLookup($enableMSRNLookup)
+    public function setEnableMSRNLookup(xs:boolean $enableMSRNLookup = null)
     {
-        $enableMSRNLookup and $this->enableMSRNLookup = new xs:boolean($enableMSRNLookup);
     }
 
     public function getEnableMSRNLookup()
@@ -67,9 +56,8 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
         return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup->value();
     }
 
-    public function setEnableMobileStateChecking($enableMobileStateChecking)
+    public function setEnableMobileStateChecking(xs:boolean $enableMobileStateChecking = null)
     {
-        $enableMobileStateChecking and $this->enableMobileStateChecking = new xs:boolean($enableMobileStateChecking);
     }
 
     public function getEnableMobileStateChecking()
@@ -77,9 +65,8 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
         return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking->value();
     }
 
-    public function setDenyCallOriginations($denyCallOriginations)
+    public function setDenyCallOriginations(xs:boolean $denyCallOriginations = null)
     {
-        $denyCallOriginations and $this->denyCallOriginations = new xs:boolean($denyCallOriginations);
     }
 
     public function getDenyCallOriginations()
@@ -87,9 +74,8 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
         return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->value();
     }
 
-    public function setDenyCallTerminations($denyCallTerminations)
+    public function setDenyCallTerminations(xs:boolean $denyCallTerminations = null)
     {
-        $denyCallTerminations and $this->denyCallTerminations = new xs:boolean($denyCallTerminations);
     }
 
     public function getDenyCallTerminations()

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:time;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:duration;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingScheduleOneTime extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $startTime  = null;
+    protected $duration   = null;
 
     public function __construct(
-             $startTime,
-             $duration
+         $startTime,
+         $duration
     ) {
-        $this->startTime = $startTime;
-        $this->duration  = $duration;
-        $this->args      = func_get_args();
+        $this->setStartTime($startTime);
+        $this->setDuration($duration);
     }
 
-    public function setStartTime($startTime)
+    public function setStartTime(xs:time $startTime = null)
     {
-        $startTime and $this->startTime = new xs:time($startTime);
     }
 
     public function getStartTime()
@@ -39,9 +38,8 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
         return (!$this->startTime) ?: $this->startTime->value();
     }
 
-    public function setDuration($duration)
+    public function setDuration(xs:duration $duration = null)
     {
-        $duration and $this->duration = new xs:duration($duration);
     }
 
     public function getDuration()

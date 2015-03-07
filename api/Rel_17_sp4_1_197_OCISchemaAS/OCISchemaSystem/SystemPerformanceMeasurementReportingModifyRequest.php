@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PerformanceMeasurementReportingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\PerformanceMeasurementReportingIntervalMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,28 +18,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                              = __CLASS__;
+    protected $isActive                          = null;
+    protected $reportingInterval                 = null;
+    protected $resetMeasurementsAfterEachReport  = null;
+    protected $reportEnterprise                  = null;
+    protected $reportServiceProvider             = null;
+    protected $reportDevice                      = null;
 
     public function __construct(
-             $isActive=null,
-             $reportingInterval=null,
-             $resetMeasurementsAfterEachReport=null,
-             $reportEnterprise=null,
-             $reportServiceProvider=null,
-             $reportDevice=null
+         $isActive = null,
+         $reportingInterval = null,
+         $resetMeasurementsAfterEachReport = null,
+         $reportEnterprise = null,
+         $reportServiceProvider = null,
+         $reportDevice = null
     ) {
-        $this->isActive                         = $isActive;
-        $this->reportingInterval                = $reportingInterval;
-        $this->resetMeasurementsAfterEachReport = $resetMeasurementsAfterEachReport;
-        $this->reportEnterprise                 = $reportEnterprise;
-        $this->reportServiceProvider            = $reportServiceProvider;
-        $this->reportDevice                     = $reportDevice;
-        $this->args                             = func_get_args();
+        $this->setIsActive($isActive);
+        $this->setReportingInterval($reportingInterval);
+        $this->setResetMeasurementsAfterEachReport($resetMeasurementsAfterEachReport);
+        $this->setReportEnterprise($reportEnterprise);
+        $this->setReportServiceProvider($reportServiceProvider);
+        $this->setReportDevice($reportDevice);
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -48,9 +51,11 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setReportingInterval($reportingInterval)
+    public function setReportingInterval($reportingInterval = null)
     {
-        $reportingInterval and $this->reportingInterval = new PerformanceMeasurementReportingIntervalMinutes($reportingInterval);
+        $this->reportingInterval = ($reportingInterval InstanceOf PerformanceMeasurementReportingIntervalMinutes)
+             ? $reportingInterval
+             : new PerformanceMeasurementReportingIntervalMinutes($reportingInterval);
     }
 
     public function getReportingInterval()
@@ -58,9 +63,8 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
         return (!$this->reportingInterval) ?: $this->reportingInterval->value();
     }
 
-    public function setResetMeasurementsAfterEachReport($resetMeasurementsAfterEachReport)
+    public function setResetMeasurementsAfterEachReport(xs:boolean $resetMeasurementsAfterEachReport = null)
     {
-        $resetMeasurementsAfterEachReport and $this->resetMeasurementsAfterEachReport = new xs:boolean($resetMeasurementsAfterEachReport);
     }
 
     public function getResetMeasurementsAfterEachReport()
@@ -68,9 +72,8 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
         return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport->value();
     }
 
-    public function setReportEnterprise($reportEnterprise)
+    public function setReportEnterprise(xs:boolean $reportEnterprise = null)
     {
-        $reportEnterprise and $this->reportEnterprise = new xs:boolean($reportEnterprise);
     }
 
     public function getReportEnterprise()
@@ -78,9 +81,8 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
         return (!$this->reportEnterprise) ?: $this->reportEnterprise->value();
     }
 
-    public function setReportServiceProvider($reportServiceProvider)
+    public function setReportServiceProvider(xs:boolean $reportServiceProvider = null)
     {
-        $reportServiceProvider and $this->reportServiceProvider = new xs:boolean($reportServiceProvider);
     }
 
     public function getReportServiceProvider()
@@ -88,9 +90,8 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
         return (!$this->reportServiceProvider) ?: $this->reportServiceProvider->value();
     }
 
-    public function setReportDevice($reportDevice)
+    public function setReportDevice(xs:boolean $reportDevice = null)
     {
-        $reportDevice and $this->reportDevice = new xs:boolean($reportDevice);
     }
 
     public function getReportDevice()

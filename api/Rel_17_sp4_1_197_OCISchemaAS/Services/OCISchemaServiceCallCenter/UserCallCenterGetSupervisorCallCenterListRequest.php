@@ -19,18 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetSupervisorCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $supervisorUserId  = null;
 
     public function __construct(
-             $supervisorUserId
+         $supervisorUserId
     ) {
-        $this->supervisorUserId = new UserId($supervisorUserId);
-        $this->args             = func_get_args();
+        $this->setSupervisorUserId($supervisorUserId);
     }
 
-    public function setSupervisorUserId($supervisorUserId)
+    public function setSupervisorUserId($supervisorUserId = null)
     {
-        $supervisorUserId and $this->supervisorUserId = new UserId($supervisorUserId);
+        $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
+             ? $supervisorUserId
+             : new UserId($supervisorUserId);
     }
 
     public function getSupervisorUserId()

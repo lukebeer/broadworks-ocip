@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackAddServiceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $servicePackName    = null;
+    protected $serviceName        = null;
 
     public function __construct(
-             $serviceProviderId,
-             $servicePackName,
-             $serviceName
+         $serviceProviderId,
+         $servicePackName,
+         $serviceName
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->servicePackName   = new ServicePackName($servicePackName);
-        $this->serviceName       = new UserService($serviceName);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setServicePackName($servicePackName);
+        $this->setServiceName($serviceName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -43,9 +47,11 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()
@@ -53,9 +59,11 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
         return (!$this->servicePackName) ?: $this->servicePackName->value();
     }
 
-    public function setServiceName($serviceName)
+    public function setServiceName($serviceName = null)
     {
-        $serviceName and $this->serviceName = new UserService($serviceName);
+        $this->serviceName = ($serviceName InstanceOf UserService)
+             ? $serviceName
+             : new UserService($serviceName);
     }
 
     public function getServiceName()

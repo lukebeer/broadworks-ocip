@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringUserControlProfileCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlProfileCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,26 +23,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $userId         = null;
+    protected $enableProfile  = null;
+    protected $oldPasscode    = null;
+    protected $newPasscode    = null;
+    protected $resetLockout   = null;
 
     public function __construct(
-             $userId,
-             $enableProfile=null,
-             $oldPasscode=null,
-             $newPasscode=null,
-             $resetLockout=null
+         $userId,
+         $enableProfile = null,
+         $oldPasscode = null,
+         $newPasscode = null,
+         $resetLockout = null
     ) {
-        $this->userId        = new UserId($userId);
-        $this->enableProfile = $enableProfile;
-        $this->oldPasscode   = new Passcode($oldPasscode);
-        $this->newPasscode   = new Passcode($newPasscode);
-        $this->resetLockout  = $resetLockout;
-        $this->args          = func_get_args();
+        $this->setUserId($userId);
+        $this->setEnableProfile($enableProfile);
+        $this->setOldPasscode($oldPasscode);
+        $this->setNewPasscode($newPasscode);
+        $this->setResetLockout($resetLockout);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -51,9 +56,11 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setEnableProfile($enableProfile)
+    public function setEnableProfile($enableProfile = null)
     {
-        $enableProfile and $this->enableProfile = new CommunicationBarringUserControlProfileCode($enableProfile);
+        $this->enableProfile = ($enableProfile InstanceOf CommunicationBarringUserControlProfileCode)
+             ? $enableProfile
+             : new CommunicationBarringUserControlProfileCode($enableProfile);
     }
 
     public function getEnableProfile()
@@ -61,9 +68,11 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         return (!$this->enableProfile) ?: $this->enableProfile->value();
     }
 
-    public function setOldPasscode($oldPasscode)
+    public function setOldPasscode($oldPasscode = null)
     {
-        $oldPasscode and $this->oldPasscode = new Passcode($oldPasscode);
+        $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
+             ? $oldPasscode
+             : new Passcode($oldPasscode);
     }
 
     public function getOldPasscode()
@@ -71,9 +80,11 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         return (!$this->oldPasscode) ?: $this->oldPasscode->value();
     }
 
-    public function setNewPasscode($newPasscode)
+    public function setNewPasscode($newPasscode = null)
     {
-        $newPasscode and $this->newPasscode = new Passcode($newPasscode);
+        $this->newPasscode = ($newPasscode InstanceOf Passcode)
+             ? $newPasscode
+             : new Passcode($newPasscode);
     }
 
     public function getNewPasscode()
@@ -81,9 +92,8 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         return (!$this->newPasscode) ?: $this->newPasscode->value();
     }
 
-    public function setResetLockout($resetLockout)
+    public function setResetLockout(xs:boolean $resetLockout = null)
     {
-        $resetLockout and $this->resetLockout = new xs:boolean($resetLockout);
     }
 
     public function getResetLockout()

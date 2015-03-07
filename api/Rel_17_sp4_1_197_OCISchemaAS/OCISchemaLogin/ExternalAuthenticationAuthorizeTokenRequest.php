@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginToken;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,22 +27,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $userId      = null;
+    protected $password    = null;
+    protected $loginToken  = null;
 
     public function __construct(
-             $userId,
-             $password=null,
-             $loginToken
+         $userId,
+         $password = null,
+         $loginToken
     ) {
-        $this->userId     = new UserId($userId);
-        $this->password   = new Password($password);
-        $this->loginToken = new LoginToken($loginToken);
-        $this->args       = func_get_args();
+        $this->setUserId($userId);
+        $this->setPassword($password);
+        $this->setLoginToken($loginToken);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -50,9 +54,11 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setPassword($password)
+    public function setPassword($password = null)
     {
-        $password and $this->password = new Password($password);
+        $this->password = ($password InstanceOf Password)
+             ? $password
+             : new Password($password);
     }
 
     public function getPassword()
@@ -60,9 +66,11 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
         return (!$this->password) ?: $this->password->value();
     }
 
-    public function setLoginToken($loginToken)
+    public function setLoginToken($loginToken = null)
     {
-        $loginToken and $this->loginToken = new LoginToken($loginToken);
+        $this->loginToken = ($loginToken InstanceOf LoginToken)
+             ? $loginToken
+             : new LoginToken($loginToken);
     }
 
     public function getLoginToken()

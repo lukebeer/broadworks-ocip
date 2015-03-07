@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $locationList  = null;
 
-    public function __construct(
-             $locationList
-    ) {
-        $this->locationList = $locationList;
-        $this->args         = func_get_args();
-    }
 
-    public function setLocationList($locationList)
+    public function setLocationList(core:OCITable $locationList = null)
     {
-        $locationList and $this->locationList = new core:OCITable($locationList);
     }
 
     public function getLocationList()

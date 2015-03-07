@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaZoneIPAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaZoneIPAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,22 +21,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $zoneName                     = null;
+    protected $responseSizeLimit            = null;
+    protected $searchCriteriaZoneIPAddress  = null;
 
     public function __construct(
-             $zoneName,
-             $responseSizeLimit=null,
-             $searchCriteriaZoneIPAddress=null
+         $zoneName,
+         $responseSizeLimit = null,
+         SearchCriteriaZoneIPAddress $searchCriteriaZoneIPAddress = null
     ) {
-        $this->zoneName                    = new ZoneName($zoneName);
-        $this->responseSizeLimit           = $responseSizeLimit;
-        $this->searchCriteriaZoneIPAddress = $searchCriteriaZoneIPAddress;
-        $this->args                        = func_get_args();
+        $this->setZoneName($zoneName);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaZoneIPAddress($searchCriteriaZoneIPAddress);
     }
 
-    public function setZoneName($zoneName)
+    public function setZoneName($zoneName = null)
     {
-        $zoneName and $this->zoneName = new ZoneName($zoneName);
+        $this->zoneName = ($zoneName InstanceOf ZoneName)
+             ? $zoneName
+             : new ZoneName($zoneName);
     }
 
     public function getZoneName()
@@ -44,9 +48,11 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
         return (!$this->zoneName) ?: $this->zoneName->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -54,9 +60,8 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaZoneIPAddress($searchCriteriaZoneIPAddress)
+    public function setSearchCriteriaZoneIPAddress(SearchCriteriaZoneIPAddress $searchCriteriaZoneIPAddress = null)
     {
-        $searchCriteriaZoneIPAddress and $this->searchCriteriaZoneIPAddress = new SearchCriteriaZoneIPAddress($searchCriteriaZoneIPAddress);
     }
 
     public function getSearchCriteriaZoneIPAddress()

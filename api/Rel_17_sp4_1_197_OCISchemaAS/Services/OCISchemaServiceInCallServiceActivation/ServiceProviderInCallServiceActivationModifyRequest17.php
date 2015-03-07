@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InCallServiceActivationDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,22 +18,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $flashActivationDigits         = null;
+    protected $callTransferActivationDigits  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $flashActivationDigits=null,
-             $callTransferActivationDigits=null
+         $serviceProviderId,
+         $flashActivationDigits = null,
+         $callTransferActivationDigits = null
     ) {
-        $this->serviceProviderId            = new ServiceProviderId($serviceProviderId);
-        $this->flashActivationDigits        = new InCallServiceActivationDigits($flashActivationDigits);
-        $this->callTransferActivationDigits = new InCallServiceActivationDigits($callTransferActivationDigits);
-        $this->args                         = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setFlashActivationDigits($flashActivationDigits);
+        $this->setCallTransferActivationDigits($callTransferActivationDigits);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -41,9 +45,11 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setFlashActivationDigits($flashActivationDigits)
+    public function setFlashActivationDigits($flashActivationDigits = null)
     {
-        $flashActivationDigits and $this->flashActivationDigits = new InCallServiceActivationDigits($flashActivationDigits);
+        $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
+             ? $flashActivationDigits
+             : new InCallServiceActivationDigits($flashActivationDigits);
     }
 
     public function getFlashActivationDigits()
@@ -51,9 +57,11 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
         return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->value();
     }
 
-    public function setCallTransferActivationDigits($callTransferActivationDigits)
+    public function setCallTransferActivationDigits($callTransferActivationDigits = null)
     {
-        $callTransferActivationDigits and $this->callTransferActivationDigits = new InCallServiceActivationDigits($callTransferActivationDigits);
+        $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
+             ? $callTransferActivationDigits
+             : new InCallServiceActivationDigits($callTransferActivationDigits);
     }
 
     public function getCallTransferActivationDigits()

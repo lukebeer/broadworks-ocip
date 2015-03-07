@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallTypeDigitMap;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $countryCode  = null;
+    protected $digitMap     = null;
+    protected $callType     = null;
 
     public function __construct(
-             $countryCode,
-             $digitMap,
-             $callType
+         $countryCode,
+         $digitMap,
+         $callType
     ) {
-        $this->countryCode = new CountryCode($countryCode);
-        $this->digitMap    = new CallTypeDigitMap($digitMap);
-        $this->callType    = $callType;
-        $this->args        = func_get_args();
+        $this->setCountryCode($countryCode);
+        $this->setDigitMap($digitMap);
+        $this->setCallType($callType);
     }
 
-    public function setCountryCode($countryCode)
+    public function setCountryCode($countryCode = null)
     {
-        $countryCode and $this->countryCode = new CountryCode($countryCode);
+        $this->countryCode = ($countryCode InstanceOf CountryCode)
+             ? $countryCode
+             : new CountryCode($countryCode);
     }
 
     public function getCountryCode()
@@ -43,9 +47,11 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
         return (!$this->countryCode) ?: $this->countryCode->value();
     }
 
-    public function setDigitMap($digitMap)
+    public function setDigitMap($digitMap = null)
     {
-        $digitMap and $this->digitMap = new CallTypeDigitMap($digitMap);
+        $this->digitMap = ($digitMap InstanceOf CallTypeDigitMap)
+             ? $digitMap
+             : new CallTypeDigitMap($digitMap);
     }
 
     public function getDigitMap()
@@ -53,9 +59,11 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
         return (!$this->digitMap) ?: $this->digitMap->value();
     }
 
-    public function setCallType($callType)
+    public function setCallType($callType = null)
     {
-        $callType and $this->callType = new OutgoingCallingPlanCallType($callType);
+        $this->callType = ($callType InstanceOf OutgoingCallingPlanCallType)
+             ? $callType
+             : new OutgoingCallingPlanCallType($callType);
     }
 
     public function getCallType()

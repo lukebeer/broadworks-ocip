@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkACLEntryDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $netAddress        = null;
+    protected $description       = null;
+    protected $restrictMessages  = null;
 
     public function __construct(
-             $netAddress,
-             $description=null,
-             $restrictMessages=null
+         $netAddress,
+         $description = null,
+         $restrictMessages = null
     ) {
-        $this->netAddress       = new NetAddress($netAddress);
-        $this->description      = $description;
-        $this->restrictMessages = $restrictMessages;
-        $this->args             = func_get_args();
+        $this->setNetAddress($netAddress);
+        $this->setDescription($description);
+        $this->setRestrictMessages($restrictMessages);
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -43,9 +46,11 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new NetworkACLEntryDescription($description);
+        $this->description = ($description InstanceOf NetworkACLEntryDescription)
+             ? $description
+             : new NetworkACLEntryDescription($description);
     }
 
     public function getDescription()
@@ -53,9 +58,8 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setRestrictMessages($restrictMessages)
+    public function setRestrictMessages(xs:boolean $restrictMessages = null)
     {
-        $restrictMessages and $this->restrictMessages = new xs:boolean($restrictMessages);
     }
 
     public function getRestrictMessages()

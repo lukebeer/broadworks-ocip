@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkTrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $trunkGroup  = null;
 
-    public function __construct(
-             $trunkGroup=null
-    ) {
-        $this->trunkGroup = $trunkGroup;
-        $this->args       = func_get_args();
-    }
 
-    public function setTrunkGroup($trunkGroup)
+    public function setTrunkGroup(EnterpriseTrunkTrunkGroupKey $trunkGroup = null)
     {
-        $trunkGroup and $this->trunkGroup = new EnterpriseTrunkTrunkGroupKey($trunkGroup);
     }
 
     public function getTrunkGroup()

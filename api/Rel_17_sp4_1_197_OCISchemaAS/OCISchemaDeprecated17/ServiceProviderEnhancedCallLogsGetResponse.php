@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsMaxLoggedCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsCallExpirationDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsCallExpirationDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\EnhancedCallLogsMaxLoggedCalls;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $maxLoggedCalls      = null;
+    protected $callExpirationDays  = null;
 
-    public function __construct(
-             $maxLoggedCalls,
-             $callExpirationDays
-    ) {
-        $this->maxLoggedCalls     = $maxLoggedCalls;
-        $this->callExpirationDays = $callExpirationDays;
-        $this->args               = func_get_args();
-    }
 
-    public function setMaxLoggedCalls($maxLoggedCalls)
+    public function setMaxLoggedCalls($maxLoggedCalls = null)
     {
-        $maxLoggedCalls and $this->maxLoggedCalls = new EnhancedCallLogsMaxLoggedCalls($maxLoggedCalls);
+        $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
+             ? $maxLoggedCalls
+             : new EnhancedCallLogsMaxLoggedCalls($maxLoggedCalls);
     }
 
     public function getMaxLoggedCalls()
@@ -39,9 +35,11 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
         return (!$this->maxLoggedCalls) ?: $this->maxLoggedCalls->value();
     }
 
-    public function setCallExpirationDays($callExpirationDays)
+    public function setCallExpirationDays($callExpirationDays = null)
     {
-        $callExpirationDays and $this->callExpirationDays = new EnhancedCallLogsCallExpirationDays($callExpirationDays);
+        $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
+             ? $callExpirationDays
+             : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
     }
 
     public function getCallExpirationDays()

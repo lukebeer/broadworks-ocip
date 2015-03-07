@@ -7,16 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupUserCreationUserIdFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupUserCreationSIPURIFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationUserIdFormat;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationSIPURIFormat;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationTaskStatus;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupUserCreationTaskStatus;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupUserCreationMode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:token;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -26,50 +23,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $userIdFormat        = null;
+    protected $userIdDomain        = null;
+    protected $populateExtension   = null;
+    protected $linePortFormat      = null;
+    protected $linePortDomain      = null;
+    protected $populateContact     = null;
+    protected $contactFormat       = null;
+    protected $contactDomain       = null;
+    protected $usersCreated        = null;
+    protected $totalUsersToCreate  = null;
+    protected $errorCount          = null;
+    protected $servicePackName     = null;
+    protected $userServiceName     = null;
+    protected $status              = null;
+    protected $userCreationMode    = null;
+    protected $taskSummary         = null;
+    protected $reportFileKey       = null;
 
-    public function __construct(
-             $userIdFormat,
-             $userIdDomain,
-             $populateExtension,
-             $linePortFormat,
-             $linePortDomain,
-             $populateContact,
-             $contactFormat=null,
-             $contactDomain=null,
-             $usersCreated,
-             $totalUsersToCreate,
-             $errorCount,
-             $servicePackName=null,
-             $userServiceName=null,
-             $status,
-             $userCreationMode,
-             $taskSummary,
-             $reportFileKey
-    ) {
-        $this->userIdFormat       = $userIdFormat;
-        $this->userIdDomain       = new NetAddress($userIdDomain);
-        $this->populateExtension  = $populateExtension;
-        $this->linePortFormat     = $linePortFormat;
-        $this->linePortDomain     = new NetAddress($linePortDomain);
-        $this->populateContact    = $populateContact;
-        $this->contactFormat      = $contactFormat;
-        $this->contactDomain      = new NetAddress($contactDomain);
-        $this->usersCreated       = $usersCreated;
-        $this->totalUsersToCreate = $totalUsersToCreate;
-        $this->errorCount         = $errorCount;
-        $this->servicePackName    = new ServicePackName($servicePackName);
-        $this->userServiceName    = new UserService($userServiceName);
-        $this->status             = $status;
-        $this->userCreationMode   = $userCreationMode;
-        $this->taskSummary        = $taskSummary;
-        $this->reportFileKey      = $reportFileKey;
-        $this->args               = func_get_args();
-    }
 
-    public function setUserIdFormat($userIdFormat)
+    public function setUserIdFormat($userIdFormat = null)
     {
-        $userIdFormat and $this->userIdFormat = new TrunkGroupUserCreationUserIdFormat($userIdFormat);
+        $this->userIdFormat = ($userIdFormat InstanceOf TrunkGroupUserCreationUserIdFormat)
+             ? $userIdFormat
+             : new TrunkGroupUserCreationUserIdFormat($userIdFormat);
     }
 
     public function getUserIdFormat()
@@ -77,9 +55,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->userIdFormat) ?: $this->userIdFormat->value();
     }
 
-    public function setUserIdDomain($userIdDomain)
+    public function setUserIdDomain($userIdDomain = null)
     {
-        $userIdDomain and $this->userIdDomain = new NetAddress($userIdDomain);
+        $this->userIdDomain = ($userIdDomain InstanceOf NetAddress)
+             ? $userIdDomain
+             : new NetAddress($userIdDomain);
     }
 
     public function getUserIdDomain()
@@ -87,9 +67,8 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->userIdDomain) ?: $this->userIdDomain->value();
     }
 
-    public function setPopulateExtension($populateExtension)
+    public function setPopulateExtension(xs:boolean $populateExtension = null)
     {
-        $populateExtension and $this->populateExtension = new xs:boolean($populateExtension);
     }
 
     public function getPopulateExtension()
@@ -97,9 +76,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->populateExtension) ?: $this->populateExtension->value();
     }
 
-    public function setLinePortFormat($linePortFormat)
+    public function setLinePortFormat($linePortFormat = null)
     {
-        $linePortFormat and $this->linePortFormat = new TrunkGroupUserCreationSIPURIFormat($linePortFormat);
+        $this->linePortFormat = ($linePortFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
+             ? $linePortFormat
+             : new TrunkGroupUserCreationSIPURIFormat($linePortFormat);
     }
 
     public function getLinePortFormat()
@@ -107,9 +88,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->linePortFormat) ?: $this->linePortFormat->value();
     }
 
-    public function setLinePortDomain($linePortDomain)
+    public function setLinePortDomain($linePortDomain = null)
     {
-        $linePortDomain and $this->linePortDomain = new NetAddress($linePortDomain);
+        $this->linePortDomain = ($linePortDomain InstanceOf NetAddress)
+             ? $linePortDomain
+             : new NetAddress($linePortDomain);
     }
 
     public function getLinePortDomain()
@@ -117,9 +100,8 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->linePortDomain) ?: $this->linePortDomain->value();
     }
 
-    public function setPopulateContact($populateContact)
+    public function setPopulateContact(xs:boolean $populateContact = null)
     {
-        $populateContact and $this->populateContact = new xs:boolean($populateContact);
     }
 
     public function getPopulateContact()
@@ -127,9 +109,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->populateContact) ?: $this->populateContact->value();
     }
 
-    public function setContactFormat($contactFormat)
+    public function setContactFormat($contactFormat = null)
     {
-        $contactFormat and $this->contactFormat = new TrunkGroupUserCreationSIPURIFormat($contactFormat);
+        $this->contactFormat = ($contactFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
+             ? $contactFormat
+             : new TrunkGroupUserCreationSIPURIFormat($contactFormat);
     }
 
     public function getContactFormat()
@@ -137,9 +121,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->contactFormat) ?: $this->contactFormat->value();
     }
 
-    public function setContactDomain($contactDomain)
+    public function setContactDomain($contactDomain = null)
     {
-        $contactDomain and $this->contactDomain = new NetAddress($contactDomain);
+        $this->contactDomain = ($contactDomain InstanceOf NetAddress)
+             ? $contactDomain
+             : new NetAddress($contactDomain);
     }
 
     public function getContactDomain()
@@ -147,9 +133,8 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->contactDomain) ?: $this->contactDomain->value();
     }
 
-    public function setUsersCreated($usersCreated)
+    public function setUsersCreated(xs:int $usersCreated = null)
     {
-        $usersCreated and $this->usersCreated = new xs:int($usersCreated);
     }
 
     public function getUsersCreated()
@@ -157,9 +142,8 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->usersCreated) ?: $this->usersCreated->value();
     }
 
-    public function setTotalUsersToCreate($totalUsersToCreate)
+    public function setTotalUsersToCreate(xs:int $totalUsersToCreate = null)
     {
-        $totalUsersToCreate and $this->totalUsersToCreate = new xs:int($totalUsersToCreate);
     }
 
     public function getTotalUsersToCreate()
@@ -167,9 +151,8 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->totalUsersToCreate) ?: $this->totalUsersToCreate->value();
     }
 
-    public function setErrorCount($errorCount)
+    public function setErrorCount(xs:int $errorCount = null)
     {
-        $errorCount and $this->errorCount = new xs:int($errorCount);
     }
 
     public function getErrorCount()
@@ -177,9 +160,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->errorCount) ?: $this->errorCount->value();
     }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()
@@ -187,9 +172,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->servicePackName) ?: $this->servicePackName->value();
     }
 
-    public function setUserServiceName($userServiceName)
+    public function setUserServiceName($userServiceName = null)
     {
-        $userServiceName and $this->userServiceName = new UserService($userServiceName);
+        $this->userServiceName = ($userServiceName InstanceOf UserService)
+             ? $userServiceName
+             : new UserService($userServiceName);
     }
 
     public function getUserServiceName()
@@ -197,9 +184,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->userServiceName) ?: $this->userServiceName->value();
     }
 
-    public function setStatus($status)
+    public function setStatus($status = null)
     {
-        $status and $this->status = new TrunkGroupUserCreationTaskStatus($status);
+        $this->status = ($status InstanceOf TrunkGroupUserCreationTaskStatus)
+             ? $status
+             : new TrunkGroupUserCreationTaskStatus($status);
     }
 
     public function getStatus()
@@ -207,9 +196,11 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->status) ?: $this->status->value();
     }
 
-    public function setUserCreationMode($userCreationMode)
+    public function setUserCreationMode($userCreationMode = null)
     {
-        $userCreationMode and $this->userCreationMode = new TrunkGroupUserCreationMode($userCreationMode);
+        $this->userCreationMode = ($userCreationMode InstanceOf TrunkGroupUserCreationMode)
+             ? $userCreationMode
+             : new TrunkGroupUserCreationMode($userCreationMode);
     }
 
     public function getUserCreationMode()
@@ -217,9 +208,8 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->userCreationMode) ?: $this->userCreationMode->value();
     }
 
-    public function setTaskSummary($taskSummary)
+    public function setTaskSummary(xs:token $taskSummary = null)
     {
-        $taskSummary and $this->taskSummary = new xs:token($taskSummary);
     }
 
     public function getTaskSummary()
@@ -227,9 +217,8 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
         return (!$this->taskSummary) ?: $this->taskSummary->value();
     }
 
-    public function setReportFileKey($reportFileKey)
+    public function setReportFileKey(xs:token $reportFileKey = null)
     {
-        $reportFileKey and $this->reportFileKey = new xs:token($reportFileKey);
     }
 
     public function getReportFileKey()

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $portsAvailableFromServiceProvider  = null;
+    protected $portsAllocatedToGroup              = null;
+    protected $portsConsumedByGroupBridges        = null;
 
-    public function __construct(
-             UnboundedNonNegativeInt $portsAvailableFromServiceProvider,
-             UnboundedNonNegativeInt $portsAllocatedToGroup,
-             $portsConsumedByGroupBridges
-    ) {
-        $this->portsAvailableFromServiceProvider = $portsAvailableFromServiceProvider;
-        $this->portsAllocatedToGroup             = $portsAllocatedToGroup;
-        $this->portsConsumedByGroupBridges       = $portsConsumedByGroupBridges;
-        $this->args                              = func_get_args();
-    }
 
-    public function setPortsAvailableFromServiceProvider($portsAvailableFromServiceProvider)
+    public function setPortsAvailableFromServiceProvider(UnboundedNonNegativeInt $portsAvailableFromServiceProvider = null)
     {
-        $portsAvailableFromServiceProvider and $this->portsAvailableFromServiceProvider = new UnboundedNonNegativeInt($portsAvailableFromServiceProvider);
     }
 
     public function getPortsAvailableFromServiceProvider()
@@ -41,9 +32,8 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
         return (!$this->portsAvailableFromServiceProvider) ?: $this->portsAvailableFromServiceProvider->value();
     }
 
-    public function setPortsAllocatedToGroup($portsAllocatedToGroup)
+    public function setPortsAllocatedToGroup(UnboundedNonNegativeInt $portsAllocatedToGroup = null)
     {
-        $portsAllocatedToGroup and $this->portsAllocatedToGroup = new UnboundedNonNegativeInt($portsAllocatedToGroup);
     }
 
     public function getPortsAllocatedToGroup()
@@ -51,9 +41,8 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
         return (!$this->portsAllocatedToGroup) ?: $this->portsAllocatedToGroup->value();
     }
 
-    public function setPortsConsumedByGroupBridges($portsConsumedByGroupBridges)
+    public function setPortsConsumedByGroupBridges(xs:int $portsConsumedByGroupBridges = null)
     {
-        $portsConsumedByGroupBridges and $this->portsConsumedByGroupBridges = new xs:int($portsConsumedByGroupBridges);
     }
 
     public function getPortsConsumedByGroupBridges()

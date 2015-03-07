@@ -7,18 +7,15 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackMigrationTaskName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:dateTime;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackMigrationMaxDurationHours;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackMigrationAbortErrorThreshold;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackMigrationTaskStatus;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackMigrationTaskUserSelectionType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskUserSelectionType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationAbortErrorThreshold;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationMaxDurationHours;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskStatus;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -29,62 +26,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                   = __CLASS__;
+    protected $taskName                               = null;
+    protected $startTimestamp                         = null;
+    protected $maxDurationHours                       = null;
+    protected $sendReportEmail                        = null;
+    protected $reportDeliveryEmailAddress             = null;
+    protected $abortOnError                           = null;
+    protected $abortErrorThreshold                    = null;
+    protected $reportAllUsers                         = null;
+    protected $automaticallyIncrementServiceQuantity  = null;
+    protected $errorCount                             = null;
+    protected $status                                 = null;
+    protected $groupsProcessed                        = null;
+    protected $groupsTotal                            = null;
+    protected $usersProcessed                         = null;
+    protected $usersTotal                             = null;
+    protected $userSelectionType                      = null;
+    protected $reportFilePathName                     = null;
+    protected $userSelectionServicePackName           = null;
+    protected $userSelectionServiceName               = null;
+    protected $removeServicePackName                  = null;
+    protected $removeServiceName                      = null;
+    protected $assignServicePackName                  = null;
+    protected $assignServiceName                      = null;
 
-    public function __construct(
-             $taskName,
-             $startTimestamp=null,
-             $maxDurationHours,
-             $sendReportEmail,
-             $reportDeliveryEmailAddress=null,
-             $abortOnError,
-             $abortErrorThreshold=null,
-             $reportAllUsers,
-             $automaticallyIncrementServiceQuantity,
-             $errorCount,
-             $status,
-             $groupsProcessed,
-             $groupsTotal,
-             $usersProcessed,
-             $usersTotal,
-             $userSelectionType,
-             $reportFilePathName,
-             $userSelectionServicePackName=null,
-             $userSelectionServiceName=null,
-             $removeServicePackName=null,
-             $removeServiceName=null,
-             $assignServicePackName=null,
-             $assignServiceName=null
-    ) {
-        $this->taskName                              = $taskName;
-        $this->startTimestamp                        = $startTimestamp;
-        $this->maxDurationHours                      = $maxDurationHours;
-        $this->sendReportEmail                       = $sendReportEmail;
-        $this->reportDeliveryEmailAddress            = new EmailAddress($reportDeliveryEmailAddress);
-        $this->abortOnError                          = $abortOnError;
-        $this->abortErrorThreshold                   = $abortErrorThreshold;
-        $this->reportAllUsers                        = $reportAllUsers;
-        $this->automaticallyIncrementServiceQuantity = $automaticallyIncrementServiceQuantity;
-        $this->errorCount                            = $errorCount;
-        $this->status                                = $status;
-        $this->groupsProcessed                       = $groupsProcessed;
-        $this->groupsTotal                           = $groupsTotal;
-        $this->usersProcessed                        = $usersProcessed;
-        $this->usersTotal                            = $usersTotal;
-        $this->userSelectionType                     = $userSelectionType;
-        $this->reportFilePathName                    = new FileName($reportFilePathName);
-        $this->userSelectionServicePackName          = new ServicePackName($userSelectionServicePackName);
-        $this->userSelectionServiceName              = new UserService($userSelectionServiceName);
-        $this->removeServicePackName                 = new ServicePackName($removeServicePackName);
-        $this->removeServiceName                     = new UserService($removeServiceName);
-        $this->assignServicePackName                 = new ServicePackName($assignServicePackName);
-        $this->assignServiceName                     = new UserService($assignServiceName);
-        $this->args                                  = func_get_args();
-    }
 
-    public function setTaskName($taskName)
+    public function setTaskName($taskName = null)
     {
-        $taskName and $this->taskName = new ServicePackMigrationTaskName($taskName);
+        $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
+             ? $taskName
+             : new ServicePackMigrationTaskName($taskName);
     }
 
     public function getTaskName()
@@ -92,9 +64,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->taskName) ?: $this->taskName->value();
     }
 
-    public function setStartTimestamp($startTimestamp)
+    public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
-        $startTimestamp and $this->startTimestamp = new xs:dateTime($startTimestamp);
     }
 
     public function getStartTimestamp()
@@ -102,9 +73,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->startTimestamp) ?: $this->startTimestamp->value();
     }
 
-    public function setMaxDurationHours($maxDurationHours)
+    public function setMaxDurationHours($maxDurationHours = null)
     {
-        $maxDurationHours and $this->maxDurationHours = new ServicePackMigrationMaxDurationHours($maxDurationHours);
+        $this->maxDurationHours = ($maxDurationHours InstanceOf ServicePackMigrationMaxDurationHours)
+             ? $maxDurationHours
+             : new ServicePackMigrationMaxDurationHours($maxDurationHours);
     }
 
     public function getMaxDurationHours()
@@ -112,9 +85,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->maxDurationHours) ?: $this->maxDurationHours->value();
     }
 
-    public function setSendReportEmail($sendReportEmail)
+    public function setSendReportEmail(xs:boolean $sendReportEmail = null)
     {
-        $sendReportEmail and $this->sendReportEmail = new xs:boolean($sendReportEmail);
     }
 
     public function getSendReportEmail()
@@ -122,9 +94,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->sendReportEmail) ?: $this->sendReportEmail->value();
     }
 
-    public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress)
+    public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
-        $reportDeliveryEmailAddress and $this->reportDeliveryEmailAddress = new EmailAddress($reportDeliveryEmailAddress);
+        $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
+             ? $reportDeliveryEmailAddress
+             : new EmailAddress($reportDeliveryEmailAddress);
     }
 
     public function getReportDeliveryEmailAddress()
@@ -132,9 +106,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->value();
     }
 
-    public function setAbortOnError($abortOnError)
+    public function setAbortOnError(xs:boolean $abortOnError = null)
     {
-        $abortOnError and $this->abortOnError = new xs:boolean($abortOnError);
     }
 
     public function getAbortOnError()
@@ -142,9 +115,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->abortOnError) ?: $this->abortOnError->value();
     }
 
-    public function setAbortErrorThreshold($abortErrorThreshold)
+    public function setAbortErrorThreshold($abortErrorThreshold = null)
     {
-        $abortErrorThreshold and $this->abortErrorThreshold = new ServicePackMigrationAbortErrorThreshold($abortErrorThreshold);
+        $this->abortErrorThreshold = ($abortErrorThreshold InstanceOf ServicePackMigrationAbortErrorThreshold)
+             ? $abortErrorThreshold
+             : new ServicePackMigrationAbortErrorThreshold($abortErrorThreshold);
     }
 
     public function getAbortErrorThreshold()
@@ -152,9 +127,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->abortErrorThreshold) ?: $this->abortErrorThreshold->value();
     }
 
-    public function setReportAllUsers($reportAllUsers)
+    public function setReportAllUsers(xs:boolean $reportAllUsers = null)
     {
-        $reportAllUsers and $this->reportAllUsers = new xs:boolean($reportAllUsers);
     }
 
     public function getReportAllUsers()
@@ -162,9 +136,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->reportAllUsers) ?: $this->reportAllUsers->value();
     }
 
-    public function setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity)
+    public function setAutomaticallyIncrementServiceQuantity(xs:boolean $automaticallyIncrementServiceQuantity = null)
     {
-        $automaticallyIncrementServiceQuantity and $this->automaticallyIncrementServiceQuantity = new xs:boolean($automaticallyIncrementServiceQuantity);
     }
 
     public function getAutomaticallyIncrementServiceQuantity()
@@ -172,9 +145,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity->value();
     }
 
-    public function setErrorCount($errorCount)
+    public function setErrorCount(xs:int $errorCount = null)
     {
-        $errorCount and $this->errorCount = new xs:int($errorCount);
     }
 
     public function getErrorCount()
@@ -182,9 +154,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->errorCount) ?: $this->errorCount->value();
     }
 
-    public function setStatus($status)
+    public function setStatus($status = null)
     {
-        $status and $this->status = new ServicePackMigrationTaskStatus($status);
+        $this->status = ($status InstanceOf ServicePackMigrationTaskStatus)
+             ? $status
+             : new ServicePackMigrationTaskStatus($status);
     }
 
     public function getStatus()
@@ -192,9 +166,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->status) ?: $this->status->value();
     }
 
-    public function setGroupsProcessed($groupsProcessed)
+    public function setGroupsProcessed(xs:int $groupsProcessed = null)
     {
-        $groupsProcessed and $this->groupsProcessed = new xs:int($groupsProcessed);
     }
 
     public function getGroupsProcessed()
@@ -202,9 +175,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->groupsProcessed) ?: $this->groupsProcessed->value();
     }
 
-    public function setGroupsTotal($groupsTotal)
+    public function setGroupsTotal(xs:int $groupsTotal = null)
     {
-        $groupsTotal and $this->groupsTotal = new xs:int($groupsTotal);
     }
 
     public function getGroupsTotal()
@@ -212,9 +184,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->groupsTotal) ?: $this->groupsTotal->value();
     }
 
-    public function setUsersProcessed($usersProcessed)
+    public function setUsersProcessed(xs:int $usersProcessed = null)
     {
-        $usersProcessed and $this->usersProcessed = new xs:int($usersProcessed);
     }
 
     public function getUsersProcessed()
@@ -222,9 +193,8 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->usersProcessed) ?: $this->usersProcessed->value();
     }
 
-    public function setUsersTotal($usersTotal)
+    public function setUsersTotal(xs:int $usersTotal = null)
     {
-        $usersTotal and $this->usersTotal = new xs:int($usersTotal);
     }
 
     public function getUsersTotal()
@@ -232,9 +202,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->usersTotal) ?: $this->usersTotal->value();
     }
 
-    public function setUserSelectionType($userSelectionType)
+    public function setUserSelectionType($userSelectionType = null)
     {
-        $userSelectionType and $this->userSelectionType = new ServicePackMigrationTaskUserSelectionType($userSelectionType);
+        $this->userSelectionType = ($userSelectionType InstanceOf ServicePackMigrationTaskUserSelectionType)
+             ? $userSelectionType
+             : new ServicePackMigrationTaskUserSelectionType($userSelectionType);
     }
 
     public function getUserSelectionType()
@@ -242,9 +214,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->userSelectionType) ?: $this->userSelectionType->value();
     }
 
-    public function setReportFilePathName($reportFilePathName)
+    public function setReportFilePathName($reportFilePathName = null)
     {
-        $reportFilePathName and $this->reportFilePathName = new FileName($reportFilePathName);
+        $this->reportFilePathName = ($reportFilePathName InstanceOf FileName)
+             ? $reportFilePathName
+             : new FileName($reportFilePathName);
     }
 
     public function getReportFilePathName()
@@ -252,9 +226,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->reportFilePathName) ?: $this->reportFilePathName->value();
     }
 
-    public function setUserSelectionServicePackName($userSelectionServicePackName)
+    public function setUserSelectionServicePackName($userSelectionServicePackName = null)
     {
-        $userSelectionServicePackName and $this->userSelectionServicePackName = new ServicePackName($userSelectionServicePackName);
+        $this->userSelectionServicePackName = ($userSelectionServicePackName InstanceOf ServicePackName)
+             ? $userSelectionServicePackName
+             : new ServicePackName($userSelectionServicePackName);
     }
 
     public function getUserSelectionServicePackName()
@@ -262,9 +238,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->userSelectionServicePackName) ?: $this->userSelectionServicePackName->value();
     }
 
-    public function setUserSelectionServiceName($userSelectionServiceName)
+    public function setUserSelectionServiceName($userSelectionServiceName = null)
     {
-        $userSelectionServiceName and $this->userSelectionServiceName = new UserService($userSelectionServiceName);
+        $this->userSelectionServiceName = ($userSelectionServiceName InstanceOf UserService)
+             ? $userSelectionServiceName
+             : new UserService($userSelectionServiceName);
     }
 
     public function getUserSelectionServiceName()
@@ -272,9 +250,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->userSelectionServiceName) ?: $this->userSelectionServiceName->value();
     }
 
-    public function setRemoveServicePackName($removeServicePackName)
+    public function setRemoveServicePackName($removeServicePackName = null)
     {
-        $removeServicePackName and $this->removeServicePackName = new ServicePackName($removeServicePackName);
+        $this->removeServicePackName = ($removeServicePackName InstanceOf ServicePackName)
+             ? $removeServicePackName
+             : new ServicePackName($removeServicePackName);
     }
 
     public function getRemoveServicePackName()
@@ -282,9 +262,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->removeServicePackName) ?: $this->removeServicePackName->value();
     }
 
-    public function setRemoveServiceName($removeServiceName)
+    public function setRemoveServiceName($removeServiceName = null)
     {
-        $removeServiceName and $this->removeServiceName = new UserService($removeServiceName);
+        $this->removeServiceName = ($removeServiceName InstanceOf UserService)
+             ? $removeServiceName
+             : new UserService($removeServiceName);
     }
 
     public function getRemoveServiceName()
@@ -292,9 +274,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->removeServiceName) ?: $this->removeServiceName->value();
     }
 
-    public function setAssignServicePackName($assignServicePackName)
+    public function setAssignServicePackName($assignServicePackName = null)
     {
-        $assignServicePackName and $this->assignServicePackName = new ServicePackName($assignServicePackName);
+        $this->assignServicePackName = ($assignServicePackName InstanceOf ServicePackName)
+             ? $assignServicePackName
+             : new ServicePackName($assignServicePackName);
     }
 
     public function getAssignServicePackName()
@@ -302,9 +286,11 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
         return (!$this->assignServicePackName) ?: $this->assignServicePackName->value();
     }
 
-    public function setAssignServiceName($assignServiceName)
+    public function setAssignServiceName($assignServiceName = null)
     {
-        $assignServiceName and $this->assignServiceName = new UserService($assignServiceName);
+        $this->assignServiceName = ($assignServiceName InstanceOf UserService)
+             ? $assignServiceName
+             : new UserService($assignServiceName);
     }
 
     public function getAssignServiceName()

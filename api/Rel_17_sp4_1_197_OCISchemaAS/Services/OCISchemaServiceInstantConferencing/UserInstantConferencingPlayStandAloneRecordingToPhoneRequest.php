@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingRecordingKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $conferenceOwnerUserId  = null;
+    protected $recordingKey           = null;
+    protected $playBackPhoneNumber    = null;
 
     public function __construct(
-             $conferenceOwnerUserId,
-             $recordingKey,
-             $playBackPhoneNumber
+         $conferenceOwnerUserId,
+         InstantConferencingRecordingKey $recordingKey,
+         $playBackPhoneNumber
     ) {
-        $this->conferenceOwnerUserId = new UserId($conferenceOwnerUserId);
-        $this->recordingKey          = $recordingKey;
-        $this->playBackPhoneNumber   = new OutgoingDNorSIPURI($playBackPhoneNumber);
-        $this->args                  = func_get_args();
+        $this->setConferenceOwnerUserId($conferenceOwnerUserId);
+        $this->setRecordingKey($recordingKey);
+        $this->setPlayBackPhoneNumber($playBackPhoneNumber);
     }
 
-    public function setConferenceOwnerUserId($conferenceOwnerUserId)
+    public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        $conferenceOwnerUserId and $this->conferenceOwnerUserId = new UserId($conferenceOwnerUserId);
+        $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
+             ? $conferenceOwnerUserId
+             : new UserId($conferenceOwnerUserId);
     }
 
     public function getConferenceOwnerUserId()
@@ -43,9 +47,8 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
         return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->value();
     }
 
-    public function setRecordingKey($recordingKey)
+    public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        $recordingKey and $this->recordingKey = new InstantConferencingRecordingKey($recordingKey);
     }
 
     public function getRecordingKey()
@@ -53,9 +56,11 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
         return (!$this->recordingKey) ?: $this->recordingKey->value();
     }
 
-    public function setPlayBackPhoneNumber($playBackPhoneNumber)
+    public function setPlayBackPhoneNumber($playBackPhoneNumber = null)
     {
-        $playBackPhoneNumber and $this->playBackPhoneNumber = new OutgoingDNorSIPURI($playBackPhoneNumber);
+        $this->playBackPhoneNumber = ($playBackPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $playBackPhoneNumber
+             : new OutgoingDNorSIPURI($playBackPhoneNumber);
     }
 
     public function getPlayBackPhoneNumber()

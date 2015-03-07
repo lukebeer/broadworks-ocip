@@ -7,19 +7,18 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingCallId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingPresentationPassword;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAccessCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserDisplayNames;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingTitle;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingConferenceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingBillingCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingAccessCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingPresentationPassword;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -30,58 +29,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $conferenceCallId                = null;
+    protected $conferenceOwnerUserId           = null;
+    protected $conferenceOwnerDisplayNames     = null;
+    protected $title                           = null;
+    protected $leaderRequired                  = null;
+    protected $leaderReleaseDropsParticipants  = null;
+    protected $announceCallers                 = null;
+    protected $conferenceType                  = null;
+    protected $conferenceSchedule              = null;
+    protected $billingCode                     = null;
+    protected $leaderAccessCode                = null;
+    protected $participantAccessCode           = null;
+    protected $isCallActive                    = null;
+    protected $isExpired                       = null;
+    protected $isFuture                        = null;
+    protected $hasPresentation                 = null;
+    protected $presentationPassword            = null;
+    protected $allowOutdialInInvitation        = null;
+    protected $bridgePhoneNumber               = null;
+    protected $bridgeCountryCode               = null;
+    protected $bridgeNationalPrefix            = null;
 
-    public function __construct(
-             $conferenceCallId,
-             $conferenceOwnerUserId,
-             UserDisplayNames $conferenceOwnerDisplayNames,
-             $title,
-             $leaderRequired,
-             $leaderReleaseDropsParticipants,
-             $announceCallers,
-             $conferenceType,
-             $conferenceSchedule,
-             $billingCode=null,
-             $leaderAccessCode,
-             $participantAccessCode,
-             $isCallActive,
-             $isExpired,
-             $isFuture,
-             $hasPresentation,
-             $presentationPassword=null,
-             $allowOutdialInInvitation,
-             $bridgePhoneNumber=null,
-             $bridgeCountryCode=null,
-             $bridgeNationalPrefix=null
-    ) {
-        $this->conferenceCallId               = $conferenceCallId;
-        $this->conferenceOwnerUserId          = new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerDisplayNames    = $conferenceOwnerDisplayNames;
-        $this->title                          = $title;
-        $this->leaderRequired                 = $leaderRequired;
-        $this->leaderReleaseDropsParticipants = $leaderReleaseDropsParticipants;
-        $this->announceCallers                = $announceCallers;
-        $this->conferenceType                 = $conferenceType;
-        $this->conferenceSchedule             = $conferenceSchedule;
-        $this->billingCode                    = $billingCode;
-        $this->leaderAccessCode               = $leaderAccessCode;
-        $this->participantAccessCode          = $participantAccessCode;
-        $this->isCallActive                   = $isCallActive;
-        $this->isExpired                      = $isExpired;
-        $this->isFuture                       = $isFuture;
-        $this->hasPresentation                = $hasPresentation;
-        $this->presentationPassword           = $presentationPassword;
-        $this->allowOutdialInInvitation       = $allowOutdialInInvitation;
-        $this->bridgePhoneNumber              = new DN($bridgePhoneNumber);
-        $this->bridgeCountryCode              = new CountryCode($bridgeCountryCode);
-        $this->bridgeNationalPrefix           = new NationalPrefix($bridgeNationalPrefix);
-        $this->args                           = func_get_args();
-    }
 
-    public function setConferenceCallId($conferenceCallId)
+    public function setConferenceCallId($conferenceCallId = null)
     {
-        $conferenceCallId and $this->conferenceCallId = new InstantConferencingCallId($conferenceCallId);
+        $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
+             ? $conferenceCallId
+             : new InstantConferencingCallId($conferenceCallId);
     }
 
     public function getConferenceCallId()
@@ -89,9 +65,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->conferenceCallId) ?: $this->conferenceCallId->value();
     }
 
-    public function setConferenceOwnerUserId($conferenceOwnerUserId)
+    public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        $conferenceOwnerUserId and $this->conferenceOwnerUserId = new UserId($conferenceOwnerUserId);
+        $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
+             ? $conferenceOwnerUserId
+             : new UserId($conferenceOwnerUserId);
     }
 
     public function getConferenceOwnerUserId()
@@ -99,9 +77,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->value();
     }
 
-    public function setConferenceOwnerDisplayNames($conferenceOwnerDisplayNames)
+    public function setConferenceOwnerDisplayNames(UserDisplayNames $conferenceOwnerDisplayNames = null)
     {
-        $conferenceOwnerDisplayNames and $this->conferenceOwnerDisplayNames = new UserDisplayNames($conferenceOwnerDisplayNames);
     }
 
     public function getConferenceOwnerDisplayNames()
@@ -109,9 +86,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->conferenceOwnerDisplayNames) ?: $this->conferenceOwnerDisplayNames->value();
     }
 
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
-        $title and $this->title = new InstantConferencingTitle($title);
+        $this->title = ($title InstanceOf InstantConferencingTitle)
+             ? $title
+             : new InstantConferencingTitle($title);
     }
 
     public function getTitle()
@@ -119,9 +98,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->title) ?: $this->title->value();
     }
 
-    public function setLeaderRequired($leaderRequired)
+    public function setLeaderRequired(xs:boolean $leaderRequired = null)
     {
-        $leaderRequired and $this->leaderRequired = new xs:boolean($leaderRequired);
     }
 
     public function getLeaderRequired()
@@ -129,9 +107,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->leaderRequired) ?: $this->leaderRequired->value();
     }
 
-    public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants)
+    public function setLeaderReleaseDropsParticipants(xs:boolean $leaderReleaseDropsParticipants = null)
     {
-        $leaderReleaseDropsParticipants and $this->leaderReleaseDropsParticipants = new xs:boolean($leaderReleaseDropsParticipants);
     }
 
     public function getLeaderReleaseDropsParticipants()
@@ -139,9 +116,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->value();
     }
 
-    public function setAnnounceCallers($announceCallers)
+    public function setAnnounceCallers(xs:boolean $announceCallers = null)
     {
-        $announceCallers and $this->announceCallers = new xs:boolean($announceCallers);
     }
 
     public function getAnnounceCallers()
@@ -149,9 +125,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->announceCallers) ?: $this->announceCallers->value();
     }
 
-    public function setConferenceType($conferenceType)
+    public function setConferenceType($conferenceType = null)
     {
-        $conferenceType and $this->conferenceType = new InstantConferencingConferenceType($conferenceType);
+        $this->conferenceType = ($conferenceType InstanceOf InstantConferencingConferenceType)
+             ? $conferenceType
+             : new InstantConferencingConferenceType($conferenceType);
     }
 
     public function getConferenceType()
@@ -159,9 +137,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->conferenceType) ?: $this->conferenceType->value();
     }
 
-    public function setConferenceSchedule($conferenceSchedule)
+    public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
-        $conferenceSchedule and $this->conferenceSchedule = new InstantConferencingSchedule($conferenceSchedule);
     }
 
     public function getConferenceSchedule()
@@ -169,9 +146,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->value();
     }
 
-    public function setBillingCode($billingCode)
+    public function setBillingCode($billingCode = null)
     {
-        $billingCode and $this->billingCode = new InstantConferencingBillingCode($billingCode);
+        $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
+             ? $billingCode
+             : new InstantConferencingBillingCode($billingCode);
     }
 
     public function getBillingCode()
@@ -179,9 +158,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->billingCode) ?: $this->billingCode->value();
     }
 
-    public function setLeaderAccessCode($leaderAccessCode)
+    public function setLeaderAccessCode($leaderAccessCode = null)
     {
-        $leaderAccessCode and $this->leaderAccessCode = new InstantConferencingAccessCode($leaderAccessCode);
+        $this->leaderAccessCode = ($leaderAccessCode InstanceOf InstantConferencingAccessCode)
+             ? $leaderAccessCode
+             : new InstantConferencingAccessCode($leaderAccessCode);
     }
 
     public function getLeaderAccessCode()
@@ -189,9 +170,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->leaderAccessCode) ?: $this->leaderAccessCode->value();
     }
 
-    public function setParticipantAccessCode($participantAccessCode)
+    public function setParticipantAccessCode($participantAccessCode = null)
     {
-        $participantAccessCode and $this->participantAccessCode = new InstantConferencingAccessCode($participantAccessCode);
+        $this->participantAccessCode = ($participantAccessCode InstanceOf InstantConferencingAccessCode)
+             ? $participantAccessCode
+             : new InstantConferencingAccessCode($participantAccessCode);
     }
 
     public function getParticipantAccessCode()
@@ -199,9 +182,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->participantAccessCode) ?: $this->participantAccessCode->value();
     }
 
-    public function setIsCallActive($isCallActive)
+    public function setIsCallActive(xs:boolean $isCallActive = null)
     {
-        $isCallActive and $this->isCallActive = new xs:boolean($isCallActive);
     }
 
     public function getIsCallActive()
@@ -209,9 +191,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->isCallActive) ?: $this->isCallActive->value();
     }
 
-    public function setIsExpired($isExpired)
+    public function setIsExpired(xs:boolean $isExpired = null)
     {
-        $isExpired and $this->isExpired = new xs:boolean($isExpired);
     }
 
     public function getIsExpired()
@@ -219,9 +200,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->isExpired) ?: $this->isExpired->value();
     }
 
-    public function setIsFuture($isFuture)
+    public function setIsFuture(xs:boolean $isFuture = null)
     {
-        $isFuture and $this->isFuture = new xs:boolean($isFuture);
     }
 
     public function getIsFuture()
@@ -229,9 +209,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->isFuture) ?: $this->isFuture->value();
     }
 
-    public function setHasPresentation($hasPresentation)
+    public function setHasPresentation(xs:boolean $hasPresentation = null)
     {
-        $hasPresentation and $this->hasPresentation = new xs:boolean($hasPresentation);
     }
 
     public function getHasPresentation()
@@ -239,9 +218,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->hasPresentation) ?: $this->hasPresentation->value();
     }
 
-    public function setPresentationPassword($presentationPassword)
+    public function setPresentationPassword($presentationPassword = null)
     {
-        $presentationPassword and $this->presentationPassword = new InstantConferencingPresentationPassword($presentationPassword);
+        $this->presentationPassword = ($presentationPassword InstanceOf InstantConferencingPresentationPassword)
+             ? $presentationPassword
+             : new InstantConferencingPresentationPassword($presentationPassword);
     }
 
     public function getPresentationPassword()
@@ -249,9 +230,8 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->presentationPassword) ?: $this->presentationPassword->value();
     }
 
-    public function setAllowOutdialInInvitation($allowOutdialInInvitation)
+    public function setAllowOutdialInInvitation(xs:boolean $allowOutdialInInvitation = null)
     {
-        $allowOutdialInInvitation and $this->allowOutdialInInvitation = new xs:boolean($allowOutdialInInvitation);
     }
 
     public function getAllowOutdialInInvitation()
@@ -259,9 +239,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->value();
     }
 
-    public function setBridgePhoneNumber($bridgePhoneNumber)
+    public function setBridgePhoneNumber($bridgePhoneNumber = null)
     {
-        $bridgePhoneNumber and $this->bridgePhoneNumber = new DN($bridgePhoneNumber);
+        $this->bridgePhoneNumber = ($bridgePhoneNumber InstanceOf DN)
+             ? $bridgePhoneNumber
+             : new DN($bridgePhoneNumber);
     }
 
     public function getBridgePhoneNumber()
@@ -269,9 +251,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->bridgePhoneNumber) ?: $this->bridgePhoneNumber->value();
     }
 
-    public function setBridgeCountryCode($bridgeCountryCode)
+    public function setBridgeCountryCode($bridgeCountryCode = null)
     {
-        $bridgeCountryCode and $this->bridgeCountryCode = new CountryCode($bridgeCountryCode);
+        $this->bridgeCountryCode = ($bridgeCountryCode InstanceOf CountryCode)
+             ? $bridgeCountryCode
+             : new CountryCode($bridgeCountryCode);
     }
 
     public function getBridgeCountryCode()
@@ -279,9 +263,11 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
         return (!$this->bridgeCountryCode) ?: $this->bridgeCountryCode->value();
     }
 
-    public function setBridgeNationalPrefix($bridgeNationalPrefix)
+    public function setBridgeNationalPrefix($bridgeNationalPrefix = null)
     {
-        $bridgeNationalPrefix and $this->bridgeNationalPrefix = new NationalPrefix($bridgeNationalPrefix);
+        $this->bridgeNationalPrefix = ($bridgeNationalPrefix InstanceOf NationalPrefix)
+             ? $bridgeNationalPrefix
+             : new NationalPrefix($bridgeNationalPrefix);
     }
 
     public function getBridgeNationalPrefix()

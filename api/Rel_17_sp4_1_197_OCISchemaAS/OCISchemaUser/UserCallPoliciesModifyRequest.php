@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ConnectedLineIdentificationPrivacyOnRedirectedCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallBeingForwardedResponseCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\CallBeingForwardedResponseCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $userId                              = null;
+    protected $redirectedCallsCOLPPrivacy          = null;
+    protected $callBeingForwardedResponseCallType  = null;
 
     public function __construct(
-             $userId,
-             $redirectedCallsCOLPPrivacy=null,
-             $callBeingForwardedResponseCallType=null
+         $userId,
+         $redirectedCallsCOLPPrivacy = null,
+         $callBeingForwardedResponseCallType = null
     ) {
-        $this->userId                             = new UserId($userId);
-        $this->redirectedCallsCOLPPrivacy         = new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
-        $this->callBeingForwardedResponseCallType = $callBeingForwardedResponseCallType;
-        $this->args                               = func_get_args();
+        $this->setUserId($userId);
+        $this->setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy);
+        $this->setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +47,11 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy)
+    public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
-        $redirectedCallsCOLPPrivacy and $this->redirectedCallsCOLPPrivacy = new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
+        $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
+             ? $redirectedCallsCOLPPrivacy
+             : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
     }
 
     public function getRedirectedCallsCOLPPrivacy()
@@ -53,9 +59,11 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->value();
     }
 
-    public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType)
+    public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType = null)
     {
-        $callBeingForwardedResponseCallType and $this->callBeingForwardedResponseCallType = new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
+        $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
+             ? $callBeingForwardedResponseCallType
+             : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
     }
 
     public function getCallBeingForwardedResponseCallType()

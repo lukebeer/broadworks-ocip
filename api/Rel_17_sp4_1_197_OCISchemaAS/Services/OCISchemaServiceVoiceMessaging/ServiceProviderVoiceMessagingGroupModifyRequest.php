@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,30 +19,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                           = __CLASS__;
+    protected $serviceProviderId                              = null;
+    protected $deliveryFromAddress                            = null;
+    protected $notificationFromAddress                        = null;
+    protected $voicePortalLockoutFromAddress                  = null;
+    protected $useSystemDefaultDeliveryFromAddress            = null;
+    protected $useSystemDefaultNotificationFromAddress        = null;
+    protected $useSystemDefaultVoicePortalLockoutFromAddress  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $deliveryFromAddress=null,
-             $notificationFromAddress=null,
-             $voicePortalLockoutFromAddress=null,
-             $useSystemDefaultDeliveryFromAddress=null,
-             $useSystemDefaultNotificationFromAddress=null,
-             $useSystemDefaultVoicePortalLockoutFromAddress=null
+         $serviceProviderId,
+         $deliveryFromAddress = null,
+         $notificationFromAddress = null,
+         $voicePortalLockoutFromAddress = null,
+         $useSystemDefaultDeliveryFromAddress = null,
+         $useSystemDefaultNotificationFromAddress = null,
+         $useSystemDefaultVoicePortalLockoutFromAddress = null
     ) {
-        $this->serviceProviderId                             = new ServiceProviderId($serviceProviderId);
-        $this->deliveryFromAddress                           = new EmailAddress($deliveryFromAddress);
-        $this->notificationFromAddress                       = new EmailAddress($notificationFromAddress);
-        $this->voicePortalLockoutFromAddress                 = new EmailAddress($voicePortalLockoutFromAddress);
-        $this->useSystemDefaultDeliveryFromAddress           = $useSystemDefaultDeliveryFromAddress;
-        $this->useSystemDefaultNotificationFromAddress       = $useSystemDefaultNotificationFromAddress;
-        $this->useSystemDefaultVoicePortalLockoutFromAddress = $useSystemDefaultVoicePortalLockoutFromAddress;
-        $this->args                                          = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setDeliveryFromAddress($deliveryFromAddress);
+        $this->setNotificationFromAddress($notificationFromAddress);
+        $this->setVoicePortalLockoutFromAddress($voicePortalLockoutFromAddress);
+        $this->setUseSystemDefaultDeliveryFromAddress($useSystemDefaultDeliveryFromAddress);
+        $this->setUseSystemDefaultNotificationFromAddress($useSystemDefaultNotificationFromAddress);
+        $this->setUseSystemDefaultVoicePortalLockoutFromAddress($useSystemDefaultVoicePortalLockoutFromAddress);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -51,9 +58,11 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setDeliveryFromAddress($deliveryFromAddress)
+    public function setDeliveryFromAddress($deliveryFromAddress = null)
     {
-        $deliveryFromAddress and $this->deliveryFromAddress = new EmailAddress($deliveryFromAddress);
+        $this->deliveryFromAddress = ($deliveryFromAddress InstanceOf EmailAddress)
+             ? $deliveryFromAddress
+             : new EmailAddress($deliveryFromAddress);
     }
 
     public function getDeliveryFromAddress()
@@ -61,9 +70,11 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         return (!$this->deliveryFromAddress) ?: $this->deliveryFromAddress->value();
     }
 
-    public function setNotificationFromAddress($notificationFromAddress)
+    public function setNotificationFromAddress($notificationFromAddress = null)
     {
-        $notificationFromAddress and $this->notificationFromAddress = new EmailAddress($notificationFromAddress);
+        $this->notificationFromAddress = ($notificationFromAddress InstanceOf EmailAddress)
+             ? $notificationFromAddress
+             : new EmailAddress($notificationFromAddress);
     }
 
     public function getNotificationFromAddress()
@@ -71,9 +82,11 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         return (!$this->notificationFromAddress) ?: $this->notificationFromAddress->value();
     }
 
-    public function setVoicePortalLockoutFromAddress($voicePortalLockoutFromAddress)
+    public function setVoicePortalLockoutFromAddress($voicePortalLockoutFromAddress = null)
     {
-        $voicePortalLockoutFromAddress and $this->voicePortalLockoutFromAddress = new EmailAddress($voicePortalLockoutFromAddress);
+        $this->voicePortalLockoutFromAddress = ($voicePortalLockoutFromAddress InstanceOf EmailAddress)
+             ? $voicePortalLockoutFromAddress
+             : new EmailAddress($voicePortalLockoutFromAddress);
     }
 
     public function getVoicePortalLockoutFromAddress()
@@ -81,9 +94,8 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         return (!$this->voicePortalLockoutFromAddress) ?: $this->voicePortalLockoutFromAddress->value();
     }
 
-    public function setUseSystemDefaultDeliveryFromAddress($useSystemDefaultDeliveryFromAddress)
+    public function setUseSystemDefaultDeliveryFromAddress(xs:boolean $useSystemDefaultDeliveryFromAddress = null)
     {
-        $useSystemDefaultDeliveryFromAddress and $this->useSystemDefaultDeliveryFromAddress = new xs:boolean($useSystemDefaultDeliveryFromAddress);
     }
 
     public function getUseSystemDefaultDeliveryFromAddress()
@@ -91,9 +103,8 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         return (!$this->useSystemDefaultDeliveryFromAddress) ?: $this->useSystemDefaultDeliveryFromAddress->value();
     }
 
-    public function setUseSystemDefaultNotificationFromAddress($useSystemDefaultNotificationFromAddress)
+    public function setUseSystemDefaultNotificationFromAddress(xs:boolean $useSystemDefaultNotificationFromAddress = null)
     {
-        $useSystemDefaultNotificationFromAddress and $this->useSystemDefaultNotificationFromAddress = new xs:boolean($useSystemDefaultNotificationFromAddress);
     }
 
     public function getUseSystemDefaultNotificationFromAddress()
@@ -101,9 +112,8 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         return (!$this->useSystemDefaultNotificationFromAddress) ?: $this->useSystemDefaultNotificationFromAddress->value();
     }
 
-    public function setUseSystemDefaultVoicePortalLockoutFromAddress($useSystemDefaultVoicePortalLockoutFromAddress)
+    public function setUseSystemDefaultVoicePortalLockoutFromAddress(xs:boolean $useSystemDefaultVoicePortalLockoutFromAddress = null)
     {
-        $useSystemDefaultVoicePortalLockoutFromAddress and $this->useSystemDefaultVoicePortalLockoutFromAddress = new xs:boolean($useSystemDefaultVoicePortalLockoutFromAddress);
     }
 
     public function getUseSystemDefaultVoicePortalLockoutFromAddress()

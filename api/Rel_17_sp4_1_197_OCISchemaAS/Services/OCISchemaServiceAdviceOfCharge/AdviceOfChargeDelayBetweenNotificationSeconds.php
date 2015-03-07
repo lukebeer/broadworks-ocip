@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
 use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
@@ -24,7 +23,7 @@ class AdviceOfChargeDelayBetweenNotificationSeconds extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'int';
-        $this->addRestriction(new MinInclusive(15));
-        $this->addRestriction(new MaxInclusive(1800));
+        $this->addRestriction(new MinInclusive("15"));
+        $this->addRestriction(new MaxInclusive("1800"));
     }
 }

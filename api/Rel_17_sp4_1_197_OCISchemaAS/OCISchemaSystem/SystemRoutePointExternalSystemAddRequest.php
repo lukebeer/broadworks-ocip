@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExternalSystemDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExternalSystemDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutePointExternalSystemAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $name         = null;
+    protected $description  = null;
 
     public function __construct(
-             $name,
-             $description=null
+         $name,
+         $description = null
     ) {
-        $this->name        = new RoutePointExternalSystem($name);
-        $this->description = $description;
-        $this->args        = func_get_args();
+        $this->setName($name);
+        $this->setDescription($description);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new RoutePointExternalSystem($name);
+        $this->name = ($name InstanceOf RoutePointExternalSystem)
+             ? $name
+             : new RoutePointExternalSystem($name);
     }
 
     public function getName()
@@ -41,9 +44,11 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new ExternalSystemDescription($description);
+        $this->description = ($description InstanceOf ExternalSystemDescription)
+             ? $description
+             : new ExternalSystemDescription($description);
     }
 
     public function getDescription()

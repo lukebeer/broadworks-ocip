@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Classmark;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserClassmarkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $classmark  = null;
 
-    public function __construct(
-             $classmark=null
-    ) {
-        $this->classmark = $classmark;
-        $this->args      = func_get_args();
-    }
 
-    public function setClassmark($classmark)
+    public function setClassmark($classmark = null)
     {
-        $classmark and $this->classmark = new Classmark($classmark);
+        $this->classmark = ($classmark InstanceOf Classmark)
+             ? $classmark
+             : new Classmark($classmark);
     }
 
     public function getClassmark()

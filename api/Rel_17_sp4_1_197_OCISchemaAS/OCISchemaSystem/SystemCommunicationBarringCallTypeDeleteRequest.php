@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringCallTypeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $callType  = null;
 
     public function __construct(
-             $callType
+         $callType
     ) {
-        $this->callType = new CommunicationBarringCallType($callType);
-        $this->args     = func_get_args();
+        $this->setCallType($callType);
     }
 
-    public function setCallType($callType)
+    public function setCallType($callType = null)
     {
-        $callType and $this->callType = new CommunicationBarringCallType($callType);
+        $this->callType = ($callType InstanceOf CommunicationBarringCallType)
+             ? $callType
+             : new CommunicationBarringCallType($callType);
     }
 
     public function getCallType()

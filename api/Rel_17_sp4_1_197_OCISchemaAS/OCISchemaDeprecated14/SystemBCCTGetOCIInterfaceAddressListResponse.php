@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $interfaceNetAddress  = null;
 
-    public function __construct(
-             $interfaceNetAddress=null
-    ) {
-        $this->interfaceNetAddress = new NetAddress($interfaceNetAddress);
-        $this->args                = func_get_args();
-    }
 
-    public function setInterfaceNetAddress($interfaceNetAddress)
+    public function setInterfaceNetAddress($interfaceNetAddress = null)
     {
-        $interfaceNetAddress and $this->interfaceNetAddress = new NetAddress($interfaceNetAddress);
+        $this->interfaceNetAddress = ($interfaceNetAddress InstanceOf NetAddress)
+             ? $interfaceNetAddress
+             : new NetAddress($interfaceNetAddress);
     }
 
     public function getInterfaceNetAddress()

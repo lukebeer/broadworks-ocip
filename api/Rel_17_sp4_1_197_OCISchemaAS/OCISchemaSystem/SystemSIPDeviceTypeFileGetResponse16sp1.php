@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCategory;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCustomization;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceTypeFileEnhancedConfigurationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceTypeFileEnhancedConfigurationMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCustomization;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCategory;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -24,42 +23,27 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $remoteFileFormat                    = null;
+    protected $fileCategory                        = null;
+    protected $fileCustomization                   = null;
+    protected $fileSource                          = null;
+    protected $configurationFileName               = null;
+    protected $useHttpDigestAuthentication         = null;
+    protected $macBasedFileAuthentication          = null;
+    protected $userNamePasswordFileAuthentication  = null;
+    protected $macInNonRequestURI                  = null;
+    protected $macFormatInNonRequestURI            = null;
+    protected $accessUrl                           = null;
+    protected $repositoryUrl                       = null;
+    protected $templateUrl                         = null;
 
-    public function __construct(
-             $remoteFileFormat,
-             $fileCategory,
-             $fileCustomization,
-             $fileSource,
-             $configurationFileName=null,
-             $useHttpDigestAuthentication,
-             $macBasedFileAuthentication,
-             $userNamePasswordFileAuthentication,
-             $macInNonRequestURI,
-             $macFormatInNonRequestURI=null,
-             $accessUrl,
-             $repositoryUrl=null,
-             $templateUrl=null
-    ) {
-        $this->remoteFileFormat                   = new DeviceManagementFileFormat($remoteFileFormat);
-        $this->fileCategory                       = new DeviceManagementFileCategory($fileCategory);
-        $this->fileCustomization                  = new DeviceManagementFileCustomization($fileCustomization);
-        $this->fileSource                         = new DeviceTypeFileEnhancedConfigurationMode($fileSource);
-        $this->configurationFileName              = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
-        $this->useHttpDigestAuthentication        = $useHttpDigestAuthentication;
-        $this->macBasedFileAuthentication         = $macBasedFileAuthentication;
-        $this->userNamePasswordFileAuthentication = $userNamePasswordFileAuthentication;
-        $this->macInNonRequestURI                 = $macInNonRequestURI;
-        $this->macFormatInNonRequestURI           = new DeviceManagementAccessURI($macFormatInNonRequestURI);
-        $this->accessUrl                          = new URL($accessUrl);
-        $this->repositoryUrl                      = new URL($repositoryUrl);
-        $this->templateUrl                        = new URL($templateUrl);
-        $this->args                               = func_get_args();
-    }
 
-    public function setRemoteFileFormat($remoteFileFormat)
+    public function setRemoteFileFormat($remoteFileFormat = null)
     {
-        $remoteFileFormat and $this->remoteFileFormat = new DeviceManagementFileFormat($remoteFileFormat);
+        $this->remoteFileFormat = ($remoteFileFormat InstanceOf DeviceManagementFileFormat)
+             ? $remoteFileFormat
+             : new DeviceManagementFileFormat($remoteFileFormat);
     }
 
     public function getRemoteFileFormat()
@@ -67,9 +51,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->remoteFileFormat) ?: $this->remoteFileFormat->value();
     }
 
-    public function setFileCategory($fileCategory)
+    public function setFileCategory($fileCategory = null)
     {
-        $fileCategory and $this->fileCategory = new DeviceManagementFileCategory($fileCategory);
+        $this->fileCategory = ($fileCategory InstanceOf DeviceManagementFileCategory)
+             ? $fileCategory
+             : new DeviceManagementFileCategory($fileCategory);
     }
 
     public function getFileCategory()
@@ -77,9 +63,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->fileCategory) ?: $this->fileCategory->value();
     }
 
-    public function setFileCustomization($fileCustomization)
+    public function setFileCustomization($fileCustomization = null)
     {
-        $fileCustomization and $this->fileCustomization = new DeviceManagementFileCustomization($fileCustomization);
+        $this->fileCustomization = ($fileCustomization InstanceOf DeviceManagementFileCustomization)
+             ? $fileCustomization
+             : new DeviceManagementFileCustomization($fileCustomization);
     }
 
     public function getFileCustomization()
@@ -87,9 +75,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->fileCustomization) ?: $this->fileCustomization->value();
     }
 
-    public function setFileSource($fileSource)
+    public function setFileSource($fileSource = null)
     {
-        $fileSource and $this->fileSource = new DeviceTypeFileEnhancedConfigurationMode($fileSource);
+        $this->fileSource = ($fileSource InstanceOf DeviceTypeFileEnhancedConfigurationMode)
+             ? $fileSource
+             : new DeviceTypeFileEnhancedConfigurationMode($fileSource);
     }
 
     public function getFileSource()
@@ -97,9 +87,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->fileSource) ?: $this->fileSource->value();
     }
 
-    public function setConfigurationFileName($configurationFileName)
+    public function setConfigurationFileName($configurationFileName = null)
     {
-        $configurationFileName and $this->configurationFileName = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
+        $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
+             ? $configurationFileName
+             : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
     }
 
     public function getConfigurationFileName()
@@ -107,9 +99,8 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->configurationFileName) ?: $this->configurationFileName->value();
     }
 
-    public function setUseHttpDigestAuthentication($useHttpDigestAuthentication)
+    public function setUseHttpDigestAuthentication(xs:boolean $useHttpDigestAuthentication = null)
     {
-        $useHttpDigestAuthentication and $this->useHttpDigestAuthentication = new xs:boolean($useHttpDigestAuthentication);
     }
 
     public function getUseHttpDigestAuthentication()
@@ -117,9 +108,8 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication->value();
     }
 
-    public function setMacBasedFileAuthentication($macBasedFileAuthentication)
+    public function setMacBasedFileAuthentication(xs:boolean $macBasedFileAuthentication = null)
     {
-        $macBasedFileAuthentication and $this->macBasedFileAuthentication = new xs:boolean($macBasedFileAuthentication);
     }
 
     public function getMacBasedFileAuthentication()
@@ -127,9 +117,8 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication->value();
     }
 
-    public function setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication)
+    public function setUserNamePasswordFileAuthentication(xs:boolean $userNamePasswordFileAuthentication = null)
     {
-        $userNamePasswordFileAuthentication and $this->userNamePasswordFileAuthentication = new xs:boolean($userNamePasswordFileAuthentication);
     }
 
     public function getUserNamePasswordFileAuthentication()
@@ -137,9 +126,8 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication->value();
     }
 
-    public function setMacInNonRequestURI($macInNonRequestURI)
+    public function setMacInNonRequestURI(xs:boolean $macInNonRequestURI = null)
     {
-        $macInNonRequestURI and $this->macInNonRequestURI = new xs:boolean($macInNonRequestURI);
     }
 
     public function getMacInNonRequestURI()
@@ -147,9 +135,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI->value();
     }
 
-    public function setMacFormatInNonRequestURI($macFormatInNonRequestURI)
+    public function setMacFormatInNonRequestURI($macFormatInNonRequestURI = null)
     {
-        $macFormatInNonRequestURI and $this->macFormatInNonRequestURI = new DeviceManagementAccessURI($macFormatInNonRequestURI);
+        $this->macFormatInNonRequestURI = ($macFormatInNonRequestURI InstanceOf DeviceManagementAccessURI)
+             ? $macFormatInNonRequestURI
+             : new DeviceManagementAccessURI($macFormatInNonRequestURI);
     }
 
     public function getMacFormatInNonRequestURI()
@@ -157,9 +147,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->macFormatInNonRequestURI) ?: $this->macFormatInNonRequestURI->value();
     }
 
-    public function setAccessUrl($accessUrl)
+    public function setAccessUrl($accessUrl = null)
     {
-        $accessUrl and $this->accessUrl = new URL($accessUrl);
+        $this->accessUrl = ($accessUrl InstanceOf URL)
+             ? $accessUrl
+             : new URL($accessUrl);
     }
 
     public function getAccessUrl()
@@ -167,9 +159,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->accessUrl) ?: $this->accessUrl->value();
     }
 
-    public function setRepositoryUrl($repositoryUrl)
+    public function setRepositoryUrl($repositoryUrl = null)
     {
-        $repositoryUrl and $this->repositoryUrl = new URL($repositoryUrl);
+        $this->repositoryUrl = ($repositoryUrl InstanceOf URL)
+             ? $repositoryUrl
+             : new URL($repositoryUrl);
     }
 
     public function getRepositoryUrl()
@@ -177,9 +171,11 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
         return (!$this->repositoryUrl) ?: $this->repositoryUrl->value();
     }
 
-    public function setTemplateUrl($templateUrl)
+    public function setTemplateUrl($templateUrl = null)
     {
-        $templateUrl and $this->templateUrl = new URL($templateUrl);
+        $this->templateUrl = ($templateUrl InstanceOf URL)
+             ? $templateUrl
+             : new URL($templateUrl);
     }
 
     public function getTemplateUrl()

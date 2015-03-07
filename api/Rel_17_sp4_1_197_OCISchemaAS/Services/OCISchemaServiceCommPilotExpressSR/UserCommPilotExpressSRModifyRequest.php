@@ -7,12 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRAvailableOutOfOfficeModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRAvailableInOfficeModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRUnavailableModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRBusyModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressSRProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressSRAvailableInOfficeModify;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressSRAvailableOutOfOfficeModify;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressSRBusyModify;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressSRUnavailableModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,28 +23,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommPilotExpressSRModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $userId                = null;
+    protected $profile               = null;
+    protected $availableInOffice     = null;
+    protected $availableOutOfOffice  = null;
+    protected $busy                  = null;
+    protected $unavailable           = null;
 
     public function __construct(
-             $userId,
-             $profile=null,
-             $availableInOffice=null,
-             $availableOutOfOffice=null,
-             $busy=null,
-             $unavailable=null
+         $userId,
+         $profile = null,
+         CommPilotExpressSRAvailableInOfficeModify $availableInOffice = null,
+         CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice = null,
+         CommPilotExpressSRBusyModify $busy = null,
+         CommPilotExpressSRUnavailableModify $unavailable = null
     ) {
-        $this->userId               = new UserId($userId);
-        $this->profile              = $profile;
-        $this->availableInOffice    = $availableInOffice;
-        $this->availableOutOfOffice = $availableOutOfOffice;
-        $this->busy                 = $busy;
-        $this->unavailable          = $unavailable;
-        $this->args                 = func_get_args();
+        $this->setUserId($userId);
+        $this->setProfile($profile);
+        $this->setAvailableInOffice($availableInOffice);
+        $this->setAvailableOutOfOffice($availableOutOfOffice);
+        $this->setBusy($busy);
+        $this->setUnavailable($unavailable);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -52,9 +59,11 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setProfile($profile)
+    public function setProfile($profile = null)
     {
-        $profile and $this->profile = new CommPilotExpressSRProfile($profile);
+        $this->profile = ($profile InstanceOf CommPilotExpressSRProfile)
+             ? $profile
+             : new CommPilotExpressSRProfile($profile);
     }
 
     public function getProfile()
@@ -62,9 +71,8 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
         return (!$this->profile) ?: $this->profile->value();
     }
 
-    public function setAvailableInOffice($availableInOffice)
+    public function setAvailableInOffice(CommPilotExpressSRAvailableInOfficeModify $availableInOffice = null)
     {
-        $availableInOffice and $this->availableInOffice = new CommPilotExpressSRAvailableInOfficeModify($availableInOffice);
     }
 
     public function getAvailableInOffice()
@@ -72,9 +80,8 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
         return (!$this->availableInOffice) ?: $this->availableInOffice->value();
     }
 
-    public function setAvailableOutOfOffice($availableOutOfOffice)
+    public function setAvailableOutOfOffice(CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice = null)
     {
-        $availableOutOfOffice and $this->availableOutOfOffice = new CommPilotExpressSRAvailableOutOfOfficeModify($availableOutOfOffice);
     }
 
     public function getAvailableOutOfOffice()
@@ -82,9 +89,8 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
         return (!$this->availableOutOfOffice) ?: $this->availableOutOfOffice->value();
     }
 
-    public function setBusy($busy)
+    public function setBusy(CommPilotExpressSRBusyModify $busy = null)
     {
-        $busy and $this->busy = new CommPilotExpressSRBusyModify($busy);
     }
 
     public function getBusy()
@@ -92,9 +98,8 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
         return (!$this->busy) ?: $this->busy->value();
     }
 
-    public function setUnavailable($unavailable)
+    public function setUnavailable(CommPilotExpressSRUnavailableModify $unavailable = null)
     {
-        $unavailable and $this->unavailable = new CommPilotExpressSRUnavailableModify($unavailable);
     }
 
     public function getUnavailable()

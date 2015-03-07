@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserZoneCallingRestrictionsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $homeZoneName  = null;
 
     public function __construct(
-             $userId,
-             $homeZoneName=null
+         $userId,
+         $homeZoneName = null
     ) {
-        $this->userId       = new UserId($userId);
-        $this->homeZoneName = new ZoneName($homeZoneName);
-        $this->args         = func_get_args();
+        $this->setUserId($userId);
+        $this->setHomeZoneName($homeZoneName);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserZoneCallingRestrictionsModifyRequest extends ComplexType implements Co
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setHomeZoneName($homeZoneName)
+    public function setHomeZoneName($homeZoneName = null)
     {
-        $homeZoneName and $this->homeZoneName = new ZoneName($homeZoneName);
+        $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
+             ? $homeZoneName
+             : new ZoneName($homeZoneName);
     }
 
     public function getHomeZoneName()

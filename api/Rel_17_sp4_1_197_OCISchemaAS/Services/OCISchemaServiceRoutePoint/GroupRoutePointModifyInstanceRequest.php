@@ -7,17 +7,16 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterForceDeliveryWaitTimeSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\NoAnswerTimeoutRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AudioFileCodec;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueLength16;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NoAnswerTimeoutRings;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterWrapUpSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueLength16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AgentACDAutomaticState;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterForceDeliveryWaitTimeSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AudioFileCodec;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -28,48 +27,65 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $serviceUserId                        = null;
+    protected $serviceInstanceProfile               = null;
+    protected $networkClassOfService                = null;
+    protected $externalPreferredAudioCodec          = null;
+    protected $internalPreferredAudioCodec          = null;
+    protected $queueLength                          = null;
+    protected $noAnswerTimeoutRings                 = null;
+    protected $enableVideo                          = null;
+    protected $playRingingWhenOfferingCall          = null;
+    protected $overrideAgentWrapUpTime              = null;
+    protected $wrapUpSeconds                        = null;
+    protected $enableAutomaticStateChangeForAgents  = null;
+    protected $agentStateAfterCall                  = null;
+    protected $agentUnavailableCode                 = null;
+    protected $forceDeliveryOfCalls                 = null;
+    protected $forceDeliveryWaitTimeSeconds         = null;
 
     public function __construct(
-             $serviceUserId,
-             ServiceInstanceModifyProfile $serviceInstanceProfile=null,
-             $networkClassOfService=null,
-             $externalPreferredAudioCodec=null,
-             $internalPreferredAudioCodec=null,
-             $queueLength=null,
-             $noAnswerTimeoutRings=null,
-             $enableVideo=null,
-             $playRingingWhenOfferingCall=null,
-             $overrideAgentWrapUpTime=null,
-             $wrapUpSeconds=null,
-             $enableAutomaticStateChangeForAgents=null,
-             $agentStateAfterCall=null,
-             $agentUnavailableCode=null,
-             $forceDeliveryOfCalls=null,
-             $forceDeliveryWaitTimeSeconds=null
+         $serviceUserId,
+         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $networkClassOfService = null,
+         $externalPreferredAudioCodec = null,
+         $internalPreferredAudioCodec = null,
+         $queueLength = null,
+         $noAnswerTimeoutRings = null,
+         $enableVideo = null,
+         $playRingingWhenOfferingCall = null,
+         $overrideAgentWrapUpTime = null,
+         $wrapUpSeconds = null,
+         $enableAutomaticStateChangeForAgents = null,
+         $agentStateAfterCall = null,
+         $agentUnavailableCode = null,
+         $forceDeliveryOfCalls = null,
+         $forceDeliveryWaitTimeSeconds = null
     ) {
-        $this->serviceUserId                       = new UserId($serviceUserId);
-        $this->serviceInstanceProfile              = $serviceInstanceProfile;
-        $this->networkClassOfService               = new NetworkClassOfServiceName($networkClassOfService);
-        $this->externalPreferredAudioCodec         = new AudioFileCodec($externalPreferredAudioCodec);
-        $this->internalPreferredAudioCodec         = new AudioFileCodec($internalPreferredAudioCodec);
-        $this->queueLength                         = new CallCenterQueueLength16($queueLength);
-        $this->noAnswerTimeoutRings                = $noAnswerTimeoutRings;
-        $this->enableVideo                         = $enableVideo;
-        $this->playRingingWhenOfferingCall         = $playRingingWhenOfferingCall;
-        $this->overrideAgentWrapUpTime             = $overrideAgentWrapUpTime;
-        $this->wrapUpSeconds                       = new CallCenterWrapUpSeconds($wrapUpSeconds);
-        $this->enableAutomaticStateChangeForAgents = $enableAutomaticStateChangeForAgents;
-        $this->agentStateAfterCall                 = new AgentACDAutomaticState($agentStateAfterCall);
-        $this->agentUnavailableCode                = new CallCenterAgentUnavailableCode($agentUnavailableCode);
-        $this->forceDeliveryOfCalls                = $forceDeliveryOfCalls;
-        $this->forceDeliveryWaitTimeSeconds        = new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
-        $this->args                                = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setNetworkClassOfService($networkClassOfService);
+        $this->setExternalPreferredAudioCodec($externalPreferredAudioCodec);
+        $this->setInternalPreferredAudioCodec($internalPreferredAudioCodec);
+        $this->setQueueLength($queueLength);
+        $this->setNoAnswerTimeoutRings($noAnswerTimeoutRings);
+        $this->setEnableVideo($enableVideo);
+        $this->setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall);
+        $this->setOverrideAgentWrapUpTime($overrideAgentWrapUpTime);
+        $this->setWrapUpSeconds($wrapUpSeconds);
+        $this->setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents);
+        $this->setAgentStateAfterCall($agentStateAfterCall);
+        $this->setAgentUnavailableCode($agentUnavailableCode);
+        $this->setForceDeliveryOfCalls($forceDeliveryOfCalls);
+        $this->setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -77,9 +93,8 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceModifyProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -87,9 +102,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setNetworkClassOfService($networkClassOfService)
+    public function setNetworkClassOfService($networkClassOfService = null)
     {
-        $networkClassOfService and $this->networkClassOfService = new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
+             ? $networkClassOfService
+             : new NetworkClassOfServiceName($networkClassOfService);
     }
 
     public function getNetworkClassOfService()
@@ -97,9 +114,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->networkClassOfService) ?: $this->networkClassOfService->value();
     }
 
-    public function setExternalPreferredAudioCodec($externalPreferredAudioCodec)
+    public function setExternalPreferredAudioCodec($externalPreferredAudioCodec = null)
     {
-        $externalPreferredAudioCodec and $this->externalPreferredAudioCodec = new AudioFileCodec($externalPreferredAudioCodec);
+        $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
+             ? $externalPreferredAudioCodec
+             : new AudioFileCodec($externalPreferredAudioCodec);
     }
 
     public function getExternalPreferredAudioCodec()
@@ -107,9 +126,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->externalPreferredAudioCodec) ?: $this->externalPreferredAudioCodec->value();
     }
 
-    public function setInternalPreferredAudioCodec($internalPreferredAudioCodec)
+    public function setInternalPreferredAudioCodec($internalPreferredAudioCodec = null)
     {
-        $internalPreferredAudioCodec and $this->internalPreferredAudioCodec = new AudioFileCodec($internalPreferredAudioCodec);
+        $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
+             ? $internalPreferredAudioCodec
+             : new AudioFileCodec($internalPreferredAudioCodec);
     }
 
     public function getInternalPreferredAudioCodec()
@@ -117,9 +138,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->internalPreferredAudioCodec) ?: $this->internalPreferredAudioCodec->value();
     }
 
-    public function setQueueLength($queueLength)
+    public function setQueueLength($queueLength = null)
     {
-        $queueLength and $this->queueLength = new CallCenterQueueLength16($queueLength);
+        $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
+             ? $queueLength
+             : new CallCenterQueueLength16($queueLength);
     }
 
     public function getQueueLength()
@@ -127,9 +150,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->queueLength) ?: $this->queueLength->value();
     }
 
-    public function setNoAnswerTimeoutRings($noAnswerTimeoutRings)
+    public function setNoAnswerTimeoutRings($noAnswerTimeoutRings = null)
     {
-        $noAnswerTimeoutRings and $this->noAnswerTimeoutRings = new NoAnswerTimeoutRings($noAnswerTimeoutRings);
+        $this->noAnswerTimeoutRings = ($noAnswerTimeoutRings InstanceOf NoAnswerTimeoutRings)
+             ? $noAnswerTimeoutRings
+             : new NoAnswerTimeoutRings($noAnswerTimeoutRings);
     }
 
     public function getNoAnswerTimeoutRings()
@@ -137,9 +162,8 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->noAnswerTimeoutRings) ?: $this->noAnswerTimeoutRings->value();
     }
 
-    public function setEnableVideo($enableVideo)
+    public function setEnableVideo(xs:boolean $enableVideo = null)
     {
-        $enableVideo and $this->enableVideo = new xs:boolean($enableVideo);
     }
 
     public function getEnableVideo()
@@ -147,9 +171,8 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->enableVideo) ?: $this->enableVideo->value();
     }
 
-    public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall)
+    public function setPlayRingingWhenOfferingCall(xs:boolean $playRingingWhenOfferingCall = null)
     {
-        $playRingingWhenOfferingCall and $this->playRingingWhenOfferingCall = new xs:boolean($playRingingWhenOfferingCall);
     }
 
     public function getPlayRingingWhenOfferingCall()
@@ -157,9 +180,8 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->value();
     }
 
-    public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime)
+    public function setOverrideAgentWrapUpTime(xs:boolean $overrideAgentWrapUpTime = null)
     {
-        $overrideAgentWrapUpTime and $this->overrideAgentWrapUpTime = new xs:boolean($overrideAgentWrapUpTime);
     }
 
     public function getOverrideAgentWrapUpTime()
@@ -167,9 +189,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->value();
     }
 
-    public function setWrapUpSeconds($wrapUpSeconds)
+    public function setWrapUpSeconds($wrapUpSeconds = null)
     {
-        $wrapUpSeconds and $this->wrapUpSeconds = new CallCenterWrapUpSeconds($wrapUpSeconds);
+        $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
+             ? $wrapUpSeconds
+             : new CallCenterWrapUpSeconds($wrapUpSeconds);
     }
 
     public function getWrapUpSeconds()
@@ -177,9 +201,8 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->value();
     }
 
-    public function setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents)
+    public function setEnableAutomaticStateChangeForAgents(xs:boolean $enableAutomaticStateChangeForAgents = null)
     {
-        $enableAutomaticStateChangeForAgents and $this->enableAutomaticStateChangeForAgents = new xs:boolean($enableAutomaticStateChangeForAgents);
     }
 
     public function getEnableAutomaticStateChangeForAgents()
@@ -187,9 +210,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->value();
     }
 
-    public function setAgentStateAfterCall($agentStateAfterCall)
+    public function setAgentStateAfterCall($agentStateAfterCall = null)
     {
-        $agentStateAfterCall and $this->agentStateAfterCall = new AgentACDAutomaticState($agentStateAfterCall);
+        $this->agentStateAfterCall = ($agentStateAfterCall InstanceOf AgentACDAutomaticState)
+             ? $agentStateAfterCall
+             : new AgentACDAutomaticState($agentStateAfterCall);
     }
 
     public function getAgentStateAfterCall()
@@ -197,9 +222,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->agentStateAfterCall) ?: $this->agentStateAfterCall->value();
     }
 
-    public function setAgentUnavailableCode($agentUnavailableCode)
+    public function setAgentUnavailableCode($agentUnavailableCode = null)
     {
-        $agentUnavailableCode and $this->agentUnavailableCode = new CallCenterAgentUnavailableCode($agentUnavailableCode);
+        $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
+             ? $agentUnavailableCode
+             : new CallCenterAgentUnavailableCode($agentUnavailableCode);
     }
 
     public function getAgentUnavailableCode()
@@ -207,9 +234,8 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->value();
     }
 
-    public function setForceDeliveryOfCalls($forceDeliveryOfCalls)
+    public function setForceDeliveryOfCalls(xs:boolean $forceDeliveryOfCalls = null)
     {
-        $forceDeliveryOfCalls and $this->forceDeliveryOfCalls = new xs:boolean($forceDeliveryOfCalls);
     }
 
     public function getForceDeliveryOfCalls()
@@ -217,9 +243,11 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->value();
     }
 
-    public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds)
+    public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds = null)
     {
-        $forceDeliveryWaitTimeSeconds and $this->forceDeliveryWaitTimeSeconds = new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
+        $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
+             ? $forceDeliveryWaitTimeSeconds
+             : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
     }
 
     public function getForceDeliveryWaitTimeSeconds()

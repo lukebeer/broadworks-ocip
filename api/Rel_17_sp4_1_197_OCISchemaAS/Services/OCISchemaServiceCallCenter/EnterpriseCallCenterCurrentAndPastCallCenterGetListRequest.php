@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserGroup;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactUserGroup;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaCallCenterName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $isPremiumOnly                 = null;
+    protected $responseSizeLimit             = null;
+    protected $searchCriteriaExactUserGroup  = null;
+    protected $searchCriteriaCallCenterName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $isPremiumOnly=null,
-             $responseSizeLimit=null,
-             $searchCriteriaExactUserGroup=null,
-             $searchCriteriaCallCenterName=null
+         $serviceProviderId,
+         $isPremiumOnly = null,
+         $responseSizeLimit = null,
+         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
+         SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null
     ) {
-        $this->serviceProviderId            = new ServiceProviderId($serviceProviderId);
-        $this->isPremiumOnly                = $isPremiumOnly;
-        $this->responseSizeLimit            = $responseSizeLimit;
-        $this->searchCriteriaExactUserGroup = $searchCriteriaExactUserGroup;
-        $this->searchCriteriaCallCenterName = $searchCriteriaCallCenterName;
-        $this->args                         = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setIsPremiumOnly($isPremiumOnly);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
+        $this->setSearchCriteriaCallCenterName($searchCriteriaCallCenterName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +54,8 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setIsPremiumOnly($isPremiumOnly)
+    public function setIsPremiumOnly(xs:boolean $isPremiumOnly = null)
     {
-        $isPremiumOnly and $this->isPremiumOnly = new xs:boolean($isPremiumOnly);
     }
 
     public function getIsPremiumOnly()
@@ -59,9 +63,11 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         return (!$this->isPremiumOnly) ?: $this->isPremiumOnly->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -69,9 +75,8 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup)
+    public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $searchCriteriaExactUserGroup and $this->searchCriteriaExactUserGroup = new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
     }
 
     public function getSearchCriteriaExactUserGroup()
@@ -79,9 +84,8 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         return (!$this->searchCriteriaExactUserGroup) ?: $this->searchCriteriaExactUserGroup->value();
     }
 
-    public function setSearchCriteriaCallCenterName($searchCriteriaCallCenterName)
+    public function setSearchCriteriaCallCenterName(SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null)
     {
-        $searchCriteriaCallCenterName and $this->searchCriteriaCallCenterName = new SearchCriteriaCallCenterName($searchCriteriaCallCenterName);
     }
 
     public function getSearchCriteriaCallCenterName()

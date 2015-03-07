@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserRoutePointSupervisorModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $userId                = null;
+    protected $supervisorUserIdList  = null;
 
     public function __construct(
-             $userId,
-             ReplacementUserIdList $supervisorUserIdList=null
+         $userId,
+         ReplacementUserIdList $supervisorUserIdList = null
     ) {
-        $this->userId               = new UserId($userId);
-        $this->supervisorUserIdList = $supervisorUserIdList;
-        $this->args                 = func_get_args();
+        $this->setUserId($userId);
+        $this->setSupervisorUserIdList($supervisorUserIdList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setSupervisorUserIdList($supervisorUserIdList)
+    public function setSupervisorUserIdList(ReplacementUserIdList $supervisorUserIdList = null)
     {
-        $supervisorUserIdList and $this->supervisorUserIdList = new ReplacementUserIdList($supervisorUserIdList);
     }
 
     public function getSupervisorUserIdList()

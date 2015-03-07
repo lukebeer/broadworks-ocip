@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $userId                      = null;
+    protected $listURI                     = null;
+    protected $monitoredUserIdList         = null;
+    protected $enableCallParkNotification  = null;
 
     public function __construct(
-             $userId,
-             $listURI=null,
-             ReplacementUserIdList $monitoredUserIdList=null,
-             $enableCallParkNotification=null
+         $userId,
+         $listURI = null,
+         ReplacementUserIdList $monitoredUserIdList = null,
+         $enableCallParkNotification = null
     ) {
-        $this->userId                     = new UserId($userId);
-        $this->listURI                    = new SIPURI($listURI);
-        $this->monitoredUserIdList        = $monitoredUserIdList;
-        $this->enableCallParkNotification = $enableCallParkNotification;
-        $this->args                       = func_get_args();
+        $this->setUserId($userId);
+        $this->setListURI($listURI);
+        $this->setMonitoredUserIdList($monitoredUserIdList);
+        $this->setEnableCallParkNotification($enableCallParkNotification);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -46,9 +50,11 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setListURI($listURI)
+    public function setListURI($listURI = null)
     {
-        $listURI and $this->listURI = new SIPURI($listURI);
+        $this->listURI = ($listURI InstanceOf SIPURI)
+             ? $listURI
+             : new SIPURI($listURI);
     }
 
     public function getListURI()
@@ -56,9 +62,8 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
         return (!$this->listURI) ?: $this->listURI->value();
     }
 
-    public function setMonitoredUserIdList($monitoredUserIdList)
+    public function setMonitoredUserIdList(ReplacementUserIdList $monitoredUserIdList = null)
     {
-        $monitoredUserIdList and $this->monitoredUserIdList = new ReplacementUserIdList($monitoredUserIdList);
     }
 
     public function getMonitoredUserIdList()
@@ -66,9 +71,8 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
         return (!$this->monitoredUserIdList) ?: $this->monitoredUserIdList->value();
     }
 
-    public function setEnableCallParkNotification($enableCallParkNotification)
+    public function setEnableCallParkNotification(xs:boolean $enableCallParkNotification = null)
     {
-        $enableCallParkNotification and $this->enableCallParkNotification = new xs:boolean($enableCallParkNotification);
     }
 
     public function getEnableCallParkNotification()

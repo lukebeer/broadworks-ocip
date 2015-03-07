@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $newUserId  = null;
 
     public function __construct(
-             $userId,
-             $newUserId
+         $userId,
+         $newUserId
     ) {
-        $this->userId    = new UserId($userId);
-        $this->newUserId = new UserId($newUserId);
-        $this->args      = func_get_args();
+        $this->setUserId($userId);
+        $this->setNewUserId($newUserId);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -39,9 +42,11 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setNewUserId($newUserId)
+    public function setNewUserId($newUserId = null)
     {
-        $newUserId and $this->newUserId = new UserId($newUserId);
+        $this->newUserId = ($newUserId InstanceOf UserId)
+             ? $newUserId
+             : new UserId($newUserId);
     }
 
     public function getNewUserId()

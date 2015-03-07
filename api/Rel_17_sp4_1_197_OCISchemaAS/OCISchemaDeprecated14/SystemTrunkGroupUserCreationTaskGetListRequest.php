@@ -21,6 +21,5 @@ class SystemTrunkGroupUserCreationTaskGetListRequest extends ComplexType impleme
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

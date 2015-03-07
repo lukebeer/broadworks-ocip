@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ConnectedLineIdentificationPrivacyOnRedirectedCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallBeingForwardedResponseCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\CallBeingForwardedResponseCallType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $redirectedCallsCOLPPrivacy          = null;
+    protected $callBeingForwardedResponseCallType  = null;
 
-    public function __construct(
-             $redirectedCallsCOLPPrivacy,
-             $callBeingForwardedResponseCallType
-    ) {
-        $this->redirectedCallsCOLPPrivacy         = new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
-        $this->callBeingForwardedResponseCallType = $callBeingForwardedResponseCallType;
-        $this->args                               = func_get_args();
-    }
 
-    public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy)
+    public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
-        $redirectedCallsCOLPPrivacy and $this->redirectedCallsCOLPPrivacy = new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
+        $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
+             ? $redirectedCallsCOLPPrivacy
+             : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
     }
 
     public function getRedirectedCallsCOLPPrivacy()
@@ -39,9 +35,11 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
         return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->value();
     }
 
-    public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType)
+    public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType = null)
     {
-        $callBeingForwardedResponseCallType and $this->callBeingForwardedResponseCallType = new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
+        $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
+             ? $callBeingForwardedResponseCallType
+             : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
     }
 
     public function getCallBeingForwardedResponseCallType()

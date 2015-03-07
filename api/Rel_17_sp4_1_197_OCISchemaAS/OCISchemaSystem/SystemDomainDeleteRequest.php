@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDomainDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name    = __CLASS__;
+    protected $domain  = null;
 
     public function __construct(
-             $domain
+         $domain
     ) {
-        $this->domain = new NetAddress($domain);
-        $this->args   = func_get_args();
+        $this->setDomain($domain);
     }
 
-    public function setDomain($domain)
+    public function setDomain($domain = null)
     {
-        $domain and $this->domain = new NetAddress($domain);
+        $this->domain = ($domain InstanceOf NetAddress)
+             ? $domain
+             : new NetAddress($domain);
     }
 
     public function getDomain()

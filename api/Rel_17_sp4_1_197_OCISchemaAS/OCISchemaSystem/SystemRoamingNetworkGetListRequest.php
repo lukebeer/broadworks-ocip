@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaRoamingMscAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaRoamingMscAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $responseSizeLimit                = null;
+    protected $searchCriteriaRoamingMscAddress  = null;
 
     public function __construct(
-             $responseSizeLimit=null,
-             $searchCriteriaRoamingMscAddress=null
+         $responseSizeLimit = null,
+         SearchCriteriaRoamingMscAddress $searchCriteriaRoamingMscAddress = null
     ) {
-        $this->responseSizeLimit               = $responseSizeLimit;
-        $this->searchCriteriaRoamingMscAddress = $searchCriteriaRoamingMscAddress;
-        $this->args                            = func_get_args();
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaRoamingMscAddress($searchCriteriaRoamingMscAddress);
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -40,9 +43,8 @@ class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexI
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaRoamingMscAddress($searchCriteriaRoamingMscAddress)
+    public function setSearchCriteriaRoamingMscAddress(SearchCriteriaRoamingMscAddress $searchCriteriaRoamingMscAddress = null)
     {
-        $searchCriteriaRoamingMscAddress and $this->searchCriteriaRoamingMscAddress = new SearchCriteriaRoamingMscAddress($searchCriteriaRoamingMscAddress);
     }
 
     public function getSearchCriteriaRoamingMscAddress()

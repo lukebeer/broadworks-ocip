@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDigitPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $serviceProviderId           = null;
+    protected $name                        = null;
+    protected $responseSizeLimit           = null;
+    protected $searchCriteriaDigitPattern  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $name,
-             $responseSizeLimit=null,
-             $searchCriteriaDigitPattern=null
+         $serviceProviderId,
+         $name,
+         $responseSizeLimit = null,
+         SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null
     ) {
-        $this->serviceProviderId          = new ServiceProviderId($serviceProviderId);
-        $this->name                       = new DigitPatternCriteriaName($name);
-        $this->responseSizeLimit          = $responseSizeLimit;
-        $this->searchCriteriaDigitPattern = $searchCriteriaDigitPattern;
-        $this->args                       = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setName($name);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaDigitPattern($searchCriteriaDigitPattern);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -46,9 +51,11 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new DigitPatternCriteriaName($name);
+        $this->name = ($name InstanceOf DigitPatternCriteriaName)
+             ? $name
+             : new DigitPatternCriteriaName($name);
     }
 
     public function getName()
@@ -56,9 +63,11 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -66,9 +75,8 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaDigitPattern($searchCriteriaDigitPattern)
+    public function setSearchCriteriaDigitPattern(SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null)
     {
-        $searchCriteriaDigitPattern and $this->searchCriteriaDigitPattern = new SearchCriteriaDigitPattern($searchCriteriaDigitPattern);
     }
 
     public function getSearchCriteriaDigitPattern()

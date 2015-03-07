@@ -7,15 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingOutcallProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingAllocatedPorts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingOutcallProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,38 +26,50 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $serviceProviderId               = null;
+    protected $groupId                         = null;
+    protected $serviceUserId                   = null;
+    protected $serviceInstanceProfile          = null;
+    protected $conferenceBridgeLinePort        = null;
+    protected $allocatedPorts                  = null;
+    protected $serviceProfileAppliedOnOutcall  = null;
+    protected $allowOutdialInInvitation        = null;
+    protected $allowDocumentDownload           = null;
+    protected $bridgeAdministratorUserId       = null;
+    protected $networkClassOfService           = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $serviceUserId,
-             ServiceInstanceAddProfile $serviceInstanceProfile,
-             $conferenceBridgeLinePort,
-             $allocatedPorts,
-             $serviceProfileAppliedOnOutcall,
-             $allowOutdialInInvitation,
-             $allowDocumentDownload,
-             $bridgeAdministratorUserId=null,
-             $networkClassOfService=null
+         $serviceProviderId,
+         $groupId,
+         $serviceUserId,
+         ServiceInstanceAddProfile $serviceInstanceProfile,
+         $conferenceBridgeLinePort,
+         InstantConferencingAllocatedPorts $allocatedPorts,
+         $serviceProfileAppliedOnOutcall,
+         $allowOutdialInInvitation,
+         $allowDocumentDownload,
+         $bridgeAdministratorUserId = null,
+         $networkClassOfService = null
     ) {
-        $this->serviceProviderId              = new ServiceProviderId($serviceProviderId);
-        $this->groupId                        = new GroupId($groupId);
-        $this->serviceUserId                  = new UserId($serviceUserId);
-        $this->serviceInstanceProfile         = $serviceInstanceProfile;
-        $this->conferenceBridgeLinePort       = new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
-        $this->allocatedPorts                 = $allocatedPorts;
-        $this->serviceProfileAppliedOnOutcall = $serviceProfileAppliedOnOutcall;
-        $this->allowOutdialInInvitation       = $allowOutdialInInvitation;
-        $this->allowDocumentDownload          = $allowDocumentDownload;
-        $this->bridgeAdministratorUserId      = new UserId($bridgeAdministratorUserId);
-        $this->networkClassOfService          = new NetworkClassOfServiceName($networkClassOfService);
-        $this->args                           = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setConferenceBridgeLinePort($conferenceBridgeLinePort);
+        $this->setAllocatedPorts($allocatedPorts);
+        $this->setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall);
+        $this->setAllowOutdialInInvitation($allowOutdialInInvitation);
+        $this->setAllowDocumentDownload($allowDocumentDownload);
+        $this->setBridgeAdministratorUserId($bridgeAdministratorUserId);
+        $this->setNetworkClassOfService($networkClassOfService);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -66,9 +77,11 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -76,9 +89,11 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -86,9 +101,8 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceAddProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -96,9 +110,11 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setConferenceBridgeLinePort($conferenceBridgeLinePort)
+    public function setConferenceBridgeLinePort($conferenceBridgeLinePort = null)
     {
-        $conferenceBridgeLinePort and $this->conferenceBridgeLinePort = new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
+        $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
+             ? $conferenceBridgeLinePort
+             : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
     }
 
     public function getConferenceBridgeLinePort()
@@ -106,9 +122,8 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->conferenceBridgeLinePort) ?: $this->conferenceBridgeLinePort->value();
     }
 
-    public function setAllocatedPorts($allocatedPorts)
+    public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $allocatedPorts and $this->allocatedPorts = new InstantConferencingAllocatedPorts($allocatedPorts);
     }
 
     public function getAllocatedPorts()
@@ -116,9 +131,11 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->allocatedPorts) ?: $this->allocatedPorts->value();
     }
 
-    public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall)
+    public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall = null)
     {
-        $serviceProfileAppliedOnOutcall and $this->serviceProfileAppliedOnOutcall = new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
+        $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
+             ? $serviceProfileAppliedOnOutcall
+             : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
     }
 
     public function getServiceProfileAppliedOnOutcall()
@@ -126,9 +143,8 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->serviceProfileAppliedOnOutcall) ?: $this->serviceProfileAppliedOnOutcall->value();
     }
 
-    public function setAllowOutdialInInvitation($allowOutdialInInvitation)
+    public function setAllowOutdialInInvitation(xs:boolean $allowOutdialInInvitation = null)
     {
-        $allowOutdialInInvitation and $this->allowOutdialInInvitation = new xs:boolean($allowOutdialInInvitation);
     }
 
     public function getAllowOutdialInInvitation()
@@ -136,9 +152,8 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->value();
     }
 
-    public function setAllowDocumentDownload($allowDocumentDownload)
+    public function setAllowDocumentDownload(xs:boolean $allowDocumentDownload = null)
     {
-        $allowDocumentDownload and $this->allowDocumentDownload = new xs:boolean($allowDocumentDownload);
     }
 
     public function getAllowDocumentDownload()
@@ -146,9 +161,11 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload->value();
     }
 
-    public function setBridgeAdministratorUserId($bridgeAdministratorUserId)
+    public function setBridgeAdministratorUserId($bridgeAdministratorUserId = null)
     {
-        $bridgeAdministratorUserId and $this->bridgeAdministratorUserId = new UserId($bridgeAdministratorUserId);
+        $this->bridgeAdministratorUserId = ($bridgeAdministratorUserId InstanceOf UserId)
+             ? $bridgeAdministratorUserId
+             : new UserId($bridgeAdministratorUserId);
     }
 
     public function getBridgeAdministratorUserId()
@@ -156,9 +173,11 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         return (!$this->bridgeAdministratorUserId) ?: $this->bridgeAdministratorUserId->value();
     }
 
-    public function setNetworkClassOfService($networkClassOfService)
+    public function setNetworkClassOfService($networkClassOfService = null)
     {
-        $networkClassOfService and $this->networkClassOfService = new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
+             ? $networkClassOfService
+             : new NetworkClassOfServiceName($networkClassOfService);
     }
 
     public function getNetworkClassOfService()

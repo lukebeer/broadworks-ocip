@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInventoryReportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $inventoryReportTable  = null;
 
-    public function __construct(
-             $inventoryReportTable
-    ) {
-        $this->inventoryReportTable = $inventoryReportTable;
-        $this->args                 = func_get_args();
-    }
 
-    public function setInventoryReportTable($inventoryReportTable)
+    public function setInventoryReportTable(core:OCITable $inventoryReportTable = null)
     {
-        $inventoryReportTable and $this->inventoryReportTable = new core:OCITable($inventoryReportTable);
     }
 
     public function getInventoryReportTable()

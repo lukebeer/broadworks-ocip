@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\MusicOnHoldSourceRead16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MusicOnHoldSourceRead16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,32 +18,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $serviceUserId                       = null;
+    protected $isActiveDuringCallHold              = null;
+    protected $isActiveDuringCallPark              = null;
+    protected $isActiveDuringBusyCampOn            = null;
+    protected $enableVideo                         = null;
+    protected $source                              = null;
+    protected $useAlternateSourceForInternalCalls  = null;
+    protected $internalSource                      = null;
 
-    public function __construct(
-             $serviceUserId,
-             $isActiveDuringCallHold,
-             $isActiveDuringCallPark,
-             $isActiveDuringBusyCampOn,
-             $enableVideo,
-             $source,
-             $useAlternateSourceForInternalCalls,
-             $internalSource=null
-    ) {
-        $this->serviceUserId                      = new UserId($serviceUserId);
-        $this->isActiveDuringCallHold             = $isActiveDuringCallHold;
-        $this->isActiveDuringCallPark             = $isActiveDuringCallPark;
-        $this->isActiveDuringBusyCampOn           = $isActiveDuringBusyCampOn;
-        $this->enableVideo                        = $enableVideo;
-        $this->source                             = $source;
-        $this->useAlternateSourceForInternalCalls = $useAlternateSourceForInternalCalls;
-        $this->internalSource                     = $internalSource;
-        $this->args                               = func_get_args();
-    }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -52,9 +41,8 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setIsActiveDuringCallHold($isActiveDuringCallHold)
+    public function setIsActiveDuringCallHold(xs:boolean $isActiveDuringCallHold = null)
     {
-        $isActiveDuringCallHold and $this->isActiveDuringCallHold = new xs:boolean($isActiveDuringCallHold);
     }
 
     public function getIsActiveDuringCallHold()
@@ -62,9 +50,8 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
         return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->value();
     }
 
-    public function setIsActiveDuringCallPark($isActiveDuringCallPark)
+    public function setIsActiveDuringCallPark(xs:boolean $isActiveDuringCallPark = null)
     {
-        $isActiveDuringCallPark and $this->isActiveDuringCallPark = new xs:boolean($isActiveDuringCallPark);
     }
 
     public function getIsActiveDuringCallPark()
@@ -72,9 +59,8 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
         return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->value();
     }
 
-    public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn)
+    public function setIsActiveDuringBusyCampOn(xs:boolean $isActiveDuringBusyCampOn = null)
     {
-        $isActiveDuringBusyCampOn and $this->isActiveDuringBusyCampOn = new xs:boolean($isActiveDuringBusyCampOn);
     }
 
     public function getIsActiveDuringBusyCampOn()
@@ -82,9 +68,8 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
         return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->value();
     }
 
-    public function setEnableVideo($enableVideo)
+    public function setEnableVideo(xs:boolean $enableVideo = null)
     {
-        $enableVideo and $this->enableVideo = new xs:boolean($enableVideo);
     }
 
     public function getEnableVideo()
@@ -92,9 +77,8 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
         return (!$this->enableVideo) ?: $this->enableVideo->value();
     }
 
-    public function setSource($source)
+    public function setSource(MusicOnHoldSourceRead16 $source = null)
     {
-        $source and $this->source = new MusicOnHoldSourceRead16($source);
     }
 
     public function getSource()
@@ -102,9 +86,8 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
         return (!$this->source) ?: $this->source->value();
     }
 
-    public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls)
+    public function setUseAlternateSourceForInternalCalls(xs:boolean $useAlternateSourceForInternalCalls = null)
     {
-        $useAlternateSourceForInternalCalls and $this->useAlternateSourceForInternalCalls = new xs:boolean($useAlternateSourceForInternalCalls);
     }
 
     public function getUseAlternateSourceForInternalCalls()
@@ -112,9 +95,8 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
         return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->value();
     }
 
-    public function setInternalSource($internalSource)
+    public function setInternalSource(MusicOnHoldSourceRead16 $internalSource = null)
     {
-        $internalSource and $this->internalSource = new MusicOnHoldSourceRead16($internalSource);
     }
 
     public function getInternalSource()

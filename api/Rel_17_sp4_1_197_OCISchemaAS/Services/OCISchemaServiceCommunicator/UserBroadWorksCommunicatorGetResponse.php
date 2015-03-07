@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksCommunicatorGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $configurationServerURL  = null;
 
-    public function __construct(
-             $configurationServerURL=null
-    ) {
-        $this->configurationServerURL = new URL($configurationServerURL);
-        $this->args                   = func_get_args();
-    }
 
-    public function setConfigurationServerURL($configurationServerURL)
+    public function setConfigurationServerURL($configurationServerURL = null)
     {
-        $configurationServerURL and $this->configurationServerURL = new URL($configurationServerURL);
+        $this->configurationServerURL = ($configurationServerURL InstanceOf URL)
+             ? $configurationServerURL
+             : new URL($configurationServerURL);
     }
 
     public function getConfigurationServerURL()

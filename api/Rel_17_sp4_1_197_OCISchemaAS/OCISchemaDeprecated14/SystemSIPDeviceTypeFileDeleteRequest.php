@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\DeviceManagementFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $deviceType  = null;
+    protected $fileType    = null;
 
     public function __construct(
-             $deviceType,
-             $fileType
+         $deviceType,
+         $fileType
     ) {
-        $this->deviceType = new AccessDeviceType($deviceType);
-        $this->fileType   = $fileType;
-        $this->args       = func_get_args();
+        $this->setDeviceType($deviceType);
+        $this->setFileType($fileType);
     }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -41,9 +44,11 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setFileType($fileType)
+    public function setFileType($fileType = null)
     {
-        $fileType and $this->fileType = new DeviceManagementFileType($fileType);
+        $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
+             ? $fileType
+             : new DeviceManagementFileType($fileType);
     }
 
     public function getFileType()

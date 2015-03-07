@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeFileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $deviceTypeFilesTable  = null;
 
-    public function __construct(
-             $deviceTypeFilesTable
-    ) {
-        $this->deviceTypeFilesTable = $deviceTypeFilesTable;
-        $this->args                 = func_get_args();
-    }
 
-    public function setDeviceTypeFilesTable($deviceTypeFilesTable)
+    public function setDeviceTypeFilesTable(core:OCITable $deviceTypeFilesTable = null)
     {
-        $deviceTypeFilesTable and $this->deviceTypeFilesTable = new core:OCITable($deviceTypeFilesTable);
     }
 
     public function getDeviceTypeFilesTable()

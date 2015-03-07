@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkServerTreatment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerTreatment;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $nsTreatment  = null;
 
     public function __construct(
-             $nsTreatment
+         $nsTreatment
     ) {
-        $this->nsTreatment = $nsTreatment;
-        $this->args        = func_get_args();
+        $this->setNsTreatment($nsTreatment);
     }
 
-    public function setNsTreatment($nsTreatment)
+    public function setNsTreatment($nsTreatment = null)
     {
-        $nsTreatment and $this->nsTreatment = new NetworkServerTreatment($nsTreatment);
+        $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
+             ? $nsTreatment
+             : new NetworkServerTreatment($nsTreatment);
     }
 
     public function getNsTreatment()

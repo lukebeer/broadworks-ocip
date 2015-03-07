@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkMaximumRerouteAttempts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkRouteExhaustionAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkMaximumRerouteAttempts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkRouteExhaustionAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,22 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseEnterpriseTrunkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $maximumRerouteAttempts         = null;
+    protected $routeExhaustionAction          = null;
+    protected $routeExhaustionForwardAddress  = null;
 
-    public function __construct(
-             $maximumRerouteAttempts,
-             $routeExhaustionAction,
-             $routeExhaustionForwardAddress=null
-    ) {
-        $this->maximumRerouteAttempts        = $maximumRerouteAttempts;
-        $this->routeExhaustionAction         = $routeExhaustionAction;
-        $this->routeExhaustionForwardAddress = new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
-        $this->args                          = func_get_args();
-    }
 
-    public function setMaximumRerouteAttempts($maximumRerouteAttempts)
+    public function setMaximumRerouteAttempts($maximumRerouteAttempts = null)
     {
-        $maximumRerouteAttempts and $this->maximumRerouteAttempts = new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
+        $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
+             ? $maximumRerouteAttempts
+             : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
     }
 
     public function getMaximumRerouteAttempts()
@@ -42,9 +37,11 @@ class EnterpriseEnterpriseTrunkGetResponse extends ComplexType implements Comple
         return (!$this->maximumRerouteAttempts) ?: $this->maximumRerouteAttempts->value();
     }
 
-    public function setRouteExhaustionAction($routeExhaustionAction)
+    public function setRouteExhaustionAction($routeExhaustionAction = null)
     {
-        $routeExhaustionAction and $this->routeExhaustionAction = new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
+        $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
+             ? $routeExhaustionAction
+             : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
     }
 
     public function getRouteExhaustionAction()
@@ -52,9 +49,11 @@ class EnterpriseEnterpriseTrunkGetResponse extends ComplexType implements Comple
         return (!$this->routeExhaustionAction) ?: $this->routeExhaustionAction->value();
     }
 
-    public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress)
+    public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress = null)
     {
-        $routeExhaustionForwardAddress and $this->routeExhaustionForwardAddress = new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
+        $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
+             ? $routeExhaustionForwardAddress
+             : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
     }
 
     public function getRouteExhaustionForwardAddress()

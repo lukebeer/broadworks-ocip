@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $deviceTypeTable  = null;
 
-    public function __construct(
-             $deviceTypeTable
-    ) {
-        $this->deviceTypeTable = $deviceTypeTable;
-        $this->args            = func_get_args();
-    }
 
-    public function setDeviceTypeTable($deviceTypeTable)
+    public function setDeviceTypeTable(core:OCITable $deviceTypeTable = null)
     {
-        $deviceTypeTable and $this->deviceTypeTable = new core:OCITable($deviceTypeTable);
     }
 
     public function getDeviceTypeTable()

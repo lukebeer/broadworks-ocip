@@ -7,15 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemPasswordRulesApplyTo;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinNonAlphanumericCharacters;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinUpperCaseLetters;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinLowerCaseLetters;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinNonAlphanumericCharacters;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPasswordRulesApplyTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxFailedLoginAttempts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordExpiresDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -29,54 +28,33 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                    = __CLASS__;
+    protected $rulesApplyTo                            = null;
+    protected $allowWebAddExternalAuthenticationUsers  = null;
+    protected $disallowUserId                          = null;
+    protected $disallowOldPassword                     = null;
+    protected $disallowReversedOldPassword             = null;
+    protected $restrictMinDigits                       = null;
+    protected $minDigits                               = null;
+    protected $restrictMinUpperCaseLetters             = null;
+    protected $minUpperCaseLetters                     = null;
+    protected $restrictMinLowerCaseLetters             = null;
+    protected $minLowerCaseLetters                     = null;
+    protected $restrictMinNonAlphanumericCharacters    = null;
+    protected $minNonAlphanumericCharacters            = null;
+    protected $minLength                               = null;
+    protected $maxFailedLoginAttempts                  = null;
+    protected $passwordExpiresDays                     = null;
+    protected $sendLoginDisabledNotifyEmail            = null;
+    protected $loginDisabledNotifyEmailAddress         = null;
+    protected $disallowRulesModification               = null;
 
-    public function __construct(
-             $rulesApplyTo,
-             $allowWebAddExternalAuthenticationUsers,
-             $disallowUserId,
-             $disallowOldPassword,
-             $disallowReversedOldPassword,
-             $restrictMinDigits,
-             $minDigits,
-             $restrictMinUpperCaseLetters,
-             $minUpperCaseLetters,
-             $restrictMinLowerCaseLetters,
-             $minLowerCaseLetters,
-             $restrictMinNonAlphanumericCharacters,
-             $minNonAlphanumericCharacters,
-             $minLength,
-             $maxFailedLoginAttempts,
-             $passwordExpiresDays,
-             $sendLoginDisabledNotifyEmail,
-             $loginDisabledNotifyEmailAddress=null,
-             $disallowRulesModification
-    ) {
-        $this->rulesApplyTo                           = $rulesApplyTo;
-        $this->allowWebAddExternalAuthenticationUsers = $allowWebAddExternalAuthenticationUsers;
-        $this->disallowUserId                         = $disallowUserId;
-        $this->disallowOldPassword                    = $disallowOldPassword;
-        $this->disallowReversedOldPassword            = $disallowReversedOldPassword;
-        $this->restrictMinDigits                      = $restrictMinDigits;
-        $this->minDigits                              = new PasswordMinDigits($minDigits);
-        $this->restrictMinUpperCaseLetters            = $restrictMinUpperCaseLetters;
-        $this->minUpperCaseLetters                    = new PasswordMinUpperCaseLetters($minUpperCaseLetters);
-        $this->restrictMinLowerCaseLetters            = $restrictMinLowerCaseLetters;
-        $this->minLowerCaseLetters                    = new PasswordMinLowerCaseLetters($minLowerCaseLetters);
-        $this->restrictMinNonAlphanumericCharacters   = $restrictMinNonAlphanumericCharacters;
-        $this->minNonAlphanumericCharacters           = new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
-        $this->minLength                              = new PasswordMinLength($minLength);
-        $this->maxFailedLoginAttempts                 = new MaxFailedLoginAttempts($maxFailedLoginAttempts);
-        $this->passwordExpiresDays                    = new PasswordExpiresDays($passwordExpiresDays);
-        $this->sendLoginDisabledNotifyEmail           = $sendLoginDisabledNotifyEmail;
-        $this->loginDisabledNotifyEmailAddress        = new EmailAddress($loginDisabledNotifyEmailAddress);
-        $this->disallowRulesModification              = $disallowRulesModification;
-        $this->args                                   = func_get_args();
-    }
 
-    public function setRulesApplyTo($rulesApplyTo)
+    public function setRulesApplyTo($rulesApplyTo = null)
     {
-        $rulesApplyTo and $this->rulesApplyTo = new SystemPasswordRulesApplyTo($rulesApplyTo);
+        $this->rulesApplyTo = ($rulesApplyTo InstanceOf SystemPasswordRulesApplyTo)
+             ? $rulesApplyTo
+             : new SystemPasswordRulesApplyTo($rulesApplyTo);
     }
 
     public function getRulesApplyTo()
@@ -84,9 +62,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->rulesApplyTo) ?: $this->rulesApplyTo->value();
     }
 
-    public function setAllowWebAddExternalAuthenticationUsers($allowWebAddExternalAuthenticationUsers)
+    public function setAllowWebAddExternalAuthenticationUsers(xs:boolean $allowWebAddExternalAuthenticationUsers = null)
     {
-        $allowWebAddExternalAuthenticationUsers and $this->allowWebAddExternalAuthenticationUsers = new xs:boolean($allowWebAddExternalAuthenticationUsers);
     }
 
     public function getAllowWebAddExternalAuthenticationUsers()
@@ -94,9 +71,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->allowWebAddExternalAuthenticationUsers) ?: $this->allowWebAddExternalAuthenticationUsers->value();
     }
 
-    public function setDisallowUserId($disallowUserId)
+    public function setDisallowUserId(xs:boolean $disallowUserId = null)
     {
-        $disallowUserId and $this->disallowUserId = new xs:boolean($disallowUserId);
     }
 
     public function getDisallowUserId()
@@ -104,9 +80,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->disallowUserId) ?: $this->disallowUserId->value();
     }
 
-    public function setDisallowOldPassword($disallowOldPassword)
+    public function setDisallowOldPassword(xs:boolean $disallowOldPassword = null)
     {
-        $disallowOldPassword and $this->disallowOldPassword = new xs:boolean($disallowOldPassword);
     }
 
     public function getDisallowOldPassword()
@@ -114,9 +89,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->disallowOldPassword) ?: $this->disallowOldPassword->value();
     }
 
-    public function setDisallowReversedOldPassword($disallowReversedOldPassword)
+    public function setDisallowReversedOldPassword(xs:boolean $disallowReversedOldPassword = null)
     {
-        $disallowReversedOldPassword and $this->disallowReversedOldPassword = new xs:boolean($disallowReversedOldPassword);
     }
 
     public function getDisallowReversedOldPassword()
@@ -124,9 +98,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword->value();
     }
 
-    public function setRestrictMinDigits($restrictMinDigits)
+    public function setRestrictMinDigits(xs:boolean $restrictMinDigits = null)
     {
-        $restrictMinDigits and $this->restrictMinDigits = new xs:boolean($restrictMinDigits);
     }
 
     public function getRestrictMinDigits()
@@ -134,9 +107,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->restrictMinDigits) ?: $this->restrictMinDigits->value();
     }
 
-    public function setMinDigits($minDigits)
+    public function setMinDigits($minDigits = null)
     {
-        $minDigits and $this->minDigits = new PasswordMinDigits($minDigits);
+        $this->minDigits = ($minDigits InstanceOf PasswordMinDigits)
+             ? $minDigits
+             : new PasswordMinDigits($minDigits);
     }
 
     public function getMinDigits()
@@ -144,9 +119,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->minDigits) ?: $this->minDigits->value();
     }
 
-    public function setRestrictMinUpperCaseLetters($restrictMinUpperCaseLetters)
+    public function setRestrictMinUpperCaseLetters(xs:boolean $restrictMinUpperCaseLetters = null)
     {
-        $restrictMinUpperCaseLetters and $this->restrictMinUpperCaseLetters = new xs:boolean($restrictMinUpperCaseLetters);
     }
 
     public function getRestrictMinUpperCaseLetters()
@@ -154,9 +128,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters->value();
     }
 
-    public function setMinUpperCaseLetters($minUpperCaseLetters)
+    public function setMinUpperCaseLetters($minUpperCaseLetters = null)
     {
-        $minUpperCaseLetters and $this->minUpperCaseLetters = new PasswordMinUpperCaseLetters($minUpperCaseLetters);
+        $this->minUpperCaseLetters = ($minUpperCaseLetters InstanceOf PasswordMinUpperCaseLetters)
+             ? $minUpperCaseLetters
+             : new PasswordMinUpperCaseLetters($minUpperCaseLetters);
     }
 
     public function getMinUpperCaseLetters()
@@ -164,9 +140,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->minUpperCaseLetters) ?: $this->minUpperCaseLetters->value();
     }
 
-    public function setRestrictMinLowerCaseLetters($restrictMinLowerCaseLetters)
+    public function setRestrictMinLowerCaseLetters(xs:boolean $restrictMinLowerCaseLetters = null)
     {
-        $restrictMinLowerCaseLetters and $this->restrictMinLowerCaseLetters = new xs:boolean($restrictMinLowerCaseLetters);
     }
 
     public function getRestrictMinLowerCaseLetters()
@@ -174,9 +149,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters->value();
     }
 
-    public function setMinLowerCaseLetters($minLowerCaseLetters)
+    public function setMinLowerCaseLetters($minLowerCaseLetters = null)
     {
-        $minLowerCaseLetters and $this->minLowerCaseLetters = new PasswordMinLowerCaseLetters($minLowerCaseLetters);
+        $this->minLowerCaseLetters = ($minLowerCaseLetters InstanceOf PasswordMinLowerCaseLetters)
+             ? $minLowerCaseLetters
+             : new PasswordMinLowerCaseLetters($minLowerCaseLetters);
     }
 
     public function getMinLowerCaseLetters()
@@ -184,9 +161,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->minLowerCaseLetters) ?: $this->minLowerCaseLetters->value();
     }
 
-    public function setRestrictMinNonAlphanumericCharacters($restrictMinNonAlphanumericCharacters)
+    public function setRestrictMinNonAlphanumericCharacters(xs:boolean $restrictMinNonAlphanumericCharacters = null)
     {
-        $restrictMinNonAlphanumericCharacters and $this->restrictMinNonAlphanumericCharacters = new xs:boolean($restrictMinNonAlphanumericCharacters);
     }
 
     public function getRestrictMinNonAlphanumericCharacters()
@@ -194,9 +170,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters->value();
     }
 
-    public function setMinNonAlphanumericCharacters($minNonAlphanumericCharacters)
+    public function setMinNonAlphanumericCharacters($minNonAlphanumericCharacters = null)
     {
-        $minNonAlphanumericCharacters and $this->minNonAlphanumericCharacters = new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
+        $this->minNonAlphanumericCharacters = ($minNonAlphanumericCharacters InstanceOf PasswordMinNonAlphanumericCharacters)
+             ? $minNonAlphanumericCharacters
+             : new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
     }
 
     public function getMinNonAlphanumericCharacters()
@@ -204,9 +182,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->minNonAlphanumericCharacters) ?: $this->minNonAlphanumericCharacters->value();
     }
 
-    public function setMinLength($minLength)
+    public function setMinLength($minLength = null)
     {
-        $minLength and $this->minLength = new PasswordMinLength($minLength);
+        $this->minLength = ($minLength InstanceOf PasswordMinLength)
+             ? $minLength
+             : new PasswordMinLength($minLength);
     }
 
     public function getMinLength()
@@ -214,9 +194,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->minLength) ?: $this->minLength->value();
     }
 
-    public function setMaxFailedLoginAttempts($maxFailedLoginAttempts)
+    public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        $maxFailedLoginAttempts and $this->maxFailedLoginAttempts = new MaxFailedLoginAttempts($maxFailedLoginAttempts);
+        $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf MaxFailedLoginAttempts)
+             ? $maxFailedLoginAttempts
+             : new MaxFailedLoginAttempts($maxFailedLoginAttempts);
     }
 
     public function getMaxFailedLoginAttempts()
@@ -224,9 +206,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->value();
     }
 
-    public function setPasswordExpiresDays($passwordExpiresDays)
+    public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
-        $passwordExpiresDays and $this->passwordExpiresDays = new PasswordExpiresDays($passwordExpiresDays);
+        $this->passwordExpiresDays = ($passwordExpiresDays InstanceOf PasswordExpiresDays)
+             ? $passwordExpiresDays
+             : new PasswordExpiresDays($passwordExpiresDays);
     }
 
     public function getPasswordExpiresDays()
@@ -234,9 +218,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->value();
     }
 
-    public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail)
+    public function setSendLoginDisabledNotifyEmail(xs:boolean $sendLoginDisabledNotifyEmail = null)
     {
-        $sendLoginDisabledNotifyEmail and $this->sendLoginDisabledNotifyEmail = new xs:boolean($sendLoginDisabledNotifyEmail);
     }
 
     public function getSendLoginDisabledNotifyEmail()
@@ -244,9 +227,11 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->value();
     }
 
-    public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress)
+    public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
-        $loginDisabledNotifyEmailAddress and $this->loginDisabledNotifyEmailAddress = new EmailAddress($loginDisabledNotifyEmailAddress);
+        $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
+             ? $loginDisabledNotifyEmailAddress
+             : new EmailAddress($loginDisabledNotifyEmailAddress);
     }
 
     public function getLoginDisabledNotifyEmailAddress()
@@ -254,9 +239,8 @@ class SystemPasswordRulesGetResponse13mp2 extends ComplexType implements Complex
         return (!$this->loginDisabledNotifyEmailAddress) ?: $this->loginDisabledNotifyEmailAddress->value();
     }
 
-    public function setDisallowRulesModification($disallowRulesModification)
+    public function setDisallowRulesModification(xs:boolean $disallowRulesModification = null)
     {
-        $disallowRulesModification and $this->disallowRulesModification = new xs:boolean($disallowRulesModification);
     }
 
     public function getDisallowRulesModification()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $useSystemPlayMCTWarningAnnouncement  = null;
+    protected $playMCTWarningAnnouncement           = null;
 
-    public function __construct(
-             $useSystemPlayMCTWarningAnnouncement,
-             $playMCTWarningAnnouncement
-    ) {
-        $this->useSystemPlayMCTWarningAnnouncement = $useSystemPlayMCTWarningAnnouncement;
-        $this->playMCTWarningAnnouncement          = $playMCTWarningAnnouncement;
-        $this->args                                = func_get_args();
-    }
 
-    public function setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement)
+    public function setUseSystemPlayMCTWarningAnnouncement(xs:boolean $useSystemPlayMCTWarningAnnouncement = null)
     {
-        $useSystemPlayMCTWarningAnnouncement and $this->useSystemPlayMCTWarningAnnouncement = new xs:boolean($useSystemPlayMCTWarningAnnouncement);
     }
 
     public function getUseSystemPlayMCTWarningAnnouncement()
@@ -40,9 +33,8 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
         return (!$this->useSystemPlayMCTWarningAnnouncement) ?: $this->useSystemPlayMCTWarningAnnouncement->value();
     }
 
-    public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement)
+    public function setPlayMCTWarningAnnouncement(xs:boolean $playMCTWarningAnnouncement = null)
     {
-        $playMCTWarningAnnouncement and $this->playMCTWarningAnnouncement = new xs:boolean($playMCTWarningAnnouncement);
     }
 
     public function getPlayMCTWarningAnnouncement()

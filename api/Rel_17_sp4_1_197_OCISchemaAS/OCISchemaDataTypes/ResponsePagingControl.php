@@ -21,7 +21,4 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
 {
     public    $name = __CLASS__;
 
-    public function __construct(    ) {
-        $this->args= func_get_args();
-    }
 }

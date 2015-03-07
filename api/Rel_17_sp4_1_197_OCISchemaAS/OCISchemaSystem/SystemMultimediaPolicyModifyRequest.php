@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMultimediaPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $restrictNonAudioVideoMediaTypes  = null;
 
     public function __construct(
-             $restrictNonAudioVideoMediaTypes=null
+         $restrictNonAudioVideoMediaTypes = null
     ) {
-        $this->restrictNonAudioVideoMediaTypes = $restrictNonAudioVideoMediaTypes;
-        $this->args                            = func_get_args();
+        $this->setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes);
     }
 
-    public function setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes)
+    public function setRestrictNonAudioVideoMediaTypes(xs:boolean $restrictNonAudioVideoMediaTypes = null)
     {
-        $restrictNonAudioVideoMediaTypes and $this->restrictNonAudioVideoMediaTypes = new xs:boolean($restrictNonAudioVideoMediaTypes);
     }
 
     public function getRestrictNonAudioVideoMediaTypes()

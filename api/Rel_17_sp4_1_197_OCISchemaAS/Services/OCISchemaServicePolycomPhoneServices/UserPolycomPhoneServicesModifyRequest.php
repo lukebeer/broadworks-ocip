@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPolycomPhoneServicesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                           = __CLASS__;
+    protected $userId                                         = null;
+    protected $accessDevice                                   = null;
+    protected $integratePhoneDirectoryWithBroadWorks          = null;
+    protected $includeUserPersonalPhoneListInDirectory        = null;
+    protected $includeGroupCustomContactDirectoryInDirectory  = null;
+    protected $groupCustomContactDirectory                    = null;
 
     public function __construct(
-             $userId,
-             AccessDevice $accessDevice,
-             $integratePhoneDirectoryWithBroadWorks=null,
-             $includeUserPersonalPhoneListInDirectory=null,
-             $includeGroupCustomContactDirectoryInDirectory=null,
-             $groupCustomContactDirectory=null
+         $userId,
+         AccessDevice $accessDevice,
+         $integratePhoneDirectoryWithBroadWorks = null,
+         $includeUserPersonalPhoneListInDirectory = null,
+         $includeGroupCustomContactDirectoryInDirectory = null,
+         $groupCustomContactDirectory = null
     ) {
-        $this->userId                                        = new UserId($userId);
-        $this->accessDevice                                  = $accessDevice;
-        $this->integratePhoneDirectoryWithBroadWorks         = $integratePhoneDirectoryWithBroadWorks;
-        $this->includeUserPersonalPhoneListInDirectory       = $includeUserPersonalPhoneListInDirectory;
-        $this->includeGroupCustomContactDirectoryInDirectory = $includeGroupCustomContactDirectoryInDirectory;
-        $this->groupCustomContactDirectory                   = new CustomContactDirectoryName($groupCustomContactDirectory);
-        $this->args                                          = func_get_args();
+        $this->setUserId($userId);
+        $this->setAccessDevice($accessDevice);
+        $this->setIntegratePhoneDirectoryWithBroadWorks($integratePhoneDirectoryWithBroadWorks);
+        $this->setIncludeUserPersonalPhoneListInDirectory($includeUserPersonalPhoneListInDirectory);
+        $this->setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory);
+        $this->setGroupCustomContactDirectory($groupCustomContactDirectory);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -50,9 +56,8 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setAccessDevice($accessDevice)
+    public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $accessDevice and $this->accessDevice = new AccessDevice($accessDevice);
     }
 
     public function getAccessDevice()
@@ -60,9 +65,8 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
         return (!$this->accessDevice) ?: $this->accessDevice->value();
     }
 
-    public function setIntegratePhoneDirectoryWithBroadWorks($integratePhoneDirectoryWithBroadWorks)
+    public function setIntegratePhoneDirectoryWithBroadWorks(xs:boolean $integratePhoneDirectoryWithBroadWorks = null)
     {
-        $integratePhoneDirectoryWithBroadWorks and $this->integratePhoneDirectoryWithBroadWorks = new xs:boolean($integratePhoneDirectoryWithBroadWorks);
     }
 
     public function getIntegratePhoneDirectoryWithBroadWorks()
@@ -70,9 +74,8 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
         return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks->value();
     }
 
-    public function setIncludeUserPersonalPhoneListInDirectory($includeUserPersonalPhoneListInDirectory)
+    public function setIncludeUserPersonalPhoneListInDirectory(xs:boolean $includeUserPersonalPhoneListInDirectory = null)
     {
-        $includeUserPersonalPhoneListInDirectory and $this->includeUserPersonalPhoneListInDirectory = new xs:boolean($includeUserPersonalPhoneListInDirectory);
     }
 
     public function getIncludeUserPersonalPhoneListInDirectory()
@@ -80,9 +83,8 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
         return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory->value();
     }
 
-    public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory)
+    public function setIncludeGroupCustomContactDirectoryInDirectory(xs:boolean $includeGroupCustomContactDirectoryInDirectory = null)
     {
-        $includeGroupCustomContactDirectoryInDirectory and $this->includeGroupCustomContactDirectoryInDirectory = new xs:boolean($includeGroupCustomContactDirectoryInDirectory);
     }
 
     public function getIncludeGroupCustomContactDirectoryInDirectory()
@@ -90,9 +92,11 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
         return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->value();
     }
 
-    public function setGroupCustomContactDirectory($groupCustomContactDirectory)
+    public function setGroupCustomContactDirectory($groupCustomContactDirectory = null)
     {
-        $groupCustomContactDirectory and $this->groupCustomContactDirectory = new CustomContactDirectoryName($groupCustomContactDirectory);
+        $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
+             ? $groupCustomContactDirectory
+             : new CustomContactDirectoryName($groupCustomContactDirectory);
     }
 
     public function getGroupCustomContactDirectory()

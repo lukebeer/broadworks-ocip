@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $scheduleKey      = null;
+    protected $newScheduleName  = null;
 
     public function __construct(
-             ScheduleKey $scheduleKey,
-             $newScheduleName=null
+         ScheduleKey $scheduleKey,
+         $newScheduleName = null
     ) {
-        $this->scheduleKey     = $scheduleKey;
-        $this->newScheduleName = new ScheduleName($newScheduleName);
-        $this->args            = func_get_args();
+        $this->setScheduleKey($scheduleKey);
+        $this->setNewScheduleName($newScheduleName);
     }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()
@@ -40,9 +40,11 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
         return (!$this->scheduleKey) ?: $this->scheduleKey->value();
     }
 
-    public function setNewScheduleName($newScheduleName)
+    public function setNewScheduleName($newScheduleName = null)
     {
-        $newScheduleName and $this->newScheduleName = new ScheduleName($newScheduleName);
+        $this->newScheduleName = ($newScheduleName InstanceOf ScheduleName)
+             ? $newScheduleName
+             : new ScheduleName($newScheduleName);
     }
 
     public function getNewScheduleName()

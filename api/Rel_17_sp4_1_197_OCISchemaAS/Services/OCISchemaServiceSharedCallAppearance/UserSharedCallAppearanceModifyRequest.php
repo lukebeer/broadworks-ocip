@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceBridgeWarningTone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,32 +22,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSharedCallAppearanceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                    = __CLASS__;
+    protected $userId                                  = null;
+    protected $alertAllAppearancesForClickToDialCalls  = null;
+    protected $alertAllAppearancesForGroupPagingCalls  = null;
+    protected $allowSCACallRetrieve                    = null;
+    protected $multipleCallArrangementIsActive         = null;
+    protected $allowBridgingBetweenLocations           = null;
+    protected $bridgeWarningTone                       = null;
+    protected $enableCallParkNotification              = null;
 
     public function __construct(
-             $userId,
-             $alertAllAppearancesForClickToDialCalls=null,
-             $alertAllAppearancesForGroupPagingCalls=null,
-             $allowSCACallRetrieve=null,
-             $multipleCallArrangementIsActive=null,
-             $allowBridgingBetweenLocations=null,
-             $bridgeWarningTone=null,
-             $enableCallParkNotification=null
+         $userId,
+         $alertAllAppearancesForClickToDialCalls = null,
+         $alertAllAppearancesForGroupPagingCalls = null,
+         $allowSCACallRetrieve = null,
+         $multipleCallArrangementIsActive = null,
+         $allowBridgingBetweenLocations = null,
+         $bridgeWarningTone = null,
+         $enableCallParkNotification = null
     ) {
-        $this->userId                                 = new UserId($userId);
-        $this->alertAllAppearancesForClickToDialCalls = $alertAllAppearancesForClickToDialCalls;
-        $this->alertAllAppearancesForGroupPagingCalls = $alertAllAppearancesForGroupPagingCalls;
-        $this->allowSCACallRetrieve                   = $allowSCACallRetrieve;
-        $this->multipleCallArrangementIsActive        = $multipleCallArrangementIsActive;
-        $this->allowBridgingBetweenLocations          = $allowBridgingBetweenLocations;
-        $this->bridgeWarningTone                      = new SharedCallAppearanceBridgeWarningTone($bridgeWarningTone);
-        $this->enableCallParkNotification             = $enableCallParkNotification;
-        $this->args                                   = func_get_args();
+        $this->setUserId($userId);
+        $this->setAlertAllAppearancesForClickToDialCalls($alertAllAppearancesForClickToDialCalls);
+        $this->setAlertAllAppearancesForGroupPagingCalls($alertAllAppearancesForGroupPagingCalls);
+        $this->setAllowSCACallRetrieve($allowSCACallRetrieve);
+        $this->setMultipleCallArrangementIsActive($multipleCallArrangementIsActive);
+        $this->setAllowBridgingBetweenLocations($allowBridgingBetweenLocations);
+        $this->setBridgeWarningTone($bridgeWarningTone);
+        $this->setEnableCallParkNotification($enableCallParkNotification);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -56,9 +64,8 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setAlertAllAppearancesForClickToDialCalls($alertAllAppearancesForClickToDialCalls)
+    public function setAlertAllAppearancesForClickToDialCalls(xs:boolean $alertAllAppearancesForClickToDialCalls = null)
     {
-        $alertAllAppearancesForClickToDialCalls and $this->alertAllAppearancesForClickToDialCalls = new xs:boolean($alertAllAppearancesForClickToDialCalls);
     }
 
     public function getAlertAllAppearancesForClickToDialCalls()
@@ -66,9 +73,8 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls->value();
     }
 
-    public function setAlertAllAppearancesForGroupPagingCalls($alertAllAppearancesForGroupPagingCalls)
+    public function setAlertAllAppearancesForGroupPagingCalls(xs:boolean $alertAllAppearancesForGroupPagingCalls = null)
     {
-        $alertAllAppearancesForGroupPagingCalls and $this->alertAllAppearancesForGroupPagingCalls = new xs:boolean($alertAllAppearancesForGroupPagingCalls);
     }
 
     public function getAlertAllAppearancesForGroupPagingCalls()
@@ -76,9 +82,8 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         return (!$this->alertAllAppearancesForGroupPagingCalls) ?: $this->alertAllAppearancesForGroupPagingCalls->value();
     }
 
-    public function setAllowSCACallRetrieve($allowSCACallRetrieve)
+    public function setAllowSCACallRetrieve(xs:boolean $allowSCACallRetrieve = null)
     {
-        $allowSCACallRetrieve and $this->allowSCACallRetrieve = new xs:boolean($allowSCACallRetrieve);
     }
 
     public function getAllowSCACallRetrieve()
@@ -86,9 +91,8 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         return (!$this->allowSCACallRetrieve) ?: $this->allowSCACallRetrieve->value();
     }
 
-    public function setMultipleCallArrangementIsActive($multipleCallArrangementIsActive)
+    public function setMultipleCallArrangementIsActive(xs:boolean $multipleCallArrangementIsActive = null)
     {
-        $multipleCallArrangementIsActive and $this->multipleCallArrangementIsActive = new xs:boolean($multipleCallArrangementIsActive);
     }
 
     public function getMultipleCallArrangementIsActive()
@@ -96,9 +100,8 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive->value();
     }
 
-    public function setAllowBridgingBetweenLocations($allowBridgingBetweenLocations)
+    public function setAllowBridgingBetweenLocations(xs:boolean $allowBridgingBetweenLocations = null)
     {
-        $allowBridgingBetweenLocations and $this->allowBridgingBetweenLocations = new xs:boolean($allowBridgingBetweenLocations);
     }
 
     public function getAllowBridgingBetweenLocations()
@@ -106,9 +109,11 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations->value();
     }
 
-    public function setBridgeWarningTone($bridgeWarningTone)
+    public function setBridgeWarningTone($bridgeWarningTone = null)
     {
-        $bridgeWarningTone and $this->bridgeWarningTone = new SharedCallAppearanceBridgeWarningTone($bridgeWarningTone);
+        $this->bridgeWarningTone = ($bridgeWarningTone InstanceOf SharedCallAppearanceBridgeWarningTone)
+             ? $bridgeWarningTone
+             : new SharedCallAppearanceBridgeWarningTone($bridgeWarningTone);
     }
 
     public function getBridgeWarningTone()
@@ -116,9 +121,8 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         return (!$this->bridgeWarningTone) ?: $this->bridgeWarningTone->value();
     }
 
-    public function setEnableCallParkNotification($enableCallParkNotification)
+    public function setEnableCallParkNotification(xs:boolean $enableCallParkNotification = null)
     {
-        $enableCallParkNotification and $this->enableCallParkNotification = new xs:boolean($enableCallParkNotification);
     }
 
     public function getEnableCallParkNotification()

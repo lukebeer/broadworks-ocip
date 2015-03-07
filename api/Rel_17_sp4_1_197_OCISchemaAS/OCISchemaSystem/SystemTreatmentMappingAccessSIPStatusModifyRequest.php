@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPFailureStatusCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPFailureStatusCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingAccessSIPStatusModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $sipStatusCode  = null;
+    protected $treatmentId    = null;
 
     public function __construct(
-             $sipStatusCode,
-             $treatmentId=null
+         $sipStatusCode,
+         $treatmentId = null
     ) {
-        $this->sipStatusCode = $sipStatusCode;
-        $this->treatmentId   = new TreatmentId($treatmentId);
-        $this->args          = func_get_args();
+        $this->setSipStatusCode($sipStatusCode);
+        $this->setTreatmentId($treatmentId);
     }
 
-    public function setSipStatusCode($sipStatusCode)
+    public function setSipStatusCode($sipStatusCode = null)
     {
-        $sipStatusCode and $this->sipStatusCode = new SIPFailureStatusCode($sipStatusCode);
+        $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
+             ? $sipStatusCode
+             : new SIPFailureStatusCode($sipStatusCode);
     }
 
     public function getSipStatusCode()
@@ -40,9 +43,11 @@ class SystemTreatmentMappingAccessSIPStatusModifyRequest extends ComplexType imp
         return (!$this->sipStatusCode) ?: $this->sipStatusCode->value();
     }
 
-    public function setTreatmentId($treatmentId)
+    public function setTreatmentId($treatmentId = null)
     {
-        $treatmentId and $this->treatmentId = new TreatmentId($treatmentId);
+        $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
+             ? $treatmentId
+             : new TreatmentId($treatmentId);
     }
 
     public function getTreatmentId()

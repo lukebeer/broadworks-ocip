@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExternalEmergencyRoutingConnectionTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExternalEmergencyRoutingConnectionTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +20,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $serviceURI                = null;
+    protected $defaultEmergencyNumber    = null;
+    protected $isActive                  = null;
+    protected $supportsDNSSRV            = null;
+    protected $connectionTimeoutSeconds  = null;
 
     public function __construct(
-             $serviceURI=null,
-             $defaultEmergencyNumber=null,
-             $isActive=null,
-             $supportsDNSSRV=null,
-             $connectionTimeoutSeconds=null
+         $serviceURI = null,
+         $defaultEmergencyNumber = null,
+         $isActive = null,
+         $supportsDNSSRV = null,
+         $connectionTimeoutSeconds = null
     ) {
-        $this->serviceURI               = new NetAddress($serviceURI);
-        $this->defaultEmergencyNumber   = new OutgoingDN($defaultEmergencyNumber);
-        $this->isActive                 = $isActive;
-        $this->supportsDNSSRV           = $supportsDNSSRV;
-        $this->connectionTimeoutSeconds = $connectionTimeoutSeconds;
-        $this->args                     = func_get_args();
+        $this->setServiceURI($serviceURI);
+        $this->setDefaultEmergencyNumber($defaultEmergencyNumber);
+        $this->setIsActive($isActive);
+        $this->setSupportsDNSSRV($supportsDNSSRV);
+        $this->setConnectionTimeoutSeconds($connectionTimeoutSeconds);
     }
 
-    public function setServiceURI($serviceURI)
+    public function setServiceURI($serviceURI = null)
     {
-        $serviceURI and $this->serviceURI = new NetAddress($serviceURI);
+        $this->serviceURI = ($serviceURI InstanceOf NetAddress)
+             ? $serviceURI
+             : new NetAddress($serviceURI);
     }
 
     public function getServiceURI()
@@ -48,9 +53,11 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         return (!$this->serviceURI) ?: $this->serviceURI->value();
     }
 
-    public function setDefaultEmergencyNumber($defaultEmergencyNumber)
+    public function setDefaultEmergencyNumber($defaultEmergencyNumber = null)
     {
-        $defaultEmergencyNumber and $this->defaultEmergencyNumber = new OutgoingDN($defaultEmergencyNumber);
+        $this->defaultEmergencyNumber = ($defaultEmergencyNumber InstanceOf OutgoingDN)
+             ? $defaultEmergencyNumber
+             : new OutgoingDN($defaultEmergencyNumber);
     }
 
     public function getDefaultEmergencyNumber()
@@ -58,9 +65,8 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         return (!$this->defaultEmergencyNumber) ?: $this->defaultEmergencyNumber->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -68,9 +74,8 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setSupportsDNSSRV($supportsDNSSRV)
+    public function setSupportsDNSSRV(xs:boolean $supportsDNSSRV = null)
     {
-        $supportsDNSSRV and $this->supportsDNSSRV = new xs:boolean($supportsDNSSRV);
     }
 
     public function getSupportsDNSSRV()
@@ -78,9 +83,11 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         return (!$this->supportsDNSSRV) ?: $this->supportsDNSSRV->value();
     }
 
-    public function setConnectionTimeoutSeconds($connectionTimeoutSeconds)
+    public function setConnectionTimeoutSeconds($connectionTimeoutSeconds = null)
     {
-        $connectionTimeoutSeconds and $this->connectionTimeoutSeconds = new ExternalEmergencyRoutingConnectionTimeoutSeconds($connectionTimeoutSeconds);
+        $this->connectionTimeoutSeconds = ($connectionTimeoutSeconds InstanceOf ExternalEmergencyRoutingConnectionTimeoutSeconds)
+             ? $connectionTimeoutSeconds
+             : new ExternalEmergencyRoutingConnectionTimeoutSeconds($connectionTimeoutSeconds);
     }
 
     public function getConnectionTimeoutSeconds()

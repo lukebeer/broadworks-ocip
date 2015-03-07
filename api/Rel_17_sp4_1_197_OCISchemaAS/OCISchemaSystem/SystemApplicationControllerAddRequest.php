@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationControllerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ApplicationControllerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ChannelSetId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ChannelSetId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,22 +21,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemApplicationControllerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $name          = null;
+    protected $subscriberId  = null;
+    protected $channelSetId  = null;
 
     public function __construct(
-             $name,
-             $subscriberId,
-             $channelSetId
+         $name,
+         $subscriberId,
+         $channelSetId
     ) {
-        $this->name         = $name;
-        $this->subscriberId = new UserId($subscriberId);
-        $this->channelSetId = $channelSetId;
-        $this->args         = func_get_args();
+        $this->setName($name);
+        $this->setSubscriberId($subscriberId);
+        $this->setChannelSetId($channelSetId);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new ApplicationControllerName($name);
+        $this->name = ($name InstanceOf ApplicationControllerName)
+             ? $name
+             : new ApplicationControllerName($name);
     }
 
     public function getName()
@@ -44,9 +48,11 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setSubscriberId($subscriberId)
+    public function setSubscriberId($subscriberId = null)
     {
-        $subscriberId and $this->subscriberId = new UserId($subscriberId);
+        $this->subscriberId = ($subscriberId InstanceOf UserId)
+             ? $subscriberId
+             : new UserId($subscriberId);
     }
 
     public function getSubscriberId()
@@ -54,9 +60,11 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
         return (!$this->subscriberId) ?: $this->subscriberId->value();
     }
 
-    public function setChannelSetId($channelSetId)
+    public function setChannelSetId($channelSetId = null)
     {
-        $channelSetId and $this->channelSetId = new ChannelSetId($channelSetId);
+        $this->channelSetId = ($channelSetId InstanceOf ChannelSetId)
+             ? $channelSetId
+             : new ChannelSetId($channelSetId);
     }
 
     public function getChannelSetId()

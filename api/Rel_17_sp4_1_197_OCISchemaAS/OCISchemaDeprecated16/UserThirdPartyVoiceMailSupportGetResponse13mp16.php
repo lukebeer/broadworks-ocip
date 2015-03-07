@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ThirdPartyVoiceMailSupportServerSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ThirdPartyVoiceMailSupportMailServer;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ThirdPartyVoiceMailSupportMailboxIdType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportServerSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportMailboxIdType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportMailServer;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ThirdPartyVoiceMailSupportNumberOfRings;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,34 +22,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $isActive                     = null;
+    protected $busyRedirectToVoiceMail      = null;
+    protected $noAnswerRedirectToVoiceMail  = null;
+    protected $serverSelection              = null;
+    protected $userServer                   = null;
+    protected $mailboxIdType                = null;
+    protected $mailboxURL                   = null;
+    protected $noAnswerNumberOfRings        = null;
+    protected $alwaysRedirectToVoiceMail    = null;
 
-    public function __construct(
-             $isActive,
-             $busyRedirectToVoiceMail,
-             $noAnswerRedirectToVoiceMail,
-             $serverSelection,
-             $userServer=null,
-             $mailboxIdType,
-             $mailboxURL=null,
-             $noAnswerNumberOfRings,
-             $alwaysRedirectToVoiceMail
-    ) {
-        $this->isActive                    = $isActive;
-        $this->busyRedirectToVoiceMail     = $busyRedirectToVoiceMail;
-        $this->noAnswerRedirectToVoiceMail = $noAnswerRedirectToVoiceMail;
-        $this->serverSelection             = $serverSelection;
-        $this->userServer                  = $userServer;
-        $this->mailboxIdType               = $mailboxIdType;
-        $this->mailboxURL                  = new SIPURI($mailboxURL);
-        $this->noAnswerNumberOfRings       = $noAnswerNumberOfRings;
-        $this->alwaysRedirectToVoiceMail   = $alwaysRedirectToVoiceMail;
-        $this->args                        = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -58,9 +43,8 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setBusyRedirectToVoiceMail($busyRedirectToVoiceMail)
+    public function setBusyRedirectToVoiceMail(xs:boolean $busyRedirectToVoiceMail = null)
     {
-        $busyRedirectToVoiceMail and $this->busyRedirectToVoiceMail = new xs:boolean($busyRedirectToVoiceMail);
     }
 
     public function getBusyRedirectToVoiceMail()
@@ -68,9 +52,8 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail->value();
     }
 
-    public function setNoAnswerRedirectToVoiceMail($noAnswerRedirectToVoiceMail)
+    public function setNoAnswerRedirectToVoiceMail(xs:boolean $noAnswerRedirectToVoiceMail = null)
     {
-        $noAnswerRedirectToVoiceMail and $this->noAnswerRedirectToVoiceMail = new xs:boolean($noAnswerRedirectToVoiceMail);
     }
 
     public function getNoAnswerRedirectToVoiceMail()
@@ -78,9 +61,11 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->noAnswerRedirectToVoiceMail) ?: $this->noAnswerRedirectToVoiceMail->value();
     }
 
-    public function setServerSelection($serverSelection)
+    public function setServerSelection($serverSelection = null)
     {
-        $serverSelection and $this->serverSelection = new ThirdPartyVoiceMailSupportServerSelection($serverSelection);
+        $this->serverSelection = ($serverSelection InstanceOf ThirdPartyVoiceMailSupportServerSelection)
+             ? $serverSelection
+             : new ThirdPartyVoiceMailSupportServerSelection($serverSelection);
     }
 
     public function getServerSelection()
@@ -88,9 +73,11 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->serverSelection) ?: $this->serverSelection->value();
     }
 
-    public function setUserServer($userServer)
+    public function setUserServer($userServer = null)
     {
-        $userServer and $this->userServer = new ThirdPartyVoiceMailSupportMailServer($userServer);
+        $this->userServer = ($userServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
+             ? $userServer
+             : new ThirdPartyVoiceMailSupportMailServer($userServer);
     }
 
     public function getUserServer()
@@ -98,9 +85,11 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->userServer) ?: $this->userServer->value();
     }
 
-    public function setMailboxIdType($mailboxIdType)
+    public function setMailboxIdType($mailboxIdType = null)
     {
-        $mailboxIdType and $this->mailboxIdType = new ThirdPartyVoiceMailSupportMailboxIdType($mailboxIdType);
+        $this->mailboxIdType = ($mailboxIdType InstanceOf ThirdPartyVoiceMailSupportMailboxIdType)
+             ? $mailboxIdType
+             : new ThirdPartyVoiceMailSupportMailboxIdType($mailboxIdType);
     }
 
     public function getMailboxIdType()
@@ -108,9 +97,11 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->mailboxIdType) ?: $this->mailboxIdType->value();
     }
 
-    public function setMailboxURL($mailboxURL)
+    public function setMailboxURL($mailboxURL = null)
     {
-        $mailboxURL and $this->mailboxURL = new SIPURI($mailboxURL);
+        $this->mailboxURL = ($mailboxURL InstanceOf SIPURI)
+             ? $mailboxURL
+             : new SIPURI($mailboxURL);
     }
 
     public function getMailboxURL()
@@ -118,9 +109,11 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->mailboxURL) ?: $this->mailboxURL->value();
     }
 
-    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings)
+    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        $noAnswerNumberOfRings and $this->noAnswerNumberOfRings = new ThirdPartyVoiceMailSupportNumberOfRings($noAnswerNumberOfRings);
+        $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf ThirdPartyVoiceMailSupportNumberOfRings)
+             ? $noAnswerNumberOfRings
+             : new ThirdPartyVoiceMailSupportNumberOfRings($noAnswerNumberOfRings);
     }
 
     public function getNoAnswerNumberOfRings()
@@ -128,9 +121,8 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
         return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->value();
     }
 
-    public function setAlwaysRedirectToVoiceMail($alwaysRedirectToVoiceMail)
+    public function setAlwaysRedirectToVoiceMail(xs:boolean $alwaysRedirectToVoiceMail = null)
     {
-        $alwaysRedirectToVoiceMail and $this->alwaysRedirectToVoiceMail = new xs:boolean($alwaysRedirectToVoiceMail);
     }
 
     public function getAlwaysRedirectToVoiceMail()

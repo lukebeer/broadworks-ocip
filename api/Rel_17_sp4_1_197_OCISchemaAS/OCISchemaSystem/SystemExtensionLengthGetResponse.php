@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $minExtensionLength  = null;
+    protected $maxExtensionLength  = null;
 
-    public function __construct(
-             $minExtensionLength,
-             $maxExtensionLength
-    ) {
-        $this->minExtensionLength = new ExtensionLength($minExtensionLength);
-        $this->maxExtensionLength = new ExtensionLength($maxExtensionLength);
-        $this->args               = func_get_args();
-    }
 
-    public function setMinExtensionLength($minExtensionLength)
+    public function setMinExtensionLength($minExtensionLength = null)
     {
-        $minExtensionLength and $this->minExtensionLength = new ExtensionLength($minExtensionLength);
+        $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
+             ? $minExtensionLength
+             : new ExtensionLength($minExtensionLength);
     }
 
     public function getMinExtensionLength()
@@ -38,9 +34,11 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
         return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
     }
 
-    public function setMaxExtensionLength($maxExtensionLength)
+    public function setMaxExtensionLength($maxExtensionLength = null)
     {
-        $maxExtensionLength and $this->maxExtensionLength = new ExtensionLength($maxExtensionLength);
+        $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
+             ? $maxExtensionLength
+             : new ExtensionLength($maxExtensionLength);
     }
 
     public function getMaxExtensionLength()

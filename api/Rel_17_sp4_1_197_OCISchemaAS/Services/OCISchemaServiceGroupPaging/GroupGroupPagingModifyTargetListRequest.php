@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGroupPagingModifyTargetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $serviceUserId     = null;
+    protected $targetUserIdList  = null;
 
     public function __construct(
-             $serviceUserId,
-             ReplacementUserIdList $targetUserIdList=null
+         $serviceUserId,
+         ReplacementUserIdList $targetUserIdList = null
     ) {
-        $this->serviceUserId    = new UserId($serviceUserId);
-        $this->targetUserIdList = $targetUserIdList;
-        $this->args             = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setTargetUserIdList($targetUserIdList);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -40,9 +43,8 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setTargetUserIdList($targetUserIdList)
+    public function setTargetUserIdList(ReplacementUserIdList $targetUserIdList = null)
     {
-        $targetUserIdList and $this->targetUserIdList = new ReplacementUserIdList($targetUserIdList);
     }
 
     public function getTargetUserIdList()

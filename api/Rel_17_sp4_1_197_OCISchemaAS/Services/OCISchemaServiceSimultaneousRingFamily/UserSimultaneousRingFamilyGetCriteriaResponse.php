@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +19,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $timeSchedule     = null;
+    protected $holidaySchedule  = null;
+    protected $blacklisted      = null;
+    protected $fromDnCriteria   = null;
 
-    public function __construct(
-             TimeSchedule $timeSchedule=null,
-             HolidaySchedule $holidaySchedule=null,
-             $blacklisted,
-             CriteriaFromDn $fromDnCriteria
-    ) {
-        $this->timeSchedule    = $timeSchedule;
-        $this->holidaySchedule = $holidaySchedule;
-        $this->blacklisted     = $blacklisted;
-        $this->fromDnCriteria  = $fromDnCriteria;
-        $this->args            = func_get_args();
-    }
 
-    public function setTimeSchedule($timeSchedule)
+    public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $timeSchedule and $this->timeSchedule = new TimeSchedule($timeSchedule);
     }
 
     public function getTimeSchedule()
@@ -45,9 +35,8 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
         return (!$this->timeSchedule) ?: $this->timeSchedule->value();
     }
 
-    public function setHolidaySchedule($holidaySchedule)
+    public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $holidaySchedule and $this->holidaySchedule = new HolidaySchedule($holidaySchedule);
     }
 
     public function getHolidaySchedule()
@@ -55,9 +44,8 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
         return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
     }
 
-    public function setBlacklisted($blacklisted)
+    public function setBlacklisted(xs:boolean $blacklisted = null)
     {
-        $blacklisted and $this->blacklisted = new xs:boolean($blacklisted);
     }
 
     public function getBlacklisted()
@@ -65,9 +53,8 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
         return (!$this->blacklisted) ?: $this->blacklisted->value();
     }
 
-    public function setFromDnCriteria($fromDnCriteria)
+    public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $fromDnCriteria and $this->fromDnCriteria = new CriteriaFromDn($fromDnCriteria);
     }
 
     public function getFromDnCriteria()

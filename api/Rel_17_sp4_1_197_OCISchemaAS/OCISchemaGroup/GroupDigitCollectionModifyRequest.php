@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDigitCollectionSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDigitCollectionSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,28 +22,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $useSetting         = null;
+    protected $accessCode         = null;
+    protected $publicDigitMap     = null;
+    protected $privateDigitMap    = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $useSetting=null,
-             $accessCode=null,
-             $publicDigitMap=null,
-             $privateDigitMap=null
+         $serviceProviderId,
+         $groupId,
+         $useSetting = null,
+         $accessCode = null,
+         $publicDigitMap = null,
+         $privateDigitMap = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->useSetting        = $useSetting;
-        $this->accessCode        = new AccessCode($accessCode);
-        $this->publicDigitMap    = new DigitMap($publicDigitMap);
-        $this->privateDigitMap   = new DigitMap($privateDigitMap);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setUseSetting($useSetting);
+        $this->setAccessCode($accessCode);
+        $this->setPublicDigitMap($publicDigitMap);
+        $this->setPrivateDigitMap($privateDigitMap);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -51,9 +58,11 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -61,9 +70,11 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setUseSetting($useSetting)
+    public function setUseSetting($useSetting = null)
     {
-        $useSetting and $this->useSetting = new GroupDigitCollectionSettingLevel($useSetting);
+        $this->useSetting = ($useSetting InstanceOf GroupDigitCollectionSettingLevel)
+             ? $useSetting
+             : new GroupDigitCollectionSettingLevel($useSetting);
     }
 
     public function getUseSetting()
@@ -71,9 +82,11 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         return (!$this->useSetting) ?: $this->useSetting->value();
     }
 
-    public function setAccessCode($accessCode)
+    public function setAccessCode($accessCode = null)
     {
-        $accessCode and $this->accessCode = new AccessCode($accessCode);
+        $this->accessCode = ($accessCode InstanceOf AccessCode)
+             ? $accessCode
+             : new AccessCode($accessCode);
     }
 
     public function getAccessCode()
@@ -81,9 +94,11 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         return (!$this->accessCode) ?: $this->accessCode->value();
     }
 
-    public function setPublicDigitMap($publicDigitMap)
+    public function setPublicDigitMap($publicDigitMap = null)
     {
-        $publicDigitMap and $this->publicDigitMap = new DigitMap($publicDigitMap);
+        $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
+             ? $publicDigitMap
+             : new DigitMap($publicDigitMap);
     }
 
     public function getPublicDigitMap()
@@ -91,9 +106,11 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         return (!$this->publicDigitMap) ?: $this->publicDigitMap->value();
     }
 
-    public function setPrivateDigitMap($privateDigitMap)
+    public function setPrivateDigitMap($privateDigitMap = null)
     {
-        $privateDigitMap and $this->privateDigitMap = new DigitMap($privateDigitMap);
+        $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
+             ? $privateDigitMap
+             : new DigitMap($privateDigitMap);
     }
 
     public function getPrivateDigitMap()

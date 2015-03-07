@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PreferredCarrierName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPreferredCarrierDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $carrier  = null;
 
     public function __construct(
-             $carrier
+         $carrier
     ) {
-        $this->carrier = $carrier;
-        $this->args    = func_get_args();
+        $this->setCarrier($carrier);
     }
 
-    public function setCarrier($carrier)
+    public function setCarrier($carrier = null)
     {
-        $carrier and $this->carrier = new PreferredCarrierName($carrier);
+        $this->carrier = ($carrier InstanceOf PreferredCarrierName)
+             ? $carrier
+             : new PreferredCarrierName($carrier);
     }
 
     public function getCarrier()

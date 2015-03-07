@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $holidayScheduleName  = null;
 
-    public function __construct(
-             $holidayScheduleName=null
-    ) {
-        $this->holidayScheduleName = new ScheduleName($holidayScheduleName);
-        $this->args                = func_get_args();
-    }
 
-    public function setHolidayScheduleName($holidayScheduleName)
+    public function setHolidayScheduleName($holidayScheduleName = null)
     {
-        $holidayScheduleName and $this->holidayScheduleName = new ScheduleName($holidayScheduleName);
+        $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
+             ? $holidayScheduleName
+             : new ScheduleName($holidayScheduleName);
     }
 
     public function getHolidayScheduleName()

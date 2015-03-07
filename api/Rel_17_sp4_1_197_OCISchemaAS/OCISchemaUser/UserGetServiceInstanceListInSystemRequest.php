@@ -7,14 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactServiceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExtension;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactServiceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExtension;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,32 +27,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetServiceInstanceListInSystemRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $responseSizeLimit                   = null;
+    protected $searchCriteriaExactServiceType      = null;
+    protected $searchCriteriaUserId                = null;
+    protected $searchCriteriaUserLastName          = null;
+    protected $searchCriteriaDn                    = null;
+    protected $searchCriteriaExtension             = null;
+    protected $searchCriteriaGroupId               = null;
+    protected $searchCriteriaExactServiceProvider  = null;
 
     public function __construct(
-             $responseSizeLimit=null,
-             $searchCriteriaExactServiceType=null,
-             $searchCriteriaUserId=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaDn=null,
-             $searchCriteriaExtension=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaExactServiceProvider=null
+         $responseSizeLimit = null,
+         SearchCriteriaExactServiceType $searchCriteriaExactServiceType = null,
+         SearchCriteriaUserId $searchCriteriaUserId = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaExtension $searchCriteriaExtension = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
     ) {
-        $this->responseSizeLimit                  = $responseSizeLimit;
-        $this->searchCriteriaExactServiceType     = $searchCriteriaExactServiceType;
-        $this->searchCriteriaUserId               = $searchCriteriaUserId;
-        $this->searchCriteriaUserLastName         = $searchCriteriaUserLastName;
-        $this->searchCriteriaDn                   = $searchCriteriaDn;
-        $this->searchCriteriaExtension            = $searchCriteriaExtension;
-        $this->searchCriteriaGroupId              = $searchCriteriaGroupId;
-        $this->searchCriteriaExactServiceProvider = $searchCriteriaExactServiceProvider;
-        $this->args                               = func_get_args();
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaExactServiceType($searchCriteriaExactServiceType);
+        $this->setSearchCriteriaUserId($searchCriteriaUserId);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
+        $this->setSearchCriteriaExtension($searchCriteriaExtension);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -60,9 +69,8 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaExactServiceType($searchCriteriaExactServiceType)
+    public function setSearchCriteriaExactServiceType(SearchCriteriaExactServiceType $searchCriteriaExactServiceType = null)
     {
-        $searchCriteriaExactServiceType and $this->searchCriteriaExactServiceType = new SearchCriteriaExactServiceType($searchCriteriaExactServiceType);
     }
 
     public function getSearchCriteriaExactServiceType()
@@ -70,9 +78,8 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         return (!$this->searchCriteriaExactServiceType) ?: $this->searchCriteriaExactServiceType->value();
     }
 
-    public function setSearchCriteriaUserId($searchCriteriaUserId)
+    public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $searchCriteriaUserId and $this->searchCriteriaUserId = new SearchCriteriaUserId($searchCriteriaUserId);
     }
 
     public function getSearchCriteriaUserId()
@@ -80,9 +87,8 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -90,9 +96,8 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()
@@ -100,9 +105,8 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
     }
 
-    public function setSearchCriteriaExtension($searchCriteriaExtension)
+    public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $searchCriteriaExtension and $this->searchCriteriaExtension = new SearchCriteriaExtension($searchCriteriaExtension);
     }
 
     public function getSearchCriteriaExtension()
@@ -110,9 +114,8 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -120,9 +123,8 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider)
+    public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        $searchCriteriaExactServiceProvider and $this->searchCriteriaExactServiceProvider = new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
     }
 
     public function getSearchCriteriaExactServiceProvider()

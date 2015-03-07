@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPServerCallCenterMaxClientConnections;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPConnectionPingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CCC2MaxClientConnections;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPMaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CAPMaxClientConnections;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CAPConnectionPingIntervalMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CCC2MaxClientConnections;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CAPServerCallCenterMaxClientConnections;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,32 +22,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                     = __CLASS__;
+    protected $serverPort                               = null;
+    protected $maxClientConnections                     = null;
+    protected $enableConnectionPing                     = null;
+    protected $connectionPingIntervalMinutes            = null;
+    protected $CCC2ServerPort                           = null;
+    protected $CCC2MaxClientConnections                 = null;
+    protected $capServerCallCenterPort                  = null;
+    protected $capServerCallCenterMaxClientConnections  = null;
 
     public function __construct(
-             $serverPort=null,
-             $maxClientConnections=null,
-             $enableConnectionPing=null,
-             $connectionPingIntervalMinutes=null,
-             $CCC2ServerPort=null,
-             $CCC2MaxClientConnections=null,
-             $capServerCallCenterPort=null,
-             $capServerCallCenterMaxClientConnections=null
+         $serverPort = null,
+         $maxClientConnections = null,
+         $enableConnectionPing = null,
+         $connectionPingIntervalMinutes = null,
+         $CCC2ServerPort = null,
+         $CCC2MaxClientConnections = null,
+         $capServerCallCenterPort = null,
+         $capServerCallCenterMaxClientConnections = null
     ) {
-        $this->serverPort                              = new Port1025($serverPort);
-        $this->maxClientConnections                    = $maxClientConnections;
-        $this->enableConnectionPing                    = $enableConnectionPing;
-        $this->connectionPingIntervalMinutes           = $connectionPingIntervalMinutes;
-        $this->CCC2ServerPort                          = new Port1025($CCC2ServerPort);
-        $this->CCC2MaxClientConnections                = $CCC2MaxClientConnections;
-        $this->capServerCallCenterPort                 = new Port1025($capServerCallCenterPort);
-        $this->capServerCallCenterMaxClientConnections = $capServerCallCenterMaxClientConnections;
-        $this->args                                    = func_get_args();
+        $this->setServerPort($serverPort);
+        $this->setMaxClientConnections($maxClientConnections);
+        $this->setEnableConnectionPing($enableConnectionPing);
+        $this->setConnectionPingIntervalMinutes($connectionPingIntervalMinutes);
+        $this->setCCC2ServerPort($CCC2ServerPort);
+        $this->setCCC2MaxClientConnections($CCC2MaxClientConnections);
+        $this->setCapServerCallCenterPort($capServerCallCenterPort);
+        $this->setCapServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections);
     }
 
-    public function setServerPort($serverPort)
+    public function setServerPort($serverPort = null)
     {
-        $serverPort and $this->serverPort = new Port1025($serverPort);
+        $this->serverPort = ($serverPort InstanceOf Port1025)
+             ? $serverPort
+             : new Port1025($serverPort);
     }
 
     public function getServerPort()
@@ -56,9 +64,11 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         return (!$this->serverPort) ?: $this->serverPort->value();
     }
 
-    public function setMaxClientConnections($maxClientConnections)
+    public function setMaxClientConnections($maxClientConnections = null)
     {
-        $maxClientConnections and $this->maxClientConnections = new CAPMaxClientConnections($maxClientConnections);
+        $this->maxClientConnections = ($maxClientConnections InstanceOf CAPMaxClientConnections)
+             ? $maxClientConnections
+             : new CAPMaxClientConnections($maxClientConnections);
     }
 
     public function getMaxClientConnections()
@@ -66,9 +76,8 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         return (!$this->maxClientConnections) ?: $this->maxClientConnections->value();
     }
 
-    public function setEnableConnectionPing($enableConnectionPing)
+    public function setEnableConnectionPing(xs:boolean $enableConnectionPing = null)
     {
-        $enableConnectionPing and $this->enableConnectionPing = new xs:boolean($enableConnectionPing);
     }
 
     public function getEnableConnectionPing()
@@ -76,9 +85,11 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         return (!$this->enableConnectionPing) ?: $this->enableConnectionPing->value();
     }
 
-    public function setConnectionPingIntervalMinutes($connectionPingIntervalMinutes)
+    public function setConnectionPingIntervalMinutes($connectionPingIntervalMinutes = null)
     {
-        $connectionPingIntervalMinutes and $this->connectionPingIntervalMinutes = new CAPConnectionPingIntervalMinutes($connectionPingIntervalMinutes);
+        $this->connectionPingIntervalMinutes = ($connectionPingIntervalMinutes InstanceOf CAPConnectionPingIntervalMinutes)
+             ? $connectionPingIntervalMinutes
+             : new CAPConnectionPingIntervalMinutes($connectionPingIntervalMinutes);
     }
 
     public function getConnectionPingIntervalMinutes()
@@ -86,9 +97,11 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         return (!$this->connectionPingIntervalMinutes) ?: $this->connectionPingIntervalMinutes->value();
     }
 
-    public function setCCC2ServerPort($CCC2ServerPort)
+    public function setCCC2ServerPort($CCC2ServerPort = null)
     {
-        $CCC2ServerPort and $this->CCC2ServerPort = new Port1025($CCC2ServerPort);
+        $this->CCC2ServerPort = ($CCC2ServerPort InstanceOf Port1025)
+             ? $CCC2ServerPort
+             : new Port1025($CCC2ServerPort);
     }
 
     public function getCCC2ServerPort()
@@ -96,9 +109,11 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         return (!$this->CCC2ServerPort) ?: $this->CCC2ServerPort->value();
     }
 
-    public function setCCC2MaxClientConnections($CCC2MaxClientConnections)
+    public function setCCC2MaxClientConnections($CCC2MaxClientConnections = null)
     {
-        $CCC2MaxClientConnections and $this->CCC2MaxClientConnections = new CCC2MaxClientConnections($CCC2MaxClientConnections);
+        $this->CCC2MaxClientConnections = ($CCC2MaxClientConnections InstanceOf CCC2MaxClientConnections)
+             ? $CCC2MaxClientConnections
+             : new CCC2MaxClientConnections($CCC2MaxClientConnections);
     }
 
     public function getCCC2MaxClientConnections()
@@ -106,9 +121,11 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         return (!$this->CCC2MaxClientConnections) ?: $this->CCC2MaxClientConnections->value();
     }
 
-    public function setCapServerCallCenterPort($capServerCallCenterPort)
+    public function setCapServerCallCenterPort($capServerCallCenterPort = null)
     {
-        $capServerCallCenterPort and $this->capServerCallCenterPort = new Port1025($capServerCallCenterPort);
+        $this->capServerCallCenterPort = ($capServerCallCenterPort InstanceOf Port1025)
+             ? $capServerCallCenterPort
+             : new Port1025($capServerCallCenterPort);
     }
 
     public function getCapServerCallCenterPort()
@@ -116,9 +133,11 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         return (!$this->capServerCallCenterPort) ?: $this->capServerCallCenterPort->value();
     }
 
-    public function setCapServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections)
+    public function setCapServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections = null)
     {
-        $capServerCallCenterMaxClientConnections and $this->capServerCallCenterMaxClientConnections = new CAPServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections);
+        $this->capServerCallCenterMaxClientConnections = ($capServerCallCenterMaxClientConnections InstanceOf CAPServerCallCenterMaxClientConnections)
+             ? $capServerCallCenterMaxClientConnections
+             : new CAPServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections);
     }
 
     public function getCapServerCallCenterMaxClientConnections()

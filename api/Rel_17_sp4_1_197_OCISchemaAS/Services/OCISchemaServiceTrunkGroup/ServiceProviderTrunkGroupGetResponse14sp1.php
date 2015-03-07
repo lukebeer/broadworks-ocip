@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $maxActiveCalls          = null;
+    protected $burstingMaxActiveCalls  = null;
 
-    public function __construct(
-             UnboundedNonNegativeInt $maxActiveCalls,
-             UnboundedNonNegativeInt $burstingMaxActiveCalls
-    ) {
-        $this->maxActiveCalls         = $maxActiveCalls;
-        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
-        $this->args                   = func_get_args();
-    }
 
-    public function setMaxActiveCalls($maxActiveCalls)
+    public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        $maxActiveCalls and $this->maxActiveCalls = new UnboundedNonNegativeInt($maxActiveCalls);
     }
 
     public function getMaxActiveCalls()
@@ -39,9 +32,8 @@ class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements C
         return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
     }
 
-    public function setBurstingMaxActiveCalls($burstingMaxActiveCalls)
+    public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        $burstingMaxActiveCalls and $this->burstingMaxActiveCalls = new UnboundedNonNegativeInt($burstingMaxActiveCalls);
     }
 
     public function getBurstingMaxActiveCalls()

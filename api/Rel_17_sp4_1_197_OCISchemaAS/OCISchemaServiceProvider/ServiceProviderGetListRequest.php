@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaServiceProviderName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaServiceProviderName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,24 +22,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $isEnterprise                       = null;
+    protected $responseSizeLimit                  = null;
+    protected $searchCriteriaServiceProviderId    = null;
+    protected $searchCriteriaServiceProviderName  = null;
 
     public function __construct(
-             $isEnterprise=null,
-             $responseSizeLimit=null,
-             $searchCriteriaServiceProviderId=null,
-             $searchCriteriaServiceProviderName=null
+         $isEnterprise = null,
+         $responseSizeLimit = null,
+         SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null,
+         SearchCriteriaServiceProviderName $searchCriteriaServiceProviderName = null
     ) {
-        $this->isEnterprise                      = $isEnterprise;
-        $this->responseSizeLimit                 = $responseSizeLimit;
-        $this->searchCriteriaServiceProviderId   = $searchCriteriaServiceProviderId;
-        $this->searchCriteriaServiceProviderName = $searchCriteriaServiceProviderName;
-        $this->args                              = func_get_args();
+        $this->setIsEnterprise($isEnterprise);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaServiceProviderId($searchCriteriaServiceProviderId);
+        $this->setSearchCriteriaServiceProviderName($searchCriteriaServiceProviderName);
     }
 
-    public function setIsEnterprise($isEnterprise)
+    public function setIsEnterprise(xs:boolean $isEnterprise = null)
     {
-        $isEnterprise and $this->isEnterprise = new xs:boolean($isEnterprise);
     }
 
     public function getIsEnterprise()
@@ -48,9 +49,11 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
         return (!$this->isEnterprise) ?: $this->isEnterprise->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -58,9 +61,8 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaServiceProviderId($searchCriteriaServiceProviderId)
+    public function setSearchCriteriaServiceProviderId(SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null)
     {
-        $searchCriteriaServiceProviderId and $this->searchCriteriaServiceProviderId = new SearchCriteriaServiceProviderId($searchCriteriaServiceProviderId);
     }
 
     public function getSearchCriteriaServiceProviderId()
@@ -68,9 +70,8 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
         return (!$this->searchCriteriaServiceProviderId) ?: $this->searchCriteriaServiceProviderId->value();
     }
 
-    public function setSearchCriteriaServiceProviderName($searchCriteriaServiceProviderName)
+    public function setSearchCriteriaServiceProviderName(SearchCriteriaServiceProviderName $searchCriteriaServiceProviderName = null)
     {
-        $searchCriteriaServiceProviderName and $this->searchCriteriaServiceProviderName = new SearchCriteriaServiceProviderName($searchCriteriaServiceProviderName);
     }
 
     public function getSearchCriteriaServiceProviderName()

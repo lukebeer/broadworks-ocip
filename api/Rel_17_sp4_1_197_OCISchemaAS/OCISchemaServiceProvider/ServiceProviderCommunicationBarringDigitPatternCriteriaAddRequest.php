@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPattern;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $name               = null;
+    protected $description        = null;
+    protected $matchDigitPattern  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $name,
-             $description=null,
-             $matchDigitPattern=null
+         $serviceProviderId,
+         $name,
+         $description = null,
+         $matchDigitPattern = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->name              = new DigitPatternCriteriaName($name);
-        $this->description       = new DigitPatternCriteriaDescription($description);
-        $this->matchDigitPattern = new DigitPattern($matchDigitPattern);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setMatchDigitPattern($matchDigitPattern);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -46,9 +51,11 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new DigitPatternCriteriaName($name);
+        $this->name = ($name InstanceOf DigitPatternCriteriaName)
+             ? $name
+             : new DigitPatternCriteriaName($name);
     }
 
     public function getName()
@@ -56,9 +63,11 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new DigitPatternCriteriaDescription($description);
+        $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
+             ? $description
+             : new DigitPatternCriteriaDescription($description);
     }
 
     public function getDescription()
@@ -66,9 +75,11 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setMatchDigitPattern($matchDigitPattern)
+    public function setMatchDigitPattern($matchDigitPattern = null)
     {
-        $matchDigitPattern and $this->matchDigitPattern = new DigitPattern($matchDigitPattern);
+        $this->matchDigitPattern = ($matchDigitPattern InstanceOf DigitPattern)
+             ? $matchDigitPattern
+             : new DigitPattern($matchDigitPattern);
     }
 
     public function getMatchDigitPattern()

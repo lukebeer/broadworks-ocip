@@ -20,6 +20,5 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

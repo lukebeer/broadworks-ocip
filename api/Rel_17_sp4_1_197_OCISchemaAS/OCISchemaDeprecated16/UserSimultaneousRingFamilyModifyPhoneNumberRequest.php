@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $userId                      = null;
+    protected $phoneNumber                 = null;
+    protected $answerConfirmationRequired  = null;
 
     public function __construct(
-             $userId,
-             $phoneNumber,
-             $answerConfirmationRequired=null
+         $userId,
+         $phoneNumber,
+         $answerConfirmationRequired = null
     ) {
-        $this->userId                     = new UserId($userId);
-        $this->phoneNumber                = new OutgoingDNorSIPURI($phoneNumber);
-        $this->answerConfirmationRequired = $answerConfirmationRequired;
-        $this->args                       = func_get_args();
+        $this->setUserId($userId);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setAnswerConfirmationRequired($answerConfirmationRequired);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,11 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new OutgoingDNorSIPURI($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $phoneNumber
+             : new OutgoingDNorSIPURI($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -53,9 +58,8 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setAnswerConfirmationRequired($answerConfirmationRequired)
+    public function setAnswerConfirmationRequired(xs:boolean $answerConfirmationRequired = null)
     {
-        $answerConfirmationRequired and $this->answerConfirmationRequired = new xs:boolean($answerConfirmationRequired);
     }
 
     public function getAnswerConfirmationRequired()

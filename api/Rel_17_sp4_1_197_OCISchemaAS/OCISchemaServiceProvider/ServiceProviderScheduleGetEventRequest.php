@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $scheduleKey        = null;
+    protected $eventName          = null;
 
     public function __construct(
-             $serviceProviderId,
-             ScheduleKey $scheduleKey,
-             $eventName
+         $serviceProviderId,
+         ScheduleKey $scheduleKey,
+         $eventName
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->scheduleKey       = $scheduleKey;
-        $this->eventName         = new EventName($eventName);
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setScheduleKey($scheduleKey);
+        $this->setEventName($eventName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -43,9 +47,8 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()
@@ -53,9 +56,11 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
         return (!$this->scheduleKey) ?: $this->scheduleKey->value();
     }
 
-    public function setEventName($eventName)
+    public function setEventName($eventName = null)
     {
-        $eventName and $this->eventName = new EventName($eventName);
+        $this->eventName = ($eventName InstanceOf EventName)
+             ? $eventName
+             : new EventName($eventName);
     }
 
     public function getEventName()

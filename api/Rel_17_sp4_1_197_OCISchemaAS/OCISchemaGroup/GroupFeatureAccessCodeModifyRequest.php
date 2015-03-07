@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupFeatureAccessCodeLevel;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,22 +21,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupFeatureAccessCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $serviceProviderId          = null;
+    protected $groupId                    = null;
+    protected $useFeatureAccessCodeLevel  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $useFeatureAccessCodeLevel=null
+         $serviceProviderId,
+         $groupId,
+         $useFeatureAccessCodeLevel = null
     ) {
-        $this->serviceProviderId         = new ServiceProviderId($serviceProviderId);
-        $this->groupId                   = new GroupId($groupId);
-        $this->useFeatureAccessCodeLevel = $useFeatureAccessCodeLevel;
-        $this->args                      = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -44,9 +48,11 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -54,9 +60,11 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel)
+    public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel = null)
     {
-        $useFeatureAccessCodeLevel and $this->useFeatureAccessCodeLevel = new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
+        $this->useFeatureAccessCodeLevel = ($useFeatureAccessCodeLevel InstanceOf GroupFeatureAccessCodeLevel)
+             ? $useFeatureAccessCodeLevel
+             : new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
     }
 
     public function getUseFeatureAccessCodeLevel()

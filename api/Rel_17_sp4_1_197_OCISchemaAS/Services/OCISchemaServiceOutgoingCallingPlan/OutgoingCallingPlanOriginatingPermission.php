@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,13 +22,13 @@ class OutgoingCallingPlanOriginatingPermission extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Disallow',
-                                              'Allow',
-                                              'Authorization Code Required',
-                                              'Transfer To First Transfer Number',
-                                              'Transfer To Second Transfer Number',
-                                              'Transfer To Third Transfer Number'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Disallow',
+            'Allow',
+            'Authorization Code Required',
+            'Transfer To First Transfer Number',
+            'Transfer To Second Transfer Number',
+            'Transfer To Third Transfer Number'
+        ]));
     }
 }

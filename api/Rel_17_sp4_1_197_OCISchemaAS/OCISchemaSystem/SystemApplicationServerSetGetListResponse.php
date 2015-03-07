@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemApplicationServerSetGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $applicationServerSets  = null;
 
-    public function __construct(
-             $applicationServerSets=null
-    ) {
-        $this->applicationServerSets = new ApplicationServerSetName($applicationServerSets);
-        $this->args                  = func_get_args();
-    }
 
-    public function setApplicationServerSets($applicationServerSets)
+    public function setApplicationServerSets($applicationServerSets = null)
     {
-        $applicationServerSets and $this->applicationServerSets = new ApplicationServerSetName($applicationServerSets);
+        $this->applicationServerSets = ($applicationServerSets InstanceOf ApplicationServerSetName)
+             ? $applicationServerSets
+             : new ApplicationServerSetName($applicationServerSets);
     }
 
     public function getApplicationServerSets()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $smdiServerRouteTable  = null;
 
-    public function __construct(
-             $smdiServerRouteTable
-    ) {
-        $this->smdiServerRouteTable = $smdiServerRouteTable;
-        $this->args                 = func_get_args();
-    }
 
-    public function setSmdiServerRouteTable($smdiServerRouteTable)
+    public function setSmdiServerRouteTable(core:OCITable $smdiServerRouteTable = null)
     {
-        $smdiServerRouteTable and $this->smdiServerRouteTable = new core:OCITable($smdiServerRouteTable);
     }
 
     public function getSmdiServerRouteTable()

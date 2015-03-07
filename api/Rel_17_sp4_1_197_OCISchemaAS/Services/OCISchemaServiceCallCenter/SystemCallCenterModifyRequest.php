@@ -7,15 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterUniformCallDistributionPolicyScope;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsSamplingPeriodMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEmergencyCallCLIDPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallHandlingSamplingPeriodMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallHandlingMinimumSamplingSize;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterStatisticsSamplingPeriodMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterGuardTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterUniformCallDistributionPolicyScope;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallHandlingSamplingPeriodMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallHandlingMinimumSamplingSize;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterEmergencyCallCLIDPrefix;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -26,44 +25,59 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                                  = __CLASS__;
+    protected $defaultFromAddress                                    = null;
+    protected $statisticsSamplingPeriodMinutes                       = null;
+    protected $defaultEnableGuardTimer                               = null;
+    protected $defaultGuardTimerSeconds                              = null;
+    protected $forceAgentUnavailableOnDNDActivation                  = null;
+    protected $forceAgentUnavailableOnPersonalCalls                  = null;
+    protected $forceAgentUnavailableOnBouncedCallLimit               = null;
+    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable  = null;
+    protected $defaultPlayRingWhenOfferCall                          = null;
+    protected $uniformCallDistributionPolicyScope                    = null;
+    protected $callHandlingSamplingPeriodMinutes                     = null;
+    protected $callHandlingMinimumSamplingSize                       = null;
+    protected $playToneToAgentForEmergencyCall                       = null;
+    protected $emergencyCallCLIDPrefix                               = null;
 
     public function __construct(
-             $defaultFromAddress=null,
-             $statisticsSamplingPeriodMinutes=null,
-             $defaultEnableGuardTimer=null,
-             $defaultGuardTimerSeconds=null,
-             $forceAgentUnavailableOnDNDActivation=null,
-             $forceAgentUnavailableOnPersonalCalls=null,
-             $forceAgentUnavailableOnBouncedCallLimit=null,
-             $numberConsecutiveBouncedCallsToForceAgentUnavailable=null,
-             $defaultPlayRingWhenOfferCall=null,
-             $uniformCallDistributionPolicyScope=null,
-             $callHandlingSamplingPeriodMinutes=null,
-             $callHandlingMinimumSamplingSize=null,
-             $playToneToAgentForEmergencyCall=null,
-             $emergencyCallCLIDPrefix=null
+         $defaultFromAddress = null,
+         $statisticsSamplingPeriodMinutes = null,
+         $defaultEnableGuardTimer = null,
+         $defaultGuardTimerSeconds = null,
+         $forceAgentUnavailableOnDNDActivation = null,
+         $forceAgentUnavailableOnPersonalCalls = null,
+         $forceAgentUnavailableOnBouncedCallLimit = null,
+         $numberConsecutiveBouncedCallsToForceAgentUnavailable = null,
+         $defaultPlayRingWhenOfferCall = null,
+         $uniformCallDistributionPolicyScope = null,
+         $callHandlingSamplingPeriodMinutes = null,
+         $callHandlingMinimumSamplingSize = null,
+         $playToneToAgentForEmergencyCall = null,
+         $emergencyCallCLIDPrefix = null
     ) {
-        $this->defaultFromAddress                                   = new EmailAddress($defaultFromAddress);
-        $this->statisticsSamplingPeriodMinutes                      = $statisticsSamplingPeriodMinutes;
-        $this->defaultEnableGuardTimer                              = $defaultEnableGuardTimer;
-        $this->defaultGuardTimerSeconds                             = $defaultGuardTimerSeconds;
-        $this->forceAgentUnavailableOnDNDActivation                 = $forceAgentUnavailableOnDNDActivation;
-        $this->forceAgentUnavailableOnPersonalCalls                 = $forceAgentUnavailableOnPersonalCalls;
-        $this->forceAgentUnavailableOnBouncedCallLimit              = $forceAgentUnavailableOnBouncedCallLimit;
-        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = $numberConsecutiveBouncedCallsToForceAgentUnavailable;
-        $this->defaultPlayRingWhenOfferCall                         = $defaultPlayRingWhenOfferCall;
-        $this->uniformCallDistributionPolicyScope                   = $uniformCallDistributionPolicyScope;
-        $this->callHandlingSamplingPeriodMinutes                    = $callHandlingSamplingPeriodMinutes;
-        $this->callHandlingMinimumSamplingSize                      = $callHandlingMinimumSamplingSize;
-        $this->playToneToAgentForEmergencyCall                      = $playToneToAgentForEmergencyCall;
-        $this->emergencyCallCLIDPrefix                              = $emergencyCallCLIDPrefix;
-        $this->args                                                 = func_get_args();
+        $this->setDefaultFromAddress($defaultFromAddress);
+        $this->setStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
+        $this->setDefaultEnableGuardTimer($defaultEnableGuardTimer);
+        $this->setDefaultGuardTimerSeconds($defaultGuardTimerSeconds);
+        $this->setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation);
+        $this->setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls);
+        $this->setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit);
+        $this->setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+        $this->setDefaultPlayRingWhenOfferCall($defaultPlayRingWhenOfferCall);
+        $this->setUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
+        $this->setCallHandlingSamplingPeriodMinutes($callHandlingSamplingPeriodMinutes);
+        $this->setCallHandlingMinimumSamplingSize($callHandlingMinimumSamplingSize);
+        $this->setPlayToneToAgentForEmergencyCall($playToneToAgentForEmergencyCall);
+        $this->setEmergencyCallCLIDPrefix($emergencyCallCLIDPrefix);
     }
 
-    public function setDefaultFromAddress($defaultFromAddress)
+    public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        $defaultFromAddress and $this->defaultFromAddress = new EmailAddress($defaultFromAddress);
+        $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
+             ? $defaultFromAddress
+             : new EmailAddress($defaultFromAddress);
     }
 
     public function getDefaultFromAddress()
@@ -71,9 +85,11 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->value();
     }
 
-    public function setStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes)
+    public function setStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes = null)
     {
-        $statisticsSamplingPeriodMinutes and $this->statisticsSamplingPeriodMinutes = new CallCenterStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
+        $this->statisticsSamplingPeriodMinutes = ($statisticsSamplingPeriodMinutes InstanceOf CallCenterStatisticsSamplingPeriodMinutes)
+             ? $statisticsSamplingPeriodMinutes
+             : new CallCenterStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
     }
 
     public function getStatisticsSamplingPeriodMinutes()
@@ -81,9 +97,8 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->statisticsSamplingPeriodMinutes) ?: $this->statisticsSamplingPeriodMinutes->value();
     }
 
-    public function setDefaultEnableGuardTimer($defaultEnableGuardTimer)
+    public function setDefaultEnableGuardTimer(xs:boolean $defaultEnableGuardTimer = null)
     {
-        $defaultEnableGuardTimer and $this->defaultEnableGuardTimer = new xs:boolean($defaultEnableGuardTimer);
     }
 
     public function getDefaultEnableGuardTimer()
@@ -91,9 +106,11 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->defaultEnableGuardTimer) ?: $this->defaultEnableGuardTimer->value();
     }
 
-    public function setDefaultGuardTimerSeconds($defaultGuardTimerSeconds)
+    public function setDefaultGuardTimerSeconds($defaultGuardTimerSeconds = null)
     {
-        $defaultGuardTimerSeconds and $this->defaultGuardTimerSeconds = new CallCenterGuardTimerSeconds($defaultGuardTimerSeconds);
+        $this->defaultGuardTimerSeconds = ($defaultGuardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
+             ? $defaultGuardTimerSeconds
+             : new CallCenterGuardTimerSeconds($defaultGuardTimerSeconds);
     }
 
     public function getDefaultGuardTimerSeconds()
@@ -101,9 +118,8 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->defaultGuardTimerSeconds) ?: $this->defaultGuardTimerSeconds->value();
     }
 
-    public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation)
+    public function setForceAgentUnavailableOnDNDActivation(xs:boolean $forceAgentUnavailableOnDNDActivation = null)
     {
-        $forceAgentUnavailableOnDNDActivation and $this->forceAgentUnavailableOnDNDActivation = new xs:boolean($forceAgentUnavailableOnDNDActivation);
     }
 
     public function getForceAgentUnavailableOnDNDActivation()
@@ -111,9 +127,8 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->value();
     }
 
-    public function setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls)
+    public function setForceAgentUnavailableOnPersonalCalls(xs:boolean $forceAgentUnavailableOnPersonalCalls = null)
     {
-        $forceAgentUnavailableOnPersonalCalls and $this->forceAgentUnavailableOnPersonalCalls = new xs:boolean($forceAgentUnavailableOnPersonalCalls);
     }
 
     public function getForceAgentUnavailableOnPersonalCalls()
@@ -121,9 +136,8 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->value();
     }
 
-    public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit)
+    public function setForceAgentUnavailableOnBouncedCallLimit(xs:boolean $forceAgentUnavailableOnBouncedCallLimit = null)
     {
-        $forceAgentUnavailableOnBouncedCallLimit and $this->forceAgentUnavailableOnBouncedCallLimit = new xs:boolean($forceAgentUnavailableOnBouncedCallLimit);
     }
 
     public function getForceAgentUnavailableOnBouncedCallLimit()
@@ -131,9 +145,11 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->value();
     }
 
-    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable)
+    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
-        $numberConsecutiveBouncedCallsToForceAgentUnavailable and $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
+             ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
+             : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
     }
 
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
@@ -141,9 +157,8 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ?: $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->value();
     }
 
-    public function setDefaultPlayRingWhenOfferCall($defaultPlayRingWhenOfferCall)
+    public function setDefaultPlayRingWhenOfferCall(xs:boolean $defaultPlayRingWhenOfferCall = null)
     {
-        $defaultPlayRingWhenOfferCall and $this->defaultPlayRingWhenOfferCall = new xs:boolean($defaultPlayRingWhenOfferCall);
     }
 
     public function getDefaultPlayRingWhenOfferCall()
@@ -151,9 +166,11 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->defaultPlayRingWhenOfferCall) ?: $this->defaultPlayRingWhenOfferCall->value();
     }
 
-    public function setUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope)
+    public function setUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope = null)
     {
-        $uniformCallDistributionPolicyScope and $this->uniformCallDistributionPolicyScope = new CallCenterUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
+        $this->uniformCallDistributionPolicyScope = ($uniformCallDistributionPolicyScope InstanceOf CallCenterUniformCallDistributionPolicyScope)
+             ? $uniformCallDistributionPolicyScope
+             : new CallCenterUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
     }
 
     public function getUniformCallDistributionPolicyScope()
@@ -161,9 +178,11 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->uniformCallDistributionPolicyScope) ?: $this->uniformCallDistributionPolicyScope->value();
     }
 
-    public function setCallHandlingSamplingPeriodMinutes($callHandlingSamplingPeriodMinutes)
+    public function setCallHandlingSamplingPeriodMinutes($callHandlingSamplingPeriodMinutes = null)
     {
-        $callHandlingSamplingPeriodMinutes and $this->callHandlingSamplingPeriodMinutes = new CallHandlingSamplingPeriodMinutes($callHandlingSamplingPeriodMinutes);
+        $this->callHandlingSamplingPeriodMinutes = ($callHandlingSamplingPeriodMinutes InstanceOf CallHandlingSamplingPeriodMinutes)
+             ? $callHandlingSamplingPeriodMinutes
+             : new CallHandlingSamplingPeriodMinutes($callHandlingSamplingPeriodMinutes);
     }
 
     public function getCallHandlingSamplingPeriodMinutes()
@@ -171,9 +190,11 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->callHandlingSamplingPeriodMinutes) ?: $this->callHandlingSamplingPeriodMinutes->value();
     }
 
-    public function setCallHandlingMinimumSamplingSize($callHandlingMinimumSamplingSize)
+    public function setCallHandlingMinimumSamplingSize($callHandlingMinimumSamplingSize = null)
     {
-        $callHandlingMinimumSamplingSize and $this->callHandlingMinimumSamplingSize = new CallHandlingMinimumSamplingSize($callHandlingMinimumSamplingSize);
+        $this->callHandlingMinimumSamplingSize = ($callHandlingMinimumSamplingSize InstanceOf CallHandlingMinimumSamplingSize)
+             ? $callHandlingMinimumSamplingSize
+             : new CallHandlingMinimumSamplingSize($callHandlingMinimumSamplingSize);
     }
 
     public function getCallHandlingMinimumSamplingSize()
@@ -181,9 +202,8 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->callHandlingMinimumSamplingSize) ?: $this->callHandlingMinimumSamplingSize->value();
     }
 
-    public function setPlayToneToAgentForEmergencyCall($playToneToAgentForEmergencyCall)
+    public function setPlayToneToAgentForEmergencyCall(xs:boolean $playToneToAgentForEmergencyCall = null)
     {
-        $playToneToAgentForEmergencyCall and $this->playToneToAgentForEmergencyCall = new xs:boolean($playToneToAgentForEmergencyCall);
     }
 
     public function getPlayToneToAgentForEmergencyCall()
@@ -191,9 +211,11 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->playToneToAgentForEmergencyCall) ?: $this->playToneToAgentForEmergencyCall->value();
     }
 
-    public function setEmergencyCallCLIDPrefix($emergencyCallCLIDPrefix)
+    public function setEmergencyCallCLIDPrefix($emergencyCallCLIDPrefix = null)
     {
-        $emergencyCallCLIDPrefix and $this->emergencyCallCLIDPrefix = new CallCenterEmergencyCallCLIDPrefix($emergencyCallCLIDPrefix);
+        $this->emergencyCallCLIDPrefix = ($emergencyCallCLIDPrefix InstanceOf CallCenterEmergencyCallCLIDPrefix)
+             ? $emergencyCallCLIDPrefix
+             : new CallCenterEmergencyCallCLIDPrefix($emergencyCallCLIDPrefix);
     }
 
     public function getEmergencyCallCLIDPrefix()

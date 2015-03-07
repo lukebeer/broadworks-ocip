@@ -7,14 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackMonitorMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackMaxMonitorsPerOriginator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackMaxCallbackRings;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackMaxMonitorsPerTerminator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackTerminatorIdleGuardSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackMethod;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackPollingIntervalSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticCallbackActivationDigit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackTerminatorIdleGuardSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMaxMonitorsPerTerminator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMaxMonitorsPerOriginator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackPollingIntervalSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMaxCallbackRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackActivationDigit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMonitorMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMethod;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,32 +24,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAutomaticCallbackGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $monitorMinutes              = null;
+    protected $maxMonitorsPerOriginator    = null;
+    protected $maxCallbackRings            = null;
+    protected $maxMonitorsPerTerminator    = null;
+    protected $terminatorIdleGuardSeconds  = null;
+    protected $callbackMethod              = null;
+    protected $pollingIntervalSeconds      = null;
+    protected $activationDigit             = null;
 
-    public function __construct(
-             $monitorMinutes,
-             $maxMonitorsPerOriginator,
-             $maxCallbackRings,
-             $maxMonitorsPerTerminator,
-             $terminatorIdleGuardSeconds,
-             $callbackMethod,
-             $pollingIntervalSeconds,
-             $activationDigit
-    ) {
-        $this->monitorMinutes             = $monitorMinutes;
-        $this->maxMonitorsPerOriginator   = $maxMonitorsPerOriginator;
-        $this->maxCallbackRings           = $maxCallbackRings;
-        $this->maxMonitorsPerTerminator   = $maxMonitorsPerTerminator;
-        $this->terminatorIdleGuardSeconds = $terminatorIdleGuardSeconds;
-        $this->callbackMethod             = $callbackMethod;
-        $this->pollingIntervalSeconds     = $pollingIntervalSeconds;
-        $this->activationDigit            = $activationDigit;
-        $this->args                       = func_get_args();
-    }
 
-    public function setMonitorMinutes($monitorMinutes)
+    public function setMonitorMinutes($monitorMinutes = null)
     {
-        $monitorMinutes and $this->monitorMinutes = new AutomaticCallbackMonitorMinutes($monitorMinutes);
+        $this->monitorMinutes = ($monitorMinutes InstanceOf AutomaticCallbackMonitorMinutes)
+             ? $monitorMinutes
+             : new AutomaticCallbackMonitorMinutes($monitorMinutes);
     }
 
     public function getMonitorMinutes()
@@ -57,9 +47,11 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
         return (!$this->monitorMinutes) ?: $this->monitorMinutes->value();
     }
 
-    public function setMaxMonitorsPerOriginator($maxMonitorsPerOriginator)
+    public function setMaxMonitorsPerOriginator($maxMonitorsPerOriginator = null)
     {
-        $maxMonitorsPerOriginator and $this->maxMonitorsPerOriginator = new AutomaticCallbackMaxMonitorsPerOriginator($maxMonitorsPerOriginator);
+        $this->maxMonitorsPerOriginator = ($maxMonitorsPerOriginator InstanceOf AutomaticCallbackMaxMonitorsPerOriginator)
+             ? $maxMonitorsPerOriginator
+             : new AutomaticCallbackMaxMonitorsPerOriginator($maxMonitorsPerOriginator);
     }
 
     public function getMaxMonitorsPerOriginator()
@@ -67,9 +59,11 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
         return (!$this->maxMonitorsPerOriginator) ?: $this->maxMonitorsPerOriginator->value();
     }
 
-    public function setMaxCallbackRings($maxCallbackRings)
+    public function setMaxCallbackRings($maxCallbackRings = null)
     {
-        $maxCallbackRings and $this->maxCallbackRings = new AutomaticCallbackMaxCallbackRings($maxCallbackRings);
+        $this->maxCallbackRings = ($maxCallbackRings InstanceOf AutomaticCallbackMaxCallbackRings)
+             ? $maxCallbackRings
+             : new AutomaticCallbackMaxCallbackRings($maxCallbackRings);
     }
 
     public function getMaxCallbackRings()
@@ -77,9 +71,11 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
         return (!$this->maxCallbackRings) ?: $this->maxCallbackRings->value();
     }
 
-    public function setMaxMonitorsPerTerminator($maxMonitorsPerTerminator)
+    public function setMaxMonitorsPerTerminator($maxMonitorsPerTerminator = null)
     {
-        $maxMonitorsPerTerminator and $this->maxMonitorsPerTerminator = new AutomaticCallbackMaxMonitorsPerTerminator($maxMonitorsPerTerminator);
+        $this->maxMonitorsPerTerminator = ($maxMonitorsPerTerminator InstanceOf AutomaticCallbackMaxMonitorsPerTerminator)
+             ? $maxMonitorsPerTerminator
+             : new AutomaticCallbackMaxMonitorsPerTerminator($maxMonitorsPerTerminator);
     }
 
     public function getMaxMonitorsPerTerminator()
@@ -87,9 +83,11 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
         return (!$this->maxMonitorsPerTerminator) ?: $this->maxMonitorsPerTerminator->value();
     }
 
-    public function setTerminatorIdleGuardSeconds($terminatorIdleGuardSeconds)
+    public function setTerminatorIdleGuardSeconds($terminatorIdleGuardSeconds = null)
     {
-        $terminatorIdleGuardSeconds and $this->terminatorIdleGuardSeconds = new AutomaticCallbackTerminatorIdleGuardSeconds($terminatorIdleGuardSeconds);
+        $this->terminatorIdleGuardSeconds = ($terminatorIdleGuardSeconds InstanceOf AutomaticCallbackTerminatorIdleGuardSeconds)
+             ? $terminatorIdleGuardSeconds
+             : new AutomaticCallbackTerminatorIdleGuardSeconds($terminatorIdleGuardSeconds);
     }
 
     public function getTerminatorIdleGuardSeconds()
@@ -97,9 +95,11 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
         return (!$this->terminatorIdleGuardSeconds) ?: $this->terminatorIdleGuardSeconds->value();
     }
 
-    public function setCallbackMethod($callbackMethod)
+    public function setCallbackMethod($callbackMethod = null)
     {
-        $callbackMethod and $this->callbackMethod = new AutomaticCallbackMethod($callbackMethod);
+        $this->callbackMethod = ($callbackMethod InstanceOf AutomaticCallbackMethod)
+             ? $callbackMethod
+             : new AutomaticCallbackMethod($callbackMethod);
     }
 
     public function getCallbackMethod()
@@ -107,9 +107,11 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
         return (!$this->callbackMethod) ?: $this->callbackMethod->value();
     }
 
-    public function setPollingIntervalSeconds($pollingIntervalSeconds)
+    public function setPollingIntervalSeconds($pollingIntervalSeconds = null)
     {
-        $pollingIntervalSeconds and $this->pollingIntervalSeconds = new AutomaticCallbackPollingIntervalSeconds($pollingIntervalSeconds);
+        $this->pollingIntervalSeconds = ($pollingIntervalSeconds InstanceOf AutomaticCallbackPollingIntervalSeconds)
+             ? $pollingIntervalSeconds
+             : new AutomaticCallbackPollingIntervalSeconds($pollingIntervalSeconds);
     }
 
     public function getPollingIntervalSeconds()
@@ -117,9 +119,11 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
         return (!$this->pollingIntervalSeconds) ?: $this->pollingIntervalSeconds->value();
     }
 
-    public function setActivationDigit($activationDigit)
+    public function setActivationDigit($activationDigit = null)
     {
-        $activationDigit and $this->activationDigit = new AutomaticCallbackActivationDigit($activationDigit);
+        $this->activationDigit = ($activationDigit InstanceOf AutomaticCallbackActivationDigit)
+             ? $activationDigit
+             : new AutomaticCallbackActivationDigit($activationDigit);
     }
 
     public function getActivationDigit()

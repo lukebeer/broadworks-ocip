@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,30 +21,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $isActive           = null;
+    protected $audioSelection     = null;
+    protected $audioFile          = null;
+    protected $videoSelection     = null;
+    protected $videoFile          = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $isActive=null,
-             $audioSelection=null,
-             ExtendedMediaFileResource $audioFile=null,
-             $videoSelection=null,
-             ExtendedMediaFileResource $videoFile=null
+         $serviceProviderId,
+         $groupId,
+         $isActive = null,
+         $audioSelection = null,
+         ExtendedMediaFileResource $audioFile = null,
+         $videoSelection = null,
+         ExtendedMediaFileResource $videoFile = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->groupId           = new GroupId($groupId);
-        $this->isActive          = $isActive;
-        $this->audioSelection    = new ExtendedFileResourceSelection($audioSelection);
-        $this->audioFile         = $audioFile;
-        $this->videoSelection    = new ExtendedFileResourceSelection($videoSelection);
-        $this->videoFile         = $videoFile;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setIsActive($isActive);
+        $this->setAudioSelection($audioSelection);
+        $this->setAudioFile($audioFile);
+        $this->setVideoSelection($videoSelection);
+        $this->setVideoFile($videoFile);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -53,9 +60,11 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -63,9 +72,8 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -73,9 +81,11 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAudioSelection($audioSelection)
+    public function setAudioSelection($audioSelection = null)
     {
-        $audioSelection and $this->audioSelection = new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioSelection
+             : new ExtendedFileResourceSelection($audioSelection);
     }
 
     public function getAudioSelection()
@@ -83,9 +93,8 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
         return (!$this->audioSelection) ?: $this->audioSelection->value();
     }
 
-    public function setAudioFile($audioFile)
+    public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $audioFile and $this->audioFile = new ExtendedMediaFileResource($audioFile);
     }
 
     public function getAudioFile()
@@ -93,9 +102,11 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
         return (!$this->audioFile) ?: $this->audioFile->value();
     }
 
-    public function setVideoSelection($videoSelection)
+    public function setVideoSelection($videoSelection = null)
     {
-        $videoSelection and $this->videoSelection = new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoSelection
+             : new ExtendedFileResourceSelection($videoSelection);
     }
 
     public function getVideoSelection()
@@ -103,9 +114,8 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
         return (!$this->videoSelection) ?: $this->videoSelection->value();
     }
 
-    public function setVideoFile($videoFile)
+    public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $videoFile and $this->videoFile = new ExtendedMediaFileResource($videoFile);
     }
 
     public function getVideoFile()

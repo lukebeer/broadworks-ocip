@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDnModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,32 +23,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $userId           = null;
+    protected $phoneNumber      = null;
+    protected $criteriaName     = null;
+    protected $newCriteriaName  = null;
+    protected $timeSchedule     = null;
+    protected $fromDnCriteria   = null;
+    protected $holidaySchedule  = null;
+    protected $blacklisted      = null;
 
     public function __construct(
-             $userId,
-             $phoneNumber,
-             $criteriaName,
-             $newCriteriaName=null,
-             TimeSchedule $timeSchedule=null,
-             CriteriaFromDnModify $fromDnCriteria=null,
-             HolidaySchedule $holidaySchedule=null,
-             $blacklisted=null
+         $userId,
+         $phoneNumber,
+         $criteriaName,
+         $newCriteriaName = null,
+         TimeSchedule $timeSchedule = null,
+         CriteriaFromDnModify $fromDnCriteria = null,
+         HolidaySchedule $holidaySchedule = null,
+         $blacklisted = null
     ) {
-        $this->userId          = new UserId($userId);
-        $this->phoneNumber     = new DN($phoneNumber);
-        $this->criteriaName    = new CriteriaName($criteriaName);
-        $this->newCriteriaName = new CriteriaName($newCriteriaName);
-        $this->timeSchedule    = $timeSchedule;
-        $this->fromDnCriteria  = $fromDnCriteria;
-        $this->holidaySchedule = $holidaySchedule;
-        $this->blacklisted     = $blacklisted;
-        $this->args            = func_get_args();
+        $this->setUserId($userId);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setCriteriaName($criteriaName);
+        $this->setNewCriteriaName($newCriteriaName);
+        $this->setTimeSchedule($timeSchedule);
+        $this->setFromDnCriteria($fromDnCriteria);
+        $this->setHolidaySchedule($holidaySchedule);
+        $this->setBlacklisted($blacklisted);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -57,9 +65,11 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -67,9 +77,11 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setCriteriaName($criteriaName)
+    public function setCriteriaName($criteriaName = null)
     {
-        $criteriaName and $this->criteriaName = new CriteriaName($criteriaName);
+        $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
+             ? $criteriaName
+             : new CriteriaName($criteriaName);
     }
 
     public function getCriteriaName()
@@ -77,9 +89,11 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         return (!$this->criteriaName) ?: $this->criteriaName->value();
     }
 
-    public function setNewCriteriaName($newCriteriaName)
+    public function setNewCriteriaName($newCriteriaName = null)
     {
-        $newCriteriaName and $this->newCriteriaName = new CriteriaName($newCriteriaName);
+        $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
+             ? $newCriteriaName
+             : new CriteriaName($newCriteriaName);
     }
 
     public function getNewCriteriaName()
@@ -87,9 +101,8 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         return (!$this->newCriteriaName) ?: $this->newCriteriaName->value();
     }
 
-    public function setTimeSchedule($timeSchedule)
+    public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $timeSchedule and $this->timeSchedule = new TimeSchedule($timeSchedule);
     }
 
     public function getTimeSchedule()
@@ -97,9 +110,8 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         return (!$this->timeSchedule) ?: $this->timeSchedule->value();
     }
 
-    public function setFromDnCriteria($fromDnCriteria)
+    public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        $fromDnCriteria and $this->fromDnCriteria = new CriteriaFromDnModify($fromDnCriteria);
     }
 
     public function getFromDnCriteria()
@@ -107,9 +119,8 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->value();
     }
 
-    public function setHolidaySchedule($holidaySchedule)
+    public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $holidaySchedule and $this->holidaySchedule = new HolidaySchedule($holidaySchedule);
     }
 
     public function getHolidaySchedule()
@@ -117,9 +128,8 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
     }
 
-    public function setBlacklisted($blacklisted)
+    public function setBlacklisted(xs:boolean $blacklisted = null)
     {
-        $blacklisted and $this->blacklisted = new xs:boolean($blacklisted);
     }
 
     public function getBlacklisted()

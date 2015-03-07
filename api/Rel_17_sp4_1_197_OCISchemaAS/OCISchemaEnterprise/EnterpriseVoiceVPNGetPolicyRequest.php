@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNLocationCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNLocationCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $serviceProviderId    = null;
+    protected $locationDialingCode  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $locationDialingCode
+         $serviceProviderId,
+         $locationDialingCode
     ) {
-        $this->serviceProviderId   = new ServiceProviderId($serviceProviderId);
-        $this->locationDialingCode = $locationDialingCode;
-        $this->args                = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setLocationDialingCode($locationDialingCode);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,11 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setLocationDialingCode($locationDialingCode)
+    public function setLocationDialingCode($locationDialingCode = null)
     {
-        $locationDialingCode and $this->locationDialingCode = new EnterpriseVoiceVPNLocationCode($locationDialingCode);
+        $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
+             ? $locationDialingCode
+             : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
     }
 
     public function getLocationDialingCode()

@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDomainParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $useAliasForDomain  = null;
+    protected $defaultDomain      = null;
 
     public function __construct(
-             $useAliasForDomain=null,
-             $defaultDomain=null
+         $useAliasForDomain = null,
+         $defaultDomain = null
     ) {
-        $this->useAliasForDomain = $useAliasForDomain;
-        $this->defaultDomain     = new NetAddress($defaultDomain);
-        $this->args              = func_get_args();
+        $this->setUseAliasForDomain($useAliasForDomain);
+        $this->setDefaultDomain($defaultDomain);
     }
 
-    public function setUseAliasForDomain($useAliasForDomain)
+    public function setUseAliasForDomain(xs:boolean $useAliasForDomain = null)
     {
-        $useAliasForDomain and $this->useAliasForDomain = new xs:boolean($useAliasForDomain);
     }
 
     public function getUseAliasForDomain()
@@ -40,9 +39,11 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
         return (!$this->useAliasForDomain) ?: $this->useAliasForDomain->value();
     }
 
-    public function setDefaultDomain($defaultDomain)
+    public function setDefaultDomain($defaultDomain = null)
     {
-        $defaultDomain and $this->defaultDomain = new NetAddress($defaultDomain);
+        $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
+             ? $defaultDomain
+             : new NetAddress($defaultDomain);
     }
 
     public function getDefaultDomain()

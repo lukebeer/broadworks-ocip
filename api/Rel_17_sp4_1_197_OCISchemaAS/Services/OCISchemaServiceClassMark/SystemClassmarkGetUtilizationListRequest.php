@@ -7,13 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Classmark;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactServiceProvider;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,30 +25,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemClassmarkGetUtilizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $classmark                             = null;
+    protected $responseSizeLimit                     = null;
+    protected $searchCriteriaGroupId                 = null;
+    protected $searchCriteriaExactServiceProviderId  = null;
+    protected $searchCriteriaUserFirstName           = null;
+    protected $searchCriteriaUserLastName            = null;
+    protected $searchCriteriaDn                      = null;
 
     public function __construct(
-             $classmark,
-             $responseSizeLimit=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaExactServiceProviderId=null,
-             $searchCriteriaUserFirstName=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaDn=null
+         $classmark,
+         $responseSizeLimit = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaDn $searchCriteriaDn = null
     ) {
-        $this->classmark                            = $classmark;
-        $this->responseSizeLimit                    = $responseSizeLimit;
-        $this->searchCriteriaGroupId                = $searchCriteriaGroupId;
-        $this->searchCriteriaExactServiceProviderId = $searchCriteriaExactServiceProviderId;
-        $this->searchCriteriaUserFirstName          = $searchCriteriaUserFirstName;
-        $this->searchCriteriaUserLastName           = $searchCriteriaUserLastName;
-        $this->searchCriteriaDn                     = $searchCriteriaDn;
-        $this->args                                 = func_get_args();
+        $this->setClassmark($classmark);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaExactServiceProviderId($searchCriteriaExactServiceProviderId);
+        $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
     }
 
-    public function setClassmark($classmark)
+    public function setClassmark($classmark = null)
     {
-        $classmark and $this->classmark = new Classmark($classmark);
+        $this->classmark = ($classmark InstanceOf Classmark)
+             ? $classmark
+             : new Classmark($classmark);
     }
 
     public function getClassmark()
@@ -56,9 +64,11 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
         return (!$this->classmark) ?: $this->classmark->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -66,9 +76,8 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -76,9 +85,8 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaExactServiceProviderId($searchCriteriaExactServiceProviderId)
+    public function setSearchCriteriaExactServiceProviderId(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId = null)
     {
-        $searchCriteriaExactServiceProviderId and $this->searchCriteriaExactServiceProviderId = new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProviderId);
     }
 
     public function getSearchCriteriaExactServiceProviderId()
@@ -86,9 +94,8 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
         return (!$this->searchCriteriaExactServiceProviderId) ?: $this->searchCriteriaExactServiceProviderId->value();
     }
 
-    public function setSearchCriteriaUserFirstName($searchCriteriaUserFirstName)
+    public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $searchCriteriaUserFirstName and $this->searchCriteriaUserFirstName = new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
     }
 
     public function getSearchCriteriaUserFirstName()
@@ -96,9 +103,8 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
         return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -106,9 +112,8 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()

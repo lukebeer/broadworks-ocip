@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $unavailableCodesTable  = null;
 
-    public function __construct(
-             $unavailableCodesTable
-    ) {
-        $this->unavailableCodesTable = $unavailableCodesTable;
-        $this->args                  = func_get_args();
-    }
 
-    public function setUnavailableCodesTable($unavailableCodesTable)
+    public function setUnavailableCodesTable(core:OCITable $unavailableCodesTable = null)
     {
-        $unavailableCodesTable and $this->unavailableCodesTable = new core:OCITable($unavailableCodesTable);
     }
 
     public function getUnavailableCodesTable()

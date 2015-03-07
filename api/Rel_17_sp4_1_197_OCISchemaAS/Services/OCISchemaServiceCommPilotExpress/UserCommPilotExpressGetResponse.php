@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressAvailableInOffice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressAvailableOutOfOffice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressBusy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommPilotExpressUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableOutOfOffice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableInOffice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressBusy;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +21,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $profile               = null;
+    protected $availableInOffice     = null;
+    protected $availableOutOfOffice  = null;
+    protected $busy                  = null;
+    protected $unavailable           = null;
 
-    public function __construct(
-             $profile=null,
-             $availableInOffice,
-             $availableOutOfOffice,
-             $busy,
-             $unavailable
-    ) {
-        $this->profile              = $profile;
-        $this->availableInOffice    = $availableInOffice;
-        $this->availableOutOfOffice = $availableOutOfOffice;
-        $this->busy                 = $busy;
-        $this->unavailable          = $unavailable;
-        $this->args                 = func_get_args();
-    }
 
-    public function setProfile($profile)
+    public function setProfile($profile = null)
     {
-        $profile and $this->profile = new CommPilotExpressProfile($profile);
+        $this->profile = ($profile InstanceOf CommPilotExpressProfile)
+             ? $profile
+             : new CommPilotExpressProfile($profile);
     }
 
     public function getProfile()
@@ -48,9 +41,8 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         return (!$this->profile) ?: $this->profile->value();
     }
 
-    public function setAvailableInOffice($availableInOffice)
+    public function setAvailableInOffice(CommPilotExpressAvailableInOffice $availableInOffice = null)
     {
-        $availableInOffice and $this->availableInOffice = new CommPilotExpressAvailableInOffice($availableInOffice);
     }
 
     public function getAvailableInOffice()
@@ -58,9 +50,8 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         return (!$this->availableInOffice) ?: $this->availableInOffice->value();
     }
 
-    public function setAvailableOutOfOffice($availableOutOfOffice)
+    public function setAvailableOutOfOffice(CommPilotExpressAvailableOutOfOffice $availableOutOfOffice = null)
     {
-        $availableOutOfOffice and $this->availableOutOfOffice = new CommPilotExpressAvailableOutOfOffice($availableOutOfOffice);
     }
 
     public function getAvailableOutOfOffice()
@@ -68,9 +59,8 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         return (!$this->availableOutOfOffice) ?: $this->availableOutOfOffice->value();
     }
 
-    public function setBusy($busy)
+    public function setBusy(CommPilotExpressBusy $busy = null)
     {
-        $busy and $this->busy = new CommPilotExpressBusy($busy);
     }
 
     public function getBusy()
@@ -78,9 +68,8 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         return (!$this->busy) ?: $this->busy->value();
     }
 
-    public function setUnavailable($unavailable)
+    public function setUnavailable(CommPilotExpressUnavailable $unavailable = null)
     {
-        $unavailable and $this->unavailable = new CommPilotExpressUnavailable($unavailable);
     }
 
     public function getUnavailable()

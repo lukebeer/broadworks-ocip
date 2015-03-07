@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\TimeInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeInterval;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,62 +20,86 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $userId               = null;
+    protected $timeScheduleName     = null;
+    protected $newTimeScheduleName  = null;
+    protected $timeInterval01       = null;
+    protected $timeInterval02       = null;
+    protected $timeInterval03       = null;
+    protected $timeInterval04       = null;
+    protected $timeInterval05       = null;
+    protected $timeInterval06       = null;
+    protected $timeInterval07       = null;
+    protected $timeInterval08       = null;
+    protected $timeInterval09       = null;
+    protected $timeInterval10       = null;
+    protected $timeInterval11       = null;
+    protected $timeInterval12       = null;
+    protected $timeInterval13       = null;
+    protected $timeInterval14       = null;
+    protected $timeInterval15       = null;
+    protected $timeInterval16       = null;
+    protected $timeInterval17       = null;
+    protected $timeInterval18       = null;
+    protected $timeInterval19       = null;
+    protected $timeInterval20       = null;
 
     public function __construct(
-             $userId,
-             $timeScheduleName,
-             $newTimeScheduleName=null,
-             $timeInterval01=null,
-             $timeInterval02=null,
-             $timeInterval03=null,
-             $timeInterval04=null,
-             $timeInterval05=null,
-             $timeInterval06=null,
-             $timeInterval07=null,
-             $timeInterval08=null,
-             $timeInterval09=null,
-             $timeInterval10=null,
-             $timeInterval11=null,
-             $timeInterval12=null,
-             $timeInterval13=null,
-             $timeInterval14=null,
-             $timeInterval15=null,
-             $timeInterval16=null,
-             $timeInterval17=null,
-             $timeInterval18=null,
-             $timeInterval19=null,
-             $timeInterval20=null
+         $userId,
+         $timeScheduleName,
+         $newTimeScheduleName = null,
+         TimeInterval $timeInterval01 = null,
+         TimeInterval $timeInterval02 = null,
+         TimeInterval $timeInterval03 = null,
+         TimeInterval $timeInterval04 = null,
+         TimeInterval $timeInterval05 = null,
+         TimeInterval $timeInterval06 = null,
+         TimeInterval $timeInterval07 = null,
+         TimeInterval $timeInterval08 = null,
+         TimeInterval $timeInterval09 = null,
+         TimeInterval $timeInterval10 = null,
+         TimeInterval $timeInterval11 = null,
+         TimeInterval $timeInterval12 = null,
+         TimeInterval $timeInterval13 = null,
+         TimeInterval $timeInterval14 = null,
+         TimeInterval $timeInterval15 = null,
+         TimeInterval $timeInterval16 = null,
+         TimeInterval $timeInterval17 = null,
+         TimeInterval $timeInterval18 = null,
+         TimeInterval $timeInterval19 = null,
+         TimeInterval $timeInterval20 = null
     ) {
-        $this->userId              = new UserId($userId);
-        $this->timeScheduleName    = new ScheduleName($timeScheduleName);
-        $this->newTimeScheduleName = new ScheduleName($newTimeScheduleName);
-        $this->timeInterval01      = $timeInterval01;
-        $this->timeInterval02      = $timeInterval02;
-        $this->timeInterval03      = $timeInterval03;
-        $this->timeInterval04      = $timeInterval04;
-        $this->timeInterval05      = $timeInterval05;
-        $this->timeInterval06      = $timeInterval06;
-        $this->timeInterval07      = $timeInterval07;
-        $this->timeInterval08      = $timeInterval08;
-        $this->timeInterval09      = $timeInterval09;
-        $this->timeInterval10      = $timeInterval10;
-        $this->timeInterval11      = $timeInterval11;
-        $this->timeInterval12      = $timeInterval12;
-        $this->timeInterval13      = $timeInterval13;
-        $this->timeInterval14      = $timeInterval14;
-        $this->timeInterval15      = $timeInterval15;
-        $this->timeInterval16      = $timeInterval16;
-        $this->timeInterval17      = $timeInterval17;
-        $this->timeInterval18      = $timeInterval18;
-        $this->timeInterval19      = $timeInterval19;
-        $this->timeInterval20      = $timeInterval20;
-        $this->args                = func_get_args();
+        $this->setUserId($userId);
+        $this->setTimeScheduleName($timeScheduleName);
+        $this->setNewTimeScheduleName($newTimeScheduleName);
+        $this->setTimeInterval01($timeInterval01);
+        $this->setTimeInterval02($timeInterval02);
+        $this->setTimeInterval03($timeInterval03);
+        $this->setTimeInterval04($timeInterval04);
+        $this->setTimeInterval05($timeInterval05);
+        $this->setTimeInterval06($timeInterval06);
+        $this->setTimeInterval07($timeInterval07);
+        $this->setTimeInterval08($timeInterval08);
+        $this->setTimeInterval09($timeInterval09);
+        $this->setTimeInterval10($timeInterval10);
+        $this->setTimeInterval11($timeInterval11);
+        $this->setTimeInterval12($timeInterval12);
+        $this->setTimeInterval13($timeInterval13);
+        $this->setTimeInterval14($timeInterval14);
+        $this->setTimeInterval15($timeInterval15);
+        $this->setTimeInterval16($timeInterval16);
+        $this->setTimeInterval17($timeInterval17);
+        $this->setTimeInterval18($timeInterval18);
+        $this->setTimeInterval19($timeInterval19);
+        $this->setTimeInterval20($timeInterval20);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -83,9 +107,11 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setTimeScheduleName($timeScheduleName)
+    public function setTimeScheduleName($timeScheduleName = null)
     {
-        $timeScheduleName and $this->timeScheduleName = new ScheduleName($timeScheduleName);
+        $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
+             ? $timeScheduleName
+             : new ScheduleName($timeScheduleName);
     }
 
     public function getTimeScheduleName()
@@ -93,9 +119,11 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeScheduleName) ?: $this->timeScheduleName->value();
     }
 
-    public function setNewTimeScheduleName($newTimeScheduleName)
+    public function setNewTimeScheduleName($newTimeScheduleName = null)
     {
-        $newTimeScheduleName and $this->newTimeScheduleName = new ScheduleName($newTimeScheduleName);
+        $this->newTimeScheduleName = ($newTimeScheduleName InstanceOf ScheduleName)
+             ? $newTimeScheduleName
+             : new ScheduleName($newTimeScheduleName);
     }
 
     public function getNewTimeScheduleName()
@@ -103,9 +131,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->newTimeScheduleName) ?: $this->newTimeScheduleName->value();
     }
 
-    public function setTimeInterval01($timeInterval01)
+    public function setTimeInterval01(TimeInterval $timeInterval01 = null)
     {
-        $timeInterval01 and $this->timeInterval01 = new TimeInterval($timeInterval01);
     }
 
     public function getTimeInterval01()
@@ -113,9 +140,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval01) ?: $this->timeInterval01->value();
     }
 
-    public function setTimeInterval02($timeInterval02)
+    public function setTimeInterval02(TimeInterval $timeInterval02 = null)
     {
-        $timeInterval02 and $this->timeInterval02 = new TimeInterval($timeInterval02);
     }
 
     public function getTimeInterval02()
@@ -123,9 +149,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval02) ?: $this->timeInterval02->value();
     }
 
-    public function setTimeInterval03($timeInterval03)
+    public function setTimeInterval03(TimeInterval $timeInterval03 = null)
     {
-        $timeInterval03 and $this->timeInterval03 = new TimeInterval($timeInterval03);
     }
 
     public function getTimeInterval03()
@@ -133,9 +158,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval03) ?: $this->timeInterval03->value();
     }
 
-    public function setTimeInterval04($timeInterval04)
+    public function setTimeInterval04(TimeInterval $timeInterval04 = null)
     {
-        $timeInterval04 and $this->timeInterval04 = new TimeInterval($timeInterval04);
     }
 
     public function getTimeInterval04()
@@ -143,9 +167,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval04) ?: $this->timeInterval04->value();
     }
 
-    public function setTimeInterval05($timeInterval05)
+    public function setTimeInterval05(TimeInterval $timeInterval05 = null)
     {
-        $timeInterval05 and $this->timeInterval05 = new TimeInterval($timeInterval05);
     }
 
     public function getTimeInterval05()
@@ -153,9 +176,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval05) ?: $this->timeInterval05->value();
     }
 
-    public function setTimeInterval06($timeInterval06)
+    public function setTimeInterval06(TimeInterval $timeInterval06 = null)
     {
-        $timeInterval06 and $this->timeInterval06 = new TimeInterval($timeInterval06);
     }
 
     public function getTimeInterval06()
@@ -163,9 +185,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval06) ?: $this->timeInterval06->value();
     }
 
-    public function setTimeInterval07($timeInterval07)
+    public function setTimeInterval07(TimeInterval $timeInterval07 = null)
     {
-        $timeInterval07 and $this->timeInterval07 = new TimeInterval($timeInterval07);
     }
 
     public function getTimeInterval07()
@@ -173,9 +194,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval07) ?: $this->timeInterval07->value();
     }
 
-    public function setTimeInterval08($timeInterval08)
+    public function setTimeInterval08(TimeInterval $timeInterval08 = null)
     {
-        $timeInterval08 and $this->timeInterval08 = new TimeInterval($timeInterval08);
     }
 
     public function getTimeInterval08()
@@ -183,9 +203,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval08) ?: $this->timeInterval08->value();
     }
 
-    public function setTimeInterval09($timeInterval09)
+    public function setTimeInterval09(TimeInterval $timeInterval09 = null)
     {
-        $timeInterval09 and $this->timeInterval09 = new TimeInterval($timeInterval09);
     }
 
     public function getTimeInterval09()
@@ -193,9 +212,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval09) ?: $this->timeInterval09->value();
     }
 
-    public function setTimeInterval10($timeInterval10)
+    public function setTimeInterval10(TimeInterval $timeInterval10 = null)
     {
-        $timeInterval10 and $this->timeInterval10 = new TimeInterval($timeInterval10);
     }
 
     public function getTimeInterval10()
@@ -203,9 +221,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval10) ?: $this->timeInterval10->value();
     }
 
-    public function setTimeInterval11($timeInterval11)
+    public function setTimeInterval11(TimeInterval $timeInterval11 = null)
     {
-        $timeInterval11 and $this->timeInterval11 = new TimeInterval($timeInterval11);
     }
 
     public function getTimeInterval11()
@@ -213,9 +230,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval11) ?: $this->timeInterval11->value();
     }
 
-    public function setTimeInterval12($timeInterval12)
+    public function setTimeInterval12(TimeInterval $timeInterval12 = null)
     {
-        $timeInterval12 and $this->timeInterval12 = new TimeInterval($timeInterval12);
     }
 
     public function getTimeInterval12()
@@ -223,9 +239,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval12) ?: $this->timeInterval12->value();
     }
 
-    public function setTimeInterval13($timeInterval13)
+    public function setTimeInterval13(TimeInterval $timeInterval13 = null)
     {
-        $timeInterval13 and $this->timeInterval13 = new TimeInterval($timeInterval13);
     }
 
     public function getTimeInterval13()
@@ -233,9 +248,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval13) ?: $this->timeInterval13->value();
     }
 
-    public function setTimeInterval14($timeInterval14)
+    public function setTimeInterval14(TimeInterval $timeInterval14 = null)
     {
-        $timeInterval14 and $this->timeInterval14 = new TimeInterval($timeInterval14);
     }
 
     public function getTimeInterval14()
@@ -243,9 +257,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval14) ?: $this->timeInterval14->value();
     }
 
-    public function setTimeInterval15($timeInterval15)
+    public function setTimeInterval15(TimeInterval $timeInterval15 = null)
     {
-        $timeInterval15 and $this->timeInterval15 = new TimeInterval($timeInterval15);
     }
 
     public function getTimeInterval15()
@@ -253,9 +266,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval15) ?: $this->timeInterval15->value();
     }
 
-    public function setTimeInterval16($timeInterval16)
+    public function setTimeInterval16(TimeInterval $timeInterval16 = null)
     {
-        $timeInterval16 and $this->timeInterval16 = new TimeInterval($timeInterval16);
     }
 
     public function getTimeInterval16()
@@ -263,9 +275,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval16) ?: $this->timeInterval16->value();
     }
 
-    public function setTimeInterval17($timeInterval17)
+    public function setTimeInterval17(TimeInterval $timeInterval17 = null)
     {
-        $timeInterval17 and $this->timeInterval17 = new TimeInterval($timeInterval17);
     }
 
     public function getTimeInterval17()
@@ -273,9 +284,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval17) ?: $this->timeInterval17->value();
     }
 
-    public function setTimeInterval18($timeInterval18)
+    public function setTimeInterval18(TimeInterval $timeInterval18 = null)
     {
-        $timeInterval18 and $this->timeInterval18 = new TimeInterval($timeInterval18);
     }
 
     public function getTimeInterval18()
@@ -283,9 +293,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval18) ?: $this->timeInterval18->value();
     }
 
-    public function setTimeInterval19($timeInterval19)
+    public function setTimeInterval19(TimeInterval $timeInterval19 = null)
     {
-        $timeInterval19 and $this->timeInterval19 = new TimeInterval($timeInterval19);
     }
 
     public function getTimeInterval19()
@@ -293,9 +302,8 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->timeInterval19) ?: $this->timeInterval19->value();
     }
 
-    public function setTimeInterval20($timeInterval20)
+    public function setTimeInterval20(TimeInterval $timeInterval20 = null)
     {
-        $timeInterval20 and $this->timeInterval20 = new TimeInterval($timeInterval20);
     }
 
     public function getTimeInterval20()

@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticHoldRetrieve; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticHoldRetrieve\AutomaticHoldRetrieveRecallTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AutomaticHoldRetrieveRecallTimerSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $userId              = null;
+    protected $isActive            = null;
+    protected $recallTimerSeconds  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $recallTimerSeconds=null
+         $userId,
+         $isActive = null,
+         $recallTimerSeconds = null
     ) {
-        $this->userId             = new UserId($userId);
-        $this->isActive           = $isActive;
-        $this->recallTimerSeconds = $recallTimerSeconds;
-        $this->args               = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setRecallTimerSeconds($recallTimerSeconds);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -53,9 +55,11 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setRecallTimerSeconds($recallTimerSeconds)
+    public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
-        $recallTimerSeconds and $this->recallTimerSeconds = new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
+        $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf AutomaticHoldRetrieveRecallTimerSeconds)
+             ? $recallTimerSeconds
+             : new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
     }
 
     public function getRecallTimerSeconds()

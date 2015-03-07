@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallForwardingAlwaysModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $userId                = null;
+    protected $isActive              = null;
+    protected $forwardToPhoneNumber  = null;
+    protected $isRingSplashActive    = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $forwardToPhoneNumber=null,
-             $isRingSplashActive=null
+         $userId,
+         $isActive = null,
+         $forwardToPhoneNumber = null,
+         $isRingSplashActive = null
     ) {
-        $this->userId               = new UserId($userId);
-        $this->isActive             = $isActive;
-        $this->forwardToPhoneNumber = new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->isRingSplashActive   = $isRingSplashActive;
-        $this->args                 = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setForwardToPhoneNumber($forwardToPhoneNumber);
+        $this->setIsRingSplashActive($isRingSplashActive);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -46,9 +50,8 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -56,9 +59,11 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setForwardToPhoneNumber($forwardToPhoneNumber)
+    public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        $forwardToPhoneNumber and $this->forwardToPhoneNumber = new OutgoingDNorSIPURI($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $forwardToPhoneNumber
+             : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
     public function getForwardToPhoneNumber()
@@ -66,9 +71,8 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
         return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
     }
 
-    public function setIsRingSplashActive($isRingSplashActive)
+    public function setIsRingSplashActive(xs:boolean $isRingSplashActive = null)
     {
-        $isRingSplashActive and $this->isRingSplashActive = new xs:boolean($isRingSplashActive);
     }
 
     public function getIsRingSplashActive()

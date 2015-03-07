@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $isActive           = null;
+    protected $mobilePhoneNumber  = null;
 
-    public function __construct(
-             $isActive,
-             $mobilePhoneNumber=null
-    ) {
-        $this->isActive          = $isActive;
-        $this->mobilePhoneNumber = new DN($mobilePhoneNumber);
-        $this->args              = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -39,9 +31,11 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setMobilePhoneNumber($mobilePhoneNumber)
+    public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        $mobilePhoneNumber and $this->mobilePhoneNumber = new DN($mobilePhoneNumber);
+        $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
+             ? $mobilePhoneNumber
+             : new DN($mobilePhoneNumber);
     }
 
     public function getMobilePhoneNumber()

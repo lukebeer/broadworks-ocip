@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -23,28 +22,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $servicePackName         = null;
+    protected $servicePackDescription  = null;
+    protected $isAvailableForUse       = null;
+    protected $servicePackQuantity     = null;
+    protected $serviceName             = null;
 
     public function __construct(
-             $serviceProviderId,
-             $servicePackName,
-             $servicePackDescription=null,
-             $isAvailableForUse,
-             UnboundedPositiveInt $servicePackQuantity,
-             $serviceName=null
+         $serviceProviderId,
+         $servicePackName,
+         $servicePackDescription = null,
+         $isAvailableForUse,
+         UnboundedPositiveInt $servicePackQuantity,
+         $serviceName = null
     ) {
-        $this->serviceProviderId      = new ServiceProviderId($serviceProviderId);
-        $this->servicePackName        = new ServicePackName($servicePackName);
-        $this->servicePackDescription = new ServicePackDescription($servicePackDescription);
-        $this->isAvailableForUse      = $isAvailableForUse;
-        $this->servicePackQuantity    = $servicePackQuantity;
-        $this->serviceName            = new UserService($serviceName);
-        $this->args                   = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setServicePackName($servicePackName);
+        $this->setServicePackDescription($servicePackDescription);
+        $this->setIsAvailableForUse($isAvailableForUse);
+        $this->setServicePackQuantity($servicePackQuantity);
+        $this->setServiceName($serviceName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -52,9 +58,11 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()
@@ -62,9 +70,11 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         return (!$this->servicePackName) ?: $this->servicePackName->value();
     }
 
-    public function setServicePackDescription($servicePackDescription)
+    public function setServicePackDescription($servicePackDescription = null)
     {
-        $servicePackDescription and $this->servicePackDescription = new ServicePackDescription($servicePackDescription);
+        $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
+             ? $servicePackDescription
+             : new ServicePackDescription($servicePackDescription);
     }
 
     public function getServicePackDescription()
@@ -72,9 +82,8 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         return (!$this->servicePackDescription) ?: $this->servicePackDescription->value();
     }
 
-    public function setIsAvailableForUse($isAvailableForUse)
+    public function setIsAvailableForUse(xs:boolean $isAvailableForUse = null)
     {
-        $isAvailableForUse and $this->isAvailableForUse = new xs:boolean($isAvailableForUse);
     }
 
     public function getIsAvailableForUse()
@@ -82,9 +91,8 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         return (!$this->isAvailableForUse) ?: $this->isAvailableForUse->value();
     }
 
-    public function setServicePackQuantity($servicePackQuantity)
+    public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        $servicePackQuantity and $this->servicePackQuantity = new UnboundedPositiveInt($servicePackQuantity);
     }
 
     public function getServicePackQuantity()
@@ -92,9 +100,11 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         return (!$this->servicePackQuantity) ?: $this->servicePackQuantity->value();
     }
 
-    public function setServiceName($serviceName)
+    public function setServiceName($serviceName = null)
     {
-        $serviceName and $this->serviceName = new UserService($serviceName);
+        $this->serviceName = ($serviceName InstanceOf UserService)
+             ? $serviceName
+             : new UserService($serviceName);
     }
 
     public function getServiceName()

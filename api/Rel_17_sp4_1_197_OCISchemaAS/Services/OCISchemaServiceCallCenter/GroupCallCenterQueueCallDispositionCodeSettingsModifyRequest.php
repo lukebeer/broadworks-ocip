@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallDispositionCodeWithLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallDispositionCodeActivation;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterQueueCallDispositionCodeSettingsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $serviceUserId                   = null;
+    protected $enableCallDispositionCodes      = null;
+    protected $includeOrganizationCodes        = null;
+    protected $forceUseOfCallDispositionCodes  = null;
+    protected $defaultCallDispositionCode      = null;
+    protected $callDispositionCodeActivation   = null;
 
     public function __construct(
-             $serviceUserId,
-             $enableCallDispositionCodes=null,
-             $includeOrganizationCodes=null,
-             $forceUseOfCallDispositionCodes=null,
-             $defaultCallDispositionCode=null,
-             $callDispositionCodeActivation=null
+         $serviceUserId,
+         $enableCallDispositionCodes = null,
+         $includeOrganizationCodes = null,
+         $forceUseOfCallDispositionCodes = null,
+         CallDispositionCodeWithLevel $defaultCallDispositionCode = null,
+         CallDispositionCodeActivation $callDispositionCodeActivation = null
     ) {
-        $this->serviceUserId                  = new UserId($serviceUserId);
-        $this->enableCallDispositionCodes     = $enableCallDispositionCodes;
-        $this->includeOrganizationCodes       = $includeOrganizationCodes;
-        $this->forceUseOfCallDispositionCodes = $forceUseOfCallDispositionCodes;
-        $this->defaultCallDispositionCode     = $defaultCallDispositionCode;
-        $this->callDispositionCodeActivation  = $callDispositionCodeActivation;
-        $this->args                           = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setEnableCallDispositionCodes($enableCallDispositionCodes);
+        $this->setIncludeOrganizationCodes($includeOrganizationCodes);
+        $this->setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes);
+        $this->setDefaultCallDispositionCode($defaultCallDispositionCode);
+        $this->setCallDispositionCodeActivation($callDispositionCodeActivation);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -50,9 +56,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsModifyRequest extends Compl
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setEnableCallDispositionCodes($enableCallDispositionCodes)
+    public function setEnableCallDispositionCodes(xs:boolean $enableCallDispositionCodes = null)
     {
-        $enableCallDispositionCodes and $this->enableCallDispositionCodes = new xs:boolean($enableCallDispositionCodes);
     }
 
     public function getEnableCallDispositionCodes()
@@ -60,9 +65,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsModifyRequest extends Compl
         return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes->value();
     }
 
-    public function setIncludeOrganizationCodes($includeOrganizationCodes)
+    public function setIncludeOrganizationCodes(xs:boolean $includeOrganizationCodes = null)
     {
-        $includeOrganizationCodes and $this->includeOrganizationCodes = new xs:boolean($includeOrganizationCodes);
     }
 
     public function getIncludeOrganizationCodes()
@@ -70,9 +74,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsModifyRequest extends Compl
         return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes->value();
     }
 
-    public function setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes)
+    public function setForceUseOfCallDispositionCodes(xs:boolean $forceUseOfCallDispositionCodes = null)
     {
-        $forceUseOfCallDispositionCodes and $this->forceUseOfCallDispositionCodes = new xs:boolean($forceUseOfCallDispositionCodes);
     }
 
     public function getForceUseOfCallDispositionCodes()
@@ -80,9 +83,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsModifyRequest extends Compl
         return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes->value();
     }
 
-    public function setDefaultCallDispositionCode($defaultCallDispositionCode)
+    public function setDefaultCallDispositionCode(CallDispositionCodeWithLevel $defaultCallDispositionCode = null)
     {
-        $defaultCallDispositionCode and $this->defaultCallDispositionCode = new CallDispositionCodeWithLevel($defaultCallDispositionCode);
     }
 
     public function getDefaultCallDispositionCode()
@@ -90,9 +92,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsModifyRequest extends Compl
         return (!$this->defaultCallDispositionCode) ?: $this->defaultCallDispositionCode->value();
     }
 
-    public function setCallDispositionCodeActivation($callDispositionCodeActivation)
+    public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        $callDispositionCodeActivation and $this->callDispositionCodeActivation = new CallDispositionCodeActivation($callDispositionCodeActivation);
     }
 
     public function getCallDispositionCodeActivation()

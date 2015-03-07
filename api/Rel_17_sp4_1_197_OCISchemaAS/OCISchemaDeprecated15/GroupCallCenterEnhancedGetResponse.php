@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterWrapUpSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $overrideAgentWrapUpTime  = null;
+    protected $wrapUpSeconds            = null;
 
-    public function __construct(
-             $overrideAgentWrapUpTime,
-             $wrapUpSeconds=null
-    ) {
-        $this->overrideAgentWrapUpTime = $overrideAgentWrapUpTime;
-        $this->wrapUpSeconds           = new CallCenterWrapUpSeconds($wrapUpSeconds);
-        $this->args                    = func_get_args();
-    }
 
-    public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime)
+    public function setOverrideAgentWrapUpTime(xs:boolean $overrideAgentWrapUpTime = null)
     {
-        $overrideAgentWrapUpTime and $this->overrideAgentWrapUpTime = new xs:boolean($overrideAgentWrapUpTime);
     }
 
     public function getOverrideAgentWrapUpTime()
@@ -39,9 +31,11 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
         return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->value();
     }
 
-    public function setWrapUpSeconds($wrapUpSeconds)
+    public function setWrapUpSeconds($wrapUpSeconds = null)
     {
-        $wrapUpSeconds and $this->wrapUpSeconds = new CallCenterWrapUpSeconds($wrapUpSeconds);
+        $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
+             ? $wrapUpSeconds
+             : new CallCenterWrapUpSeconds($wrapUpSeconds);
     }
 
     public function getWrapUpSeconds()

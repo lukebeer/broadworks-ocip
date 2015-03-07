@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingWeekOfMonth;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingWeekOfMonth;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $weekOfMonth  = null;
+    protected $dayOfWeek    = null;
 
     public function __construct(
-             $weekOfMonth,
-             $dayOfWeek
+         $weekOfMonth,
+         $dayOfWeek
     ) {
-        $this->weekOfMonth = $weekOfMonth;
-        $this->dayOfWeek   = new DayOfWeek($dayOfWeek);
-        $this->args        = func_get_args();
+        $this->setWeekOfMonth($weekOfMonth);
+        $this->setDayOfWeek($dayOfWeek);
     }
 
-    public function setWeekOfMonth($weekOfMonth)
+    public function setWeekOfMonth($weekOfMonth = null)
     {
-        $weekOfMonth and $this->weekOfMonth = new InstantConferencingWeekOfMonth($weekOfMonth);
+        $this->weekOfMonth = ($weekOfMonth InstanceOf InstantConferencingWeekOfMonth)
+             ? $weekOfMonth
+             : new InstantConferencingWeekOfMonth($weekOfMonth);
     }
 
     public function getWeekOfMonth()
@@ -39,9 +42,11 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
         return (!$this->weekOfMonth) ?: $this->weekOfMonth->value();
     }
 
-    public function setDayOfWeek($dayOfWeek)
+    public function setDayOfWeek($dayOfWeek = null)
     {
-        $dayOfWeek and $this->dayOfWeek = new DayOfWeek($dayOfWeek);
+        $this->dayOfWeek = ($dayOfWeek InstanceOf DayOfWeek)
+             ? $dayOfWeek
+             : new DayOfWeek($dayOfWeek);
     }
 
     public function getDayOfWeek()

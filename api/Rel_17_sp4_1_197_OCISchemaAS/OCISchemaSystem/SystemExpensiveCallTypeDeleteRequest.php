@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkServerAlternateCallIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $alternateCallIndicator  = null;
 
     public function __construct(
-             $alternateCallIndicator
+         $alternateCallIndicator
     ) {
-        $this->alternateCallIndicator = $alternateCallIndicator;
-        $this->args                   = func_get_args();
+        $this->setAlternateCallIndicator($alternateCallIndicator);
     }
 
-    public function setAlternateCallIndicator($alternateCallIndicator)
+    public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
-        $alternateCallIndicator and $this->alternateCallIndicator = new NetworkServerAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
+             ? $alternateCallIndicator
+             : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
     }
 
     public function getAlternateCallIndicator()

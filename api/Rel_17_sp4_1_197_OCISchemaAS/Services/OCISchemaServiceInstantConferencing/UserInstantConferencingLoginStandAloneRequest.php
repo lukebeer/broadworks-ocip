@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingLoginStandAloneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $bridgeServiceUserId    = null;
+    protected $conferenceOwnerUserId  = null;
 
     public function __construct(
-             $bridgeServiceUserId,
-             $conferenceOwnerUserId
+         $bridgeServiceUserId,
+         $conferenceOwnerUserId
     ) {
-        $this->bridgeServiceUserId   = new UserId($bridgeServiceUserId);
-        $this->conferenceOwnerUserId = new UserId($conferenceOwnerUserId);
-        $this->args                  = func_get_args();
+        $this->setBridgeServiceUserId($bridgeServiceUserId);
+        $this->setConferenceOwnerUserId($conferenceOwnerUserId);
     }
 
-    public function setBridgeServiceUserId($bridgeServiceUserId)
+    public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        $bridgeServiceUserId and $this->bridgeServiceUserId = new UserId($bridgeServiceUserId);
+        $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
+             ? $bridgeServiceUserId
+             : new UserId($bridgeServiceUserId);
     }
 
     public function getBridgeServiceUserId()
@@ -39,9 +42,11 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
         return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
     }
 
-    public function setConferenceOwnerUserId($conferenceOwnerUserId)
+    public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        $conferenceOwnerUserId and $this->conferenceOwnerUserId = new UserId($conferenceOwnerUserId);
+        $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
+             ? $conferenceOwnerUserId
+             : new UserId($conferenceOwnerUserId);
     }
 
     public function getConferenceOwnerUserId()

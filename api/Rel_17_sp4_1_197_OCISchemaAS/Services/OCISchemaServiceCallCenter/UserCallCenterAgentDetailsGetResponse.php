@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterAgentDetailsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $isCallCenterBasicAssigned     = null;
+    protected $isCallCenterStandardAssigned  = null;
+    protected $isCallCenterPremiumAssigned   = null;
 
-    public function __construct(
-             $isCallCenterBasicAssigned,
-             $isCallCenterStandardAssigned,
-             $isCallCenterPremiumAssigned
-    ) {
-        $this->isCallCenterBasicAssigned    = $isCallCenterBasicAssigned;
-        $this->isCallCenterStandardAssigned = $isCallCenterStandardAssigned;
-        $this->isCallCenterPremiumAssigned  = $isCallCenterPremiumAssigned;
-        $this->args                         = func_get_args();
-    }
 
-    public function setIsCallCenterBasicAssigned($isCallCenterBasicAssigned)
+    public function setIsCallCenterBasicAssigned(xs:boolean $isCallCenterBasicAssigned = null)
     {
-        $isCallCenterBasicAssigned and $this->isCallCenterBasicAssigned = new xs:boolean($isCallCenterBasicAssigned);
     }
 
     public function getIsCallCenterBasicAssigned()
@@ -41,9 +33,8 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
         return (!$this->isCallCenterBasicAssigned) ?: $this->isCallCenterBasicAssigned->value();
     }
 
-    public function setIsCallCenterStandardAssigned($isCallCenterStandardAssigned)
+    public function setIsCallCenterStandardAssigned(xs:boolean $isCallCenterStandardAssigned = null)
     {
-        $isCallCenterStandardAssigned and $this->isCallCenterStandardAssigned = new xs:boolean($isCallCenterStandardAssigned);
     }
 
     public function getIsCallCenterStandardAssigned()
@@ -51,9 +42,8 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
         return (!$this->isCallCenterStandardAssigned) ?: $this->isCallCenterStandardAssigned->value();
     }
 
-    public function setIsCallCenterPremiumAssigned($isCallCenterPremiumAssigned)
+    public function setIsCallCenterPremiumAssigned(xs:boolean $isCallCenterPremiumAssigned = null)
     {
-        $isCallCenterPremiumAssigned and $this->isCallCenterPremiumAssigned = new xs:boolean($isCallCenterPremiumAssigned);
     }
 
     public function getIsCallCenterPremiumAssigned()

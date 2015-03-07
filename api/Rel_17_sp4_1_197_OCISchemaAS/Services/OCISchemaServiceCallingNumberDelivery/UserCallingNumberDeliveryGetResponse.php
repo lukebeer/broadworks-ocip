@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNumberDelivery; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallingNumberDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $isActiveForExternalCalls  = null;
+    protected $isActiveForInternalCalls  = null;
 
-    public function __construct(
-             $isActiveForExternalCalls,
-             $isActiveForInternalCalls
-    ) {
-        $this->isActiveForExternalCalls = $isActiveForExternalCalls;
-        $this->isActiveForInternalCalls = $isActiveForInternalCalls;
-        $this->args                     = func_get_args();
-    }
 
-    public function setIsActiveForExternalCalls($isActiveForExternalCalls)
+    public function setIsActiveForExternalCalls(xs:boolean $isActiveForExternalCalls = null)
     {
-        $isActiveForExternalCalls and $this->isActiveForExternalCalls = new xs:boolean($isActiveForExternalCalls);
     }
 
     public function getIsActiveForExternalCalls()
@@ -38,9 +31,8 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
         return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls->value();
     }
 
-    public function setIsActiveForInternalCalls($isActiveForInternalCalls)
+    public function setIsActiveForInternalCalls(xs:boolean $isActiveForInternalCalls = null)
     {
-        $isActiveForInternalCalls and $this->isActiveForInternalCalls = new xs:boolean($isActiveForInternalCalls);
     }
 
     public function getIsActiveForInternalCalls()

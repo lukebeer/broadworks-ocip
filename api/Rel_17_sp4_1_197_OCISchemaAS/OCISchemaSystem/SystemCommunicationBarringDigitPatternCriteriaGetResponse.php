@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $description   = null;
+    protected $digitPattern  = null;
 
-    public function __construct(
-             $description=null,
-             $digitPattern=null
-    ) {
-        $this->description  = new DigitPatternCriteriaDescription($description);
-        $this->digitPattern = new DigitPattern($digitPattern);
-        $this->args         = func_get_args();
-    }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new DigitPatternCriteriaDescription($description);
+        $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
+             ? $description
+             : new DigitPatternCriteriaDescription($description);
     }
 
     public function getDescription()
@@ -39,9 +35,11 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setDigitPattern($digitPattern)
+    public function setDigitPattern($digitPattern = null)
     {
-        $digitPattern and $this->digitPattern = new DigitPattern($digitPattern);
+        $this->digitPattern = ($digitPattern InstanceOf DigitPattern)
+             ? $digitPattern
+             : new DigitPattern($digitPattern);
     }
 
     public function getDigitPattern()

@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideShowPassword;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingCallId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingRecordingKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingRecordingCallId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingSlideShowPassword;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $recordingKey       = null;
+    protected $recordingCallId    = null;
+    protected $slideShowPassword  = null;
 
     public function __construct(
-             $userId,
-             $recordingKey,
-             $recordingCallId,
-             $slideShowPassword=null
+         $userId,
+         InstantConferencingRecordingKey $recordingKey,
+         $recordingCallId,
+         $slideShowPassword = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->recordingKey      = $recordingKey;
-        $this->recordingCallId   = $recordingCallId;
-        $this->slideShowPassword = $slideShowPassword;
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setRecordingKey($recordingKey);
+        $this->setRecordingCallId($recordingCallId);
+        $this->setSlideShowPassword($slideShowPassword);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -46,9 +51,8 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setRecordingKey($recordingKey)
+    public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        $recordingKey and $this->recordingKey = new InstantConferencingRecordingKey($recordingKey);
     }
 
     public function getRecordingKey()
@@ -56,9 +60,11 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
         return (!$this->recordingKey) ?: $this->recordingKey->value();
     }
 
-    public function setRecordingCallId($recordingCallId)
+    public function setRecordingCallId($recordingCallId = null)
     {
-        $recordingCallId and $this->recordingCallId = new InstantConferencingRecordingCallId($recordingCallId);
+        $this->recordingCallId = ($recordingCallId InstanceOf InstantConferencingRecordingCallId)
+             ? $recordingCallId
+             : new InstantConferencingRecordingCallId($recordingCallId);
     }
 
     public function getRecordingCallId()
@@ -66,9 +72,11 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
         return (!$this->recordingCallId) ?: $this->recordingCallId->value();
     }
 
-    public function setSlideShowPassword($slideShowPassword)
+    public function setSlideShowPassword($slideShowPassword = null)
     {
-        $slideShowPassword and $this->slideShowPassword = new InstantConferencingSlideShowPassword($slideShowPassword);
+        $this->slideShowPassword = ($slideShowPassword InstanceOf InstantConferencingSlideShowPassword)
+             ? $slideShowPassword
+             : new InstantConferencingSlideShowPassword($slideShowPassword);
     }
 
     public function getSlideShowPassword()

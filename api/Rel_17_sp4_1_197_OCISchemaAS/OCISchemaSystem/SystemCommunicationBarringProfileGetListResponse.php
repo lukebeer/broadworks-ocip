@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringProfileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $profileTable  = null;
 
-    public function __construct(
-             $profileTable
-    ) {
-        $this->profileTable = $profileTable;
-        $this->args         = func_get_args();
-    }
 
-    public function setProfileTable($profileTable)
+    public function setProfileTable(core:OCITable $profileTable = null)
     {
-        $profileTable and $this->profileTable = new core:OCITable($profileTable);
     }
 
     public function getProfileTable()

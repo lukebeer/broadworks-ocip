@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCommunicationBarringAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name  = __CLASS__;
+    protected $code  = null;
 
-    public function __construct(
-             CommunicationBarringAuthorizationCodeEntry $code=null
-    ) {
-        $this->code = $code;
-        $this->args = func_get_args();
-    }
 
-    public function setCode($code)
+    public function setCode(CommunicationBarringAuthorizationCodeEntry $code = null)
     {
-        $code and $this->code = new CommunicationBarringAuthorizationCodeEntry($code);
     }
 
     public function getCode()

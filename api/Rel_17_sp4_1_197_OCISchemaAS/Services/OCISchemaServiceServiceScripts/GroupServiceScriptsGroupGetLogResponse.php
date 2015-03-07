@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:base64Binary;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceScriptsGroupGetLogResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $logContent  = null;
 
-    public function __construct(
-             $logContent=null
-    ) {
-        $this->logContent = $logContent;
-        $this->args       = func_get_args();
-    }
 
-    public function setLogContent($logContent)
+    public function setLogContent(xs:base64Binary $logContent = null)
     {
-        $logContent and $this->logContent = new xs:base64Binary($logContent);
     }
 
     public function getLogContent()

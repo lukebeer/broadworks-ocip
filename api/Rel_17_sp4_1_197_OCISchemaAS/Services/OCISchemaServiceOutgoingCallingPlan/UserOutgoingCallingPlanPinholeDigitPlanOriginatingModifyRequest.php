@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanPinholeDigitPlanOriginatingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $useCustomSettings  = null;
+    protected $userPermissions    = null;
 
     public function __construct(
-             $userId,
-             $useCustomSettings=null,
-             $userPermissions=null
+         $userId,
+         $useCustomSettings = null,
+         OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $userPermissions = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->useCustomSettings = $useCustomSettings;
-        $this->userPermissions   = $userPermissions;
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setUseCustomSettings($useCustomSettings);
+        $this->setUserPermissions($userPermissions);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserOutgoingCallingPlanPinholeDigitPlanOriginatingModifyRequest extends Co
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUseCustomSettings($useCustomSettings)
+    public function setUseCustomSettings(xs:boolean $useCustomSettings = null)
     {
-        $useCustomSettings and $this->useCustomSettings = new xs:boolean($useCustomSettings);
     }
 
     public function getUseCustomSettings()
@@ -53,9 +55,8 @@ class UserOutgoingCallingPlanPinholeDigitPlanOriginatingModifyRequest extends Co
         return (!$this->useCustomSettings) ?: $this->useCustomSettings->value();
     }
 
-    public function setUserPermissions($userPermissions)
+    public function setUserPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $userPermissions = null)
     {
-        $userPermissions and $this->userPermissions = new OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions($userPermissions);
     }
 
     public function getUserPermissions()

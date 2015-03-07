@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPartyCategoryValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ISDNUserPartOriginatingLineInformationValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ISDNGenericTransparencyDescriptorOliValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\ISDNUserPartOriginatingLineInformationValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\ISDNGenericTransparencyDescriptorOliValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebDisplayKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,34 +21,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallingPartyCategoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $cpcValue       = null;
+    protected $isupOliValue   = null;
+    protected $gtdOliValue    = null;
+    protected $userCategory   = null;
+    protected $payPhone       = null;
+    protected $operator       = null;
+    protected $default        = null;
+    protected $collectCall    = null;
+    protected $webDisplayKey  = null;
 
-    public function __construct(
-             $cpcValue=null,
-             $isupOliValue=null,
-             $gtdOliValue=null,
-             $userCategory,
-             $payPhone,
-             $operator,
-             $default,
-             $collectCall,
-             $webDisplayKey=null
-    ) {
-        $this->cpcValue      = $cpcValue;
-        $this->isupOliValue  = $isupOliValue;
-        $this->gtdOliValue   = $gtdOliValue;
-        $this->userCategory  = $userCategory;
-        $this->payPhone      = $payPhone;
-        $this->operator      = $operator;
-        $this->default       = $default;
-        $this->collectCall   = $collectCall;
-        $this->webDisplayKey = new WebDisplayKey($webDisplayKey);
-        $this->args          = func_get_args();
-    }
 
-    public function setCpcValue($cpcValue)
+    public function setCpcValue($cpcValue = null)
     {
-        $cpcValue and $this->cpcValue = new CallingPartyCategoryValue($cpcValue);
+        $this->cpcValue = ($cpcValue InstanceOf CallingPartyCategoryValue)
+             ? $cpcValue
+             : new CallingPartyCategoryValue($cpcValue);
     }
 
     public function getCpcValue()
@@ -57,9 +45,11 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->cpcValue) ?: $this->cpcValue->value();
     }
 
-    public function setIsupOliValue($isupOliValue)
+    public function setIsupOliValue($isupOliValue = null)
     {
-        $isupOliValue and $this->isupOliValue = new ISDNUserPartOriginatingLineInformationValue($isupOliValue);
+        $this->isupOliValue = ($isupOliValue InstanceOf ISDNUserPartOriginatingLineInformationValue)
+             ? $isupOliValue
+             : new ISDNUserPartOriginatingLineInformationValue($isupOliValue);
     }
 
     public function getIsupOliValue()
@@ -67,9 +57,11 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->isupOliValue) ?: $this->isupOliValue->value();
     }
 
-    public function setGtdOliValue($gtdOliValue)
+    public function setGtdOliValue($gtdOliValue = null)
     {
-        $gtdOliValue and $this->gtdOliValue = new ISDNGenericTransparencyDescriptorOliValue($gtdOliValue);
+        $this->gtdOliValue = ($gtdOliValue InstanceOf ISDNGenericTransparencyDescriptorOliValue)
+             ? $gtdOliValue
+             : new ISDNGenericTransparencyDescriptorOliValue($gtdOliValue);
     }
 
     public function getGtdOliValue()
@@ -77,9 +69,8 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->gtdOliValue) ?: $this->gtdOliValue->value();
     }
 
-    public function setUserCategory($userCategory)
+    public function setUserCategory(xs:boolean $userCategory = null)
     {
-        $userCategory and $this->userCategory = new xs:boolean($userCategory);
     }
 
     public function getUserCategory()
@@ -87,9 +78,8 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->userCategory) ?: $this->userCategory->value();
     }
 
-    public function setPayPhone($payPhone)
+    public function setPayPhone(xs:boolean $payPhone = null)
     {
-        $payPhone and $this->payPhone = new xs:boolean($payPhone);
     }
 
     public function getPayPhone()
@@ -97,9 +87,8 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->payPhone) ?: $this->payPhone->value();
     }
 
-    public function setOperator($operator)
+    public function setOperator(xs:boolean $operator = null)
     {
-        $operator and $this->operator = new xs:boolean($operator);
     }
 
     public function getOperator()
@@ -107,9 +96,8 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->operator) ?: $this->operator->value();
     }
 
-    public function setDefault($default)
+    public function setDefault(xs:boolean $default = null)
     {
-        $default and $this->default = new xs:boolean($default);
     }
 
     public function getDefault()
@@ -117,9 +105,8 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->default) ?: $this->default->value();
     }
 
-    public function setCollectCall($collectCall)
+    public function setCollectCall(xs:boolean $collectCall = null)
     {
-        $collectCall and $this->collectCall = new xs:boolean($collectCall);
     }
 
     public function getCollectCall()
@@ -127,9 +114,11 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
         return (!$this->collectCall) ?: $this->collectCall->value();
     }
 
-    public function setWebDisplayKey($webDisplayKey)
+    public function setWebDisplayKey($webDisplayKey = null)
     {
-        $webDisplayKey and $this->webDisplayKey = new WebDisplayKey($webDisplayKey);
+        $this->webDisplayKey = ($webDisplayKey InstanceOf WebDisplayKey)
+             ? $webDisplayKey
+             : new WebDisplayKey($webDisplayKey);
     }
 
     public function getWebDisplayKey()

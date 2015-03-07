@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywhereCLIDPrompt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywhereScope;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksAnywhereScope;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksAnywhereCLIDPrompt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,28 +21,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $serviceUserId            = null;
+    protected $serviceInstanceProfile   = null;
+    protected $broadWorksAnywhereScope  = null;
+    protected $promptForCLID            = null;
+    protected $silentPromptMode         = null;
+    protected $promptForPasscode        = null;
 
     public function __construct(
-             $serviceUserId,
-             ServiceInstanceModifyProfile $serviceInstanceProfile=null,
-             $broadWorksAnywhereScope=null,
-             $promptForCLID=null,
-             $silentPromptMode=null,
-             $promptForPasscode=null
+         $serviceUserId,
+         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $broadWorksAnywhereScope = null,
+         $promptForCLID = null,
+         $silentPromptMode = null,
+         $promptForPasscode = null
     ) {
-        $this->serviceUserId           = new UserId($serviceUserId);
-        $this->serviceInstanceProfile  = $serviceInstanceProfile;
-        $this->broadWorksAnywhereScope = $broadWorksAnywhereScope;
-        $this->promptForCLID           = $promptForCLID;
-        $this->silentPromptMode        = $silentPromptMode;
-        $this->promptForPasscode       = $promptForPasscode;
-        $this->args                    = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setBroadWorksAnywhereScope($broadWorksAnywhereScope);
+        $this->setPromptForCLID($promptForCLID);
+        $this->setSilentPromptMode($silentPromptMode);
+        $this->setPromptForPasscode($promptForPasscode);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -51,9 +57,8 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceModifyProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -61,9 +66,11 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setBroadWorksAnywhereScope($broadWorksAnywhereScope)
+    public function setBroadWorksAnywhereScope($broadWorksAnywhereScope = null)
     {
-        $broadWorksAnywhereScope and $this->broadWorksAnywhereScope = new BroadWorksAnywhereScope($broadWorksAnywhereScope);
+        $this->broadWorksAnywhereScope = ($broadWorksAnywhereScope InstanceOf BroadWorksAnywhereScope)
+             ? $broadWorksAnywhereScope
+             : new BroadWorksAnywhereScope($broadWorksAnywhereScope);
     }
 
     public function getBroadWorksAnywhereScope()
@@ -71,9 +78,11 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
         return (!$this->broadWorksAnywhereScope) ?: $this->broadWorksAnywhereScope->value();
     }
 
-    public function setPromptForCLID($promptForCLID)
+    public function setPromptForCLID($promptForCLID = null)
     {
-        $promptForCLID and $this->promptForCLID = new BroadWorksAnywhereCLIDPrompt($promptForCLID);
+        $this->promptForCLID = ($promptForCLID InstanceOf BroadWorksAnywhereCLIDPrompt)
+             ? $promptForCLID
+             : new BroadWorksAnywhereCLIDPrompt($promptForCLID);
     }
 
     public function getPromptForCLID()
@@ -81,9 +90,8 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
         return (!$this->promptForCLID) ?: $this->promptForCLID->value();
     }
 
-    public function setSilentPromptMode($silentPromptMode)
+    public function setSilentPromptMode(xs:boolean $silentPromptMode = null)
     {
-        $silentPromptMode and $this->silentPromptMode = new xs:boolean($silentPromptMode);
     }
 
     public function getSilentPromptMode()
@@ -91,9 +99,8 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
         return (!$this->silentPromptMode) ?: $this->silentPromptMode->value();
     }
 
-    public function setPromptForPasscode($promptForPasscode)
+    public function setPromptForPasscode(xs:boolean $promptForPasscode = null)
     {
-        $promptForPasscode and $this->promptForPasscode = new xs:boolean($promptForPasscode);
     }
 
     public function getPromptForPasscode()

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPerformanceMeasurementReportingModifyFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $ftpHostNetAddress  = null;
+    protected $passiveFTP         = null;
 
     public function __construct(
-             $ftpHostNetAddress,
-             $passiveFTP=null
+         $ftpHostNetAddress,
+         $passiveFTP = null
     ) {
-        $this->ftpHostNetAddress = new NetAddress($ftpHostNetAddress);
-        $this->passiveFTP        = $passiveFTP;
-        $this->args              = func_get_args();
+        $this->setFtpHostNetAddress($ftpHostNetAddress);
+        $this->setPassiveFTP($passiveFTP);
     }
 
-    public function setFtpHostNetAddress($ftpHostNetAddress)
+    public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
-        $ftpHostNetAddress and $this->ftpHostNetAddress = new NetAddress($ftpHostNetAddress);
+        $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
+             ? $ftpHostNetAddress
+             : new NetAddress($ftpHostNetAddress);
     }
 
     public function getFtpHostNetAddress()
@@ -40,9 +42,8 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
         return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->value();
     }
 
-    public function setPassiveFTP($passiveFTP)
+    public function setPassiveFTP(xs:boolean $passiveFTP = null)
     {
-        $passiveFTP and $this->passiveFTP = new xs:boolean($passiveFTP);
     }
 
     public function getPassiveFTP()

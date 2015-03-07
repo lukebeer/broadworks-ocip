@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallCenterMusicOnHoldSourceModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterMusicOnHoldSourceModify;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,36 +23,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                      = __CLASS__;
+    protected $serviceUserId                             = null;
+    protected $entranceMessageSelection                  = null;
+    protected $entranceMessageAudioFile                  = null;
+    protected $entranceMessageVideoFile                  = null;
+    protected $periodicComfortMessageSelection           = null;
+    protected $periodicComfortMessageAudioFile           = null;
+    protected $periodicComfortMessageVideoFile           = null;
+    protected $onHoldSource                              = null;
+    protected $onHoldUseAlternateSourceForInternalCalls  = null;
+    protected $onHoldInternalSource                      = null;
 
     public function __construct(
-             $serviceUserId,
-             $entranceMessageSelection=null,
-             LabeledFileResource $entranceMessageAudioFile=null,
-             LabeledFileResource $entranceMessageVideoFile=null,
-             $periodicComfortMessageSelection=null,
-             LabeledFileResource $periodicComfortMessageAudioFile=null,
-             LabeledFileResource $periodicComfortMessageVideoFile=null,
-             $onHoldSource=null,
-             $onHoldUseAlternateSourceForInternalCalls=null,
-             $onHoldInternalSource=null
+         $serviceUserId,
+         $entranceMessageSelection = null,
+         LabeledFileResource $entranceMessageAudioFile = null,
+         LabeledFileResource $entranceMessageVideoFile = null,
+         $periodicComfortMessageSelection = null,
+         LabeledFileResource $periodicComfortMessageAudioFile = null,
+         LabeledFileResource $periodicComfortMessageVideoFile = null,
+         CallCenterMusicOnHoldSourceModify $onHoldSource = null,
+         $onHoldUseAlternateSourceForInternalCalls = null,
+         CallCenterMusicOnHoldSourceModify $onHoldInternalSource = null
     ) {
-        $this->serviceUserId                            = new UserId($serviceUserId);
-        $this->entranceMessageSelection                 = $entranceMessageSelection;
-        $this->entranceMessageAudioFile                 = $entranceMessageAudioFile;
-        $this->entranceMessageVideoFile                 = $entranceMessageVideoFile;
-        $this->periodicComfortMessageSelection          = $periodicComfortMessageSelection;
-        $this->periodicComfortMessageAudioFile          = $periodicComfortMessageAudioFile;
-        $this->periodicComfortMessageVideoFile          = $periodicComfortMessageVideoFile;
-        $this->onHoldSource                             = $onHoldSource;
-        $this->onHoldUseAlternateSourceForInternalCalls = $onHoldUseAlternateSourceForInternalCalls;
-        $this->onHoldInternalSource                     = $onHoldInternalSource;
-        $this->args                                     = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setEntranceMessageSelection($entranceMessageSelection);
+        $this->setEntranceMessageAudioFile($entranceMessageAudioFile);
+        $this->setEntranceMessageVideoFile($entranceMessageVideoFile);
+        $this->setPeriodicComfortMessageSelection($periodicComfortMessageSelection);
+        $this->setPeriodicComfortMessageAudioFile($periodicComfortMessageAudioFile);
+        $this->setPeriodicComfortMessageVideoFile($periodicComfortMessageVideoFile);
+        $this->setOnHoldSource($onHoldSource);
+        $this->setOnHoldUseAlternateSourceForInternalCalls($onHoldUseAlternateSourceForInternalCalls);
+        $this->setOnHoldInternalSource($onHoldInternalSource);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -61,9 +71,11 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setEntranceMessageSelection($entranceMessageSelection)
+    public function setEntranceMessageSelection($entranceMessageSelection = null)
     {
-        $entranceMessageSelection and $this->entranceMessageSelection = new CallCenterAnnouncementSelection($entranceMessageSelection);
+        $this->entranceMessageSelection = ($entranceMessageSelection InstanceOf CallCenterAnnouncementSelection)
+             ? $entranceMessageSelection
+             : new CallCenterAnnouncementSelection($entranceMessageSelection);
     }
 
     public function getEntranceMessageSelection()
@@ -71,9 +83,8 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->entranceMessageSelection) ?: $this->entranceMessageSelection->value();
     }
 
-    public function setEntranceMessageAudioFile($entranceMessageAudioFile)
+    public function setEntranceMessageAudioFile(LabeledFileResource $entranceMessageAudioFile = null)
     {
-        $entranceMessageAudioFile and $this->entranceMessageAudioFile = new LabeledFileResource($entranceMessageAudioFile);
     }
 
     public function getEntranceMessageAudioFile()
@@ -81,9 +92,8 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->entranceMessageAudioFile) ?: $this->entranceMessageAudioFile->value();
     }
 
-    public function setEntranceMessageVideoFile($entranceMessageVideoFile)
+    public function setEntranceMessageVideoFile(LabeledFileResource $entranceMessageVideoFile = null)
     {
-        $entranceMessageVideoFile and $this->entranceMessageVideoFile = new LabeledFileResource($entranceMessageVideoFile);
     }
 
     public function getEntranceMessageVideoFile()
@@ -91,9 +101,11 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->entranceMessageVideoFile) ?: $this->entranceMessageVideoFile->value();
     }
 
-    public function setPeriodicComfortMessageSelection($periodicComfortMessageSelection)
+    public function setPeriodicComfortMessageSelection($periodicComfortMessageSelection = null)
     {
-        $periodicComfortMessageSelection and $this->periodicComfortMessageSelection = new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
+        $this->periodicComfortMessageSelection = ($periodicComfortMessageSelection InstanceOf CallCenterAnnouncementSelection)
+             ? $periodicComfortMessageSelection
+             : new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
     }
 
     public function getPeriodicComfortMessageSelection()
@@ -101,9 +113,8 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->periodicComfortMessageSelection) ?: $this->periodicComfortMessageSelection->value();
     }
 
-    public function setPeriodicComfortMessageAudioFile($periodicComfortMessageAudioFile)
+    public function setPeriodicComfortMessageAudioFile(LabeledFileResource $periodicComfortMessageAudioFile = null)
     {
-        $periodicComfortMessageAudioFile and $this->periodicComfortMessageAudioFile = new LabeledFileResource($periodicComfortMessageAudioFile);
     }
 
     public function getPeriodicComfortMessageAudioFile()
@@ -111,9 +122,8 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->periodicComfortMessageAudioFile) ?: $this->periodicComfortMessageAudioFile->value();
     }
 
-    public function setPeriodicComfortMessageVideoFile($periodicComfortMessageVideoFile)
+    public function setPeriodicComfortMessageVideoFile(LabeledFileResource $periodicComfortMessageVideoFile = null)
     {
-        $periodicComfortMessageVideoFile and $this->periodicComfortMessageVideoFile = new LabeledFileResource($periodicComfortMessageVideoFile);
     }
 
     public function getPeriodicComfortMessageVideoFile()
@@ -121,9 +131,8 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->periodicComfortMessageVideoFile) ?: $this->periodicComfortMessageVideoFile->value();
     }
 
-    public function setOnHoldSource($onHoldSource)
+    public function setOnHoldSource(CallCenterMusicOnHoldSourceModify $onHoldSource = null)
     {
-        $onHoldSource and $this->onHoldSource = new CallCenterMusicOnHoldSourceModify($onHoldSource);
     }
 
     public function getOnHoldSource()
@@ -131,9 +140,8 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->onHoldSource) ?: $this->onHoldSource->value();
     }
 
-    public function setOnHoldUseAlternateSourceForInternalCalls($onHoldUseAlternateSourceForInternalCalls)
+    public function setOnHoldUseAlternateSourceForInternalCalls(xs:boolean $onHoldUseAlternateSourceForInternalCalls = null)
     {
-        $onHoldUseAlternateSourceForInternalCalls and $this->onHoldUseAlternateSourceForInternalCalls = new xs:boolean($onHoldUseAlternateSourceForInternalCalls);
     }
 
     public function getOnHoldUseAlternateSourceForInternalCalls()
@@ -141,9 +149,8 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls->value();
     }
 
-    public function setOnHoldInternalSource($onHoldInternalSource)
+    public function setOnHoldInternalSource(CallCenterMusicOnHoldSourceModify $onHoldInternalSource = null)
     {
-        $onHoldInternalSource and $this->onHoldInternalSource = new CallCenterMusicOnHoldSourceModify($onHoldInternalSource);
     }
 
     public function getOnHoldInternalSource()

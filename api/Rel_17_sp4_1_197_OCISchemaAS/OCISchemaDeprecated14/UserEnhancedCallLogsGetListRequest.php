@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\EnhancedCallLogsMaxLoggedCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\EnhancedCallLogsOffset;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\EnhancedCallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsOffset;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnhancedCallLogsMaxLoggedCalls;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,24 +24,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $callLogType     = null;
+    protected $startingOffset  = null;
+    protected $numCalls        = null;
 
     public function __construct(
-             $userId,
-             $callLogType=null,
-             $startingOffset,
-             $numCalls
+         $userId,
+         $callLogType = null,
+         $startingOffset,
+         $numCalls
     ) {
-        $this->userId         = new UserId($userId);
-        $this->callLogType    = $callLogType;
-        $this->startingOffset = $startingOffset;
-        $this->numCalls       = $numCalls;
-        $this->args           = func_get_args();
+        $this->setUserId($userId);
+        $this->setCallLogType($callLogType);
+        $this->setStartingOffset($startingOffset);
+        $this->setNumCalls($numCalls);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -49,9 +54,11 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setCallLogType($callLogType)
+    public function setCallLogType($callLogType = null)
     {
-        $callLogType and $this->callLogType = new EnhancedCallLogsType($callLogType);
+        $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsType)
+             ? $callLogType
+             : new EnhancedCallLogsType($callLogType);
     }
 
     public function getCallLogType()
@@ -59,9 +66,11 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
         return (!$this->callLogType) ?: $this->callLogType->value();
     }
 
-    public function setStartingOffset($startingOffset)
+    public function setStartingOffset($startingOffset = null)
     {
-        $startingOffset and $this->startingOffset = new EnhancedCallLogsOffset($startingOffset);
+        $this->startingOffset = ($startingOffset InstanceOf EnhancedCallLogsOffset)
+             ? $startingOffset
+             : new EnhancedCallLogsOffset($startingOffset);
     }
 
     public function getStartingOffset()
@@ -69,9 +78,11 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
         return (!$this->startingOffset) ?: $this->startingOffset->value();
     }
 
-    public function setNumCalls($numCalls)
+    public function setNumCalls($numCalls = null)
     {
-        $numCalls and $this->numCalls = new EnhancedCallLogsMaxLoggedCalls($numCalls);
+        $this->numCalls = ($numCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
+             ? $numCalls
+             : new EnhancedCallLogsMaxLoggedCalls($numCalls);
     }
 
     public function getNumCalls()

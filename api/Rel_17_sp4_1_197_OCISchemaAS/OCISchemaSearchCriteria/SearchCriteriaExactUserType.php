@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactUserType extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $userType  = null;
 
     public function __construct(
-             $userType
+         $userType
     ) {
-        $this->userType = new UserType($userType);
-        $this->args     = func_get_args();
+        $this->setUserType($userType);
     }
 
-    public function setUserType($userType)
+    public function setUserType($userType = null)
     {
-        $userType and $this->userType = new UserType($userType);
+        $this->userType = ($userType InstanceOf UserType)
+             ? $userType
+             : new UserType($userType);
     }
 
     public function getUserType()

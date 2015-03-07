@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,30 +21,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $userId              = null;
+    protected $isActive            = null;
+    protected $audioSelection      = null;
+    protected $audioFile           = null;
+    protected $videoSelection      = null;
+    protected $videoFile           = null;
+    protected $criteriaActivation  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $audioSelection=null,
-             ExtendedMediaFileResource $audioFile=null,
-             $videoSelection=null,
-             ExtendedMediaFileResource $videoFile=null,
-             CriteriaActivation $criteriaActivation=null
+         $userId,
+         $isActive = null,
+         $audioSelection = null,
+         ExtendedMediaFileResource $audioFile = null,
+         $videoSelection = null,
+         ExtendedMediaFileResource $videoFile = null,
+         CriteriaActivation $criteriaActivation = null
     ) {
-        $this->userId             = new UserId($userId);
-        $this->isActive           = $isActive;
-        $this->audioSelection     = new ExtendedFileResourceSelection($audioSelection);
-        $this->audioFile          = $audioFile;
-        $this->videoSelection     = new ExtendedFileResourceSelection($videoSelection);
-        $this->videoFile          = $videoFile;
-        $this->criteriaActivation = $criteriaActivation;
-        $this->args               = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setAudioSelection($audioSelection);
+        $this->setAudioFile($audioFile);
+        $this->setVideoSelection($videoSelection);
+        $this->setVideoFile($videoFile);
+        $this->setCriteriaActivation($criteriaActivation);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -53,9 +60,8 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -63,9 +69,11 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAudioSelection($audioSelection)
+    public function setAudioSelection($audioSelection = null)
     {
-        $audioSelection and $this->audioSelection = new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioSelection
+             : new ExtendedFileResourceSelection($audioSelection);
     }
 
     public function getAudioSelection()
@@ -73,9 +81,8 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         return (!$this->audioSelection) ?: $this->audioSelection->value();
     }
 
-    public function setAudioFile($audioFile)
+    public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $audioFile and $this->audioFile = new ExtendedMediaFileResource($audioFile);
     }
 
     public function getAudioFile()
@@ -83,9 +90,11 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         return (!$this->audioFile) ?: $this->audioFile->value();
     }
 
-    public function setVideoSelection($videoSelection)
+    public function setVideoSelection($videoSelection = null)
     {
-        $videoSelection and $this->videoSelection = new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoSelection
+             : new ExtendedFileResourceSelection($videoSelection);
     }
 
     public function getVideoSelection()
@@ -93,9 +102,8 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         return (!$this->videoSelection) ?: $this->videoSelection->value();
     }
 
-    public function setVideoFile($videoFile)
+    public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $videoFile and $this->videoFile = new ExtendedMediaFileResource($videoFile);
     }
 
     public function getVideoFile()
@@ -103,9 +111,8 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         return (!$this->videoFile) ?: $this->videoFile->value();
     }
 
-    public function setCriteriaActivation($criteriaActivation)
+    public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $criteriaActivation and $this->criteriaActivation = new CriteriaActivation($criteriaActivation);
     }
 
     public function getCriteriaActivation()

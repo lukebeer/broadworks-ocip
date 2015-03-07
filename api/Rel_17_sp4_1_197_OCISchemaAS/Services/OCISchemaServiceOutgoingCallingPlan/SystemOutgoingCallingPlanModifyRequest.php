@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $directTransferScreening       = null;
+    protected $enableEnhancedTollCallTyping  = null;
 
     public function __construct(
-             $directTransferScreening=null,
-             $enableEnhancedTollCallTyping=null
+         $directTransferScreening = null,
+         $enableEnhancedTollCallTyping = null
     ) {
-        $this->directTransferScreening      = $directTransferScreening;
-        $this->enableEnhancedTollCallTyping = $enableEnhancedTollCallTyping;
-        $this->args                         = func_get_args();
+        $this->setDirectTransferScreening($directTransferScreening);
+        $this->setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping);
     }
 
-    public function setDirectTransferScreening($directTransferScreening)
+    public function setDirectTransferScreening(xs:boolean $directTransferScreening = null)
     {
-        $directTransferScreening and $this->directTransferScreening = new xs:boolean($directTransferScreening);
     }
 
     public function getDirectTransferScreening()
@@ -39,9 +39,8 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
         return (!$this->directTransferScreening) ?: $this->directTransferScreening->value();
     }
 
-    public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping)
+    public function setEnableEnhancedTollCallTyping(xs:boolean $enableEnhancedTollCallTyping = null)
     {
-        $enableEnhancedTollCallTyping and $this->enableEnhancedTollCallTyping = new xs:boolean($enableEnhancedTollCallTyping);
     }
 
     public function getEnableEnhancedTollCallTyping()

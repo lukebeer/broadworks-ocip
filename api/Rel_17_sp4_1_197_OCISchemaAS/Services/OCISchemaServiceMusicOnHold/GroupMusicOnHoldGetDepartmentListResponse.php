@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentFullPathName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $hasDepartment       = null;
+    protected $department          = null;
+    protected $departmentFullPath  = null;
 
-    public function __construct(
-             $hasDepartment,
-             DepartmentKey $department=null,
-             $departmentFullPath=null
-    ) {
-        $this->hasDepartment      = $hasDepartment;
-        $this->department         = $department;
-        $this->departmentFullPath = new DepartmentFullPathName($departmentFullPath);
-        $this->args               = func_get_args();
-    }
 
-    public function setHasDepartment($hasDepartment)
+    public function setHasDepartment(xs:boolean $hasDepartment = null)
     {
-        $hasDepartment and $this->hasDepartment = new xs:boolean($hasDepartment);
     }
 
     public function getHasDepartment()
@@ -42,9 +33,8 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
         return (!$this->hasDepartment) ?: $this->hasDepartment->value();
     }
 
-    public function setDepartment($department)
+    public function setDepartment(DepartmentKey $department = null)
     {
-        $department and $this->department = new DepartmentKey($department);
     }
 
     public function getDepartment()
@@ -52,9 +42,11 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
         return (!$this->department) ?: $this->department->value();
     }
 
-    public function setDepartmentFullPath($departmentFullPath)
+    public function setDepartmentFullPath($departmentFullPath = null)
     {
-        $departmentFullPath and $this->departmentFullPath = new DepartmentFullPathName($departmentFullPath);
+        $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentFullPathName)
+             ? $departmentFullPath
+             : new DepartmentFullPathName($departmentFullPath);
     }
 
     public function getDepartmentFullPath()

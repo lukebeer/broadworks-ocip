@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFTPConnectTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFTPFileTransferTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementFTPFileTransferTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementFTPConnectTimeoutSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,22 +20,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCPEConfigParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $enableIPDeviceManagement       = null;
+    protected $ftpConnectTimeoutSeconds       = null;
+    protected $ftpFileTransferTimeoutSeconds  = null;
 
-    public function __construct(
-             $enableIPDeviceManagement,
-             $ftpConnectTimeoutSeconds,
-             $ftpFileTransferTimeoutSeconds
-    ) {
-        $this->enableIPDeviceManagement      = $enableIPDeviceManagement;
-        $this->ftpConnectTimeoutSeconds      = $ftpConnectTimeoutSeconds;
-        $this->ftpFileTransferTimeoutSeconds = $ftpFileTransferTimeoutSeconds;
-        $this->args                          = func_get_args();
-    }
 
-    public function setEnableIPDeviceManagement($enableIPDeviceManagement)
+    public function setEnableIPDeviceManagement(xs:boolean $enableIPDeviceManagement = null)
     {
-        $enableIPDeviceManagement and $this->enableIPDeviceManagement = new xs:boolean($enableIPDeviceManagement);
     }
 
     public function getEnableIPDeviceManagement()
@@ -44,9 +35,11 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
         return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement->value();
     }
 
-    public function setFtpConnectTimeoutSeconds($ftpConnectTimeoutSeconds)
+    public function setFtpConnectTimeoutSeconds($ftpConnectTimeoutSeconds = null)
     {
-        $ftpConnectTimeoutSeconds and $this->ftpConnectTimeoutSeconds = new DeviceManagementFTPConnectTimeoutSeconds($ftpConnectTimeoutSeconds);
+        $this->ftpConnectTimeoutSeconds = ($ftpConnectTimeoutSeconds InstanceOf DeviceManagementFTPConnectTimeoutSeconds)
+             ? $ftpConnectTimeoutSeconds
+             : new DeviceManagementFTPConnectTimeoutSeconds($ftpConnectTimeoutSeconds);
     }
 
     public function getFtpConnectTimeoutSeconds()
@@ -54,9 +47,11 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
         return (!$this->ftpConnectTimeoutSeconds) ?: $this->ftpConnectTimeoutSeconds->value();
     }
 
-    public function setFtpFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds)
+    public function setFtpFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds = null)
     {
-        $ftpFileTransferTimeoutSeconds and $this->ftpFileTransferTimeoutSeconds = new DeviceManagementFTPFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds);
+        $this->ftpFileTransferTimeoutSeconds = ($ftpFileTransferTimeoutSeconds InstanceOf DeviceManagementFTPFileTransferTimeoutSeconds)
+             ? $ftpFileTransferTimeoutSeconds
+             : new DeviceManagementFTPFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds);
     }
 
     public function getFtpFileTransferTimeoutSeconds()

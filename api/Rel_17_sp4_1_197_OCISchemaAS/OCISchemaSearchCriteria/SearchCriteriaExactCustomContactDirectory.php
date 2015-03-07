@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactCustomContactDirectory extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $customContactDirectoryName  = null;
 
     public function __construct(
-             $customContactDirectoryName
+         $customContactDirectoryName
     ) {
-        $this->customContactDirectoryName = new CustomContactDirectoryName($customContactDirectoryName);
-        $this->args                       = func_get_args();
+        $this->setCustomContactDirectoryName($customContactDirectoryName);
     }
 
-    public function setCustomContactDirectoryName($customContactDirectoryName)
+    public function setCustomContactDirectoryName($customContactDirectoryName = null)
     {
-        $customContactDirectoryName and $this->customContactDirectoryName = new CustomContactDirectoryName($customContactDirectoryName);
+        $this->customContactDirectoryName = ($customContactDirectoryName InstanceOf CustomContactDirectoryName)
+             ? $customContactDirectoryName
+             : new CustomContactDirectoryName($customContactDirectoryName);
     }
 
     public function getCustomContactDirectoryName()

@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddressExtended;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ChargingFunctionElementServerType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ChargingFunctionElementServerDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ChargingFunctionElementServerDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ChargingFunctionElementServerType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetAddressExtended;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $address               = null;
+    protected $isNetAddressExtended  = null;
+    protected $type                  = null;
+    protected $description           = null;
 
     public function __construct(
-             $address,
-             $isNetAddressExtended,
-             $type,
-             $description=null
+         $address,
+         $isNetAddressExtended,
+         $type,
+         $description = null
     ) {
-        $this->address              = $address;
-        $this->isNetAddressExtended = $isNetAddressExtended;
-        $this->type                 = $type;
-        $this->description          = $description;
-        $this->args                 = func_get_args();
+        $this->setAddress($address);
+        $this->setIsNetAddressExtended($isNetAddressExtended);
+        $this->setType($type);
+        $this->setDescription($description);
     }
 
-    public function setAddress($address)
+    public function setAddress($address = null)
     {
-        $address and $this->address = new NetAddressExtended($address);
+        $this->address = ($address InstanceOf NetAddressExtended)
+             ? $address
+             : new NetAddressExtended($address);
     }
 
     public function getAddress()
@@ -46,9 +50,8 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
         return (!$this->address) ?: $this->address->value();
     }
 
-    public function setIsNetAddressExtended($isNetAddressExtended)
+    public function setIsNetAddressExtended(xs:boolean $isNetAddressExtended = null)
     {
-        $isNetAddressExtended and $this->isNetAddressExtended = new xs:boolean($isNetAddressExtended);
     }
 
     public function getIsNetAddressExtended()
@@ -56,9 +59,11 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
         return (!$this->isNetAddressExtended) ?: $this->isNetAddressExtended->value();
     }
 
-    public function setType($type)
+    public function setType($type = null)
     {
-        $type and $this->type = new ChargingFunctionElementServerType($type);
+        $this->type = ($type InstanceOf ChargingFunctionElementServerType)
+             ? $type
+             : new ChargingFunctionElementServerType($type);
     }
 
     public function getType()
@@ -66,9 +71,11 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
         return (!$this->type) ?: $this->type->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new ChargingFunctionElementServerDescription($description);
+        $this->description = ($description InstanceOf ChargingFunctionElementServerDescription)
+             ? $description
+             : new ChargingFunctionElementServerDescription($description);
     }
 
     public function getDescription()

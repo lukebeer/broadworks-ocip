@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallApplicationNotificationTimeOutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallApplicationNotificationTimeOutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallControlApplicationDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventNotificationChannelsPerSet;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCICallControlApplicationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $applicationId               = null;
+    protected $enableSystemWide            = null;
+    protected $notificationTimeoutSeconds  = null;
+    protected $description                 = null;
+    protected $maxEventChannelsPerSet      = null;
 
     public function __construct(
-             $applicationId,
-             $enableSystemWide=null,
-             $notificationTimeoutSeconds=null,
-             $description=null,
-             $maxEventChannelsPerSet=null
+         $applicationId,
+         $enableSystemWide = null,
+         $notificationTimeoutSeconds = null,
+         $description = null,
+         $maxEventChannelsPerSet = null
     ) {
-        $this->applicationId              = new OCICallControlApplicationId($applicationId);
-        $this->enableSystemWide           = $enableSystemWide;
-        $this->notificationTimeoutSeconds = $notificationTimeoutSeconds;
-        $this->description                = $description;
-        $this->maxEventChannelsPerSet     = new EventNotificationChannelsPerSet($maxEventChannelsPerSet);
-        $this->args                       = func_get_args();
+        $this->setApplicationId($applicationId);
+        $this->setEnableSystemWide($enableSystemWide);
+        $this->setNotificationTimeoutSeconds($notificationTimeoutSeconds);
+        $this->setDescription($description);
+        $this->setMaxEventChannelsPerSet($maxEventChannelsPerSet);
     }
 
-    public function setApplicationId($applicationId)
+    public function setApplicationId($applicationId = null)
     {
-        $applicationId and $this->applicationId = new OCICallControlApplicationId($applicationId);
+        $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
+             ? $applicationId
+             : new OCICallControlApplicationId($applicationId);
     }
 
     public function getApplicationId()
@@ -49,9 +54,8 @@ class SystemOCICallControlApplicationModifyRequest extends ComplexType implement
         return (!$this->applicationId) ?: $this->applicationId->value();
     }
 
-    public function setEnableSystemWide($enableSystemWide)
+    public function setEnableSystemWide(xs:boolean $enableSystemWide = null)
     {
-        $enableSystemWide and $this->enableSystemWide = new xs:boolean($enableSystemWide);
     }
 
     public function getEnableSystemWide()
@@ -59,9 +63,11 @@ class SystemOCICallControlApplicationModifyRequest extends ComplexType implement
         return (!$this->enableSystemWide) ?: $this->enableSystemWide->value();
     }
 
-    public function setNotificationTimeoutSeconds($notificationTimeoutSeconds)
+    public function setNotificationTimeoutSeconds($notificationTimeoutSeconds = null)
     {
-        $notificationTimeoutSeconds and $this->notificationTimeoutSeconds = new OCICallApplicationNotificationTimeOutSeconds($notificationTimeoutSeconds);
+        $this->notificationTimeoutSeconds = ($notificationTimeoutSeconds InstanceOf OCICallApplicationNotificationTimeOutSeconds)
+             ? $notificationTimeoutSeconds
+             : new OCICallApplicationNotificationTimeOutSeconds($notificationTimeoutSeconds);
     }
 
     public function getNotificationTimeoutSeconds()
@@ -69,9 +75,11 @@ class SystemOCICallControlApplicationModifyRequest extends ComplexType implement
         return (!$this->notificationTimeoutSeconds) ?: $this->notificationTimeoutSeconds->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new OCICallControlApplicationDescription($description);
+        $this->description = ($description InstanceOf OCICallControlApplicationDescription)
+             ? $description
+             : new OCICallControlApplicationDescription($description);
     }
 
     public function getDescription()
@@ -79,9 +87,11 @@ class SystemOCICallControlApplicationModifyRequest extends ComplexType implement
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setMaxEventChannelsPerSet($maxEventChannelsPerSet)
+    public function setMaxEventChannelsPerSet($maxEventChannelsPerSet = null)
     {
-        $maxEventChannelsPerSet and $this->maxEventChannelsPerSet = new EventNotificationChannelsPerSet($maxEventChannelsPerSet);
+        $this->maxEventChannelsPerSet = ($maxEventChannelsPerSet InstanceOf EventNotificationChannelsPerSet)
+             ? $maxEventChannelsPerSet
+             : new EventNotificationChannelsPerSet($maxEventChannelsPerSet);
     }
 
     public function getMaxEventChannelsPerSet()

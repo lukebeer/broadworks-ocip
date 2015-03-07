@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MusicOnHoldUserSourceModify;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $userId                              = null;
+    protected $source                              = null;
+    protected $useAlternateSourceForInternalCalls  = null;
+    protected $internalSource                      = null;
 
     public function __construct(
-             $userId,
-             $source=null,
-             $useAlternateSourceForInternalCalls=null,
-             $internalSource=null
+         $userId,
+         MusicOnHoldUserSourceModify $source = null,
+         $useAlternateSourceForInternalCalls = null,
+         MusicOnHoldUserSourceModify $internalSource = null
     ) {
-        $this->userId                             = new UserId($userId);
-        $this->source                             = $source;
-        $this->useAlternateSourceForInternalCalls = $useAlternateSourceForInternalCalls;
-        $this->internalSource                     = $internalSource;
-        $this->args                               = func_get_args();
+        $this->setUserId($userId);
+        $this->setSource($source);
+        $this->setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls);
+        $this->setInternalSource($internalSource);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -47,9 +51,8 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setSource($source)
+    public function setSource(MusicOnHoldUserSourceModify $source = null)
     {
-        $source and $this->source = new MusicOnHoldUserSourceModify($source);
     }
 
     public function getSource()
@@ -57,9 +60,8 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
         return (!$this->source) ?: $this->source->value();
     }
 
-    public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls)
+    public function setUseAlternateSourceForInternalCalls(xs:boolean $useAlternateSourceForInternalCalls = null)
     {
-        $useAlternateSourceForInternalCalls and $this->useAlternateSourceForInternalCalls = new xs:boolean($useAlternateSourceForInternalCalls);
     }
 
     public function getUseAlternateSourceForInternalCalls()
@@ -67,9 +69,8 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
         return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->value();
     }
 
-    public function setInternalSource($internalSource)
+    public function setInternalSource(MusicOnHoldUserSourceModify $internalSource = null)
     {
-        $internalSource and $this->internalSource = new MusicOnHoldUserSourceModify($internalSource);
     }
 
     public function getInternalSource()

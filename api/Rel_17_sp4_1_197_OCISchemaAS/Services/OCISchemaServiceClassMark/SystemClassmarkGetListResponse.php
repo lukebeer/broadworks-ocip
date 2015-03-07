@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemClassmarkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $classmarkTable  = null;
 
-    public function __construct(
-             $classmarkTable
-    ) {
-        $this->classmarkTable = $classmarkTable;
-        $this->args           = func_get_args();
-    }
 
-    public function setClassmarkTable($classmarkTable)
+    public function setClassmarkTable(core:OCITable $classmarkTable = null)
     {
-        $classmarkTable and $this->classmarkTable = new core:OCITable($classmarkTable);
     }
 
     public function getClassmarkTable()

@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutePointExternalSystemApplicationControllerGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $externalSystem  = null;
 
     public function __construct(
-             $externalSystem
+         $externalSystem
     ) {
-        $this->externalSystem = new RoutePointExternalSystem($externalSystem);
-        $this->args           = func_get_args();
+        $this->setExternalSystem($externalSystem);
     }
 
-    public function setExternalSystem($externalSystem)
+    public function setExternalSystem($externalSystem = null)
     {
-        $externalSystem and $this->externalSystem = new RoutePointExternalSystem($externalSystem);
+        $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
+             ? $externalSystem
+             : new RoutePointExternalSystem($externalSystem);
     }
 
     public function getExternalSystem()

@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackAuthorization;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupServiceAuthorization;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserServiceAuthorization;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackAuthorization;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,26 +23,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceModifyAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $serviceProviderId          = null;
+    protected $groupId                    = null;
+    protected $servicePackAuthorization   = null;
+    protected $groupServiceAuthorization  = null;
+    protected $userServiceAuthorization   = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             ServicePackAuthorization $servicePackAuthorization=null,
-             GroupServiceAuthorization $groupServiceAuthorization=null,
-             UserServiceAuthorization $userServiceAuthorization=null
+         $serviceProviderId,
+         $groupId,
+         ServicePackAuthorization $servicePackAuthorization = null,
+         GroupServiceAuthorization $groupServiceAuthorization = null,
+         UserServiceAuthorization $userServiceAuthorization = null
     ) {
-        $this->serviceProviderId         = new ServiceProviderId($serviceProviderId);
-        $this->groupId                   = new GroupId($groupId);
-        $this->servicePackAuthorization  = $servicePackAuthorization;
-        $this->groupServiceAuthorization = $groupServiceAuthorization;
-        $this->userServiceAuthorization  = $userServiceAuthorization;
-        $this->args                      = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setServicePackAuthorization($servicePackAuthorization);
+        $this->setGroupServiceAuthorization($groupServiceAuthorization);
+        $this->setUserServiceAuthorization($userServiceAuthorization);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -50,9 +56,11 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -60,9 +68,8 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServicePackAuthorization($servicePackAuthorization)
+    public function setServicePackAuthorization(ServicePackAuthorization $servicePackAuthorization = null)
     {
-        $servicePackAuthorization and $this->servicePackAuthorization = new ServicePackAuthorization($servicePackAuthorization);
     }
 
     public function getServicePackAuthorization()
@@ -70,9 +77,8 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         return (!$this->servicePackAuthorization) ?: $this->servicePackAuthorization->value();
     }
 
-    public function setGroupServiceAuthorization($groupServiceAuthorization)
+    public function setGroupServiceAuthorization(GroupServiceAuthorization $groupServiceAuthorization = null)
     {
-        $groupServiceAuthorization and $this->groupServiceAuthorization = new GroupServiceAuthorization($groupServiceAuthorization);
     }
 
     public function getGroupServiceAuthorization()
@@ -80,9 +86,8 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         return (!$this->groupServiceAuthorization) ?: $this->groupServiceAuthorization->value();
     }
 
-    public function setUserServiceAuthorization($userServiceAuthorization)
+    public function setUserServiceAuthorization(UserServiceAuthorization $userServiceAuthorization = null)
     {
-        $userServiceAuthorization and $this->userServiceAuthorization = new UserServiceAuthorization($userServiceAuthorization);
     }
 
     public function getUserServiceAuthorization()

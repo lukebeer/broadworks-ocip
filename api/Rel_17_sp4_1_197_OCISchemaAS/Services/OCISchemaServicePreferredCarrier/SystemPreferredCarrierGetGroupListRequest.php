@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PreferredCarrierName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaGroupName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactServiceProvider;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,26 +24,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $carrier                             = null;
+    protected $responseSizeLimit                   = null;
+    protected $searchCriteriaGroupId               = null;
+    protected $searchCriteriaGroupName             = null;
+    protected $searchCriteriaExactServiceProvider  = null;
 
     public function __construct(
-             $carrier,
-             $responseSizeLimit=null,
-             $searchCriteriaGroupId=null,
-             $searchCriteriaGroupName=null,
-             $searchCriteriaExactServiceProvider=null
+         $carrier,
+         $responseSizeLimit = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaGroupName $searchCriteriaGroupName = null,
+         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
     ) {
-        $this->carrier                            = $carrier;
-        $this->responseSizeLimit                  = $responseSizeLimit;
-        $this->searchCriteriaGroupId              = $searchCriteriaGroupId;
-        $this->searchCriteriaGroupName            = $searchCriteriaGroupName;
-        $this->searchCriteriaExactServiceProvider = $searchCriteriaExactServiceProvider;
-        $this->args                               = func_get_args();
+        $this->setCarrier($carrier);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->setSearchCriteriaGroupName($searchCriteriaGroupName);
+        $this->setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
     }
 
-    public function setCarrier($carrier)
+    public function setCarrier($carrier = null)
     {
-        $carrier and $this->carrier = new PreferredCarrierName($carrier);
+        $this->carrier = ($carrier InstanceOf PreferredCarrierName)
+             ? $carrier
+             : new PreferredCarrierName($carrier);
     }
 
     public function getCarrier()
@@ -51,9 +57,11 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
         return (!$this->carrier) ?: $this->carrier->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -61,9 +69,8 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaGroupId($searchCriteriaGroupId)
+    public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $searchCriteriaGroupId and $this->searchCriteriaGroupId = new SearchCriteriaGroupId($searchCriteriaGroupId);
     }
 
     public function getSearchCriteriaGroupId()
@@ -71,9 +78,8 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
         return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
     }
 
-    public function setSearchCriteriaGroupName($searchCriteriaGroupName)
+    public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $searchCriteriaGroupName and $this->searchCriteriaGroupName = new SearchCriteriaGroupName($searchCriteriaGroupName);
     }
 
     public function getSearchCriteriaGroupName()
@@ -81,9 +87,8 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
         return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->value();
     }
 
-    public function setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider)
+    public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        $searchCriteriaExactServiceProvider and $this->searchCriteriaExactServiceProvider = new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
     }
 
     public function getSearchCriteriaExactServiceProvider()

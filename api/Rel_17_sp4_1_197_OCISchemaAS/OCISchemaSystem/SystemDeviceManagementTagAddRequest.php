@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagValue;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceManagementTagAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $tagName   = null;
+    protected $tagValue  = null;
 
     public function __construct(
-             $tagName,
-             $tagValue=null
+         $tagName,
+         $tagValue = null
     ) {
-        $this->tagName  = new DeviceManagementTagName($tagName);
-        $this->tagValue = new DeviceManagementTagValue($tagValue);
-        $this->args     = func_get_args();
+        $this->setTagName($tagName);
+        $this->setTagValue($tagValue);
     }
 
-    public function setTagName($tagName)
+    public function setTagName($tagName = null)
     {
-        $tagName and $this->tagName = new DeviceManagementTagName($tagName);
+        $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
+             ? $tagName
+             : new DeviceManagementTagName($tagName);
     }
 
     public function getTagName()
@@ -40,9 +43,11 @@ class SystemDeviceManagementTagAddRequest extends ComplexType implements Complex
         return (!$this->tagName) ?: $this->tagName->value();
     }
 
-    public function setTagValue($tagValue)
+    public function setTagValue($tagValue = null)
     {
-        $tagValue and $this->tagValue = new DeviceManagementTagValue($tagValue);
+        $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
+             ? $tagValue
+             : new DeviceManagementTagValue($tagValue);
     }
 
     public function getTagValue()

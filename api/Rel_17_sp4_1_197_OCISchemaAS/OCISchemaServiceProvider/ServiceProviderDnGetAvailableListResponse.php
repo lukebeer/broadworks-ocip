@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:token;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDnGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $availableDn  = null;
 
-    public function __construct(
-             $availableDn=null
-    ) {
-        $this->availableDn = $availableDn;
-        $this->args        = func_get_args();
-    }
 
-    public function setAvailableDn($availableDn)
+    public function setAvailableDn(xs:token $availableDn = null)
     {
-        $availableDn and $this->availableDn = new xs:token($availableDn);
     }
 
     public function getAvailableDn()

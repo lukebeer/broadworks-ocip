@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanTransferNumbers;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanTransferNumbers;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $useCustomSettings  = null;
+    protected $userNumbers        = null;
 
-    public function __construct(
-             $useCustomSettings,
-             $userNumbers
-    ) {
-        $this->useCustomSettings = $useCustomSettings;
-        $this->userNumbers       = $userNumbers;
-        $this->args              = func_get_args();
-    }
 
-    public function setUseCustomSettings($useCustomSettings)
+    public function setUseCustomSettings(xs:boolean $useCustomSettings = null)
     {
-        $useCustomSettings and $this->useCustomSettings = new xs:boolean($useCustomSettings);
     }
 
     public function getUseCustomSettings()
@@ -39,9 +31,8 @@ class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType impl
         return (!$this->useCustomSettings) ?: $this->useCustomSettings->value();
     }
 
-    public function setUserNumbers($userNumbers)
+    public function setUserNumbers(OutgoingCallingPlanTransferNumbers $userNumbers = null)
     {
-        $userNumbers and $this->userNumbers = new OutgoingCallingPlanTransferNumbers($userNumbers);
     }
 
     public function getUserNumbers()

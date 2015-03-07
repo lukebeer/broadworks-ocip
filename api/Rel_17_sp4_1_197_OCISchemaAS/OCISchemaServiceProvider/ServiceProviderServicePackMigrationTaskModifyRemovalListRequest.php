@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackMigrationTaskName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserServiceList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementServicePackNameList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserServiceList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +22,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $serviceProviderId    = null;
+    protected $taskName             = null;
+    protected $userServiceNameList  = null;
+    protected $servicePackNameList  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $taskName,
-             ReplacementUserServiceList $userServiceNameList=null,
-             ReplacementServicePackNameList $servicePackNameList=null
+         $serviceProviderId,
+         $taskName,
+         ReplacementUserServiceList $userServiceNameList = null,
+         ReplacementServicePackNameList $servicePackNameList = null
     ) {
-        $this->serviceProviderId   = new ServiceProviderId($serviceProviderId);
-        $this->taskName            = $taskName;
-        $this->userServiceNameList = $userServiceNameList;
-        $this->servicePackNameList = $servicePackNameList;
-        $this->args                = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setTaskName($taskName);
+        $this->setUserServiceNameList($userServiceNameList);
+        $this->setServicePackNameList($servicePackNameList);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -47,9 +52,11 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setTaskName($taskName)
+    public function setTaskName($taskName = null)
     {
-        $taskName and $this->taskName = new ServicePackMigrationTaskName($taskName);
+        $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
+             ? $taskName
+             : new ServicePackMigrationTaskName($taskName);
     }
 
     public function getTaskName()
@@ -57,9 +64,8 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         return (!$this->taskName) ?: $this->taskName->value();
     }
 
-    public function setUserServiceNameList($userServiceNameList)
+    public function setUserServiceNameList(ReplacementUserServiceList $userServiceNameList = null)
     {
-        $userServiceNameList and $this->userServiceNameList = new ReplacementUserServiceList($userServiceNameList);
     }
 
     public function getUserServiceNameList()
@@ -67,9 +73,8 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         return (!$this->userServiceNameList) ?: $this->userServiceNameList->value();
     }
 
-    public function setServicePackNameList($servicePackNameList)
+    public function setServicePackNameList(ReplacementServicePackNameList $servicePackNameList = null)
     {
-        $servicePackNameList and $this->servicePackNameList = new ReplacementServicePackNameList($servicePackNameList);
     }
 
     public function getServicePackNameList()

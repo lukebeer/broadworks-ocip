@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDomainGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderDefaultDomain  = null;
+    protected $domain                        = null;
 
-    public function __construct(
-             $serviceProviderDefaultDomain,
-             $domain=null
-    ) {
-        $this->serviceProviderDefaultDomain = new NetAddress($serviceProviderDefaultDomain);
-        $this->domain                       = new NetAddress($domain);
-        $this->args                         = func_get_args();
-    }
 
-    public function setServiceProviderDefaultDomain($serviceProviderDefaultDomain)
+    public function setServiceProviderDefaultDomain($serviceProviderDefaultDomain = null)
     {
-        $serviceProviderDefaultDomain and $this->serviceProviderDefaultDomain = new NetAddress($serviceProviderDefaultDomain);
+        $this->serviceProviderDefaultDomain = ($serviceProviderDefaultDomain InstanceOf NetAddress)
+             ? $serviceProviderDefaultDomain
+             : new NetAddress($serviceProviderDefaultDomain);
     }
 
     public function getServiceProviderDefaultDomain()
@@ -38,9 +34,11 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
         return (!$this->serviceProviderDefaultDomain) ?: $this->serviceProviderDefaultDomain->value();
     }
 
-    public function setDomain($domain)
+    public function setDomain($domain = null)
     {
-        $domain and $this->domain = new NetAddress($domain);
+        $this->domain = ($domain InstanceOf NetAddress)
+             ? $domain
+             : new NetAddress($domain);
     }
 
     public function getDomain()

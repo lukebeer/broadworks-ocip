@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterDeleteAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $serviceUserId  = null;
+    protected $agentUserId    = null;
 
     public function __construct(
-             $serviceUserId,
-             $agentUserId=null
+         $serviceUserId,
+         $agentUserId = null
     ) {
-        $this->serviceUserId = new UserId($serviceUserId);
-        $this->agentUserId   = new UserId($agentUserId);
-        $this->args          = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setAgentUserId($agentUserId);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -39,9 +42,11 @@ class GroupCallCenterDeleteAgentListRequest extends ComplexType implements Compl
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setAgentUserId($agentUserId)
+    public function setAgentUserId($agentUserId = null)
     {
-        $agentUserId and $this->agentUserId = new UserId($agentUserId);
+        $this->agentUserId = ($agentUserId InstanceOf UserId)
+             ? $agentUserId
+             : new UserId($agentUserId);
     }
 
     public function getAgentUserId()

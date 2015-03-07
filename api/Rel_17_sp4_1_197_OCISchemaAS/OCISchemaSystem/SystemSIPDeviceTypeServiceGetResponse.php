@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $supportsPolycomPhoneServices  = null;
 
-    public function __construct(
-             $supportsPolycomPhoneServices
-    ) {
-        $this->supportsPolycomPhoneServices = $supportsPolycomPhoneServices;
-        $this->args                         = func_get_args();
-    }
 
-    public function setSupportsPolycomPhoneServices($supportsPolycomPhoneServices)
+    public function setSupportsPolycomPhoneServices(xs:boolean $supportsPolycomPhoneServices = null)
     {
-        $supportsPolycomPhoneServices and $this->supportsPolycomPhoneServices = new xs:boolean($supportsPolycomPhoneServices);
     }
 
     public function getSupportsPolycomPhoneServices()

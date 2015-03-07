@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,14 +22,14 @@ class ServicePackMigrationTaskStatus extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Awaiting Edits',
-                                              'Pending',
-                                              'Processing',
-                                              'Terminating',
-                                              'Terminated',
-                                              'Stopped By System',
-                                              'Completed'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Awaiting Edits',
+            'Pending',
+            'Processing',
+            'Terminating',
+            'Terminated',
+            'Stopped By System',
+            'Completed'
+        ]));
     }
 }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $instantConferencingTable  = null;
 
-    public function __construct(
-             $instantConferencingTable
-    ) {
-        $this->instantConferencingTable = $instantConferencingTable;
-        $this->args                     = func_get_args();
-    }
 
-    public function setInstantConferencingTable($instantConferencingTable)
+    public function setInstantConferencingTable(core:OCITable $instantConferencingTable = null)
     {
-        $instantConferencingTable and $this->instantConferencingTable = new core:OCITable($instantConferencingTable);
     }
 
     public function getInstantConferencingTable()

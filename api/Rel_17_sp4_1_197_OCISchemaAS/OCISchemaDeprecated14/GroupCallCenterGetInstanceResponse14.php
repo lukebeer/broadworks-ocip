@@ -7,16 +7,14 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterTimeBetweenComfortMessagesSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntForwardTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallCenterQueueLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterTimeBetweenComfortMessagesSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterGuardTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -30,50 +28,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $serviceInstanceProfile             = null;
+    protected $policy                             = null;
+    protected $huntAfterNoAnswer                  = null;
+    protected $noAnswerNumberOfRings              = null;
+    protected $forwardAfterTimeout                = null;
+    protected $forwardTimeoutSeconds              = null;
+    protected $forwardToPhoneNumber               = null;
+    protected $enableVideo                        = null;
+    protected $queueLength                        = null;
+    protected $allowAgentLogoff                   = null;
+    protected $playMusicOnHold                    = null;
+    protected $playComfortMessage                 = null;
+    protected $timeBetweenComfortMessagesSeconds  = null;
+    protected $enableGuardTimer                   = null;
+    protected $guardTimerSeconds                  = null;
+    protected $agentUserTable                     = null;
+    protected $allowCallWaitingForAgents          = null;
 
-    public function __construct(
-             $serviceInstanceProfile,
-             $policy,
-             $huntAfterNoAnswer,
-             $noAnswerNumberOfRings,
-             $forwardAfterTimeout,
-             $forwardTimeoutSeconds,
-             $forwardToPhoneNumber=null,
-             $enableVideo,
-             $queueLength,
-             $allowAgentLogoff,
-             $playMusicOnHold,
-             $playComfortMessage,
-             $timeBetweenComfortMessagesSeconds,
-             $enableGuardTimer,
-             $guardTimerSeconds,
-             $agentUserTable,
-             $allowCallWaitingForAgents
-    ) {
-        $this->serviceInstanceProfile            = $serviceInstanceProfile;
-        $this->policy                            = new HuntPolicy($policy);
-        $this->huntAfterNoAnswer                 = $huntAfterNoAnswer;
-        $this->noAnswerNumberOfRings             = new HuntNoAnswerRings($noAnswerNumberOfRings);
-        $this->forwardAfterTimeout               = $forwardAfterTimeout;
-        $this->forwardTimeoutSeconds             = new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
-        $this->forwardToPhoneNumber              = new OutgoingDN($forwardToPhoneNumber);
-        $this->enableVideo                       = $enableVideo;
-        $this->queueLength                       = $queueLength;
-        $this->allowAgentLogoff                  = $allowAgentLogoff;
-        $this->playMusicOnHold                   = $playMusicOnHold;
-        $this->playComfortMessage                = $playComfortMessage;
-        $this->timeBetweenComfortMessagesSeconds = $timeBetweenComfortMessagesSeconds;
-        $this->enableGuardTimer                  = $enableGuardTimer;
-        $this->guardTimerSeconds                 = $guardTimerSeconds;
-        $this->agentUserTable                    = $agentUserTable;
-        $this->allowCallWaitingForAgents         = $allowCallWaitingForAgents;
-        $this->args                              = func_get_args();
-    }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceReadProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -81,9 +57,11 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setPolicy($policy)
+    public function setPolicy($policy = null)
     {
-        $policy and $this->policy = new HuntPolicy($policy);
+        $this->policy = ($policy InstanceOf HuntPolicy)
+             ? $policy
+             : new HuntPolicy($policy);
     }
 
     public function getPolicy()
@@ -91,9 +69,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->policy) ?: $this->policy->value();
     }
 
-    public function setHuntAfterNoAnswer($huntAfterNoAnswer)
+    public function setHuntAfterNoAnswer(xs:boolean $huntAfterNoAnswer = null)
     {
-        $huntAfterNoAnswer and $this->huntAfterNoAnswer = new xs:boolean($huntAfterNoAnswer);
     }
 
     public function getHuntAfterNoAnswer()
@@ -101,9 +78,11 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->value();
     }
 
-    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings)
+    public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        $noAnswerNumberOfRings and $this->noAnswerNumberOfRings = new HuntNoAnswerRings($noAnswerNumberOfRings);
+        $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
+             ? $noAnswerNumberOfRings
+             : new HuntNoAnswerRings($noAnswerNumberOfRings);
     }
 
     public function getNoAnswerNumberOfRings()
@@ -111,9 +90,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->value();
     }
 
-    public function setForwardAfterTimeout($forwardAfterTimeout)
+    public function setForwardAfterTimeout(xs:boolean $forwardAfterTimeout = null)
     {
-        $forwardAfterTimeout and $this->forwardAfterTimeout = new xs:boolean($forwardAfterTimeout);
     }
 
     public function getForwardAfterTimeout()
@@ -121,9 +99,11 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->value();
     }
 
-    public function setForwardTimeoutSeconds($forwardTimeoutSeconds)
+    public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
-        $forwardTimeoutSeconds and $this->forwardTimeoutSeconds = new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
+        $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
+             ? $forwardTimeoutSeconds
+             : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
     }
 
     public function getForwardTimeoutSeconds()
@@ -131,9 +111,11 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->value();
     }
 
-    public function setForwardToPhoneNumber($forwardToPhoneNumber)
+    public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        $forwardToPhoneNumber and $this->forwardToPhoneNumber = new OutgoingDN($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
+             ? $forwardToPhoneNumber
+             : new OutgoingDN($forwardToPhoneNumber);
     }
 
     public function getForwardToPhoneNumber()
@@ -141,9 +123,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
     }
 
-    public function setEnableVideo($enableVideo)
+    public function setEnableVideo(xs:boolean $enableVideo = null)
     {
-        $enableVideo and $this->enableVideo = new xs:boolean($enableVideo);
     }
 
     public function getEnableVideo()
@@ -151,9 +132,11 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->enableVideo) ?: $this->enableVideo->value();
     }
 
-    public function setQueueLength($queueLength)
+    public function setQueueLength($queueLength = null)
     {
-        $queueLength and $this->queueLength = new CallCenterQueueLength($queueLength);
+        $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength)
+             ? $queueLength
+             : new CallCenterQueueLength($queueLength);
     }
 
     public function getQueueLength()
@@ -161,9 +144,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->queueLength) ?: $this->queueLength->value();
     }
 
-    public function setAllowAgentLogoff($allowAgentLogoff)
+    public function setAllowAgentLogoff(xs:boolean $allowAgentLogoff = null)
     {
-        $allowAgentLogoff and $this->allowAgentLogoff = new xs:boolean($allowAgentLogoff);
     }
 
     public function getAllowAgentLogoff()
@@ -171,9 +153,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->value();
     }
 
-    public function setPlayMusicOnHold($playMusicOnHold)
+    public function setPlayMusicOnHold(xs:boolean $playMusicOnHold = null)
     {
-        $playMusicOnHold and $this->playMusicOnHold = new xs:boolean($playMusicOnHold);
     }
 
     public function getPlayMusicOnHold()
@@ -181,9 +162,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->playMusicOnHold) ?: $this->playMusicOnHold->value();
     }
 
-    public function setPlayComfortMessage($playComfortMessage)
+    public function setPlayComfortMessage(xs:boolean $playComfortMessage = null)
     {
-        $playComfortMessage and $this->playComfortMessage = new xs:boolean($playComfortMessage);
     }
 
     public function getPlayComfortMessage()
@@ -191,9 +171,11 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->playComfortMessage) ?: $this->playComfortMessage->value();
     }
 
-    public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds)
+    public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds = null)
     {
-        $timeBetweenComfortMessagesSeconds and $this->timeBetweenComfortMessagesSeconds = new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
+        $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
+             ? $timeBetweenComfortMessagesSeconds
+             : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
     }
 
     public function getTimeBetweenComfortMessagesSeconds()
@@ -201,9 +183,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->timeBetweenComfortMessagesSeconds) ?: $this->timeBetweenComfortMessagesSeconds->value();
     }
 
-    public function setEnableGuardTimer($enableGuardTimer)
+    public function setEnableGuardTimer(xs:boolean $enableGuardTimer = null)
     {
-        $enableGuardTimer and $this->enableGuardTimer = new xs:boolean($enableGuardTimer);
     }
 
     public function getEnableGuardTimer()
@@ -211,9 +192,11 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->value();
     }
 
-    public function setGuardTimerSeconds($guardTimerSeconds)
+    public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
-        $guardTimerSeconds and $this->guardTimerSeconds = new CallCenterGuardTimerSeconds($guardTimerSeconds);
+        $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
+             ? $guardTimerSeconds
+             : new CallCenterGuardTimerSeconds($guardTimerSeconds);
     }
 
     public function getGuardTimerSeconds()
@@ -221,9 +204,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->value();
     }
 
-    public function setAgentUserTable($agentUserTable)
+    public function setAgentUserTable(core:OCITable $agentUserTable = null)
     {
-        $agentUserTable and $this->agentUserTable = new core:OCITable($agentUserTable);
     }
 
     public function getAgentUserTable()
@@ -231,9 +213,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         return (!$this->agentUserTable) ?: $this->agentUserTable->value();
     }
 
-    public function setAllowCallWaitingForAgents($allowCallWaitingForAgents)
+    public function setAllowCallWaitingForAgents(xs:boolean $allowCallWaitingForAgents = null)
     {
-        $allowCallWaitingForAgents and $this->allowCallWaitingForAgents = new xs:boolean($allowCallWaitingForAgents);
     }
 
     public function getAllowCallWaitingForAgents()

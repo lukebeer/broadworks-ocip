@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMediaSetGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name     = __CLASS__;
+    protected $setName  = null;
 
     public function __construct(
-             $setName
+         $setName
     ) {
-        $this->setName = new MediaSetName($setName);
-        $this->args    = func_get_args();
+        $this->setSetName($setName);
     }
 
-    public function setSetName($setName)
+    public function setSetName($setName = null)
     {
-        $setName and $this->setName = new MediaSetName($setName);
+        $this->setName = ($setName InstanceOf MediaSetName)
+             ? $setName
+             : new MediaSetName($setName);
     }
 
     public function getSetName()

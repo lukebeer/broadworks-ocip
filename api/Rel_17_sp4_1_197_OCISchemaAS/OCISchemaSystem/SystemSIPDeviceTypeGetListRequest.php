@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactSignalingAddressType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactSignalingAddressType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,22 +21,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                     = __CLASS__;
+    protected $responseSizeLimit                        = null;
+    protected $searchCriteriaDeviceType                 = null;
+    protected $searchCriteriaExactSignalingAddressType  = null;
 
     public function __construct(
-             $responseSizeLimit=null,
-             $searchCriteriaDeviceType=null,
-             $searchCriteriaExactSignalingAddressType=null
+         $responseSizeLimit = null,
+         SearchCriteriaDeviceType $searchCriteriaDeviceType = null,
+         SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null
     ) {
-        $this->responseSizeLimit                       = $responseSizeLimit;
-        $this->searchCriteriaDeviceType                = $searchCriteriaDeviceType;
-        $this->searchCriteriaExactSignalingAddressType = $searchCriteriaExactSignalingAddressType;
-        $this->args                                    = func_get_args();
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaDeviceType($searchCriteriaDeviceType);
+        $this->setSearchCriteriaExactSignalingAddressType($searchCriteriaExactSignalingAddressType);
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -44,9 +48,8 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaDeviceType($searchCriteriaDeviceType)
+    public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
-        $searchCriteriaDeviceType and $this->searchCriteriaDeviceType = new SearchCriteriaDeviceType($searchCriteriaDeviceType);
     }
 
     public function getSearchCriteriaDeviceType()
@@ -54,9 +57,8 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
         return (!$this->searchCriteriaDeviceType) ?: $this->searchCriteriaDeviceType->value();
     }
 
-    public function setSearchCriteriaExactSignalingAddressType($searchCriteriaExactSignalingAddressType)
+    public function setSearchCriteriaExactSignalingAddressType(SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null)
     {
-        $searchCriteriaExactSignalingAddressType and $this->searchCriteriaExactSignalingAddressType = new SearchCriteriaExactSignalingAddressType($searchCriteriaExactSignalingAddressType);
     }
 
     public function getSearchCriteriaExactSignalingAddressType()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $isLoginDisabled  = null;
 
-    public function __construct(
-             $isLoginDisabled
-    ) {
-        $this->isLoginDisabled = $isLoginDisabled;
-        $this->args            = func_get_args();
-    }
 
-    public function setIsLoginDisabled($isLoginDisabled)
+    public function setIsLoginDisabled(xs:boolean $isLoginDisabled = null)
     {
-        $isLoginDisabled and $this->isLoginDisabled = new xs:boolean($isLoginDisabled);
     }
 
     public function getIsLoginDisabled()

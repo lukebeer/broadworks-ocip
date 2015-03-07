@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:date;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingBillingCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $userId                      = null;
+    protected $bridgeServiceUserId         = null;
+    protected $reportStartDate             = null;
+    protected $reportEndDate               = null;
+    protected $billingCode                 = null;
+    protected $reportDeliveryEmailAddress  = null;
 
     public function __construct(
-             $userId,
-             $bridgeServiceUserId,
-             $reportStartDate,
-             $reportEndDate,
-             $billingCode=null,
-             $reportDeliveryEmailAddress=null
+         $userId,
+         $bridgeServiceUserId,
+         $reportStartDate,
+         $reportEndDate,
+         $billingCode = null,
+         $reportDeliveryEmailAddress = null
     ) {
-        $this->userId                     = new UserId($userId);
-        $this->bridgeServiceUserId        = new UserId($bridgeServiceUserId);
-        $this->reportStartDate            = $reportStartDate;
-        $this->reportEndDate              = $reportEndDate;
-        $this->billingCode                = $billingCode;
-        $this->reportDeliveryEmailAddress = new EmailAddress($reportDeliveryEmailAddress);
-        $this->args                       = func_get_args();
+        $this->setUserId($userId);
+        $this->setBridgeServiceUserId($bridgeServiceUserId);
+        $this->setReportStartDate($reportStartDate);
+        $this->setReportEndDate($reportEndDate);
+        $this->setBillingCode($billingCode);
+        $this->setReportDeliveryEmailAddress($reportDeliveryEmailAddress);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -50,9 +56,11 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setBridgeServiceUserId($bridgeServiceUserId)
+    public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        $bridgeServiceUserId and $this->bridgeServiceUserId = new UserId($bridgeServiceUserId);
+        $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
+             ? $bridgeServiceUserId
+             : new UserId($bridgeServiceUserId);
     }
 
     public function getBridgeServiceUserId()
@@ -60,9 +68,8 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
         return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
     }
 
-    public function setReportStartDate($reportStartDate)
+    public function setReportStartDate(xs:date $reportStartDate = null)
     {
-        $reportStartDate and $this->reportStartDate = new xs:date($reportStartDate);
     }
 
     public function getReportStartDate()
@@ -70,9 +77,8 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
         return (!$this->reportStartDate) ?: $this->reportStartDate->value();
     }
 
-    public function setReportEndDate($reportEndDate)
+    public function setReportEndDate(xs:date $reportEndDate = null)
     {
-        $reportEndDate and $this->reportEndDate = new xs:date($reportEndDate);
     }
 
     public function getReportEndDate()
@@ -80,9 +86,11 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
         return (!$this->reportEndDate) ?: $this->reportEndDate->value();
     }
 
-    public function setBillingCode($billingCode)
+    public function setBillingCode($billingCode = null)
     {
-        $billingCode and $this->billingCode = new InstantConferencingBillingCode($billingCode);
+        $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
+             ? $billingCode
+             : new InstantConferencingBillingCode($billingCode);
     }
 
     public function getBillingCode()
@@ -90,9 +98,11 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
         return (!$this->billingCode) ?: $this->billingCode->value();
     }
 
-    public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress)
+    public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
-        $reportDeliveryEmailAddress and $this->reportDeliveryEmailAddress = new EmailAddress($reportDeliveryEmailAddress);
+        $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
+             ? $reportDeliveryEmailAddress
+             : new EmailAddress($reportDeliveryEmailAddress);
     }
 
     public function getReportDeliveryEmailAddress()

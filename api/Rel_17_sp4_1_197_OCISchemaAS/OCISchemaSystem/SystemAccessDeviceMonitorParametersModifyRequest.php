@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceMonitorPollingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\AccessDeviceMonitorPollingIntervalMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $pollingIntervalMinutes  = null;
 
     public function __construct(
-             $pollingIntervalMinutes=null
+         $pollingIntervalMinutes = null
     ) {
-        $this->pollingIntervalMinutes = $pollingIntervalMinutes;
-        $this->args                   = func_get_args();
+        $this->setPollingIntervalMinutes($pollingIntervalMinutes);
     }
 
-    public function setPollingIntervalMinutes($pollingIntervalMinutes)
+    public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
-        $pollingIntervalMinutes and $this->pollingIntervalMinutes = new AccessDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
+        $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf AccessDeviceMonitorPollingIntervalMinutes)
+             ? $pollingIntervalMinutes
+             : new AccessDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
     }
 
     public function getPollingIntervalMinutes()

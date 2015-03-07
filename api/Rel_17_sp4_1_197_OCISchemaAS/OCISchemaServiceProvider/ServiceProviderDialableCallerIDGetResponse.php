@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $useServiceProviderCriteria  = null;
+    protected $nsScreeningFailurePolicy    = null;
+    protected $criteriaTable               = null;
 
-    public function __construct(
-             $useServiceProviderCriteria,
-             $nsScreeningFailurePolicy,
-             $criteriaTable
-    ) {
-        $this->useServiceProviderCriteria = $useServiceProviderCriteria;
-        $this->nsScreeningFailurePolicy   = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
-        $this->criteriaTable              = $criteriaTable;
-        $this->args                       = func_get_args();
-    }
 
-    public function setUseServiceProviderCriteria($useServiceProviderCriteria)
+    public function setUseServiceProviderCriteria(xs:boolean $useServiceProviderCriteria = null)
     {
-        $useServiceProviderCriteria and $this->useServiceProviderCriteria = new xs:boolean($useServiceProviderCriteria);
     }
 
     public function getUseServiceProviderCriteria()
@@ -43,9 +33,11 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
         return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria->value();
     }
 
-    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy)
+    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
-        $nsScreeningFailurePolicy and $this->nsScreeningFailurePolicy = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
+             ? $nsScreeningFailurePolicy
+             : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
     }
 
     public function getNsScreeningFailurePolicy()
@@ -53,9 +45,8 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
         return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->value();
     }
 
-    public function setCriteriaTable($criteriaTable)
+    public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $criteriaTable and $this->criteriaTable = new core:OCITable($criteriaTable);
     }
 
     public function getCriteriaTable()

@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Q850CauseValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Q850CauseValue;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingQ850CauseModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $q850CauseValue  = null;
+    protected $treatmentId     = null;
 
     public function __construct(
-             $q850CauseValue,
-             $treatmentId=null
+         $q850CauseValue,
+         $treatmentId = null
     ) {
-        $this->q850CauseValue = $q850CauseValue;
-        $this->treatmentId    = new TreatmentId($treatmentId);
-        $this->args           = func_get_args();
+        $this->setQ850CauseValue($q850CauseValue);
+        $this->setTreatmentId($treatmentId);
     }
 
-    public function setQ850CauseValue($q850CauseValue)
+    public function setQ850CauseValue($q850CauseValue = null)
     {
-        $q850CauseValue and $this->q850CauseValue = new Q850CauseValue($q850CauseValue);
+        $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
+             ? $q850CauseValue
+             : new Q850CauseValue($q850CauseValue);
     }
 
     public function getQ850CauseValue()
@@ -40,9 +43,11 @@ class SystemTreatmentMappingQ850CauseModifyRequest extends ComplexType implement
         return (!$this->q850CauseValue) ?: $this->q850CauseValue->value();
     }
 
-    public function setTreatmentId($treatmentId)
+    public function setTreatmentId($treatmentId = null)
     {
-        $treatmentId and $this->treatmentId = new TreatmentId($treatmentId);
+        $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
+             ? $treatmentId
+             : new TreatmentId($treatmentId);
     }
 
     public function getTreatmentId()

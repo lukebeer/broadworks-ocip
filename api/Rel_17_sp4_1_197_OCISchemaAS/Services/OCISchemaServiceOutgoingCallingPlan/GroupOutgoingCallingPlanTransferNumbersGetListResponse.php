@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanTransferNumbers;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanDepartmentTransferNumbers;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDepartmentTransferNumbers;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanTransferNumbers;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $groupNumbers       = null;
+    protected $departmentNumbers  = null;
 
-    public function __construct(
-             $groupNumbers,
-             $departmentNumbers=null
-    ) {
-        $this->groupNumbers      = $groupNumbers;
-        $this->departmentNumbers = $departmentNumbers;
-        $this->args              = func_get_args();
-    }
 
-    public function setGroupNumbers($groupNumbers)
+    public function setGroupNumbers(OutgoingCallingPlanTransferNumbers $groupNumbers = null)
     {
-        $groupNumbers and $this->groupNumbers = new OutgoingCallingPlanTransferNumbers($groupNumbers);
     }
 
     public function getGroupNumbers()
@@ -39,9 +32,8 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
         return (!$this->groupNumbers) ?: $this->groupNumbers->value();
     }
 
-    public function setDepartmentNumbers($departmentNumbers)
+    public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbers $departmentNumbers = null)
     {
-        $departmentNumbers and $this->departmentNumbers = new OutgoingCallingPlanDepartmentTransferNumbers($departmentNumbers);
     }
 
     public function getDepartmentNumbers()

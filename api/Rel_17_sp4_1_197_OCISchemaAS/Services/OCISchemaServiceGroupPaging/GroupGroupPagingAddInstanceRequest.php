@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingConfirmationToneTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingOriginatorCLIDPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPagingConfirmationToneTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPagingOriginatorCLIDPrefix;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,30 +24,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $serviceProviderId               = null;
+    protected $groupId                         = null;
+    protected $serviceUserId                   = null;
+    protected $serviceInstanceProfile          = null;
+    protected $confirmationToneTimeoutSeconds  = null;
+    protected $deliverOriginatorCLIDInstead    = null;
+    protected $originatorCLIDPrefix            = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $serviceUserId,
-             ServiceInstanceAddProfile $serviceInstanceProfile,
-             $confirmationToneTimeoutSeconds,
-             $deliverOriginatorCLIDInstead,
-             $originatorCLIDPrefix=null
+         $serviceProviderId,
+         $groupId,
+         $serviceUserId,
+         ServiceInstanceAddProfile $serviceInstanceProfile,
+         $confirmationToneTimeoutSeconds,
+         $deliverOriginatorCLIDInstead,
+         $originatorCLIDPrefix = null
     ) {
-        $this->serviceProviderId              = new ServiceProviderId($serviceProviderId);
-        $this->groupId                        = new GroupId($groupId);
-        $this->serviceUserId                  = new UserId($serviceUserId);
-        $this->serviceInstanceProfile         = $serviceInstanceProfile;
-        $this->confirmationToneTimeoutSeconds = $confirmationToneTimeoutSeconds;
-        $this->deliverOriginatorCLIDInstead   = $deliverOriginatorCLIDInstead;
-        $this->originatorCLIDPrefix           = $originatorCLIDPrefix;
-        $this->args                           = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
+        $this->setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead);
+        $this->setOriginatorCLIDPrefix($originatorCLIDPrefix);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -56,9 +63,11 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -66,9 +75,11 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -76,9 +87,8 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceAddProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -86,9 +96,11 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds)
+    public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
-        $confirmationToneTimeoutSeconds and $this->confirmationToneTimeoutSeconds = new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
+        $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
+             ? $confirmationToneTimeoutSeconds
+             : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
     }
 
     public function getConfirmationToneTimeoutSeconds()
@@ -96,9 +108,8 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         return (!$this->confirmationToneTimeoutSeconds) ?: $this->confirmationToneTimeoutSeconds->value();
     }
 
-    public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead)
+    public function setDeliverOriginatorCLIDInstead(xs:boolean $deliverOriginatorCLIDInstead = null)
     {
-        $deliverOriginatorCLIDInstead and $this->deliverOriginatorCLIDInstead = new xs:boolean($deliverOriginatorCLIDInstead);
     }
 
     public function getDeliverOriginatorCLIDInstead()
@@ -106,9 +117,11 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead->value();
     }
 
-    public function setOriginatorCLIDPrefix($originatorCLIDPrefix)
+    public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
-        $originatorCLIDPrefix and $this->originatorCLIDPrefix = new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
+        $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
+             ? $originatorCLIDPrefix
+             : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
     }
 
     public function getOriginatorCLIDPrefix()

@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaTrunkGroupName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaTrunkGroupName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,24 +23,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $responseSizeLimit             = null;
+    protected $searchCriteriaTrunkGroupName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $responseSizeLimit=null,
-             $searchCriteriaTrunkGroupName=null
+         $serviceProviderId,
+         $groupId,
+         $responseSizeLimit = null,
+         SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null
     ) {
-        $this->serviceProviderId            = new ServiceProviderId($serviceProviderId);
-        $this->groupId                      = new GroupId($groupId);
-        $this->responseSizeLimit            = $responseSizeLimit;
-        $this->searchCriteriaTrunkGroupName = $searchCriteriaTrunkGroupName;
-        $this->args                         = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaTrunkGroupName($searchCriteriaTrunkGroupName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +53,11 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -58,9 +65,11 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -68,9 +77,8 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaTrunkGroupName($searchCriteriaTrunkGroupName)
+    public function setSearchCriteriaTrunkGroupName(SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null)
     {
-        $searchCriteriaTrunkGroupName and $this->searchCriteriaTrunkGroupName = new SearchCriteriaTrunkGroupName($searchCriteriaTrunkGroupName);
     }
 
     public function getSearchCriteriaTrunkGroupName()

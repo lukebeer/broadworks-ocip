@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntGroupUniformCallDistributionPolicyScope;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup\HuntGroupUniformCallDistributionPolicyScope;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $anonymousInsteadOfPrivateCLID       = null;
+    protected $removeHuntGroupNameFromCLID         = null;
+    protected $uniformCallDistributionPolicyScope  = null;
 
-    public function __construct(
-             $anonymousInsteadOfPrivateCLID,
-             $removeHuntGroupNameFromCLID,
-             $uniformCallDistributionPolicyScope
-    ) {
-        $this->anonymousInsteadOfPrivateCLID      = $anonymousInsteadOfPrivateCLID;
-        $this->removeHuntGroupNameFromCLID        = $removeHuntGroupNameFromCLID;
-        $this->uniformCallDistributionPolicyScope = $uniformCallDistributionPolicyScope;
-        $this->args                               = func_get_args();
-    }
 
-    public function setAnonymousInsteadOfPrivateCLID($anonymousInsteadOfPrivateCLID)
+    public function setAnonymousInsteadOfPrivateCLID(xs:boolean $anonymousInsteadOfPrivateCLID = null)
     {
-        $anonymousInsteadOfPrivateCLID and $this->anonymousInsteadOfPrivateCLID = new xs:boolean($anonymousInsteadOfPrivateCLID);
     }
 
     public function getAnonymousInsteadOfPrivateCLID()
@@ -41,9 +32,8 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
         return (!$this->anonymousInsteadOfPrivateCLID) ?: $this->anonymousInsteadOfPrivateCLID->value();
     }
 
-    public function setRemoveHuntGroupNameFromCLID($removeHuntGroupNameFromCLID)
+    public function setRemoveHuntGroupNameFromCLID(xs:boolean $removeHuntGroupNameFromCLID = null)
     {
-        $removeHuntGroupNameFromCLID and $this->removeHuntGroupNameFromCLID = new xs:boolean($removeHuntGroupNameFromCLID);
     }
 
     public function getRemoveHuntGroupNameFromCLID()
@@ -51,9 +41,11 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
         return (!$this->removeHuntGroupNameFromCLID) ?: $this->removeHuntGroupNameFromCLID->value();
     }
 
-    public function setUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope)
+    public function setUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope = null)
     {
-        $uniformCallDistributionPolicyScope and $this->uniformCallDistributionPolicyScope = new HuntGroupUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
+        $this->uniformCallDistributionPolicyScope = ($uniformCallDistributionPolicyScope InstanceOf HuntGroupUniformCallDistributionPolicyScope)
+             ? $uniformCallDistributionPolicyScope
+             : new HuntGroupUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
     }
 
     public function getUniformCallDistributionPolicyScope()

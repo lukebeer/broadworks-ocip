@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterEnhancedReportingSystemBrandingChoice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingSystemBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $brandingChoice                 = null;
+    protected $customBrandingFileDescription  = null;
 
-    public function __construct(
-             $brandingChoice,
-             $customBrandingFileDescription=null
-    ) {
-        $this->brandingChoice                = $brandingChoice;
-        $this->customBrandingFileDescription = new FileDescription($customBrandingFileDescription);
-        $this->args                          = func_get_args();
-    }
 
-    public function setBrandingChoice($brandingChoice)
+    public function setBrandingChoice($brandingChoice = null)
     {
-        $brandingChoice and $this->brandingChoice = new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
+        $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
+             ? $brandingChoice
+             : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
     }
 
     public function getBrandingChoice()
@@ -39,9 +35,11 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
         return (!$this->brandingChoice) ?: $this->brandingChoice->value();
     }
 
-    public function setCustomBrandingFileDescription($customBrandingFileDescription)
+    public function setCustomBrandingFileDescription($customBrandingFileDescription = null)
     {
-        $customBrandingFileDescription and $this->customBrandingFileDescription = new FileDescription($customBrandingFileDescription);
+        $this->customBrandingFileDescription = ($customBrandingFileDescription InstanceOf FileDescription)
+             ? $customBrandingFileDescription
+             : new FileDescription($customBrandingFileDescription);
     }
 
     public function getCustomBrandingFileDescription()

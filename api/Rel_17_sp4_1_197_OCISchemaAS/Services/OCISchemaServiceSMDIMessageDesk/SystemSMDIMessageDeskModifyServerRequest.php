@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SMDIDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIServerDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SMDIServerDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $deviceName   = null;
+    protected $netAddress   = null;
+    protected $port         = null;
+    protected $description  = null;
 
     public function __construct(
-             $deviceName,
-             $netAddress=null,
-             $port=null,
-             $description=null
+         $deviceName,
+         $netAddress = null,
+         $port = null,
+         $description = null
     ) {
-        $this->deviceName  = $deviceName;
-        $this->netAddress  = new NetAddress($netAddress);
-        $this->port        = new Port($port);
-        $this->description = $description;
-        $this->args        = func_get_args();
+        $this->setDeviceName($deviceName);
+        $this->setNetAddress($netAddress);
+        $this->setPort($port);
+        $this->setDescription($description);
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new SMDIDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
+             ? $deviceName
+             : new SMDIDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -46,9 +51,11 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -56,9 +63,11 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port($port);
+        $this->port = ($port InstanceOf Port)
+             ? $port
+             : new Port($port);
     }
 
     public function getPort()
@@ -66,9 +75,11 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         return (!$this->port) ?: $this->port->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new SMDIServerDescription($description);
+        $this->description = ($description InstanceOf SMDIServerDescription)
+             ? $description
+             : new SMDIServerDescription($description);
     }
 
     public function getDescription()

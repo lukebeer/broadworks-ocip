@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkServerTreatment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerTreatment;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingNetworkServerTreatmentAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $nsTreatment  = null;
+    protected $treatmentId  = null;
 
     public function __construct(
-             $nsTreatment,
-             $treatmentId
+         $nsTreatment,
+         $treatmentId
     ) {
-        $this->nsTreatment = $nsTreatment;
-        $this->treatmentId = new TreatmentId($treatmentId);
-        $this->args        = func_get_args();
+        $this->setNsTreatment($nsTreatment);
+        $this->setTreatmentId($treatmentId);
     }
 
-    public function setNsTreatment($nsTreatment)
+    public function setNsTreatment($nsTreatment = null)
     {
-        $nsTreatment and $this->nsTreatment = new NetworkServerTreatment($nsTreatment);
+        $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
+             ? $nsTreatment
+             : new NetworkServerTreatment($nsTreatment);
     }
 
     public function getNsTreatment()
@@ -40,9 +43,11 @@ class SystemTreatmentMappingNetworkServerTreatmentAddRequest extends ComplexType
         return (!$this->nsTreatment) ?: $this->nsTreatment->value();
     }
 
-    public function setTreatmentId($treatmentId)
+    public function setTreatmentId($treatmentId = null)
     {
-        $treatmentId and $this->treatmentId = new TreatmentId($treatmentId);
+        $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
+             ? $treatmentId
+             : new TreatmentId($treatmentId);
     }
 
     public function getTreatmentId()

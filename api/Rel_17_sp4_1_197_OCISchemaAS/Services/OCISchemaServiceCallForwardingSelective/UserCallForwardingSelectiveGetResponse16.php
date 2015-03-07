@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $isActive                     = null;
+    protected $defaultForwardToPhoneNumber  = null;
+    protected $playRingReminder             = null;
+    protected $criteriaTable                = null;
 
-    public function __construct(
-             $isActive,
-             $defaultForwardToPhoneNumber=null,
-             $playRingReminder,
-             $criteriaTable
-    ) {
-        $this->isActive                    = $isActive;
-        $this->defaultForwardToPhoneNumber = new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
-        $this->playRingReminder            = $playRingReminder;
-        $this->criteriaTable               = $criteriaTable;
-        $this->args                        = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -45,9 +34,11 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber)
+    public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber = null)
     {
-        $defaultForwardToPhoneNumber and $this->defaultForwardToPhoneNumber = new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
+        $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $defaultForwardToPhoneNumber
+             : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
     }
 
     public function getDefaultForwardToPhoneNumber()
@@ -55,9 +46,8 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
         return (!$this->defaultForwardToPhoneNumber) ?: $this->defaultForwardToPhoneNumber->value();
     }
 
-    public function setPlayRingReminder($playRingReminder)
+    public function setPlayRingReminder(xs:boolean $playRingReminder = null)
     {
-        $playRingReminder and $this->playRingReminder = new xs:boolean($playRingReminder);
     }
 
     public function getPlayRingReminder()
@@ -65,9 +55,8 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
         return (!$this->playRingReminder) ?: $this->playRingReminder->value();
     }
 
-    public function setCriteriaTable($criteriaTable)
+    public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $criteriaTable and $this->criteriaTable = new core:OCITable($criteriaTable);
     }
 
     public function getCriteriaTable()

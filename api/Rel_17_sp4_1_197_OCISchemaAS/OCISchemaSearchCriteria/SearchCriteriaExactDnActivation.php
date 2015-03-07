@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $activated  = null;
 
     public function __construct(
-             $activated
+         $activated
     ) {
-        $this->activated = $activated;
-        $this->args      = func_get_args();
+        $this->setActivated($activated);
     }
 
-    public function setActivated($activated)
+    public function setActivated(xs:boolean $activated = null)
     {
-        $activated and $this->activated = new xs:boolean($activated);
     }
 
     public function getActivated()

@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $reportTemplate  = null;
 
     public function __construct(
-             CallCenterReportTemplateKey $reportTemplate
+         CallCenterReportTemplateKey $reportTemplate
     ) {
-        $this->reportTemplate = $reportTemplate;
-        $this->args           = func_get_args();
+        $this->setReportTemplate($reportTemplate);
     }
 
-    public function setReportTemplate($reportTemplate)
+    public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        $reportTemplate and $this->reportTemplate = new CallCenterReportTemplateKey($reportTemplate);
     }
 
     public function getReportTemplate()

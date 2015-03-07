@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallDispositionCodeWithLevel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,24 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $enableCallDispositionCodes      = null;
+    protected $includeOrganizationCodes        = null;
+    protected $forceUseOfCallDispositionCodes  = null;
+    protected $defaultCallDispositionCode      = null;
 
-    public function __construct(
-             $enableCallDispositionCodes,
-             $includeOrganizationCodes,
-             $forceUseOfCallDispositionCodes,
-             $defaultCallDispositionCode=null
-    ) {
-        $this->enableCallDispositionCodes     = $enableCallDispositionCodes;
-        $this->includeOrganizationCodes       = $includeOrganizationCodes;
-        $this->forceUseOfCallDispositionCodes = $forceUseOfCallDispositionCodes;
-        $this->defaultCallDispositionCode     = $defaultCallDispositionCode;
-        $this->args                           = func_get_args();
-    }
 
-    public function setEnableCallDispositionCodes($enableCallDispositionCodes)
+    public function setEnableCallDispositionCodes(xs:boolean $enableCallDispositionCodes = null)
     {
-        $enableCallDispositionCodes and $this->enableCallDispositionCodes = new xs:boolean($enableCallDispositionCodes);
     }
 
     public function getEnableCallDispositionCodes()
@@ -43,9 +33,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends Complex
         return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes->value();
     }
 
-    public function setIncludeOrganizationCodes($includeOrganizationCodes)
+    public function setIncludeOrganizationCodes(xs:boolean $includeOrganizationCodes = null)
     {
-        $includeOrganizationCodes and $this->includeOrganizationCodes = new xs:boolean($includeOrganizationCodes);
     }
 
     public function getIncludeOrganizationCodes()
@@ -53,9 +42,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends Complex
         return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes->value();
     }
 
-    public function setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes)
+    public function setForceUseOfCallDispositionCodes(xs:boolean $forceUseOfCallDispositionCodes = null)
     {
-        $forceUseOfCallDispositionCodes and $this->forceUseOfCallDispositionCodes = new xs:boolean($forceUseOfCallDispositionCodes);
     }
 
     public function getForceUseOfCallDispositionCodes()
@@ -63,9 +51,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends Complex
         return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes->value();
     }
 
-    public function setDefaultCallDispositionCode($defaultCallDispositionCode)
+    public function setDefaultCallDispositionCode(CallDispositionCodeWithLevel $defaultCallDispositionCode = null)
     {
-        $defaultCallDispositionCode and $this->defaultCallDispositionCode = new CallDispositionCodeWithLevel($defaultCallDispositionCode);
     }
 
     public function getDefaultCallDispositionCode()

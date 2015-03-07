@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MusicOnHoldMessageSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\MusicOnHoldMessageSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,36 +23,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupId                   = null;
+    protected $department                = null;
+    protected $isActiveDuringCallHold    = null;
+    protected $isActiveDuringCallPark    = null;
+    protected $isActiveDuringBusyCampOn  = null;
+    protected $messageSelection          = null;
+    protected $accessDeviceEndpoint      = null;
+    protected $audioFile                 = null;
+    protected $videoFile                 = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             DepartmentKey $department=null,
-             $isActiveDuringCallHold=null,
-             $isActiveDuringCallPark=null,
-             $isActiveDuringBusyCampOn=null,
-             $messageSelection=null,
-             AccessDeviceEndpointModify $accessDeviceEndpoint=null,
-             LabeledFileResource $audioFile=null,
-             LabeledFileResource $videoFile=null
+         $serviceProviderId,
+         $groupId,
+         DepartmentKey $department = null,
+         $isActiveDuringCallHold = null,
+         $isActiveDuringCallPark = null,
+         $isActiveDuringBusyCampOn = null,
+         $messageSelection = null,
+         AccessDeviceEndpointModify $accessDeviceEndpoint = null,
+         LabeledFileResource $audioFile = null,
+         LabeledFileResource $videoFile = null
     ) {
-        $this->serviceProviderId        = new ServiceProviderId($serviceProviderId);
-        $this->groupId                  = new GroupId($groupId);
-        $this->department               = $department;
-        $this->isActiveDuringCallHold   = $isActiveDuringCallHold;
-        $this->isActiveDuringCallPark   = $isActiveDuringCallPark;
-        $this->isActiveDuringBusyCampOn = $isActiveDuringBusyCampOn;
-        $this->messageSelection         = $messageSelection;
-        $this->accessDeviceEndpoint     = $accessDeviceEndpoint;
-        $this->audioFile                = $audioFile;
-        $this->videoFile                = $videoFile;
-        $this->args                     = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setDepartment($department);
+        $this->setIsActiveDuringCallHold($isActiveDuringCallHold);
+        $this->setIsActiveDuringCallPark($isActiveDuringCallPark);
+        $this->setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn);
+        $this->setMessageSelection($messageSelection);
+        $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
+        $this->setAudioFile($audioFile);
+        $this->setVideoFile($videoFile);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -61,9 +71,11 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -71,9 +83,8 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setDepartment($department)
+    public function setDepartment(DepartmentKey $department = null)
     {
-        $department and $this->department = new DepartmentKey($department);
     }
 
     public function getDepartment()
@@ -81,9 +92,8 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->department) ?: $this->department->value();
     }
 
-    public function setIsActiveDuringCallHold($isActiveDuringCallHold)
+    public function setIsActiveDuringCallHold(xs:boolean $isActiveDuringCallHold = null)
     {
-        $isActiveDuringCallHold and $this->isActiveDuringCallHold = new xs:boolean($isActiveDuringCallHold);
     }
 
     public function getIsActiveDuringCallHold()
@@ -91,9 +101,8 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->value();
     }
 
-    public function setIsActiveDuringCallPark($isActiveDuringCallPark)
+    public function setIsActiveDuringCallPark(xs:boolean $isActiveDuringCallPark = null)
     {
-        $isActiveDuringCallPark and $this->isActiveDuringCallPark = new xs:boolean($isActiveDuringCallPark);
     }
 
     public function getIsActiveDuringCallPark()
@@ -101,9 +110,8 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->value();
     }
 
-    public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn)
+    public function setIsActiveDuringBusyCampOn(xs:boolean $isActiveDuringBusyCampOn = null)
     {
-        $isActiveDuringBusyCampOn and $this->isActiveDuringBusyCampOn = new xs:boolean($isActiveDuringBusyCampOn);
     }
 
     public function getIsActiveDuringBusyCampOn()
@@ -111,9 +119,11 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->value();
     }
 
-    public function setMessageSelection($messageSelection)
+    public function setMessageSelection($messageSelection = null)
     {
-        $messageSelection and $this->messageSelection = new MusicOnHoldMessageSelection($messageSelection);
+        $this->messageSelection = ($messageSelection InstanceOf MusicOnHoldMessageSelection)
+             ? $messageSelection
+             : new MusicOnHoldMessageSelection($messageSelection);
     }
 
     public function getMessageSelection()
@@ -121,9 +131,8 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->messageSelection) ?: $this->messageSelection->value();
     }
 
-    public function setAccessDeviceEndpoint($accessDeviceEndpoint)
+    public function setAccessDeviceEndpoint(AccessDeviceEndpointModify $accessDeviceEndpoint = null)
     {
-        $accessDeviceEndpoint and $this->accessDeviceEndpoint = new AccessDeviceEndpointModify($accessDeviceEndpoint);
     }
 
     public function getAccessDeviceEndpoint()
@@ -131,9 +140,8 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->value();
     }
 
-    public function setAudioFile($audioFile)
+    public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $audioFile and $this->audioFile = new LabeledFileResource($audioFile);
     }
 
     public function getAudioFile()
@@ -141,9 +149,8 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
         return (!$this->audioFile) ?: $this->audioFile->value();
     }
 
-    public function setVideoFile($videoFile)
+    public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $videoFile and $this->videoFile = new LabeledFileResource($videoFile);
     }
 
     public function getVideoFile()

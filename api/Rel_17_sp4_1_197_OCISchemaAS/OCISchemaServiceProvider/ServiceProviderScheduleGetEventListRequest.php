@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderScheduleGetEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $scheduleKey        = null;
 
     public function __construct(
-             $serviceProviderId,
-             ScheduleKey $scheduleKey
+         $serviceProviderId,
+         ScheduleKey $scheduleKey
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->scheduleKey       = $scheduleKey;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setScheduleKey($scheduleKey);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,8 @@ class ServiceProviderScheduleGetEventListRequest extends ComplexType implements 
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()

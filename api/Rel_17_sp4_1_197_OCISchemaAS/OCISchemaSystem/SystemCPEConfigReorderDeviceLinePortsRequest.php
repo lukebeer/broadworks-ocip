@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,20 +21,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $deviceName           = null;
+    protected $orderedLinePortList  = null;
 
     public function __construct(
-             $deviceName,
-             $orderedLinePortList=null
+         $deviceName,
+         $orderedLinePortList = null
     ) {
-        $this->deviceName          = new AccessDeviceName($deviceName);
-        $this->orderedLinePortList = new AccessDeviceEndpointLinePort($orderedLinePortList);
-        $this->args                = func_get_args();
+        $this->setDeviceName($deviceName);
+        $this->setOrderedLinePortList($orderedLinePortList);
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -42,9 +45,11 @@ class SystemCPEConfigReorderDeviceLinePortsRequest extends ComplexType implement
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setOrderedLinePortList($orderedLinePortList)
+    public function setOrderedLinePortList($orderedLinePortList = null)
     {
-        $orderedLinePortList and $this->orderedLinePortList = new AccessDeviceEndpointLinePort($orderedLinePortList);
+        $this->orderedLinePortList = ($orderedLinePortList InstanceOf AccessDeviceEndpointLinePort)
+             ? $orderedLinePortList
+             : new AccessDeviceEndpointLinePort($orderedLinePortList);
     }
 
     public function getOrderedLinePortList()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderPreferredCarrierGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $serviceProviderCarrierTable  = null;
 
-    public function __construct(
-             $serviceProviderCarrierTable
-    ) {
-        $this->serviceProviderCarrierTable = $serviceProviderCarrierTable;
-        $this->args                        = func_get_args();
-    }
 
-    public function setServiceProviderCarrierTable($serviceProviderCarrierTable)
+    public function setServiceProviderCarrierTable(core:OCITable $serviceProviderCarrierTable = null)
     {
-        $serviceProviderCarrierTable and $this->serviceProviderCarrierTable = new core:OCITable($serviceProviderCarrierTable);
     }
 
     public function getServiceProviderCarrierTable()

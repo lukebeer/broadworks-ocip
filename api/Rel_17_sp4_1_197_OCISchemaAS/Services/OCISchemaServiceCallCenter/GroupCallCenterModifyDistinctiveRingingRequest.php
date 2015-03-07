@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +19,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                        = __CLASS__;
+    protected $serviceUserId                               = null;
+    protected $distinctiveRingingCallCenterCalls           = null;
+    protected $distinctiveRingingRingPatternForCallCenter  = null;
+    protected $distinctiveRingingForceDeliveryRingPattern  = null;
 
     public function __construct(
-             $serviceUserId,
-             $distinctiveRingingCallCenterCalls=null,
-             $distinctiveRingingRingPatternForCallCenter=null,
-             $distinctiveRingingForceDeliveryRingPattern=null
+         $serviceUserId,
+         $distinctiveRingingCallCenterCalls = null,
+         $distinctiveRingingRingPatternForCallCenter = null,
+         $distinctiveRingingForceDeliveryRingPattern = null
     ) {
-        $this->serviceUserId                              = new UserId($serviceUserId);
-        $this->distinctiveRingingCallCenterCalls          = $distinctiveRingingCallCenterCalls;
-        $this->distinctiveRingingRingPatternForCallCenter = new RingPattern($distinctiveRingingRingPatternForCallCenter);
-        $this->distinctiveRingingForceDeliveryRingPattern = new RingPattern($distinctiveRingingForceDeliveryRingPattern);
-        $this->args                                       = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setDistinctiveRingingCallCenterCalls($distinctiveRingingCallCenterCalls);
+        $this->setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter);
+        $this->setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -45,9 +49,8 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setDistinctiveRingingCallCenterCalls($distinctiveRingingCallCenterCalls)
+    public function setDistinctiveRingingCallCenterCalls(xs:boolean $distinctiveRingingCallCenterCalls = null)
     {
-        $distinctiveRingingCallCenterCalls and $this->distinctiveRingingCallCenterCalls = new xs:boolean($distinctiveRingingCallCenterCalls);
     }
 
     public function getDistinctiveRingingCallCenterCalls()
@@ -55,9 +58,11 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
         return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls->value();
     }
 
-    public function setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter)
+    public function setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter = null)
     {
-        $distinctiveRingingRingPatternForCallCenter and $this->distinctiveRingingRingPatternForCallCenter = new RingPattern($distinctiveRingingRingPatternForCallCenter);
+        $this->distinctiveRingingRingPatternForCallCenter = ($distinctiveRingingRingPatternForCallCenter InstanceOf RingPattern)
+             ? $distinctiveRingingRingPatternForCallCenter
+             : new RingPattern($distinctiveRingingRingPatternForCallCenter);
     }
 
     public function getDistinctiveRingingRingPatternForCallCenter()
@@ -65,9 +70,11 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
         return (!$this->distinctiveRingingRingPatternForCallCenter) ?: $this->distinctiveRingingRingPatternForCallCenter->value();
     }
 
-    public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern)
+    public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
-        $distinctiveRingingForceDeliveryRingPattern and $this->distinctiveRingingForceDeliveryRingPattern = new RingPattern($distinctiveRingingForceDeliveryRingPattern);
+        $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
+             ? $distinctiveRingingForceDeliveryRingPattern
+             : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
     public function getDistinctiveRingingForceDeliveryRingPattern()

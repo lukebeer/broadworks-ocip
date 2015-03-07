@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemSIPContentType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPContentType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $contentType  = null;
 
     public function __construct(
-             $contentType
+         $contentType
     ) {
-        $this->contentType = $contentType;
-        $this->args        = func_get_args();
+        $this->setContentType($contentType);
     }
 
-    public function setContentType($contentType)
+    public function setContentType($contentType = null)
     {
-        $contentType and $this->contentType = new SystemSIPContentType($contentType);
+        $this->contentType = ($contentType InstanceOf SystemSIPContentType)
+             ? $contentType
+             : new SystemSIPContentType($contentType);
     }
 
     public function getContentType()

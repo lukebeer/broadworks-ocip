@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\InstantGroupCallAnswerTimeoutMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantGroupCallAnswerTimeoutMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceInstanceProfile  = null;
+    protected $destinationPhoneNumber  = null;
+    protected $isAnswerTimeoutEnabled  = null;
+    protected $answerTimeoutMinutes    = null;
 
-    public function __construct(
-             ServiceInstanceReadProfile17 $serviceInstanceProfile,
-             $destinationPhoneNumber=null,
-             $isAnswerTimeoutEnabled,
-             $answerTimeoutMinutes=null
-    ) {
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
-        $this->destinationPhoneNumber = new OutgoingDNorSIPURI($destinationPhoneNumber);
-        $this->isAnswerTimeoutEnabled = $isAnswerTimeoutEnabled;
-        $this->answerTimeoutMinutes   = $answerTimeoutMinutes;
-        $this->args                   = func_get_args();
-    }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceReadProfile17($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -46,9 +36,11 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setDestinationPhoneNumber($destinationPhoneNumber)
+    public function setDestinationPhoneNumber($destinationPhoneNumber = null)
     {
-        $destinationPhoneNumber and $this->destinationPhoneNumber = new OutgoingDNorSIPURI($destinationPhoneNumber);
+        $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $destinationPhoneNumber
+             : new OutgoingDNorSIPURI($destinationPhoneNumber);
     }
 
     public function getDestinationPhoneNumber()
@@ -56,9 +48,8 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
         return (!$this->destinationPhoneNumber) ?: $this->destinationPhoneNumber->value();
     }
 
-    public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled)
+    public function setIsAnswerTimeoutEnabled(xs:boolean $isAnswerTimeoutEnabled = null)
     {
-        $isAnswerTimeoutEnabled and $this->isAnswerTimeoutEnabled = new xs:boolean($isAnswerTimeoutEnabled);
     }
 
     public function getIsAnswerTimeoutEnabled()
@@ -66,9 +57,11 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
         return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->value();
     }
 
-    public function setAnswerTimeoutMinutes($answerTimeoutMinutes)
+    public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
-        $answerTimeoutMinutes and $this->answerTimeoutMinutes = new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
+        $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
+             ? $answerTimeoutMinutes
+             : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
     public function getAnswerTimeoutMinutes()

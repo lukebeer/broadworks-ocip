@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,10 +22,10 @@ class MeetMeConferencingConferenceAttendeeNotification extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Play Tone',
-                                              'Play Recorded Name',
-                                              'No Notification'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Play Tone',
+            'Play Recorded Name',
+            'No Notification'
+        ]));
     }
 }

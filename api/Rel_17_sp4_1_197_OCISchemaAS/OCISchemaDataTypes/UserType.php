@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,19 +22,19 @@ class UserType extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Normal',
-                                              'Auto Attendant',
-                                              'BroadWorks Anywhere',
-                                              'Call Center',
-                                              'Group Paging',
-                                              'Hunt Group',
-                                              'Instant Group Call',
-                                              'Instant Conferencing',
-                                              'Meet-Me Conferencing',
-                                              'Music On Hold',
-                                              'Route Point',
-                                              'Voice Messaging'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Normal',
+            'Auto Attendant',
+            'BroadWorks Anywhere',
+            'Call Center',
+            'Group Paging',
+            'Hunt Group',
+            'Instant Group Call',
+            'Instant Conferencing',
+            'Meet-Me Conferencing',
+            'Music On Hold',
+            'Route Point',
+            'Voice Messaging'
+        ]));
     }
 }

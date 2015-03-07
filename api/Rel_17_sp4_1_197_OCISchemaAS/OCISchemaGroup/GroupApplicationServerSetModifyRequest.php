@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $applicationServerSetName  = null;
+    protected $groupId                   = null;
+    protected $serviceProviderId         = null;
 
     public function __construct(
-             $applicationServerSetName=null,
-             $groupId,
-             $serviceProviderId
+         $applicationServerSetName = null,
+         $groupId,
+         $serviceProviderId
     ) {
-        $this->applicationServerSetName = new ApplicationServerSetName($applicationServerSetName);
-        $this->groupId                  = new GroupId($groupId);
-        $this->serviceProviderId        = new ServiceProviderId($serviceProviderId);
-        $this->args                     = func_get_args();
+        $this->setApplicationServerSetName($applicationServerSetName);
+        $this->setGroupId($groupId);
+        $this->setServiceProviderId($serviceProviderId);
     }
 
-    public function setApplicationServerSetName($applicationServerSetName)
+    public function setApplicationServerSetName($applicationServerSetName = null)
     {
-        $applicationServerSetName and $this->applicationServerSetName = new ApplicationServerSetName($applicationServerSetName);
+        $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
+             ? $applicationServerSetName
+             : new ApplicationServerSetName($applicationServerSetName);
     }
 
     public function getApplicationServerSetName()
@@ -43,9 +47,11 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
         return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -53,9 +59,11 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()

@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDeactivationReason;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerMaxTxPerSecond;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDomainName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,38 +20,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $mobileManagerId               = null;
+    protected $name                          = null;
+    protected $isActive                      = null;
+    protected $localToCarrier                = null;
+    protected $deactivationReason            = null;
+    protected $maxTxPerSecondEnabled         = null;
+    protected $maxTxPerSecond                = null;
+    protected $tldnEnabled                   = null;
+    protected $genericNumberEnabled          = null;
+    protected $mobileStateCheckEnabled       = null;
+    protected $locationBasedServicesEnabled  = null;
 
-    public function __construct(
-             $mobileManagerId,
-             $name,
-             $isActive,
-             $localToCarrier,
-             $deactivationReason=null,
-             $maxTxPerSecondEnabled,
-             $maxTxPerSecond=null,
-             $tldnEnabled,
-             $genericNumberEnabled,
-             $mobileStateCheckEnabled,
-             $locationBasedServicesEnabled
-    ) {
-        $this->mobileManagerId              = new BroadWorksMobileManagerDomainName($mobileManagerId);
-        $this->name                         = new BroadWorksMobileManagerName($name);
-        $this->isActive                     = $isActive;
-        $this->localToCarrier               = $localToCarrier;
-        $this->deactivationReason           = new BroadWorksMobileManagerDeactivationReason($deactivationReason);
-        $this->maxTxPerSecondEnabled        = $maxTxPerSecondEnabled;
-        $this->maxTxPerSecond               = new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
-        $this->tldnEnabled                  = $tldnEnabled;
-        $this->genericNumberEnabled         = $genericNumberEnabled;
-        $this->mobileStateCheckEnabled      = $mobileStateCheckEnabled;
-        $this->locationBasedServicesEnabled = $locationBasedServicesEnabled;
-        $this->args                         = func_get_args();
-    }
 
-    public function setMobileManagerId($mobileManagerId)
+    public function setMobileManagerId($mobileManagerId = null)
     {
-        $mobileManagerId and $this->mobileManagerId = new BroadWorksMobileManagerDomainName($mobileManagerId);
+        $this->mobileManagerId = ($mobileManagerId InstanceOf BroadWorksMobileManagerDomainName)
+             ? $mobileManagerId
+             : new BroadWorksMobileManagerDomainName($mobileManagerId);
     }
 
     public function getMobileManagerId()
@@ -60,9 +46,11 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->mobileManagerId) ?: $this->mobileManagerId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new BroadWorksMobileManagerName($name);
+        $this->name = ($name InstanceOf BroadWorksMobileManagerName)
+             ? $name
+             : new BroadWorksMobileManagerName($name);
     }
 
     public function getName()
@@ -70,9 +58,8 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -80,9 +67,8 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setLocalToCarrier($localToCarrier)
+    public function setLocalToCarrier(xs:boolean $localToCarrier = null)
     {
-        $localToCarrier and $this->localToCarrier = new xs:boolean($localToCarrier);
     }
 
     public function getLocalToCarrier()
@@ -90,9 +76,11 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->localToCarrier) ?: $this->localToCarrier->value();
     }
 
-    public function setDeactivationReason($deactivationReason)
+    public function setDeactivationReason($deactivationReason = null)
     {
-        $deactivationReason and $this->deactivationReason = new BroadWorksMobileManagerDeactivationReason($deactivationReason);
+        $this->deactivationReason = ($deactivationReason InstanceOf BroadWorksMobileManagerDeactivationReason)
+             ? $deactivationReason
+             : new BroadWorksMobileManagerDeactivationReason($deactivationReason);
     }
 
     public function getDeactivationReason()
@@ -100,9 +88,8 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->deactivationReason) ?: $this->deactivationReason->value();
     }
 
-    public function setMaxTxPerSecondEnabled($maxTxPerSecondEnabled)
+    public function setMaxTxPerSecondEnabled(xs:boolean $maxTxPerSecondEnabled = null)
     {
-        $maxTxPerSecondEnabled and $this->maxTxPerSecondEnabled = new xs:boolean($maxTxPerSecondEnabled);
     }
 
     public function getMaxTxPerSecondEnabled()
@@ -110,9 +97,11 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->maxTxPerSecondEnabled) ?: $this->maxTxPerSecondEnabled->value();
     }
 
-    public function setMaxTxPerSecond($maxTxPerSecond)
+    public function setMaxTxPerSecond($maxTxPerSecond = null)
     {
-        $maxTxPerSecond and $this->maxTxPerSecond = new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
+        $this->maxTxPerSecond = ($maxTxPerSecond InstanceOf BroadWorksMobileManagerMaxTxPerSecond)
+             ? $maxTxPerSecond
+             : new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
     }
 
     public function getMaxTxPerSecond()
@@ -120,9 +109,8 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->maxTxPerSecond) ?: $this->maxTxPerSecond->value();
     }
 
-    public function setTldnEnabled($tldnEnabled)
+    public function setTldnEnabled(xs:boolean $tldnEnabled = null)
     {
-        $tldnEnabled and $this->tldnEnabled = new xs:boolean($tldnEnabled);
     }
 
     public function getTldnEnabled()
@@ -130,9 +118,8 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->tldnEnabled) ?: $this->tldnEnabled->value();
     }
 
-    public function setGenericNumberEnabled($genericNumberEnabled)
+    public function setGenericNumberEnabled(xs:boolean $genericNumberEnabled = null)
     {
-        $genericNumberEnabled and $this->genericNumberEnabled = new xs:boolean($genericNumberEnabled);
     }
 
     public function getGenericNumberEnabled()
@@ -140,9 +127,8 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->genericNumberEnabled) ?: $this->genericNumberEnabled->value();
     }
 
-    public function setMobileStateCheckEnabled($mobileStateCheckEnabled)
+    public function setMobileStateCheckEnabled(xs:boolean $mobileStateCheckEnabled = null)
     {
-        $mobileStateCheckEnabled and $this->mobileStateCheckEnabled = new xs:boolean($mobileStateCheckEnabled);
     }
 
     public function getMobileStateCheckEnabled()
@@ -150,9 +136,8 @@ class EnterpriseBroadWorksMobileManagerGetResponse extends ComplexType implement
         return (!$this->mobileStateCheckEnabled) ?: $this->mobileStateCheckEnabled->value();
     }
 
-    public function setLocationBasedServicesEnabled($locationBasedServicesEnabled)
+    public function setLocationBasedServicesEnabled(xs:boolean $locationBasedServicesEnabled = null)
     {
-        $locationBasedServicesEnabled and $this->locationBasedServicesEnabled = new xs:boolean($locationBasedServicesEnabled);
     }
 
     public function getLocationBasedServicesEnabled()

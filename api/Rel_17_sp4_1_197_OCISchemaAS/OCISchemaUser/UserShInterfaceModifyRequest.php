@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PublicUserIdentity;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IMSUserState;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $publicUserIdentity  = null;
+    protected $SCSCFName           = null;
+    protected $IMSUserState        = null;
 
     public function __construct(
-             PublicUserIdentity $publicUserIdentity,
-             $SCSCFName=null,
-             $IMSUserState=null
+         PublicUserIdentity $publicUserIdentity,
+         $SCSCFName = null,
+         $IMSUserState = null
     ) {
-        $this->publicUserIdentity = $publicUserIdentity;
-        $this->SCSCFName          = new SIPURI($SCSCFName);
-        $this->IMSUserState       = new IMSUserState($IMSUserState);
-        $this->args               = func_get_args();
+        $this->setPublicUserIdentity($publicUserIdentity);
+        $this->setSCSCFName($SCSCFName);
+        $this->setIMSUserState($IMSUserState);
     }
 
-    public function setPublicUserIdentity($publicUserIdentity)
+    public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
-        $publicUserIdentity and $this->publicUserIdentity = new PublicUserIdentity($publicUserIdentity);
     }
 
     public function getPublicUserIdentity()
@@ -43,9 +44,11 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->publicUserIdentity) ?: $this->publicUserIdentity->value();
     }
 
-    public function setSCSCFName($SCSCFName)
+    public function setSCSCFName($SCSCFName = null)
     {
-        $SCSCFName and $this->SCSCFName = new SIPURI($SCSCFName);
+        $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
+             ? $SCSCFName
+             : new SIPURI($SCSCFName);
     }
 
     public function getSCSCFName()
@@ -53,9 +56,11 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->SCSCFName) ?: $this->SCSCFName->value();
     }
 
-    public function setIMSUserState($IMSUserState)
+    public function setIMSUserState($IMSUserState = null)
     {
-        $IMSUserState and $this->IMSUserState = new IMSUserState($IMSUserState);
+        $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
+             ? $IMSUserState
+             : new IMSUserState($IMSUserState);
     }
 
     public function getIMSUserState()

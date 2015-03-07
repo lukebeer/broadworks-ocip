@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,28 +22,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $defaultDomain                = null;
+    protected $serviceProviderName          = null;
+    protected $supportEmail                 = null;
+    protected $contact                      = null;
+    protected $address                      = null;
+    protected $useServiceProviderLanguages  = null;
 
-    public function __construct(
-             $defaultDomain,
-             $serviceProviderName=null,
-             $supportEmail=null,
-             Contact $contact=null,
-             StreetAddress $address=null,
-             $useServiceProviderLanguages
-    ) {
-        $this->defaultDomain               = new NetAddress($defaultDomain);
-        $this->serviceProviderName         = new ServiceProviderName($serviceProviderName);
-        $this->supportEmail                = new EmailAddress($supportEmail);
-        $this->contact                     = $contact;
-        $this->address                     = $address;
-        $this->useServiceProviderLanguages = $useServiceProviderLanguages;
-        $this->args                        = func_get_args();
-    }
 
-    public function setDefaultDomain($defaultDomain)
+    public function setDefaultDomain($defaultDomain = null)
     {
-        $defaultDomain and $this->defaultDomain = new NetAddress($defaultDomain);
+        $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
+             ? $defaultDomain
+             : new NetAddress($defaultDomain);
     }
 
     public function getDefaultDomain()
@@ -52,9 +43,11 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
         return (!$this->defaultDomain) ?: $this->defaultDomain->value();
     }
 
-    public function setServiceProviderName($serviceProviderName)
+    public function setServiceProviderName($serviceProviderName = null)
     {
-        $serviceProviderName and $this->serviceProviderName = new ServiceProviderName($serviceProviderName);
+        $this->serviceProviderName = ($serviceProviderName InstanceOf ServiceProviderName)
+             ? $serviceProviderName
+             : new ServiceProviderName($serviceProviderName);
     }
 
     public function getServiceProviderName()
@@ -62,9 +55,11 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
         return (!$this->serviceProviderName) ?: $this->serviceProviderName->value();
     }
 
-    public function setSupportEmail($supportEmail)
+    public function setSupportEmail($supportEmail = null)
     {
-        $supportEmail and $this->supportEmail = new EmailAddress($supportEmail);
+        $this->supportEmail = ($supportEmail InstanceOf EmailAddress)
+             ? $supportEmail
+             : new EmailAddress($supportEmail);
     }
 
     public function getSupportEmail()
@@ -72,9 +67,8 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
         return (!$this->supportEmail) ?: $this->supportEmail->value();
     }
 
-    public function setContact($contact)
+    public function setContact(Contact $contact = null)
     {
-        $contact and $this->contact = new Contact($contact);
     }
 
     public function getContact()
@@ -82,9 +76,8 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
         return (!$this->contact) ?: $this->contact->value();
     }
 
-    public function setAddress($address)
+    public function setAddress(StreetAddress $address = null)
     {
-        $address and $this->address = new StreetAddress($address);
     }
 
     public function getAddress()
@@ -92,9 +85,8 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
         return (!$this->address) ?: $this->address->value();
     }
 
-    public function setUseServiceProviderLanguages($useServiceProviderLanguages)
+    public function setUseServiceProviderLanguages(xs:boolean $useServiceProviderLanguages = null)
     {
-        $useServiceProviderLanguages and $this->useServiceProviderLanguages = new xs:boolean($useServiceProviderLanguages);
     }
 
     public function getUseServiceProviderLanguages()

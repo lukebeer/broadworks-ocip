@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $entry              = null;
 
     public function __construct(
-             $serviceProviderId,
-             PhoneListEntry $entry
+         $serviceProviderId,
+         PhoneListEntry $entry
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->entry             = $entry;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setEntry($entry);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -40,9 +43,8 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setEntry($entry)
+    public function setEntry(PhoneListEntry $entry = null)
     {
-        $entry and $this->entry = new PhoneListEntry($entry);
     }
 
     public function getEntry()

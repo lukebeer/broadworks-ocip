@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $deviceName  = null;
+    protected $tagName     = null;
 
     public function __construct(
-             $deviceName,
-             $tagName=null
+         $deviceName,
+         $tagName = null
     ) {
-        $this->deviceName = new AccessDeviceName($deviceName);
-        $this->tagName    = new DeviceManagementTagName($tagName);
-        $this->args       = func_get_args();
+        $this->setDeviceName($deviceName);
+        $this->setTagName($tagName);
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -40,9 +43,11 @@ class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implement
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setTagName($tagName)
+    public function setTagName($tagName = null)
     {
-        $tagName and $this->tagName = new DeviceManagementTagName($tagName);
+        $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
+             ? $tagName
+             : new DeviceManagementTagName($tagName);
     }
 
     public function getTagName()

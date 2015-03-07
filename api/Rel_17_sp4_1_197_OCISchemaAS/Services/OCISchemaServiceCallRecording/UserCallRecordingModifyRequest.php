@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\RecordingOption;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RecordingOption;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallRecordingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $userId           = null;
+    protected $recordingOption  = null;
 
     public function __construct(
-             $userId,
-             $recordingOption=null
+         $userId,
+         $recordingOption = null
     ) {
-        $this->userId          = new UserId($userId);
-        $this->recordingOption = $recordingOption;
-        $this->args            = func_get_args();
+        $this->setUserId($userId);
+        $this->setRecordingOption($recordingOption);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserCallRecordingModifyRequest extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setRecordingOption($recordingOption)
+    public function setRecordingOption($recordingOption = null)
     {
-        $recordingOption and $this->recordingOption = new RecordingOption($recordingOption);
+        $this->recordingOption = ($recordingOption InstanceOf RecordingOption)
+             ? $recordingOption
+             : new RecordingOption($recordingOption);
     }
 
     public function getRecordingOption()

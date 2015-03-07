@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $domainName  = null;
 
-    public function __construct(
-             $domainName=null
-    ) {
-        $this->domainName = new BroadWorksMobileManagerDomainName($domainName);
-        $this->args       = func_get_args();
-    }
 
-    public function setDomainName($domainName)
+    public function setDomainName($domainName = null)
     {
-        $domainName and $this->domainName = new BroadWorksMobileManagerDomainName($domainName);
+        $this->domainName = ($domainName InstanceOf BroadWorksMobileManagerDomainName)
+             ? $domainName
+             : new BroadWorksMobileManagerDomainName($domainName);
     }
 
     public function getDomainName()

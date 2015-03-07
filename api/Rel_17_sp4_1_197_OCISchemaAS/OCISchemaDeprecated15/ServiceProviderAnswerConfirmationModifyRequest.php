@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnswerConfirmationAnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationAnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnswerConfirmationTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +22,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $announcementMessageSelection  = null;
+    protected $confirmationMessageAudioFile  = null;
+    protected $confirmationTimoutSeconds     = null;
 
     public function __construct(
-             $serviceProviderId,
-             $announcementMessageSelection=null,
-             LabeledFileResource $confirmationMessageAudioFile=null,
-             $confirmationTimoutSeconds=null
+         $serviceProviderId,
+         $announcementMessageSelection = null,
+         LabeledFileResource $confirmationMessageAudioFile = null,
+         $confirmationTimoutSeconds = null
     ) {
-        $this->serviceProviderId            = new ServiceProviderId($serviceProviderId);
-        $this->announcementMessageSelection = $announcementMessageSelection;
-        $this->confirmationMessageAudioFile = $confirmationMessageAudioFile;
-        $this->confirmationTimoutSeconds    = $confirmationTimoutSeconds;
-        $this->args                         = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setAnnouncementMessageSelection($announcementMessageSelection);
+        $this->setConfirmationMessageAudioFile($confirmationMessageAudioFile);
+        $this->setConfirmationTimoutSeconds($confirmationTimoutSeconds);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -47,9 +52,11 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setAnnouncementMessageSelection($announcementMessageSelection)
+    public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
-        $announcementMessageSelection and $this->announcementMessageSelection = new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
+        $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
+             ? $announcementMessageSelection
+             : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
     }
 
     public function getAnnouncementMessageSelection()
@@ -57,9 +64,8 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
         return (!$this->announcementMessageSelection) ?: $this->announcementMessageSelection->value();
     }
 
-    public function setConfirmationMessageAudioFile($confirmationMessageAudioFile)
+    public function setConfirmationMessageAudioFile(LabeledFileResource $confirmationMessageAudioFile = null)
     {
-        $confirmationMessageAudioFile and $this->confirmationMessageAudioFile = new LabeledFileResource($confirmationMessageAudioFile);
     }
 
     public function getConfirmationMessageAudioFile()
@@ -67,9 +73,11 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
         return (!$this->confirmationMessageAudioFile) ?: $this->confirmationMessageAudioFile->value();
     }
 
-    public function setConfirmationTimoutSeconds($confirmationTimoutSeconds)
+    public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
-        $confirmationTimoutSeconds and $this->confirmationTimoutSeconds = new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
+        $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
+             ? $confirmationTimoutSeconds
+             : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
     }
 
     public function getConfirmationTimoutSeconds()

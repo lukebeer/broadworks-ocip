@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemServiceCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $serviceCode  = null;
+    protected $description  = null;
 
     public function __construct(
-             $serviceCode,
-             $description
+         $serviceCode,
+         $description
     ) {
-        $this->serviceCode = new ServiceCode($serviceCode);
-        $this->description = new ServiceCodeDescription($description);
-        $this->args        = func_get_args();
+        $this->setServiceCode($serviceCode);
+        $this->setDescription($description);
     }
 
-    public function setServiceCode($serviceCode)
+    public function setServiceCode($serviceCode = null)
     {
-        $serviceCode and $this->serviceCode = new ServiceCode($serviceCode);
+        $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
+             ? $serviceCode
+             : new ServiceCode($serviceCode);
     }
 
     public function getServiceCode()
@@ -40,9 +43,11 @@ class SystemServiceCodeAddRequest extends ComplexType implements ComplexInterfac
         return (!$this->serviceCode) ?: $this->serviceCode->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new ServiceCodeDescription($description);
+        $this->description = ($description InstanceOf ServiceCodeDescription)
+             ? $description
+             : new ServiceCodeDescription($description);
     }
 
     public function getDescription()

@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\InstantGroupCallAnswerTimeoutMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantGroupCallAnswerTimeoutMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,30 +24,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $groupId                 = null;
+    protected $serviceUserId           = null;
+    protected $serviceInstanceProfile  = null;
+    protected $destinationPhoneNumber  = null;
+    protected $isAnswerTimeoutEnabled  = null;
+    protected $answerTimeoutMinutes    = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $serviceUserId,
-             ServiceInstanceAddProfile $serviceInstanceProfile,
-             $destinationPhoneNumber=null,
-             $isAnswerTimeoutEnabled,
-             $answerTimeoutMinutes=null
+         $serviceProviderId,
+         $groupId,
+         $serviceUserId,
+         ServiceInstanceAddProfile $serviceInstanceProfile,
+         $destinationPhoneNumber = null,
+         $isAnswerTimeoutEnabled,
+         $answerTimeoutMinutes = null
     ) {
-        $this->serviceProviderId      = new ServiceProviderId($serviceProviderId);
-        $this->groupId                = new GroupId($groupId);
-        $this->serviceUserId          = new UserId($serviceUserId);
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
-        $this->destinationPhoneNumber = new OutgoingDNorSIPURI($destinationPhoneNumber);
-        $this->isAnswerTimeoutEnabled = $isAnswerTimeoutEnabled;
-        $this->answerTimeoutMinutes   = $answerTimeoutMinutes;
-        $this->args                   = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setDestinationPhoneNumber($destinationPhoneNumber);
+        $this->setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled);
+        $this->setAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -56,9 +63,11 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -66,9 +75,11 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -76,9 +87,8 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceAddProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -86,9 +96,11 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setDestinationPhoneNumber($destinationPhoneNumber)
+    public function setDestinationPhoneNumber($destinationPhoneNumber = null)
     {
-        $destinationPhoneNumber and $this->destinationPhoneNumber = new OutgoingDNorSIPURI($destinationPhoneNumber);
+        $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $destinationPhoneNumber
+             : new OutgoingDNorSIPURI($destinationPhoneNumber);
     }
 
     public function getDestinationPhoneNumber()
@@ -96,9 +108,8 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         return (!$this->destinationPhoneNumber) ?: $this->destinationPhoneNumber->value();
     }
 
-    public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled)
+    public function setIsAnswerTimeoutEnabled(xs:boolean $isAnswerTimeoutEnabled = null)
     {
-        $isAnswerTimeoutEnabled and $this->isAnswerTimeoutEnabled = new xs:boolean($isAnswerTimeoutEnabled);
     }
 
     public function getIsAnswerTimeoutEnabled()
@@ -106,9 +117,11 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->value();
     }
 
-    public function setAnswerTimeoutMinutes($answerTimeoutMinutes)
+    public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
-        $answerTimeoutMinutes and $this->answerTimeoutMinutes = new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
+        $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
+             ? $answerTimeoutMinutes
+             : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
     public function getAnswerTimeoutMinutes()

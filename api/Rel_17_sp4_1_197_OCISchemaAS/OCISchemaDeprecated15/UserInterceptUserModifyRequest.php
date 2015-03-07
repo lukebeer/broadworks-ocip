@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,34 +23,44 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInterceptUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                         = __CLASS__;
+    protected $userId                       = null;
+    protected $isActive                     = null;
+    protected $announcementSelection        = null;
+    protected $audioFile                    = null;
+    protected $videoFile                    = null;
+    protected $playNewPhoneNumber           = null;
+    protected $newPhoneNumber               = null;
+    protected $transferOnZeroToPhoneNumber  = null;
+    protected $transferPhoneNumber          = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $announcementSelection=null,
-             LabeledFileResource $audioFile=null,
-             LabeledFileResource $videoFile=null,
-             $playNewPhoneNumber=null,
-             $newPhoneNumber=null,
-             $transferOnZeroToPhoneNumber=null,
-             $transferPhoneNumber=null
+         $userId,
+         $isActive = null,
+         $announcementSelection = null,
+         LabeledFileResource $audioFile = null,
+         LabeledFileResource $videoFile = null,
+         $playNewPhoneNumber = null,
+         $newPhoneNumber = null,
+         $transferOnZeroToPhoneNumber = null,
+         $transferPhoneNumber = null
     ) {
-        $this->userId                      = new UserId($userId);
-        $this->isActive                    = $isActive;
-        $this->announcementSelection       = new AnnouncementSelection($announcementSelection);
-        $this->audioFile                   = $audioFile;
-        $this->videoFile                   = $videoFile;
-        $this->playNewPhoneNumber          = $playNewPhoneNumber;
-        $this->newPhoneNumber              = new DN($newPhoneNumber);
-        $this->transferOnZeroToPhoneNumber = $transferOnZeroToPhoneNumber;
-        $this->transferPhoneNumber         = new OutgoingDN($transferPhoneNumber);
-        $this->args                        = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setAnnouncementSelection($announcementSelection);
+        $this->setAudioFile($audioFile);
+        $this->setVideoFile($videoFile);
+        $this->setPlayNewPhoneNumber($playNewPhoneNumber);
+        $this->setNewPhoneNumber($newPhoneNumber);
+        $this->setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber);
+        $this->setTransferPhoneNumber($transferPhoneNumber);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -59,9 +68,8 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -69,9 +77,11 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAnnouncementSelection($announcementSelection)
+    public function setAnnouncementSelection($announcementSelection = null)
     {
-        $announcementSelection and $this->announcementSelection = new AnnouncementSelection($announcementSelection);
+        $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
+             ? $announcementSelection
+             : new AnnouncementSelection($announcementSelection);
     }
 
     public function getAnnouncementSelection()
@@ -79,9 +89,8 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->announcementSelection) ?: $this->announcementSelection->value();
     }
 
-    public function setAudioFile($audioFile)
+    public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $audioFile and $this->audioFile = new LabeledFileResource($audioFile);
     }
 
     public function getAudioFile()
@@ -89,9 +98,8 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->audioFile) ?: $this->audioFile->value();
     }
 
-    public function setVideoFile($videoFile)
+    public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $videoFile and $this->videoFile = new LabeledFileResource($videoFile);
     }
 
     public function getVideoFile()
@@ -99,9 +107,8 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->videoFile) ?: $this->videoFile->value();
     }
 
-    public function setPlayNewPhoneNumber($playNewPhoneNumber)
+    public function setPlayNewPhoneNumber(xs:boolean $playNewPhoneNumber = null)
     {
-        $playNewPhoneNumber and $this->playNewPhoneNumber = new xs:boolean($playNewPhoneNumber);
     }
 
     public function getPlayNewPhoneNumber()
@@ -109,9 +116,11 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->value();
     }
 
-    public function setNewPhoneNumber($newPhoneNumber)
+    public function setNewPhoneNumber($newPhoneNumber = null)
     {
-        $newPhoneNumber and $this->newPhoneNumber = new DN($newPhoneNumber);
+        $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
+             ? $newPhoneNumber
+             : new DN($newPhoneNumber);
     }
 
     public function getNewPhoneNumber()
@@ -119,9 +128,8 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->value();
     }
 
-    public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber)
+    public function setTransferOnZeroToPhoneNumber(xs:boolean $transferOnZeroToPhoneNumber = null)
     {
-        $transferOnZeroToPhoneNumber and $this->transferOnZeroToPhoneNumber = new xs:boolean($transferOnZeroToPhoneNumber);
     }
 
     public function getTransferOnZeroToPhoneNumber()
@@ -129,9 +137,11 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
         return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->value();
     }
 
-    public function setTransferPhoneNumber($transferPhoneNumber)
+    public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        $transferPhoneNumber and $this->transferPhoneNumber = new OutgoingDN($transferPhoneNumber);
+        $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
+             ? $transferPhoneNumber
+             : new OutgoingDN($transferPhoneNumber);
     }
 
     public function getTransferPhoneNumber()

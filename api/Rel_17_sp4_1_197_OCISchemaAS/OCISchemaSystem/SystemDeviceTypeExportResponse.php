@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name  = __CLASS__;
+    protected $file  = null;
 
-    public function __construct(
-             $file
-    ) {
-        $this->file = new URL($file);
-        $this->args = func_get_args();
-    }
 
-    public function setFile($file)
+    public function setFile($file = null)
     {
-        $file and $this->file = new URL($file);
+        $this->file = ($file InstanceOf URL)
+             ? $file
+             : new URL($file);
     }
 
     public function getFile()

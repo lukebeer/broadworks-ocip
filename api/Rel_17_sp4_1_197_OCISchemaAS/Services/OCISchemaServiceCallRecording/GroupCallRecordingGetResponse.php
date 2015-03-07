@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallRecordingPlatformName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name  = __CLASS__;
+    protected $name  = null;
 
-    public function __construct(
-             $name=null
-    ) {
-        $this->name = $name;
-        $this->args = func_get_args();
-    }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CallRecordingPlatformName($name);
+        $this->name = ($name InstanceOf CallRecordingPlatformName)
+             ? $name
+             : new CallRecordingPlatformName($name);
     }
 
     public function getName()

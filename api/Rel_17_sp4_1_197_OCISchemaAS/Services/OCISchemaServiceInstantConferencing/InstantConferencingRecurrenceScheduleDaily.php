@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingRecurrenceDayInterval;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceDayInterval;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingRecurrenceScheduleDaily extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $recurrenceDayInterval  = null;
 
     public function __construct(
-             $recurrenceDayInterval
+         $recurrenceDayInterval
     ) {
-        $this->recurrenceDayInterval = $recurrenceDayInterval;
-        $this->args                  = func_get_args();
+        $this->setRecurrenceDayInterval($recurrenceDayInterval);
     }
 
-    public function setRecurrenceDayInterval($recurrenceDayInterval)
+    public function setRecurrenceDayInterval($recurrenceDayInterval = null)
     {
-        $recurrenceDayInterval and $this->recurrenceDayInterval = new InstantConferencingRecurrenceDayInterval($recurrenceDayInterval);
+        $this->recurrenceDayInterval = ($recurrenceDayInterval InstanceOf InstantConferencingRecurrenceDayInterval)
+             ? $recurrenceDayInterval
+             : new InstantConferencingRecurrenceDayInterval($recurrenceDayInterval);
     }
 
     public function getRecurrenceDayInterval()

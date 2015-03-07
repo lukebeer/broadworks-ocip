@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingRecurrenceWeekInterval;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceWeekInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $recurrenceWeekInterval  = null;
+    protected $dayOfWeek               = null;
 
     public function __construct(
-             $recurrenceWeekInterval,
-             $dayOfWeek=null
+         $recurrenceWeekInterval,
+         $dayOfWeek = null
     ) {
-        $this->recurrenceWeekInterval = $recurrenceWeekInterval;
-        $this->dayOfWeek              = new DayOfWeek($dayOfWeek);
-        $this->args                   = func_get_args();
+        $this->setRecurrenceWeekInterval($recurrenceWeekInterval);
+        $this->setDayOfWeek($dayOfWeek);
     }
 
-    public function setRecurrenceWeekInterval($recurrenceWeekInterval)
+    public function setRecurrenceWeekInterval($recurrenceWeekInterval = null)
     {
-        $recurrenceWeekInterval and $this->recurrenceWeekInterval = new InstantConferencingRecurrenceWeekInterval($recurrenceWeekInterval);
+        $this->recurrenceWeekInterval = ($recurrenceWeekInterval InstanceOf InstantConferencingRecurrenceWeekInterval)
+             ? $recurrenceWeekInterval
+             : new InstantConferencingRecurrenceWeekInterval($recurrenceWeekInterval);
     }
 
     public function getRecurrenceWeekInterval()
@@ -39,9 +42,11 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
         return (!$this->recurrenceWeekInterval) ?: $this->recurrenceWeekInterval->value();
     }
 
-    public function setDayOfWeek($dayOfWeek)
+    public function setDayOfWeek($dayOfWeek = null)
     {
-        $dayOfWeek and $this->dayOfWeek = new DayOfWeek($dayOfWeek);
+        $this->dayOfWeek = ($dayOfWeek InstanceOf DayOfWeek)
+             ? $dayOfWeek
+             : new DayOfWeek($dayOfWeek);
     }
 
     public function getDayOfWeek()

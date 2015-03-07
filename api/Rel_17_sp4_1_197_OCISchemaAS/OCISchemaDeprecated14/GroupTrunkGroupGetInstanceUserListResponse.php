@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $trunkGroupUserTable  = null;
 
-    public function __construct(
-             $trunkGroupUserTable
-    ) {
-        $this->trunkGroupUserTable = $trunkGroupUserTable;
-        $this->args                = func_get_args();
-    }
 
-    public function setTrunkGroupUserTable($trunkGroupUserTable)
+    public function setTrunkGroupUserTable(core:OCITable $trunkGroupUserTable = null)
     {
-        $trunkGroupUserTable and $this->trunkGroupUserTable = new core:OCITable($trunkGroupUserTable);
     }
 
     public function getTrunkGroupUserTable()

@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPagingConfirmationToneTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPagingOriginatorCLIDPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingConfirmationToneTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingOriginatorCLIDPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +21,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGroupPagingGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $serviceInstanceProfile          = null;
+    protected $confirmationToneTimeoutSeconds  = null;
+    protected $deliverOriginatorCLIDInstead    = null;
+    protected $originatorCLIDPrefix            = null;
 
-    public function __construct(
-             $serviceInstanceProfile,
-             $confirmationToneTimeoutSeconds,
-             $deliverOriginatorCLIDInstead,
-             $originatorCLIDPrefix=null
-    ) {
-        $this->serviceInstanceProfile         = $serviceInstanceProfile;
-        $this->confirmationToneTimeoutSeconds = $confirmationToneTimeoutSeconds;
-        $this->deliverOriginatorCLIDInstead   = $deliverOriginatorCLIDInstead;
-        $this->originatorCLIDPrefix           = $originatorCLIDPrefix;
-        $this->args                           = func_get_args();
-    }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceReadProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -47,9 +37,11 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds)
+    public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
-        $confirmationToneTimeoutSeconds and $this->confirmationToneTimeoutSeconds = new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
+        $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
+             ? $confirmationToneTimeoutSeconds
+             : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
     }
 
     public function getConfirmationToneTimeoutSeconds()
@@ -57,9 +49,8 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
         return (!$this->confirmationToneTimeoutSeconds) ?: $this->confirmationToneTimeoutSeconds->value();
     }
 
-    public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead)
+    public function setDeliverOriginatorCLIDInstead(xs:boolean $deliverOriginatorCLIDInstead = null)
     {
-        $deliverOriginatorCLIDInstead and $this->deliverOriginatorCLIDInstead = new xs:boolean($deliverOriginatorCLIDInstead);
     }
 
     public function getDeliverOriginatorCLIDInstead()
@@ -67,9 +58,11 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
         return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead->value();
     }
 
-    public function setOriginatorCLIDPrefix($originatorCLIDPrefix)
+    public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
-        $originatorCLIDPrefix and $this->originatorCLIDPrefix = new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
+        $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
+             ? $originatorCLIDPrefix
+             : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
     }
 
     public function getOriginatorCLIDPrefix()

@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhysicalLocation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $zoneName                       = null;
+    protected $netAddress                     = null;
+    protected $netAddressRange                = null;
+    protected $locationBasedPhysicalLocation  = null;
+    protected $callingZonePhysicalLocation    = null;
 
     public function __construct(
-             $zoneName,
-             $netAddress=null,
-             IPAddressRange $netAddressRange=null,
-             $locationBasedPhysicalLocation=null,
-             $callingZonePhysicalLocation=null
+         $zoneName,
+         $netAddress = null,
+         IPAddressRange $netAddressRange = null,
+         $locationBasedPhysicalLocation = null,
+         $callingZonePhysicalLocation = null
     ) {
-        $this->zoneName                      = new ZoneName($zoneName);
-        $this->netAddress                    = new IPAddress($netAddress);
-        $this->netAddressRange               = $netAddressRange;
-        $this->locationBasedPhysicalLocation = new PhysicalLocation($locationBasedPhysicalLocation);
-        $this->callingZonePhysicalLocation   = new PhysicalLocation($callingZonePhysicalLocation);
-        $this->args                          = func_get_args();
+        $this->setZoneName($zoneName);
+        $this->setNetAddress($netAddress);
+        $this->setNetAddressRange($netAddressRange);
+        $this->setLocationBasedPhysicalLocation($locationBasedPhysicalLocation);
+        $this->setCallingZonePhysicalLocation($callingZonePhysicalLocation);
     }
 
-    public function setZoneName($zoneName)
+    public function setZoneName($zoneName = null)
     {
-        $zoneName and $this->zoneName = new ZoneName($zoneName);
+        $this->zoneName = ($zoneName InstanceOf ZoneName)
+             ? $zoneName
+             : new ZoneName($zoneName);
     }
 
     public function getZoneName()
@@ -48,9 +54,11 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         return (!$this->zoneName) ?: $this->zoneName->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new IPAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf IPAddress)
+             ? $netAddress
+             : new IPAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -58,9 +66,8 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setNetAddressRange($netAddressRange)
+    public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        $netAddressRange and $this->netAddressRange = new IPAddressRange($netAddressRange);
     }
 
     public function getNetAddressRange()
@@ -68,9 +75,11 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         return (!$this->netAddressRange) ?: $this->netAddressRange->value();
     }
 
-    public function setLocationBasedPhysicalLocation($locationBasedPhysicalLocation)
+    public function setLocationBasedPhysicalLocation($locationBasedPhysicalLocation = null)
     {
-        $locationBasedPhysicalLocation and $this->locationBasedPhysicalLocation = new PhysicalLocation($locationBasedPhysicalLocation);
+        $this->locationBasedPhysicalLocation = ($locationBasedPhysicalLocation InstanceOf PhysicalLocation)
+             ? $locationBasedPhysicalLocation
+             : new PhysicalLocation($locationBasedPhysicalLocation);
     }
 
     public function getLocationBasedPhysicalLocation()
@@ -78,9 +87,11 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         return (!$this->locationBasedPhysicalLocation) ?: $this->locationBasedPhysicalLocation->value();
     }
 
-    public function setCallingZonePhysicalLocation($callingZonePhysicalLocation)
+    public function setCallingZonePhysicalLocation($callingZonePhysicalLocation = null)
     {
-        $callingZonePhysicalLocation and $this->callingZonePhysicalLocation = new PhysicalLocation($callingZonePhysicalLocation);
+        $this->callingZonePhysicalLocation = ($callingZonePhysicalLocation InstanceOf PhysicalLocation)
+             ? $callingZonePhysicalLocation
+             : new PhysicalLocation($callingZonePhysicalLocation);
     }
 
     public function getCallingZonePhysicalLocation()

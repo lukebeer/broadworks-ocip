@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemHuntGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $anonymousInsteadOfPrivateCLID  = null;
+    protected $removeHuntGroupNameFromCLID    = null;
 
-    public function __construct(
-             $anonymousInsteadOfPrivateCLID,
-             $removeHuntGroupNameFromCLID
-    ) {
-        $this->anonymousInsteadOfPrivateCLID = $anonymousInsteadOfPrivateCLID;
-        $this->removeHuntGroupNameFromCLID   = $removeHuntGroupNameFromCLID;
-        $this->args                          = func_get_args();
-    }
 
-    public function setAnonymousInsteadOfPrivateCLID($anonymousInsteadOfPrivateCLID)
+    public function setAnonymousInsteadOfPrivateCLID(xs:boolean $anonymousInsteadOfPrivateCLID = null)
     {
-        $anonymousInsteadOfPrivateCLID and $this->anonymousInsteadOfPrivateCLID = new xs:boolean($anonymousInsteadOfPrivateCLID);
     }
 
     public function getAnonymousInsteadOfPrivateCLID()
@@ -39,9 +32,8 @@ class SystemHuntGroupGetResponse extends ComplexType implements ComplexInterface
         return (!$this->anonymousInsteadOfPrivateCLID) ?: $this->anonymousInsteadOfPrivateCLID->value();
     }
 
-    public function setRemoveHuntGroupNameFromCLID($removeHuntGroupNameFromCLID)
+    public function setRemoveHuntGroupNameFromCLID(xs:boolean $removeHuntGroupNameFromCLID = null)
     {
-        $removeHuntGroupNameFromCLID and $this->removeHuntGroupNameFromCLID = new xs:boolean($removeHuntGroupNameFromCLID);
     }
 
     public function getRemoveHuntGroupNameFromCLID()

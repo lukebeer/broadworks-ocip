@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,22 +21,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $userId                        = null;
+    protected $isActive                      = null;
+    protected $disableCallingLineIdDelivery  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $disableCallingLineIdDelivery=null
+         $userId,
+         $isActive = null,
+         $disableCallingLineIdDelivery = null
     ) {
-        $this->userId                       = new UserId($userId);
-        $this->isActive                     = $isActive;
-        $this->disableCallingLineIdDelivery = $disableCallingLineIdDelivery;
-        $this->args                         = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setDisableCallingLineIdDelivery($disableCallingLineIdDelivery);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -45,9 +48,8 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -55,9 +57,8 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDisableCallingLineIdDelivery($disableCallingLineIdDelivery)
+    public function setDisableCallingLineIdDelivery(xs:boolean $disableCallingLineIdDelivery = null)
     {
-        $disableCallingLineIdDelivery and $this->disableCallingLineIdDelivery = new xs:boolean($disableCallingLineIdDelivery);
     }
 
     public function getDisableCallingLineIdDelivery()

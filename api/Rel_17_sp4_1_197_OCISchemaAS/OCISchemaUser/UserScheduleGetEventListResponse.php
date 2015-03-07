@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserScheduleGetEventListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $eventName  = null;
 
-    public function __construct(
-             $eventName=null
-    ) {
-        $this->eventName = new EventName($eventName);
-        $this->args      = func_get_args();
-    }
 
-    public function setEventName($eventName)
+    public function setEventName($eventName = null)
     {
-        $eventName and $this->eventName = new EventName($eventName);
+        $this->eventName = ($eventName InstanceOf EventName)
+             ? $eventName
+             : new EventName($eventName);
     }
 
     public function getEventName()

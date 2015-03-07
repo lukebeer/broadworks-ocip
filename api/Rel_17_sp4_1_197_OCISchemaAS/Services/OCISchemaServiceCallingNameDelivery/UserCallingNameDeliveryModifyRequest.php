@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallingNameDeliveryModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $userId                    = null;
+    protected $isActiveForExternalCalls  = null;
+    protected $isActiveForInternalCalls  = null;
 
     public function __construct(
-             $userId,
-             $isActiveForExternalCalls=null,
-             $isActiveForInternalCalls=null
+         $userId,
+         $isActiveForExternalCalls = null,
+         $isActiveForInternalCalls = null
     ) {
-        $this->userId                   = new UserId($userId);
-        $this->isActiveForExternalCalls = $isActiveForExternalCalls;
-        $this->isActiveForInternalCalls = $isActiveForInternalCalls;
-        $this->args                     = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActiveForExternalCalls($isActiveForExternalCalls);
+        $this->setIsActiveForInternalCalls($isActiveForInternalCalls);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -42,9 +45,8 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActiveForExternalCalls($isActiveForExternalCalls)
+    public function setIsActiveForExternalCalls(xs:boolean $isActiveForExternalCalls = null)
     {
-        $isActiveForExternalCalls and $this->isActiveForExternalCalls = new xs:boolean($isActiveForExternalCalls);
     }
 
     public function getIsActiveForExternalCalls()
@@ -52,9 +54,8 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
         return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls->value();
     }
 
-    public function setIsActiveForInternalCalls($isActiveForInternalCalls)
+    public function setIsActiveForInternalCalls(xs:boolean $isActiveForInternalCalls = null)
     {
-        $isActiveForInternalCalls and $this->isActiveForInternalCalls = new xs:boolean($isActiveForInternalCalls);
     }
 
     public function getIsActiveForInternalCalls()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderVoicePortalScope;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\ServiceProviderVoicePortalScope;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $voicePortalScope  = null;
 
-    public function __construct(
-             $voicePortalScope
-    ) {
-        $this->voicePortalScope = $voicePortalScope;
-        $this->args             = func_get_args();
-    }
 
-    public function setVoicePortalScope($voicePortalScope)
+    public function setVoicePortalScope($voicePortalScope = null)
     {
-        $voicePortalScope and $this->voicePortalScope = new ServiceProviderVoicePortalScope($voicePortalScope);
+        $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
+             ? $voicePortalScope
+             : new ServiceProviderVoicePortalScope($voicePortalScope);
     }
 
     public function getVoicePortalScope()

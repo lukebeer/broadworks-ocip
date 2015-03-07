@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDomainGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $systemDefaultDomain  = null;
+    protected $domain               = null;
 
-    public function __construct(
-             $systemDefaultDomain,
-             $domain=null
-    ) {
-        $this->systemDefaultDomain = new NetAddress($systemDefaultDomain);
-        $this->domain              = new NetAddress($domain);
-        $this->args                = func_get_args();
-    }
 
-    public function setSystemDefaultDomain($systemDefaultDomain)
+    public function setSystemDefaultDomain($systemDefaultDomain = null)
     {
-        $systemDefaultDomain and $this->systemDefaultDomain = new NetAddress($systemDefaultDomain);
+        $this->systemDefaultDomain = ($systemDefaultDomain InstanceOf NetAddress)
+             ? $systemDefaultDomain
+             : new NetAddress($systemDefaultDomain);
     }
 
     public function getSystemDefaultDomain()
@@ -38,9 +34,11 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
         return (!$this->systemDefaultDomain) ?: $this->systemDefaultDomain->value();
     }
 
-    public function setDomain($domain)
+    public function setDomain($domain = null)
     {
-        $domain and $this->domain = new NetAddress($domain);
+        $this->domain = ($domain InstanceOf NetAddress)
+             ? $domain
+             : new NetAddress($domain);
     }
 
     public function getDomain()

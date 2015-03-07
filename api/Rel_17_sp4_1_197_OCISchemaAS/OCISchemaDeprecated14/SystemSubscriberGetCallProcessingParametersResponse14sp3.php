@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserCallingLineIdSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserRingTimeoutSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,26 +18,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                    = __CLASS__;
+    protected $userCallingLineIdSelection              = null;
+    protected $isExtendedCallingLineIdActive           = null;
+    protected $isRingTimeOutActive                     = null;
+    protected $ringTimeoutSeconds                      = null;
+    protected $allowEmergencyRemoteOfficeOriginations  = null;
 
-    public function __construct(
-             $userCallingLineIdSelection,
-             $isExtendedCallingLineIdActive,
-             $isRingTimeOutActive,
-             $ringTimeoutSeconds,
-             $allowEmergencyRemoteOfficeOriginations
-    ) {
-        $this->userCallingLineIdSelection             = new SystemUserCallingLineIdSelection($userCallingLineIdSelection);
-        $this->isExtendedCallingLineIdActive          = $isExtendedCallingLineIdActive;
-        $this->isRingTimeOutActive                    = $isRingTimeOutActive;
-        $this->ringTimeoutSeconds                     = new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
-        $this->allowEmergencyRemoteOfficeOriginations = $allowEmergencyRemoteOfficeOriginations;
-        $this->args                                   = func_get_args();
-    }
 
-    public function setUserCallingLineIdSelection($userCallingLineIdSelection)
+    public function setUserCallingLineIdSelection($userCallingLineIdSelection = null)
     {
-        $userCallingLineIdSelection and $this->userCallingLineIdSelection = new SystemUserCallingLineIdSelection($userCallingLineIdSelection);
+        $this->userCallingLineIdSelection = ($userCallingLineIdSelection InstanceOf SystemUserCallingLineIdSelection)
+             ? $userCallingLineIdSelection
+             : new SystemUserCallingLineIdSelection($userCallingLineIdSelection);
     }
 
     public function getUserCallingLineIdSelection()
@@ -46,9 +38,8 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
         return (!$this->userCallingLineIdSelection) ?: $this->userCallingLineIdSelection->value();
     }
 
-    public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive)
+    public function setIsExtendedCallingLineIdActive(xs:boolean $isExtendedCallingLineIdActive = null)
     {
-        $isExtendedCallingLineIdActive and $this->isExtendedCallingLineIdActive = new xs:boolean($isExtendedCallingLineIdActive);
     }
 
     public function getIsExtendedCallingLineIdActive()
@@ -56,9 +47,8 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
         return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->value();
     }
 
-    public function setIsRingTimeOutActive($isRingTimeOutActive)
+    public function setIsRingTimeOutActive(xs:boolean $isRingTimeOutActive = null)
     {
-        $isRingTimeOutActive and $this->isRingTimeOutActive = new xs:boolean($isRingTimeOutActive);
     }
 
     public function getIsRingTimeOutActive()
@@ -66,9 +56,11 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
         return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->value();
     }
 
-    public function setRingTimeoutSeconds($ringTimeoutSeconds)
+    public function setRingTimeoutSeconds($ringTimeoutSeconds = null)
     {
-        $ringTimeoutSeconds and $this->ringTimeoutSeconds = new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
+        $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
+             ? $ringTimeoutSeconds
+             : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
     }
 
     public function getRingTimeoutSeconds()
@@ -76,9 +68,8 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
         return (!$this->ringTimeoutSeconds) ?: $this->ringTimeoutSeconds->value();
     }
 
-    public function setAllowEmergencyRemoteOfficeOriginations($allowEmergencyRemoteOfficeOriginations)
+    public function setAllowEmergencyRemoteOfficeOriginations(xs:boolean $allowEmergencyRemoteOfficeOriginations = null)
     {
-        $allowEmergencyRemoteOfficeOriginations and $this->allowEmergencyRemoteOfficeOriginations = new xs:boolean($allowEmergencyRemoteOfficeOriginations);
     }
 
     public function getAllowEmergencyRemoteOfficeOriginations()

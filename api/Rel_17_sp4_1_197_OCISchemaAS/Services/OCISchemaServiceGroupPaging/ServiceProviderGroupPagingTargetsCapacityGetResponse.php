@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupPagingMaxTargetCapacity;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingMaxTargetCapacity;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $maximumTargetUsers  = null;
 
-    public function __construct(
-             $maximumTargetUsers
-    ) {
-        $this->maximumTargetUsers = $maximumTargetUsers;
-        $this->args               = func_get_args();
-    }
 
-    public function setMaximumTargetUsers($maximumTargetUsers)
+    public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
-        $maximumTargetUsers and $this->maximumTargetUsers = new GroupPagingMaxTargetCapacity($maximumTargetUsers);
+        $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
+             ? $maximumTargetUsers
+             : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
     }
 
     public function getMaximumTargetUsers()

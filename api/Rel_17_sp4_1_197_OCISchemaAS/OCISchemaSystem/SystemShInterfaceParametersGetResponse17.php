@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ShInterfacePublicIdentityRefreshDelaySeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ShInterfacePublicIdentityRefreshDelaySeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemShInterfaceParametersGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $hssRealm                           = null;
+    protected $publicIdentityRefreshDelaySeconds  = null;
 
-    public function __construct(
-             $hssRealm=null,
-             $publicIdentityRefreshDelaySeconds
-    ) {
-        $this->hssRealm                          = new DomainName($hssRealm);
-        $this->publicIdentityRefreshDelaySeconds = $publicIdentityRefreshDelaySeconds;
-        $this->args                              = func_get_args();
-    }
 
-    public function setHssRealm($hssRealm)
+    public function setHssRealm($hssRealm = null)
     {
-        $hssRealm and $this->hssRealm = new DomainName($hssRealm);
+        $this->hssRealm = ($hssRealm InstanceOf DomainName)
+             ? $hssRealm
+             : new DomainName($hssRealm);
     }
 
     public function getHssRealm()
@@ -39,9 +35,11 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
         return (!$this->hssRealm) ?: $this->hssRealm->value();
     }
 
-    public function setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds)
+    public function setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds = null)
     {
-        $publicIdentityRefreshDelaySeconds and $this->publicIdentityRefreshDelaySeconds = new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
+        $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
+             ? $publicIdentityRefreshDelaySeconds
+             : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
     }
 
     public function getPublicIdentityRefreshDelaySeconds()

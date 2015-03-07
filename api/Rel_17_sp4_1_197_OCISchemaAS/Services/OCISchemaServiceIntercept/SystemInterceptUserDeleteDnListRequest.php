@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemInterceptUserDeleteDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $phoneNumbers  = null;
 
     public function __construct(
-             $phoneNumbers=null
+         $phoneNumbers = null
     ) {
-        $this->phoneNumbers = new DN($phoneNumbers);
-        $this->args         = func_get_args();
+        $this->setPhoneNumbers($phoneNumbers);
     }
 
-    public function setPhoneNumbers($phoneNumbers)
+    public function setPhoneNumbers($phoneNumbers = null)
     {
-        $phoneNumbers and $this->phoneNumbers = new DN($phoneNumbers);
+        $this->phoneNumbers = ($phoneNumbers InstanceOf DN)
+             ? $phoneNumbers
+             : new DN($phoneNumbers);
     }
 
     public function getPhoneNumbers()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMeetMeConferencingGetConferenceRecordingListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $conferenceRecordingTable  = null;
 
-    public function __construct(
-             $conferenceRecordingTable
-    ) {
-        $this->conferenceRecordingTable = $conferenceRecordingTable;
-        $this->args                     = func_get_args();
-    }
 
-    public function setConferenceRecordingTable($conferenceRecordingTable)
+    public function setConferenceRecordingTable(core:OCITable $conferenceRecordingTable = null)
     {
-        $conferenceRecordingTable and $this->conferenceRecordingTable = new core:OCITable($conferenceRecordingTable);
     }
 
     public function getConferenceRecordingTable()

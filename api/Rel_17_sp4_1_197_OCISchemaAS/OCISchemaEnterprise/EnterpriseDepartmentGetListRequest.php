@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,20 +21,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $enterpriseId             = null;
+    protected $includeGroupDepartments  = null;
 
     public function __construct(
-             $enterpriseId,
-             $includeGroupDepartments
+         $enterpriseId,
+         $includeGroupDepartments
     ) {
-        $this->enterpriseId            = new ServiceProviderId($enterpriseId);
-        $this->includeGroupDepartments = $includeGroupDepartments;
-        $this->args                    = func_get_args();
+        $this->setEnterpriseId($enterpriseId);
+        $this->setIncludeGroupDepartments($includeGroupDepartments);
     }
 
-    public function setEnterpriseId($enterpriseId)
+    public function setEnterpriseId($enterpriseId = null)
     {
-        $enterpriseId and $this->enterpriseId = new ServiceProviderId($enterpriseId);
+        $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
+             ? $enterpriseId
+             : new ServiceProviderId($enterpriseId);
     }
 
     public function getEnterpriseId()
@@ -43,9 +45,8 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
         return (!$this->enterpriseId) ?: $this->enterpriseId->value();
     }
 
-    public function setIncludeGroupDepartments($includeGroupDepartments)
+    public function setIncludeGroupDepartments(xs:boolean $includeGroupDepartments = null)
     {
-        $includeGroupDepartments and $this->includeGroupDepartments = new xs:boolean($includeGroupDepartments);
     }
 
     public function getIncludeGroupDepartments()

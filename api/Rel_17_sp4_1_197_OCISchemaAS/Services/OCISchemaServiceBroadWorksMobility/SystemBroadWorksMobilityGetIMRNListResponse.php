@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $imrnNumber  = null;
 
-    public function __construct(
-             $imrnNumber=null
-    ) {
-        $this->imrnNumber = new DN($imrnNumber);
-        $this->args       = func_get_args();
-    }
 
-    public function setImrnNumber($imrnNumber)
+    public function setImrnNumber($imrnNumber = null)
     {
-        $imrnNumber and $this->imrnNumber = new DN($imrnNumber);
+        $this->imrnNumber = ($imrnNumber InstanceOf DN)
+             ? $imrnNumber
+             : new DN($imrnNumber);
     }
 
     public function getImrnNumber()

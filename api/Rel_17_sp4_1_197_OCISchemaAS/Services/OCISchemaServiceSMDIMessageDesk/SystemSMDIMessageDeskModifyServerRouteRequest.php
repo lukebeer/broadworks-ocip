@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SMDIServerRouteDestination;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIServerRouteDestination;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $routeDestination  = null;
+    protected $deviceNameList    = null;
 
     public function __construct(
-             $routeDestination,
-             $deviceNameList=null
+         $routeDestination,
+         $deviceNameList = null
     ) {
-        $this->routeDestination = $routeDestination;
-        $this->deviceNameList   = $deviceNameList;
-        $this->args             = func_get_args();
+        $this->setRouteDestination($routeDestination);
+        $this->setDeviceNameList($deviceNameList);
     }
 
-    public function setRouteDestination($routeDestination)
+    public function setRouteDestination($routeDestination = null)
     {
-        $routeDestination and $this->routeDestination = new SMDIServerRouteDestination($routeDestination);
+        $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
+             ? $routeDestination
+             : new SMDIServerRouteDestination($routeDestination);
     }
 
     public function getRouteDestination()
@@ -40,9 +43,9 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
         return (!$this->routeDestination) ?: $this->routeDestination->value();
     }
 
-    public function setDeviceNameList($deviceNameList)
+    public function setDeviceNameList($deviceNameList = null)
     {
-        $deviceNameList and $this->deviceNameList = new ($deviceNameList);
+        $this->deviceNameList = $deviceNameList;
     }
 
     public function getDeviceNameList()

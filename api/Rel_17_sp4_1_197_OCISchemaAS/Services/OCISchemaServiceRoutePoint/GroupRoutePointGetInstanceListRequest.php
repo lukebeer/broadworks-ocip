@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaRoutePointName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaRoutePointName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,26 +24,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $groupDepartmentName           = null;
+    protected $responseSizeLimit             = null;
+    protected $searchCriteriaRoutePointName  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $groupDepartmentName=null,
-             $responseSizeLimit=null,
-             $searchCriteriaRoutePointName=null
+         $serviceProviderId,
+         $groupId,
+         $groupDepartmentName = null,
+         $responseSizeLimit = null,
+         SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null
     ) {
-        $this->serviceProviderId            = new ServiceProviderId($serviceProviderId);
-        $this->groupId                      = new GroupId($groupId);
-        $this->groupDepartmentName          = new DepartmentName($groupDepartmentName);
-        $this->responseSizeLimit            = $responseSizeLimit;
-        $this->searchCriteriaRoutePointName = $searchCriteriaRoutePointName;
-        $this->args                         = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setGroupDepartmentName($groupDepartmentName);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaRoutePointName($searchCriteriaRoutePointName);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -51,9 +57,11 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -61,9 +69,11 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setGroupDepartmentName($groupDepartmentName)
+    public function setGroupDepartmentName($groupDepartmentName = null)
     {
-        $groupDepartmentName and $this->groupDepartmentName = new DepartmentName($groupDepartmentName);
+        $this->groupDepartmentName = ($groupDepartmentName InstanceOf DepartmentName)
+             ? $groupDepartmentName
+             : new DepartmentName($groupDepartmentName);
     }
 
     public function getGroupDepartmentName()
@@ -71,9 +81,11 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         return (!$this->groupDepartmentName) ?: $this->groupDepartmentName->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -81,9 +93,8 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaRoutePointName($searchCriteriaRoutePointName)
+    public function setSearchCriteriaRoutePointName(SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null)
     {
-        $searchCriteriaRoutePointName and $this->searchCriteriaRoutePointName = new SearchCriteriaRoutePointName($searchCriteriaRoutePointName);
     }
 
     public function getSearchCriteriaRoutePointName()

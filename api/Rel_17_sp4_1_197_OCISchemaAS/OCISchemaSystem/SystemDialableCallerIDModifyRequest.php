@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $criteriaPriorityOrder  = null;
 
     public function __construct(
-             DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder=null
+         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
     ) {
-        $this->criteriaPriorityOrder = $criteriaPriorityOrder;
-        $this->args                  = func_get_args();
+        $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
-    public function setCriteriaPriorityOrder($criteriaPriorityOrder)
+    public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        $criteriaPriorityOrder and $this->criteriaPriorityOrder = new DialableCallerIDCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
     public function getCriteriaPriorityOrder()

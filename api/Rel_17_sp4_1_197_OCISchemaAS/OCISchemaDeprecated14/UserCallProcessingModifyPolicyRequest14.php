@@ -7,17 +7,16 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxSimultaneousCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxCallTimeForAnsweredCallsMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxConcurrentFindMeFollowMeInvocations;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallProcessingMaxCallTimeForAnsweredCallsMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxCallTimeForUnansweredCallsMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaPolicySelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxConcurrentRedirectedCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxFindMeFollowMeDepth;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxSimultaneousCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxRedirectionDepth;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxConcurrentFindMeFollowMeInvocations;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaPolicySelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -29,54 +28,74 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                       = __CLASS__;
+    protected $userId                                     = null;
+    protected $useUserSetting                             = null;
+    protected $useMaxSimultaneousCalls                    = null;
+    protected $maxSimultaneousCalls                       = null;
+    protected $useMaxSimultaneousVideoCalls               = null;
+    protected $maxSimultaneousVideoCalls                  = null;
+    protected $useMaxCallTimeForAnsweredCalls             = null;
+    protected $maxCallTimeForAnsweredCallsMinutes         = null;
+    protected $useMaxCallTimeForUnansweredCalls           = null;
+    protected $maxCallTimeForUnansweredCallsMinutes       = null;
+    protected $mediaPolicySelection                       = null;
+    protected $supportedMediaSetName                      = null;
+    protected $useMaxConcurrentRedirectedCalls            = null;
+    protected $maxConcurrentRedirectedCalls               = null;
+    protected $useMaxFindMeFollowMeDepth                  = null;
+    protected $maxFindMeFollowMeDepth                     = null;
+    protected $maxRedirectionDepth                        = null;
+    protected $useMaxConcurrentFindMeFollowMeInvocations  = null;
+    protected $maxConcurrentFindMeFollowMeInvocations     = null;
 
     public function __construct(
-             $userId,
-             $useUserSetting=null,
-             $useMaxSimultaneousCalls=null,
-             $maxSimultaneousCalls=null,
-             $useMaxSimultaneousVideoCalls=null,
-             $maxSimultaneousVideoCalls=null,
-             $useMaxCallTimeForAnsweredCalls=null,
-             $maxCallTimeForAnsweredCallsMinutes=null,
-             $useMaxCallTimeForUnansweredCalls=null,
-             $maxCallTimeForUnansweredCallsMinutes=null,
-             $mediaPolicySelection=null,
-             $supportedMediaSetName=null,
-             $useMaxConcurrentRedirectedCalls=null,
-             $maxConcurrentRedirectedCalls=null,
-             $useMaxFindMeFollowMeDepth=null,
-             $maxFindMeFollowMeDepth=null,
-             $maxRedirectionDepth=null,
-             $useMaxConcurrentFindMeFollowMeInvocations=null,
-             $maxConcurrentFindMeFollowMeInvocations=null
+         $userId,
+         $useUserSetting = null,
+         $useMaxSimultaneousCalls = null,
+         $maxSimultaneousCalls = null,
+         $useMaxSimultaneousVideoCalls = null,
+         $maxSimultaneousVideoCalls = null,
+         $useMaxCallTimeForAnsweredCalls = null,
+         $maxCallTimeForAnsweredCallsMinutes = null,
+         $useMaxCallTimeForUnansweredCalls = null,
+         $maxCallTimeForUnansweredCallsMinutes = null,
+         $mediaPolicySelection = null,
+         $supportedMediaSetName = null,
+         $useMaxConcurrentRedirectedCalls = null,
+         $maxConcurrentRedirectedCalls = null,
+         $useMaxFindMeFollowMeDepth = null,
+         $maxFindMeFollowMeDepth = null,
+         $maxRedirectionDepth = null,
+         $useMaxConcurrentFindMeFollowMeInvocations = null,
+         $maxConcurrentFindMeFollowMeInvocations = null
     ) {
-        $this->userId                                    = new UserId($userId);
-        $this->useUserSetting                            = $useUserSetting;
-        $this->useMaxSimultaneousCalls                   = $useMaxSimultaneousCalls;
-        $this->maxSimultaneousCalls                      = new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
-        $this->useMaxSimultaneousVideoCalls              = $useMaxSimultaneousVideoCalls;
-        $this->maxSimultaneousVideoCalls                 = new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
-        $this->useMaxCallTimeForAnsweredCalls            = $useMaxCallTimeForAnsweredCalls;
-        $this->maxCallTimeForAnsweredCallsMinutes        = $maxCallTimeForAnsweredCallsMinutes;
-        $this->useMaxCallTimeForUnansweredCalls          = $useMaxCallTimeForUnansweredCalls;
-        $this->maxCallTimeForUnansweredCallsMinutes      = new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
-        $this->mediaPolicySelection                      = new MediaPolicySelection($mediaPolicySelection);
-        $this->supportedMediaSetName                     = new MediaSetName($supportedMediaSetName);
-        $this->useMaxConcurrentRedirectedCalls           = $useMaxConcurrentRedirectedCalls;
-        $this->maxConcurrentRedirectedCalls              = new CallProcessingMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls);
-        $this->useMaxFindMeFollowMeDepth                 = $useMaxFindMeFollowMeDepth;
-        $this->maxFindMeFollowMeDepth                    = new CallProcessingMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth);
-        $this->maxRedirectionDepth                       = new CallProcessingMaxRedirectionDepth($maxRedirectionDepth);
-        $this->useMaxConcurrentFindMeFollowMeInvocations = $useMaxConcurrentFindMeFollowMeInvocations;
-        $this->maxConcurrentFindMeFollowMeInvocations    = new CallProcessingMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations);
-        $this->args                                      = func_get_args();
+        $this->setUserId($userId);
+        $this->setUseUserSetting($useUserSetting);
+        $this->setUseMaxSimultaneousCalls($useMaxSimultaneousCalls);
+        $this->setMaxSimultaneousCalls($maxSimultaneousCalls);
+        $this->setUseMaxSimultaneousVideoCalls($useMaxSimultaneousVideoCalls);
+        $this->setMaxSimultaneousVideoCalls($maxSimultaneousVideoCalls);
+        $this->setUseMaxCallTimeForAnsweredCalls($useMaxCallTimeForAnsweredCalls);
+        $this->setMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes);
+        $this->setUseMaxCallTimeForUnansweredCalls($useMaxCallTimeForUnansweredCalls);
+        $this->setMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
+        $this->setMediaPolicySelection($mediaPolicySelection);
+        $this->setSupportedMediaSetName($supportedMediaSetName);
+        $this->setUseMaxConcurrentRedirectedCalls($useMaxConcurrentRedirectedCalls);
+        $this->setMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls);
+        $this->setUseMaxFindMeFollowMeDepth($useMaxFindMeFollowMeDepth);
+        $this->setMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth);
+        $this->setMaxRedirectionDepth($maxRedirectionDepth);
+        $this->setUseMaxConcurrentFindMeFollowMeInvocations($useMaxConcurrentFindMeFollowMeInvocations);
+        $this->setMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -84,9 +103,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUseUserSetting($useUserSetting)
+    public function setUseUserSetting(xs:boolean $useUserSetting = null)
     {
-        $useUserSetting and $this->useUserSetting = new xs:boolean($useUserSetting);
     }
 
     public function getUseUserSetting()
@@ -94,9 +112,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useUserSetting) ?: $this->useUserSetting->value();
     }
 
-    public function setUseMaxSimultaneousCalls($useMaxSimultaneousCalls)
+    public function setUseMaxSimultaneousCalls(xs:boolean $useMaxSimultaneousCalls = null)
     {
-        $useMaxSimultaneousCalls and $this->useMaxSimultaneousCalls = new xs:boolean($useMaxSimultaneousCalls);
     }
 
     public function getUseMaxSimultaneousCalls()
@@ -104,9 +121,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->value();
     }
 
-    public function setMaxSimultaneousCalls($maxSimultaneousCalls)
+    public function setMaxSimultaneousCalls($maxSimultaneousCalls = null)
     {
-        $maxSimultaneousCalls and $this->maxSimultaneousCalls = new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
+        $this->maxSimultaneousCalls = ($maxSimultaneousCalls InstanceOf CallProcessingMaxSimultaneousCalls)
+             ? $maxSimultaneousCalls
+             : new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
     }
 
     public function getMaxSimultaneousCalls()
@@ -114,9 +133,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->maxSimultaneousCalls) ?: $this->maxSimultaneousCalls->value();
     }
 
-    public function setUseMaxSimultaneousVideoCalls($useMaxSimultaneousVideoCalls)
+    public function setUseMaxSimultaneousVideoCalls(xs:boolean $useMaxSimultaneousVideoCalls = null)
     {
-        $useMaxSimultaneousVideoCalls and $this->useMaxSimultaneousVideoCalls = new xs:boolean($useMaxSimultaneousVideoCalls);
     }
 
     public function getUseMaxSimultaneousVideoCalls()
@@ -124,9 +142,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->value();
     }
 
-    public function setMaxSimultaneousVideoCalls($maxSimultaneousVideoCalls)
+    public function setMaxSimultaneousVideoCalls($maxSimultaneousVideoCalls = null)
     {
-        $maxSimultaneousVideoCalls and $this->maxSimultaneousVideoCalls = new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
+        $this->maxSimultaneousVideoCalls = ($maxSimultaneousVideoCalls InstanceOf CallProcessingMaxSimultaneousCalls)
+             ? $maxSimultaneousVideoCalls
+             : new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
     }
 
     public function getMaxSimultaneousVideoCalls()
@@ -134,9 +154,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->maxSimultaneousVideoCalls) ?: $this->maxSimultaneousVideoCalls->value();
     }
 
-    public function setUseMaxCallTimeForAnsweredCalls($useMaxCallTimeForAnsweredCalls)
+    public function setUseMaxCallTimeForAnsweredCalls(xs:boolean $useMaxCallTimeForAnsweredCalls = null)
     {
-        $useMaxCallTimeForAnsweredCalls and $this->useMaxCallTimeForAnsweredCalls = new xs:boolean($useMaxCallTimeForAnsweredCalls);
     }
 
     public function getUseMaxCallTimeForAnsweredCalls()
@@ -144,9 +163,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->value();
     }
 
-    public function setMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes)
+    public function setMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes = null)
     {
-        $maxCallTimeForAnsweredCallsMinutes and $this->maxCallTimeForAnsweredCallsMinutes = new CallProcessingMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes);
+        $this->maxCallTimeForAnsweredCallsMinutes = ($maxCallTimeForAnsweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForAnsweredCallsMinutes)
+             ? $maxCallTimeForAnsweredCallsMinutes
+             : new CallProcessingMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes);
     }
 
     public function getMaxCallTimeForAnsweredCallsMinutes()
@@ -154,9 +175,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->maxCallTimeForAnsweredCallsMinutes) ?: $this->maxCallTimeForAnsweredCallsMinutes->value();
     }
 
-    public function setUseMaxCallTimeForUnansweredCalls($useMaxCallTimeForUnansweredCalls)
+    public function setUseMaxCallTimeForUnansweredCalls(xs:boolean $useMaxCallTimeForUnansweredCalls = null)
     {
-        $useMaxCallTimeForUnansweredCalls and $this->useMaxCallTimeForUnansweredCalls = new xs:boolean($useMaxCallTimeForUnansweredCalls);
     }
 
     public function getUseMaxCallTimeForUnansweredCalls()
@@ -164,9 +184,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->value();
     }
 
-    public function setMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes)
+    public function setMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes = null)
     {
-        $maxCallTimeForUnansweredCallsMinutes and $this->maxCallTimeForUnansweredCallsMinutes = new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
+        $this->maxCallTimeForUnansweredCallsMinutes = ($maxCallTimeForUnansweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForUnansweredCallsMinutes)
+             ? $maxCallTimeForUnansweredCallsMinutes
+             : new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
     }
 
     public function getMaxCallTimeForUnansweredCallsMinutes()
@@ -174,9 +196,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->maxCallTimeForUnansweredCallsMinutes) ?: $this->maxCallTimeForUnansweredCallsMinutes->value();
     }
 
-    public function setMediaPolicySelection($mediaPolicySelection)
+    public function setMediaPolicySelection($mediaPolicySelection = null)
     {
-        $mediaPolicySelection and $this->mediaPolicySelection = new MediaPolicySelection($mediaPolicySelection);
+        $this->mediaPolicySelection = ($mediaPolicySelection InstanceOf MediaPolicySelection)
+             ? $mediaPolicySelection
+             : new MediaPolicySelection($mediaPolicySelection);
     }
 
     public function getMediaPolicySelection()
@@ -184,9 +208,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->mediaPolicySelection) ?: $this->mediaPolicySelection->value();
     }
 
-    public function setSupportedMediaSetName($supportedMediaSetName)
+    public function setSupportedMediaSetName($supportedMediaSetName = null)
     {
-        $supportedMediaSetName and $this->supportedMediaSetName = new MediaSetName($supportedMediaSetName);
+        $this->supportedMediaSetName = ($supportedMediaSetName InstanceOf MediaSetName)
+             ? $supportedMediaSetName
+             : new MediaSetName($supportedMediaSetName);
     }
 
     public function getSupportedMediaSetName()
@@ -194,9 +220,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->supportedMediaSetName) ?: $this->supportedMediaSetName->value();
     }
 
-    public function setUseMaxConcurrentRedirectedCalls($useMaxConcurrentRedirectedCalls)
+    public function setUseMaxConcurrentRedirectedCalls(xs:boolean $useMaxConcurrentRedirectedCalls = null)
     {
-        $useMaxConcurrentRedirectedCalls and $this->useMaxConcurrentRedirectedCalls = new xs:boolean($useMaxConcurrentRedirectedCalls);
     }
 
     public function getUseMaxConcurrentRedirectedCalls()
@@ -204,9 +229,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useMaxConcurrentRedirectedCalls) ?: $this->useMaxConcurrentRedirectedCalls->value();
     }
 
-    public function setMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls)
+    public function setMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls = null)
     {
-        $maxConcurrentRedirectedCalls and $this->maxConcurrentRedirectedCalls = new CallProcessingMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls);
+        $this->maxConcurrentRedirectedCalls = ($maxConcurrentRedirectedCalls InstanceOf CallProcessingMaxConcurrentRedirectedCalls)
+             ? $maxConcurrentRedirectedCalls
+             : new CallProcessingMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls);
     }
 
     public function getMaxConcurrentRedirectedCalls()
@@ -214,9 +241,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->maxConcurrentRedirectedCalls) ?: $this->maxConcurrentRedirectedCalls->value();
     }
 
-    public function setUseMaxFindMeFollowMeDepth($useMaxFindMeFollowMeDepth)
+    public function setUseMaxFindMeFollowMeDepth(xs:boolean $useMaxFindMeFollowMeDepth = null)
     {
-        $useMaxFindMeFollowMeDepth and $this->useMaxFindMeFollowMeDepth = new xs:boolean($useMaxFindMeFollowMeDepth);
     }
 
     public function getUseMaxFindMeFollowMeDepth()
@@ -224,9 +250,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useMaxFindMeFollowMeDepth) ?: $this->useMaxFindMeFollowMeDepth->value();
     }
 
-    public function setMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth)
+    public function setMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth = null)
     {
-        $maxFindMeFollowMeDepth and $this->maxFindMeFollowMeDepth = new CallProcessingMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth);
+        $this->maxFindMeFollowMeDepth = ($maxFindMeFollowMeDepth InstanceOf CallProcessingMaxFindMeFollowMeDepth)
+             ? $maxFindMeFollowMeDepth
+             : new CallProcessingMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth);
     }
 
     public function getMaxFindMeFollowMeDepth()
@@ -234,9 +262,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->maxFindMeFollowMeDepth) ?: $this->maxFindMeFollowMeDepth->value();
     }
 
-    public function setMaxRedirectionDepth($maxRedirectionDepth)
+    public function setMaxRedirectionDepth($maxRedirectionDepth = null)
     {
-        $maxRedirectionDepth and $this->maxRedirectionDepth = new CallProcessingMaxRedirectionDepth($maxRedirectionDepth);
+        $this->maxRedirectionDepth = ($maxRedirectionDepth InstanceOf CallProcessingMaxRedirectionDepth)
+             ? $maxRedirectionDepth
+             : new CallProcessingMaxRedirectionDepth($maxRedirectionDepth);
     }
 
     public function getMaxRedirectionDepth()
@@ -244,9 +274,8 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->maxRedirectionDepth) ?: $this->maxRedirectionDepth->value();
     }
 
-    public function setUseMaxConcurrentFindMeFollowMeInvocations($useMaxConcurrentFindMeFollowMeInvocations)
+    public function setUseMaxConcurrentFindMeFollowMeInvocations(xs:boolean $useMaxConcurrentFindMeFollowMeInvocations = null)
     {
-        $useMaxConcurrentFindMeFollowMeInvocations and $this->useMaxConcurrentFindMeFollowMeInvocations = new xs:boolean($useMaxConcurrentFindMeFollowMeInvocations);
     }
 
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
@@ -254,9 +283,11 @@ class UserCallProcessingModifyPolicyRequest14 extends ComplexType implements Com
         return (!$this->useMaxConcurrentFindMeFollowMeInvocations) ?: $this->useMaxConcurrentFindMeFollowMeInvocations->value();
     }
 
-    public function setMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations)
+    public function setMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations = null)
     {
-        $maxConcurrentFindMeFollowMeInvocations and $this->maxConcurrentFindMeFollowMeInvocations = new CallProcessingMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations);
+        $this->maxConcurrentFindMeFollowMeInvocations = ($maxConcurrentFindMeFollowMeInvocations InstanceOf CallProcessingMaxConcurrentFindMeFollowMeInvocations)
+             ? $maxConcurrentFindMeFollowMeInvocations
+             : new CallProcessingMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations);
     }
 
     public function getMaxConcurrentFindMeFollowMeInvocations()

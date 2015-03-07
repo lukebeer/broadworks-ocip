@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPartyCategoryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallingPartyCategoryGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $category  = null;
 
-    public function __construct(
-             $category
-    ) {
-        $this->category = $category;
-        $this->args     = func_get_args();
-    }
 
-    public function setCategory($category)
+    public function setCategory($category = null)
     {
-        $category and $this->category = new CallingPartyCategoryName($category);
+        $this->category = ($category InstanceOf CallingPartyCategoryName)
+             ? $category
+             : new CallingPartyCategoryName($category);
     }
 
     public function getCategory()

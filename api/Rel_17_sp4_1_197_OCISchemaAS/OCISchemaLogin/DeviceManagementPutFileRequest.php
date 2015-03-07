@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class DeviceManagementPutFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $deviceAccessURI  = null;
+    protected $ipAddress        = null;
 
     public function __construct(
-             $deviceAccessURI,
-             $ipAddress
+         $deviceAccessURI,
+         $ipAddress
     ) {
-        $this->deviceAccessURI = new DeviceManagementAccessURI($deviceAccessURI);
-        $this->ipAddress       = new NetAddress($ipAddress);
-        $this->args            = func_get_args();
+        $this->setDeviceAccessURI($deviceAccessURI);
+        $this->setIpAddress($ipAddress);
     }
 
-    public function setDeviceAccessURI($deviceAccessURI)
+    public function setDeviceAccessURI($deviceAccessURI = null)
     {
-        $deviceAccessURI and $this->deviceAccessURI = new DeviceManagementAccessURI($deviceAccessURI);
+        $this->deviceAccessURI = ($deviceAccessURI InstanceOf DeviceManagementAccessURI)
+             ? $deviceAccessURI
+             : new DeviceManagementAccessURI($deviceAccessURI);
     }
 
     public function getDeviceAccessURI()
@@ -39,9 +42,11 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
         return (!$this->deviceAccessURI) ?: $this->deviceAccessURI->value();
     }
 
-    public function setIpAddress($ipAddress)
+    public function setIpAddress($ipAddress = null)
     {
-        $ipAddress and $this->ipAddress = new NetAddress($ipAddress);
+        $this->ipAddress = ($ipAddress InstanceOf NetAddress)
+             ? $ipAddress
+             : new NetAddress($ipAddress);
     }
 
     public function getIpAddress()

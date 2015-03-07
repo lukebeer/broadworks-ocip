@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactEndpointType extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $endpointType  = null;
 
     public function __construct(
-             $endpointType
+         $endpointType
     ) {
-        $this->endpointType = new EndpointType($endpointType);
-        $this->args         = func_get_args();
+        $this->setEndpointType($endpointType);
     }
 
-    public function setEndpointType($endpointType)
+    public function setEndpointType($endpointType = null)
     {
-        $endpointType and $this->endpointType = new EndpointType($endpointType);
+        $this->endpointType = ($endpointType InstanceOf EndpointType)
+             ? $endpointType
+             : new EndpointType($endpointType);
     }
 
     public function getEndpointType()

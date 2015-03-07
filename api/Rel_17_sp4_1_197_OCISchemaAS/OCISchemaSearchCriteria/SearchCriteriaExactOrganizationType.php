@@ -17,18 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SearchCriteriaExactOrganizationType extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $organizationType  = null;
 
     public function __construct(
-             $organizationType
+         $organizationType
     ) {
-        $this->organizationType = new OrganizationType($organizationType);
-        $this->args             = func_get_args();
+        $this->setOrganizationType($organizationType);
     }
 
-    public function setOrganizationType($organizationType)
+    public function setOrganizationType($organizationType = null)
     {
-        $organizationType and $this->organizationType = new OrganizationType($organizationType);
+        $this->organizationType = ($organizationType InstanceOf OrganizationType)
+             ? $organizationType
+             : new OrganizationType($organizationType);
     }
 
     public function getOrganizationType()

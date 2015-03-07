@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationType14;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationType14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,24 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $supportsEnhancedConfiguration  = null;
+    protected $supportsReset                  = null;
+    protected $configurationType              = null;
+    protected $configurationFileName          = null;
 
-    public function __construct(
-             $supportsEnhancedConfiguration,
-             $supportsReset,
-             $configurationType=null,
-             $configurationFileName=null
-    ) {
-        $this->supportsEnhancedConfiguration = $supportsEnhancedConfiguration;
-        $this->supportsReset                 = $supportsReset;
-        $this->configurationType             = new AccessDeviceEnhancedConfigurationType14($configurationType);
-        $this->configurationFileName         = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
-        $this->args                          = func_get_args();
-    }
 
-    public function setSupportsEnhancedConfiguration($supportsEnhancedConfiguration)
+    public function setSupportsEnhancedConfiguration(xs:boolean $supportsEnhancedConfiguration = null)
     {
-        $supportsEnhancedConfiguration and $this->supportsEnhancedConfiguration = new xs:boolean($supportsEnhancedConfiguration);
     }
 
     public function getSupportsEnhancedConfiguration()
@@ -44,9 +34,8 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
         return (!$this->supportsEnhancedConfiguration) ?: $this->supportsEnhancedConfiguration->value();
     }
 
-    public function setSupportsReset($supportsReset)
+    public function setSupportsReset(xs:boolean $supportsReset = null)
     {
-        $supportsReset and $this->supportsReset = new xs:boolean($supportsReset);
     }
 
     public function getSupportsReset()
@@ -54,9 +43,11 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
         return (!$this->supportsReset) ?: $this->supportsReset->value();
     }
 
-    public function setConfigurationType($configurationType)
+    public function setConfigurationType($configurationType = null)
     {
-        $configurationType and $this->configurationType = new AccessDeviceEnhancedConfigurationType14($configurationType);
+        $this->configurationType = ($configurationType InstanceOf AccessDeviceEnhancedConfigurationType14)
+             ? $configurationType
+             : new AccessDeviceEnhancedConfigurationType14($configurationType);
     }
 
     public function getConfigurationType()
@@ -64,9 +55,11 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
         return (!$this->configurationType) ?: $this->configurationType->value();
     }
 
-    public function setConfigurationFileName($configurationFileName)
+    public function setConfigurationFileName($configurationFileName = null)
     {
-        $configurationFileName and $this->configurationFileName = new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
+        $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
+             ? $configurationFileName
+             : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
     }
 
     public function getConfigurationFileName()

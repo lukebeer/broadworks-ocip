@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IMRNTimeoutMilliseconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\IMRNTimeoutMilliseconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -21,32 +20,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $enableLocationServices     = null;
+    protected $enableMSRNLookup           = null;
+    protected $enableMobileStateChecking  = null;
+    protected $denyCallOriginations       = null;
+    protected $denyCallTerminations       = null;
+    protected $imrnTimeoutMilliseconds    = null;
+    protected $scfSignalingIPAddress      = null;
+    protected $scfSignalingPort           = null;
 
     public function __construct(
-             $enableLocationServices=null,
-             $enableMSRNLookup=null,
-             $enableMobileStateChecking=null,
-             $denyCallOriginations=null,
-             $denyCallTerminations=null,
-             $imrnTimeoutMilliseconds=null,
-             $scfSignalingIPAddress=null,
-             $scfSignalingPort=null
+         $enableLocationServices = null,
+         $enableMSRNLookup = null,
+         $enableMobileStateChecking = null,
+         $denyCallOriginations = null,
+         $denyCallTerminations = null,
+         $imrnTimeoutMilliseconds = null,
+         $scfSignalingIPAddress = null,
+         $scfSignalingPort = null
     ) {
-        $this->enableLocationServices    = $enableLocationServices;
-        $this->enableMSRNLookup          = $enableMSRNLookup;
-        $this->enableMobileStateChecking = $enableMobileStateChecking;
-        $this->denyCallOriginations      = $denyCallOriginations;
-        $this->denyCallTerminations      = $denyCallTerminations;
-        $this->imrnTimeoutMilliseconds   = $imrnTimeoutMilliseconds;
-        $this->scfSignalingIPAddress     = new IPAddress($scfSignalingIPAddress);
-        $this->scfSignalingPort          = new Port($scfSignalingPort);
-        $this->args                      = func_get_args();
+        $this->setEnableLocationServices($enableLocationServices);
+        $this->setEnableMSRNLookup($enableMSRNLookup);
+        $this->setEnableMobileStateChecking($enableMobileStateChecking);
+        $this->setDenyCallOriginations($denyCallOriginations);
+        $this->setDenyCallTerminations($denyCallTerminations);
+        $this->setImrnTimeoutMilliseconds($imrnTimeoutMilliseconds);
+        $this->setScfSignalingIPAddress($scfSignalingIPAddress);
+        $this->setScfSignalingPort($scfSignalingPort);
     }
 
-    public function setEnableLocationServices($enableLocationServices)
+    public function setEnableLocationServices(xs:boolean $enableLocationServices = null)
     {
-        $enableLocationServices and $this->enableLocationServices = new xs:boolean($enableLocationServices);
     }
 
     public function getEnableLocationServices()
@@ -54,9 +59,8 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         return (!$this->enableLocationServices) ?: $this->enableLocationServices->value();
     }
 
-    public function setEnableMSRNLookup($enableMSRNLookup)
+    public function setEnableMSRNLookup(xs:boolean $enableMSRNLookup = null)
     {
-        $enableMSRNLookup and $this->enableMSRNLookup = new xs:boolean($enableMSRNLookup);
     }
 
     public function getEnableMSRNLookup()
@@ -64,9 +68,8 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup->value();
     }
 
-    public function setEnableMobileStateChecking($enableMobileStateChecking)
+    public function setEnableMobileStateChecking(xs:boolean $enableMobileStateChecking = null)
     {
-        $enableMobileStateChecking and $this->enableMobileStateChecking = new xs:boolean($enableMobileStateChecking);
     }
 
     public function getEnableMobileStateChecking()
@@ -74,9 +77,8 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking->value();
     }
 
-    public function setDenyCallOriginations($denyCallOriginations)
+    public function setDenyCallOriginations(xs:boolean $denyCallOriginations = null)
     {
-        $denyCallOriginations and $this->denyCallOriginations = new xs:boolean($denyCallOriginations);
     }
 
     public function getDenyCallOriginations()
@@ -84,9 +86,8 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->value();
     }
 
-    public function setDenyCallTerminations($denyCallTerminations)
+    public function setDenyCallTerminations(xs:boolean $denyCallTerminations = null)
     {
-        $denyCallTerminations and $this->denyCallTerminations = new xs:boolean($denyCallTerminations);
     }
 
     public function getDenyCallTerminations()
@@ -94,9 +95,11 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         return (!$this->denyCallTerminations) ?: $this->denyCallTerminations->value();
     }
 
-    public function setImrnTimeoutMilliseconds($imrnTimeoutMilliseconds)
+    public function setImrnTimeoutMilliseconds($imrnTimeoutMilliseconds = null)
     {
-        $imrnTimeoutMilliseconds and $this->imrnTimeoutMilliseconds = new IMRNTimeoutMilliseconds($imrnTimeoutMilliseconds);
+        $this->imrnTimeoutMilliseconds = ($imrnTimeoutMilliseconds InstanceOf IMRNTimeoutMilliseconds)
+             ? $imrnTimeoutMilliseconds
+             : new IMRNTimeoutMilliseconds($imrnTimeoutMilliseconds);
     }
 
     public function getImrnTimeoutMilliseconds()
@@ -104,9 +107,11 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         return (!$this->imrnTimeoutMilliseconds) ?: $this->imrnTimeoutMilliseconds->value();
     }
 
-    public function setScfSignalingIPAddress($scfSignalingIPAddress)
+    public function setScfSignalingIPAddress($scfSignalingIPAddress = null)
     {
-        $scfSignalingIPAddress and $this->scfSignalingIPAddress = new IPAddress($scfSignalingIPAddress);
+        $this->scfSignalingIPAddress = ($scfSignalingIPAddress InstanceOf IPAddress)
+             ? $scfSignalingIPAddress
+             : new IPAddress($scfSignalingIPAddress);
     }
 
     public function getScfSignalingIPAddress()
@@ -114,9 +119,11 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         return (!$this->scfSignalingIPAddress) ?: $this->scfSignalingIPAddress->value();
     }
 
-    public function setScfSignalingPort($scfSignalingPort)
+    public function setScfSignalingPort($scfSignalingPort = null)
     {
-        $scfSignalingPort and $this->scfSignalingPort = new Port($scfSignalingPort);
+        $this->scfSignalingPort = ($scfSignalingPort InstanceOf Port)
+             ? $scfSignalingPort
+             : new Port($scfSignalingPort);
     }
 
     public function getScfSignalingPort()

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVideoAddOn; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VideoAddOnMaxOriginatingCallDelaySeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVideoAddOn\VideoAddOnMaxOriginatingCallDelaySeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointRead14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $isActive                        = null;
+    protected $maxOriginatingCallDelaySeconds  = null;
+    protected $accessDeviceEndpoint            = null;
 
-    public function __construct(
-             $isActive,
-             $maxOriginatingCallDelaySeconds,
-             AccessDeviceEndpointRead14 $accessDeviceEndpoint=null
-    ) {
-        $this->isActive                       = $isActive;
-        $this->maxOriginatingCallDelaySeconds = $maxOriginatingCallDelaySeconds;
-        $this->accessDeviceEndpoint           = $accessDeviceEndpoint;
-        $this->args                           = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -42,9 +33,11 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds)
+    public function setMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds = null)
     {
-        $maxOriginatingCallDelaySeconds and $this->maxOriginatingCallDelaySeconds = new VideoAddOnMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
+        $this->maxOriginatingCallDelaySeconds = ($maxOriginatingCallDelaySeconds InstanceOf VideoAddOnMaxOriginatingCallDelaySeconds)
+             ? $maxOriginatingCallDelaySeconds
+             : new VideoAddOnMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
     }
 
     public function getMaxOriginatingCallDelaySeconds()
@@ -52,9 +45,8 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
         return (!$this->maxOriginatingCallDelaySeconds) ?: $this->maxOriginatingCallDelaySeconds->value();
     }
 
-    public function setAccessDeviceEndpoint($accessDeviceEndpoint)
+    public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
-        $accessDeviceEndpoint and $this->accessDeviceEndpoint = new AccessDeviceEndpointRead14($accessDeviceEndpoint);
     }
 
     public function getAccessDeviceEndpoint()

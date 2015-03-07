@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
 use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
@@ -24,7 +23,7 @@ class SIPSessionExpiresTimerSeconds extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'int';
-        $this->addRestriction(new MinInclusive(60));
-        $this->addRestriction(new MaxInclusive(86400));
+        $this->addRestriction(new MinInclusive("60"));
+        $this->addRestriction(new MaxInclusive("86400"));
     }
 }

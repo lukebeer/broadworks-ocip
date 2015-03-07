@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $fileRepositoryName  = null;
 
     public function __construct(
-             $fileRepositoryName
+         $fileRepositoryName
     ) {
-        $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
-        $this->args               = func_get_args();
+        $this->setFileRepositoryName($fileRepositoryName);
     }
 
-    public function setFileRepositoryName($fileRepositoryName)
+    public function setFileRepositoryName($fileRepositoryName = null)
     {
-        $fileRepositoryName and $this->fileRepositoryName = new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
+             ? $fileRepositoryName
+             : new FileRepositoryName($fileRepositoryName);
     }
 
     public function getFileRepositoryName()

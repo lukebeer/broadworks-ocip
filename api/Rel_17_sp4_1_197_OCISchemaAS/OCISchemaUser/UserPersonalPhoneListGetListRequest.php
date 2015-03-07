@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserPersonalPhoneListNumber;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserPersonalPhoneListName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserPersonalPhoneListName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserPersonalPhoneListNumber;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -29,26 +28,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPersonalPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                       = __CLASS__;
+    protected $userId                                     = null;
+    protected $responseSizeLimit                          = null;
+    protected $searchCriteriaModeOr                       = null;
+    protected $searchCriteriaUserPersonalPhoneListName    = null;
+    protected $searchCriteriaUserPersonalPhoneListNumber  = null;
 
     public function __construct(
-             $userId,
-             $responseSizeLimit=null,
-             $searchCriteriaModeOr=null,
-             $searchCriteriaUserPersonalPhoneListName=null,
-             $searchCriteriaUserPersonalPhoneListNumber=null
+         $userId,
+         $responseSizeLimit = null,
+         $searchCriteriaModeOr = null,
+         SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null,
+         SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null
     ) {
-        $this->userId                                    = new UserId($userId);
-        $this->responseSizeLimit                         = $responseSizeLimit;
-        $this->searchCriteriaModeOr                      = $searchCriteriaModeOr;
-        $this->searchCriteriaUserPersonalPhoneListName   = $searchCriteriaUserPersonalPhoneListName;
-        $this->searchCriteriaUserPersonalPhoneListNumber = $searchCriteriaUserPersonalPhoneListNumber;
-        $this->args                                      = func_get_args();
+        $this->setUserId($userId);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaModeOr($searchCriteriaModeOr);
+        $this->setSearchCriteriaUserPersonalPhoneListName($searchCriteriaUserPersonalPhoneListName);
+        $this->setSearchCriteriaUserPersonalPhoneListNumber($searchCriteriaUserPersonalPhoneListNumber);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -56,9 +61,11 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -66,9 +73,8 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaModeOr($searchCriteriaModeOr)
+    public function setSearchCriteriaModeOr(xs:boolean $searchCriteriaModeOr = null)
     {
-        $searchCriteriaModeOr and $this->searchCriteriaModeOr = new xs:boolean($searchCriteriaModeOr);
     }
 
     public function getSearchCriteriaModeOr()
@@ -76,9 +82,8 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->value();
     }
 
-    public function setSearchCriteriaUserPersonalPhoneListName($searchCriteriaUserPersonalPhoneListName)
+    public function setSearchCriteriaUserPersonalPhoneListName(SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null)
     {
-        $searchCriteriaUserPersonalPhoneListName and $this->searchCriteriaUserPersonalPhoneListName = new SearchCriteriaUserPersonalPhoneListName($searchCriteriaUserPersonalPhoneListName);
     }
 
     public function getSearchCriteriaUserPersonalPhoneListName()
@@ -86,9 +91,8 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaUserPersonalPhoneListName) ?: $this->searchCriteriaUserPersonalPhoneListName->value();
     }
 
-    public function setSearchCriteriaUserPersonalPhoneListNumber($searchCriteriaUserPersonalPhoneListNumber)
+    public function setSearchCriteriaUserPersonalPhoneListNumber(SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null)
     {
-        $searchCriteriaUserPersonalPhoneListNumber and $this->searchCriteriaUserPersonalPhoneListNumber = new SearchCriteriaUserPersonalPhoneListNumber($searchCriteriaUserPersonalPhoneListNumber);
     }
 
     public function getSearchCriteriaUserPersonalPhoneListNumber()

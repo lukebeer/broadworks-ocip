@@ -17,22 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $minExtensionLength      = null;
+    protected $maxExtensionLength      = null;
+    protected $defaultExtensionLength  = null;
 
-    public function __construct(
-             $minExtensionLength,
-             $maxExtensionLength,
-             $defaultExtensionLength
-    ) {
-        $this->minExtensionLength     = new ExtensionLength($minExtensionLength);
-        $this->maxExtensionLength     = new ExtensionLength($maxExtensionLength);
-        $this->defaultExtensionLength = new ExtensionLength($defaultExtensionLength);
-        $this->args                   = func_get_args();
-    }
 
-    public function setMinExtensionLength($minExtensionLength)
+    public function setMinExtensionLength($minExtensionLength = null)
     {
-        $minExtensionLength and $this->minExtensionLength = new ExtensionLength($minExtensionLength);
+        $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
+             ? $minExtensionLength
+             : new ExtensionLength($minExtensionLength);
     }
 
     public function getMinExtensionLength()
@@ -40,9 +35,11 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
         return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
     }
 
-    public function setMaxExtensionLength($maxExtensionLength)
+    public function setMaxExtensionLength($maxExtensionLength = null)
     {
-        $maxExtensionLength and $this->maxExtensionLength = new ExtensionLength($maxExtensionLength);
+        $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
+             ? $maxExtensionLength
+             : new ExtensionLength($maxExtensionLength);
     }
 
     public function getMaxExtensionLength()
@@ -50,9 +47,11 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
         return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
     }
 
-    public function setDefaultExtensionLength($defaultExtensionLength)
+    public function setDefaultExtensionLength($defaultExtensionLength = null)
     {
-        $defaultExtensionLength and $this->defaultExtensionLength = new ExtensionLength($defaultExtensionLength);
+        $this->defaultExtensionLength = ($defaultExtensionLength InstanceOf ExtensionLength)
+             ? $defaultExtensionLength
+             : new ExtensionLength($defaultExtensionLength);
     }
 
     public function getDefaultExtensionLength()

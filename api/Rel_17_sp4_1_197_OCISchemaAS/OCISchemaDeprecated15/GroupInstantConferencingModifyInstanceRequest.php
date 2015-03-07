@@ -7,14 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingOutcallProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingAllocatedPorts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingOutcallProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,34 +26,44 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantConferencingModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $serviceUserId                   = null;
+    protected $serviceInstanceProfile          = null;
+    protected $conferenceBridgeLinePort        = null;
+    protected $allocatedPorts                  = null;
+    protected $serviceProfileAppliedOnOutcall  = null;
+    protected $allowOutdialInInvitation        = null;
+    protected $allowDocumentDownload           = null;
+    protected $bridgeAdministratorUserIdList   = null;
+    protected $networkClassOfService           = null;
 
     public function __construct(
-             $serviceUserId,
-             ServiceInstanceModifyProfile $serviceInstanceProfile=null,
-             $conferenceBridgeLinePort=null,
-             $allocatedPorts=null,
-             $serviceProfileAppliedOnOutcall=null,
-             $allowOutdialInInvitation=null,
-             $allowDocumentDownload=null,
-             ReplacementUserIdList $bridgeAdministratorUserIdList=null,
-             $networkClassOfService=null
+         $serviceUserId,
+         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $conferenceBridgeLinePort = null,
+         InstantConferencingAllocatedPorts $allocatedPorts = null,
+         $serviceProfileAppliedOnOutcall = null,
+         $allowOutdialInInvitation = null,
+         $allowDocumentDownload = null,
+         ReplacementUserIdList $bridgeAdministratorUserIdList = null,
+         $networkClassOfService = null
     ) {
-        $this->serviceUserId                  = new UserId($serviceUserId);
-        $this->serviceInstanceProfile         = $serviceInstanceProfile;
-        $this->conferenceBridgeLinePort       = new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
-        $this->allocatedPorts                 = $allocatedPorts;
-        $this->serviceProfileAppliedOnOutcall = $serviceProfileAppliedOnOutcall;
-        $this->allowOutdialInInvitation       = $allowOutdialInInvitation;
-        $this->allowDocumentDownload          = $allowDocumentDownload;
-        $this->bridgeAdministratorUserIdList  = $bridgeAdministratorUserIdList;
-        $this->networkClassOfService          = new NetworkClassOfServiceName($networkClassOfService);
-        $this->args                           = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setServiceInstanceProfile($serviceInstanceProfile);
+        $this->setConferenceBridgeLinePort($conferenceBridgeLinePort);
+        $this->setAllocatedPorts($allocatedPorts);
+        $this->setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall);
+        $this->setAllowOutdialInInvitation($allowOutdialInInvitation);
+        $this->setAllowDocumentDownload($allowDocumentDownload);
+        $this->setBridgeAdministratorUserIdList($bridgeAdministratorUserIdList);
+        $this->setNetworkClassOfService($networkClassOfService);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -62,9 +71,8 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceModifyProfile($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -72,9 +80,11 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setConferenceBridgeLinePort($conferenceBridgeLinePort)
+    public function setConferenceBridgeLinePort($conferenceBridgeLinePort = null)
     {
-        $conferenceBridgeLinePort and $this->conferenceBridgeLinePort = new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
+        $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
+             ? $conferenceBridgeLinePort
+             : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
     }
 
     public function getConferenceBridgeLinePort()
@@ -82,9 +92,8 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->conferenceBridgeLinePort) ?: $this->conferenceBridgeLinePort->value();
     }
 
-    public function setAllocatedPorts($allocatedPorts)
+    public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $allocatedPorts and $this->allocatedPorts = new InstantConferencingAllocatedPorts($allocatedPorts);
     }
 
     public function getAllocatedPorts()
@@ -92,9 +101,11 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->allocatedPorts) ?: $this->allocatedPorts->value();
     }
 
-    public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall)
+    public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall = null)
     {
-        $serviceProfileAppliedOnOutcall and $this->serviceProfileAppliedOnOutcall = new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
+        $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
+             ? $serviceProfileAppliedOnOutcall
+             : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
     }
 
     public function getServiceProfileAppliedOnOutcall()
@@ -102,9 +113,8 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->serviceProfileAppliedOnOutcall) ?: $this->serviceProfileAppliedOnOutcall->value();
     }
 
-    public function setAllowOutdialInInvitation($allowOutdialInInvitation)
+    public function setAllowOutdialInInvitation(xs:boolean $allowOutdialInInvitation = null)
     {
-        $allowOutdialInInvitation and $this->allowOutdialInInvitation = new xs:boolean($allowOutdialInInvitation);
     }
 
     public function getAllowOutdialInInvitation()
@@ -112,9 +122,8 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->value();
     }
 
-    public function setAllowDocumentDownload($allowDocumentDownload)
+    public function setAllowDocumentDownload(xs:boolean $allowDocumentDownload = null)
     {
-        $allowDocumentDownload and $this->allowDocumentDownload = new xs:boolean($allowDocumentDownload);
     }
 
     public function getAllowDocumentDownload()
@@ -122,9 +131,8 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload->value();
     }
 
-    public function setBridgeAdministratorUserIdList($bridgeAdministratorUserIdList)
+    public function setBridgeAdministratorUserIdList(ReplacementUserIdList $bridgeAdministratorUserIdList = null)
     {
-        $bridgeAdministratorUserIdList and $this->bridgeAdministratorUserIdList = new ReplacementUserIdList($bridgeAdministratorUserIdList);
     }
 
     public function getBridgeAdministratorUserIdList()
@@ -132,9 +140,11 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
         return (!$this->bridgeAdministratorUserIdList) ?: $this->bridgeAdministratorUserIdList->value();
     }
 
-    public function setNetworkClassOfService($networkClassOfService)
+    public function setNetworkClassOfService($networkClassOfService = null)
     {
-        $networkClassOfService and $this->networkClassOfService = new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
+             ? $networkClassOfService
+             : new NetworkClassOfServiceName($networkClassOfService);
     }
 
     public function getNetworkClassOfService()

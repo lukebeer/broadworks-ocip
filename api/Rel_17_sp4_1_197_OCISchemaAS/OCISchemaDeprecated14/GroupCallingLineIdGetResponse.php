@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingLineIdName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +19,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $useGroupNumber            = null;
+    protected $useGroupName              = null;
+    protected $callingLineIdPhoneNumber  = null;
+    protected $callingLineIdName         = null;
 
-    public function __construct(
-             $useGroupNumber,
-             $useGroupName,
-             $callingLineIdPhoneNumber=null,
-             $callingLineIdName=null
-    ) {
-        $this->useGroupNumber           = $useGroupNumber;
-        $this->useGroupName             = $useGroupName;
-        $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
-        $this->callingLineIdName        = new GroupCallingLineIdName($callingLineIdName);
-        $this->args                     = func_get_args();
-    }
 
-    public function setUseGroupNumber($useGroupNumber)
+    public function setUseGroupNumber(xs:boolean $useGroupNumber = null)
     {
-        $useGroupNumber and $this->useGroupNumber = new xs:boolean($useGroupNumber);
     }
 
     public function getUseGroupNumber()
@@ -45,9 +35,8 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
         return (!$this->useGroupNumber) ?: $this->useGroupNumber->value();
     }
 
-    public function setUseGroupName($useGroupName)
+    public function setUseGroupName(xs:boolean $useGroupName = null)
     {
-        $useGroupName and $this->useGroupName = new xs:boolean($useGroupName);
     }
 
     public function getUseGroupName()
@@ -55,9 +44,11 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
         return (!$this->useGroupName) ?: $this->useGroupName->value();
     }
 
-    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber)
+    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        $callingLineIdPhoneNumber and $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
+        $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
+             ? $callingLineIdPhoneNumber
+             : new DN($callingLineIdPhoneNumber);
     }
 
     public function getCallingLineIdPhoneNumber()
@@ -65,9 +56,11 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
         return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->value();
     }
 
-    public function setCallingLineIdName($callingLineIdName)
+    public function setCallingLineIdName($callingLineIdName = null)
     {
-        $callingLineIdName and $this->callingLineIdName = new GroupCallingLineIdName($callingLineIdName);
+        $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
+             ? $callingLineIdName
+             : new GroupCallingLineIdName($callingLineIdName);
     }
 
     public function getCallingLineIdName()

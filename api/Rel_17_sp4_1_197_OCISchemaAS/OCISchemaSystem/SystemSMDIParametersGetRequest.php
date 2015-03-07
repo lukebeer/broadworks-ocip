@@ -21,6 +21,5 @@ class SystemSMDIParametersGetRequest extends ComplexType implements ComplexInter
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

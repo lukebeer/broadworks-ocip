@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterWrapUpSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,22 +22,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterEnhancedModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $serviceUserId            = null;
+    protected $overrideAgentWrapUpTime  = null;
+    protected $wrapUpSeconds            = null;
 
     public function __construct(
-             $serviceUserId,
-             $overrideAgentWrapUpTime=null,
-             $wrapUpSeconds=null
+         $serviceUserId,
+         $overrideAgentWrapUpTime = null,
+         $wrapUpSeconds = null
     ) {
-        $this->serviceUserId           = new UserId($serviceUserId);
-        $this->overrideAgentWrapUpTime = $overrideAgentWrapUpTime;
-        $this->wrapUpSeconds           = new CallCenterWrapUpSeconds($wrapUpSeconds);
-        $this->args                    = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setOverrideAgentWrapUpTime($overrideAgentWrapUpTime);
+        $this->setWrapUpSeconds($wrapUpSeconds);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -46,9 +49,8 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime)
+    public function setOverrideAgentWrapUpTime(xs:boolean $overrideAgentWrapUpTime = null)
     {
-        $overrideAgentWrapUpTime and $this->overrideAgentWrapUpTime = new xs:boolean($overrideAgentWrapUpTime);
     }
 
     public function getOverrideAgentWrapUpTime()
@@ -56,9 +58,11 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
         return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->value();
     }
 
-    public function setWrapUpSeconds($wrapUpSeconds)
+    public function setWrapUpSeconds($wrapUpSeconds = null)
     {
-        $wrapUpSeconds and $this->wrapUpSeconds = new CallCenterWrapUpSeconds($wrapUpSeconds);
+        $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
+             ? $wrapUpSeconds
+             : new CallCenterWrapUpSeconds($wrapUpSeconds);
     }
 
     public function getWrapUpSeconds()

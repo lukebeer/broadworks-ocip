@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkACLEntryDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $applicationId  = null;
+    protected $netAddress     = null;
+    protected $description    = null;
 
     public function __construct(
-             $applicationId,
-             $netAddress,
-             $description=null
+         $applicationId,
+         $netAddress,
+         $description = null
     ) {
-        $this->applicationId = new OCICallControlApplicationId($applicationId);
-        $this->netAddress    = new IPAddress($netAddress);
-        $this->description   = $description;
-        $this->args          = func_get_args();
+        $this->setApplicationId($applicationId);
+        $this->setNetAddress($netAddress);
+        $this->setDescription($description);
     }
 
-    public function setApplicationId($applicationId)
+    public function setApplicationId($applicationId = null)
     {
-        $applicationId and $this->applicationId = new OCICallControlApplicationId($applicationId);
+        $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
+             ? $applicationId
+             : new OCICallControlApplicationId($applicationId);
     }
 
     public function getApplicationId()
@@ -43,9 +47,11 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
         return (!$this->applicationId) ?: $this->applicationId->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new IPAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf IPAddress)
+             ? $netAddress
+             : new IPAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -53,9 +59,11 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new NetworkACLEntryDescription($description);
+        $this->description = ($description InstanceOf NetworkACLEntryDescription)
+             ? $description
+             : new NetworkACLEntryDescription($description);
     }
 
     public function getDescription()

@@ -8,11 +8,11 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,28 +23,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $departmentKey  = null;
+    protected $userId         = null;
+    protected $firstName      = null;
+    protected $lastName       = null;
+    protected $password       = null;
+    protected $language       = null;
 
     public function __construct(
-             GroupDepartmentKey $departmentKey,
-             $userId,
-             $firstName=null,
-             $lastName=null,
-             $password=null,
-             $language=null
+         GroupDepartmentKey $departmentKey,
+         $userId,
+         $firstName = null,
+         $lastName = null,
+         $password = null,
+         $language = null
     ) {
-        $this->departmentKey = $departmentKey;
-        $this->userId        = new UserId($userId);
-        $this->firstName     = new FirstName($firstName);
-        $this->lastName      = new LastName($lastName);
-        $this->password      = new Password($password);
-        $this->language      = new Language($language);
-        $this->args          = func_get_args();
+        $this->setDepartmentKey($departmentKey);
+        $this->setUserId($userId);
+        $this->setFirstName($firstName);
+        $this->setLastName($lastName);
+        $this->setPassword($password);
+        $this->setLanguage($language);
     }
 
-    public function setDepartmentKey($departmentKey)
+    public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $departmentKey and $this->departmentKey = new GroupDepartmentKey($departmentKey);
     }
 
     public function getDepartmentKey()
@@ -52,9 +56,11 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
         return (!$this->departmentKey) ?: $this->departmentKey->value();
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -62,9 +68,11 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
-        $firstName and $this->firstName = new FirstName($firstName);
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
     }
 
     public function getFirstName()
@@ -72,9 +80,11 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
         return (!$this->firstName) ?: $this->firstName->value();
     }
 
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
-        $lastName and $this->lastName = new LastName($lastName);
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
     }
 
     public function getLastName()
@@ -82,9 +92,11 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
         return (!$this->lastName) ?: $this->lastName->value();
     }
 
-    public function setPassword($password)
+    public function setPassword($password = null)
     {
-        $password and $this->password = new Password($password);
+        $this->password = ($password InstanceOf Password)
+             ? $password
+             : new Password($password);
     }
 
     public function getPassword()
@@ -92,9 +104,11 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
         return (!$this->password) ?: $this->password->value();
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()

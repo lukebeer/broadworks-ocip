@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $enterpriseId    = null;
+    protected $departmentName  = null;
 
     public function __construct(
-             $enterpriseId,
-             $departmentName
+         $enterpriseId,
+         $departmentName
     ) {
-        $this->enterpriseId   = new ServiceProviderId($enterpriseId);
-        $this->departmentName = new DepartmentName($departmentName);
-        $this->args           = func_get_args();
+        $this->setEnterpriseId($enterpriseId);
+        $this->setDepartmentName($departmentName);
     }
 
-    public function setEnterpriseId($enterpriseId)
+    public function setEnterpriseId($enterpriseId = null)
     {
-        $enterpriseId and $this->enterpriseId = new ServiceProviderId($enterpriseId);
+        $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
+             ? $enterpriseId
+             : new ServiceProviderId($enterpriseId);
     }
 
     public function getEnterpriseId()
@@ -40,9 +43,11 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
         return (!$this->enterpriseId) ?: $this->enterpriseId->value();
     }
 
-    public function setDepartmentName($departmentName)
+    public function setDepartmentName($departmentName = null)
     {
-        $departmentName and $this->departmentName = new DepartmentName($departmentName);
+        $this->departmentName = ($departmentName InstanceOf DepartmentName)
+             ? $departmentName
+             : new DepartmentName($departmentName);
     }
 
     public function getDepartmentName()

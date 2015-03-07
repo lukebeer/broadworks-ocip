@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,18 +21,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $homeZonesTable  = null;
 
-    public function __construct(
-             $homeZonesTable
-    ) {
-        $this->homeZonesTable = $homeZonesTable;
-        $this->args           = func_get_args();
-    }
 
-    public function setHomeZonesTable($homeZonesTable)
+    public function setHomeZonesTable(core:OCITable $homeZonesTable = null)
     {
-        $homeZonesTable and $this->homeZonesTable = new core:OCITable($homeZonesTable);
     }
 
     public function getHomeZonesTable()

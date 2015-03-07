@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDeactivationReason;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDeactivationReason;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $groupId             = null;
+    protected $isActive            = null;
+    protected $deactivationReason  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $isActive,
-             $deactivationReason=null
+         $serviceProviderId,
+         $groupId,
+         $isActive,
+         $deactivationReason = null
     ) {
-        $this->serviceProviderId  = new ServiceProviderId($serviceProviderId);
-        $this->groupId            = new GroupId($groupId);
-        $this->isActive           = $isActive;
-        $this->deactivationReason = new BroadWorksMobileManagerDeactivationReason($deactivationReason);
-        $this->args               = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setIsActive($isActive);
+        $this->setDeactivationReason($deactivationReason);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -47,9 +51,11 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -57,9 +63,8 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -67,9 +72,11 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setDeactivationReason($deactivationReason)
+    public function setDeactivationReason($deactivationReason = null)
     {
-        $deactivationReason and $this->deactivationReason = new BroadWorksMobileManagerDeactivationReason($deactivationReason);
+        $this->deactivationReason = ($deactivationReason InstanceOf BroadWorksMobileManagerDeactivationReason)
+             ? $deactivationReason
+             : new BroadWorksMobileManagerDeactivationReason($deactivationReason);
     }
 
     public function getDeactivationReason()

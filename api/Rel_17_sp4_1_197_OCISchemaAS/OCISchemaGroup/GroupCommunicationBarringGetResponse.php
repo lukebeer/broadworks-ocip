@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCommunicationBarringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                              = __CLASS__;
+    protected $useDefaultServiceProviderProfile  = null;
+    protected $profile                           = null;
 
-    public function __construct(
-             $useDefaultServiceProviderProfile,
-             $profile=null
-    ) {
-        $this->useDefaultServiceProviderProfile = $useDefaultServiceProviderProfile;
-        $this->profile                          = new CommunicationBarringProfileName($profile);
-        $this->args                             = func_get_args();
-    }
 
-    public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile)
+    public function setUseDefaultServiceProviderProfile(xs:boolean $useDefaultServiceProviderProfile = null)
     {
-        $useDefaultServiceProviderProfile and $this->useDefaultServiceProviderProfile = new xs:boolean($useDefaultServiceProviderProfile);
     }
 
     public function getUseDefaultServiceProviderProfile()
@@ -39,9 +31,11 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
         return (!$this->useDefaultServiceProviderProfile) ?: $this->useDefaultServiceProviderProfile->value();
     }
 
-    public function setProfile($profile)
+    public function setProfile($profile = null)
     {
-        $profile and $this->profile = new CommunicationBarringProfileName($profile);
+        $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
+             ? $profile
+             : new CommunicationBarringProfileName($profile);
     }
 
     public function getProfile()

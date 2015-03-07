@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $availableMonitorsTable  = null;
 
-    public function __construct(
-             $availableMonitorsTable
-    ) {
-        $this->availableMonitorsTable = $availableMonitorsTable;
-        $this->args                   = func_get_args();
-    }
 
-    public function setAvailableMonitorsTable($availableMonitorsTable)
+    public function setAvailableMonitorsTable(core:OCITable $availableMonitorsTable = null)
     {
-        $availableMonitorsTable and $this->availableMonitorsTable = new core:OCITable($availableMonitorsTable);
     }
 
     public function getAvailableMonitorsTable()

@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,30 +21,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                         = __CLASS__;
+    protected $serviceProviderId                            = null;
+    protected $groupId                                      = null;
+    protected $accessCode                                   = null;
+    protected $includeCodeForNetworkTranslationsAndRouting  = null;
+    protected $includeCodeForScreeningServices              = null;
+    protected $enableSecondaryDialTone                      = null;
+    protected $description                                  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $accessCode,
-             $includeCodeForNetworkTranslationsAndRouting,
-             $includeCodeForScreeningServices,
-             $enableSecondaryDialTone,
-             $description=null
+         $serviceProviderId,
+         $groupId,
+         $accessCode,
+         $includeCodeForNetworkTranslationsAndRouting,
+         $includeCodeForScreeningServices,
+         $enableSecondaryDialTone,
+         $description = null
     ) {
-        $this->serviceProviderId                           = new ServiceProviderId($serviceProviderId);
-        $this->groupId                                     = new GroupId($groupId);
-        $this->accessCode                                  = new DialPlanAccessCode($accessCode);
-        $this->includeCodeForNetworkTranslationsAndRouting = $includeCodeForNetworkTranslationsAndRouting;
-        $this->includeCodeForScreeningServices             = $includeCodeForScreeningServices;
-        $this->enableSecondaryDialTone                     = $enableSecondaryDialTone;
-        $this->description                                 = new DialPlanAccessCodeDescription($description);
-        $this->args                                        = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setAccessCode($accessCode);
+        $this->setIncludeCodeForNetworkTranslationsAndRouting($includeCodeForNetworkTranslationsAndRouting);
+        $this->setIncludeCodeForScreeningServices($includeCodeForScreeningServices);
+        $this->setEnableSecondaryDialTone($enableSecondaryDialTone);
+        $this->setDescription($description);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -53,9 +60,11 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -63,9 +72,11 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setAccessCode($accessCode)
+    public function setAccessCode($accessCode = null)
     {
-        $accessCode and $this->accessCode = new DialPlanAccessCode($accessCode);
+        $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
+             ? $accessCode
+             : new DialPlanAccessCode($accessCode);
     }
 
     public function getAccessCode()
@@ -73,9 +84,8 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
         return (!$this->accessCode) ?: $this->accessCode->value();
     }
 
-    public function setIncludeCodeForNetworkTranslationsAndRouting($includeCodeForNetworkTranslationsAndRouting)
+    public function setIncludeCodeForNetworkTranslationsAndRouting(xs:boolean $includeCodeForNetworkTranslationsAndRouting = null)
     {
-        $includeCodeForNetworkTranslationsAndRouting and $this->includeCodeForNetworkTranslationsAndRouting = new xs:boolean($includeCodeForNetworkTranslationsAndRouting);
     }
 
     public function getIncludeCodeForNetworkTranslationsAndRouting()
@@ -83,9 +93,8 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
         return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting->value();
     }
 
-    public function setIncludeCodeForScreeningServices($includeCodeForScreeningServices)
+    public function setIncludeCodeForScreeningServices(xs:boolean $includeCodeForScreeningServices = null)
     {
-        $includeCodeForScreeningServices and $this->includeCodeForScreeningServices = new xs:boolean($includeCodeForScreeningServices);
     }
 
     public function getIncludeCodeForScreeningServices()
@@ -93,9 +102,8 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
         return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices->value();
     }
 
-    public function setEnableSecondaryDialTone($enableSecondaryDialTone)
+    public function setEnableSecondaryDialTone(xs:boolean $enableSecondaryDialTone = null)
     {
-        $enableSecondaryDialTone and $this->enableSecondaryDialTone = new xs:boolean($enableSecondaryDialTone);
     }
 
     public function getEnableSecondaryDialTone()
@@ -103,9 +111,11 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
         return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new DialPlanAccessCodeDescription($description);
+        $this->description = ($description InstanceOf DialPlanAccessCodeDescription)
+             ? $description
+             : new DialPlanAccessCodeDescription($description);
     }
 
     public function getDescription()

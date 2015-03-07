@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $scheduleType  = null;
 
     public function __construct(
-             $userId,
-             $scheduleType=null
+         $userId,
+         $scheduleType = null
     ) {
-        $this->userId       = new UserId($userId);
-        $this->scheduleType = new ScheduleType($scheduleType);
-        $this->args         = func_get_args();
+        $this->setUserId($userId);
+        $this->setScheduleType($scheduleType);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserScheduleGetListRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setScheduleType($scheduleType)
+    public function setScheduleType($scheduleType = null)
     {
-        $scheduleType and $this->scheduleType = new ScheduleType($scheduleType);
+        $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
+             ? $scheduleType
+             : new ScheduleType($scheduleType);
     }
 
     public function getScheduleType()

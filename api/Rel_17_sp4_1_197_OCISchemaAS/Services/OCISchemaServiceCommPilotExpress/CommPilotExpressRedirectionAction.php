@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,9 +22,9 @@ class CommPilotExpressRedirectionAction extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'Transfer To Voice Mail',
-                                              'Forward'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'Transfer To Voice Mail',
+            'Forward'
+        ]));
     }
 }

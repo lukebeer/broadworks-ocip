@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallMeNowPasscodeLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallMeNowPasscodeTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeLength;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $passcodeLength          = null;
+    protected $passcodeTimeoutSeconds  = null;
 
-    public function __construct(
-             $passcodeLength,
-             $passcodeTimeoutSeconds
-    ) {
-        $this->passcodeLength         = $passcodeLength;
-        $this->passcodeTimeoutSeconds = $passcodeTimeoutSeconds;
-        $this->args                   = func_get_args();
-    }
 
-    public function setPasscodeLength($passcodeLength)
+    public function setPasscodeLength($passcodeLength = null)
     {
-        $passcodeLength and $this->passcodeLength = new CallMeNowPasscodeLength($passcodeLength);
+        $this->passcodeLength = ($passcodeLength InstanceOf CallMeNowPasscodeLength)
+             ? $passcodeLength
+             : new CallMeNowPasscodeLength($passcodeLength);
     }
 
     public function getPasscodeLength()
@@ -39,9 +35,11 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
         return (!$this->passcodeLength) ?: $this->passcodeLength->value();
     }
 
-    public function setPasscodeTimeoutSeconds($passcodeTimeoutSeconds)
+    public function setPasscodeTimeoutSeconds($passcodeTimeoutSeconds = null)
     {
-        $passcodeTimeoutSeconds and $this->passcodeTimeoutSeconds = new CallMeNowPasscodeTimeoutSeconds($passcodeTimeoutSeconds);
+        $this->passcodeTimeoutSeconds = ($passcodeTimeoutSeconds InstanceOf CallMeNowPasscodeTimeoutSeconds)
+             ? $passcodeTimeoutSeconds
+             : new CallMeNowPasscodeTimeoutSeconds($passcodeTimeoutSeconds);
     }
 
     public function getPasscodeTimeoutSeconds()

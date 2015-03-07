@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserAddAliasListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $userId       = null;
+    protected $phoneNumber  = null;
 
     public function __construct(
-             $userId,
-             $phoneNumber=null
+         $userId,
+         $phoneNumber = null
     ) {
-        $this->userId      = new UserId($userId);
-        $this->phoneNumber = new DN($phoneNumber);
-        $this->args        = func_get_args();
+        $this->setUserId($userId);
+        $this->setPhoneNumber($phoneNumber);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,11 @@ class UserVoiceMessagingUserAddAliasListRequest extends ComplexType implements C
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new DN($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf DN)
+             ? $phoneNumber
+             : new DN($phoneNumber);
     }
 
     public function getPhoneNumber()

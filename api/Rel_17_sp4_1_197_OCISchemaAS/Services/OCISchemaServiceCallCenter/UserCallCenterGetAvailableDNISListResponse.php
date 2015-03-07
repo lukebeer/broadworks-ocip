@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $availableDNIS  = null;
 
-    public function __construct(
-             DNISKey $availableDNIS=null
-    ) {
-        $this->availableDNIS = $availableDNIS;
-        $this->args          = func_get_args();
-    }
 
-    public function setAvailableDNIS($availableDNIS)
+    public function setAvailableDNIS(DNISKey $availableDNIS = null)
     {
-        $availableDNIS and $this->availableDNIS = new DNISKey($availableDNIS);
     }
 
     public function getAvailableDNIS()

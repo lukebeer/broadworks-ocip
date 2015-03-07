@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\RoutePointCallFailureTimeout;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointCallFailureTimeout;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,32 +21,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                      = __CLASS__;
+    protected $serviceUserId                             = null;
+    protected $enableFailoverSupport                     = null;
+    protected $externalSystem                            = null;
+    protected $failoverPhoneNumber                       = null;
+    protected $perCallEnableFailoverSupport              = null;
+    protected $perCallCallFailureTimeoutSeconds          = null;
+    protected $perCallOutboundCallFailureTimeoutSeconds  = null;
+    protected $perCallFailoverPhoneNumber                = null;
 
     public function __construct(
-             $serviceUserId,
-             $enableFailoverSupport=null,
-             $externalSystem=null,
-             $failoverPhoneNumber=null,
-             $perCallEnableFailoverSupport=null,
-             $perCallCallFailureTimeoutSeconds=null,
-             $perCallOutboundCallFailureTimeoutSeconds=null,
-             $perCallFailoverPhoneNumber=null
+         $serviceUserId,
+         $enableFailoverSupport = null,
+         $externalSystem = null,
+         $failoverPhoneNumber = null,
+         $perCallEnableFailoverSupport = null,
+         $perCallCallFailureTimeoutSeconds = null,
+         $perCallOutboundCallFailureTimeoutSeconds = null,
+         $perCallFailoverPhoneNumber = null
     ) {
-        $this->serviceUserId                            = new UserId($serviceUserId);
-        $this->enableFailoverSupport                    = $enableFailoverSupport;
-        $this->externalSystem                           = new RoutePointExternalSystem($externalSystem);
-        $this->failoverPhoneNumber                      = new OutgoingDNorSIPURI($failoverPhoneNumber);
-        $this->perCallEnableFailoverSupport             = $perCallEnableFailoverSupport;
-        $this->perCallCallFailureTimeoutSeconds         = $perCallCallFailureTimeoutSeconds;
-        $this->perCallOutboundCallFailureTimeoutSeconds = $perCallOutboundCallFailureTimeoutSeconds;
-        $this->perCallFailoverPhoneNumber               = new OutgoingDNorSIPURI($perCallFailoverPhoneNumber);
-        $this->args                                     = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setEnableFailoverSupport($enableFailoverSupport);
+        $this->setExternalSystem($externalSystem);
+        $this->setFailoverPhoneNumber($failoverPhoneNumber);
+        $this->setPerCallEnableFailoverSupport($perCallEnableFailoverSupport);
+        $this->setPerCallCallFailureTimeoutSeconds($perCallCallFailureTimeoutSeconds);
+        $this->setPerCallOutboundCallFailureTimeoutSeconds($perCallOutboundCallFailureTimeoutSeconds);
+        $this->setPerCallFailoverPhoneNumber($perCallFailoverPhoneNumber);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -55,9 +63,8 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setEnableFailoverSupport($enableFailoverSupport)
+    public function setEnableFailoverSupport(xs:boolean $enableFailoverSupport = null)
     {
-        $enableFailoverSupport and $this->enableFailoverSupport = new xs:boolean($enableFailoverSupport);
     }
 
     public function getEnableFailoverSupport()
@@ -65,9 +72,11 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         return (!$this->enableFailoverSupport) ?: $this->enableFailoverSupport->value();
     }
 
-    public function setExternalSystem($externalSystem)
+    public function setExternalSystem($externalSystem = null)
     {
-        $externalSystem and $this->externalSystem = new RoutePointExternalSystem($externalSystem);
+        $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
+             ? $externalSystem
+             : new RoutePointExternalSystem($externalSystem);
     }
 
     public function getExternalSystem()
@@ -75,9 +84,11 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         return (!$this->externalSystem) ?: $this->externalSystem->value();
     }
 
-    public function setFailoverPhoneNumber($failoverPhoneNumber)
+    public function setFailoverPhoneNumber($failoverPhoneNumber = null)
     {
-        $failoverPhoneNumber and $this->failoverPhoneNumber = new OutgoingDNorSIPURI($failoverPhoneNumber);
+        $this->failoverPhoneNumber = ($failoverPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $failoverPhoneNumber
+             : new OutgoingDNorSIPURI($failoverPhoneNumber);
     }
 
     public function getFailoverPhoneNumber()
@@ -85,9 +96,8 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         return (!$this->failoverPhoneNumber) ?: $this->failoverPhoneNumber->value();
     }
 
-    public function setPerCallEnableFailoverSupport($perCallEnableFailoverSupport)
+    public function setPerCallEnableFailoverSupport(xs:boolean $perCallEnableFailoverSupport = null)
     {
-        $perCallEnableFailoverSupport and $this->perCallEnableFailoverSupport = new xs:boolean($perCallEnableFailoverSupport);
     }
 
     public function getPerCallEnableFailoverSupport()
@@ -95,9 +105,11 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         return (!$this->perCallEnableFailoverSupport) ?: $this->perCallEnableFailoverSupport->value();
     }
 
-    public function setPerCallCallFailureTimeoutSeconds($perCallCallFailureTimeoutSeconds)
+    public function setPerCallCallFailureTimeoutSeconds($perCallCallFailureTimeoutSeconds = null)
     {
-        $perCallCallFailureTimeoutSeconds and $this->perCallCallFailureTimeoutSeconds = new RoutePointCallFailureTimeout($perCallCallFailureTimeoutSeconds);
+        $this->perCallCallFailureTimeoutSeconds = ($perCallCallFailureTimeoutSeconds InstanceOf RoutePointCallFailureTimeout)
+             ? $perCallCallFailureTimeoutSeconds
+             : new RoutePointCallFailureTimeout($perCallCallFailureTimeoutSeconds);
     }
 
     public function getPerCallCallFailureTimeoutSeconds()
@@ -105,9 +117,11 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         return (!$this->perCallCallFailureTimeoutSeconds) ?: $this->perCallCallFailureTimeoutSeconds->value();
     }
 
-    public function setPerCallOutboundCallFailureTimeoutSeconds($perCallOutboundCallFailureTimeoutSeconds)
+    public function setPerCallOutboundCallFailureTimeoutSeconds($perCallOutboundCallFailureTimeoutSeconds = null)
     {
-        $perCallOutboundCallFailureTimeoutSeconds and $this->perCallOutboundCallFailureTimeoutSeconds = new RoutePointCallFailureTimeout($perCallOutboundCallFailureTimeoutSeconds);
+        $this->perCallOutboundCallFailureTimeoutSeconds = ($perCallOutboundCallFailureTimeoutSeconds InstanceOf RoutePointCallFailureTimeout)
+             ? $perCallOutboundCallFailureTimeoutSeconds
+             : new RoutePointCallFailureTimeout($perCallOutboundCallFailureTimeoutSeconds);
     }
 
     public function getPerCallOutboundCallFailureTimeoutSeconds()
@@ -115,9 +129,11 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         return (!$this->perCallOutboundCallFailureTimeoutSeconds) ?: $this->perCallOutboundCallFailureTimeoutSeconds->value();
     }
 
-    public function setPerCallFailoverPhoneNumber($perCallFailoverPhoneNumber)
+    public function setPerCallFailoverPhoneNumber($perCallFailoverPhoneNumber = null)
     {
-        $perCallFailoverPhoneNumber and $this->perCallFailoverPhoneNumber = new OutgoingDNorSIPURI($perCallFailoverPhoneNumber);
+        $this->perCallFailoverPhoneNumber = ($perCallFailoverPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $perCallFailoverPhoneNumber
+             : new OutgoingDNorSIPURI($perCallFailoverPhoneNumber);
     }
 
     public function getPerCallFailoverPhoneNumber()

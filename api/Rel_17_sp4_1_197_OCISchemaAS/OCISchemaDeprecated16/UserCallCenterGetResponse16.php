@@ -7,11 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AgentACDState;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterGuardTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AgentACDState;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,36 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                                  = __CLASS__;
+    protected $agentACDState                                         = null;
+    protected $useDefaultGuardTimer                                  = null;
+    protected $enableGuardTimer                                      = null;
+    protected $guardTimerSeconds                                     = null;
+    protected $useSystemDefaultUnavailableSettings                   = null;
+    protected $forceAgentUnavailableOnDNDActivation                  = null;
+    protected $forceUnavailableOnPersonalCalls                       = null;
+    protected $forceAgentUnavailableOnBouncedCallLimit               = null;
+    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable  = null;
+    protected $callCenterTable                                       = null;
 
-    public function __construct(
-             $agentACDState=null,
-             $useDefaultGuardTimer,
-             $enableGuardTimer,
-             $guardTimerSeconds,
-             $useSystemDefaultUnavailableSettings=null,
-             $forceAgentUnavailableOnDNDActivation=null,
-             $forceUnavailableOnPersonalCalls=null,
-             $forceAgentUnavailableOnBouncedCallLimit=null,
-             $numberConsecutiveBouncedCallsToForceAgentUnavailable=null,
-             $callCenterTable
-    ) {
-        $this->agentACDState                                        = $agentACDState;
-        $this->useDefaultGuardTimer                                 = $useDefaultGuardTimer;
-        $this->enableGuardTimer                                     = $enableGuardTimer;
-        $this->guardTimerSeconds                                    = $guardTimerSeconds;
-        $this->useSystemDefaultUnavailableSettings                  = $useSystemDefaultUnavailableSettings;
-        $this->forceAgentUnavailableOnDNDActivation                 = $forceAgentUnavailableOnDNDActivation;
-        $this->forceUnavailableOnPersonalCalls                      = $forceUnavailableOnPersonalCalls;
-        $this->forceAgentUnavailableOnBouncedCallLimit              = $forceAgentUnavailableOnBouncedCallLimit;
-        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = $numberConsecutiveBouncedCallsToForceAgentUnavailable;
-        $this->callCenterTable                                      = $callCenterTable;
-        $this->args                                                 = func_get_args();
-    }
 
-    public function setAgentACDState($agentACDState)
+    public function setAgentACDState($agentACDState = null)
     {
-        $agentACDState and $this->agentACDState = new AgentACDState($agentACDState);
+        $this->agentACDState = ($agentACDState InstanceOf AgentACDState)
+             ? $agentACDState
+             : new AgentACDState($agentACDState);
     }
 
     public function getAgentACDState()
@@ -61,9 +47,8 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->agentACDState) ?: $this->agentACDState->value();
     }
 
-    public function setUseDefaultGuardTimer($useDefaultGuardTimer)
+    public function setUseDefaultGuardTimer(xs:boolean $useDefaultGuardTimer = null)
     {
-        $useDefaultGuardTimer and $this->useDefaultGuardTimer = new xs:boolean($useDefaultGuardTimer);
     }
 
     public function getUseDefaultGuardTimer()
@@ -71,9 +56,8 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer->value();
     }
 
-    public function setEnableGuardTimer($enableGuardTimer)
+    public function setEnableGuardTimer(xs:boolean $enableGuardTimer = null)
     {
-        $enableGuardTimer and $this->enableGuardTimer = new xs:boolean($enableGuardTimer);
     }
 
     public function getEnableGuardTimer()
@@ -81,9 +65,11 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->value();
     }
 
-    public function setGuardTimerSeconds($guardTimerSeconds)
+    public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
-        $guardTimerSeconds and $this->guardTimerSeconds = new CallCenterGuardTimerSeconds($guardTimerSeconds);
+        $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
+             ? $guardTimerSeconds
+             : new CallCenterGuardTimerSeconds($guardTimerSeconds);
     }
 
     public function getGuardTimerSeconds()
@@ -91,9 +77,8 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->value();
     }
 
-    public function setUseSystemDefaultUnavailableSettings($useSystemDefaultUnavailableSettings)
+    public function setUseSystemDefaultUnavailableSettings(xs:boolean $useSystemDefaultUnavailableSettings = null)
     {
-        $useSystemDefaultUnavailableSettings and $this->useSystemDefaultUnavailableSettings = new xs:boolean($useSystemDefaultUnavailableSettings);
     }
 
     public function getUseSystemDefaultUnavailableSettings()
@@ -101,9 +86,8 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->value();
     }
 
-    public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation)
+    public function setForceAgentUnavailableOnDNDActivation(xs:boolean $forceAgentUnavailableOnDNDActivation = null)
     {
-        $forceAgentUnavailableOnDNDActivation and $this->forceAgentUnavailableOnDNDActivation = new xs:boolean($forceAgentUnavailableOnDNDActivation);
     }
 
     public function getForceAgentUnavailableOnDNDActivation()
@@ -111,9 +95,8 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->value();
     }
 
-    public function setForceUnavailableOnPersonalCalls($forceUnavailableOnPersonalCalls)
+    public function setForceUnavailableOnPersonalCalls(xs:boolean $forceUnavailableOnPersonalCalls = null)
     {
-        $forceUnavailableOnPersonalCalls and $this->forceUnavailableOnPersonalCalls = new xs:boolean($forceUnavailableOnPersonalCalls);
     }
 
     public function getForceUnavailableOnPersonalCalls()
@@ -121,9 +104,8 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls->value();
     }
 
-    public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit)
+    public function setForceAgentUnavailableOnBouncedCallLimit(xs:boolean $forceAgentUnavailableOnBouncedCallLimit = null)
     {
-        $forceAgentUnavailableOnBouncedCallLimit and $this->forceAgentUnavailableOnBouncedCallLimit = new xs:boolean($forceAgentUnavailableOnBouncedCallLimit);
     }
 
     public function getForceAgentUnavailableOnBouncedCallLimit()
@@ -131,9 +113,11 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->value();
     }
 
-    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable)
+    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
-        $numberConsecutiveBouncedCallsToForceAgentUnavailable and $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
+             ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
+             : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
     }
 
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
@@ -141,9 +125,8 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         return (!$this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ?: $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->value();
     }
 
-    public function setCallCenterTable($callCenterTable)
+    public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
-        $callCenterTable and $this->callCenterTable = new core:OCITable($callCenterTable);
     }
 
     public function getCallCenterTable()

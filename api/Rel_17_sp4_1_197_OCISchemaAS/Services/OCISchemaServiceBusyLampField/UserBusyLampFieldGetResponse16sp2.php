@@ -8,8 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,22 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $listURI                     = null;
+    protected $enableCallParkNotification  = null;
+    protected $monitoredUserTable          = null;
 
-    public function __construct(
-             $listURI=null,
-             $enableCallParkNotification,
-             $monitoredUserTable
-    ) {
-        $this->listURI                    = new SIPURI($listURI);
-        $this->enableCallParkNotification = $enableCallParkNotification;
-        $this->monitoredUserTable         = $monitoredUserTable;
-        $this->args                       = func_get_args();
-    }
 
-    public function setListURI($listURI)
+    public function setListURI($listURI = null)
     {
-        $listURI and $this->listURI = new SIPURI($listURI);
+        $this->listURI = ($listURI InstanceOf SIPURI)
+             ? $listURI
+             : new SIPURI($listURI);
     }
 
     public function getListURI()
@@ -44,9 +37,8 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
         return (!$this->listURI) ?: $this->listURI->value();
     }
 
-    public function setEnableCallParkNotification($enableCallParkNotification)
+    public function setEnableCallParkNotification(xs:boolean $enableCallParkNotification = null)
     {
-        $enableCallParkNotification and $this->enableCallParkNotification = new xs:boolean($enableCallParkNotification);
     }
 
     public function getEnableCallParkNotification()
@@ -54,9 +46,8 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
         return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification->value();
     }
 
-    public function setMonitoredUserTable($monitoredUserTable)
+    public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $monitoredUserTable and $this->monitoredUserTable = new core:OCITable($monitoredUserTable);
     }
 
     public function getMonitoredUserTable()

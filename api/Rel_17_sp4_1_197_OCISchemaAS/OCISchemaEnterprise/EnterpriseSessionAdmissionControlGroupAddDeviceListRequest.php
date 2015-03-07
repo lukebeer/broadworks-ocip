@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionAdmissionControlGroupName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseAccessDevice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $name               = null;
+    protected $devices            = null;
 
     public function __construct(
-             $serviceProviderId,
-             $name,
-             $devices=null
+         $serviceProviderId,
+         $name,
+         EnterpriseAccessDevice $devices = null
     ) {
-        $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
-        $this->name              = new SessionAdmissionControlGroupName($name);
-        $this->devices           = $devices;
-        $this->args              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setName($name);
+        $this->setDevices($devices);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -43,9 +47,11 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new SessionAdmissionControlGroupName($name);
+        $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
+             ? $name
+             : new SessionAdmissionControlGroupName($name);
     }
 
     public function getName()
@@ -53,9 +59,8 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDevices($devices)
+    public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        $devices and $this->devices = new EnterpriseAccessDevice($devices);
     }
 
     public function getDevices()

@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $userId       = null;
+    protected $scheduleKey  = null;
+    protected $eventName    = null;
 
     public function __construct(
-             $userId,
-             ScheduleKey $scheduleKey,
-             $eventName
+         $userId,
+         ScheduleKey $scheduleKey,
+         $eventName
     ) {
-        $this->userId      = new UserId($userId);
-        $this->scheduleKey = $scheduleKey;
-        $this->eventName   = new EventName($eventName);
-        $this->args        = func_get_args();
+        $this->setUserId($userId);
+        $this->setScheduleKey($scheduleKey);
+        $this->setEventName($eventName);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +47,8 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()
@@ -53,9 +56,11 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
         return (!$this->scheduleKey) ?: $this->scheduleKey->value();
     }
 
-    public function setEventName($eventName)
+    public function setEventName($eventName = null)
     {
-        $eventName and $this->eventName = new EventName($eventName);
+        $this->eventName = ($eventName InstanceOf EventName)
+             ? $eventName
+             : new EventName($eventName);
     }
 
     public function getEventName()

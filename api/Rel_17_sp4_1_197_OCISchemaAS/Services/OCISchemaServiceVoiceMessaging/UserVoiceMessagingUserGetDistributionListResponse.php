@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessagingDistributionListDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingDistributionListDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $description  = null;
+    protected $phoneNumber  = null;
 
-    public function __construct(
-             $description=null,
-             $phoneNumber=null
-    ) {
-        $this->description = $description;
-        $this->phoneNumber = new OutgoingDNorSIPURI($phoneNumber);
-        $this->args        = func_get_args();
-    }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new VoiceMessagingDistributionListDescription($description);
+        $this->description = ($description InstanceOf VoiceMessagingDistributionListDescription)
+             ? $description
+             : new VoiceMessagingDistributionListDescription($description);
     }
 
     public function getDescription()
@@ -39,9 +35,11 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new OutgoingDNorSIPURI($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $phoneNumber
+             : new OutgoingDNorSIPURI($phoneNumber);
     }
 
     public function getPhoneNumber()

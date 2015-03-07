@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutingDigits;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RouteName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RouteName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutingModifyTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $digits     = null;
+    protected $routeName  = null;
 
     public function __construct(
-             $digits,
-             $routeName=null
+         $digits,
+         $routeName = null
     ) {
-        $this->digits    = $digits;
-        $this->routeName = $routeName;
-        $this->args      = func_get_args();
+        $this->setDigits($digits);
+        $this->setRouteName($routeName);
     }
 
-    public function setDigits($digits)
+    public function setDigits($digits = null)
     {
-        $digits and $this->digits = new RoutingDigits($digits);
+        $this->digits = ($digits InstanceOf RoutingDigits)
+             ? $digits
+             : new RoutingDigits($digits);
     }
 
     public function getDigits()
@@ -40,9 +43,11 @@ class SystemRoutingModifyTranslationRequest extends ComplexType implements Compl
         return (!$this->digits) ?: $this->digits->value();
     }
 
-    public function setRouteName($routeName)
+    public function setRouteName($routeName = null)
     {
-        $routeName and $this->routeName = new RouteName($routeName);
+        $this->routeName = ($routeName InstanceOf RouteName)
+             ? $routeName
+             : new RouteName($routeName);
     }
 
     public function getRouteName()

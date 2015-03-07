@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $useGroupCriteria          = null;
+    protected $nsScreeningFailurePolicy  = null;
+    protected $criteriaTable             = null;
 
-    public function __construct(
-             $useGroupCriteria,
-             $nsScreeningFailurePolicy,
-             $criteriaTable
-    ) {
-        $this->useGroupCriteria         = $useGroupCriteria;
-        $this->nsScreeningFailurePolicy = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
-        $this->criteriaTable            = $criteriaTable;
-        $this->args                     = func_get_args();
-    }
 
-    public function setUseGroupCriteria($useGroupCriteria)
+    public function setUseGroupCriteria(xs:boolean $useGroupCriteria = null)
     {
-        $useGroupCriteria and $this->useGroupCriteria = new xs:boolean($useGroupCriteria);
     }
 
     public function getUseGroupCriteria()
@@ -43,9 +33,11 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
         return (!$this->useGroupCriteria) ?: $this->useGroupCriteria->value();
     }
 
-    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy)
+    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
-        $nsScreeningFailurePolicy and $this->nsScreeningFailurePolicy = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
+             ? $nsScreeningFailurePolicy
+             : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
     }
 
     public function getNsScreeningFailurePolicy()
@@ -53,9 +45,8 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
         return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->value();
     }
 
-    public function setCriteriaTable($criteriaTable)
+    public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $criteriaTable and $this->criteriaTable = new core:OCITable($criteriaTable);
     }
 
     public function getCriteriaTable()

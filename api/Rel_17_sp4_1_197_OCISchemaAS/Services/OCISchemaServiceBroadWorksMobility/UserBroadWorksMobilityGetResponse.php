@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobilityPhoneToRing;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityUserSettingLevel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityPhoneToRing;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobilityUserSettingLevel;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,38 +19,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $isActive                   = null;
+    protected $phonesToRing               = null;
+    protected $mobilePhoneNumber          = null;
+    protected $alertClickToDialCalls      = null;
+    protected $alertGroupPagingCalls      = null;
+    protected $enableDiversionInhibitor   = null;
+    protected $requireAnswerConfirmation  = null;
+    protected $broadworksCallControl      = null;
+    protected $useSettingLevel            = null;
+    protected $denyCallOriginations       = null;
+    protected $denyCallTerminations       = null;
 
-    public function __construct(
-             $isActive,
-             $phonesToRing,
-             $mobilePhoneNumber=null,
-             $alertClickToDialCalls,
-             $alertGroupPagingCalls,
-             $enableDiversionInhibitor,
-             $requireAnswerConfirmation,
-             $broadworksCallControl,
-             $useSettingLevel,
-             $denyCallOriginations,
-             $denyCallTerminations
-    ) {
-        $this->isActive                  = $isActive;
-        $this->phonesToRing              = $phonesToRing;
-        $this->mobilePhoneNumber         = new DN($mobilePhoneNumber);
-        $this->alertClickToDialCalls     = $alertClickToDialCalls;
-        $this->alertGroupPagingCalls     = $alertGroupPagingCalls;
-        $this->enableDiversionInhibitor  = $enableDiversionInhibitor;
-        $this->requireAnswerConfirmation = $requireAnswerConfirmation;
-        $this->broadworksCallControl     = $broadworksCallControl;
-        $this->useSettingLevel           = $useSettingLevel;
-        $this->denyCallOriginations      = $denyCallOriginations;
-        $this->denyCallTerminations      = $denyCallTerminations;
-        $this->args                      = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -59,9 +42,11 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setPhonesToRing($phonesToRing)
+    public function setPhonesToRing($phonesToRing = null)
     {
-        $phonesToRing and $this->phonesToRing = new BroadWorksMobilityPhoneToRing($phonesToRing);
+        $this->phonesToRing = ($phonesToRing InstanceOf BroadWorksMobilityPhoneToRing)
+             ? $phonesToRing
+             : new BroadWorksMobilityPhoneToRing($phonesToRing);
     }
 
     public function getPhonesToRing()
@@ -69,9 +54,11 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->phonesToRing) ?: $this->phonesToRing->value();
     }
 
-    public function setMobilePhoneNumber($mobilePhoneNumber)
+    public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        $mobilePhoneNumber and $this->mobilePhoneNumber = new DN($mobilePhoneNumber);
+        $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
+             ? $mobilePhoneNumber
+             : new DN($mobilePhoneNumber);
     }
 
     public function getMobilePhoneNumber()
@@ -79,9 +66,8 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->mobilePhoneNumber) ?: $this->mobilePhoneNumber->value();
     }
 
-    public function setAlertClickToDialCalls($alertClickToDialCalls)
+    public function setAlertClickToDialCalls(xs:boolean $alertClickToDialCalls = null)
     {
-        $alertClickToDialCalls and $this->alertClickToDialCalls = new xs:boolean($alertClickToDialCalls);
     }
 
     public function getAlertClickToDialCalls()
@@ -89,9 +75,8 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->alertClickToDialCalls) ?: $this->alertClickToDialCalls->value();
     }
 
-    public function setAlertGroupPagingCalls($alertGroupPagingCalls)
+    public function setAlertGroupPagingCalls(xs:boolean $alertGroupPagingCalls = null)
     {
-        $alertGroupPagingCalls and $this->alertGroupPagingCalls = new xs:boolean($alertGroupPagingCalls);
     }
 
     public function getAlertGroupPagingCalls()
@@ -99,9 +84,8 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->alertGroupPagingCalls) ?: $this->alertGroupPagingCalls->value();
     }
 
-    public function setEnableDiversionInhibitor($enableDiversionInhibitor)
+    public function setEnableDiversionInhibitor(xs:boolean $enableDiversionInhibitor = null)
     {
-        $enableDiversionInhibitor and $this->enableDiversionInhibitor = new xs:boolean($enableDiversionInhibitor);
     }
 
     public function getEnableDiversionInhibitor()
@@ -109,9 +93,8 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->enableDiversionInhibitor) ?: $this->enableDiversionInhibitor->value();
     }
 
-    public function setRequireAnswerConfirmation($requireAnswerConfirmation)
+    public function setRequireAnswerConfirmation(xs:boolean $requireAnswerConfirmation = null)
     {
-        $requireAnswerConfirmation and $this->requireAnswerConfirmation = new xs:boolean($requireAnswerConfirmation);
     }
 
     public function getRequireAnswerConfirmation()
@@ -119,9 +102,8 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->requireAnswerConfirmation) ?: $this->requireAnswerConfirmation->value();
     }
 
-    public function setBroadworksCallControl($broadworksCallControl)
+    public function setBroadworksCallControl(xs:boolean $broadworksCallControl = null)
     {
-        $broadworksCallControl and $this->broadworksCallControl = new xs:boolean($broadworksCallControl);
     }
 
     public function getBroadworksCallControl()
@@ -129,9 +111,11 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->broadworksCallControl) ?: $this->broadworksCallControl->value();
     }
 
-    public function setUseSettingLevel($useSettingLevel)
+    public function setUseSettingLevel($useSettingLevel = null)
     {
-        $useSettingLevel and $this->useSettingLevel = new BroadWorksMobilityUserSettingLevel($useSettingLevel);
+        $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityUserSettingLevel)
+             ? $useSettingLevel
+             : new BroadWorksMobilityUserSettingLevel($useSettingLevel);
     }
 
     public function getUseSettingLevel()
@@ -139,9 +123,8 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->useSettingLevel) ?: $this->useSettingLevel->value();
     }
 
-    public function setDenyCallOriginations($denyCallOriginations)
+    public function setDenyCallOriginations(xs:boolean $denyCallOriginations = null)
     {
-        $denyCallOriginations and $this->denyCallOriginations = new xs:boolean($denyCallOriginations);
     }
 
     public function getDenyCallOriginations()
@@ -149,9 +132,8 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
         return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->value();
     }
 
-    public function setDenyCallTerminations($denyCallTerminations)
+    public function setDenyCallTerminations(xs:boolean $denyCallTerminations = null)
     {
-        $denyCallTerminations and $this->denyCallTerminations = new xs:boolean($denyCallTerminations);
     }
 
     public function getDenyCallTerminations()

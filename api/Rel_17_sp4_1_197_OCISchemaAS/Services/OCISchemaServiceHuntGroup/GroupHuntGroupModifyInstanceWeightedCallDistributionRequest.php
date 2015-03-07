@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntAgentWeight;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,20 +22,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $serviceUserId  = null;
+    protected $agentWeight    = null;
 
     public function __construct(
-             $serviceUserId,
-             HuntAgentWeight $agentWeight=null
+         $serviceUserId,
+         HuntAgentWeight $agentWeight = null
     ) {
-        $this->serviceUserId = new UserId($serviceUserId);
-        $this->agentWeight   = $agentWeight;
-        $this->args          = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setAgentWeight($agentWeight);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -43,9 +46,8 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setAgentWeight($agentWeight)
+    public function setAgentWeight(HuntAgentWeight $agentWeight = null)
     {
-        $agentWeight and $this->agentWeight = new HuntAgentWeight($agentWeight);
     }
 
     public function getAgentWeight()

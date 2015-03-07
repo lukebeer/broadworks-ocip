@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCIReportingConnectionPingIntervalSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +19,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCIReportingParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $serverPort                     = null;
+    protected $enableConnectionPing           = null;
+    protected $connectionPingIntervalSeconds  = null;
+    protected $alterPasswords                 = null;
 
-    public function __construct(
-             $serverPort,
-             $enableConnectionPing,
-             $connectionPingIntervalSeconds,
-             $alterPasswords
-    ) {
-        $this->serverPort                    = new Port1025($serverPort);
-        $this->enableConnectionPing          = $enableConnectionPing;
-        $this->connectionPingIntervalSeconds = new OCIReportingConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
-        $this->alterPasswords                = $alterPasswords;
-        $this->args                          = func_get_args();
-    }
 
-    public function setServerPort($serverPort)
+    public function setServerPort($serverPort = null)
     {
-        $serverPort and $this->serverPort = new Port1025($serverPort);
+        $this->serverPort = ($serverPort InstanceOf Port1025)
+             ? $serverPort
+             : new Port1025($serverPort);
     }
 
     public function getServerPort()
@@ -45,9 +38,8 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
         return (!$this->serverPort) ?: $this->serverPort->value();
     }
 
-    public function setEnableConnectionPing($enableConnectionPing)
+    public function setEnableConnectionPing(xs:boolean $enableConnectionPing = null)
     {
-        $enableConnectionPing and $this->enableConnectionPing = new xs:boolean($enableConnectionPing);
     }
 
     public function getEnableConnectionPing()
@@ -55,9 +47,11 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
         return (!$this->enableConnectionPing) ?: $this->enableConnectionPing->value();
     }
 
-    public function setConnectionPingIntervalSeconds($connectionPingIntervalSeconds)
+    public function setConnectionPingIntervalSeconds($connectionPingIntervalSeconds = null)
     {
-        $connectionPingIntervalSeconds and $this->connectionPingIntervalSeconds = new OCIReportingConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
+        $this->connectionPingIntervalSeconds = ($connectionPingIntervalSeconds InstanceOf OCIReportingConnectionPingIntervalSeconds)
+             ? $connectionPingIntervalSeconds
+             : new OCIReportingConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
     }
 
     public function getConnectionPingIntervalSeconds()
@@ -65,9 +59,8 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
         return (!$this->connectionPingIntervalSeconds) ?: $this->connectionPingIntervalSeconds->value();
     }
 
-    public function setAlterPasswords($alterPasswords)
+    public function setAlterPasswords(xs:boolean $alterPasswords = null)
     {
-        $alterPasswords and $this->alterPasswords = new xs:boolean($alterPasswords);
     }
 
     public function getAlterPasswords()

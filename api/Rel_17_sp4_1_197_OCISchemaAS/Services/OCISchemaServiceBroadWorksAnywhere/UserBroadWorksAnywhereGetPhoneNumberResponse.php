@@ -7,10 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksAnywherePhoneNumberDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywherePhoneNumberDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,30 +20,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $description                 = null;
+    protected $outboundAlternateNumber     = null;
+    protected $isActive                    = null;
+    protected $broadworksCallControl       = null;
+    protected $useDiversionInhibitor       = null;
+    protected $answerConfirmationRequired  = null;
+    protected $criteriaTable               = null;
 
-    public function __construct(
-             $description=null,
-             $outboundAlternateNumber=null,
-             $isActive,
-             $broadworksCallControl,
-             $useDiversionInhibitor,
-             $answerConfirmationRequired,
-             $criteriaTable
-    ) {
-        $this->description                = $description;
-        $this->outboundAlternateNumber    = new OutgoingDNorSIPURI($outboundAlternateNumber);
-        $this->isActive                   = $isActive;
-        $this->broadworksCallControl      = $broadworksCallControl;
-        $this->useDiversionInhibitor      = $useDiversionInhibitor;
-        $this->answerConfirmationRequired = $answerConfirmationRequired;
-        $this->criteriaTable              = $criteriaTable;
-        $this->args                       = func_get_args();
-    }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new BroadWorksAnywherePhoneNumberDescription($description);
+        $this->description = ($description InstanceOf BroadWorksAnywherePhoneNumberDescription)
+             ? $description
+             : new BroadWorksAnywherePhoneNumberDescription($description);
     }
 
     public function getDescription()
@@ -53,9 +42,11 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setOutboundAlternateNumber($outboundAlternateNumber)
+    public function setOutboundAlternateNumber($outboundAlternateNumber = null)
     {
-        $outboundAlternateNumber and $this->outboundAlternateNumber = new OutgoingDNorSIPURI($outboundAlternateNumber);
+        $this->outboundAlternateNumber = ($outboundAlternateNumber InstanceOf OutgoingDNorSIPURI)
+             ? $outboundAlternateNumber
+             : new OutgoingDNorSIPURI($outboundAlternateNumber);
     }
 
     public function getOutboundAlternateNumber()
@@ -63,9 +54,8 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
         return (!$this->outboundAlternateNumber) ?: $this->outboundAlternateNumber->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -73,9 +63,8 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setBroadworksCallControl($broadworksCallControl)
+    public function setBroadworksCallControl(xs:boolean $broadworksCallControl = null)
     {
-        $broadworksCallControl and $this->broadworksCallControl = new xs:boolean($broadworksCallControl);
     }
 
     public function getBroadworksCallControl()
@@ -83,9 +72,8 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
         return (!$this->broadworksCallControl) ?: $this->broadworksCallControl->value();
     }
 
-    public function setUseDiversionInhibitor($useDiversionInhibitor)
+    public function setUseDiversionInhibitor(xs:boolean $useDiversionInhibitor = null)
     {
-        $useDiversionInhibitor and $this->useDiversionInhibitor = new xs:boolean($useDiversionInhibitor);
     }
 
     public function getUseDiversionInhibitor()
@@ -93,9 +81,8 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
         return (!$this->useDiversionInhibitor) ?: $this->useDiversionInhibitor->value();
     }
 
-    public function setAnswerConfirmationRequired($answerConfirmationRequired)
+    public function setAnswerConfirmationRequired(xs:boolean $answerConfirmationRequired = null)
     {
-        $answerConfirmationRequired and $this->answerConfirmationRequired = new xs:boolean($answerConfirmationRequired);
     }
 
     public function getAnswerConfirmationRequired()
@@ -103,9 +90,8 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
         return (!$this->answerConfirmationRequired) ?: $this->answerConfirmationRequired->value();
     }
 
-    public function setCriteriaTable($criteriaTable)
+    public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $criteriaTable and $this->criteriaTable = new core:OCITable($criteriaTable);
     }
 
     public function getCriteriaTable()

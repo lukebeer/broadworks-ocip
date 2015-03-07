@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallReturn; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitAny;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,28 +18,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $twoLevelActivation                   = null;
+    protected $provideDate                          = null;
+    protected $lastUnansweredCallOnly               = null;
+    protected $confirmationKey                      = null;
+    protected $allowRestrictedNumber                = null;
+    protected $deleteNumberAfterAnsweredCallReturn  = null;
 
     public function __construct(
-             $twoLevelActivation=null,
-             $provideDate=null,
-             $lastUnansweredCallOnly=null,
-             $confirmationKey=null,
-             $allowRestrictedNumber=null,
-             $deleteNumberAfterAnsweredCallReturn=null
+         $twoLevelActivation = null,
+         $provideDate = null,
+         $lastUnansweredCallOnly = null,
+         $confirmationKey = null,
+         $allowRestrictedNumber = null,
+         $deleteNumberAfterAnsweredCallReturn = null
     ) {
-        $this->twoLevelActivation                  = $twoLevelActivation;
-        $this->provideDate                         = $provideDate;
-        $this->lastUnansweredCallOnly              = $lastUnansweredCallOnly;
-        $this->confirmationKey                     = new DigitAny($confirmationKey);
-        $this->allowRestrictedNumber               = $allowRestrictedNumber;
-        $this->deleteNumberAfterAnsweredCallReturn = $deleteNumberAfterAnsweredCallReturn;
-        $this->args                                = func_get_args();
+        $this->setTwoLevelActivation($twoLevelActivation);
+        $this->setProvideDate($provideDate);
+        $this->setLastUnansweredCallOnly($lastUnansweredCallOnly);
+        $this->setConfirmationKey($confirmationKey);
+        $this->setAllowRestrictedNumber($allowRestrictedNumber);
+        $this->setDeleteNumberAfterAnsweredCallReturn($deleteNumberAfterAnsweredCallReturn);
     }
 
-    public function setTwoLevelActivation($twoLevelActivation)
+    public function setTwoLevelActivation(xs:boolean $twoLevelActivation = null)
     {
-        $twoLevelActivation and $this->twoLevelActivation = new xs:boolean($twoLevelActivation);
     }
 
     public function getTwoLevelActivation()
@@ -48,9 +51,8 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->twoLevelActivation) ?: $this->twoLevelActivation->value();
     }
 
-    public function setProvideDate($provideDate)
+    public function setProvideDate(xs:boolean $provideDate = null)
     {
-        $provideDate and $this->provideDate = new xs:boolean($provideDate);
     }
 
     public function getProvideDate()
@@ -58,9 +60,8 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->provideDate) ?: $this->provideDate->value();
     }
 
-    public function setLastUnansweredCallOnly($lastUnansweredCallOnly)
+    public function setLastUnansweredCallOnly(xs:boolean $lastUnansweredCallOnly = null)
     {
-        $lastUnansweredCallOnly and $this->lastUnansweredCallOnly = new xs:boolean($lastUnansweredCallOnly);
     }
 
     public function getLastUnansweredCallOnly()
@@ -68,9 +69,11 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->lastUnansweredCallOnly) ?: $this->lastUnansweredCallOnly->value();
     }
 
-    public function setConfirmationKey($confirmationKey)
+    public function setConfirmationKey($confirmationKey = null)
     {
-        $confirmationKey and $this->confirmationKey = new DigitAny($confirmationKey);
+        $this->confirmationKey = ($confirmationKey InstanceOf DigitAny)
+             ? $confirmationKey
+             : new DigitAny($confirmationKey);
     }
 
     public function getConfirmationKey()
@@ -78,9 +81,8 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->confirmationKey) ?: $this->confirmationKey->value();
     }
 
-    public function setAllowRestrictedNumber($allowRestrictedNumber)
+    public function setAllowRestrictedNumber(xs:boolean $allowRestrictedNumber = null)
     {
-        $allowRestrictedNumber and $this->allowRestrictedNumber = new xs:boolean($allowRestrictedNumber);
     }
 
     public function getAllowRestrictedNumber()
@@ -88,9 +90,8 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
         return (!$this->allowRestrictedNumber) ?: $this->allowRestrictedNumber->value();
     }
 
-    public function setDeleteNumberAfterAnsweredCallReturn($deleteNumberAfterAnsweredCallReturn)
+    public function setDeleteNumberAfterAnsweredCallReturn(xs:boolean $deleteNumberAfterAnsweredCallReturn = null)
     {
-        $deleteNumberAfterAnsweredCallReturn and $this->deleteNumberAfterAnsweredCallReturn = new xs:boolean($deleteNumberAfterAnsweredCallReturn);
     }
 
     public function getDeleteNumberAfterAnsweredCallReturn()

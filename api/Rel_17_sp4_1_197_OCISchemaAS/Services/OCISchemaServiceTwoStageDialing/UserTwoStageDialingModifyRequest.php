@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                              = __CLASS__;
+    protected $userId                            = null;
+    protected $isActive                          = null;
+    protected $allowActivationWithUserAddresses  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $allowActivationWithUserAddresses=null
+         $userId,
+         $isActive = null,
+         $allowActivationWithUserAddresses = null
     ) {
-        $this->userId                           = new UserId($userId);
-        $this->isActive                         = $isActive;
-        $this->allowActivationWithUserAddresses = $allowActivationWithUserAddresses;
-        $this->args                             = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setAllowActivationWithUserAddresses($allowActivationWithUserAddresses);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -42,9 +45,8 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -52,9 +54,8 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAllowActivationWithUserAddresses($allowActivationWithUserAddresses)
+    public function setAllowActivationWithUserAddresses(xs:boolean $allowActivationWithUserAddresses = null)
     {
-        $allowActivationWithUserAddresses and $this->allowActivationWithUserAddresses = new xs:boolean($allowActivationWithUserAddresses);
     }
 
     public function getAllowActivationWithUserAddresses()

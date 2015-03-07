@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $portalTable  = null;
 
-    public function __construct(
-             $portalTable
-    ) {
-        $this->portalTable = $portalTable;
-        $this->args        = func_get_args();
-    }
 
-    public function setPortalTable($portalTable)
+    public function setPortalTable(core:OCITable $portalTable = null)
     {
-        $portalTable and $this->portalTable = new core:OCITable($portalTable);
     }
 
     public function getPortalTable()

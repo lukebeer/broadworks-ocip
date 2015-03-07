@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
 use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
@@ -25,7 +24,7 @@ class EnhancedCallLogsNonPagedResponseSize extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'int';
-        $this->addRestriction(new MinInclusive(100));
-        $this->addRestriction(new MaxInclusive(1000));
+        $this->addRestriction(new MinInclusive("100"));
+        $this->addRestriction(new MaxInclusive("1000"));
     }
 }

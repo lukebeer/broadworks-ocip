@@ -22,26 +22,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemServerAddressesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                          = __CLASS__;
+    protected $webServerClusterPublicFQDN                    = null;
+    protected $applicationServerClusterPrimaryPublicFQDN     = null;
+    protected $applicationServerClusterSecondaryPublicFQDN   = null;
+    protected $applicationServerClusterPrimaryPrivateFQDN    = null;
+    protected $applicationServerClusterSecondaryPrivateFQDN  = null;
 
-    public function __construct(
-             $webServerClusterPublicFQDN=null,
-             $applicationServerClusterPrimaryPublicFQDN=null,
-             $applicationServerClusterSecondaryPublicFQDN=null,
-             $applicationServerClusterPrimaryPrivateFQDN=null,
-             $applicationServerClusterSecondaryPrivateFQDN=null
-    ) {
-        $this->webServerClusterPublicFQDN                   = new NetAddress($webServerClusterPublicFQDN);
-        $this->applicationServerClusterPrimaryPublicFQDN    = new NetAddress($applicationServerClusterPrimaryPublicFQDN);
-        $this->applicationServerClusterSecondaryPublicFQDN  = new NetAddress($applicationServerClusterSecondaryPublicFQDN);
-        $this->applicationServerClusterPrimaryPrivateFQDN   = new NetAddress($applicationServerClusterPrimaryPrivateFQDN);
-        $this->applicationServerClusterSecondaryPrivateFQDN = new NetAddress($applicationServerClusterSecondaryPrivateFQDN);
-        $this->args                                         = func_get_args();
-    }
 
-    public function setWebServerClusterPublicFQDN($webServerClusterPublicFQDN)
+    public function setWebServerClusterPublicFQDN($webServerClusterPublicFQDN = null)
     {
-        $webServerClusterPublicFQDN and $this->webServerClusterPublicFQDN = new NetAddress($webServerClusterPublicFQDN);
+        $this->webServerClusterPublicFQDN = ($webServerClusterPublicFQDN InstanceOf NetAddress)
+             ? $webServerClusterPublicFQDN
+             : new NetAddress($webServerClusterPublicFQDN);
     }
 
     public function getWebServerClusterPublicFQDN()
@@ -49,9 +42,11 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         return (!$this->webServerClusterPublicFQDN) ?: $this->webServerClusterPublicFQDN->value();
     }
 
-    public function setApplicationServerClusterPrimaryPublicFQDN($applicationServerClusterPrimaryPublicFQDN)
+    public function setApplicationServerClusterPrimaryPublicFQDN($applicationServerClusterPrimaryPublicFQDN = null)
     {
-        $applicationServerClusterPrimaryPublicFQDN and $this->applicationServerClusterPrimaryPublicFQDN = new NetAddress($applicationServerClusterPrimaryPublicFQDN);
+        $this->applicationServerClusterPrimaryPublicFQDN = ($applicationServerClusterPrimaryPublicFQDN InstanceOf NetAddress)
+             ? $applicationServerClusterPrimaryPublicFQDN
+             : new NetAddress($applicationServerClusterPrimaryPublicFQDN);
     }
 
     public function getApplicationServerClusterPrimaryPublicFQDN()
@@ -59,9 +54,11 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         return (!$this->applicationServerClusterPrimaryPublicFQDN) ?: $this->applicationServerClusterPrimaryPublicFQDN->value();
     }
 
-    public function setApplicationServerClusterSecondaryPublicFQDN($applicationServerClusterSecondaryPublicFQDN)
+    public function setApplicationServerClusterSecondaryPublicFQDN($applicationServerClusterSecondaryPublicFQDN = null)
     {
-        $applicationServerClusterSecondaryPublicFQDN and $this->applicationServerClusterSecondaryPublicFQDN = new NetAddress($applicationServerClusterSecondaryPublicFQDN);
+        $this->applicationServerClusterSecondaryPublicFQDN = ($applicationServerClusterSecondaryPublicFQDN InstanceOf NetAddress)
+             ? $applicationServerClusterSecondaryPublicFQDN
+             : new NetAddress($applicationServerClusterSecondaryPublicFQDN);
     }
 
     public function getApplicationServerClusterSecondaryPublicFQDN()
@@ -69,9 +66,11 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         return (!$this->applicationServerClusterSecondaryPublicFQDN) ?: $this->applicationServerClusterSecondaryPublicFQDN->value();
     }
 
-    public function setApplicationServerClusterPrimaryPrivateFQDN($applicationServerClusterPrimaryPrivateFQDN)
+    public function setApplicationServerClusterPrimaryPrivateFQDN($applicationServerClusterPrimaryPrivateFQDN = null)
     {
-        $applicationServerClusterPrimaryPrivateFQDN and $this->applicationServerClusterPrimaryPrivateFQDN = new NetAddress($applicationServerClusterPrimaryPrivateFQDN);
+        $this->applicationServerClusterPrimaryPrivateFQDN = ($applicationServerClusterPrimaryPrivateFQDN InstanceOf NetAddress)
+             ? $applicationServerClusterPrimaryPrivateFQDN
+             : new NetAddress($applicationServerClusterPrimaryPrivateFQDN);
     }
 
     public function getApplicationServerClusterPrimaryPrivateFQDN()
@@ -79,9 +78,11 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         return (!$this->applicationServerClusterPrimaryPrivateFQDN) ?: $this->applicationServerClusterPrimaryPrivateFQDN->value();
     }
 
-    public function setApplicationServerClusterSecondaryPrivateFQDN($applicationServerClusterSecondaryPrivateFQDN)
+    public function setApplicationServerClusterSecondaryPrivateFQDN($applicationServerClusterSecondaryPrivateFQDN = null)
     {
-        $applicationServerClusterSecondaryPrivateFQDN and $this->applicationServerClusterSecondaryPrivateFQDN = new NetAddress($applicationServerClusterSecondaryPrivateFQDN);
+        $this->applicationServerClusterSecondaryPrivateFQDN = ($applicationServerClusterSecondaryPrivateFQDN InstanceOf NetAddress)
+             ? $applicationServerClusterSecondaryPrivateFQDN
+             : new NetAddress($applicationServerClusterSecondaryPrivateFQDN);
     }
 
     public function getApplicationServerClusterSecondaryPrivateFQDN()

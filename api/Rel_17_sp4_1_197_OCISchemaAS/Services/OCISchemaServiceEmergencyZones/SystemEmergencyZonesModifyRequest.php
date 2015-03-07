@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemEmergencyZonesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $defaultFromAddress  = null;
 
     public function __construct(
-             $defaultFromAddress=null
+         $defaultFromAddress = null
     ) {
-        $this->defaultFromAddress = new EmailAddress($defaultFromAddress);
-        $this->args               = func_get_args();
+        $this->setDefaultFromAddress($defaultFromAddress);
     }
 
-    public function setDefaultFromAddress($defaultFromAddress)
+    public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        $defaultFromAddress and $this->defaultFromAddress = new EmailAddress($defaultFromAddress);
+        $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
+             ? $defaultFromAddress
+             : new EmailAddress($defaultFromAddress);
     }
 
     public function getDefaultFromAddress()

@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserRingTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxNoAnswerNumberOfRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IncomingCallToUserAliasMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxNoAnswerNumberOfRings;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,28 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSubscriberGetCallProcessingParametersResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                    = __CLASS__;
+    protected $isExtendedCallingLineIdActive           = null;
+    protected $isRingTimeOutActive                     = null;
+    protected $ringTimeoutSeconds                      = null;
+    protected $allowEmergencyRemoteOfficeOriginations  = null;
+    protected $maxNoAnswerNumberOfRings                = null;
+    protected $incomingCallToUserAliasMode             = null;
 
-    public function __construct(
-             $isExtendedCallingLineIdActive,
-             $isRingTimeOutActive,
-             $ringTimeoutSeconds,
-             $allowEmergencyRemoteOfficeOriginations,
-             $maxNoAnswerNumberOfRings,
-             $incomingCallToUserAliasMode
-    ) {
-        $this->isExtendedCallingLineIdActive          = $isExtendedCallingLineIdActive;
-        $this->isRingTimeOutActive                    = $isRingTimeOutActive;
-        $this->ringTimeoutSeconds                     = new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
-        $this->allowEmergencyRemoteOfficeOriginations = $allowEmergencyRemoteOfficeOriginations;
-        $this->maxNoAnswerNumberOfRings               = new MaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings);
-        $this->incomingCallToUserAliasMode            = new IncomingCallToUserAliasMode($incomingCallToUserAliasMode);
-        $this->args                                   = func_get_args();
-    }
 
-    public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive)
+    public function setIsExtendedCallingLineIdActive(xs:boolean $isExtendedCallingLineIdActive = null)
     {
-        $isExtendedCallingLineIdActive and $this->isExtendedCallingLineIdActive = new xs:boolean($isExtendedCallingLineIdActive);
     }
 
     public function getIsExtendedCallingLineIdActive()
@@ -49,9 +37,8 @@ class SystemSubscriberGetCallProcessingParametersResponse17 extends ComplexType 
         return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->value();
     }
 
-    public function setIsRingTimeOutActive($isRingTimeOutActive)
+    public function setIsRingTimeOutActive(xs:boolean $isRingTimeOutActive = null)
     {
-        $isRingTimeOutActive and $this->isRingTimeOutActive = new xs:boolean($isRingTimeOutActive);
     }
 
     public function getIsRingTimeOutActive()
@@ -59,9 +46,11 @@ class SystemSubscriberGetCallProcessingParametersResponse17 extends ComplexType 
         return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->value();
     }
 
-    public function setRingTimeoutSeconds($ringTimeoutSeconds)
+    public function setRingTimeoutSeconds($ringTimeoutSeconds = null)
     {
-        $ringTimeoutSeconds and $this->ringTimeoutSeconds = new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
+        $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
+             ? $ringTimeoutSeconds
+             : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
     }
 
     public function getRingTimeoutSeconds()
@@ -69,9 +58,8 @@ class SystemSubscriberGetCallProcessingParametersResponse17 extends ComplexType 
         return (!$this->ringTimeoutSeconds) ?: $this->ringTimeoutSeconds->value();
     }
 
-    public function setAllowEmergencyRemoteOfficeOriginations($allowEmergencyRemoteOfficeOriginations)
+    public function setAllowEmergencyRemoteOfficeOriginations(xs:boolean $allowEmergencyRemoteOfficeOriginations = null)
     {
-        $allowEmergencyRemoteOfficeOriginations and $this->allowEmergencyRemoteOfficeOriginations = new xs:boolean($allowEmergencyRemoteOfficeOriginations);
     }
 
     public function getAllowEmergencyRemoteOfficeOriginations()
@@ -79,9 +67,11 @@ class SystemSubscriberGetCallProcessingParametersResponse17 extends ComplexType 
         return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations->value();
     }
 
-    public function setMaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings)
+    public function setMaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings = null)
     {
-        $maxNoAnswerNumberOfRings and $this->maxNoAnswerNumberOfRings = new MaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings);
+        $this->maxNoAnswerNumberOfRings = ($maxNoAnswerNumberOfRings InstanceOf MaxNoAnswerNumberOfRings)
+             ? $maxNoAnswerNumberOfRings
+             : new MaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings);
     }
 
     public function getMaxNoAnswerNumberOfRings()
@@ -89,9 +79,11 @@ class SystemSubscriberGetCallProcessingParametersResponse17 extends ComplexType 
         return (!$this->maxNoAnswerNumberOfRings) ?: $this->maxNoAnswerNumberOfRings->value();
     }
 
-    public function setIncomingCallToUserAliasMode($incomingCallToUserAliasMode)
+    public function setIncomingCallToUserAliasMode($incomingCallToUserAliasMode = null)
     {
-        $incomingCallToUserAliasMode and $this->incomingCallToUserAliasMode = new IncomingCallToUserAliasMode($incomingCallToUserAliasMode);
+        $this->incomingCallToUserAliasMode = ($incomingCallToUserAliasMode InstanceOf IncomingCallToUserAliasMode)
+             ? $incomingCallToUserAliasMode
+             : new IncomingCallToUserAliasMode($incomingCallToUserAliasMode);
     }
 
     public function getIncomingCallToUserAliasMode()

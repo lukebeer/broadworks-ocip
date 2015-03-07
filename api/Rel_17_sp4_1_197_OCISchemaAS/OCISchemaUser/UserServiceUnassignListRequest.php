@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserServiceUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $userId           = null;
+    protected $serviceName      = null;
+    protected $servicePackName  = null;
 
     public function __construct(
-             $userId,
-             $serviceName=null,
-             $servicePackName=null
+         $userId,
+         $serviceName = null,
+         $servicePackName = null
     ) {
-        $this->userId          = new UserId($userId);
-        $this->serviceName     = new UserService($serviceName);
-        $this->servicePackName = new ServicePackName($servicePackName);
-        $this->args            = func_get_args();
+        $this->setUserId($userId);
+        $this->setServiceName($serviceName);
+        $this->setServicePackName($servicePackName);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +47,11 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setServiceName($serviceName)
+    public function setServiceName($serviceName = null)
     {
-        $serviceName and $this->serviceName = new UserService($serviceName);
+        $this->serviceName = ($serviceName InstanceOf UserService)
+             ? $serviceName
+             : new UserService($serviceName);
     }
 
     public function getServiceName()
@@ -53,9 +59,11 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
         return (!$this->serviceName) ?: $this->serviceName->value();
     }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()

@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAuthenticationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $userName  = null;
 
-    public function __construct(
-             $userName=null
-    ) {
-        $this->userName = new SIPAuthenticationUserName($userName);
-        $this->args     = func_get_args();
-    }
 
-    public function setUserName($userName)
+    public function setUserName($userName = null)
     {
-        $userName and $this->userName = new SIPAuthenticationUserName($userName);
+        $this->userName = ($userName InstanceOf SIPAuthenticationUserName)
+             ? $userName
+             : new SIPAuthenticationUserName($userName);
     }
 
     public function getUserName()

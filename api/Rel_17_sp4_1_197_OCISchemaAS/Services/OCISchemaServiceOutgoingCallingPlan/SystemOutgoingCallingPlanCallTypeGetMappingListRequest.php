@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOutgoingCallingPlanCallTypeGetMappingListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $countryCode  = null;
 
     public function __construct(
-             $countryCode=null
+         $countryCode = null
     ) {
-        $this->countryCode = new CountryCode($countryCode);
-        $this->args        = func_get_args();
+        $this->setCountryCode($countryCode);
     }
 
-    public function setCountryCode($countryCode)
+    public function setCountryCode($countryCode = null)
     {
-        $countryCode and $this->countryCode = new CountryCode($countryCode);
+        $this->countryCode = ($countryCode InstanceOf CountryCode)
+             ? $countryCode
+             : new CountryCode($countryCode);
     }
 
     public function getCountryCode()

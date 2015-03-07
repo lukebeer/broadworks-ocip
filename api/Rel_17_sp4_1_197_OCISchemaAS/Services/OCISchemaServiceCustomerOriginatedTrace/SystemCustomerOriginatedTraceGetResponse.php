@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCustomerOriginatedTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $screenMaliciousCallers  = null;
 
-    public function __construct(
-             $screenMaliciousCallers
-    ) {
-        $this->screenMaliciousCallers = $screenMaliciousCallers;
-        $this->args                   = func_get_args();
-    }
 
-    public function setScreenMaliciousCallers($screenMaliciousCallers)
+    public function setScreenMaliciousCallers(xs:boolean $screenMaliciousCallers = null)
     {
-        $screenMaliciousCallers and $this->screenMaliciousCallers = new xs:boolean($screenMaliciousCallers);
     }
 
     public function getScreenMaliciousCallers()

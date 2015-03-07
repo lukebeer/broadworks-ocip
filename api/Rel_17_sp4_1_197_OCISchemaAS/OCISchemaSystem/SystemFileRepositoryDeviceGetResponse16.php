@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $rootDirectory  = null;
+    protected $port           = null;
 
-    public function __construct(
-             $rootDirectory=null,
-             $port=null
-    ) {
-        $this->rootDirectory = new CPEFileDirectory($rootDirectory);
-        $this->port          = new Port($port);
-        $this->args          = func_get_args();
-    }
 
-    public function setRootDirectory($rootDirectory)
+    public function setRootDirectory($rootDirectory = null)
     {
-        $rootDirectory and $this->rootDirectory = new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
+             ? $rootDirectory
+             : new CPEFileDirectory($rootDirectory);
     }
 
     public function getRootDirectory()
@@ -39,9 +35,11 @@ class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements Com
         return (!$this->rootDirectory) ?: $this->rootDirectory->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port($port);
+        $this->port = ($port InstanceOf Port)
+             ? $port
+             : new Port($port);
     }
 
     public function getPort()

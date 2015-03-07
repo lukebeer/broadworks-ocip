@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $name           = null;
+    protected $rootDirectory  = null;
+    protected $port           = null;
 
     public function __construct(
-             $name,
-             $rootDirectory=null,
-             $port=null
+         $name,
+         $rootDirectory = null,
+         $port = null
     ) {
-        $this->name          = new FileRepositoryName($name);
-        $this->rootDirectory = new CPEFileDirectory($rootDirectory);
-        $this->port          = new Port($port);
-        $this->args          = func_get_args();
+        $this->setName($name);
+        $this->setRootDirectory($rootDirectory);
+        $this->setPort($port);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new FileRepositoryName($name);
+        $this->name = ($name InstanceOf FileRepositoryName)
+             ? $name
+             : new FileRepositoryName($name);
     }
 
     public function getName()
@@ -43,9 +47,11 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setRootDirectory($rootDirectory)
+    public function setRootDirectory($rootDirectory = null)
     {
-        $rootDirectory and $this->rootDirectory = new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
+             ? $rootDirectory
+             : new CPEFileDirectory($rootDirectory);
     }
 
     public function getRootDirectory()
@@ -53,9 +59,11 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
         return (!$this->rootDirectory) ?: $this->rootDirectory->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port($port);
+        $this->port = ($port InstanceOf Port)
+             ? $port
+             : new Port($port);
     }
 
     public function getPort()

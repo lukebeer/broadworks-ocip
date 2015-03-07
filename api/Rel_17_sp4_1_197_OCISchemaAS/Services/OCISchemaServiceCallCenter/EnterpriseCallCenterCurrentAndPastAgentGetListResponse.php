@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $agentUserTable         = null;
+    protected $deletedAgentUserTable  = null;
 
-    public function __construct(
-             $agentUserTable,
-             $deletedAgentUserTable
-    ) {
-        $this->agentUserTable        = $agentUserTable;
-        $this->deletedAgentUserTable = $deletedAgentUserTable;
-        $this->args                  = func_get_args();
-    }
 
-    public function setAgentUserTable($agentUserTable)
+    public function setAgentUserTable(core:OCITable $agentUserTable = null)
     {
-        $agentUserTable and $this->agentUserTable = new core:OCITable($agentUserTable);
     }
 
     public function getAgentUserTable()
@@ -39,9 +32,8 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType
         return (!$this->agentUserTable) ?: $this->agentUserTable->value();
     }
 
-    public function setDeletedAgentUserTable($deletedAgentUserTable)
+    public function setDeletedAgentUserTable(core:OCITable $deletedAgentUserTable = null)
     {
-        $deletedAgentUserTable and $this->deletedAgentUserTable = new core:OCITable($deletedAgentUserTable);
     }
 
     public function getDeletedAgentUserTable()

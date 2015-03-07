@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,28 +19,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                               = __CLASS__;
+    protected $serviceProviderId                  = null;
+    protected $restrictAggregateSessions          = null;
+    protected $maxSessions                        = null;
+    protected $maxUserOriginatingSessions         = null;
+    protected $maxUserTerminatingSessions         = null;
+    protected $countIntraServiceProviderSessions  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $restrictAggregateSessions=null,
-             $maxSessions=null,
-             $maxUserOriginatingSessions=null,
-             $maxUserTerminatingSessions=null,
-             $countIntraServiceProviderSessions=null
+         $serviceProviderId,
+         $restrictAggregateSessions = null,
+         $maxSessions = null,
+         $maxUserOriginatingSessions = null,
+         $maxUserTerminatingSessions = null,
+         $countIntraServiceProviderSessions = null
     ) {
-        $this->serviceProviderId                 = new ServiceProviderId($serviceProviderId);
-        $this->restrictAggregateSessions         = $restrictAggregateSessions;
-        $this->maxSessions                       = new NonNegativeInt($maxSessions);
-        $this->maxUserOriginatingSessions        = new NonNegativeInt($maxUserOriginatingSessions);
-        $this->maxUserTerminatingSessions        = new NonNegativeInt($maxUserTerminatingSessions);
-        $this->countIntraServiceProviderSessions = $countIntraServiceProviderSessions;
-        $this->args                              = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setRestrictAggregateSessions($restrictAggregateSessions);
+        $this->setMaxSessions($maxSessions);
+        $this->setMaxUserOriginatingSessions($maxUserOriginatingSessions);
+        $this->setMaxUserTerminatingSessions($maxUserTerminatingSessions);
+        $this->setCountIntraServiceProviderSessions($countIntraServiceProviderSessions);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +55,8 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setRestrictAggregateSessions($restrictAggregateSessions)
+    public function setRestrictAggregateSessions(xs:boolean $restrictAggregateSessions = null)
     {
-        $restrictAggregateSessions and $this->restrictAggregateSessions = new xs:boolean($restrictAggregateSessions);
     }
 
     public function getRestrictAggregateSessions()
@@ -59,9 +64,11 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
         return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions->value();
     }
 
-    public function setMaxSessions($maxSessions)
+    public function setMaxSessions($maxSessions = null)
     {
-        $maxSessions and $this->maxSessions = new NonNegativeInt($maxSessions);
+        $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
+             ? $maxSessions
+             : new NonNegativeInt($maxSessions);
     }
 
     public function getMaxSessions()
@@ -69,9 +76,11 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
         return (!$this->maxSessions) ?: $this->maxSessions->value();
     }
 
-    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions)
+    public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        $maxUserOriginatingSessions and $this->maxUserOriginatingSessions = new NonNegativeInt($maxUserOriginatingSessions);
+        $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserOriginatingSessions
+             : new NonNegativeInt($maxUserOriginatingSessions);
     }
 
     public function getMaxUserOriginatingSessions()
@@ -79,9 +88,11 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
         return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->value();
     }
 
-    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions)
+    public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        $maxUserTerminatingSessions and $this->maxUserTerminatingSessions = new NonNegativeInt($maxUserTerminatingSessions);
+        $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
+             ? $maxUserTerminatingSessions
+             : new NonNegativeInt($maxUserTerminatingSessions);
     }
 
     public function getMaxUserTerminatingSessions()
@@ -89,9 +100,8 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
         return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->value();
     }
 
-    public function setCountIntraServiceProviderSessions($countIntraServiceProviderSessions)
+    public function setCountIntraServiceProviderSessions(xs:boolean $countIntraServiceProviderSessions = null)
     {
-        $countIntraServiceProviderSessions and $this->countIntraServiceProviderSessions = new xs:boolean($countIntraServiceProviderSessions);
     }
 
     public function getCountIntraServiceProviderSessions()

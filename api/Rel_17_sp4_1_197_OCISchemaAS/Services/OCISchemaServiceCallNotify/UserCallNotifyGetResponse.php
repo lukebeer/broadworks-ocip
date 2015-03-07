@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $callNotifyEmailAddress  = null;
+    protected $criteriaTable           = null;
 
-    public function __construct(
-             $callNotifyEmailAddress=null,
-             $criteriaTable
-    ) {
-        $this->callNotifyEmailAddress = new EmailAddress($callNotifyEmailAddress);
-        $this->criteriaTable          = $criteriaTable;
-        $this->args                   = func_get_args();
-    }
 
-    public function setCallNotifyEmailAddress($callNotifyEmailAddress)
+    public function setCallNotifyEmailAddress($callNotifyEmailAddress = null)
     {
-        $callNotifyEmailAddress and $this->callNotifyEmailAddress = new EmailAddress($callNotifyEmailAddress);
+        $this->callNotifyEmailAddress = ($callNotifyEmailAddress InstanceOf EmailAddress)
+             ? $callNotifyEmailAddress
+             : new EmailAddress($callNotifyEmailAddress);
     }
 
     public function getCallNotifyEmailAddress()
@@ -40,9 +35,8 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
         return (!$this->callNotifyEmailAddress) ?: $this->callNotifyEmailAddress->value();
     }
 
-    public function setCriteriaTable($criteriaTable)
+    public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $criteriaTable and $this->criteriaTable = new core:OCITable($criteriaTable);
     }
 
     public function getCriteriaTable()

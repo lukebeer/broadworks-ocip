@@ -14,6 +14,7 @@ abstract class TypeMap {
         switch ($type) {
             case 'xs:boolean':
                 return "'boolean'";
+            case 'xs:NMTOKEN':
             case 'xs:string':
             case 'xs:token':
                 return "'string'";
@@ -34,6 +35,7 @@ class BuildAPI {
     public $schema;
     public $dest;
     private $path;
+    private $namespaces;
     private $simpleTypes;
     private $complexTypes;
 
@@ -46,7 +48,6 @@ class BuildAPI {
         $this->path     = realpath($this->base_dir.$this->schema);
         if (!is_dir($this->path)) exit("Input directory not valid.");
         chdir($this->path);
-        $this->getTypes($dataTypes);
         if (!is_dir($this->dest)) {
             if (!mkdir($this->dest)) exit("Unable to create API destination directory");
         }
@@ -69,6 +70,7 @@ class BuildAPI {
                         $data = [];
                         foreach ($element->attributes() as $k => $v) {
                             $data[$k] = (string) $v;
+                            $data['namespace'] = $namespace;
                         }
                         $elements[] = $data;
                     }
@@ -78,42 +80,60 @@ class BuildAPI {
                 $name = $complexType->attributes()['name'];
                 $code = "class $name extends ComplexType implements ComplexInterface\n";
                 $code .= "{\n";
-                $code .= "    public    \$name = __CLASS__;\n\n";
-                $code .= "    public function __construct(";
-                $pad = "            ";
                 foreach ($elements as $item) {
                     $maxlen = (strlen($item['name']) > $maxlen) ? strlen($item['name']) : $maxlen;
-                    $code .= "\n$pad ";
-                    if ($this->checkComplexType($item['type'])) {
-                        if (array_key_exists('type', $item)) $code .= TypeMap::type($item['type'])." ";
-                    }
-                    $code .= '$'.$item['name'];
-                    $code .= (array_key_exists('minOccurs', $item)) ? "=null," : ",";
                 }
-                $code = rtrim($code, ',');
-                if (!empty($elements)) $code .= "\n";
-                $code .= "    ) {";
+                $code .= str_pad("    public    \$name", $maxlen+16, ' ')." = __CLASS__;\n";
                 foreach ($elements as $item) {
-                    $code .= "\n";
-                    $code .= str_pad('        $this->'.$item['name'], $maxlen+15, ' ');
-                    $code .= " = ";
-                    if (array_key_exists('type', $item)) {
-                        $types[] = "use $this->base_namespace\\$this->schema_out\\OCISchemaDataTypes\\".$item['type'].";";
-                        $code .= ($this->checkSimpleType($item['type']))
-                            ? "new ".TypeMap::type($item['type']).'($'.$item['name'].");"
-                            : '$'.$item['name'].";";
-                    } else {
-                        $code .= '$'.$item['name'].";";
-                    }
+                    $code .= str_pad("    protected \${$item['name']}", $maxlen+16, ' ')." = null;\n";
                 }
-                $code .= str_pad("\n        \$this->args", $maxlen+17, ' ').'= func_get_args();';
-                $code .= "\n    }\n";
+                $code .= "\n";
+                if (!preg_match("/response/i", $name)) {
+                    $code .= "    public function __construct(";
+                    $pad = "        ";
+                    foreach ($elements as $item) {
+                        $code .= "\n$pad ";
+                        if (array_key_exists('type', $item)) {
+                            if ($this->checkComplexType($item['type'])) {
+                                $code .= TypeMap::type($item['type']) . " ";
+                            }
+                        }
+                        $code .= '$' . $item['name'];
+                        $code .= ((array_key_exists('minOccurs', $item) || (strripos($name, 'Response')))) ? " = null," : ",";
+                    }
+                    $code = rtrim($code, ',');
+                    if (!empty($elements)) $code .= "\n";
+                    $code .= "    ) {\n";
+                }
+                foreach ($elements as $item) {
+                    //$code .= str_pad('        $this->set'.$item['name'], $maxlen+15, ' ');
+                    //$code .= " = ";
+                    if (array_key_exists('type', $item)) {
+                        if (array_key_exists($item['type'], $this->namespaces)) {
+                            $types[] = "use $this->base_namespace\\$this->schema_out" . ucfirst($this->namespaces[$item['type']]) . "\\" . $item['type'] . ";";
+                        }
+                    }
+                    //$code .= '$'.$item['name'].";\n";
+                    if (!preg_match("/response/i", $name)) $code .= "        \$this->set".ucfirst($item['name'])."(\${$item['name']});\n";
+                }
+                //$code .= str_pad('        $this->args', $maxlen+15, ' ');
+                //$code .= " = func_get_args();";
+                if (!preg_match("/response/i", $name)) $code .= "    }\n";
                 $pad = "    ";
                 foreach ($elements as $item) {
                     $code .= "\n$pad";
-                    $code .= "public function set".ucfirst($item['name'])."(\${$item['name']})\n";
+                    if (array_key_exists('type', $item)) $type = ($this->checkSimpleType($item['type'])) ? '' : $item['type'].' ';
+                    $code .= "public function set".ucfirst($item['name'])."($type\${$item['name']} = null)\n";
                     $code .= "$pad{\n";
-                    $code .= "$pad    \${$item['name']} and \$this->{$item['name']} = new {$item['type']}(\${$item['name']});\n";
+                    if (array_key_exists('type', $item)) {
+                        if ($this->checkSimpleType($item['type'])) {
+                            $code .= "$pad    \$this->{$item['name']} = (\${$item['name']} InstanceOf {$item['type']})\n";
+                            $code .= "$pad         ? \${$item['name']}\n";
+                            $code .= "$pad         : new {$item['type']}(\${$item['name']});\n";
+                        }
+                    } else {
+                        $code .= "$pad    \$this->{$item['name']} = \${$item['name']};\n";
+                    }
                     $code .= "$pad}\n";
                     $code .= "\n$pad";
                     $code .= "public function get".ucfirst($item['name'])."()\n";
@@ -129,7 +149,9 @@ class BuildAPI {
                 $header .= " * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>\n";
                 $header .= " */\n";
                 $header .= "\nnamespace $this->base_namespace\\$this->schema_out\\$namespace; \n\n";
-                $header .= implode("\n", array_unique($types))."\n";
+                $types = array_combine($types, array_map('strlen', $types));
+                arsort($types);
+                $header .= implode("\n", array_unique(array_keys($types)))."\n";
                 $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexInterface;\n";
                 $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexType;\n\n\n";
                 $header .= "/**\n";
@@ -144,14 +166,16 @@ class BuildAPI {
         return false;
     }
 
-    private function getTypes($file) {
-        $xml = simplexml_load_string(file_get_contents($file), 'SimpleXMLElement', 0, "xs", true);
-        if (is_object($xml)) {
-            foreach ($xml->simpleType as $simpleType) {
-                $this->simpleTypes[] = (string) $simpleType->attributes()['name'];
-            }
-            foreach ($xml->complexType as $complexType) {
-                $this->complexTypes[] = (string) $complexType->attributes()['name'];
+    private function getTypes($files) {
+        foreach ($files as $file) {
+            $xml = simplexml_load_string(file_get_contents($file), 'SimpleXMLElement', 0, "xs", true);
+            if (is_object($xml)) {
+                foreach ($xml->simpleType as $simpleType) {
+                    $this->simpleTypes[] = (string)$simpleType->attributes()['name'];
+                }
+                foreach ($xml->complexType as $complexType) {
+                    $this->complexTypes[] = (string)$complexType->attributes()['name'];
+                }
             }
         }
     }
@@ -171,7 +195,7 @@ class BuildAPI {
         $namespace = basename($file, ".xsd");
         if (is_object($xml)) {
             foreach ($xml->simpleType as $simpleType) {
-                $name = $simpleType->attributes()['name'];
+                $name = (string) $simpleType->attributes()['name'];
                 $header = "<?php\n";
                 $header .= "/**\n";
                 $header .= " * This file is part of http://github.com/LukeBeer/Broadworks_OCIP\n";
@@ -179,7 +203,7 @@ class BuildAPI {
                 $header .= " * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>\n";
                 $header .= " */\n\n";
                 $header .= "namespace $this->base_namespace\\$this->schema_out\\$namespace; \n\n";
-                $header .= "use Broadworks_OCIP\core\Builder\Types\SimpleInterface;\n";
+                //$header .= "use Broadworks_OCIP\core\Builder\Types\SimpleInterface;\n";
                 $header .= "use Broadworks_OCIP\core\Builder\Types\SimpleType;\n";
                 $code = "/**\n";
                 $code .= " * ".implode("\n * ", explode("\n", trim($simpleType->annotation->documentation)));
@@ -194,7 +218,9 @@ class BuildAPI {
                 foreach (get_object_vars($simpleType->restriction) as $restriction) {
                     if (is_object($restriction)) {
                         $header .= "use Broadworks_OCIP\core\Builder\Restrictions\\".ucfirst($restriction->getName()).";\n";
-                        $code .= "        \$this->addRestriction(new ".ucfirst($restriction->getName())."({$restriction->attributes()->value}));\n";
+                        $value = $restriction->attributes()->value;
+                        $value = (is_int($value)) ? $value : '"'.$value.'"';
+                        $code .= "        \$this->addRestriction(new ".ucfirst($restriction->getName())."($value));\n";
                     } elseif (is_array($restriction)) {
                         $header .= "use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;\n";
                         $enumerations = [];
@@ -205,16 +231,17 @@ class BuildAPI {
                                     break;
                             }
                         }
-                        $code .= "        \$this-addRestriction(new Enumeration([\n";
+                        $code .= "        \$this->addRestriction(new Enumeration([\n";
                         $pad = "                                             ";
-                        $code .= "$pad '".implode("',\n$pad '", $enumerations)."'\n";
-                        $code .= "$pad]);\n";
+                        $code .= "            '".implode("',\n            '", $enumerations)."'\n";
+                        $code .= "        ]));\n";
                     }
                 }
                 $code .= "    }\n";
                 $code .= "}\n";
                 $header .= "\n\n";
                 $code = $header.$code;
+                //$this->simpleTypeNamespaces[$name] = str_replace($this->base_dir,'',dirname(str_replace($this->base_dir.$this->schema, $this->dest, $file)))."\\$namespace";
                 $out_file = dirname(str_replace($this->base_dir.$this->schema, $this->dest, $file))."/$namespace/$name.php";
                 if (!is_dir(dirname($out_file))) mkdir(dirname($out_file), 0777, true);
                 file_put_contents($out_file, $code);
@@ -222,10 +249,33 @@ class BuildAPI {
         }
     }
 
+    public function getNamespaces($files) {
+        foreach ($files as $file) {
+            $xml = simplexml_load_string(file_get_contents($file), 'SimpleXMLElement', 0, "xs", true);
+            $namespace = basename($file, ".xsd");
+            $base = str_replace($this->base_dir.$this->schema, '', dirname($file));
+            if (is_object($xml)) {
+                foreach ($xml->simpleType as $simpleType) {
+                    $name = (string) $simpleType->attributes()['name'];
+                    $this->simpleTypes[] = $name;
+                    $this->namespaces[$name] = str_replace('/', '\\', $base.'\\'.$namespace);
+                }
+                foreach ($xml->complexType as $complexType) {
+                    $name = (string) $complexType->attributes()['name'];
+                    $this->complexTypes[] = $name;
+                    $this->namespaces[$name] = str_replace('/', '\\', $base.'\\'.$namespace);
+                }
+            }
+        }
+    }
+
     public function generate() {
         $files = explode("\n", trim(shell_exec("find {$this->base_dir}{$this->schema} -type f -name '*.xsd'")));
+        $this->getNamespaces($files);
         foreach ($files as $file) {
             $this->buildSimpleTypes($file);
+        }
+        foreach ($files as $file) {
             $this->buildComplexTypes($file);
         }
     }

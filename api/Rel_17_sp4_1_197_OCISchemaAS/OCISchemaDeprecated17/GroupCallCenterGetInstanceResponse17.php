@@ -7,18 +7,17 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueLength16;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DtmfDigit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterWrapUpSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterForceDeliveryWaitTimeSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AgentACDAutomaticState;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueLength16;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterWrapUpSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AgentACDAutomaticState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AudioFileCodec;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DtmfDigit;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -28,60 +27,33 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $serviceInstanceProfile               = null;
+    protected $type                                 = null;
+    protected $policy                               = null;
+    protected $enableVideo                          = null;
+    protected $queueLength                          = null;
+    protected $reportingServerName                  = null;
+    protected $allowCallerToDialEscapeDigit         = null;
+    protected $escapeDigit                          = null;
+    protected $resetCallStatisticsUponEntryInQueue  = null;
+    protected $allowAgentLogoff                     = null;
+    protected $allowCallWaitingForAgents            = null;
+    protected $allowCallsToAgentsInWrapUp           = null;
+    protected $overrideAgentWrapUpTime              = null;
+    protected $wrapUpSeconds                        = null;
+    protected $forceDeliveryOfCalls                 = null;
+    protected $forceDeliveryWaitTimeSeconds         = null;
+    protected $enableAutomaticStateChangeForAgents  = null;
+    protected $agentStateAfterCall                  = null;
+    protected $agentUnavailableCode                 = null;
+    protected $externalPreferredAudioCodec          = null;
+    protected $internalPreferredAudioCodec          = null;
+    protected $playRingingWhenOfferingCall          = null;
 
-    public function __construct(
-             ServiceInstanceReadProfile17 $serviceInstanceProfile,
-             $type,
-             $policy,
-             $enableVideo,
-             $queueLength,
-             $reportingServerName=null,
-             $allowCallerToDialEscapeDigit,
-             $escapeDigit,
-             $resetCallStatisticsUponEntryInQueue=null,
-             $allowAgentLogoff,
-             $allowCallWaitingForAgents,
-             $allowCallsToAgentsInWrapUp=null,
-             $overrideAgentWrapUpTime=null,
-             $wrapUpSeconds=null,
-             $forceDeliveryOfCalls=null,
-             $forceDeliveryWaitTimeSeconds=null,
-             $enableAutomaticStateChangeForAgents=null,
-             $agentStateAfterCall=null,
-             $agentUnavailableCode=null,
-             $externalPreferredAudioCodec,
-             $internalPreferredAudioCodec,
-             $playRingingWhenOfferingCall
-    ) {
-        $this->serviceInstanceProfile              = $serviceInstanceProfile;
-        $this->type                                = $type;
-        $this->policy                              = new HuntPolicy($policy);
-        $this->enableVideo                         = $enableVideo;
-        $this->queueLength                         = new CallCenterQueueLength16($queueLength);
-        $this->reportingServerName                 = new CallCenterReportingServerName($reportingServerName);
-        $this->allowCallerToDialEscapeDigit        = $allowCallerToDialEscapeDigit;
-        $this->escapeDigit                         = new DtmfDigit($escapeDigit);
-        $this->resetCallStatisticsUponEntryInQueue = $resetCallStatisticsUponEntryInQueue;
-        $this->allowAgentLogoff                    = $allowAgentLogoff;
-        $this->allowCallWaitingForAgents           = $allowCallWaitingForAgents;
-        $this->allowCallsToAgentsInWrapUp          = $allowCallsToAgentsInWrapUp;
-        $this->overrideAgentWrapUpTime             = $overrideAgentWrapUpTime;
-        $this->wrapUpSeconds                       = new CallCenterWrapUpSeconds($wrapUpSeconds);
-        $this->forceDeliveryOfCalls                = $forceDeliveryOfCalls;
-        $this->forceDeliveryWaitTimeSeconds        = new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
-        $this->enableAutomaticStateChangeForAgents = $enableAutomaticStateChangeForAgents;
-        $this->agentStateAfterCall                 = new AgentACDAutomaticState($agentStateAfterCall);
-        $this->agentUnavailableCode                = new CallCenterAgentUnavailableCode($agentUnavailableCode);
-        $this->externalPreferredAudioCodec         = new AudioFileCodec($externalPreferredAudioCodec);
-        $this->internalPreferredAudioCodec         = new AudioFileCodec($internalPreferredAudioCodec);
-        $this->playRingingWhenOfferingCall         = $playRingingWhenOfferingCall;
-        $this->args                                = func_get_args();
-    }
 
-    public function setServiceInstanceProfile($serviceInstanceProfile)
+    public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        $serviceInstanceProfile and $this->serviceInstanceProfile = new ServiceInstanceReadProfile17($serviceInstanceProfile);
     }
 
     public function getServiceInstanceProfile()
@@ -89,9 +61,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
     }
 
-    public function setType($type)
+    public function setType($type = null)
     {
-        $type and $this->type = new CallCenterType($type);
+        $this->type = ($type InstanceOf CallCenterType)
+             ? $type
+             : new CallCenterType($type);
     }
 
     public function getType()
@@ -99,9 +73,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->type) ?: $this->type->value();
     }
 
-    public function setPolicy($policy)
+    public function setPolicy($policy = null)
     {
-        $policy and $this->policy = new HuntPolicy($policy);
+        $this->policy = ($policy InstanceOf HuntPolicy)
+             ? $policy
+             : new HuntPolicy($policy);
     }
 
     public function getPolicy()
@@ -109,9 +85,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->policy) ?: $this->policy->value();
     }
 
-    public function setEnableVideo($enableVideo)
+    public function setEnableVideo(xs:boolean $enableVideo = null)
     {
-        $enableVideo and $this->enableVideo = new xs:boolean($enableVideo);
     }
 
     public function getEnableVideo()
@@ -119,9 +94,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->enableVideo) ?: $this->enableVideo->value();
     }
 
-    public function setQueueLength($queueLength)
+    public function setQueueLength($queueLength = null)
     {
-        $queueLength and $this->queueLength = new CallCenterQueueLength16($queueLength);
+        $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
+             ? $queueLength
+             : new CallCenterQueueLength16($queueLength);
     }
 
     public function getQueueLength()
@@ -129,9 +106,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->queueLength) ?: $this->queueLength->value();
     }
 
-    public function setReportingServerName($reportingServerName)
+    public function setReportingServerName($reportingServerName = null)
     {
-        $reportingServerName and $this->reportingServerName = new CallCenterReportingServerName($reportingServerName);
+        $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
+             ? $reportingServerName
+             : new CallCenterReportingServerName($reportingServerName);
     }
 
     public function getReportingServerName()
@@ -139,9 +118,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->reportingServerName) ?: $this->reportingServerName->value();
     }
 
-    public function setAllowCallerToDialEscapeDigit($allowCallerToDialEscapeDigit)
+    public function setAllowCallerToDialEscapeDigit(xs:boolean $allowCallerToDialEscapeDigit = null)
     {
-        $allowCallerToDialEscapeDigit and $this->allowCallerToDialEscapeDigit = new xs:boolean($allowCallerToDialEscapeDigit);
     }
 
     public function getAllowCallerToDialEscapeDigit()
@@ -149,9 +127,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->allowCallerToDialEscapeDigit) ?: $this->allowCallerToDialEscapeDigit->value();
     }
 
-    public function setEscapeDigit($escapeDigit)
+    public function setEscapeDigit($escapeDigit = null)
     {
-        $escapeDigit and $this->escapeDigit = new DtmfDigit($escapeDigit);
+        $this->escapeDigit = ($escapeDigit InstanceOf DtmfDigit)
+             ? $escapeDigit
+             : new DtmfDigit($escapeDigit);
     }
 
     public function getEscapeDigit()
@@ -159,9 +139,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->escapeDigit) ?: $this->escapeDigit->value();
     }
 
-    public function setResetCallStatisticsUponEntryInQueue($resetCallStatisticsUponEntryInQueue)
+    public function setResetCallStatisticsUponEntryInQueue(xs:boolean $resetCallStatisticsUponEntryInQueue = null)
     {
-        $resetCallStatisticsUponEntryInQueue and $this->resetCallStatisticsUponEntryInQueue = new xs:boolean($resetCallStatisticsUponEntryInQueue);
     }
 
     public function getResetCallStatisticsUponEntryInQueue()
@@ -169,9 +148,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->resetCallStatisticsUponEntryInQueue) ?: $this->resetCallStatisticsUponEntryInQueue->value();
     }
 
-    public function setAllowAgentLogoff($allowAgentLogoff)
+    public function setAllowAgentLogoff(xs:boolean $allowAgentLogoff = null)
     {
-        $allowAgentLogoff and $this->allowAgentLogoff = new xs:boolean($allowAgentLogoff);
     }
 
     public function getAllowAgentLogoff()
@@ -179,9 +157,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->value();
     }
 
-    public function setAllowCallWaitingForAgents($allowCallWaitingForAgents)
+    public function setAllowCallWaitingForAgents(xs:boolean $allowCallWaitingForAgents = null)
     {
-        $allowCallWaitingForAgents and $this->allowCallWaitingForAgents = new xs:boolean($allowCallWaitingForAgents);
     }
 
     public function getAllowCallWaitingForAgents()
@@ -189,9 +166,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->value();
     }
 
-    public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp)
+    public function setAllowCallsToAgentsInWrapUp(xs:boolean $allowCallsToAgentsInWrapUp = null)
     {
-        $allowCallsToAgentsInWrapUp and $this->allowCallsToAgentsInWrapUp = new xs:boolean($allowCallsToAgentsInWrapUp);
     }
 
     public function getAllowCallsToAgentsInWrapUp()
@@ -199,9 +175,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->value();
     }
 
-    public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime)
+    public function setOverrideAgentWrapUpTime(xs:boolean $overrideAgentWrapUpTime = null)
     {
-        $overrideAgentWrapUpTime and $this->overrideAgentWrapUpTime = new xs:boolean($overrideAgentWrapUpTime);
     }
 
     public function getOverrideAgentWrapUpTime()
@@ -209,9 +184,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->value();
     }
 
-    public function setWrapUpSeconds($wrapUpSeconds)
+    public function setWrapUpSeconds($wrapUpSeconds = null)
     {
-        $wrapUpSeconds and $this->wrapUpSeconds = new CallCenterWrapUpSeconds($wrapUpSeconds);
+        $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
+             ? $wrapUpSeconds
+             : new CallCenterWrapUpSeconds($wrapUpSeconds);
     }
 
     public function getWrapUpSeconds()
@@ -219,9 +196,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->value();
     }
 
-    public function setForceDeliveryOfCalls($forceDeliveryOfCalls)
+    public function setForceDeliveryOfCalls(xs:boolean $forceDeliveryOfCalls = null)
     {
-        $forceDeliveryOfCalls and $this->forceDeliveryOfCalls = new xs:boolean($forceDeliveryOfCalls);
     }
 
     public function getForceDeliveryOfCalls()
@@ -229,9 +205,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->value();
     }
 
-    public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds)
+    public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds = null)
     {
-        $forceDeliveryWaitTimeSeconds and $this->forceDeliveryWaitTimeSeconds = new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
+        $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
+             ? $forceDeliveryWaitTimeSeconds
+             : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
     }
 
     public function getForceDeliveryWaitTimeSeconds()
@@ -239,9 +217,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->forceDeliveryWaitTimeSeconds) ?: $this->forceDeliveryWaitTimeSeconds->value();
     }
 
-    public function setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents)
+    public function setEnableAutomaticStateChangeForAgents(xs:boolean $enableAutomaticStateChangeForAgents = null)
     {
-        $enableAutomaticStateChangeForAgents and $this->enableAutomaticStateChangeForAgents = new xs:boolean($enableAutomaticStateChangeForAgents);
     }
 
     public function getEnableAutomaticStateChangeForAgents()
@@ -249,9 +226,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->value();
     }
 
-    public function setAgentStateAfterCall($agentStateAfterCall)
+    public function setAgentStateAfterCall($agentStateAfterCall = null)
     {
-        $agentStateAfterCall and $this->agentStateAfterCall = new AgentACDAutomaticState($agentStateAfterCall);
+        $this->agentStateAfterCall = ($agentStateAfterCall InstanceOf AgentACDAutomaticState)
+             ? $agentStateAfterCall
+             : new AgentACDAutomaticState($agentStateAfterCall);
     }
 
     public function getAgentStateAfterCall()
@@ -259,9 +238,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->agentStateAfterCall) ?: $this->agentStateAfterCall->value();
     }
 
-    public function setAgentUnavailableCode($agentUnavailableCode)
+    public function setAgentUnavailableCode($agentUnavailableCode = null)
     {
-        $agentUnavailableCode and $this->agentUnavailableCode = new CallCenterAgentUnavailableCode($agentUnavailableCode);
+        $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
+             ? $agentUnavailableCode
+             : new CallCenterAgentUnavailableCode($agentUnavailableCode);
     }
 
     public function getAgentUnavailableCode()
@@ -269,9 +250,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->value();
     }
 
-    public function setExternalPreferredAudioCodec($externalPreferredAudioCodec)
+    public function setExternalPreferredAudioCodec($externalPreferredAudioCodec = null)
     {
-        $externalPreferredAudioCodec and $this->externalPreferredAudioCodec = new AudioFileCodec($externalPreferredAudioCodec);
+        $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
+             ? $externalPreferredAudioCodec
+             : new AudioFileCodec($externalPreferredAudioCodec);
     }
 
     public function getExternalPreferredAudioCodec()
@@ -279,9 +262,11 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->externalPreferredAudioCodec) ?: $this->externalPreferredAudioCodec->value();
     }
 
-    public function setInternalPreferredAudioCodec($internalPreferredAudioCodec)
+    public function setInternalPreferredAudioCodec($internalPreferredAudioCodec = null)
     {
-        $internalPreferredAudioCodec and $this->internalPreferredAudioCodec = new AudioFileCodec($internalPreferredAudioCodec);
+        $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
+             ? $internalPreferredAudioCodec
+             : new AudioFileCodec($internalPreferredAudioCodec);
     }
 
     public function getInternalPreferredAudioCodec()
@@ -289,9 +274,8 @@ class GroupCallCenterGetInstanceResponse17 extends ComplexType implements Comple
         return (!$this->internalPreferredAudioCodec) ?: $this->internalPreferredAudioCodec->value();
     }
 
-    public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall)
+    public function setPlayRingingWhenOfferingCall(xs:boolean $playRingingWhenOfferingCall = null)
     {
-        $playRingingWhenOfferingCall and $this->playRingingWhenOfferingCall = new xs:boolean($playRingingWhenOfferingCall);
     }
 
     public function getPlayRingingWhenOfferingCall()

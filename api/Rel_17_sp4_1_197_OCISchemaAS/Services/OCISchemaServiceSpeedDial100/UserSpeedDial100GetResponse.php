@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDialDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $phoneNumber  = null;
+    protected $description  = null;
 
-    public function __construct(
-             $phoneNumber,
-             $description=null
-    ) {
-        $this->phoneNumber = new OutgoingDNorSIPURI($phoneNumber);
-        $this->description = new SpeedDialDescription($description);
-        $this->args        = func_get_args();
-    }
 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber = null)
     {
-        $phoneNumber and $this->phoneNumber = new OutgoingDNorSIPURI($phoneNumber);
+        $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $phoneNumber
+             : new OutgoingDNorSIPURI($phoneNumber);
     }
 
     public function getPhoneNumber()
@@ -39,9 +35,11 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
         return (!$this->phoneNumber) ?: $this->phoneNumber->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new SpeedDialDescription($description);
+        $this->description = ($description InstanceOf SpeedDialDescription)
+             ? $description
+             : new SpeedDialDescription($description);
     }
 
     public function getDescription()

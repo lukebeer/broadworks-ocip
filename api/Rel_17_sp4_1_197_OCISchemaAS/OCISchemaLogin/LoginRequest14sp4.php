@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignedPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class LoginRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $signedPassword     = null;
+    protected $plainTextPassword  = null;
 
     public function __construct(
-             $userId,
-             $signedPassword=null,
-             $plainTextPassword=null
+         $userId,
+         $signedPassword = null,
+         $plainTextPassword = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->signedPassword    = new SignedPassword($signedPassword);
-        $this->plainTextPassword = new Password($plainTextPassword);
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setSignedPassword($signedPassword);
+        $this->setPlainTextPassword($plainTextPassword);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +47,11 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setSignedPassword($signedPassword)
+    public function setSignedPassword($signedPassword = null)
     {
-        $signedPassword and $this->signedPassword = new SignedPassword($signedPassword);
+        $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
+             ? $signedPassword
+             : new SignedPassword($signedPassword);
     }
 
     public function getSignedPassword()
@@ -53,9 +59,11 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
         return (!$this->signedPassword) ?: $this->signedPassword->value();
     }
 
-    public function setPlainTextPassword($plainTextPassword)
+    public function setPlainTextPassword($plainTextPassword = null)
     {
-        $plainTextPassword and $this->plainTextPassword = new Password($plainTextPassword);
+        $this->plainTextPassword = ($plainTextPassword InstanceOf Password)
+             ? $plainTextPassword
+             : new Password($plainTextPassword);
     }
 
     public function getPlainTextPassword()

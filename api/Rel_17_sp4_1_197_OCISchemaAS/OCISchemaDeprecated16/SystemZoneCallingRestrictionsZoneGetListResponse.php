@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneCallingRestrictionsZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $zoneTable  = null;
 
-    public function __construct(
-             $zoneTable
-    ) {
-        $this->zoneTable = $zoneTable;
-        $this->args      = func_get_args();
-    }
 
-    public function setZoneTable($zoneTable)
+    public function setZoneTable(core:OCITable $zoneTable = null)
     {
-        $zoneTable and $this->zoneTable = new core:OCITable($zoneTable);
     }
 
     public function getZoneTable()

@@ -7,14 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterOverflowProcessingAction;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntForwardTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLListModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementFileListModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLListModify;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterOverflowProcessingAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntForwardTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,40 +24,53 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                      = __CLASS__;
+    protected $serviceUserId                             = null;
+    protected $action                                    = null;
+    protected $transferPhoneNumber                       = null;
+    protected $overflowAfterTimeout                      = null;
+    protected $timeoutSeconds                            = null;
+    protected $playAnnouncementBeforeOverflowProcessing  = null;
+    protected $audioMessageSelection                     = null;
+    protected $audioUrlList                              = null;
+    protected $audioFileList                             = null;
+    protected $videoMessageSelection                     = null;
+    protected $videoUrlList                              = null;
+    protected $videoFileList                             = null;
 
     public function __construct(
-             $serviceUserId,
-             $action=null,
-             $transferPhoneNumber=null,
-             $overflowAfterTimeout=null,
-             $timeoutSeconds=null,
-             $playAnnouncementBeforeOverflowProcessing=null,
-             $audioMessageSelection=null,
-             CallCenterAnnouncementURLListModify $audioUrlList=null,
-             CallCenterAnnouncementFileListModify $audioFileList=null,
-             $videoMessageSelection=null,
-             CallCenterAnnouncementURLListModify $videoUrlList=null,
-             CallCenterAnnouncementFileListModify $videoFileList=null
+         $serviceUserId,
+         $action = null,
+         $transferPhoneNumber = null,
+         $overflowAfterTimeout = null,
+         $timeoutSeconds = null,
+         $playAnnouncementBeforeOverflowProcessing = null,
+         $audioMessageSelection = null,
+         CallCenterAnnouncementURLListModify $audioUrlList = null,
+         CallCenterAnnouncementFileListModify $audioFileList = null,
+         $videoMessageSelection = null,
+         CallCenterAnnouncementURLListModify $videoUrlList = null,
+         CallCenterAnnouncementFileListModify $videoFileList = null
     ) {
-        $this->serviceUserId                            = new UserId($serviceUserId);
-        $this->action                                   = new CallCenterOverflowProcessingAction($action);
-        $this->transferPhoneNumber                      = new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->overflowAfterTimeout                     = $overflowAfterTimeout;
-        $this->timeoutSeconds                           = new HuntForwardTimeoutSeconds($timeoutSeconds);
-        $this->playAnnouncementBeforeOverflowProcessing = $playAnnouncementBeforeOverflowProcessing;
-        $this->audioMessageSelection                    = new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioUrlList                             = $audioUrlList;
-        $this->audioFileList                            = $audioFileList;
-        $this->videoMessageSelection                    = new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoUrlList                             = $videoUrlList;
-        $this->videoFileList                            = $videoFileList;
-        $this->args                                     = func_get_args();
+        $this->setServiceUserId($serviceUserId);
+        $this->setAction($action);
+        $this->setTransferPhoneNumber($transferPhoneNumber);
+        $this->setOverflowAfterTimeout($overflowAfterTimeout);
+        $this->setTimeoutSeconds($timeoutSeconds);
+        $this->setPlayAnnouncementBeforeOverflowProcessing($playAnnouncementBeforeOverflowProcessing);
+        $this->setAudioMessageSelection($audioMessageSelection);
+        $this->setAudioUrlList($audioUrlList);
+        $this->setAudioFileList($audioFileList);
+        $this->setVideoMessageSelection($videoMessageSelection);
+        $this->setVideoUrlList($videoUrlList);
+        $this->setVideoFileList($videoFileList);
     }
 
-    public function setServiceUserId($serviceUserId)
+    public function setServiceUserId($serviceUserId = null)
     {
-        $serviceUserId and $this->serviceUserId = new UserId($serviceUserId);
+        $this->serviceUserId = ($serviceUserId InstanceOf UserId)
+             ? $serviceUserId
+             : new UserId($serviceUserId);
     }
 
     public function getServiceUserId()
@@ -66,9 +78,11 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->serviceUserId) ?: $this->serviceUserId->value();
     }
 
-    public function setAction($action)
+    public function setAction($action = null)
     {
-        $action and $this->action = new CallCenterOverflowProcessingAction($action);
+        $this->action = ($action InstanceOf CallCenterOverflowProcessingAction)
+             ? $action
+             : new CallCenterOverflowProcessingAction($action);
     }
 
     public function getAction()
@@ -76,9 +90,11 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->action) ?: $this->action->value();
     }
 
-    public function setTransferPhoneNumber($transferPhoneNumber)
+    public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        $transferPhoneNumber and $this->transferPhoneNumber = new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
+             ? $transferPhoneNumber
+             : new OutgoingDNorSIPURI($transferPhoneNumber);
     }
 
     public function getTransferPhoneNumber()
@@ -86,9 +102,8 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
     }
 
-    public function setOverflowAfterTimeout($overflowAfterTimeout)
+    public function setOverflowAfterTimeout(xs:boolean $overflowAfterTimeout = null)
     {
-        $overflowAfterTimeout and $this->overflowAfterTimeout = new xs:boolean($overflowAfterTimeout);
     }
 
     public function getOverflowAfterTimeout()
@@ -96,9 +111,11 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->overflowAfterTimeout) ?: $this->overflowAfterTimeout->value();
     }
 
-    public function setTimeoutSeconds($timeoutSeconds)
+    public function setTimeoutSeconds($timeoutSeconds = null)
     {
-        $timeoutSeconds and $this->timeoutSeconds = new HuntForwardTimeoutSeconds($timeoutSeconds);
+        $this->timeoutSeconds = ($timeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
+             ? $timeoutSeconds
+             : new HuntForwardTimeoutSeconds($timeoutSeconds);
     }
 
     public function getTimeoutSeconds()
@@ -106,9 +123,8 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->value();
     }
 
-    public function setPlayAnnouncementBeforeOverflowProcessing($playAnnouncementBeforeOverflowProcessing)
+    public function setPlayAnnouncementBeforeOverflowProcessing(xs:boolean $playAnnouncementBeforeOverflowProcessing = null)
     {
-        $playAnnouncementBeforeOverflowProcessing and $this->playAnnouncementBeforeOverflowProcessing = new xs:boolean($playAnnouncementBeforeOverflowProcessing);
     }
 
     public function getPlayAnnouncementBeforeOverflowProcessing()
@@ -116,9 +132,11 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->playAnnouncementBeforeOverflowProcessing) ?: $this->playAnnouncementBeforeOverflowProcessing->value();
     }
 
-    public function setAudioMessageSelection($audioMessageSelection)
+    public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        $audioMessageSelection and $this->audioMessageSelection = new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioMessageSelection
+             : new ExtendedFileResourceSelection($audioMessageSelection);
     }
 
     public function getAudioMessageSelection()
@@ -126,9 +144,8 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->value();
     }
 
-    public function setAudioUrlList($audioUrlList)
+    public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        $audioUrlList and $this->audioUrlList = new CallCenterAnnouncementURLListModify($audioUrlList);
     }
 
     public function getAudioUrlList()
@@ -136,9 +153,8 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->audioUrlList) ?: $this->audioUrlList->value();
     }
 
-    public function setAudioFileList($audioFileList)
+    public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        $audioFileList and $this->audioFileList = new CallCenterAnnouncementFileListModify($audioFileList);
     }
 
     public function getAudioFileList()
@@ -146,9 +162,11 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->audioFileList) ?: $this->audioFileList->value();
     }
 
-    public function setVideoMessageSelection($videoMessageSelection)
+    public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        $videoMessageSelection and $this->videoMessageSelection = new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoMessageSelection
+             : new ExtendedFileResourceSelection($videoMessageSelection);
     }
 
     public function getVideoMessageSelection()
@@ -156,9 +174,8 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->value();
     }
 
-    public function setVideoUrlList($videoUrlList)
+    public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        $videoUrlList and $this->videoUrlList = new CallCenterAnnouncementURLListModify($videoUrlList);
     }
 
     public function getVideoUrlList()
@@ -166,9 +183,8 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         return (!$this->videoUrlList) ?: $this->videoUrlList->value();
     }
 
-    public function setVideoFileList($videoFileList)
+    public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        $videoFileList and $this->videoFileList = new CallCenterAnnouncementFileListModify($videoFileList);
     }
 
     public function getVideoFileList()

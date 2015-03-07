@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingExpiredConferenceHoldPeriodDays;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingRecordedConferenceHoldPeriodDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordedConferenceHoldPeriodDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingExpiredConferenceHoldPeriodDays;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,24 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                              = __CLASS__;
+    protected $deleteExpiredConferences          = null;
+    protected $expiredConferenceHoldPeriodDays   = null;
+    protected $deleteRecordedConferences         = null;
+    protected $recordedConferenceHoldPeriodDays  = null;
 
-    public function __construct(
-             $deleteExpiredConferences,
-             $expiredConferenceHoldPeriodDays,
-             $deleteRecordedConferences,
-             $recordedConferenceHoldPeriodDays
-    ) {
-        $this->deleteExpiredConferences         = $deleteExpiredConferences;
-        $this->expiredConferenceHoldPeriodDays  = $expiredConferenceHoldPeriodDays;
-        $this->deleteRecordedConferences        = $deleteRecordedConferences;
-        $this->recordedConferenceHoldPeriodDays = $recordedConferenceHoldPeriodDays;
-        $this->args                             = func_get_args();
-    }
 
-    public function setDeleteExpiredConferences($deleteExpiredConferences)
+    public function setDeleteExpiredConferences(xs:boolean $deleteExpiredConferences = null)
     {
-        $deleteExpiredConferences and $this->deleteExpiredConferences = new xs:boolean($deleteExpiredConferences);
     }
 
     public function getDeleteExpiredConferences()
@@ -44,9 +34,11 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
         return (!$this->deleteExpiredConferences) ?: $this->deleteExpiredConferences->value();
     }
 
-    public function setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays)
+    public function setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays = null)
     {
-        $expiredConferenceHoldPeriodDays and $this->expiredConferenceHoldPeriodDays = new InstantConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
+        $this->expiredConferenceHoldPeriodDays = ($expiredConferenceHoldPeriodDays InstanceOf InstantConferencingExpiredConferenceHoldPeriodDays)
+             ? $expiredConferenceHoldPeriodDays
+             : new InstantConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
     }
 
     public function getExpiredConferenceHoldPeriodDays()
@@ -54,9 +46,8 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
         return (!$this->expiredConferenceHoldPeriodDays) ?: $this->expiredConferenceHoldPeriodDays->value();
     }
 
-    public function setDeleteRecordedConferences($deleteRecordedConferences)
+    public function setDeleteRecordedConferences(xs:boolean $deleteRecordedConferences = null)
     {
-        $deleteRecordedConferences and $this->deleteRecordedConferences = new xs:boolean($deleteRecordedConferences);
     }
 
     public function getDeleteRecordedConferences()
@@ -64,9 +55,11 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
         return (!$this->deleteRecordedConferences) ?: $this->deleteRecordedConferences->value();
     }
 
-    public function setRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays)
+    public function setRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays = null)
     {
-        $recordedConferenceHoldPeriodDays and $this->recordedConferenceHoldPeriodDays = new InstantConferencingRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays);
+        $this->recordedConferenceHoldPeriodDays = ($recordedConferenceHoldPeriodDays InstanceOf InstantConferencingRecordedConferenceHoldPeriodDays)
+             ? $recordedConferenceHoldPeriodDays
+             : new InstantConferencingRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays);
     }
 
     public function getRecordedConferenceHoldPeriodDays()

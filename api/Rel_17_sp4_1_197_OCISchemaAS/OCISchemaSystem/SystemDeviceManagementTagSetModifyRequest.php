@@ -18,20 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $tagSetName     = null;
+    protected $newTagSetName  = null;
 
     public function __construct(
-             $tagSetName,
-             $newTagSetName=null
+         $tagSetName,
+         $newTagSetName = null
     ) {
-        $this->tagSetName    = new DeviceManagementTagSetName($tagSetName);
-        $this->newTagSetName = new DeviceManagementTagSetName($newTagSetName);
-        $this->args          = func_get_args();
+        $this->setTagSetName($tagSetName);
+        $this->setNewTagSetName($newTagSetName);
     }
 
-    public function setTagSetName($tagSetName)
+    public function setTagSetName($tagSetName = null)
     {
-        $tagSetName and $this->tagSetName = new DeviceManagementTagSetName($tagSetName);
+        $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
+             ? $tagSetName
+             : new DeviceManagementTagSetName($tagSetName);
     }
 
     public function getTagSetName()
@@ -39,9 +42,11 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
         return (!$this->tagSetName) ?: $this->tagSetName->value();
     }
 
-    public function setNewTagSetName($newTagSetName)
+    public function setNewTagSetName($newTagSetName = null)
     {
-        $newTagSetName and $this->newTagSetName = new DeviceManagementTagSetName($newTagSetName);
+        $this->newTagSetName = ($newTagSetName InstanceOf DeviceManagementTagSetName)
+             ? $newTagSetName
+             : new DeviceManagementTagSetName($newTagSetName);
     }
 
     public function getNewTagSetName()

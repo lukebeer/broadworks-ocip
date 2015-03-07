@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEDeviceOptions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceProtocol;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CPEDeviceOptions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,32 +21,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $isObsolete                 = null;
+    protected $profile                    = null;
+    protected $webBasedConfigURL          = null;
+    protected $staticRegistrationCapable  = null;
+    protected $cpeDeviceOptions           = null;
+    protected $protocolChoice             = null;
+    protected $isIpAddressOptional        = null;
+    protected $useDomain                  = null;
 
-    public function __construct(
-             $isObsolete,
-             $profile,
-             $webBasedConfigURL=null,
-             $staticRegistrationCapable,
-             $cpeDeviceOptions=null,
-             $protocolChoice,
-             $isIpAddressOptional,
-             $useDomain
-    ) {
-        $this->isObsolete                = $isObsolete;
-        $this->profile                   = new SignalingAddressType($profile);
-        $this->webBasedConfigURL         = new WebBasedConfigURL($webBasedConfigURL);
-        $this->staticRegistrationCapable = $staticRegistrationCapable;
-        $this->cpeDeviceOptions          = $cpeDeviceOptions;
-        $this->protocolChoice            = new AccessDeviceProtocol($protocolChoice);
-        $this->isIpAddressOptional       = $isIpAddressOptional;
-        $this->useDomain                 = $useDomain;
-        $this->args                      = func_get_args();
-    }
 
-    public function setIsObsolete($isObsolete)
+    public function setIsObsolete(xs:boolean $isObsolete = null)
     {
-        $isObsolete and $this->isObsolete = new xs:boolean($isObsolete);
     }
 
     public function getIsObsolete()
@@ -55,9 +41,11 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         return (!$this->isObsolete) ?: $this->isObsolete->value();
     }
 
-    public function setProfile($profile)
+    public function setProfile($profile = null)
     {
-        $profile and $this->profile = new SignalingAddressType($profile);
+        $this->profile = ($profile InstanceOf SignalingAddressType)
+             ? $profile
+             : new SignalingAddressType($profile);
     }
 
     public function getProfile()
@@ -65,9 +53,11 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         return (!$this->profile) ?: $this->profile->value();
     }
 
-    public function setWebBasedConfigURL($webBasedConfigURL)
+    public function setWebBasedConfigURL($webBasedConfigURL = null)
     {
-        $webBasedConfigURL and $this->webBasedConfigURL = new WebBasedConfigURL($webBasedConfigURL);
+        $this->webBasedConfigURL = ($webBasedConfigURL InstanceOf WebBasedConfigURL)
+             ? $webBasedConfigURL
+             : new WebBasedConfigURL($webBasedConfigURL);
     }
 
     public function getWebBasedConfigURL()
@@ -75,9 +65,8 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         return (!$this->webBasedConfigURL) ?: $this->webBasedConfigURL->value();
     }
 
-    public function setStaticRegistrationCapable($staticRegistrationCapable)
+    public function setStaticRegistrationCapable(xs:boolean $staticRegistrationCapable = null)
     {
-        $staticRegistrationCapable and $this->staticRegistrationCapable = new xs:boolean($staticRegistrationCapable);
     }
 
     public function getStaticRegistrationCapable()
@@ -85,9 +74,8 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->value();
     }
 
-    public function setCpeDeviceOptions($cpeDeviceOptions)
+    public function setCpeDeviceOptions(CPEDeviceOptions $cpeDeviceOptions = null)
     {
-        $cpeDeviceOptions and $this->cpeDeviceOptions = new CPEDeviceOptions($cpeDeviceOptions);
     }
 
     public function getCpeDeviceOptions()
@@ -95,9 +83,11 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         return (!$this->cpeDeviceOptions) ?: $this->cpeDeviceOptions->value();
     }
 
-    public function setProtocolChoice($protocolChoice)
+    public function setProtocolChoice($protocolChoice = null)
     {
-        $protocolChoice and $this->protocolChoice = new AccessDeviceProtocol($protocolChoice);
+        $this->protocolChoice = ($protocolChoice InstanceOf AccessDeviceProtocol)
+             ? $protocolChoice
+             : new AccessDeviceProtocol($protocolChoice);
     }
 
     public function getProtocolChoice()
@@ -105,9 +95,8 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         return (!$this->protocolChoice) ?: $this->protocolChoice->value();
     }
 
-    public function setIsIpAddressOptional($isIpAddressOptional)
+    public function setIsIpAddressOptional(xs:boolean $isIpAddressOptional = null)
     {
-        $isIpAddressOptional and $this->isIpAddressOptional = new xs:boolean($isIpAddressOptional);
     }
 
     public function getIsIpAddressOptional()
@@ -115,9 +104,8 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional->value();
     }
 
-    public function setUseDomain($useDomain)
+    public function setUseDomain(xs:boolean $useDomain = null)
     {
-        $useDomain and $this->useDomain = new xs:boolean($useDomain);
     }
 
     public function getUseDomain()

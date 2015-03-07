@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntelligentNetworkServiceControl\IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Treatment;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,36 +19,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $preAnswerActionTimeoutSeconds  = null;
+    protected $msgRejectNoVoiceMail           = null;
+    protected $msgRejectVoiceMail             = null;
+    protected $msgPreAnswerWait               = null;
+    protected $msgBusy                        = null;
+    protected $msgRelease                     = null;
+    protected $msgNoAnswer                    = null;
+    protected $msgOCPReject                   = null;
+    protected $msgForwardLoop                 = null;
+    protected $msgTemporarilyUnavailable      = null;
 
     public function __construct(
-             $preAnswerActionTimeoutSeconds=null,
-             $msgRejectNoVoiceMail=null,
-             $msgRejectVoiceMail=null,
-             $msgPreAnswerWait=null,
-             $msgBusy=null,
-             $msgRelease=null,
-             $msgNoAnswer=null,
-             $msgOCPReject=null,
-             $msgForwardLoop=null,
-             $msgTemporarilyUnavailable=null
+         $preAnswerActionTimeoutSeconds = null,
+         $msgRejectNoVoiceMail = null,
+         $msgRejectVoiceMail = null,
+         $msgPreAnswerWait = null,
+         $msgBusy = null,
+         $msgRelease = null,
+         $msgNoAnswer = null,
+         $msgOCPReject = null,
+         $msgForwardLoop = null,
+         $msgTemporarilyUnavailable = null
     ) {
-        $this->preAnswerActionTimeoutSeconds = $preAnswerActionTimeoutSeconds;
-        $this->msgRejectNoVoiceMail          = new Treatment($msgRejectNoVoiceMail);
-        $this->msgRejectVoiceMail            = new Treatment($msgRejectVoiceMail);
-        $this->msgPreAnswerWait              = new Treatment($msgPreAnswerWait);
-        $this->msgBusy                       = new Treatment($msgBusy);
-        $this->msgRelease                    = new Treatment($msgRelease);
-        $this->msgNoAnswer                   = new Treatment($msgNoAnswer);
-        $this->msgOCPReject                  = new Treatment($msgOCPReject);
-        $this->msgForwardLoop                = new Treatment($msgForwardLoop);
-        $this->msgTemporarilyUnavailable     = new Treatment($msgTemporarilyUnavailable);
-        $this->args                          = func_get_args();
+        $this->setPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds);
+        $this->setMsgRejectNoVoiceMail($msgRejectNoVoiceMail);
+        $this->setMsgRejectVoiceMail($msgRejectVoiceMail);
+        $this->setMsgPreAnswerWait($msgPreAnswerWait);
+        $this->setMsgBusy($msgBusy);
+        $this->setMsgRelease($msgRelease);
+        $this->setMsgNoAnswer($msgNoAnswer);
+        $this->setMsgOCPReject($msgOCPReject);
+        $this->setMsgForwardLoop($msgForwardLoop);
+        $this->setMsgTemporarilyUnavailable($msgTemporarilyUnavailable);
     }
 
-    public function setPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds)
+    public function setPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds = null)
     {
-        $preAnswerActionTimeoutSeconds and $this->preAnswerActionTimeoutSeconds = new IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds);
+        $this->preAnswerActionTimeoutSeconds = ($preAnswerActionTimeoutSeconds InstanceOf IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds)
+             ? $preAnswerActionTimeoutSeconds
+             : new IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds);
     }
 
     public function getPreAnswerActionTimeoutSeconds()
@@ -56,9 +67,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->preAnswerActionTimeoutSeconds) ?: $this->preAnswerActionTimeoutSeconds->value();
     }
 
-    public function setMsgRejectNoVoiceMail($msgRejectNoVoiceMail)
+    public function setMsgRejectNoVoiceMail($msgRejectNoVoiceMail = null)
     {
-        $msgRejectNoVoiceMail and $this->msgRejectNoVoiceMail = new Treatment($msgRejectNoVoiceMail);
+        $this->msgRejectNoVoiceMail = ($msgRejectNoVoiceMail InstanceOf Treatment)
+             ? $msgRejectNoVoiceMail
+             : new Treatment($msgRejectNoVoiceMail);
     }
 
     public function getMsgRejectNoVoiceMail()
@@ -66,9 +79,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgRejectNoVoiceMail) ?: $this->msgRejectNoVoiceMail->value();
     }
 
-    public function setMsgRejectVoiceMail($msgRejectVoiceMail)
+    public function setMsgRejectVoiceMail($msgRejectVoiceMail = null)
     {
-        $msgRejectVoiceMail and $this->msgRejectVoiceMail = new Treatment($msgRejectVoiceMail);
+        $this->msgRejectVoiceMail = ($msgRejectVoiceMail InstanceOf Treatment)
+             ? $msgRejectVoiceMail
+             : new Treatment($msgRejectVoiceMail);
     }
 
     public function getMsgRejectVoiceMail()
@@ -76,9 +91,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgRejectVoiceMail) ?: $this->msgRejectVoiceMail->value();
     }
 
-    public function setMsgPreAnswerWait($msgPreAnswerWait)
+    public function setMsgPreAnswerWait($msgPreAnswerWait = null)
     {
-        $msgPreAnswerWait and $this->msgPreAnswerWait = new Treatment($msgPreAnswerWait);
+        $this->msgPreAnswerWait = ($msgPreAnswerWait InstanceOf Treatment)
+             ? $msgPreAnswerWait
+             : new Treatment($msgPreAnswerWait);
     }
 
     public function getMsgPreAnswerWait()
@@ -86,9 +103,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgPreAnswerWait) ?: $this->msgPreAnswerWait->value();
     }
 
-    public function setMsgBusy($msgBusy)
+    public function setMsgBusy($msgBusy = null)
     {
-        $msgBusy and $this->msgBusy = new Treatment($msgBusy);
+        $this->msgBusy = ($msgBusy InstanceOf Treatment)
+             ? $msgBusy
+             : new Treatment($msgBusy);
     }
 
     public function getMsgBusy()
@@ -96,9 +115,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgBusy) ?: $this->msgBusy->value();
     }
 
-    public function setMsgRelease($msgRelease)
+    public function setMsgRelease($msgRelease = null)
     {
-        $msgRelease and $this->msgRelease = new Treatment($msgRelease);
+        $this->msgRelease = ($msgRelease InstanceOf Treatment)
+             ? $msgRelease
+             : new Treatment($msgRelease);
     }
 
     public function getMsgRelease()
@@ -106,9 +127,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgRelease) ?: $this->msgRelease->value();
     }
 
-    public function setMsgNoAnswer($msgNoAnswer)
+    public function setMsgNoAnswer($msgNoAnswer = null)
     {
-        $msgNoAnswer and $this->msgNoAnswer = new Treatment($msgNoAnswer);
+        $this->msgNoAnswer = ($msgNoAnswer InstanceOf Treatment)
+             ? $msgNoAnswer
+             : new Treatment($msgNoAnswer);
     }
 
     public function getMsgNoAnswer()
@@ -116,9 +139,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgNoAnswer) ?: $this->msgNoAnswer->value();
     }
 
-    public function setMsgOCPReject($msgOCPReject)
+    public function setMsgOCPReject($msgOCPReject = null)
     {
-        $msgOCPReject and $this->msgOCPReject = new Treatment($msgOCPReject);
+        $this->msgOCPReject = ($msgOCPReject InstanceOf Treatment)
+             ? $msgOCPReject
+             : new Treatment($msgOCPReject);
     }
 
     public function getMsgOCPReject()
@@ -126,9 +151,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgOCPReject) ?: $this->msgOCPReject->value();
     }
 
-    public function setMsgForwardLoop($msgForwardLoop)
+    public function setMsgForwardLoop($msgForwardLoop = null)
     {
-        $msgForwardLoop and $this->msgForwardLoop = new Treatment($msgForwardLoop);
+        $this->msgForwardLoop = ($msgForwardLoop InstanceOf Treatment)
+             ? $msgForwardLoop
+             : new Treatment($msgForwardLoop);
     }
 
     public function getMsgForwardLoop()
@@ -136,9 +163,11 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         return (!$this->msgForwardLoop) ?: $this->msgForwardLoop->value();
     }
 
-    public function setMsgTemporarilyUnavailable($msgTemporarilyUnavailable)
+    public function setMsgTemporarilyUnavailable($msgTemporarilyUnavailable = null)
     {
-        $msgTemporarilyUnavailable and $this->msgTemporarilyUnavailable = new Treatment($msgTemporarilyUnavailable);
+        $this->msgTemporarilyUnavailable = ($msgTemporarilyUnavailable InstanceOf Treatment)
+             ? $msgTemporarilyUnavailable
+             : new Treatment($msgTemporarilyUnavailable);
     }
 
     public function getMsgTemporarilyUnavailable()

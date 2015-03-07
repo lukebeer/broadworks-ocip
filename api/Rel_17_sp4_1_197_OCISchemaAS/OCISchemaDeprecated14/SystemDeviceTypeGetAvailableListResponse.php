@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $deviceType  = null;
+    protected $typeInfo    = null;
 
-    public function __construct(
-             $deviceType=null,
-             $typeInfo=null
-    ) {
-        $this->deviceType = new AccessDeviceType($deviceType);
-        $this->typeInfo   = $typeInfo;
-        $this->args       = func_get_args();
-    }
 
-    public function setDeviceType($deviceType)
+    public function setDeviceType($deviceType = null)
     {
-        $deviceType and $this->deviceType = new AccessDeviceType($deviceType);
+        $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
+             ? $deviceType
+             : new AccessDeviceType($deviceType);
     }
 
     public function getDeviceType()
@@ -38,9 +34,9 @@ class SystemDeviceTypeGetAvailableListResponse extends ComplexType implements Co
         return (!$this->deviceType) ?: $this->deviceType->value();
     }
 
-    public function setTypeInfo($typeInfo)
+    public function setTypeInfo($typeInfo = null)
     {
-        $typeInfo and $this->typeInfo = new ($typeInfo);
+        $this->typeInfo = $typeInfo;
     }
 
     public function getTypeInfo()

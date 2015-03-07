@@ -20,18 +20,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $reportingServerName  = null;
 
     public function __construct(
-             $reportingServerName
+         $reportingServerName
     ) {
-        $this->reportingServerName = new CallCenterReportingServerName($reportingServerName);
-        $this->args                = func_get_args();
+        $this->setReportingServerName($reportingServerName);
     }
 
-    public function setReportingServerName($reportingServerName)
+    public function setReportingServerName($reportingServerName = null)
     {
-        $reportingServerName and $this->reportingServerName = new CallCenterReportingServerName($reportingServerName);
+        $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
+             ? $reportingServerName
+             : new CallCenterReportingServerName($reportingServerName);
     }
 
     public function getReportingServerName()

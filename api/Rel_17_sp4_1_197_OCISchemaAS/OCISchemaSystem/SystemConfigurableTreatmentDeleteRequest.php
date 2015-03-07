@@ -18,18 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemConfigurableTreatmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $treatmentId  = null;
 
     public function __construct(
-             $treatmentId
+         $treatmentId
     ) {
-        $this->treatmentId = new TreatmentId($treatmentId);
-        $this->args        = func_get_args();
+        $this->setTreatmentId($treatmentId);
     }
 
-    public function setTreatmentId($treatmentId)
+    public function setTreatmentId($treatmentId = null)
     {
-        $treatmentId and $this->treatmentId = new TreatmentId($treatmentId);
+        $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
+             ? $treatmentId
+             : new TreatmentId($treatmentId);
     }
 
     public function getTreatmentId()

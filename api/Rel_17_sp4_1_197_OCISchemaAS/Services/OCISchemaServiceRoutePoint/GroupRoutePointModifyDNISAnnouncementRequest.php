@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterMediaOnHoldSourceModify17;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $dnisKey            = null;
+    protected $mediaOnHoldSource  = null;
 
     public function __construct(
-             DNISKey $dnisKey,
-             CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource=null
+         DNISKey $dnisKey,
+         CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null
     ) {
-        $this->dnisKey           = $dnisKey;
-        $this->mediaOnHoldSource = $mediaOnHoldSource;
-        $this->args              = func_get_args();
+        $this->setDnisKey($dnisKey);
+        $this->setMediaOnHoldSource($mediaOnHoldSource);
     }
 
-    public function setDnisKey($dnisKey)
+    public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $dnisKey and $this->dnisKey = new DNISKey($dnisKey);
     }
 
     public function getDnisKey()
@@ -40,9 +40,8 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
         return (!$this->dnisKey) ?: $this->dnisKey->value();
     }
 
-    public function setMediaOnHoldSource($mediaOnHoldSource)
+    public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
-        $mediaOnHoldSource and $this->mediaOnHoldSource = new CallCenterMediaOnHoldSourceModify17($mediaOnHoldSource);
     }
 
     public function getMediaOnHoldSource()

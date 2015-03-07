@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $trunkGroupName  = null;
 
-    public function __construct(
-             $trunkGroupName=null
-    ) {
-        $this->trunkGroupName = new TrunkGroupName($trunkGroupName);
-        $this->args           = func_get_args();
-    }
 
-    public function setTrunkGroupName($trunkGroupName)
+    public function setTrunkGroupName($trunkGroupName = null)
     {
-        $trunkGroupName and $this->trunkGroupName = new TrunkGroupName($trunkGroupName);
+        $this->trunkGroupName = ($trunkGroupName InstanceOf TrunkGroupName)
+             ? $trunkGroupName
+             : new TrunkGroupName($trunkGroupName);
     }
 
     public function getTrunkGroupName()

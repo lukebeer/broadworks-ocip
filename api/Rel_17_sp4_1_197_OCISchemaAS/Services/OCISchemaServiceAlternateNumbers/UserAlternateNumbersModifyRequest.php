@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAlternateNumbers; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAlternateNumbers\AlternateNumberEntry17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AlternateNumberEntry17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,40 +19,53 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $userId            = null;
+    protected $distinctiveRing   = null;
+    protected $alternateEntry01  = null;
+    protected $alternateEntry02  = null;
+    protected $alternateEntry03  = null;
+    protected $alternateEntry04  = null;
+    protected $alternateEntry05  = null;
+    protected $alternateEntry06  = null;
+    protected $alternateEntry07  = null;
+    protected $alternateEntry08  = null;
+    protected $alternateEntry09  = null;
+    protected $alternateEntry10  = null;
 
     public function __construct(
-             $userId,
-             $distinctiveRing=null,
-             $alternateEntry01=null,
-             $alternateEntry02=null,
-             $alternateEntry03=null,
-             $alternateEntry04=null,
-             $alternateEntry05=null,
-             $alternateEntry06=null,
-             $alternateEntry07=null,
-             $alternateEntry08=null,
-             $alternateEntry09=null,
-             $alternateEntry10=null
+         $userId,
+         $distinctiveRing = null,
+         AlternateNumberEntry17 $alternateEntry01 = null,
+         AlternateNumberEntry17 $alternateEntry02 = null,
+         AlternateNumberEntry17 $alternateEntry03 = null,
+         AlternateNumberEntry17 $alternateEntry04 = null,
+         AlternateNumberEntry17 $alternateEntry05 = null,
+         AlternateNumberEntry17 $alternateEntry06 = null,
+         AlternateNumberEntry17 $alternateEntry07 = null,
+         AlternateNumberEntry17 $alternateEntry08 = null,
+         AlternateNumberEntry17 $alternateEntry09 = null,
+         AlternateNumberEntry17 $alternateEntry10 = null
     ) {
-        $this->userId           = new UserId($userId);
-        $this->distinctiveRing  = $distinctiveRing;
-        $this->alternateEntry01 = $alternateEntry01;
-        $this->alternateEntry02 = $alternateEntry02;
-        $this->alternateEntry03 = $alternateEntry03;
-        $this->alternateEntry04 = $alternateEntry04;
-        $this->alternateEntry05 = $alternateEntry05;
-        $this->alternateEntry06 = $alternateEntry06;
-        $this->alternateEntry07 = $alternateEntry07;
-        $this->alternateEntry08 = $alternateEntry08;
-        $this->alternateEntry09 = $alternateEntry09;
-        $this->alternateEntry10 = $alternateEntry10;
-        $this->args             = func_get_args();
+        $this->setUserId($userId);
+        $this->setDistinctiveRing($distinctiveRing);
+        $this->setAlternateEntry01($alternateEntry01);
+        $this->setAlternateEntry02($alternateEntry02);
+        $this->setAlternateEntry03($alternateEntry03);
+        $this->setAlternateEntry04($alternateEntry04);
+        $this->setAlternateEntry05($alternateEntry05);
+        $this->setAlternateEntry06($alternateEntry06);
+        $this->setAlternateEntry07($alternateEntry07);
+        $this->setAlternateEntry08($alternateEntry08);
+        $this->setAlternateEntry09($alternateEntry09);
+        $this->setAlternateEntry10($alternateEntry10);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -61,9 +73,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setDistinctiveRing($distinctiveRing)
+    public function setDistinctiveRing(xs:boolean $distinctiveRing = null)
     {
-        $distinctiveRing and $this->distinctiveRing = new xs:boolean($distinctiveRing);
     }
 
     public function getDistinctiveRing()
@@ -71,9 +82,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->distinctiveRing) ?: $this->distinctiveRing->value();
     }
 
-    public function setAlternateEntry01($alternateEntry01)
+    public function setAlternateEntry01(AlternateNumberEntry17 $alternateEntry01 = null)
     {
-        $alternateEntry01 and $this->alternateEntry01 = new AlternateNumberEntry17($alternateEntry01);
     }
 
     public function getAlternateEntry01()
@@ -81,9 +91,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry01) ?: $this->alternateEntry01->value();
     }
 
-    public function setAlternateEntry02($alternateEntry02)
+    public function setAlternateEntry02(AlternateNumberEntry17 $alternateEntry02 = null)
     {
-        $alternateEntry02 and $this->alternateEntry02 = new AlternateNumberEntry17($alternateEntry02);
     }
 
     public function getAlternateEntry02()
@@ -91,9 +100,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry02) ?: $this->alternateEntry02->value();
     }
 
-    public function setAlternateEntry03($alternateEntry03)
+    public function setAlternateEntry03(AlternateNumberEntry17 $alternateEntry03 = null)
     {
-        $alternateEntry03 and $this->alternateEntry03 = new AlternateNumberEntry17($alternateEntry03);
     }
 
     public function getAlternateEntry03()
@@ -101,9 +109,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry03) ?: $this->alternateEntry03->value();
     }
 
-    public function setAlternateEntry04($alternateEntry04)
+    public function setAlternateEntry04(AlternateNumberEntry17 $alternateEntry04 = null)
     {
-        $alternateEntry04 and $this->alternateEntry04 = new AlternateNumberEntry17($alternateEntry04);
     }
 
     public function getAlternateEntry04()
@@ -111,9 +118,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry04) ?: $this->alternateEntry04->value();
     }
 
-    public function setAlternateEntry05($alternateEntry05)
+    public function setAlternateEntry05(AlternateNumberEntry17 $alternateEntry05 = null)
     {
-        $alternateEntry05 and $this->alternateEntry05 = new AlternateNumberEntry17($alternateEntry05);
     }
 
     public function getAlternateEntry05()
@@ -121,9 +127,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry05) ?: $this->alternateEntry05->value();
     }
 
-    public function setAlternateEntry06($alternateEntry06)
+    public function setAlternateEntry06(AlternateNumberEntry17 $alternateEntry06 = null)
     {
-        $alternateEntry06 and $this->alternateEntry06 = new AlternateNumberEntry17($alternateEntry06);
     }
 
     public function getAlternateEntry06()
@@ -131,9 +136,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry06) ?: $this->alternateEntry06->value();
     }
 
-    public function setAlternateEntry07($alternateEntry07)
+    public function setAlternateEntry07(AlternateNumberEntry17 $alternateEntry07 = null)
     {
-        $alternateEntry07 and $this->alternateEntry07 = new AlternateNumberEntry17($alternateEntry07);
     }
 
     public function getAlternateEntry07()
@@ -141,9 +145,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry07) ?: $this->alternateEntry07->value();
     }
 
-    public function setAlternateEntry08($alternateEntry08)
+    public function setAlternateEntry08(AlternateNumberEntry17 $alternateEntry08 = null)
     {
-        $alternateEntry08 and $this->alternateEntry08 = new AlternateNumberEntry17($alternateEntry08);
     }
 
     public function getAlternateEntry08()
@@ -151,9 +154,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry08) ?: $this->alternateEntry08->value();
     }
 
-    public function setAlternateEntry09($alternateEntry09)
+    public function setAlternateEntry09(AlternateNumberEntry17 $alternateEntry09 = null)
     {
-        $alternateEntry09 and $this->alternateEntry09 = new AlternateNumberEntry17($alternateEntry09);
     }
 
     public function getAlternateEntry09()
@@ -161,9 +163,8 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->alternateEntry09) ?: $this->alternateEntry09->value();
     }
 
-    public function setAlternateEntry10($alternateEntry10)
+    public function setAlternateEntry10(AlternateNumberEntry17 $alternateEntry10 = null)
     {
-        $alternateEntry10 and $this->alternateEntry10 = new AlternateNumberEntry17($alternateEntry10);
     }
 
     public function getAlternateEntry10()

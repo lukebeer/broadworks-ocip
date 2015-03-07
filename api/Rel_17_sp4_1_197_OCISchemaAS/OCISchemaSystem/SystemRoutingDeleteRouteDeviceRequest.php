@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RouteName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RouteName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $routeName   = null;
+    protected $netAddress  = null;
+    protected $port        = null;
 
     public function __construct(
-             $routeName,
-             $netAddress,
-             $port=null
+         $routeName,
+         $netAddress,
+         $port = null
     ) {
-        $this->routeName  = $routeName;
-        $this->netAddress = new NetAddress($netAddress);
-        $this->port       = new Port1025($port);
-        $this->args       = func_get_args();
+        $this->setRouteName($routeName);
+        $this->setNetAddress($netAddress);
+        $this->setPort($port);
     }
 
-    public function setRouteName($routeName)
+    public function setRouteName($routeName = null)
     {
-        $routeName and $this->routeName = new RouteName($routeName);
+        $this->routeName = ($routeName InstanceOf RouteName)
+             ? $routeName
+             : new RouteName($routeName);
     }
 
     public function getRouteName()
@@ -43,9 +47,11 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
         return (!$this->routeName) ?: $this->routeName->value();
     }
 
-    public function setNetAddress($netAddress)
+    public function setNetAddress($netAddress = null)
     {
-        $netAddress and $this->netAddress = new NetAddress($netAddress);
+        $this->netAddress = ($netAddress InstanceOf NetAddress)
+             ? $netAddress
+             : new NetAddress($netAddress);
     }
 
     public function getNetAddress()
@@ -53,9 +59,11 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
         return (!$this->netAddress) ?: $this->netAddress->value();
     }
 
-    public function setPort($port)
+    public function setPort($port = null)
     {
-        $port and $this->port = new Port1025($port);
+        $this->port = ($port InstanceOf Port1025)
+             ? $port
+             : new Port1025($port);
     }
 
     public function getPort()

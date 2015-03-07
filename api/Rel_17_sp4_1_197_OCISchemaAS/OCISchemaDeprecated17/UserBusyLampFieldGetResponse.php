@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,20 +21,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $listURI             = null;
+    protected $monitoredUserTable  = null;
 
-    public function __construct(
-             $listURI=null,
-             $monitoredUserTable
-    ) {
-        $this->listURI            = new SIPURI($listURI);
-        $this->monitoredUserTable = $monitoredUserTable;
-        $this->args               = func_get_args();
-    }
 
-    public function setListURI($listURI)
+    public function setListURI($listURI = null)
     {
-        $listURI and $this->listURI = new SIPURI($listURI);
+        $this->listURI = ($listURI InstanceOf SIPURI)
+             ? $listURI
+             : new SIPURI($listURI);
     }
 
     public function getListURI()
@@ -43,9 +38,8 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
         return (!$this->listURI) ?: $this->listURI->value();
     }
 
-    public function setMonitoredUserTable($monitoredUserTable)
+    public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $monitoredUserTable and $this->monitoredUserTable = new core:OCITable($monitoredUserTable);
     }
 
     public function getMonitoredUserTable()

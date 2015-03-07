@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,22 +19,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $isActive           = null;
+    protected $mobilePhoneNumber  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $mobilePhoneNumber=null
+         $userId,
+         $isActive = null,
+         $mobilePhoneNumber = null
     ) {
-        $this->userId            = new UserId($userId);
-        $this->isActive          = $isActive;
-        $this->mobilePhoneNumber = new DN($mobilePhoneNumber);
-        $this->args              = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setMobilePhoneNumber($mobilePhoneNumber);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -43,9 +46,8 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -53,9 +55,11 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setMobilePhoneNumber($mobilePhoneNumber)
+    public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        $mobilePhoneNumber and $this->mobilePhoneNumber = new DN($mobilePhoneNumber);
+        $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
+             ? $mobilePhoneNumber
+             : new DN($mobilePhoneNumber);
     }
 
     public function getMobilePhoneNumber()

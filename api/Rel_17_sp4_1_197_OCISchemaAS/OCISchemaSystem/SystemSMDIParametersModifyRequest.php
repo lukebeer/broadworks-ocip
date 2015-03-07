@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMDIMaxConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SMDIMaxConnections;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $enableSMDI      = null;
+    protected $listeningPort   = null;
+    protected $maxConnections  = null;
 
     public function __construct(
-             $enableSMDI=null,
-             $listeningPort=null,
-             $maxConnections=null
+         $enableSMDI = null,
+         $listeningPort = null,
+         $maxConnections = null
     ) {
-        $this->enableSMDI     = $enableSMDI;
-        $this->listeningPort  = new Port1025($listeningPort);
-        $this->maxConnections = $maxConnections;
-        $this->args           = func_get_args();
+        $this->setEnableSMDI($enableSMDI);
+        $this->setListeningPort($listeningPort);
+        $this->setMaxConnections($maxConnections);
     }
 
-    public function setEnableSMDI($enableSMDI)
+    public function setEnableSMDI(xs:boolean $enableSMDI = null)
     {
-        $enableSMDI and $this->enableSMDI = new xs:boolean($enableSMDI);
     }
 
     public function getEnableSMDI()
@@ -43,9 +43,11 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->enableSMDI) ?: $this->enableSMDI->value();
     }
 
-    public function setListeningPort($listeningPort)
+    public function setListeningPort($listeningPort = null)
     {
-        $listeningPort and $this->listeningPort = new Port1025($listeningPort);
+        $this->listeningPort = ($listeningPort InstanceOf Port1025)
+             ? $listeningPort
+             : new Port1025($listeningPort);
     }
 
     public function getListeningPort()
@@ -53,9 +55,11 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
         return (!$this->listeningPort) ?: $this->listeningPort->value();
     }
 
-    public function setMaxConnections($maxConnections)
+    public function setMaxConnections($maxConnections = null)
     {
-        $maxConnections and $this->maxConnections = new SMDIMaxConnections($maxConnections);
+        $this->maxConnections = ($maxConnections InstanceOf SMDIMaxConnections)
+             ? $maxConnections
+             : new SMDIMaxConnections($maxConnections);
     }
 
     public function getMaxConnections()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $fileRepositoryTable  = null;
 
-    public function __construct(
-             $fileRepositoryTable
-    ) {
-        $this->fileRepositoryTable = $fileRepositoryTable;
-        $this->args                = func_get_args();
-    }
 
-    public function setFileRepositoryTable($fileRepositoryTable)
+    public function setFileRepositoryTable(core:OCITable $fileRepositoryTable = null)
     {
-        $fileRepositoryTable and $this->fileRepositoryTable = new core:OCITable($fileRepositoryTable);
     }
 
     public function getFileRepositoryTable()

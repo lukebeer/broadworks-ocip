@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $directTransferScreening       = null;
+    protected $enableEnhancedTollCallTyping  = null;
 
-    public function __construct(
-             $directTransferScreening,
-             $enableEnhancedTollCallTyping
-    ) {
-        $this->directTransferScreening      = $directTransferScreening;
-        $this->enableEnhancedTollCallTyping = $enableEnhancedTollCallTyping;
-        $this->args                         = func_get_args();
-    }
 
-    public function setDirectTransferScreening($directTransferScreening)
+    public function setDirectTransferScreening(xs:boolean $directTransferScreening = null)
     {
-        $directTransferScreening and $this->directTransferScreening = new xs:boolean($directTransferScreening);
     }
 
     public function getDirectTransferScreening()
@@ -38,9 +31,8 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
         return (!$this->directTransferScreening) ?: $this->directTransferScreening->value();
     }
 
-    public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping)
+    public function setEnableEnhancedTollCallTyping(xs:boolean $enableEnhancedTollCallTyping = null)
     {
-        $enableEnhancedTollCallTyping and $this->enableEnhancedTollCallTyping = new xs:boolean($enableEnhancedTollCallTyping);
     }
 
     public function getEnableEnhancedTollCallTyping()

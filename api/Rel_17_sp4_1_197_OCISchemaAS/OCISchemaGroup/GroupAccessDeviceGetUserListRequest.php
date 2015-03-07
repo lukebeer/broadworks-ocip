@@ -7,18 +7,18 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactEndpointType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaLinePortUserPart;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaLinePortDomain;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaLinePortUserPart;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaLinePortDomain;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserFirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaUserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactEndpointType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SearchCriteriaExactUserType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -29,40 +29,53 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceProviderId                = null;
+    protected $groupId                          = null;
+    protected $deviceName                       = null;
+    protected $responseSizeLimit                = null;
+    protected $searchCriteriaLinePortUserPart   = null;
+    protected $searchCriteriaLinePortDomain     = null;
+    protected $searchCriteriaUserLastName       = null;
+    protected $searchCriteriaUserFirstName      = null;
+    protected $searchCriteriaDn                 = null;
+    protected $searchCriteriaUserId             = null;
+    protected $searchCriteriaExactEndpointType  = null;
+    protected $searchCriteriaExactUserType      = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $deviceName,
-             $responseSizeLimit=null,
-             $searchCriteriaLinePortUserPart=null,
-             $searchCriteriaLinePortDomain=null,
-             $searchCriteriaUserLastName=null,
-             $searchCriteriaUserFirstName=null,
-             $searchCriteriaDn=null,
-             $searchCriteriaUserId=null,
-             $searchCriteriaExactEndpointType=null,
-             $searchCriteriaExactUserType=null
+         $serviceProviderId,
+         $groupId,
+         $deviceName,
+         $responseSizeLimit = null,
+         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
+         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaUserId $searchCriteriaUserId = null,
+         SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null,
+         SearchCriteriaExactUserType $searchCriteriaExactUserType = null
     ) {
-        $this->serviceProviderId               = new ServiceProviderId($serviceProviderId);
-        $this->groupId                         = new GroupId($groupId);
-        $this->deviceName                      = new AccessDeviceName($deviceName);
-        $this->responseSizeLimit               = $responseSizeLimit;
-        $this->searchCriteriaLinePortUserPart  = $searchCriteriaLinePortUserPart;
-        $this->searchCriteriaLinePortDomain    = $searchCriteriaLinePortDomain;
-        $this->searchCriteriaUserLastName      = $searchCriteriaUserLastName;
-        $this->searchCriteriaUserFirstName     = $searchCriteriaUserFirstName;
-        $this->searchCriteriaDn                = $searchCriteriaDn;
-        $this->searchCriteriaUserId            = $searchCriteriaUserId;
-        $this->searchCriteriaExactEndpointType = $searchCriteriaExactEndpointType;
-        $this->searchCriteriaExactUserType     = $searchCriteriaExactUserType;
-        $this->args                            = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setDeviceName($deviceName);
+        $this->setResponseSizeLimit($responseSizeLimit);
+        $this->setSearchCriteriaLinePortUserPart($searchCriteriaLinePortUserPart);
+        $this->setSearchCriteriaLinePortDomain($searchCriteriaLinePortDomain);
+        $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->setSearchCriteriaDn($searchCriteriaDn);
+        $this->setSearchCriteriaUserId($searchCriteriaUserId);
+        $this->setSearchCriteriaExactEndpointType($searchCriteriaExactEndpointType);
+        $this->setSearchCriteriaExactUserType($searchCriteriaExactUserType);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -70,9 +83,11 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -80,9 +95,11 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -90,9 +107,11 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setResponseSizeLimit($responseSizeLimit)
+    public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        $responseSizeLimit and $this->responseSizeLimit = new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
+             ? $responseSizeLimit
+             : new ResponseSizeLimit($responseSizeLimit);
     }
 
     public function getResponseSizeLimit()
@@ -100,9 +119,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
     }
 
-    public function setSearchCriteriaLinePortUserPart($searchCriteriaLinePortUserPart)
+    public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        $searchCriteriaLinePortUserPart and $this->searchCriteriaLinePortUserPart = new SearchCriteriaLinePortUserPart($searchCriteriaLinePortUserPart);
     }
 
     public function getSearchCriteriaLinePortUserPart()
@@ -110,9 +128,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaLinePortUserPart) ?: $this->searchCriteriaLinePortUserPart->value();
     }
 
-    public function setSearchCriteriaLinePortDomain($searchCriteriaLinePortDomain)
+    public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        $searchCriteriaLinePortDomain and $this->searchCriteriaLinePortDomain = new SearchCriteriaLinePortDomain($searchCriteriaLinePortDomain);
     }
 
     public function getSearchCriteriaLinePortDomain()
@@ -120,9 +137,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaLinePortDomain) ?: $this->searchCriteriaLinePortDomain->value();
     }
 
-    public function setSearchCriteriaUserLastName($searchCriteriaUserLastName)
+    public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $searchCriteriaUserLastName and $this->searchCriteriaUserLastName = new SearchCriteriaUserLastName($searchCriteriaUserLastName);
     }
 
     public function getSearchCriteriaUserLastName()
@@ -130,9 +146,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
     }
 
-    public function setSearchCriteriaUserFirstName($searchCriteriaUserFirstName)
+    public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $searchCriteriaUserFirstName and $this->searchCriteriaUserFirstName = new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
     }
 
     public function getSearchCriteriaUserFirstName()
@@ -140,9 +155,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
     }
 
-    public function setSearchCriteriaDn($searchCriteriaDn)
+    public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $searchCriteriaDn and $this->searchCriteriaDn = new SearchCriteriaDn($searchCriteriaDn);
     }
 
     public function getSearchCriteriaDn()
@@ -150,9 +164,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
     }
 
-    public function setSearchCriteriaUserId($searchCriteriaUserId)
+    public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $searchCriteriaUserId and $this->searchCriteriaUserId = new SearchCriteriaUserId($searchCriteriaUserId);
     }
 
     public function getSearchCriteriaUserId()
@@ -160,9 +173,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
     }
 
-    public function setSearchCriteriaExactEndpointType($searchCriteriaExactEndpointType)
+    public function setSearchCriteriaExactEndpointType(SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null)
     {
-        $searchCriteriaExactEndpointType and $this->searchCriteriaExactEndpointType = new SearchCriteriaExactEndpointType($searchCriteriaExactEndpointType);
     }
 
     public function getSearchCriteriaExactEndpointType()
@@ -170,9 +182,8 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         return (!$this->searchCriteriaExactEndpointType) ?: $this->searchCriteriaExactEndpointType->value();
     }
 
-    public function setSearchCriteriaExactUserType($searchCriteriaExactUserType)
+    public function setSearchCriteriaExactUserType(SearchCriteriaExactUserType $searchCriteriaExactUserType = null)
     {
-        $searchCriteriaExactUserType and $this->searchCriteriaExactUserType = new SearchCriteriaExactUserType($searchCriteriaExactUserType);
     }
 
     public function getSearchCriteriaExactUserType()

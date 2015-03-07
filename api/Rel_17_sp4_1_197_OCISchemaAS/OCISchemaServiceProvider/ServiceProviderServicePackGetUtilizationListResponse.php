@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +19,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                     = __CLASS__;
+    protected $servicePackName          = null;
+    protected $serviceUtilizationTable  = null;
 
-    public function __construct(
-             $servicePackName=null,
-             $serviceUtilizationTable=null
-    ) {
-        $this->servicePackName         = new ServicePackName($servicePackName);
-        $this->serviceUtilizationTable = $serviceUtilizationTable;
-        $this->args                    = func_get_args();
-    }
 
-    public function setServicePackName($servicePackName)
+    public function setServicePackName($servicePackName = null)
     {
-        $servicePackName and $this->servicePackName = new ServicePackName($servicePackName);
+        $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
+             ? $servicePackName
+             : new ServicePackName($servicePackName);
     }
 
     public function getServicePackName()
@@ -41,9 +36,8 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
         return (!$this->servicePackName) ?: $this->servicePackName->value();
     }
 
-    public function setServiceUtilizationTable($serviceUtilizationTable)
+    public function setServiceUtilizationTable(core:OCITable $serviceUtilizationTable = null)
     {
-        $serviceUtilizationTable and $this->serviceUtilizationTable = new core:OCITable($serviceUtilizationTable);
     }
 
     public function getServiceUtilizationTable()

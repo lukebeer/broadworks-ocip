@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddressExtended;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetAddressExtended;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccountingReorderChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $orderedAddressList  = null;
 
     public function __construct(
-             $orderedAddressList=null
+         $orderedAddressList = null
     ) {
-        $this->orderedAddressList = $orderedAddressList;
-        $this->args               = func_get_args();
+        $this->setOrderedAddressList($orderedAddressList);
     }
 
-    public function setOrderedAddressList($orderedAddressList)
+    public function setOrderedAddressList($orderedAddressList = null)
     {
-        $orderedAddressList and $this->orderedAddressList = new NetAddressExtended($orderedAddressList);
+        $this->orderedAddressList = ($orderedAddressList InstanceOf NetAddressExtended)
+             ? $orderedAddressList
+             : new NetAddressExtended($orderedAddressList);
     }
 
     public function getOrderedAddressList()

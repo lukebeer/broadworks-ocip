@@ -7,16 +7,16 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminProfileAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminDepartmentAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAccessDeviceAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminEnhancedServiceInstanceAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminFeatureAccessCodeAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminPhoneNumberExtensionAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminServiceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminFeatureAccessCodeAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAccessDeviceAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminTrunkGroupAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminDepartmentAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminServiceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminProfileAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -27,36 +27,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $profileAccess                  = null;
+    protected $userAccess                     = null;
+    protected $adminAccess                    = null;
+    protected $departmentAccess               = null;
+    protected $accessDeviceAccess             = null;
+    protected $enhancedServiceInstanceAccess  = null;
+    protected $featureAccessCodeAccess        = null;
+    protected $phoneNumberExtensionAccess     = null;
+    protected $serviceAccess                  = null;
+    protected $trunkGroupAccess               = null;
 
-    public function __construct(
-             $profileAccess,
-             $userAccess,
-             $adminAccess,
-             $departmentAccess,
-             $accessDeviceAccess,
-             $enhancedServiceInstanceAccess,
-             $featureAccessCodeAccess,
-             $phoneNumberExtensionAccess,
-             $serviceAccess,
-             $trunkGroupAccess
-    ) {
-        $this->profileAccess                 = new GroupAdminProfileAccess($profileAccess);
-        $this->userAccess                    = new GroupAdminUserAccess($userAccess);
-        $this->adminAccess                   = new GroupAdminAdminAccess($adminAccess);
-        $this->departmentAccess              = new GroupAdminDepartmentAccess($departmentAccess);
-        $this->accessDeviceAccess            = new GroupAdminAccessDeviceAccess($accessDeviceAccess);
-        $this->enhancedServiceInstanceAccess = new GroupAdminEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess);
-        $this->featureAccessCodeAccess       = new GroupAdminFeatureAccessCodeAccess($featureAccessCodeAccess);
-        $this->phoneNumberExtensionAccess    = new GroupAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
-        $this->serviceAccess                 = new GroupAdminServiceAccess($serviceAccess);
-        $this->trunkGroupAccess              = new GroupAdminTrunkGroupAccess($trunkGroupAccess);
-        $this->args                          = func_get_args();
-    }
 
-    public function setProfileAccess($profileAccess)
+    public function setProfileAccess($profileAccess = null)
     {
-        $profileAccess and $this->profileAccess = new GroupAdminProfileAccess($profileAccess);
+        $this->profileAccess = ($profileAccess InstanceOf GroupAdminProfileAccess)
+             ? $profileAccess
+             : new GroupAdminProfileAccess($profileAccess);
     }
 
     public function getProfileAccess()
@@ -64,9 +52,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->profileAccess) ?: $this->profileAccess->value();
     }
 
-    public function setUserAccess($userAccess)
+    public function setUserAccess($userAccess = null)
     {
-        $userAccess and $this->userAccess = new GroupAdminUserAccess($userAccess);
+        $this->userAccess = ($userAccess InstanceOf GroupAdminUserAccess)
+             ? $userAccess
+             : new GroupAdminUserAccess($userAccess);
     }
 
     public function getUserAccess()
@@ -74,9 +64,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->userAccess) ?: $this->userAccess->value();
     }
 
-    public function setAdminAccess($adminAccess)
+    public function setAdminAccess($adminAccess = null)
     {
-        $adminAccess and $this->adminAccess = new GroupAdminAdminAccess($adminAccess);
+        $this->adminAccess = ($adminAccess InstanceOf GroupAdminAdminAccess)
+             ? $adminAccess
+             : new GroupAdminAdminAccess($adminAccess);
     }
 
     public function getAdminAccess()
@@ -84,9 +76,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->adminAccess) ?: $this->adminAccess->value();
     }
 
-    public function setDepartmentAccess($departmentAccess)
+    public function setDepartmentAccess($departmentAccess = null)
     {
-        $departmentAccess and $this->departmentAccess = new GroupAdminDepartmentAccess($departmentAccess);
+        $this->departmentAccess = ($departmentAccess InstanceOf GroupAdminDepartmentAccess)
+             ? $departmentAccess
+             : new GroupAdminDepartmentAccess($departmentAccess);
     }
 
     public function getDepartmentAccess()
@@ -94,9 +88,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->departmentAccess) ?: $this->departmentAccess->value();
     }
 
-    public function setAccessDeviceAccess($accessDeviceAccess)
+    public function setAccessDeviceAccess($accessDeviceAccess = null)
     {
-        $accessDeviceAccess and $this->accessDeviceAccess = new GroupAdminAccessDeviceAccess($accessDeviceAccess);
+        $this->accessDeviceAccess = ($accessDeviceAccess InstanceOf GroupAdminAccessDeviceAccess)
+             ? $accessDeviceAccess
+             : new GroupAdminAccessDeviceAccess($accessDeviceAccess);
     }
 
     public function getAccessDeviceAccess()
@@ -104,9 +100,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->accessDeviceAccess) ?: $this->accessDeviceAccess->value();
     }
 
-    public function setEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess)
+    public function setEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess = null)
     {
-        $enhancedServiceInstanceAccess and $this->enhancedServiceInstanceAccess = new GroupAdminEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess);
+        $this->enhancedServiceInstanceAccess = ($enhancedServiceInstanceAccess InstanceOf GroupAdminEnhancedServiceInstanceAccess)
+             ? $enhancedServiceInstanceAccess
+             : new GroupAdminEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess);
     }
 
     public function getEnhancedServiceInstanceAccess()
@@ -114,9 +112,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->enhancedServiceInstanceAccess) ?: $this->enhancedServiceInstanceAccess->value();
     }
 
-    public function setFeatureAccessCodeAccess($featureAccessCodeAccess)
+    public function setFeatureAccessCodeAccess($featureAccessCodeAccess = null)
     {
-        $featureAccessCodeAccess and $this->featureAccessCodeAccess = new GroupAdminFeatureAccessCodeAccess($featureAccessCodeAccess);
+        $this->featureAccessCodeAccess = ($featureAccessCodeAccess InstanceOf GroupAdminFeatureAccessCodeAccess)
+             ? $featureAccessCodeAccess
+             : new GroupAdminFeatureAccessCodeAccess($featureAccessCodeAccess);
     }
 
     public function getFeatureAccessCodeAccess()
@@ -124,9 +124,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->featureAccessCodeAccess) ?: $this->featureAccessCodeAccess->value();
     }
 
-    public function setPhoneNumberExtensionAccess($phoneNumberExtensionAccess)
+    public function setPhoneNumberExtensionAccess($phoneNumberExtensionAccess = null)
     {
-        $phoneNumberExtensionAccess and $this->phoneNumberExtensionAccess = new GroupAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
+        $this->phoneNumberExtensionAccess = ($phoneNumberExtensionAccess InstanceOf GroupAdminPhoneNumberExtensionAccess)
+             ? $phoneNumberExtensionAccess
+             : new GroupAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
     }
 
     public function getPhoneNumberExtensionAccess()
@@ -134,9 +136,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->phoneNumberExtensionAccess) ?: $this->phoneNumberExtensionAccess->value();
     }
 
-    public function setServiceAccess($serviceAccess)
+    public function setServiceAccess($serviceAccess = null)
     {
-        $serviceAccess and $this->serviceAccess = new GroupAdminServiceAccess($serviceAccess);
+        $this->serviceAccess = ($serviceAccess InstanceOf GroupAdminServiceAccess)
+             ? $serviceAccess
+             : new GroupAdminServiceAccess($serviceAccess);
     }
 
     public function getServiceAccess()
@@ -144,9 +148,11 @@ class GroupAdminGetPolicyResponse14sp1 extends ComplexType implements ComplexInt
         return (!$this->serviceAccess) ?: $this->serviceAccess->value();
     }
 
-    public function setTrunkGroupAccess($trunkGroupAccess)
+    public function setTrunkGroupAccess($trunkGroupAccess = null)
     {
-        $trunkGroupAccess and $this->trunkGroupAccess = new GroupAdminTrunkGroupAccess($trunkGroupAccess);
+        $this->trunkGroupAccess = ($trunkGroupAccess InstanceOf GroupAdminTrunkGroupAccess)
+             ? $trunkGroupAccess
+             : new GroupAdminTrunkGroupAccess($trunkGroupAccess);
     }
 
     public function getTrunkGroupAccess()

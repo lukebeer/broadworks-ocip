@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupId                   = null;
+    protected $useGroupCriteria          = null;
+    protected $nsScreeningFailurePolicy  = null;
+    protected $criteriaPriorityOrder     = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $useGroupCriteria=null,
-             $nsScreeningFailurePolicy=null,
-             DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder=null
+         $serviceProviderId,
+         $groupId,
+         $useGroupCriteria = null,
+         $nsScreeningFailurePolicy = null,
+         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
     ) {
-        $this->serviceProviderId        = new ServiceProviderId($serviceProviderId);
-        $this->groupId                  = new GroupId($groupId);
-        $this->useGroupCriteria         = $useGroupCriteria;
-        $this->nsScreeningFailurePolicy = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
-        $this->criteriaPriorityOrder    = $criteriaPriorityOrder;
-        $this->args                     = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setUseGroupCriteria($useGroupCriteria);
+        $this->setNsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +54,11 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -59,9 +66,8 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setUseGroupCriteria($useGroupCriteria)
+    public function setUseGroupCriteria(xs:boolean $useGroupCriteria = null)
     {
-        $useGroupCriteria and $this->useGroupCriteria = new xs:boolean($useGroupCriteria);
     }
 
     public function getUseGroupCriteria()
@@ -69,9 +75,11 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         return (!$this->useGroupCriteria) ?: $this->useGroupCriteria->value();
     }
 
-    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy)
+    public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
-        $nsScreeningFailurePolicy and $this->nsScreeningFailurePolicy = new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
+             ? $nsScreeningFailurePolicy
+             : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
     }
 
     public function getNsScreeningFailurePolicy()
@@ -79,9 +87,8 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->value();
     }
 
-    public function setCriteriaPriorityOrder($criteriaPriorityOrder)
+    public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        $criteriaPriorityOrder and $this->criteriaPriorityOrder = new DialableCallerIDCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
     public function getCriteriaPriorityOrder()

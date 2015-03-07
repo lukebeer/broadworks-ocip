@@ -7,11 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterPeerInstance;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterApplicationId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPeerInstance;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPriority;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterWeight;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterApplicationId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterPriority;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BwDiameterWeight;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,28 +22,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $instance       = null;
+    protected $realm          = null;
+    protected $applicationId  = null;
+    protected $identity       = null;
+    protected $priority       = null;
+    protected $weight         = null;
 
     public function __construct(
-             $instance,
-             $realm,
-             $applicationId,
-             $identity,
-             $priority=null,
-             $weight=null
+         $instance,
+         $realm,
+         $applicationId,
+         $identity,
+         $priority = null,
+         $weight = null
     ) {
-        $this->instance      = $instance;
-        $this->realm         = new DomainName($realm);
-        $this->applicationId = $applicationId;
-        $this->identity      = new DomainName($identity);
-        $this->priority      = $priority;
-        $this->weight        = $weight;
-        $this->args          = func_get_args();
+        $this->setInstance($instance);
+        $this->setRealm($realm);
+        $this->setApplicationId($applicationId);
+        $this->setIdentity($identity);
+        $this->setPriority($priority);
+        $this->setWeight($weight);
     }
 
-    public function setInstance($instance)
+    public function setInstance($instance = null)
     {
-        $instance and $this->instance = new BwDiameterPeerInstance($instance);
+        $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
+             ? $instance
+             : new BwDiameterPeerInstance($instance);
     }
 
     public function getInstance()
@@ -51,9 +58,11 @@ class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements Co
         return (!$this->instance) ?: $this->instance->value();
     }
 
-    public function setRealm($realm)
+    public function setRealm($realm = null)
     {
-        $realm and $this->realm = new DomainName($realm);
+        $this->realm = ($realm InstanceOf DomainName)
+             ? $realm
+             : new DomainName($realm);
     }
 
     public function getRealm()
@@ -61,9 +70,11 @@ class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements Co
         return (!$this->realm) ?: $this->realm->value();
     }
 
-    public function setApplicationId($applicationId)
+    public function setApplicationId($applicationId = null)
     {
-        $applicationId and $this->applicationId = new BwDiameterApplicationId($applicationId);
+        $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
+             ? $applicationId
+             : new BwDiameterApplicationId($applicationId);
     }
 
     public function getApplicationId()
@@ -71,9 +82,11 @@ class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements Co
         return (!$this->applicationId) ?: $this->applicationId->value();
     }
 
-    public function setIdentity($identity)
+    public function setIdentity($identity = null)
     {
-        $identity and $this->identity = new DomainName($identity);
+        $this->identity = ($identity InstanceOf DomainName)
+             ? $identity
+             : new DomainName($identity);
     }
 
     public function getIdentity()
@@ -81,9 +94,11 @@ class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements Co
         return (!$this->identity) ?: $this->identity->value();
     }
 
-    public function setPriority($priority)
+    public function setPriority($priority = null)
     {
-        $priority and $this->priority = new BwDiameterPriority($priority);
+        $this->priority = ($priority InstanceOf BwDiameterPriority)
+             ? $priority
+             : new BwDiameterPriority($priority);
     }
 
     public function getPriority()
@@ -91,9 +106,11 @@ class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements Co
         return (!$this->priority) ?: $this->priority->value();
     }
 
-    public function setWeight($weight)
+    public function setWeight($weight = null)
     {
-        $weight and $this->weight = new BwDiameterWeight($weight);
+        $this->weight = ($weight InstanceOf BwDiameterWeight)
+             ? $weight
+             : new BwDiameterWeight($weight);
     }
 
     public function getWeight()

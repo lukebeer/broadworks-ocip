@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\core\Builder\Types\SimpleInterface;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
 
@@ -23,12 +22,12 @@ class LocationCriteria extends SimpleType
     public function __construct($value) {
         $this->value    = $value;
         $this->dataType = 'string';
-        $this-addRestriction(new Enumeration([
-                                              'In Office Zone',
-                                              'In Primary Zone',
-                                              'In Office Zone, Outside of Primary Zone',
-                                              'Outside of Office Zone',
-                                              'Disregard Zones'
-                                             ]);
+        $this->addRestriction(new Enumeration([
+            'In Office Zone',
+            'In Primary Zone',
+            'In Office Zone, Outside of Primary Zone',
+            'Outside of Office Zone',
+            'Disregard Zones'
+        ]));
     }
 }

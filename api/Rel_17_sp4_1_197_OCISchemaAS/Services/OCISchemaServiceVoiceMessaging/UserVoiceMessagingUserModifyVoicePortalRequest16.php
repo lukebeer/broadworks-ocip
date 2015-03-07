@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $userId                     = null;
+    protected $usePersonalizedName        = null;
+    protected $voicePortalAutoLogin       = null;
+    protected $personalizedNameAudioFile  = null;
 
     public function __construct(
-             $userId,
-             $usePersonalizedName=null,
-             $voicePortalAutoLogin=null,
-             LabeledMediaFileResource $personalizedNameAudioFile=null
+         $userId,
+         $usePersonalizedName = null,
+         $voicePortalAutoLogin = null,
+         LabeledMediaFileResource $personalizedNameAudioFile = null
     ) {
-        $this->userId                    = new UserId($userId);
-        $this->usePersonalizedName       = $usePersonalizedName;
-        $this->voicePortalAutoLogin      = $voicePortalAutoLogin;
-        $this->personalizedNameAudioFile = $personalizedNameAudioFile;
-        $this->args                      = func_get_args();
+        $this->setUserId($userId);
+        $this->setUsePersonalizedName($usePersonalizedName);
+        $this->setVoicePortalAutoLogin($voicePortalAutoLogin);
+        $this->setPersonalizedNameAudioFile($personalizedNameAudioFile);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -46,9 +50,8 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUsePersonalizedName($usePersonalizedName)
+    public function setUsePersonalizedName(xs:boolean $usePersonalizedName = null)
     {
-        $usePersonalizedName and $this->usePersonalizedName = new xs:boolean($usePersonalizedName);
     }
 
     public function getUsePersonalizedName()
@@ -56,9 +59,8 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
         return (!$this->usePersonalizedName) ?: $this->usePersonalizedName->value();
     }
 
-    public function setVoicePortalAutoLogin($voicePortalAutoLogin)
+    public function setVoicePortalAutoLogin(xs:boolean $voicePortalAutoLogin = null)
     {
-        $voicePortalAutoLogin and $this->voicePortalAutoLogin = new xs:boolean($voicePortalAutoLogin);
     }
 
     public function getVoicePortalAutoLogin()
@@ -66,9 +68,8 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
         return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin->value();
     }
 
-    public function setPersonalizedNameAudioFile($personalizedNameAudioFile)
+    public function setPersonalizedNameAudioFile(LabeledMediaFileResource $personalizedNameAudioFile = null)
     {
-        $personalizedNameAudioFile and $this->personalizedNameAudioFile = new LabeledMediaFileResource($personalizedNameAudioFile);
     }
 
     public function getPersonalizedNameAudioFile()

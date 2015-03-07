@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,26 +20,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupId                   = null;
+    protected $useGroupNumber            = null;
+    protected $useGroupName              = null;
+    protected $callingLineIdPhoneNumber  = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $useGroupNumber=null,
-             $useGroupName=null,
-             $callingLineIdPhoneNumber=null
+         $serviceProviderId,
+         $groupId,
+         $useGroupNumber = null,
+         $useGroupName = null,
+         $callingLineIdPhoneNumber = null
     ) {
-        $this->serviceProviderId        = new ServiceProviderId($serviceProviderId);
-        $this->groupId                  = new GroupId($groupId);
-        $this->useGroupNumber           = $useGroupNumber;
-        $this->useGroupName             = $useGroupName;
-        $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
-        $this->args                     = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setUseGroupNumber($useGroupNumber);
+        $this->setUseGroupName($useGroupName);
+        $this->setCallingLineIdPhoneNumber($callingLineIdPhoneNumber);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -48,9 +53,11 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -58,9 +65,8 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setUseGroupNumber($useGroupNumber)
+    public function setUseGroupNumber(xs:boolean $useGroupNumber = null)
     {
-        $useGroupNumber and $this->useGroupNumber = new xs:boolean($useGroupNumber);
     }
 
     public function getUseGroupNumber()
@@ -68,9 +74,8 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
         return (!$this->useGroupNumber) ?: $this->useGroupNumber->value();
     }
 
-    public function setUseGroupName($useGroupName)
+    public function setUseGroupName(xs:boolean $useGroupName = null)
     {
-        $useGroupName and $this->useGroupName = new xs:boolean($useGroupName);
     }
 
     public function getUseGroupName()
@@ -78,9 +83,11 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
         return (!$this->useGroupName) ?: $this->useGroupName->value();
     }
 
-    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber)
+    public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        $callingLineIdPhoneNumber and $this->callingLineIdPhoneNumber = new DN($callingLineIdPhoneNumber);
+        $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
+             ? $callingLineIdPhoneNumber
+             : new DN($callingLineIdPhoneNumber);
     }
 
     public function getCallingLineIdPhoneNumber()

@@ -7,9 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueDepthNotificationThreshold;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterWaitingTimeNotificationThresholdSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterWaitingTimeNotificationThresholdSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterQueueDepthNotificationThreshold;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,26 +19,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                           = __CLASS__;
+    protected $enableQueueStatusNotification  = null;
+    protected $enableQueueDepthThreshold      = null;
+    protected $enableWaitingTimeThreshold     = null;
+    protected $numberOfCallsThreshold         = null;
+    protected $waitingTimeOfCallsThreshold    = null;
 
-    public function __construct(
-             $enableQueueStatusNotification,
-             $enableQueueDepthThreshold,
-             $enableWaitingTimeThreshold,
-             $numberOfCallsThreshold,
-             $waitingTimeOfCallsThreshold
-    ) {
-        $this->enableQueueStatusNotification = $enableQueueStatusNotification;
-        $this->enableQueueDepthThreshold     = $enableQueueDepthThreshold;
-        $this->enableWaitingTimeThreshold    = $enableWaitingTimeThreshold;
-        $this->numberOfCallsThreshold        = $numberOfCallsThreshold;
-        $this->waitingTimeOfCallsThreshold   = $waitingTimeOfCallsThreshold;
-        $this->args                          = func_get_args();
-    }
 
-    public function setEnableQueueStatusNotification($enableQueueStatusNotification)
+    public function setEnableQueueStatusNotification(xs:boolean $enableQueueStatusNotification = null)
     {
-        $enableQueueStatusNotification and $this->enableQueueStatusNotification = new xs:boolean($enableQueueStatusNotification);
     }
 
     public function getEnableQueueStatusNotification()
@@ -47,9 +36,8 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
         return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification->value();
     }
 
-    public function setEnableQueueDepthThreshold($enableQueueDepthThreshold)
+    public function setEnableQueueDepthThreshold(xs:boolean $enableQueueDepthThreshold = null)
     {
-        $enableQueueDepthThreshold and $this->enableQueueDepthThreshold = new xs:boolean($enableQueueDepthThreshold);
     }
 
     public function getEnableQueueDepthThreshold()
@@ -57,9 +45,8 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
         return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold->value();
     }
 
-    public function setEnableWaitingTimeThreshold($enableWaitingTimeThreshold)
+    public function setEnableWaitingTimeThreshold(xs:boolean $enableWaitingTimeThreshold = null)
     {
-        $enableWaitingTimeThreshold and $this->enableWaitingTimeThreshold = new xs:boolean($enableWaitingTimeThreshold);
     }
 
     public function getEnableWaitingTimeThreshold()
@@ -67,9 +54,11 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
         return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold->value();
     }
 
-    public function setNumberOfCallsThreshold($numberOfCallsThreshold)
+    public function setNumberOfCallsThreshold($numberOfCallsThreshold = null)
     {
-        $numberOfCallsThreshold and $this->numberOfCallsThreshold = new CallCenterQueueDepthNotificationThreshold($numberOfCallsThreshold);
+        $this->numberOfCallsThreshold = ($numberOfCallsThreshold InstanceOf CallCenterQueueDepthNotificationThreshold)
+             ? $numberOfCallsThreshold
+             : new CallCenterQueueDepthNotificationThreshold($numberOfCallsThreshold);
     }
 
     public function getNumberOfCallsThreshold()
@@ -77,9 +66,11 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
         return (!$this->numberOfCallsThreshold) ?: $this->numberOfCallsThreshold->value();
     }
 
-    public function setWaitingTimeOfCallsThreshold($waitingTimeOfCallsThreshold)
+    public function setWaitingTimeOfCallsThreshold($waitingTimeOfCallsThreshold = null)
     {
-        $waitingTimeOfCallsThreshold and $this->waitingTimeOfCallsThreshold = new CallCenterWaitingTimeNotificationThresholdSeconds($waitingTimeOfCallsThreshold);
+        $this->waitingTimeOfCallsThreshold = ($waitingTimeOfCallsThreshold InstanceOf CallCenterWaitingTimeNotificationThresholdSeconds)
+             ? $waitingTimeOfCallsThreshold
+             : new CallCenterWaitingTimeNotificationThresholdSeconds($waitingTimeOfCallsThreshold);
     }
 
     public function getWaitingTimeOfCallsThreshold()

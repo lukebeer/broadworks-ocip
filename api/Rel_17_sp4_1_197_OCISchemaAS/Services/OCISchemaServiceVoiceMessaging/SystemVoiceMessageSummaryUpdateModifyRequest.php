@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VoiceMessageSummaryUpdateSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessageSummaryUpdateSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,22 +18,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $sendSavedAndUrgentMWIOnNotification  = null;
+    protected $sendMessageSummaryUpdateOnRegister   = null;
+    protected $minTimeBetweenMWIOnRegister          = null;
 
     public function __construct(
-             $sendSavedAndUrgentMWIOnNotification=null,
-             $sendMessageSummaryUpdateOnRegister=null,
-             $minTimeBetweenMWIOnRegister=null
+         $sendSavedAndUrgentMWIOnNotification = null,
+         $sendMessageSummaryUpdateOnRegister = null,
+         $minTimeBetweenMWIOnRegister = null
     ) {
-        $this->sendSavedAndUrgentMWIOnNotification = $sendSavedAndUrgentMWIOnNotification;
-        $this->sendMessageSummaryUpdateOnRegister  = $sendMessageSummaryUpdateOnRegister;
-        $this->minTimeBetweenMWIOnRegister         = $minTimeBetweenMWIOnRegister;
-        $this->args                                = func_get_args();
+        $this->setSendSavedAndUrgentMWIOnNotification($sendSavedAndUrgentMWIOnNotification);
+        $this->setSendMessageSummaryUpdateOnRegister($sendMessageSummaryUpdateOnRegister);
+        $this->setMinTimeBetweenMWIOnRegister($minTimeBetweenMWIOnRegister);
     }
 
-    public function setSendSavedAndUrgentMWIOnNotification($sendSavedAndUrgentMWIOnNotification)
+    public function setSendSavedAndUrgentMWIOnNotification(xs:boolean $sendSavedAndUrgentMWIOnNotification = null)
     {
-        $sendSavedAndUrgentMWIOnNotification and $this->sendSavedAndUrgentMWIOnNotification = new xs:boolean($sendSavedAndUrgentMWIOnNotification);
     }
 
     public function getSendSavedAndUrgentMWIOnNotification()
@@ -42,9 +42,8 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
         return (!$this->sendSavedAndUrgentMWIOnNotification) ?: $this->sendSavedAndUrgentMWIOnNotification->value();
     }
 
-    public function setSendMessageSummaryUpdateOnRegister($sendMessageSummaryUpdateOnRegister)
+    public function setSendMessageSummaryUpdateOnRegister(xs:boolean $sendMessageSummaryUpdateOnRegister = null)
     {
-        $sendMessageSummaryUpdateOnRegister and $this->sendMessageSummaryUpdateOnRegister = new xs:boolean($sendMessageSummaryUpdateOnRegister);
     }
 
     public function getSendMessageSummaryUpdateOnRegister()
@@ -52,9 +51,11 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
         return (!$this->sendMessageSummaryUpdateOnRegister) ?: $this->sendMessageSummaryUpdateOnRegister->value();
     }
 
-    public function setMinTimeBetweenMWIOnRegister($minTimeBetweenMWIOnRegister)
+    public function setMinTimeBetweenMWIOnRegister($minTimeBetweenMWIOnRegister = null)
     {
-        $minTimeBetweenMWIOnRegister and $this->minTimeBetweenMWIOnRegister = new VoiceMessageSummaryUpdateSeconds($minTimeBetweenMWIOnRegister);
+        $this->minTimeBetweenMWIOnRegister = ($minTimeBetweenMWIOnRegister InstanceOf VoiceMessageSummaryUpdateSeconds)
+             ? $minTimeBetweenMWIOnRegister
+             : new VoiceMessageSummaryUpdateSeconds($minTimeBetweenMWIOnRegister);
     }
 
     public function getMinTimeBetweenMWIOnRegister()

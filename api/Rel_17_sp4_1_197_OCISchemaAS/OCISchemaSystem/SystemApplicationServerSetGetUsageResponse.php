@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemApplicationServerSetGetUsageResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                 = __CLASS__;
+    protected $applicationServerSetSubscriberTable  = null;
 
-    public function __construct(
-             $applicationServerSetSubscriberTable
-    ) {
-        $this->applicationServerSetSubscriberTable = $applicationServerSetSubscriberTable;
-        $this->args                                = func_get_args();
-    }
 
-    public function setApplicationServerSetSubscriberTable($applicationServerSetSubscriberTable)
+    public function setApplicationServerSetSubscriberTable(core:OCITable $applicationServerSetSubscriberTable = null)
     {
-        $applicationServerSetSubscriberTable and $this->applicationServerSetSubscriberTable = new core:OCITable($applicationServerSetSubscriberTable);
     }
 
     public function getApplicationServerSetSubscriberTable()

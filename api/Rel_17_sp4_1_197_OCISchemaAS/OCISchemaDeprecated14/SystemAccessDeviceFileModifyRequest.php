@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\DeviceManagementFileType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,24 +22,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccessDeviceFileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name        = __CLASS__;
+    protected $deviceName  = null;
+    protected $fileType    = null;
+    protected $fileSource  = null;
+    protected $uploadFile  = null;
 
     public function __construct(
-             $deviceName,
-             $fileType,
-             $fileSource=null,
-             FileResource $uploadFile=null
+         $deviceName,
+         $fileType,
+         $fileSource = null,
+         FileResource $uploadFile = null
     ) {
-        $this->deviceName = new AccessDeviceName($deviceName);
-        $this->fileType   = $fileType;
-        $this->fileSource = new AccessDeviceEnhancedConfigurationMode($fileSource);
-        $this->uploadFile = $uploadFile;
-        $this->args       = func_get_args();
+        $this->setDeviceName($deviceName);
+        $this->setFileType($fileType);
+        $this->setFileSource($fileSource);
+        $this->setUploadFile($uploadFile);
     }
 
-    public function setDeviceName($deviceName)
+    public function setDeviceName($deviceName = null)
     {
-        $deviceName and $this->deviceName = new AccessDeviceName($deviceName);
+        $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
+             ? $deviceName
+             : new AccessDeviceName($deviceName);
     }
 
     public function getDeviceName()
@@ -47,9 +52,11 @@ class SystemAccessDeviceFileModifyRequest extends ComplexType implements Complex
         return (!$this->deviceName) ?: $this->deviceName->value();
     }
 
-    public function setFileType($fileType)
+    public function setFileType($fileType = null)
     {
-        $fileType and $this->fileType = new DeviceManagementFileType($fileType);
+        $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
+             ? $fileType
+             : new DeviceManagementFileType($fileType);
     }
 
     public function getFileType()
@@ -57,9 +64,11 @@ class SystemAccessDeviceFileModifyRequest extends ComplexType implements Complex
         return (!$this->fileType) ?: $this->fileType->value();
     }
 
-    public function setFileSource($fileSource)
+    public function setFileSource($fileSource = null)
     {
-        $fileSource and $this->fileSource = new AccessDeviceEnhancedConfigurationMode($fileSource);
+        $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
+             ? $fileSource
+             : new AccessDeviceEnhancedConfigurationMode($fileSource);
     }
 
     public function getFileSource()
@@ -67,9 +76,8 @@ class SystemAccessDeviceFileModifyRequest extends ComplexType implements Complex
         return (!$this->fileSource) ?: $this->fileSource->value();
     }
 
-    public function setUploadFile($uploadFile)
+    public function setUploadFile(FileResource $uploadFile = null)
     {
-        $uploadFile and $this->uploadFile = new FileResource($uploadFile);
     }
 
     public function getUploadFile()

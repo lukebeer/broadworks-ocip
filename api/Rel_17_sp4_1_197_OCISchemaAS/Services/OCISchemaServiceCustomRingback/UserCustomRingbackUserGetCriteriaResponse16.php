@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -24,56 +23,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $timeSchedule                     = null;
+    protected $holidaySchedule                  = null;
+    protected $blacklisted                      = null;
+    protected $fromDnCriteria                   = null;
+    protected $audioSelection                   = null;
+    protected $audioFileDescription             = null;
+    protected $audioMediaType                   = null;
+    protected $audioFileUrl                     = null;
+    protected $videoSelection                   = null;
+    protected $videoFileDescription             = null;
+    protected $videoMediaType                   = null;
+    protected $videoFileUrl                     = null;
+    protected $callWaitingAudioSelection        = null;
+    protected $callWaitingAudioFileDescription  = null;
+    protected $callWaitingAudioMediaType        = null;
+    protected $callWaitingAudioFileUrl          = null;
+    protected $callWaitingVideoSelection        = null;
+    protected $callWaitingVideoFileDescription  = null;
+    protected $callWaitingVideoMediaType        = null;
+    protected $callWaitingVideoFileUrl          = null;
 
-    public function __construct(
-             TimeSchedule $timeSchedule=null,
-             HolidaySchedule $holidaySchedule=null,
-             $blacklisted,
-             CriteriaFromDn $fromDnCriteria,
-             $audioSelection,
-             $audioFileDescription=null,
-             $audioMediaType=null,
-             $audioFileUrl=null,
-             $videoSelection,
-             $videoFileDescription=null,
-             $videoMediaType=null,
-             $videoFileUrl=null,
-             $callWaitingAudioSelection=null,
-             $callWaitingAudioFileDescription=null,
-             $callWaitingAudioMediaType=null,
-             $callWaitingAudioFileUrl=null,
-             $callWaitingVideoSelection=null,
-             $callWaitingVideoFileDescription=null,
-             $callWaitingVideoMediaType=null,
-             $callWaitingVideoFileUrl=null
-    ) {
-        $this->timeSchedule                    = $timeSchedule;
-        $this->holidaySchedule                 = $holidaySchedule;
-        $this->blacklisted                     = $blacklisted;
-        $this->fromDnCriteria                  = $fromDnCriteria;
-        $this->audioSelection                  = new ExtendedFileResourceSelection($audioSelection);
-        $this->audioFileDescription            = new FileDescription($audioFileDescription);
-        $this->audioMediaType                  = new MediaFileType($audioMediaType);
-        $this->audioFileUrl                    = new URL($audioFileUrl);
-        $this->videoSelection                  = new ExtendedFileResourceSelection($videoSelection);
-        $this->videoFileDescription            = new FileDescription($videoFileDescription);
-        $this->videoMediaType                  = new MediaFileType($videoMediaType);
-        $this->videoFileUrl                    = new URL($videoFileUrl);
-        $this->callWaitingAudioSelection       = new ExtendedFileResourceSelection($callWaitingAudioSelection);
-        $this->callWaitingAudioFileDescription = new FileDescription($callWaitingAudioFileDescription);
-        $this->callWaitingAudioMediaType       = new MediaFileType($callWaitingAudioMediaType);
-        $this->callWaitingAudioFileUrl         = new URL($callWaitingAudioFileUrl);
-        $this->callWaitingVideoSelection       = new ExtendedFileResourceSelection($callWaitingVideoSelection);
-        $this->callWaitingVideoFileDescription = new FileDescription($callWaitingVideoFileDescription);
-        $this->callWaitingVideoMediaType       = new MediaFileType($callWaitingVideoMediaType);
-        $this->callWaitingVideoFileUrl         = new URL($callWaitingVideoFileUrl);
-        $this->args                            = func_get_args();
-    }
 
-    public function setTimeSchedule($timeSchedule)
+    public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $timeSchedule and $this->timeSchedule = new TimeSchedule($timeSchedule);
     }
 
     public function getTimeSchedule()
@@ -81,9 +55,8 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->timeSchedule) ?: $this->timeSchedule->value();
     }
 
-    public function setHolidaySchedule($holidaySchedule)
+    public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $holidaySchedule and $this->holidaySchedule = new HolidaySchedule($holidaySchedule);
     }
 
     public function getHolidaySchedule()
@@ -91,9 +64,8 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
     }
 
-    public function setBlacklisted($blacklisted)
+    public function setBlacklisted(xs:boolean $blacklisted = null)
     {
-        $blacklisted and $this->blacklisted = new xs:boolean($blacklisted);
     }
 
     public function getBlacklisted()
@@ -101,9 +73,8 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->blacklisted) ?: $this->blacklisted->value();
     }
 
-    public function setFromDnCriteria($fromDnCriteria)
+    public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $fromDnCriteria and $this->fromDnCriteria = new CriteriaFromDn($fromDnCriteria);
     }
 
     public function getFromDnCriteria()
@@ -111,9 +82,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->value();
     }
 
-    public function setAudioSelection($audioSelection)
+    public function setAudioSelection($audioSelection = null)
     {
-        $audioSelection and $this->audioSelection = new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
+             ? $audioSelection
+             : new ExtendedFileResourceSelection($audioSelection);
     }
 
     public function getAudioSelection()
@@ -121,9 +94,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->audioSelection) ?: $this->audioSelection->value();
     }
 
-    public function setAudioFileDescription($audioFileDescription)
+    public function setAudioFileDescription($audioFileDescription = null)
     {
-        $audioFileDescription and $this->audioFileDescription = new FileDescription($audioFileDescription);
+        $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
+             ? $audioFileDescription
+             : new FileDescription($audioFileDescription);
     }
 
     public function getAudioFileDescription()
@@ -131,9 +106,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
     }
 
-    public function setAudioMediaType($audioMediaType)
+    public function setAudioMediaType($audioMediaType = null)
     {
-        $audioMediaType and $this->audioMediaType = new MediaFileType($audioMediaType);
+        $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
+             ? $audioMediaType
+             : new MediaFileType($audioMediaType);
     }
 
     public function getAudioMediaType()
@@ -141,9 +118,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->audioMediaType) ?: $this->audioMediaType->value();
     }
 
-    public function setAudioFileUrl($audioFileUrl)
+    public function setAudioFileUrl($audioFileUrl = null)
     {
-        $audioFileUrl and $this->audioFileUrl = new URL($audioFileUrl);
+        $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
+             ? $audioFileUrl
+             : new URL($audioFileUrl);
     }
 
     public function getAudioFileUrl()
@@ -151,9 +130,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->audioFileUrl) ?: $this->audioFileUrl->value();
     }
 
-    public function setVideoSelection($videoSelection)
+    public function setVideoSelection($videoSelection = null)
     {
-        $videoSelection and $this->videoSelection = new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
+             ? $videoSelection
+             : new ExtendedFileResourceSelection($videoSelection);
     }
 
     public function getVideoSelection()
@@ -161,9 +142,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->videoSelection) ?: $this->videoSelection->value();
     }
 
-    public function setVideoFileDescription($videoFileDescription)
+    public function setVideoFileDescription($videoFileDescription = null)
     {
-        $videoFileDescription and $this->videoFileDescription = new FileDescription($videoFileDescription);
+        $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
+             ? $videoFileDescription
+             : new FileDescription($videoFileDescription);
     }
 
     public function getVideoFileDescription()
@@ -171,9 +154,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
     }
 
-    public function setVideoMediaType($videoMediaType)
+    public function setVideoMediaType($videoMediaType = null)
     {
-        $videoMediaType and $this->videoMediaType = new MediaFileType($videoMediaType);
+        $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
+             ? $videoMediaType
+             : new MediaFileType($videoMediaType);
     }
 
     public function getVideoMediaType()
@@ -181,9 +166,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->videoMediaType) ?: $this->videoMediaType->value();
     }
 
-    public function setVideoFileUrl($videoFileUrl)
+    public function setVideoFileUrl($videoFileUrl = null)
     {
-        $videoFileUrl and $this->videoFileUrl = new URL($videoFileUrl);
+        $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
+             ? $videoFileUrl
+             : new URL($videoFileUrl);
     }
 
     public function getVideoFileUrl()
@@ -191,9 +178,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->videoFileUrl) ?: $this->videoFileUrl->value();
     }
 
-    public function setCallWaitingAudioSelection($callWaitingAudioSelection)
+    public function setCallWaitingAudioSelection($callWaitingAudioSelection = null)
     {
-        $callWaitingAudioSelection and $this->callWaitingAudioSelection = new ExtendedFileResourceSelection($callWaitingAudioSelection);
+        $this->callWaitingAudioSelection = ($callWaitingAudioSelection InstanceOf ExtendedFileResourceSelection)
+             ? $callWaitingAudioSelection
+             : new ExtendedFileResourceSelection($callWaitingAudioSelection);
     }
 
     public function getCallWaitingAudioSelection()
@@ -201,9 +190,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->callWaitingAudioSelection) ?: $this->callWaitingAudioSelection->value();
     }
 
-    public function setCallWaitingAudioFileDescription($callWaitingAudioFileDescription)
+    public function setCallWaitingAudioFileDescription($callWaitingAudioFileDescription = null)
     {
-        $callWaitingAudioFileDescription and $this->callWaitingAudioFileDescription = new FileDescription($callWaitingAudioFileDescription);
+        $this->callWaitingAudioFileDescription = ($callWaitingAudioFileDescription InstanceOf FileDescription)
+             ? $callWaitingAudioFileDescription
+             : new FileDescription($callWaitingAudioFileDescription);
     }
 
     public function getCallWaitingAudioFileDescription()
@@ -211,9 +202,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->callWaitingAudioFileDescription) ?: $this->callWaitingAudioFileDescription->value();
     }
 
-    public function setCallWaitingAudioMediaType($callWaitingAudioMediaType)
+    public function setCallWaitingAudioMediaType($callWaitingAudioMediaType = null)
     {
-        $callWaitingAudioMediaType and $this->callWaitingAudioMediaType = new MediaFileType($callWaitingAudioMediaType);
+        $this->callWaitingAudioMediaType = ($callWaitingAudioMediaType InstanceOf MediaFileType)
+             ? $callWaitingAudioMediaType
+             : new MediaFileType($callWaitingAudioMediaType);
     }
 
     public function getCallWaitingAudioMediaType()
@@ -221,9 +214,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->callWaitingAudioMediaType) ?: $this->callWaitingAudioMediaType->value();
     }
 
-    public function setCallWaitingAudioFileUrl($callWaitingAudioFileUrl)
+    public function setCallWaitingAudioFileUrl($callWaitingAudioFileUrl = null)
     {
-        $callWaitingAudioFileUrl and $this->callWaitingAudioFileUrl = new URL($callWaitingAudioFileUrl);
+        $this->callWaitingAudioFileUrl = ($callWaitingAudioFileUrl InstanceOf URL)
+             ? $callWaitingAudioFileUrl
+             : new URL($callWaitingAudioFileUrl);
     }
 
     public function getCallWaitingAudioFileUrl()
@@ -231,9 +226,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->callWaitingAudioFileUrl) ?: $this->callWaitingAudioFileUrl->value();
     }
 
-    public function setCallWaitingVideoSelection($callWaitingVideoSelection)
+    public function setCallWaitingVideoSelection($callWaitingVideoSelection = null)
     {
-        $callWaitingVideoSelection and $this->callWaitingVideoSelection = new ExtendedFileResourceSelection($callWaitingVideoSelection);
+        $this->callWaitingVideoSelection = ($callWaitingVideoSelection InstanceOf ExtendedFileResourceSelection)
+             ? $callWaitingVideoSelection
+             : new ExtendedFileResourceSelection($callWaitingVideoSelection);
     }
 
     public function getCallWaitingVideoSelection()
@@ -241,9 +238,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->callWaitingVideoSelection) ?: $this->callWaitingVideoSelection->value();
     }
 
-    public function setCallWaitingVideoFileDescription($callWaitingVideoFileDescription)
+    public function setCallWaitingVideoFileDescription($callWaitingVideoFileDescription = null)
     {
-        $callWaitingVideoFileDescription and $this->callWaitingVideoFileDescription = new FileDescription($callWaitingVideoFileDescription);
+        $this->callWaitingVideoFileDescription = ($callWaitingVideoFileDescription InstanceOf FileDescription)
+             ? $callWaitingVideoFileDescription
+             : new FileDescription($callWaitingVideoFileDescription);
     }
 
     public function getCallWaitingVideoFileDescription()
@@ -251,9 +250,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->callWaitingVideoFileDescription) ?: $this->callWaitingVideoFileDescription->value();
     }
 
-    public function setCallWaitingVideoMediaType($callWaitingVideoMediaType)
+    public function setCallWaitingVideoMediaType($callWaitingVideoMediaType = null)
     {
-        $callWaitingVideoMediaType and $this->callWaitingVideoMediaType = new MediaFileType($callWaitingVideoMediaType);
+        $this->callWaitingVideoMediaType = ($callWaitingVideoMediaType InstanceOf MediaFileType)
+             ? $callWaitingVideoMediaType
+             : new MediaFileType($callWaitingVideoMediaType);
     }
 
     public function getCallWaitingVideoMediaType()
@@ -261,9 +262,11 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
         return (!$this->callWaitingVideoMediaType) ?: $this->callWaitingVideoMediaType->value();
     }
 
-    public function setCallWaitingVideoFileUrl($callWaitingVideoFileUrl)
+    public function setCallWaitingVideoFileUrl($callWaitingVideoFileUrl = null)
     {
-        $callWaitingVideoFileUrl and $this->callWaitingVideoFileUrl = new URL($callWaitingVideoFileUrl);
+        $this->callWaitingVideoFileUrl = ($callWaitingVideoFileUrl InstanceOf URL)
+             ? $callWaitingVideoFileUrl
+             : new URL($callWaitingVideoFileUrl);
     }
 
     public function getCallWaitingVideoFileUrl()

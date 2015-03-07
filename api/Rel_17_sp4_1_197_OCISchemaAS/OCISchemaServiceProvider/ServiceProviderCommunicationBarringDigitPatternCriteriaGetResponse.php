@@ -18,18 +18,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $description  = null;
 
-    public function __construct(
-             $description=null
-    ) {
-        $this->description = new DigitPatternCriteriaDescription($description);
-        $this->args        = func_get_args();
-    }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new DigitPatternCriteriaDescription($description);
+        $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
+             ? $description
+             : new DigitPatternCriteriaDescription($description);
     }
 
     public function getDescription()

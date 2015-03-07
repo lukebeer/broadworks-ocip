@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanAuthorizationCodeEntry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanAuthorizationCodeEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $codeEntry  = null;
 
     public function __construct(
-             $userId,
-             $codeEntry
+         $userId,
+         OutgoingCallingPlanAuthorizationCodeEntry $codeEntry
     ) {
-        $this->userId    = new UserId($userId);
-        $this->codeEntry = $codeEntry;
-        $this->args      = func_get_args();
+        $this->setUserId($userId);
+        $this->setCodeEntry($codeEntry);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setCodeEntry($codeEntry)
+    public function setCodeEntry(OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = null)
     {
-        $codeEntry and $this->codeEntry = new OutgoingCallingPlanAuthorizationCodeEntry($codeEntry);
     }
 
     public function getCodeEntry()

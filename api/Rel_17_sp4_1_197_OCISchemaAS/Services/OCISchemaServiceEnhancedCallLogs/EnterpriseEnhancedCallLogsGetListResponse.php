@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:int;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMixedCallLogsEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ExtendedMixedCallLogsEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,20 +23,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $totalNumberOfRows  = null;
+    protected $extendedCallLog    = null;
 
-    public function __construct(
-             $totalNumberOfRows,
-             $extendedCallLog=null
-    ) {
-        $this->totalNumberOfRows = $totalNumberOfRows;
-        $this->extendedCallLog   = $extendedCallLog;
-        $this->args              = func_get_args();
-    }
 
-    public function setTotalNumberOfRows($totalNumberOfRows)
+    public function setTotalNumberOfRows(xs:int $totalNumberOfRows = null)
     {
-        $totalNumberOfRows and $this->totalNumberOfRows = new xs:int($totalNumberOfRows);
     }
 
     public function getTotalNumberOfRows()
@@ -45,9 +37,8 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
         return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->value();
     }
 
-    public function setExtendedCallLog($extendedCallLog)
+    public function setExtendedCallLog(ExtendedMixedCallLogsEntry $extendedCallLog = null)
     {
-        $extendedCallLog and $this->extendedCallLog = new ExtendedMixedCallLogsEntry($extendedCallLog);
     }
 
     public function getExtendedCallLog()

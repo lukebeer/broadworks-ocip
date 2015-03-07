@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $playMCTWarningAnnouncement  = null;
 
     public function __construct(
-             $playMCTWarningAnnouncement=null
+         $playMCTWarningAnnouncement = null
     ) {
-        $this->playMCTWarningAnnouncement = $playMCTWarningAnnouncement;
-        $this->args                       = func_get_args();
+        $this->setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement);
     }
 
-    public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement)
+    public function setPlayMCTWarningAnnouncement(xs:boolean $playMCTWarningAnnouncement = null)
     {
-        $playMCTWarningAnnouncement and $this->playMCTWarningAnnouncement = new xs:boolean($playMCTWarningAnnouncement);
     }
 
     public function getPlayMCTWarningAnnouncement()

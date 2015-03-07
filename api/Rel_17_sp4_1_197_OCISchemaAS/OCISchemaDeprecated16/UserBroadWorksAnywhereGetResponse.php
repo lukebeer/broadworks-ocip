@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,20 +19,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                  = __CLASS__;
+    protected $alertAllLocationsForClickToDialCalls  = null;
+    protected $phoneNumberTable                      = null;
 
-    public function __construct(
-             $alertAllLocationsForClickToDialCalls,
-             $phoneNumberTable
-    ) {
-        $this->alertAllLocationsForClickToDialCalls = $alertAllLocationsForClickToDialCalls;
-        $this->phoneNumberTable                     = $phoneNumberTable;
-        $this->args                                 = func_get_args();
-    }
 
-    public function setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls)
+    public function setAlertAllLocationsForClickToDialCalls(xs:boolean $alertAllLocationsForClickToDialCalls = null)
     {
-        $alertAllLocationsForClickToDialCalls and $this->alertAllLocationsForClickToDialCalls = new xs:boolean($alertAllLocationsForClickToDialCalls);
     }
 
     public function getAlertAllLocationsForClickToDialCalls()
@@ -41,9 +33,8 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
         return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls->value();
     }
 
-    public function setPhoneNumberTable($phoneNumberTable)
+    public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
-        $phoneNumberTable and $this->phoneNumberTable = new core:OCITable($phoneNumberTable);
     }
 
     public function getPhoneNumberTable()

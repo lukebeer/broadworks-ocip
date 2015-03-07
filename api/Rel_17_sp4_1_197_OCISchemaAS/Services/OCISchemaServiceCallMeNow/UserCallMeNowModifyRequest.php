@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallMeNowAnswerConfirmation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowAnswerConfirmation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,24 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $userId              = null;
+    protected $isActive            = null;
+    protected $answerConfirmation  = null;
+    protected $criteriaActivation  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $answerConfirmation=null,
-             CriteriaActivation $criteriaActivation=null
+         $userId,
+         $isActive = null,
+         $answerConfirmation = null,
+         CriteriaActivation $criteriaActivation = null
     ) {
-        $this->userId             = new UserId($userId);
-        $this->isActive           = $isActive;
-        $this->answerConfirmation = $answerConfirmation;
-        $this->criteriaActivation = $criteriaActivation;
-        $this->args               = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setAnswerConfirmation($answerConfirmation);
+        $this->setCriteriaActivation($criteriaActivation);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -46,9 +50,8 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -56,9 +59,11 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setAnswerConfirmation($answerConfirmation)
+    public function setAnswerConfirmation($answerConfirmation = null)
     {
-        $answerConfirmation and $this->answerConfirmation = new CallMeNowAnswerConfirmation($answerConfirmation);
+        $this->answerConfirmation = ($answerConfirmation InstanceOf CallMeNowAnswerConfirmation)
+             ? $answerConfirmation
+             : new CallMeNowAnswerConfirmation($answerConfirmation);
     }
 
     public function getAnswerConfirmation()
@@ -66,9 +71,8 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
         return (!$this->answerConfirmation) ?: $this->answerConfirmation->value();
     }
 
-    public function setCriteriaActivation($criteriaActivation)
+    public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $criteriaActivation and $this->criteriaActivation = new CriteriaActivation($criteriaActivation);
     }
 
     public function getCriteriaActivation()

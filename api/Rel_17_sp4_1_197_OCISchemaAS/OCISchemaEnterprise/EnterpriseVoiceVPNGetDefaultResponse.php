@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOperation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNPolicySelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNDigitManipulationOperation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNTreatmentEntry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNTreatmentEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,24 +20,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $policySelection             = null;
+    protected $digitManipulationOperation  = null;
+    protected $routeGroupId                = null;
+    protected $treatment                   = null;
 
-    public function __construct(
-             $policySelection=null,
-             $digitManipulationOperation=null,
-             $routeGroupId=null,
-             $treatment=null
-    ) {
-        $this->policySelection            = new EnterpriseVoiceVPNPolicySelection($policySelection);
-        $this->digitManipulationOperation = $digitManipulationOperation;
-        $this->routeGroupId               = new GroupId($routeGroupId);
-        $this->treatment                  = $treatment;
-        $this->args                       = func_get_args();
-    }
 
-    public function setPolicySelection($policySelection)
+    public function setPolicySelection($policySelection = null)
     {
-        $policySelection and $this->policySelection = new EnterpriseVoiceVPNPolicySelection($policySelection);
+        $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
+             ? $policySelection
+             : new EnterpriseVoiceVPNPolicySelection($policySelection);
     }
 
     public function getPolicySelection()
@@ -45,9 +39,11 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
         return (!$this->policySelection) ?: $this->policySelection->value();
     }
 
-    public function setDigitManipulationOperation($digitManipulationOperation)
+    public function setDigitManipulationOperation($digitManipulationOperation = null)
     {
-        $digitManipulationOperation and $this->digitManipulationOperation = new EnterpriseVoiceVPNDigitManipulationOperation($digitManipulationOperation);
+        $this->digitManipulationOperation = ($digitManipulationOperation InstanceOf EnterpriseVoiceVPNDigitManipulationOperation)
+             ? $digitManipulationOperation
+             : new EnterpriseVoiceVPNDigitManipulationOperation($digitManipulationOperation);
     }
 
     public function getDigitManipulationOperation()
@@ -55,9 +51,11 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
         return (!$this->digitManipulationOperation) ?: $this->digitManipulationOperation->value();
     }
 
-    public function setRouteGroupId($routeGroupId)
+    public function setRouteGroupId($routeGroupId = null)
     {
-        $routeGroupId and $this->routeGroupId = new GroupId($routeGroupId);
+        $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
+             ? $routeGroupId
+             : new GroupId($routeGroupId);
     }
 
     public function getRouteGroupId()
@@ -65,9 +63,8 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
         return (!$this->routeGroupId) ?: $this->routeGroupId->value();
     }
 
-    public function setTreatment($treatment)
+    public function setTreatment(EnterpriseVoiceVPNTreatmentEntry $treatment = null)
     {
-        $treatment and $this->treatment = new EnterpriseVoiceVPNTreatmentEntry($treatment);
     }
 
     public function getTreatment()

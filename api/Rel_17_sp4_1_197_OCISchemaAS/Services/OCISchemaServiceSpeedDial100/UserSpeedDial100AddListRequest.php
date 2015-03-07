@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SpeedDial100Entry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDial100Entry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $speedDialEntry  = null;
 
     public function __construct(
-             $userId,
-             $speedDialEntry=null
+         $userId,
+         SpeedDial100Entry $speedDialEntry = null
     ) {
-        $this->userId         = new UserId($userId);
-        $this->speedDialEntry = $speedDialEntry;
-        $this->args           = func_get_args();
+        $this->setUserId($userId);
+        $this->setSpeedDialEntry($speedDialEntry);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -40,9 +43,8 @@ class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setSpeedDialEntry($speedDialEntry)
+    public function setSpeedDialEntry(SpeedDial100Entry $speedDialEntry = null)
     {
-        $speedDialEntry and $this->speedDialEntry = new SpeedDial100Entry($speedDialEntry);
     }
 
     public function getSpeedDialEntry()

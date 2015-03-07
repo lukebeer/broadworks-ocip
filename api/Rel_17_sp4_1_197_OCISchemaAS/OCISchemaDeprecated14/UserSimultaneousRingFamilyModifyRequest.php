@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNorSIPURIList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,24 +21,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingFamilyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $userId                  = null;
+    protected $isActive                = null;
+    protected $incomingCalls           = null;
+    protected $simRingPhoneNumberList  = null;
 
     public function __construct(
-             $userId,
-             $isActive=null,
-             $incomingCalls=null,
-             ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList=null
+         $userId,
+         $isActive = null,
+         $incomingCalls = null,
+         ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null
     ) {
-        $this->userId                 = new UserId($userId);
-        $this->isActive               = $isActive;
-        $this->incomingCalls          = new SimultaneousRingSelection($incomingCalls);
-        $this->simRingPhoneNumberList = $simRingPhoneNumberList;
-        $this->args                   = func_get_args();
+        $this->setUserId($userId);
+        $this->setIsActive($isActive);
+        $this->setIncomingCalls($incomingCalls);
+        $this->setSimRingPhoneNumberList($simRingPhoneNumberList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -47,9 +51,8 @@ class UserSimultaneousRingFamilyModifyRequest extends ComplexType implements Com
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -57,9 +60,11 @@ class UserSimultaneousRingFamilyModifyRequest extends ComplexType implements Com
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setIncomingCalls($incomingCalls)
+    public function setIncomingCalls($incomingCalls = null)
     {
-        $incomingCalls and $this->incomingCalls = new SimultaneousRingSelection($incomingCalls);
+        $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
+             ? $incomingCalls
+             : new SimultaneousRingSelection($incomingCalls);
     }
 
     public function getIncomingCalls()
@@ -67,9 +72,8 @@ class UserSimultaneousRingFamilyModifyRequest extends ComplexType implements Com
         return (!$this->incomingCalls) ?: $this->incomingCalls->value();
     }
 
-    public function setSimRingPhoneNumberList($simRingPhoneNumberList)
+    public function setSimRingPhoneNumberList(ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null)
     {
-        $simRingPhoneNumberList and $this->simRingPhoneNumberList = new ReplacementOutgoingDNorSIPURIList($simRingPhoneNumberList);
     }
 
     public function getSimRingPhoneNumberList()

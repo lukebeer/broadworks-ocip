@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,18 +20,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPreferredCarrierGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $usersUsingCarrierTable  = null;
 
-    public function __construct(
-             $usersUsingCarrierTable
-    ) {
-        $this->usersUsingCarrierTable = $usersUsingCarrierTable;
-        $this->args                   = func_get_args();
-    }
 
-    public function setUsersUsingCarrierTable($usersUsingCarrierTable)
+    public function setUsersUsingCarrierTable(core:OCITable $usersUsingCarrierTable = null)
     {
-        $usersUsingCarrierTable and $this->usersUsingCarrierTable = new core:OCITable($usersUsingCarrierTable);
     }
 
     public function getUsersUsingCarrierTable()

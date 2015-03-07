@@ -7,13 +7,12 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemAdminType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemAdminType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -24,30 +23,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $firstName  = null;
+    protected $lastName   = null;
+    protected $password   = null;
+    protected $language   = null;
+    protected $adminType  = null;
+    protected $readOnly   = null;
 
     public function __construct(
-             $userId,
-             $firstName=null,
-             $lastName=null,
-             $password,
-             $language=null,
-             $adminType,
-             $readOnly
+         $userId,
+         $firstName = null,
+         $lastName = null,
+         $password,
+         $language = null,
+         $adminType,
+         $readOnly
     ) {
-        $this->userId    = new UserId($userId);
-        $this->firstName = new FirstName($firstName);
-        $this->lastName  = new LastName($lastName);
-        $this->password  = new Password($password);
-        $this->language  = new Language($language);
-        $this->adminType = new SystemAdminType($adminType);
-        $this->readOnly  = $readOnly;
-        $this->args      = func_get_args();
+        $this->setUserId($userId);
+        $this->setFirstName($firstName);
+        $this->setLastName($lastName);
+        $this->setPassword($password);
+        $this->setLanguage($language);
+        $this->setAdminType($adminType);
+        $this->setReadOnly($readOnly);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -55,9 +62,11 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName = null)
     {
-        $firstName and $this->firstName = new FirstName($firstName);
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
     }
 
     public function getFirstName()
@@ -65,9 +74,11 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
         return (!$this->firstName) ?: $this->firstName->value();
     }
 
-    public function setLastName($lastName)
+    public function setLastName($lastName = null)
     {
-        $lastName and $this->lastName = new LastName($lastName);
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
     }
 
     public function getLastName()
@@ -75,9 +86,11 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
         return (!$this->lastName) ?: $this->lastName->value();
     }
 
-    public function setPassword($password)
+    public function setPassword($password = null)
     {
-        $password and $this->password = new Password($password);
+        $this->password = ($password InstanceOf Password)
+             ? $password
+             : new Password($password);
     }
 
     public function getPassword()
@@ -85,9 +98,11 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
         return (!$this->password) ?: $this->password->value();
     }
 
-    public function setLanguage($language)
+    public function setLanguage($language = null)
     {
-        $language and $this->language = new Language($language);
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
     }
 
     public function getLanguage()
@@ -95,9 +110,11 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
         return (!$this->language) ?: $this->language->value();
     }
 
-    public function setAdminType($adminType)
+    public function setAdminType($adminType = null)
     {
-        $adminType and $this->adminType = new SystemAdminType($adminType);
+        $this->adminType = ($adminType InstanceOf SystemAdminType)
+             ? $adminType
+             : new SystemAdminType($adminType);
     }
 
     public function getAdminType()
@@ -105,9 +122,8 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
         return (!$this->adminType) ?: $this->adminType->value();
     }
 
-    public function setReadOnly($readOnly)
+    public function setReadOnly(xs:boolean $readOnly = null)
     {
-        $readOnly and $this->readOnly = new xs:boolean($readOnly);
     }
 
     public function getReadOnly()

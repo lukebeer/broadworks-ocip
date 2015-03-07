@@ -7,13 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CommunicationBarringRedirectingAction15sp2;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CommunicationBarringOriginatingAction15sp2;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CommunicationBarringOriginatingRule15sp2;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CommunicationBarringRedirectingRule15sp2;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringOriginatingAction15sp2;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringOriginatingRule15sp2;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringRedirectingAction15sp2;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringRedirectingRule15sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,30 +25,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringProfileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                              = __CLASS__;
+    protected $description                       = null;
+    protected $originatingDefaultAction          = null;
+    protected $originatingDefaultTreatmentId     = null;
+    protected $originatingDefaultTransferNumber  = null;
+    protected $originatingRule                   = null;
+    protected $redirectingDefaultAction          = null;
+    protected $redirectingRule                   = null;
 
-    public function __construct(
-             $description=null,
-             $originatingDefaultAction,
-             $originatingDefaultTreatmentId=null,
-             $originatingDefaultTransferNumber=null,
-             $originatingRule=null,
-             $redirectingDefaultAction,
-             $redirectingRule=null
-    ) {
-        $this->description                      = new CommunicationBarringProfileDescription($description);
-        $this->originatingDefaultAction         = $originatingDefaultAction;
-        $this->originatingDefaultTreatmentId    = new TreatmentId($originatingDefaultTreatmentId);
-        $this->originatingDefaultTransferNumber = new OutgoingDN($originatingDefaultTransferNumber);
-        $this->originatingRule                  = $originatingRule;
-        $this->redirectingDefaultAction         = $redirectingDefaultAction;
-        $this->redirectingRule                  = $redirectingRule;
-        $this->args                             = func_get_args();
-    }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new CommunicationBarringProfileDescription($description);
+        $this->description = ($description InstanceOf CommunicationBarringProfileDescription)
+             ? $description
+             : new CommunicationBarringProfileDescription($description);
     }
 
     public function getDescription()
@@ -56,9 +47,11 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setOriginatingDefaultAction($originatingDefaultAction)
+    public function setOriginatingDefaultAction($originatingDefaultAction = null)
     {
-        $originatingDefaultAction and $this->originatingDefaultAction = new CommunicationBarringOriginatingAction15sp2($originatingDefaultAction);
+        $this->originatingDefaultAction = ($originatingDefaultAction InstanceOf CommunicationBarringOriginatingAction15sp2)
+             ? $originatingDefaultAction
+             : new CommunicationBarringOriginatingAction15sp2($originatingDefaultAction);
     }
 
     public function getOriginatingDefaultAction()
@@ -66,9 +59,11 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         return (!$this->originatingDefaultAction) ?: $this->originatingDefaultAction->value();
     }
 
-    public function setOriginatingDefaultTreatmentId($originatingDefaultTreatmentId)
+    public function setOriginatingDefaultTreatmentId($originatingDefaultTreatmentId = null)
     {
-        $originatingDefaultTreatmentId and $this->originatingDefaultTreatmentId = new TreatmentId($originatingDefaultTreatmentId);
+        $this->originatingDefaultTreatmentId = ($originatingDefaultTreatmentId InstanceOf TreatmentId)
+             ? $originatingDefaultTreatmentId
+             : new TreatmentId($originatingDefaultTreatmentId);
     }
 
     public function getOriginatingDefaultTreatmentId()
@@ -76,9 +71,11 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         return (!$this->originatingDefaultTreatmentId) ?: $this->originatingDefaultTreatmentId->value();
     }
 
-    public function setOriginatingDefaultTransferNumber($originatingDefaultTransferNumber)
+    public function setOriginatingDefaultTransferNumber($originatingDefaultTransferNumber = null)
     {
-        $originatingDefaultTransferNumber and $this->originatingDefaultTransferNumber = new OutgoingDN($originatingDefaultTransferNumber);
+        $this->originatingDefaultTransferNumber = ($originatingDefaultTransferNumber InstanceOf OutgoingDN)
+             ? $originatingDefaultTransferNumber
+             : new OutgoingDN($originatingDefaultTransferNumber);
     }
 
     public function getOriginatingDefaultTransferNumber()
@@ -86,9 +83,8 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         return (!$this->originatingDefaultTransferNumber) ?: $this->originatingDefaultTransferNumber->value();
     }
 
-    public function setOriginatingRule($originatingRule)
+    public function setOriginatingRule(CommunicationBarringOriginatingRule15sp2 $originatingRule = null)
     {
-        $originatingRule and $this->originatingRule = new CommunicationBarringOriginatingRule15sp2($originatingRule);
     }
 
     public function getOriginatingRule()
@@ -96,9 +92,11 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         return (!$this->originatingRule) ?: $this->originatingRule->value();
     }
 
-    public function setRedirectingDefaultAction($redirectingDefaultAction)
+    public function setRedirectingDefaultAction($redirectingDefaultAction = null)
     {
-        $redirectingDefaultAction and $this->redirectingDefaultAction = new CommunicationBarringRedirectingAction15sp2($redirectingDefaultAction);
+        $this->redirectingDefaultAction = ($redirectingDefaultAction InstanceOf CommunicationBarringRedirectingAction15sp2)
+             ? $redirectingDefaultAction
+             : new CommunicationBarringRedirectingAction15sp2($redirectingDefaultAction);
     }
 
     public function getRedirectingDefaultAction()
@@ -106,9 +104,8 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         return (!$this->redirectingDefaultAction) ?: $this->redirectingDefaultAction->value();
     }
 
-    public function setRedirectingRule($redirectingRule)
+    public function setRedirectingRule(CommunicationBarringRedirectingRule15sp2 $redirectingRule = null)
     {
-        $redirectingRule and $this->redirectingRule = new CommunicationBarringRedirectingRule15sp2($redirectingRule);
     }
 
     public function getRedirectingRule()

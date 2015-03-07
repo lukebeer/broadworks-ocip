@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExternalCustomRingbackSettingLevel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPContact;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,22 +18,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name             = __CLASS__;
+    protected $isActive         = null;
+    protected $useSettingLevel  = null;
+    protected $sipRequestURI    = null;
 
-    public function __construct(
-             $isActive,
-             $useSettingLevel,
-             $sipRequestURI=null
-    ) {
-        $this->isActive        = $isActive;
-        $this->useSettingLevel = $useSettingLevel;
-        $this->sipRequestURI   = new SIPContact($sipRequestURI);
-        $this->args            = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -42,9 +33,11 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setUseSettingLevel($useSettingLevel)
+    public function setUseSettingLevel($useSettingLevel = null)
     {
-        $useSettingLevel and $this->useSettingLevel = new ExternalCustomRingbackSettingLevel($useSettingLevel);
+        $this->useSettingLevel = ($useSettingLevel InstanceOf ExternalCustomRingbackSettingLevel)
+             ? $useSettingLevel
+             : new ExternalCustomRingbackSettingLevel($useSettingLevel);
     }
 
     public function getUseSettingLevel()
@@ -52,9 +45,11 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
         return (!$this->useSettingLevel) ?: $this->useSettingLevel->value();
     }
 
-    public function setSipRequestURI($sipRequestURI)
+    public function setSipRequestURI($sipRequestURI = null)
     {
-        $sipRequestURI and $this->sipRequestURI = new SIPContact($sipRequestURI);
+        $this->sipRequestURI = ($sipRequestURI InstanceOf SIPContact)
+             ? $sipRequestURI
+             : new SIPContact($sipRequestURI);
     }
 
     public function getSipRequestURI()

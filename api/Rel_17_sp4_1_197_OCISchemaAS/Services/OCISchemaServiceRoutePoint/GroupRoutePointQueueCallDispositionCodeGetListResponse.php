@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointQueueCallDispositionCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $dispositionCodesTable  = null;
 
-    public function __construct(
-             $dispositionCodesTable
-    ) {
-        $this->dispositionCodesTable = $dispositionCodesTable;
-        $this->args                  = func_get_args();
-    }
 
-    public function setDispositionCodesTable($dispositionCodesTable)
+    public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
     {
-        $dispositionCodesTable and $this->dispositionCodesTable = new core:OCITable($dispositionCodesTable);
     }
 
     public function getDispositionCodesTable()

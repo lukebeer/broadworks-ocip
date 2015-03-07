@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                   = __CLASS__;
+    protected $displayLocalUserIdentityLastNameFirst  = null;
 
     public function __construct(
-             $displayLocalUserIdentityLastNameFirst=null
+         $displayLocalUserIdentityLastNameFirst = null
     ) {
-        $this->displayLocalUserIdentityLastNameFirst = $displayLocalUserIdentityLastNameFirst;
-        $this->args                                  = func_get_args();
+        $this->setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst);
     }
 
-    public function setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst)
+    public function setDisplayLocalUserIdentityLastNameFirst(xs:boolean $displayLocalUserIdentityLastNameFirst = null)
     {
-        $displayLocalUserIdentityLastNameFirst and $this->displayLocalUserIdentityLastNameFirst = new xs:boolean($displayLocalUserIdentityLastNameFirst);
     }
 
     public function getDisplayLocalUserIdentityLastNameFirst()

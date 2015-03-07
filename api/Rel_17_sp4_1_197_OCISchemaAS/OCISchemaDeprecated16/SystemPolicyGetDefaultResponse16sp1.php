@@ -7,39 +7,39 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingPlanAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupLDAPIntegrationAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupVoiceMessagingAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminUserAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminSessionAdmissionControlAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminPhoneNumberExtensionAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminSessionAdmissionControlAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminEnhancedServiceInstanceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAccessDeviceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServicePackAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminWebBrandingAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminPhoneNumberExtensionAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminDepartmentAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminTrunkGroupAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseAdminNetworkPolicyAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServiceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminProfileAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminFeatureAccessCodeAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminGroupAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAdminAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDepartmentAdminUserAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminUserAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserAuthenticationAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserGroupDirectoryAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserProfileAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserCallLogAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminProfileAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminDepartmentAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAccessDeviceAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminEnhancedServiceInstanceAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminFeatureAccessCodeAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminPhoneNumberExtensionAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminServiceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupLDAPIntegrationAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminTrunkGroupAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminSessionAdmissionControlAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminProfileAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminGroupAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminUserAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAdminAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminDepartmentAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAccessDeviceAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminPhoneNumberExtensionAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServiceAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServicePackAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminSessionAdmissionControlAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminWebBrandingAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseAdminNetworkPolicyAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminDepartmentAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupVoiceMessagingAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminProfileAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminServiceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserCallLogAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingPlanAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserProfileAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -50,82 +50,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                               = __CLASS__;
+    protected $groupCallingPlanAccess                             = null;
+    protected $groupExtensionAccess                               = null;
+    protected $groupLDAPIntegrationAccess                         = null;
+    protected $groupVoiceMessagingAccess                          = null;
+    protected $groupDepartmentAdminUserAccess                     = null;
+    protected $groupDepartmentAdminTrunkGroupAccess               = null;
+    protected $groupUserAuthenticationAccess                      = null;
+    protected $groupUserGroupDirectoryAccess                      = null;
+    protected $groupUserProfileAccess                             = null;
+    protected $groupUserEnhancedCallLogsAccess                    = null;
+    protected $groupAdminProfileAccess                            = null;
+    protected $groupAdminUserAccess                               = null;
+    protected $groupAdminAdminAccess                              = null;
+    protected $groupAdminDepartmentAccess                         = null;
+    protected $groupAdminAccessDeviceAccess                       = null;
+    protected $groupAdminEnhancedServiceInstanceAccess            = null;
+    protected $groupAdminFeatureAccessCodeAccess                  = null;
+    protected $groupAdminPhoneNumberExtensionAccess               = null;
+    protected $groupAdminServiceAccess                            = null;
+    protected $groupAdminTrunkGroupAccess                         = null;
+    protected $groupAdminSessionAdmissionControlAccess            = null;
+    protected $serviceProviderAdminProfileAccess                  = null;
+    protected $serviceProviderAdminGroupAccess                    = null;
+    protected $serviceProviderAdminUserAccess                     = null;
+    protected $serviceProviderAdminAdminAccess                    = null;
+    protected $serviceProviderAdminDepartmentAccess               = null;
+    protected $serviceProviderAdminAccessDeviceAccess             = null;
+    protected $serviceProviderAdminPhoneNumberExtensionAccess     = null;
+    protected $serviceProviderAdminServiceAccess                  = null;
+    protected $serviceProviderAdminServicePackAccess              = null;
+    protected $serviceProviderAdminSessionAdmissionControlAccess  = null;
+    protected $serviceProviderAdminWebBrandingAccess              = null;
+    protected $enterpriseAdminNetworkPolicyAccess                 = null;
 
-    public function __construct(
-             $groupCallingPlanAccess,
-             $groupExtensionAccess,
-             $groupLDAPIntegrationAccess,
-             $groupVoiceMessagingAccess,
-             $groupDepartmentAdminUserAccess,
-             $groupDepartmentAdminTrunkGroupAccess,
-             $groupUserAuthenticationAccess,
-             $groupUserGroupDirectoryAccess,
-             $groupUserProfileAccess,
-             $groupUserEnhancedCallLogsAccess,
-             $groupAdminProfileAccess,
-             $groupAdminUserAccess,
-             $groupAdminAdminAccess,
-             $groupAdminDepartmentAccess,
-             $groupAdminAccessDeviceAccess,
-             $groupAdminEnhancedServiceInstanceAccess,
-             $groupAdminFeatureAccessCodeAccess,
-             $groupAdminPhoneNumberExtensionAccess,
-             $groupAdminServiceAccess,
-             $groupAdminTrunkGroupAccess,
-             $groupAdminSessionAdmissionControlAccess,
-             $serviceProviderAdminProfileAccess,
-             $serviceProviderAdminGroupAccess,
-             $serviceProviderAdminUserAccess,
-             $serviceProviderAdminAdminAccess,
-             $serviceProviderAdminDepartmentAccess,
-             $serviceProviderAdminAccessDeviceAccess,
-             $serviceProviderAdminPhoneNumberExtensionAccess,
-             $serviceProviderAdminServiceAccess,
-             $serviceProviderAdminServicePackAccess,
-             $serviceProviderAdminSessionAdmissionControlAccess,
-             $serviceProviderAdminWebBrandingAccess,
-             $enterpriseAdminNetworkPolicyAccess
-    ) {
-        $this->groupCallingPlanAccess                            = new GroupCallingPlanAccess($groupCallingPlanAccess);
-        $this->groupExtensionAccess                              = new GroupExtensionAccess($groupExtensionAccess);
-        $this->groupLDAPIntegrationAccess                        = new GroupLDAPIntegrationAccess($groupLDAPIntegrationAccess);
-        $this->groupVoiceMessagingAccess                         = new GroupVoiceMessagingAccess($groupVoiceMessagingAccess);
-        $this->groupDepartmentAdminUserAccess                    = new GroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess);
-        $this->groupDepartmentAdminTrunkGroupAccess              = new GroupDepartmentAdminTrunkGroupAccess($groupDepartmentAdminTrunkGroupAccess);
-        $this->groupUserAuthenticationAccess                     = new GroupUserAuthenticationAccess($groupUserAuthenticationAccess);
-        $this->groupUserGroupDirectoryAccess                     = new GroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess);
-        $this->groupUserProfileAccess                            = new GroupUserProfileAccess($groupUserProfileAccess);
-        $this->groupUserEnhancedCallLogsAccess                   = new GroupUserCallLogAccess($groupUserEnhancedCallLogsAccess);
-        $this->groupAdminProfileAccess                           = new GroupAdminProfileAccess($groupAdminProfileAccess);
-        $this->groupAdminUserAccess                              = new GroupAdminUserAccess($groupAdminUserAccess);
-        $this->groupAdminAdminAccess                             = new GroupAdminAdminAccess($groupAdminAdminAccess);
-        $this->groupAdminDepartmentAccess                        = new GroupAdminDepartmentAccess($groupAdminDepartmentAccess);
-        $this->groupAdminAccessDeviceAccess                      = new GroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess);
-        $this->groupAdminEnhancedServiceInstanceAccess           = new GroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess);
-        $this->groupAdminFeatureAccessCodeAccess                 = new GroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess);
-        $this->groupAdminPhoneNumberExtensionAccess              = new GroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess);
-        $this->groupAdminServiceAccess                           = new GroupAdminServiceAccess($groupAdminServiceAccess);
-        $this->groupAdminTrunkGroupAccess                        = new GroupAdminTrunkGroupAccess($groupAdminTrunkGroupAccess);
-        $this->groupAdminSessionAdmissionControlAccess           = new GroupAdminSessionAdmissionControlAccess($groupAdminSessionAdmissionControlAccess);
-        $this->serviceProviderAdminProfileAccess                 = new ServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess);
-        $this->serviceProviderAdminGroupAccess                   = new ServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess);
-        $this->serviceProviderAdminUserAccess                    = new ServiceProviderAdminUserAccess($serviceProviderAdminUserAccess);
-        $this->serviceProviderAdminAdminAccess                   = new ServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess);
-        $this->serviceProviderAdminDepartmentAccess              = new ServiceProviderAdminDepartmentAccess($serviceProviderAdminDepartmentAccess);
-        $this->serviceProviderAdminAccessDeviceAccess            = new ServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess);
-        $this->serviceProviderAdminPhoneNumberExtensionAccess    = new ServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess);
-        $this->serviceProviderAdminServiceAccess                 = new ServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess);
-        $this->serviceProviderAdminServicePackAccess             = new ServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess);
-        $this->serviceProviderAdminSessionAdmissionControlAccess = new ServiceProviderAdminSessionAdmissionControlAccess($serviceProviderAdminSessionAdmissionControlAccess);
-        $this->serviceProviderAdminWebBrandingAccess             = new ServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess);
-        $this->enterpriseAdminNetworkPolicyAccess                = new EnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess);
-        $this->args                                              = func_get_args();
-    }
 
-    public function setGroupCallingPlanAccess($groupCallingPlanAccess)
+    public function setGroupCallingPlanAccess($groupCallingPlanAccess = null)
     {
-        $groupCallingPlanAccess and $this->groupCallingPlanAccess = new GroupCallingPlanAccess($groupCallingPlanAccess);
+        $this->groupCallingPlanAccess = ($groupCallingPlanAccess InstanceOf GroupCallingPlanAccess)
+             ? $groupCallingPlanAccess
+             : new GroupCallingPlanAccess($groupCallingPlanAccess);
     }
 
     public function getGroupCallingPlanAccess()
@@ -133,9 +98,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupCallingPlanAccess) ?: $this->groupCallingPlanAccess->value();
     }
 
-    public function setGroupExtensionAccess($groupExtensionAccess)
+    public function setGroupExtensionAccess($groupExtensionAccess = null)
     {
-        $groupExtensionAccess and $this->groupExtensionAccess = new GroupExtensionAccess($groupExtensionAccess);
+        $this->groupExtensionAccess = ($groupExtensionAccess InstanceOf GroupExtensionAccess)
+             ? $groupExtensionAccess
+             : new GroupExtensionAccess($groupExtensionAccess);
     }
 
     public function getGroupExtensionAccess()
@@ -143,9 +110,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupExtensionAccess) ?: $this->groupExtensionAccess->value();
     }
 
-    public function setGroupLDAPIntegrationAccess($groupLDAPIntegrationAccess)
+    public function setGroupLDAPIntegrationAccess($groupLDAPIntegrationAccess = null)
     {
-        $groupLDAPIntegrationAccess and $this->groupLDAPIntegrationAccess = new GroupLDAPIntegrationAccess($groupLDAPIntegrationAccess);
+        $this->groupLDAPIntegrationAccess = ($groupLDAPIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
+             ? $groupLDAPIntegrationAccess
+             : new GroupLDAPIntegrationAccess($groupLDAPIntegrationAccess);
     }
 
     public function getGroupLDAPIntegrationAccess()
@@ -153,9 +122,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupLDAPIntegrationAccess) ?: $this->groupLDAPIntegrationAccess->value();
     }
 
-    public function setGroupVoiceMessagingAccess($groupVoiceMessagingAccess)
+    public function setGroupVoiceMessagingAccess($groupVoiceMessagingAccess = null)
     {
-        $groupVoiceMessagingAccess and $this->groupVoiceMessagingAccess = new GroupVoiceMessagingAccess($groupVoiceMessagingAccess);
+        $this->groupVoiceMessagingAccess = ($groupVoiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
+             ? $groupVoiceMessagingAccess
+             : new GroupVoiceMessagingAccess($groupVoiceMessagingAccess);
     }
 
     public function getGroupVoiceMessagingAccess()
@@ -163,9 +134,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupVoiceMessagingAccess) ?: $this->groupVoiceMessagingAccess->value();
     }
 
-    public function setGroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess)
+    public function setGroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess = null)
     {
-        $groupDepartmentAdminUserAccess and $this->groupDepartmentAdminUserAccess = new GroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess);
+        $this->groupDepartmentAdminUserAccess = ($groupDepartmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
+             ? $groupDepartmentAdminUserAccess
+             : new GroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess);
     }
 
     public function getGroupDepartmentAdminUserAccess()
@@ -173,9 +146,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupDepartmentAdminUserAccess) ?: $this->groupDepartmentAdminUserAccess->value();
     }
 
-    public function setGroupDepartmentAdminTrunkGroupAccess($groupDepartmentAdminTrunkGroupAccess)
+    public function setGroupDepartmentAdminTrunkGroupAccess($groupDepartmentAdminTrunkGroupAccess = null)
     {
-        $groupDepartmentAdminTrunkGroupAccess and $this->groupDepartmentAdminTrunkGroupAccess = new GroupDepartmentAdminTrunkGroupAccess($groupDepartmentAdminTrunkGroupAccess);
+        $this->groupDepartmentAdminTrunkGroupAccess = ($groupDepartmentAdminTrunkGroupAccess InstanceOf GroupDepartmentAdminTrunkGroupAccess)
+             ? $groupDepartmentAdminTrunkGroupAccess
+             : new GroupDepartmentAdminTrunkGroupAccess($groupDepartmentAdminTrunkGroupAccess);
     }
 
     public function getGroupDepartmentAdminTrunkGroupAccess()
@@ -183,9 +158,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupDepartmentAdminTrunkGroupAccess) ?: $this->groupDepartmentAdminTrunkGroupAccess->value();
     }
 
-    public function setGroupUserAuthenticationAccess($groupUserAuthenticationAccess)
+    public function setGroupUserAuthenticationAccess($groupUserAuthenticationAccess = null)
     {
-        $groupUserAuthenticationAccess and $this->groupUserAuthenticationAccess = new GroupUserAuthenticationAccess($groupUserAuthenticationAccess);
+        $this->groupUserAuthenticationAccess = ($groupUserAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
+             ? $groupUserAuthenticationAccess
+             : new GroupUserAuthenticationAccess($groupUserAuthenticationAccess);
     }
 
     public function getGroupUserAuthenticationAccess()
@@ -193,9 +170,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupUserAuthenticationAccess) ?: $this->groupUserAuthenticationAccess->value();
     }
 
-    public function setGroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess)
+    public function setGroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess = null)
     {
-        $groupUserGroupDirectoryAccess and $this->groupUserGroupDirectoryAccess = new GroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess);
+        $this->groupUserGroupDirectoryAccess = ($groupUserGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
+             ? $groupUserGroupDirectoryAccess
+             : new GroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess);
     }
 
     public function getGroupUserGroupDirectoryAccess()
@@ -203,9 +182,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupUserGroupDirectoryAccess) ?: $this->groupUserGroupDirectoryAccess->value();
     }
 
-    public function setGroupUserProfileAccess($groupUserProfileAccess)
+    public function setGroupUserProfileAccess($groupUserProfileAccess = null)
     {
-        $groupUserProfileAccess and $this->groupUserProfileAccess = new GroupUserProfileAccess($groupUserProfileAccess);
+        $this->groupUserProfileAccess = ($groupUserProfileAccess InstanceOf GroupUserProfileAccess)
+             ? $groupUserProfileAccess
+             : new GroupUserProfileAccess($groupUserProfileAccess);
     }
 
     public function getGroupUserProfileAccess()
@@ -213,9 +194,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupUserProfileAccess) ?: $this->groupUserProfileAccess->value();
     }
 
-    public function setGroupUserEnhancedCallLogsAccess($groupUserEnhancedCallLogsAccess)
+    public function setGroupUserEnhancedCallLogsAccess($groupUserEnhancedCallLogsAccess = null)
     {
-        $groupUserEnhancedCallLogsAccess and $this->groupUserEnhancedCallLogsAccess = new GroupUserCallLogAccess($groupUserEnhancedCallLogsAccess);
+        $this->groupUserEnhancedCallLogsAccess = ($groupUserEnhancedCallLogsAccess InstanceOf GroupUserCallLogAccess)
+             ? $groupUserEnhancedCallLogsAccess
+             : new GroupUserCallLogAccess($groupUserEnhancedCallLogsAccess);
     }
 
     public function getGroupUserEnhancedCallLogsAccess()
@@ -223,9 +206,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupUserEnhancedCallLogsAccess) ?: $this->groupUserEnhancedCallLogsAccess->value();
     }
 
-    public function setGroupAdminProfileAccess($groupAdminProfileAccess)
+    public function setGroupAdminProfileAccess($groupAdminProfileAccess = null)
     {
-        $groupAdminProfileAccess and $this->groupAdminProfileAccess = new GroupAdminProfileAccess($groupAdminProfileAccess);
+        $this->groupAdminProfileAccess = ($groupAdminProfileAccess InstanceOf GroupAdminProfileAccess)
+             ? $groupAdminProfileAccess
+             : new GroupAdminProfileAccess($groupAdminProfileAccess);
     }
 
     public function getGroupAdminProfileAccess()
@@ -233,9 +218,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminProfileAccess) ?: $this->groupAdminProfileAccess->value();
     }
 
-    public function setGroupAdminUserAccess($groupAdminUserAccess)
+    public function setGroupAdminUserAccess($groupAdminUserAccess = null)
     {
-        $groupAdminUserAccess and $this->groupAdminUserAccess = new GroupAdminUserAccess($groupAdminUserAccess);
+        $this->groupAdminUserAccess = ($groupAdminUserAccess InstanceOf GroupAdminUserAccess)
+             ? $groupAdminUserAccess
+             : new GroupAdminUserAccess($groupAdminUserAccess);
     }
 
     public function getGroupAdminUserAccess()
@@ -243,9 +230,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminUserAccess) ?: $this->groupAdminUserAccess->value();
     }
 
-    public function setGroupAdminAdminAccess($groupAdminAdminAccess)
+    public function setGroupAdminAdminAccess($groupAdminAdminAccess = null)
     {
-        $groupAdminAdminAccess and $this->groupAdminAdminAccess = new GroupAdminAdminAccess($groupAdminAdminAccess);
+        $this->groupAdminAdminAccess = ($groupAdminAdminAccess InstanceOf GroupAdminAdminAccess)
+             ? $groupAdminAdminAccess
+             : new GroupAdminAdminAccess($groupAdminAdminAccess);
     }
 
     public function getGroupAdminAdminAccess()
@@ -253,9 +242,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminAdminAccess) ?: $this->groupAdminAdminAccess->value();
     }
 
-    public function setGroupAdminDepartmentAccess($groupAdminDepartmentAccess)
+    public function setGroupAdminDepartmentAccess($groupAdminDepartmentAccess = null)
     {
-        $groupAdminDepartmentAccess and $this->groupAdminDepartmentAccess = new GroupAdminDepartmentAccess($groupAdminDepartmentAccess);
+        $this->groupAdminDepartmentAccess = ($groupAdminDepartmentAccess InstanceOf GroupAdminDepartmentAccess)
+             ? $groupAdminDepartmentAccess
+             : new GroupAdminDepartmentAccess($groupAdminDepartmentAccess);
     }
 
     public function getGroupAdminDepartmentAccess()
@@ -263,9 +254,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminDepartmentAccess) ?: $this->groupAdminDepartmentAccess->value();
     }
 
-    public function setGroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess)
+    public function setGroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess = null)
     {
-        $groupAdminAccessDeviceAccess and $this->groupAdminAccessDeviceAccess = new GroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess);
+        $this->groupAdminAccessDeviceAccess = ($groupAdminAccessDeviceAccess InstanceOf GroupAdminAccessDeviceAccess)
+             ? $groupAdminAccessDeviceAccess
+             : new GroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess);
     }
 
     public function getGroupAdminAccessDeviceAccess()
@@ -273,9 +266,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminAccessDeviceAccess) ?: $this->groupAdminAccessDeviceAccess->value();
     }
 
-    public function setGroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess)
+    public function setGroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess = null)
     {
-        $groupAdminEnhancedServiceInstanceAccess and $this->groupAdminEnhancedServiceInstanceAccess = new GroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess);
+        $this->groupAdminEnhancedServiceInstanceAccess = ($groupAdminEnhancedServiceInstanceAccess InstanceOf GroupAdminEnhancedServiceInstanceAccess)
+             ? $groupAdminEnhancedServiceInstanceAccess
+             : new GroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess);
     }
 
     public function getGroupAdminEnhancedServiceInstanceAccess()
@@ -283,9 +278,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminEnhancedServiceInstanceAccess) ?: $this->groupAdminEnhancedServiceInstanceAccess->value();
     }
 
-    public function setGroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess)
+    public function setGroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess = null)
     {
-        $groupAdminFeatureAccessCodeAccess and $this->groupAdminFeatureAccessCodeAccess = new GroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess);
+        $this->groupAdminFeatureAccessCodeAccess = ($groupAdminFeatureAccessCodeAccess InstanceOf GroupAdminFeatureAccessCodeAccess)
+             ? $groupAdminFeatureAccessCodeAccess
+             : new GroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess);
     }
 
     public function getGroupAdminFeatureAccessCodeAccess()
@@ -293,9 +290,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminFeatureAccessCodeAccess) ?: $this->groupAdminFeatureAccessCodeAccess->value();
     }
 
-    public function setGroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess)
+    public function setGroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess = null)
     {
-        $groupAdminPhoneNumberExtensionAccess and $this->groupAdminPhoneNumberExtensionAccess = new GroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess);
+        $this->groupAdminPhoneNumberExtensionAccess = ($groupAdminPhoneNumberExtensionAccess InstanceOf GroupAdminPhoneNumberExtensionAccess)
+             ? $groupAdminPhoneNumberExtensionAccess
+             : new GroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess);
     }
 
     public function getGroupAdminPhoneNumberExtensionAccess()
@@ -303,9 +302,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminPhoneNumberExtensionAccess) ?: $this->groupAdminPhoneNumberExtensionAccess->value();
     }
 
-    public function setGroupAdminServiceAccess($groupAdminServiceAccess)
+    public function setGroupAdminServiceAccess($groupAdminServiceAccess = null)
     {
-        $groupAdminServiceAccess and $this->groupAdminServiceAccess = new GroupAdminServiceAccess($groupAdminServiceAccess);
+        $this->groupAdminServiceAccess = ($groupAdminServiceAccess InstanceOf GroupAdminServiceAccess)
+             ? $groupAdminServiceAccess
+             : new GroupAdminServiceAccess($groupAdminServiceAccess);
     }
 
     public function getGroupAdminServiceAccess()
@@ -313,9 +314,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminServiceAccess) ?: $this->groupAdminServiceAccess->value();
     }
 
-    public function setGroupAdminTrunkGroupAccess($groupAdminTrunkGroupAccess)
+    public function setGroupAdminTrunkGroupAccess($groupAdminTrunkGroupAccess = null)
     {
-        $groupAdminTrunkGroupAccess and $this->groupAdminTrunkGroupAccess = new GroupAdminTrunkGroupAccess($groupAdminTrunkGroupAccess);
+        $this->groupAdminTrunkGroupAccess = ($groupAdminTrunkGroupAccess InstanceOf GroupAdminTrunkGroupAccess)
+             ? $groupAdminTrunkGroupAccess
+             : new GroupAdminTrunkGroupAccess($groupAdminTrunkGroupAccess);
     }
 
     public function getGroupAdminTrunkGroupAccess()
@@ -323,9 +326,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminTrunkGroupAccess) ?: $this->groupAdminTrunkGroupAccess->value();
     }
 
-    public function setGroupAdminSessionAdmissionControlAccess($groupAdminSessionAdmissionControlAccess)
+    public function setGroupAdminSessionAdmissionControlAccess($groupAdminSessionAdmissionControlAccess = null)
     {
-        $groupAdminSessionAdmissionControlAccess and $this->groupAdminSessionAdmissionControlAccess = new GroupAdminSessionAdmissionControlAccess($groupAdminSessionAdmissionControlAccess);
+        $this->groupAdminSessionAdmissionControlAccess = ($groupAdminSessionAdmissionControlAccess InstanceOf GroupAdminSessionAdmissionControlAccess)
+             ? $groupAdminSessionAdmissionControlAccess
+             : new GroupAdminSessionAdmissionControlAccess($groupAdminSessionAdmissionControlAccess);
     }
 
     public function getGroupAdminSessionAdmissionControlAccess()
@@ -333,9 +338,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->groupAdminSessionAdmissionControlAccess) ?: $this->groupAdminSessionAdmissionControlAccess->value();
     }
 
-    public function setServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess)
+    public function setServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess = null)
     {
-        $serviceProviderAdminProfileAccess and $this->serviceProviderAdminProfileAccess = new ServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess);
+        $this->serviceProviderAdminProfileAccess = ($serviceProviderAdminProfileAccess InstanceOf ServiceProviderAdminProfileAccess)
+             ? $serviceProviderAdminProfileAccess
+             : new ServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess);
     }
 
     public function getServiceProviderAdminProfileAccess()
@@ -343,9 +350,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminProfileAccess) ?: $this->serviceProviderAdminProfileAccess->value();
     }
 
-    public function setServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess)
+    public function setServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess = null)
     {
-        $serviceProviderAdminGroupAccess and $this->serviceProviderAdminGroupAccess = new ServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess);
+        $this->serviceProviderAdminGroupAccess = ($serviceProviderAdminGroupAccess InstanceOf ServiceProviderAdminGroupAccess)
+             ? $serviceProviderAdminGroupAccess
+             : new ServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess);
     }
 
     public function getServiceProviderAdminGroupAccess()
@@ -353,9 +362,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminGroupAccess) ?: $this->serviceProviderAdminGroupAccess->value();
     }
 
-    public function setServiceProviderAdminUserAccess($serviceProviderAdminUserAccess)
+    public function setServiceProviderAdminUserAccess($serviceProviderAdminUserAccess = null)
     {
-        $serviceProviderAdminUserAccess and $this->serviceProviderAdminUserAccess = new ServiceProviderAdminUserAccess($serviceProviderAdminUserAccess);
+        $this->serviceProviderAdminUserAccess = ($serviceProviderAdminUserAccess InstanceOf ServiceProviderAdminUserAccess)
+             ? $serviceProviderAdminUserAccess
+             : new ServiceProviderAdminUserAccess($serviceProviderAdminUserAccess);
     }
 
     public function getServiceProviderAdminUserAccess()
@@ -363,9 +374,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminUserAccess) ?: $this->serviceProviderAdminUserAccess->value();
     }
 
-    public function setServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess)
+    public function setServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess = null)
     {
-        $serviceProviderAdminAdminAccess and $this->serviceProviderAdminAdminAccess = new ServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess);
+        $this->serviceProviderAdminAdminAccess = ($serviceProviderAdminAdminAccess InstanceOf ServiceProviderAdminAdminAccess)
+             ? $serviceProviderAdminAdminAccess
+             : new ServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess);
     }
 
     public function getServiceProviderAdminAdminAccess()
@@ -373,9 +386,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminAdminAccess) ?: $this->serviceProviderAdminAdminAccess->value();
     }
 
-    public function setServiceProviderAdminDepartmentAccess($serviceProviderAdminDepartmentAccess)
+    public function setServiceProviderAdminDepartmentAccess($serviceProviderAdminDepartmentAccess = null)
     {
-        $serviceProviderAdminDepartmentAccess and $this->serviceProviderAdminDepartmentAccess = new ServiceProviderAdminDepartmentAccess($serviceProviderAdminDepartmentAccess);
+        $this->serviceProviderAdminDepartmentAccess = ($serviceProviderAdminDepartmentAccess InstanceOf ServiceProviderAdminDepartmentAccess)
+             ? $serviceProviderAdminDepartmentAccess
+             : new ServiceProviderAdminDepartmentAccess($serviceProviderAdminDepartmentAccess);
     }
 
     public function getServiceProviderAdminDepartmentAccess()
@@ -383,9 +398,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminDepartmentAccess) ?: $this->serviceProviderAdminDepartmentAccess->value();
     }
 
-    public function setServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess)
+    public function setServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess = null)
     {
-        $serviceProviderAdminAccessDeviceAccess and $this->serviceProviderAdminAccessDeviceAccess = new ServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess);
+        $this->serviceProviderAdminAccessDeviceAccess = ($serviceProviderAdminAccessDeviceAccess InstanceOf ServiceProviderAdminAccessDeviceAccess)
+             ? $serviceProviderAdminAccessDeviceAccess
+             : new ServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess);
     }
 
     public function getServiceProviderAdminAccessDeviceAccess()
@@ -393,9 +410,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminAccessDeviceAccess) ?: $this->serviceProviderAdminAccessDeviceAccess->value();
     }
 
-    public function setServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess)
+    public function setServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess = null)
     {
-        $serviceProviderAdminPhoneNumberExtensionAccess and $this->serviceProviderAdminPhoneNumberExtensionAccess = new ServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess);
+        $this->serviceProviderAdminPhoneNumberExtensionAccess = ($serviceProviderAdminPhoneNumberExtensionAccess InstanceOf ServiceProviderAdminPhoneNumberExtensionAccess)
+             ? $serviceProviderAdminPhoneNumberExtensionAccess
+             : new ServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess);
     }
 
     public function getServiceProviderAdminPhoneNumberExtensionAccess()
@@ -403,9 +422,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminPhoneNumberExtensionAccess) ?: $this->serviceProviderAdminPhoneNumberExtensionAccess->value();
     }
 
-    public function setServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess)
+    public function setServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess = null)
     {
-        $serviceProviderAdminServiceAccess and $this->serviceProviderAdminServiceAccess = new ServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess);
+        $this->serviceProviderAdminServiceAccess = ($serviceProviderAdminServiceAccess InstanceOf ServiceProviderAdminServiceAccess)
+             ? $serviceProviderAdminServiceAccess
+             : new ServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess);
     }
 
     public function getServiceProviderAdminServiceAccess()
@@ -413,9 +434,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminServiceAccess) ?: $this->serviceProviderAdminServiceAccess->value();
     }
 
-    public function setServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess)
+    public function setServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess = null)
     {
-        $serviceProviderAdminServicePackAccess and $this->serviceProviderAdminServicePackAccess = new ServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess);
+        $this->serviceProviderAdminServicePackAccess = ($serviceProviderAdminServicePackAccess InstanceOf ServiceProviderAdminServicePackAccess)
+             ? $serviceProviderAdminServicePackAccess
+             : new ServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess);
     }
 
     public function getServiceProviderAdminServicePackAccess()
@@ -423,9 +446,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminServicePackAccess) ?: $this->serviceProviderAdminServicePackAccess->value();
     }
 
-    public function setServiceProviderAdminSessionAdmissionControlAccess($serviceProviderAdminSessionAdmissionControlAccess)
+    public function setServiceProviderAdminSessionAdmissionControlAccess($serviceProviderAdminSessionAdmissionControlAccess = null)
     {
-        $serviceProviderAdminSessionAdmissionControlAccess and $this->serviceProviderAdminSessionAdmissionControlAccess = new ServiceProviderAdminSessionAdmissionControlAccess($serviceProviderAdminSessionAdmissionControlAccess);
+        $this->serviceProviderAdminSessionAdmissionControlAccess = ($serviceProviderAdminSessionAdmissionControlAccess InstanceOf ServiceProviderAdminSessionAdmissionControlAccess)
+             ? $serviceProviderAdminSessionAdmissionControlAccess
+             : new ServiceProviderAdminSessionAdmissionControlAccess($serviceProviderAdminSessionAdmissionControlAccess);
     }
 
     public function getServiceProviderAdminSessionAdmissionControlAccess()
@@ -433,9 +458,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminSessionAdmissionControlAccess) ?: $this->serviceProviderAdminSessionAdmissionControlAccess->value();
     }
 
-    public function setServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess)
+    public function setServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess = null)
     {
-        $serviceProviderAdminWebBrandingAccess and $this->serviceProviderAdminWebBrandingAccess = new ServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess);
+        $this->serviceProviderAdminWebBrandingAccess = ($serviceProviderAdminWebBrandingAccess InstanceOf ServiceProviderAdminWebBrandingAccess)
+             ? $serviceProviderAdminWebBrandingAccess
+             : new ServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess);
     }
 
     public function getServiceProviderAdminWebBrandingAccess()
@@ -443,9 +470,11 @@ class SystemPolicyGetDefaultResponse16sp1 extends ComplexType implements Complex
         return (!$this->serviceProviderAdminWebBrandingAccess) ?: $this->serviceProviderAdminWebBrandingAccess->value();
     }
 
-    public function setEnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess)
+    public function setEnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess = null)
     {
-        $enterpriseAdminNetworkPolicyAccess and $this->enterpriseAdminNetworkPolicyAccess = new EnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess);
+        $this->enterpriseAdminNetworkPolicyAccess = ($enterpriseAdminNetworkPolicyAccess InstanceOf EnterpriseAdminNetworkPolicyAccess)
+             ? $enterpriseAdminNetworkPolicyAccess
+             : new EnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess);
     }
 
     public function getEnterpriseAdminNetworkPolicyAccess()

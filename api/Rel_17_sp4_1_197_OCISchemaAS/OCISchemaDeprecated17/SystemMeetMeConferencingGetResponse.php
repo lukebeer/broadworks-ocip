@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferencePassCodeLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingConferenceEndDateRestrictionMonths;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MeetMeConferencingExpiredConferenceHoldPeriodDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceEndDateRestrictionMonths;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingExpiredConferenceHoldPeriodDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePassCodeLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,30 +20,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                     = __CLASS__;
+    protected $conferenceIdLength                       = null;
+    protected $moderatorPinLength                       = null;
+    protected $enableConferenceEndDateRestriction       = null;
+    protected $conferenceEndDateRestrictionMonths       = null;
+    protected $deleteExpiredConferencesAfterHoldPeriod  = null;
+    protected $expiredConferenceHoldPeriodDays          = null;
+    protected $recordingWebAppURL                       = null;
 
-    public function __construct(
-             $conferenceIdLength,
-             $moderatorPinLength,
-             $enableConferenceEndDateRestriction,
-             $conferenceEndDateRestrictionMonths,
-             $deleteExpiredConferencesAfterHoldPeriod,
-             $expiredConferenceHoldPeriodDays,
-             $recordingWebAppURL=null
-    ) {
-        $this->conferenceIdLength                      = $conferenceIdLength;
-        $this->moderatorPinLength                      = $moderatorPinLength;
-        $this->enableConferenceEndDateRestriction      = $enableConferenceEndDateRestriction;
-        $this->conferenceEndDateRestrictionMonths      = $conferenceEndDateRestrictionMonths;
-        $this->deleteExpiredConferencesAfterHoldPeriod = $deleteExpiredConferencesAfterHoldPeriod;
-        $this->expiredConferenceHoldPeriodDays         = $expiredConferenceHoldPeriodDays;
-        $this->recordingWebAppURL                      = new URL($recordingWebAppURL);
-        $this->args                                    = func_get_args();
-    }
 
-    public function setConferenceIdLength($conferenceIdLength)
+    public function setConferenceIdLength($conferenceIdLength = null)
     {
-        $conferenceIdLength and $this->conferenceIdLength = new MeetMeConferencingConferencePassCodeLength($conferenceIdLength);
+        $this->conferenceIdLength = ($conferenceIdLength InstanceOf MeetMeConferencingConferencePassCodeLength)
+             ? $conferenceIdLength
+             : new MeetMeConferencingConferencePassCodeLength($conferenceIdLength);
     }
 
     public function getConferenceIdLength()
@@ -52,9 +42,11 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
         return (!$this->conferenceIdLength) ?: $this->conferenceIdLength->value();
     }
 
-    public function setModeratorPinLength($moderatorPinLength)
+    public function setModeratorPinLength($moderatorPinLength = null)
     {
-        $moderatorPinLength and $this->moderatorPinLength = new MeetMeConferencingConferencePassCodeLength($moderatorPinLength);
+        $this->moderatorPinLength = ($moderatorPinLength InstanceOf MeetMeConferencingConferencePassCodeLength)
+             ? $moderatorPinLength
+             : new MeetMeConferencingConferencePassCodeLength($moderatorPinLength);
     }
 
     public function getModeratorPinLength()
@@ -62,9 +54,8 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
         return (!$this->moderatorPinLength) ?: $this->moderatorPinLength->value();
     }
 
-    public function setEnableConferenceEndDateRestriction($enableConferenceEndDateRestriction)
+    public function setEnableConferenceEndDateRestriction(xs:boolean $enableConferenceEndDateRestriction = null)
     {
-        $enableConferenceEndDateRestriction and $this->enableConferenceEndDateRestriction = new xs:boolean($enableConferenceEndDateRestriction);
     }
 
     public function getEnableConferenceEndDateRestriction()
@@ -72,9 +63,11 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
         return (!$this->enableConferenceEndDateRestriction) ?: $this->enableConferenceEndDateRestriction->value();
     }
 
-    public function setConferenceEndDateRestrictionMonths($conferenceEndDateRestrictionMonths)
+    public function setConferenceEndDateRestrictionMonths($conferenceEndDateRestrictionMonths = null)
     {
-        $conferenceEndDateRestrictionMonths and $this->conferenceEndDateRestrictionMonths = new MeetMeConferencingConferenceEndDateRestrictionMonths($conferenceEndDateRestrictionMonths);
+        $this->conferenceEndDateRestrictionMonths = ($conferenceEndDateRestrictionMonths InstanceOf MeetMeConferencingConferenceEndDateRestrictionMonths)
+             ? $conferenceEndDateRestrictionMonths
+             : new MeetMeConferencingConferenceEndDateRestrictionMonths($conferenceEndDateRestrictionMonths);
     }
 
     public function getConferenceEndDateRestrictionMonths()
@@ -82,9 +75,8 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
         return (!$this->conferenceEndDateRestrictionMonths) ?: $this->conferenceEndDateRestrictionMonths->value();
     }
 
-    public function setDeleteExpiredConferencesAfterHoldPeriod($deleteExpiredConferencesAfterHoldPeriod)
+    public function setDeleteExpiredConferencesAfterHoldPeriod(xs:boolean $deleteExpiredConferencesAfterHoldPeriod = null)
     {
-        $deleteExpiredConferencesAfterHoldPeriod and $this->deleteExpiredConferencesAfterHoldPeriod = new xs:boolean($deleteExpiredConferencesAfterHoldPeriod);
     }
 
     public function getDeleteExpiredConferencesAfterHoldPeriod()
@@ -92,9 +84,11 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
         return (!$this->deleteExpiredConferencesAfterHoldPeriod) ?: $this->deleteExpiredConferencesAfterHoldPeriod->value();
     }
 
-    public function setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays)
+    public function setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays = null)
     {
-        $expiredConferenceHoldPeriodDays and $this->expiredConferenceHoldPeriodDays = new MeetMeConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
+        $this->expiredConferenceHoldPeriodDays = ($expiredConferenceHoldPeriodDays InstanceOf MeetMeConferencingExpiredConferenceHoldPeriodDays)
+             ? $expiredConferenceHoldPeriodDays
+             : new MeetMeConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
     }
 
     public function getExpiredConferenceHoldPeriodDays()
@@ -102,9 +96,11 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
         return (!$this->expiredConferenceHoldPeriodDays) ?: $this->expiredConferenceHoldPeriodDays->value();
     }
 
-    public function setRecordingWebAppURL($recordingWebAppURL)
+    public function setRecordingWebAppURL($recordingWebAppURL = null)
     {
-        $recordingWebAppURL and $this->recordingWebAppURL = new URL($recordingWebAppURL);
+        $this->recordingWebAppURL = ($recordingWebAppURL InstanceOf URL)
+             ? $recordingWebAppURL
+             : new URL($recordingWebAppURL);
     }
 
     public function getRecordingWebAppURL()

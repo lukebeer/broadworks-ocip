@@ -7,8 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkDeviceMonitorPollingIntervalMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkDeviceMonitorFailedPollingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkDeviceMonitorFailedPollingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkDeviceMonitorPollingIntervalMinutes;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                          = __CLASS__;
+    protected $pollingIntervalMinutes        = null;
+    protected $failedPollingIntervalMinutes  = null;
 
     public function __construct(
-             $pollingIntervalMinutes=null,
-             $failedPollingIntervalMinutes=null
+         $pollingIntervalMinutes = null,
+         $failedPollingIntervalMinutes = null
     ) {
-        $this->pollingIntervalMinutes       = $pollingIntervalMinutes;
-        $this->failedPollingIntervalMinutes = $failedPollingIntervalMinutes;
-        $this->args                         = func_get_args();
+        $this->setPollingIntervalMinutes($pollingIntervalMinutes);
+        $this->setFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
     }
 
-    public function setPollingIntervalMinutes($pollingIntervalMinutes)
+    public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
-        $pollingIntervalMinutes and $this->pollingIntervalMinutes = new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
+        $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf NetworkDeviceMonitorPollingIntervalMinutes)
+             ? $pollingIntervalMinutes
+             : new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
     }
 
     public function getPollingIntervalMinutes()
@@ -40,9 +43,11 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
         return (!$this->pollingIntervalMinutes) ?: $this->pollingIntervalMinutes->value();
     }
 
-    public function setFailedPollingIntervalMinutes($failedPollingIntervalMinutes)
+    public function setFailedPollingIntervalMinutes($failedPollingIntervalMinutes = null)
     {
-        $failedPollingIntervalMinutes and $this->failedPollingIntervalMinutes = new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
+        $this->failedPollingIntervalMinutes = ($failedPollingIntervalMinutes InstanceOf NetworkDeviceMonitorFailedPollingIntervalMinutes)
+             ? $failedPollingIntervalMinutes
+             : new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
     }
 
     public function getFailedPollingIntervalMinutes()

@@ -7,24 +7,24 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportServiceLevelInclusions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportAgentSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServiceLevelObjective;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportThresholdSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportSamplingPeriod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportTimeFormat;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDateFormat;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportFileFormat;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportSamplingPeriod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportDateFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTimeFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportInterval;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportFileFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportAgentSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportThresholdSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportServiceLevelInclusions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportServiceLevelObjective;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -35,58 +35,80 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $serviceProviderId                = null;
+    protected $groupId                          = null;
+    protected $name                             = null;
+    protected $description                      = null;
+    protected $reportTemplate                   = null;
+    protected $schedule                         = null;
+    protected $samplingPeriod                   = null;
+    protected $startDayOfWeek                   = null;
+    protected $reportTimeZone                   = null;
+    protected $reportDateFormat                 = null;
+    protected $reportTimeFormat                 = null;
+    protected $reportInterval                   = null;
+    protected $reportFormat                     = null;
+    protected $agent                            = null;
+    protected $callCompletionThresholdSeconds   = null;
+    protected $shortDurationThresholdSeconds    = null;
+    protected $serviceLevelThresholdSeconds     = null;
+    protected $serviceLevelInclusions           = null;
+    protected $serviceLevelObjectivePercentage  = null;
+    protected $abandonedCallThresholdSeconds    = null;
+    protected $emailAddress                     = null;
 
     public function __construct(
-             $serviceProviderId,
-             $groupId,
-             $name,
-             $description=null,
-             CallCenterReportTemplateKey $reportTemplate,
-             $schedule,
-             $samplingPeriod=null,
-             $startDayOfWeek=null,
-             $reportTimeZone,
-             $reportDateFormat,
-             $reportTimeFormat,
-             $reportInterval,
-             $reportFormat,
-             $agent=null,
-             $callCompletionThresholdSeconds=null,
-             $shortDurationThresholdSeconds=null,
-             $serviceLevelThresholdSeconds=null,
-             $serviceLevelInclusions=null,
-             $serviceLevelObjectivePercentage=null,
-             $abandonedCallThresholdSeconds=null,
-             $emailAddress=null
+         $serviceProviderId,
+         $groupId,
+         $name,
+         $description = null,
+         CallCenterReportTemplateKey $reportTemplate,
+         CallCenterReportSchedule $schedule,
+         $samplingPeriod = null,
+         $startDayOfWeek = null,
+         $reportTimeZone,
+         $reportDateFormat,
+         $reportTimeFormat,
+         CallCenterReportInterval $reportInterval,
+         $reportFormat,
+         CallCenterScheduledReportAgentSelection $agent = null,
+         $callCompletionThresholdSeconds = null,
+         $shortDurationThresholdSeconds = null,
+         $serviceLevelThresholdSeconds = null,
+         CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions = null,
+         $serviceLevelObjectivePercentage = null,
+         $abandonedCallThresholdSeconds = null,
+         $emailAddress = null
     ) {
-        $this->serviceProviderId               = new ServiceProviderId($serviceProviderId);
-        $this->groupId                         = new GroupId($groupId);
-        $this->name                            = new CallCenterScheduledReportName($name);
-        $this->description                     = $description;
-        $this->reportTemplate                  = $reportTemplate;
-        $this->schedule                        = $schedule;
-        $this->samplingPeriod                  = $samplingPeriod;
-        $this->startDayOfWeek                  = new DayOfWeek($startDayOfWeek);
-        $this->reportTimeZone                  = new TimeZone($reportTimeZone);
-        $this->reportDateFormat                = $reportDateFormat;
-        $this->reportTimeFormat                = $reportTimeFormat;
-        $this->reportInterval                  = $reportInterval;
-        $this->reportFormat                    = $reportFormat;
-        $this->agent                           = $agent;
-        $this->callCompletionThresholdSeconds  = $callCompletionThresholdSeconds;
-        $this->shortDurationThresholdSeconds   = $shortDurationThresholdSeconds;
-        $this->serviceLevelThresholdSeconds    = $serviceLevelThresholdSeconds;
-        $this->serviceLevelInclusions          = $serviceLevelInclusions;
-        $this->serviceLevelObjectivePercentage = $serviceLevelObjectivePercentage;
-        $this->abandonedCallThresholdSeconds   = $abandonedCallThresholdSeconds;
-        $this->emailAddress                    = new EmailAddress($emailAddress);
-        $this->args                            = func_get_args();
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setReportTemplate($reportTemplate);
+        $this->setSchedule($schedule);
+        $this->setSamplingPeriod($samplingPeriod);
+        $this->setStartDayOfWeek($startDayOfWeek);
+        $this->setReportTimeZone($reportTimeZone);
+        $this->setReportDateFormat($reportDateFormat);
+        $this->setReportTimeFormat($reportTimeFormat);
+        $this->setReportInterval($reportInterval);
+        $this->setReportFormat($reportFormat);
+        $this->setAgent($agent);
+        $this->setCallCompletionThresholdSeconds($callCompletionThresholdSeconds);
+        $this->setShortDurationThresholdSeconds($shortDurationThresholdSeconds);
+        $this->setServiceLevelThresholdSeconds($serviceLevelThresholdSeconds);
+        $this->setServiceLevelInclusions($serviceLevelInclusions);
+        $this->setServiceLevelObjectivePercentage($serviceLevelObjectivePercentage);
+        $this->setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds);
+        $this->setEmailAddress($emailAddress);
     }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -94,9 +116,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -104,9 +128,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new CallCenterScheduledReportName($name);
+        $this->name = ($name InstanceOf CallCenterScheduledReportName)
+             ? $name
+             : new CallCenterScheduledReportName($name);
     }
 
     public function getName()
@@ -114,9 +140,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new CallCenterScheduledReportDescription($description);
+        $this->description = ($description InstanceOf CallCenterScheduledReportDescription)
+             ? $description
+             : new CallCenterScheduledReportDescription($description);
     }
 
     public function getDescription()
@@ -124,9 +152,8 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->description) ?: $this->description->value();
     }
 
-    public function setReportTemplate($reportTemplate)
+    public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        $reportTemplate and $this->reportTemplate = new CallCenterReportTemplateKey($reportTemplate);
     }
 
     public function getReportTemplate()
@@ -134,9 +161,8 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->reportTemplate) ?: $this->reportTemplate->value();
     }
 
-    public function setSchedule($schedule)
+    public function setSchedule(CallCenterReportSchedule $schedule = null)
     {
-        $schedule and $this->schedule = new CallCenterReportSchedule($schedule);
     }
 
     public function getSchedule()
@@ -144,9 +170,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->schedule) ?: $this->schedule->value();
     }
 
-    public function setSamplingPeriod($samplingPeriod)
+    public function setSamplingPeriod($samplingPeriod = null)
     {
-        $samplingPeriod and $this->samplingPeriod = new CallCenterReportSamplingPeriod($samplingPeriod);
+        $this->samplingPeriod = ($samplingPeriod InstanceOf CallCenterReportSamplingPeriod)
+             ? $samplingPeriod
+             : new CallCenterReportSamplingPeriod($samplingPeriod);
     }
 
     public function getSamplingPeriod()
@@ -154,9 +182,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->samplingPeriod) ?: $this->samplingPeriod->value();
     }
 
-    public function setStartDayOfWeek($startDayOfWeek)
+    public function setStartDayOfWeek($startDayOfWeek = null)
     {
-        $startDayOfWeek and $this->startDayOfWeek = new DayOfWeek($startDayOfWeek);
+        $this->startDayOfWeek = ($startDayOfWeek InstanceOf DayOfWeek)
+             ? $startDayOfWeek
+             : new DayOfWeek($startDayOfWeek);
     }
 
     public function getStartDayOfWeek()
@@ -164,9 +194,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->startDayOfWeek) ?: $this->startDayOfWeek->value();
     }
 
-    public function setReportTimeZone($reportTimeZone)
+    public function setReportTimeZone($reportTimeZone = null)
     {
-        $reportTimeZone and $this->reportTimeZone = new TimeZone($reportTimeZone);
+        $this->reportTimeZone = ($reportTimeZone InstanceOf TimeZone)
+             ? $reportTimeZone
+             : new TimeZone($reportTimeZone);
     }
 
     public function getReportTimeZone()
@@ -174,9 +206,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->reportTimeZone) ?: $this->reportTimeZone->value();
     }
 
-    public function setReportDateFormat($reportDateFormat)
+    public function setReportDateFormat($reportDateFormat = null)
     {
-        $reportDateFormat and $this->reportDateFormat = new CallCenterReportDateFormat($reportDateFormat);
+        $this->reportDateFormat = ($reportDateFormat InstanceOf CallCenterReportDateFormat)
+             ? $reportDateFormat
+             : new CallCenterReportDateFormat($reportDateFormat);
     }
 
     public function getReportDateFormat()
@@ -184,9 +218,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->reportDateFormat) ?: $this->reportDateFormat->value();
     }
 
-    public function setReportTimeFormat($reportTimeFormat)
+    public function setReportTimeFormat($reportTimeFormat = null)
     {
-        $reportTimeFormat and $this->reportTimeFormat = new CallCenterReportTimeFormat($reportTimeFormat);
+        $this->reportTimeFormat = ($reportTimeFormat InstanceOf CallCenterReportTimeFormat)
+             ? $reportTimeFormat
+             : new CallCenterReportTimeFormat($reportTimeFormat);
     }
 
     public function getReportTimeFormat()
@@ -194,9 +230,8 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->reportTimeFormat) ?: $this->reportTimeFormat->value();
     }
 
-    public function setReportInterval($reportInterval)
+    public function setReportInterval(CallCenterReportInterval $reportInterval = null)
     {
-        $reportInterval and $this->reportInterval = new CallCenterReportInterval($reportInterval);
     }
 
     public function getReportInterval()
@@ -204,9 +239,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->reportInterval) ?: $this->reportInterval->value();
     }
 
-    public function setReportFormat($reportFormat)
+    public function setReportFormat($reportFormat = null)
     {
-        $reportFormat and $this->reportFormat = new CallCenterReportFileFormat($reportFormat);
+        $this->reportFormat = ($reportFormat InstanceOf CallCenterReportFileFormat)
+             ? $reportFormat
+             : new CallCenterReportFileFormat($reportFormat);
     }
 
     public function getReportFormat()
@@ -214,9 +251,8 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->reportFormat) ?: $this->reportFormat->value();
     }
 
-    public function setAgent($agent)
+    public function setAgent(CallCenterScheduledReportAgentSelection $agent = null)
     {
-        $agent and $this->agent = new CallCenterScheduledReportAgentSelection($agent);
     }
 
     public function getAgent()
@@ -224,9 +260,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->agent) ?: $this->agent->value();
     }
 
-    public function setCallCompletionThresholdSeconds($callCompletionThresholdSeconds)
+    public function setCallCompletionThresholdSeconds($callCompletionThresholdSeconds = null)
     {
-        $callCompletionThresholdSeconds and $this->callCompletionThresholdSeconds = new CallCenterReportThresholdSeconds($callCompletionThresholdSeconds);
+        $this->callCompletionThresholdSeconds = ($callCompletionThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
+             ? $callCompletionThresholdSeconds
+             : new CallCenterReportThresholdSeconds($callCompletionThresholdSeconds);
     }
 
     public function getCallCompletionThresholdSeconds()
@@ -234,9 +272,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->callCompletionThresholdSeconds) ?: $this->callCompletionThresholdSeconds->value();
     }
 
-    public function setShortDurationThresholdSeconds($shortDurationThresholdSeconds)
+    public function setShortDurationThresholdSeconds($shortDurationThresholdSeconds = null)
     {
-        $shortDurationThresholdSeconds and $this->shortDurationThresholdSeconds = new CallCenterReportThresholdSeconds($shortDurationThresholdSeconds);
+        $this->shortDurationThresholdSeconds = ($shortDurationThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
+             ? $shortDurationThresholdSeconds
+             : new CallCenterReportThresholdSeconds($shortDurationThresholdSeconds);
     }
 
     public function getShortDurationThresholdSeconds()
@@ -244,9 +284,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->shortDurationThresholdSeconds) ?: $this->shortDurationThresholdSeconds->value();
     }
 
-    public function setServiceLevelThresholdSeconds($serviceLevelThresholdSeconds)
+    public function setServiceLevelThresholdSeconds($serviceLevelThresholdSeconds = null)
     {
-        $serviceLevelThresholdSeconds and $this->serviceLevelThresholdSeconds = new CallCenterReportThresholdSeconds($serviceLevelThresholdSeconds);
+        $this->serviceLevelThresholdSeconds = ($serviceLevelThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
+             ? $serviceLevelThresholdSeconds
+             : new CallCenterReportThresholdSeconds($serviceLevelThresholdSeconds);
     }
 
     public function getServiceLevelThresholdSeconds()
@@ -254,9 +296,8 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->serviceLevelThresholdSeconds) ?: $this->serviceLevelThresholdSeconds->value();
     }
 
-    public function setServiceLevelInclusions($serviceLevelInclusions)
+    public function setServiceLevelInclusions(CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions = null)
     {
-        $serviceLevelInclusions and $this->serviceLevelInclusions = new CallCenterScheduledReportServiceLevelInclusions($serviceLevelInclusions);
     }
 
     public function getServiceLevelInclusions()
@@ -264,9 +305,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->serviceLevelInclusions) ?: $this->serviceLevelInclusions->value();
     }
 
-    public function setServiceLevelObjectivePercentage($serviceLevelObjectivePercentage)
+    public function setServiceLevelObjectivePercentage($serviceLevelObjectivePercentage = null)
     {
-        $serviceLevelObjectivePercentage and $this->serviceLevelObjectivePercentage = new CallCenterReportServiceLevelObjective($serviceLevelObjectivePercentage);
+        $this->serviceLevelObjectivePercentage = ($serviceLevelObjectivePercentage InstanceOf CallCenterReportServiceLevelObjective)
+             ? $serviceLevelObjectivePercentage
+             : new CallCenterReportServiceLevelObjective($serviceLevelObjectivePercentage);
     }
 
     public function getServiceLevelObjectivePercentage()
@@ -274,9 +317,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->serviceLevelObjectivePercentage) ?: $this->serviceLevelObjectivePercentage->value();
     }
 
-    public function setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds)
+    public function setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds = null)
     {
-        $abandonedCallThresholdSeconds and $this->abandonedCallThresholdSeconds = new CallCenterReportThresholdSeconds($abandonedCallThresholdSeconds);
+        $this->abandonedCallThresholdSeconds = ($abandonedCallThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
+             ? $abandonedCallThresholdSeconds
+             : new CallCenterReportThresholdSeconds($abandonedCallThresholdSeconds);
     }
 
     public function getAbandonedCallThresholdSeconds()
@@ -284,9 +329,11 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         return (!$this->abandonedCallThresholdSeconds) ?: $this->abandonedCallThresholdSeconds->value();
     }
 
-    public function setEmailAddress($emailAddress)
+    public function setEmailAddress($emailAddress = null)
     {
-        $emailAddress and $this->emailAddress = new EmailAddress($emailAddress);
+        $this->emailAddress = ($emailAddress InstanceOf EmailAddress)
+             ? $emailAddress
+             : new EmailAddress($emailAddress);
     }
 
     public function getEmailAddress()

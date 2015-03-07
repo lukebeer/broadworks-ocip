@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $systemAdminTable  = null;
 
-    public function __construct(
-             $systemAdminTable
-    ) {
-        $this->systemAdminTable = $systemAdminTable;
-        $this->args             = func_get_args();
-    }
 
-    public function setSystemAdminTable($systemAdminTable)
+    public function setSystemAdminTable(core:OCITable $systemAdminTable = null)
     {
-        $systemAdminTable and $this->systemAdminTable = new core:OCITable($systemAdminTable);
     }
 
     public function getSystemAdminTable()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDnGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $dnUtilizationTable  = null;
 
-    public function __construct(
-             $dnUtilizationTable
-    ) {
-        $this->dnUtilizationTable = $dnUtilizationTable;
-        $this->args               = func_get_args();
-    }
 
-    public function setDnUtilizationTable($dnUtilizationTable)
+    public function setDnUtilizationTable(core:OCITable $dnUtilizationTable = null)
     {
-        $dnUtilizationTable and $this->dnUtilizationTable = new core:OCITable($dnUtilizationTable);
     }
 
     public function getDnUtilizationTable()

@@ -17,18 +17,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name            = __CLASS__;
+    protected $routingProfile  = null;
 
-    public function __construct(
-             $routingProfile=null
-    ) {
-        $this->routingProfile = new RoutingProfile($routingProfile);
-        $this->args           = func_get_args();
-    }
 
-    public function setRoutingProfile($routingProfile)
+    public function setRoutingProfile($routingProfile = null)
     {
-        $routingProfile and $this->routingProfile = new RoutingProfile($routingProfile);
+        $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
+             ? $routingProfile
+             : new RoutingProfile($routingProfile);
     }
 
     public function getRoutingProfile()

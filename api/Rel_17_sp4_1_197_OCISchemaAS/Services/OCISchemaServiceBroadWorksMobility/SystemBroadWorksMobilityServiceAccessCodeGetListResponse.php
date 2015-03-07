@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,18 +18,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                    = __CLASS__;
+    protected $serviceAccessCodeTable  = null;
 
-    public function __construct(
-             $serviceAccessCodeTable
-    ) {
-        $this->serviceAccessCodeTable = $serviceAccessCodeTable;
-        $this->args                   = func_get_args();
-    }
 
-    public function setServiceAccessCodeTable($serviceAccessCodeTable)
+    public function setServiceAccessCodeTable(core:OCITable $serviceAccessCodeTable = null)
     {
-        $serviceAccessCodeTable and $this->serviceAccessCodeTable = new core:OCITable($serviceAccessCodeTable);
     }
 
     public function getServiceAccessCodeTable()

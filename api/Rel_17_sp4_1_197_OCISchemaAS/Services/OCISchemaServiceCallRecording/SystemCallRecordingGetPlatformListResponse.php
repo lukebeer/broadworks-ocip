@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallRecordingPlatformName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +18,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallRecordingGetPlatformListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $systemDefault               = null;
+    protected $callRecordingPlatformTable  = null;
 
-    public function __construct(
-             $systemDefault=null,
-             $callRecordingPlatformTable
-    ) {
-        $this->systemDefault              = $systemDefault;
-        $this->callRecordingPlatformTable = $callRecordingPlatformTable;
-        $this->args                       = func_get_args();
-    }
 
-    public function setSystemDefault($systemDefault)
+    public function setSystemDefault($systemDefault = null)
     {
-        $systemDefault and $this->systemDefault = new CallRecordingPlatformName($systemDefault);
+        $this->systemDefault = ($systemDefault InstanceOf CallRecordingPlatformName)
+             ? $systemDefault
+             : new CallRecordingPlatformName($systemDefault);
     }
 
     public function getSystemDefault()
@@ -40,9 +35,8 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
         return (!$this->systemDefault) ?: $this->systemDefault->value();
     }
 
-    public function setCallRecordingPlatformTable($callRecordingPlatformTable)
+    public function setCallRecordingPlatformTable(core:OCITable $callRecordingPlatformTable = null)
     {
-        $callRecordingPlatformTable and $this->callRecordingPlatformTable = new core:OCITable($callRecordingPlatformTable);
     }
 
     public function getCallRecordingPlatformTable()

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallBlockingService;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CallBlockingService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $callBlockingService  = null;
+    protected $treatmentId          = null;
 
     public function __construct(
-             $callBlockingService,
-             $treatmentId=null
+         $callBlockingService,
+         $treatmentId = null
     ) {
-        $this->callBlockingService = $callBlockingService;
-        $this->treatmentId         = new TreatmentId($treatmentId);
-        $this->args                = func_get_args();
+        $this->setCallBlockingService($callBlockingService);
+        $this->setTreatmentId($treatmentId);
     }
 
-    public function setCallBlockingService($callBlockingService)
+    public function setCallBlockingService($callBlockingService = null)
     {
-        $callBlockingService and $this->callBlockingService = new CallBlockingService($callBlockingService);
+        $this->callBlockingService = ($callBlockingService InstanceOf CallBlockingService)
+             ? $callBlockingService
+             : new CallBlockingService($callBlockingService);
     }
 
     public function getCallBlockingService()
@@ -40,9 +43,11 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
         return (!$this->callBlockingService) ?: $this->callBlockingService->value();
     }
 
-    public function setTreatmentId($treatmentId)
+    public function setTreatmentId($treatmentId = null)
     {
-        $treatmentId and $this->treatmentId = new TreatmentId($treatmentId);
+        $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
+             ? $treatmentId
+             : new TreatmentId($treatmentId);
     }
 
     public function getTreatmentId()

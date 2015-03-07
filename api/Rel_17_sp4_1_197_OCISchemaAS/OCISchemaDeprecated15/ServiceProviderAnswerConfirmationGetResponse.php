@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnswerConfirmationAnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationAnnouncementSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                     = __CLASS__;
+    protected $announcementMessageSelection             = null;
+    protected $confirmationMessageAudioFileDescription  = null;
+    protected $confirmationTimoutSeconds                = null;
 
-    public function __construct(
-             $announcementMessageSelection,
-             $confirmationMessageAudioFileDescription=null,
-             $confirmationTimoutSeconds
-    ) {
-        $this->announcementMessageSelection            = $announcementMessageSelection;
-        $this->confirmationMessageAudioFileDescription = new FileDescription($confirmationMessageAudioFileDescription);
-        $this->confirmationTimoutSeconds               = $confirmationTimoutSeconds;
-        $this->args                                    = func_get_args();
-    }
 
-    public function setAnnouncementMessageSelection($announcementMessageSelection)
+    public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
-        $announcementMessageSelection and $this->announcementMessageSelection = new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
+        $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
+             ? $announcementMessageSelection
+             : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
     }
 
     public function getAnnouncementMessageSelection()
@@ -43,9 +38,11 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
         return (!$this->announcementMessageSelection) ?: $this->announcementMessageSelection->value();
     }
 
-    public function setConfirmationMessageAudioFileDescription($confirmationMessageAudioFileDescription)
+    public function setConfirmationMessageAudioFileDescription($confirmationMessageAudioFileDescription = null)
     {
-        $confirmationMessageAudioFileDescription and $this->confirmationMessageAudioFileDescription = new FileDescription($confirmationMessageAudioFileDescription);
+        $this->confirmationMessageAudioFileDescription = ($confirmationMessageAudioFileDescription InstanceOf FileDescription)
+             ? $confirmationMessageAudioFileDescription
+             : new FileDescription($confirmationMessageAudioFileDescription);
     }
 
     public function getConfirmationMessageAudioFileDescription()
@@ -53,9 +50,11 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
         return (!$this->confirmationMessageAudioFileDescription) ?: $this->confirmationMessageAudioFileDescription->value();
     }
 
-    public function setConfirmationTimoutSeconds($confirmationTimoutSeconds)
+    public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
-        $confirmationTimoutSeconds and $this->confirmationTimoutSeconds = new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
+        $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
+             ? $confirmationTimoutSeconds
+             : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
     }
 
     public function getConfirmationTimoutSeconds()

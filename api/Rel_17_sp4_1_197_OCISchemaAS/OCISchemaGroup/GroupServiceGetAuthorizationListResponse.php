@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -25,22 +25,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceGetAuthorizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                             = __CLASS__;
+    protected $servicePacksAuthorizationTable   = null;
+    protected $groupServicesAuthorizationTable  = null;
+    protected $userServicesAuthorizationTable   = null;
 
-    public function __construct(
-             $servicePacksAuthorizationTable,
-             $groupServicesAuthorizationTable,
-             $userServicesAuthorizationTable
-    ) {
-        $this->servicePacksAuthorizationTable  = $servicePacksAuthorizationTable;
-        $this->groupServicesAuthorizationTable = $groupServicesAuthorizationTable;
-        $this->userServicesAuthorizationTable  = $userServicesAuthorizationTable;
-        $this->args                            = func_get_args();
-    }
 
-    public function setServicePacksAuthorizationTable($servicePacksAuthorizationTable)
+    public function setServicePacksAuthorizationTable(core:OCITable $servicePacksAuthorizationTable = null)
     {
-        $servicePacksAuthorizationTable and $this->servicePacksAuthorizationTable = new core:OCITable($servicePacksAuthorizationTable);
     }
 
     public function getServicePacksAuthorizationTable()
@@ -48,9 +40,8 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
         return (!$this->servicePacksAuthorizationTable) ?: $this->servicePacksAuthorizationTable->value();
     }
 
-    public function setGroupServicesAuthorizationTable($groupServicesAuthorizationTable)
+    public function setGroupServicesAuthorizationTable(core:OCITable $groupServicesAuthorizationTable = null)
     {
-        $groupServicesAuthorizationTable and $this->groupServicesAuthorizationTable = new core:OCITable($groupServicesAuthorizationTable);
     }
 
     public function getGroupServicesAuthorizationTable()
@@ -58,9 +49,8 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
         return (!$this->groupServicesAuthorizationTable) ?: $this->groupServicesAuthorizationTable->value();
     }
 
-    public function setUserServicesAuthorizationTable($userServicesAuthorizationTable)
+    public function setUserServicesAuthorizationTable(core:OCITable $userServicesAuthorizationTable = null)
     {
-        $userServicesAuthorizationTable and $this->userServicesAuthorizationTable = new core:OCITable($userServicesAuthorizationTable);
     }
 
     public function getUserServicesAuthorizationTable()

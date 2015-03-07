@@ -8,10 +8,9 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -22,26 +21,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $groupId               = null;
+    protected $userId                = null;
+    protected $userType              = null;
+    protected $isGroupCallingLineId  = null;
 
-    public function __construct(
-             $serviceProviderId,
-             $groupId=null,
-             $userId=null,
-             $userType=null,
-             $isGroupCallingLineId
-    ) {
-        $this->serviceProviderId    = new ServiceProviderId($serviceProviderId);
-        $this->groupId              = new GroupId($groupId);
-        $this->userId               = new UserId($userId);
-        $this->userType             = new UserType($userType);
-        $this->isGroupCallingLineId = $isGroupCallingLineId;
-        $this->args                 = func_get_args();
-    }
 
-    public function setServiceProviderId($serviceProviderId)
+    public function setServiceProviderId($serviceProviderId = null)
     {
-        $serviceProviderId and $this->serviceProviderId = new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
+             ? $serviceProviderId
+             : new ServiceProviderId($serviceProviderId);
     }
 
     public function getServiceProviderId()
@@ -49,9 +41,11 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
         return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
     }
 
-    public function setGroupId($groupId)
+    public function setGroupId($groupId = null)
     {
-        $groupId and $this->groupId = new GroupId($groupId);
+        $this->groupId = ($groupId InstanceOf GroupId)
+             ? $groupId
+             : new GroupId($groupId);
     }
 
     public function getGroupId()
@@ -59,9 +53,11 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
         return (!$this->groupId) ?: $this->groupId->value();
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -69,9 +65,11 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setUserType($userType)
+    public function setUserType($userType = null)
     {
-        $userType and $this->userType = new UserType($userType);
+        $this->userType = ($userType InstanceOf UserType)
+             ? $userType
+             : new UserType($userType);
     }
 
     public function getUserType()
@@ -79,9 +77,8 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
         return (!$this->userType) ?: $this->userType->value();
     }
 
-    public function setIsGroupCallingLineId($isGroupCallingLineId)
+    public function setIsGroupCallingLineId(xs:boolean $isGroupCallingLineId = null)
     {
-        $isGroupCallingLineId and $this->isGroupCallingLineId = new xs:boolean($isGroupCallingLineId);
     }
 
     public function getIsGroupCallingLineId()

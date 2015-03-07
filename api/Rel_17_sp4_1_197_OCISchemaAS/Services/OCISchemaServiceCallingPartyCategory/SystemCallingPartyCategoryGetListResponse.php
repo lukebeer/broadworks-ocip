@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\core:OCITable;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,18 +19,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallingPartyCategoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                       = __CLASS__;
+    protected $callingPartyCategoryTable  = null;
 
-    public function __construct(
-             $callingPartyCategoryTable
-    ) {
-        $this->callingPartyCategoryTable = $callingPartyCategoryTable;
-        $this->args                      = func_get_args();
-    }
 
-    public function setCallingPartyCategoryTable($callingPartyCategoryTable)
+    public function setCallingPartyCategoryTable(core:OCITable $callingPartyCategoryTable = null)
     {
-        $callingPartyCategoryTable and $this->callingPartyCategoryTable = new core:OCITable($callingPartyCategoryTable);
     }
 
     public function getCallingPartyCategoryTable()

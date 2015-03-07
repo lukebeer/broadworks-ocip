@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenterMonitoring; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -17,18 +17,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterMonitoringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                = __CLASS__;
+    protected $playToneToAgentForSilentMonitoring  = null;
 
-    public function __construct(
-             $playToneToAgentForSilentMonitoring
-    ) {
-        $this->playToneToAgentForSilentMonitoring = $playToneToAgentForSilentMonitoring;
-        $this->args                               = func_get_args();
-    }
 
-    public function setPlayToneToAgentForSilentMonitoring($playToneToAgentForSilentMonitoring)
+    public function setPlayToneToAgentForSilentMonitoring(xs:boolean $playToneToAgentForSilentMonitoring = null)
     {
-        $playToneToAgentForSilentMonitoring and $this->playToneToAgentForSilentMonitoring = new xs:boolean($playToneToAgentForSilentMonitoring);
     }
 
     public function getPlayToneToAgentForSilentMonitoring()

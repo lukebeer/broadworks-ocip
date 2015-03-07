@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkProgressionWaitPeriodSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkProgressionWaitPeriodSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,20 +17,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkProgressionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $isActive           = null;
+    protected $waitPeriodSeconds  = null;
 
-    public function __construct(
-             $isActive,
-             $waitPeriodSeconds
-    ) {
-        $this->isActive          = $isActive;
-        $this->waitPeriodSeconds = $waitPeriodSeconds;
-        $this->args              = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -39,9 +31,11 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setWaitPeriodSeconds($waitPeriodSeconds)
+    public function setWaitPeriodSeconds($waitPeriodSeconds = null)
     {
-        $waitPeriodSeconds and $this->waitPeriodSeconds = new NetworkProgressionWaitPeriodSeconds($waitPeriodSeconds);
+        $this->waitPeriodSeconds = ($waitPeriodSeconds InstanceOf NetworkProgressionWaitPeriodSeconds)
+             ? $waitPeriodSeconds
+             : new NetworkProgressionWaitPeriodSeconds($waitPeriodSeconds);
     }
 
     public function getWaitPeriodSeconds()

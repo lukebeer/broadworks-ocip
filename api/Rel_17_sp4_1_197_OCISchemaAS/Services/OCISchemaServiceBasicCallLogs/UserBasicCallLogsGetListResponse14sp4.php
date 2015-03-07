@@ -17,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name      = __CLASS__;
+    protected $placed    = null;
+    protected $received  = null;
+    protected $missed    = null;
 
-    public function __construct(
-             CallLogsEntry $placed=null,
-             CallLogsEntry $received=null,
-             CallLogsEntry $missed=null
-    ) {
-        $this->placed   = $placed;
-        $this->received = $received;
-        $this->missed   = $missed;
-        $this->args     = func_get_args();
-    }
 
-    public function setPlaced($placed)
+    public function setPlaced(CallLogsEntry $placed = null)
     {
-        $placed and $this->placed = new CallLogsEntry($placed);
     }
 
     public function getPlaced()
@@ -40,9 +32,8 @@ class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements Compl
         return (!$this->placed) ?: $this->placed->value();
     }
 
-    public function setReceived($received)
+    public function setReceived(CallLogsEntry $received = null)
     {
-        $received and $this->received = new CallLogsEntry($received);
     }
 
     public function getReceived()
@@ -50,9 +41,8 @@ class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements Compl
         return (!$this->received) ?: $this->received->value();
     }
 
-    public function setMissed($missed)
+    public function setMissed(CallLogsEntry $missed = null)
     {
-        $missed and $this->missed = new CallLogsEntry($missed);
     }
 
     public function getMissed()

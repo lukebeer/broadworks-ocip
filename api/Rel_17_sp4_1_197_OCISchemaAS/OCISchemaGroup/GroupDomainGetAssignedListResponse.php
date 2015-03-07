@@ -17,20 +17,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                = __CLASS__;
+    protected $groupDefaultDomain  = null;
+    protected $domain              = null;
 
-    public function __construct(
-             $groupDefaultDomain,
-             $domain=null
-    ) {
-        $this->groupDefaultDomain = new NetAddress($groupDefaultDomain);
-        $this->domain             = new NetAddress($domain);
-        $this->args               = func_get_args();
-    }
 
-    public function setGroupDefaultDomain($groupDefaultDomain)
+    public function setGroupDefaultDomain($groupDefaultDomain = null)
     {
-        $groupDefaultDomain and $this->groupDefaultDomain = new NetAddress($groupDefaultDomain);
+        $this->groupDefaultDomain = ($groupDefaultDomain InstanceOf NetAddress)
+             ? $groupDefaultDomain
+             : new NetAddress($groupDefaultDomain);
     }
 
     public function getGroupDefaultDomain()
@@ -38,9 +34,11 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
         return (!$this->groupDefaultDomain) ?: $this->groupDefaultDomain->value();
     }
 
-    public function setDomain($domain)
+    public function setDomain($domain = null)
     {
-        $domain and $this->domain = new NetAddress($domain);
+        $this->domain = ($domain InstanceOf NetAddress)
+             ? $domain
+             : new NetAddress($domain);
     }
 
     public function getDomain()

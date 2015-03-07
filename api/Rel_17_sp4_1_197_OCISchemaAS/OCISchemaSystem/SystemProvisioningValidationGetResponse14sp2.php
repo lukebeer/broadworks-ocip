@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ProvisioningValidationTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ProvisioningValidationTimeoutSeconds;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -18,22 +17,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $isActive                    = null;
+    protected $isNetworkServerQueryActive  = null;
+    protected $timeoutSeconds              = null;
 
-    public function __construct(
-             $isActive,
-             $isNetworkServerQueryActive,
-             $timeoutSeconds
-    ) {
-        $this->isActive                   = $isActive;
-        $this->isNetworkServerQueryActive = $isNetworkServerQueryActive;
-        $this->timeoutSeconds             = $timeoutSeconds;
-        $this->args                       = func_get_args();
-    }
 
-    public function setIsActive($isActive)
+    public function setIsActive(xs:boolean $isActive = null)
     {
-        $isActive and $this->isActive = new xs:boolean($isActive);
     }
 
     public function getIsActive()
@@ -41,9 +32,8 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
         return (!$this->isActive) ?: $this->isActive->value();
     }
 
-    public function setIsNetworkServerQueryActive($isNetworkServerQueryActive)
+    public function setIsNetworkServerQueryActive(xs:boolean $isNetworkServerQueryActive = null)
     {
-        $isNetworkServerQueryActive and $this->isNetworkServerQueryActive = new xs:boolean($isNetworkServerQueryActive);
     }
 
     public function getIsNetworkServerQueryActive()
@@ -51,9 +41,11 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
         return (!$this->isNetworkServerQueryActive) ?: $this->isNetworkServerQueryActive->value();
     }
 
-    public function setTimeoutSeconds($timeoutSeconds)
+    public function setTimeoutSeconds($timeoutSeconds = null)
     {
-        $timeoutSeconds and $this->timeoutSeconds = new ProvisioningValidationTimeoutSeconds($timeoutSeconds);
+        $this->timeoutSeconds = ($timeoutSeconds InstanceOf ProvisioningValidationTimeoutSeconds)
+             ? $timeoutSeconds
+             : new ProvisioningValidationTimeoutSeconds($timeoutSeconds);
     }
 
     public function getTimeoutSeconds()

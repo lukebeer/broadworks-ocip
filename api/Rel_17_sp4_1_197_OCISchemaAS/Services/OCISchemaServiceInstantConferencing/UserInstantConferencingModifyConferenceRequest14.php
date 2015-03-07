@@ -7,12 +7,11 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingConferenceKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingTitle;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingBillingCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -23,32 +22,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingModifyConferenceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                            = __CLASS__;
+    protected $userId                          = null;
+    protected $conferenceKey                   = null;
+    protected $title                           = null;
+    protected $leaderRequired                  = null;
+    protected $leaderReleaseDropsParticipants  = null;
+    protected $announceCallers                 = null;
+    protected $conferenceSchedule              = null;
+    protected $billingCode                     = null;
 
     public function __construct(
-             $userId,
-             $conferenceKey,
-             $title=null,
-             $leaderRequired=null,
-             $leaderReleaseDropsParticipants=null,
-             $announceCallers=null,
-             $conferenceSchedule=null,
-             $billingCode=null
+         $userId,
+         InstantConferencingConferenceKey $conferenceKey,
+         $title = null,
+         $leaderRequired = null,
+         $leaderReleaseDropsParticipants = null,
+         $announceCallers = null,
+         InstantConferencingSchedule $conferenceSchedule = null,
+         $billingCode = null
     ) {
-        $this->userId                         = new UserId($userId);
-        $this->conferenceKey                  = $conferenceKey;
-        $this->title                          = $title;
-        $this->leaderRequired                 = $leaderRequired;
-        $this->leaderReleaseDropsParticipants = $leaderReleaseDropsParticipants;
-        $this->announceCallers                = $announceCallers;
-        $this->conferenceSchedule             = $conferenceSchedule;
-        $this->billingCode                    = $billingCode;
-        $this->args                           = func_get_args();
+        $this->setUserId($userId);
+        $this->setConferenceKey($conferenceKey);
+        $this->setTitle($title);
+        $this->setLeaderRequired($leaderRequired);
+        $this->setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants);
+        $this->setAnnounceCallers($announceCallers);
+        $this->setConferenceSchedule($conferenceSchedule);
+        $this->setBillingCode($billingCode);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -56,9 +64,8 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setConferenceKey($conferenceKey)
+    public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $conferenceKey and $this->conferenceKey = new InstantConferencingConferenceKey($conferenceKey);
     }
 
     public function getConferenceKey()
@@ -66,9 +73,11 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         return (!$this->conferenceKey) ?: $this->conferenceKey->value();
     }
 
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
-        $title and $this->title = new InstantConferencingTitle($title);
+        $this->title = ($title InstanceOf InstantConferencingTitle)
+             ? $title
+             : new InstantConferencingTitle($title);
     }
 
     public function getTitle()
@@ -76,9 +85,8 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         return (!$this->title) ?: $this->title->value();
     }
 
-    public function setLeaderRequired($leaderRequired)
+    public function setLeaderRequired(xs:boolean $leaderRequired = null)
     {
-        $leaderRequired and $this->leaderRequired = new xs:boolean($leaderRequired);
     }
 
     public function getLeaderRequired()
@@ -86,9 +94,8 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         return (!$this->leaderRequired) ?: $this->leaderRequired->value();
     }
 
-    public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants)
+    public function setLeaderReleaseDropsParticipants(xs:boolean $leaderReleaseDropsParticipants = null)
     {
-        $leaderReleaseDropsParticipants and $this->leaderReleaseDropsParticipants = new xs:boolean($leaderReleaseDropsParticipants);
     }
 
     public function getLeaderReleaseDropsParticipants()
@@ -96,9 +103,8 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->value();
     }
 
-    public function setAnnounceCallers($announceCallers)
+    public function setAnnounceCallers(xs:boolean $announceCallers = null)
     {
-        $announceCallers and $this->announceCallers = new xs:boolean($announceCallers);
     }
 
     public function getAnnounceCallers()
@@ -106,9 +112,8 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         return (!$this->announceCallers) ?: $this->announceCallers->value();
     }
 
-    public function setConferenceSchedule($conferenceSchedule)
+    public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
-        $conferenceSchedule and $this->conferenceSchedule = new InstantConferencingSchedule($conferenceSchedule);
     }
 
     public function getConferenceSchedule()
@@ -116,9 +121,11 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->value();
     }
 
-    public function setBillingCode($billingCode)
+    public function setBillingCode($billingCode = null)
     {
-        $billingCode and $this->billingCode = new InstantConferencingBillingCode($billingCode);
+        $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
+             ? $billingCode
+             : new InstantConferencingBillingCode($billingCode);
     }
 
     public function getBillingCode()

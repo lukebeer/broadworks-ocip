@@ -19,18 +19,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderInCallServiceActivationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name              = __CLASS__;
+    protected $activationDigits  = null;
 
-    public function __construct(
-             $activationDigits
-    ) {
-        $this->activationDigits = new InCallServiceActivationDigits($activationDigits);
-        $this->args             = func_get_args();
-    }
 
-    public function setActivationDigits($activationDigits)
+    public function setActivationDigits($activationDigits = null)
     {
-        $activationDigits and $this->activationDigits = new InCallServiceActivationDigits($activationDigits);
+        $this->activationDigits = ($activationDigits InstanceOf InCallServiceActivationDigits)
+             ? $activationDigits
+             : new InCallServiceActivationDigits($activationDigits);
     }
 
     public function getActivationDigits()

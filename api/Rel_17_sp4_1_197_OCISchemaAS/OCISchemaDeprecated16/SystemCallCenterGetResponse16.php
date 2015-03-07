@@ -7,11 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsSamplingPeriodMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterStatisticsSamplingPeriodMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterGuardTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,32 +20,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                                                  = __CLASS__;
+    protected $defaultFromAddress                                    = null;
+    protected $statisticsSamplingPeriodMinutes                       = null;
+    protected $defaultEnableGuardTimer                               = null;
+    protected $defaultGuardTimerSeconds                              = null;
+    protected $forceAgentUnavailableOnDNDActivation                  = null;
+    protected $forceAgentUnavailableOnPersonalCalls                  = null;
+    protected $forceAgentUnavailableOnBouncedCallLimit               = null;
+    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable  = null;
 
-    public function __construct(
-             $defaultFromAddress,
-             $statisticsSamplingPeriodMinutes,
-             $defaultEnableGuardTimer,
-             $defaultGuardTimerSeconds,
-             $forceAgentUnavailableOnDNDActivation,
-             $forceAgentUnavailableOnPersonalCalls,
-             $forceAgentUnavailableOnBouncedCallLimit,
-             $numberConsecutiveBouncedCallsToForceAgentUnavailable
-    ) {
-        $this->defaultFromAddress                                   = new EmailAddress($defaultFromAddress);
-        $this->statisticsSamplingPeriodMinutes                      = $statisticsSamplingPeriodMinutes;
-        $this->defaultEnableGuardTimer                              = $defaultEnableGuardTimer;
-        $this->defaultGuardTimerSeconds                             = $defaultGuardTimerSeconds;
-        $this->forceAgentUnavailableOnDNDActivation                 = $forceAgentUnavailableOnDNDActivation;
-        $this->forceAgentUnavailableOnPersonalCalls                 = $forceAgentUnavailableOnPersonalCalls;
-        $this->forceAgentUnavailableOnBouncedCallLimit              = $forceAgentUnavailableOnBouncedCallLimit;
-        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = $numberConsecutiveBouncedCallsToForceAgentUnavailable;
-        $this->args                                                 = func_get_args();
-    }
 
-    public function setDefaultFromAddress($defaultFromAddress)
+    public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        $defaultFromAddress and $this->defaultFromAddress = new EmailAddress($defaultFromAddress);
+        $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
+             ? $defaultFromAddress
+             : new EmailAddress($defaultFromAddress);
     }
 
     public function getDefaultFromAddress()
@@ -54,9 +43,11 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
         return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->value();
     }
 
-    public function setStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes)
+    public function setStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes = null)
     {
-        $statisticsSamplingPeriodMinutes and $this->statisticsSamplingPeriodMinutes = new CallCenterStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
+        $this->statisticsSamplingPeriodMinutes = ($statisticsSamplingPeriodMinutes InstanceOf CallCenterStatisticsSamplingPeriodMinutes)
+             ? $statisticsSamplingPeriodMinutes
+             : new CallCenterStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
     }
 
     public function getStatisticsSamplingPeriodMinutes()
@@ -64,9 +55,8 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
         return (!$this->statisticsSamplingPeriodMinutes) ?: $this->statisticsSamplingPeriodMinutes->value();
     }
 
-    public function setDefaultEnableGuardTimer($defaultEnableGuardTimer)
+    public function setDefaultEnableGuardTimer(xs:boolean $defaultEnableGuardTimer = null)
     {
-        $defaultEnableGuardTimer and $this->defaultEnableGuardTimer = new xs:boolean($defaultEnableGuardTimer);
     }
 
     public function getDefaultEnableGuardTimer()
@@ -74,9 +64,11 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
         return (!$this->defaultEnableGuardTimer) ?: $this->defaultEnableGuardTimer->value();
     }
 
-    public function setDefaultGuardTimerSeconds($defaultGuardTimerSeconds)
+    public function setDefaultGuardTimerSeconds($defaultGuardTimerSeconds = null)
     {
-        $defaultGuardTimerSeconds and $this->defaultGuardTimerSeconds = new CallCenterGuardTimerSeconds($defaultGuardTimerSeconds);
+        $this->defaultGuardTimerSeconds = ($defaultGuardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
+             ? $defaultGuardTimerSeconds
+             : new CallCenterGuardTimerSeconds($defaultGuardTimerSeconds);
     }
 
     public function getDefaultGuardTimerSeconds()
@@ -84,9 +76,8 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
         return (!$this->defaultGuardTimerSeconds) ?: $this->defaultGuardTimerSeconds->value();
     }
 
-    public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation)
+    public function setForceAgentUnavailableOnDNDActivation(xs:boolean $forceAgentUnavailableOnDNDActivation = null)
     {
-        $forceAgentUnavailableOnDNDActivation and $this->forceAgentUnavailableOnDNDActivation = new xs:boolean($forceAgentUnavailableOnDNDActivation);
     }
 
     public function getForceAgentUnavailableOnDNDActivation()
@@ -94,9 +85,8 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
         return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->value();
     }
 
-    public function setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls)
+    public function setForceAgentUnavailableOnPersonalCalls(xs:boolean $forceAgentUnavailableOnPersonalCalls = null)
     {
-        $forceAgentUnavailableOnPersonalCalls and $this->forceAgentUnavailableOnPersonalCalls = new xs:boolean($forceAgentUnavailableOnPersonalCalls);
     }
 
     public function getForceAgentUnavailableOnPersonalCalls()
@@ -104,9 +94,8 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
         return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->value();
     }
 
-    public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit)
+    public function setForceAgentUnavailableOnBouncedCallLimit(xs:boolean $forceAgentUnavailableOnBouncedCallLimit = null)
     {
-        $forceAgentUnavailableOnBouncedCallLimit and $this->forceAgentUnavailableOnBouncedCallLimit = new xs:boolean($forceAgentUnavailableOnBouncedCallLimit);
     }
 
     public function getForceAgentUnavailableOnBouncedCallLimit()
@@ -114,9 +103,11 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
         return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->value();
     }
 
-    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable)
+    public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
-        $numberConsecutiveBouncedCallsToForceAgentUnavailable and $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
+             ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
+             : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
     }
 
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()

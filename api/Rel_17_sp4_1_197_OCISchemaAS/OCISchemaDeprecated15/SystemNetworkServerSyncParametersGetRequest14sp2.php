@@ -22,6 +22,5 @@ class SystemNetworkServerSyncParametersGetRequest14sp2 extends ComplexType imple
     public    $name = __CLASS__;
 
     public function __construct(    ) {
-        $this->args= func_get_args();
     }
 }

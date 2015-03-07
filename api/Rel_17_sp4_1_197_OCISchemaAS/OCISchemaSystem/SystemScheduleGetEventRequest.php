@@ -19,20 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name         = __CLASS__;
+    protected $scheduleKey  = null;
+    protected $eventName    = null;
 
     public function __construct(
-             ScheduleKey $scheduleKey,
-             $eventName
+         ScheduleKey $scheduleKey,
+         $eventName
     ) {
-        $this->scheduleKey = $scheduleKey;
-        $this->eventName   = new EventName($eventName);
-        $this->args        = func_get_args();
+        $this->setScheduleKey($scheduleKey);
+        $this->setEventName($eventName);
     }
 
-    public function setScheduleKey($scheduleKey)
+    public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $scheduleKey and $this->scheduleKey = new ScheduleKey($scheduleKey);
     }
 
     public function getScheduleKey()
@@ -40,9 +40,11 @@ class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterf
         return (!$this->scheduleKey) ?: $this->scheduleKey->value();
     }
 
-    public function setEventName($eventName)
+    public function setEventName($eventName = null)
     {
-        $eventName and $this->eventName = new EventName($eventName);
+        $this->eventName = ($eventName InstanceOf EventName)
+             ? $eventName
+             : new EventName($eventName);
     }
 
     public function getEventName()

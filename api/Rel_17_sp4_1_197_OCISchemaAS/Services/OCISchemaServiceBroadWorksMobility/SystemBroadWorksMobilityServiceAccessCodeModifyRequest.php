@@ -7,9 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\ServiceAccessCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\ServiceAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceAccessCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceAccessCodeDescription;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -20,22 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name               = __CLASS__;
+    protected $countryCode        = null;
+    protected $serviceAccessCode  = null;
+    protected $description        = null;
 
     public function __construct(
-             $countryCode,
-             $serviceAccessCode,
-             $description=null
+         $countryCode,
+         $serviceAccessCode,
+         $description = null
     ) {
-        $this->countryCode       = new CountryCode($countryCode);
-        $this->serviceAccessCode = $serviceAccessCode;
-        $this->description       = $description;
-        $this->args              = func_get_args();
+        $this->setCountryCode($countryCode);
+        $this->setServiceAccessCode($serviceAccessCode);
+        $this->setDescription($description);
     }
 
-    public function setCountryCode($countryCode)
+    public function setCountryCode($countryCode = null)
     {
-        $countryCode and $this->countryCode = new CountryCode($countryCode);
+        $this->countryCode = ($countryCode InstanceOf CountryCode)
+             ? $countryCode
+             : new CountryCode($countryCode);
     }
 
     public function getCountryCode()
@@ -43,9 +47,11 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
         return (!$this->countryCode) ?: $this->countryCode->value();
     }
 
-    public function setServiceAccessCode($serviceAccessCode)
+    public function setServiceAccessCode($serviceAccessCode = null)
     {
-        $serviceAccessCode and $this->serviceAccessCode = new ServiceAccessCode($serviceAccessCode);
+        $this->serviceAccessCode = ($serviceAccessCode InstanceOf ServiceAccessCode)
+             ? $serviceAccessCode
+             : new ServiceAccessCode($serviceAccessCode);
     }
 
     public function getServiceAccessCode()
@@ -53,9 +59,11 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
         return (!$this->serviceAccessCode) ?: $this->serviceAccessCode->value();
     }
 
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
-        $description and $this->description = new ServiceAccessCodeDescription($description);
+        $this->description = ($description InstanceOf ServiceAccessCodeDescription)
+             ? $description
+             : new ServiceAccessCodeDescription($description);
     }
 
     public function getDescription()

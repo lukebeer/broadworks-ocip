@@ -7,17 +7,17 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminPhoneNumberExtensionAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAccessDeviceAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminWebBrandingAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServicePackAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminDepartmentAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseAdminNetworkPolicyAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServiceAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminProfileAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminGroupAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminUserAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAdminAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminDepartmentAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAccessDeviceAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminPhoneNumberExtensionAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServiceAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminServicePackAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminWebBrandingAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseAdminNetworkPolicyAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminUserAccess;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -29,38 +29,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $profileAccess               = null;
+    protected $groupAccess                 = null;
+    protected $userAccess                  = null;
+    protected $adminAccess                 = null;
+    protected $departmentAccess            = null;
+    protected $accessDeviceAccess          = null;
+    protected $phoneNumberExtensionAccess  = null;
+    protected $serviceAccess               = null;
+    protected $servicePackAccess           = null;
+    protected $webBrandingAccess           = null;
+    protected $networkPolicyAccess         = null;
 
-    public function __construct(
-             $profileAccess,
-             $groupAccess,
-             $userAccess,
-             $adminAccess,
-             $departmentAccess,
-             $accessDeviceAccess,
-             $phoneNumberExtensionAccess,
-             $serviceAccess,
-             $servicePackAccess,
-             $webBrandingAccess,
-             $networkPolicyAccess=null
-    ) {
-        $this->profileAccess              = new ServiceProviderAdminProfileAccess($profileAccess);
-        $this->groupAccess                = new ServiceProviderAdminGroupAccess($groupAccess);
-        $this->userAccess                 = new ServiceProviderAdminUserAccess($userAccess);
-        $this->adminAccess                = new ServiceProviderAdminAdminAccess($adminAccess);
-        $this->departmentAccess           = new ServiceProviderAdminDepartmentAccess($departmentAccess);
-        $this->accessDeviceAccess         = new ServiceProviderAdminAccessDeviceAccess($accessDeviceAccess);
-        $this->phoneNumberExtensionAccess = new ServiceProviderAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
-        $this->serviceAccess              = new ServiceProviderAdminServiceAccess($serviceAccess);
-        $this->servicePackAccess          = new ServiceProviderAdminServicePackAccess($servicePackAccess);
-        $this->webBrandingAccess          = new ServiceProviderAdminWebBrandingAccess($webBrandingAccess);
-        $this->networkPolicyAccess        = new EnterpriseAdminNetworkPolicyAccess($networkPolicyAccess);
-        $this->args                       = func_get_args();
-    }
 
-    public function setProfileAccess($profileAccess)
+    public function setProfileAccess($profileAccess = null)
     {
-        $profileAccess and $this->profileAccess = new ServiceProviderAdminProfileAccess($profileAccess);
+        $this->profileAccess = ($profileAccess InstanceOf ServiceProviderAdminProfileAccess)
+             ? $profileAccess
+             : new ServiceProviderAdminProfileAccess($profileAccess);
     }
 
     public function getProfileAccess()
@@ -68,9 +55,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->profileAccess) ?: $this->profileAccess->value();
     }
 
-    public function setGroupAccess($groupAccess)
+    public function setGroupAccess($groupAccess = null)
     {
-        $groupAccess and $this->groupAccess = new ServiceProviderAdminGroupAccess($groupAccess);
+        $this->groupAccess = ($groupAccess InstanceOf ServiceProviderAdminGroupAccess)
+             ? $groupAccess
+             : new ServiceProviderAdminGroupAccess($groupAccess);
     }
 
     public function getGroupAccess()
@@ -78,9 +67,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->groupAccess) ?: $this->groupAccess->value();
     }
 
-    public function setUserAccess($userAccess)
+    public function setUserAccess($userAccess = null)
     {
-        $userAccess and $this->userAccess = new ServiceProviderAdminUserAccess($userAccess);
+        $this->userAccess = ($userAccess InstanceOf ServiceProviderAdminUserAccess)
+             ? $userAccess
+             : new ServiceProviderAdminUserAccess($userAccess);
     }
 
     public function getUserAccess()
@@ -88,9 +79,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->userAccess) ?: $this->userAccess->value();
     }
 
-    public function setAdminAccess($adminAccess)
+    public function setAdminAccess($adminAccess = null)
     {
-        $adminAccess and $this->adminAccess = new ServiceProviderAdminAdminAccess($adminAccess);
+        $this->adminAccess = ($adminAccess InstanceOf ServiceProviderAdminAdminAccess)
+             ? $adminAccess
+             : new ServiceProviderAdminAdminAccess($adminAccess);
     }
 
     public function getAdminAccess()
@@ -98,9 +91,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->adminAccess) ?: $this->adminAccess->value();
     }
 
-    public function setDepartmentAccess($departmentAccess)
+    public function setDepartmentAccess($departmentAccess = null)
     {
-        $departmentAccess and $this->departmentAccess = new ServiceProviderAdminDepartmentAccess($departmentAccess);
+        $this->departmentAccess = ($departmentAccess InstanceOf ServiceProviderAdminDepartmentAccess)
+             ? $departmentAccess
+             : new ServiceProviderAdminDepartmentAccess($departmentAccess);
     }
 
     public function getDepartmentAccess()
@@ -108,9 +103,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->departmentAccess) ?: $this->departmentAccess->value();
     }
 
-    public function setAccessDeviceAccess($accessDeviceAccess)
+    public function setAccessDeviceAccess($accessDeviceAccess = null)
     {
-        $accessDeviceAccess and $this->accessDeviceAccess = new ServiceProviderAdminAccessDeviceAccess($accessDeviceAccess);
+        $this->accessDeviceAccess = ($accessDeviceAccess InstanceOf ServiceProviderAdminAccessDeviceAccess)
+             ? $accessDeviceAccess
+             : new ServiceProviderAdminAccessDeviceAccess($accessDeviceAccess);
     }
 
     public function getAccessDeviceAccess()
@@ -118,9 +115,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->accessDeviceAccess) ?: $this->accessDeviceAccess->value();
     }
 
-    public function setPhoneNumberExtensionAccess($phoneNumberExtensionAccess)
+    public function setPhoneNumberExtensionAccess($phoneNumberExtensionAccess = null)
     {
-        $phoneNumberExtensionAccess and $this->phoneNumberExtensionAccess = new ServiceProviderAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
+        $this->phoneNumberExtensionAccess = ($phoneNumberExtensionAccess InstanceOf ServiceProviderAdminPhoneNumberExtensionAccess)
+             ? $phoneNumberExtensionAccess
+             : new ServiceProviderAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
     }
 
     public function getPhoneNumberExtensionAccess()
@@ -128,9 +127,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->phoneNumberExtensionAccess) ?: $this->phoneNumberExtensionAccess->value();
     }
 
-    public function setServiceAccess($serviceAccess)
+    public function setServiceAccess($serviceAccess = null)
     {
-        $serviceAccess and $this->serviceAccess = new ServiceProviderAdminServiceAccess($serviceAccess);
+        $this->serviceAccess = ($serviceAccess InstanceOf ServiceProviderAdminServiceAccess)
+             ? $serviceAccess
+             : new ServiceProviderAdminServiceAccess($serviceAccess);
     }
 
     public function getServiceAccess()
@@ -138,9 +139,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->serviceAccess) ?: $this->serviceAccess->value();
     }
 
-    public function setServicePackAccess($servicePackAccess)
+    public function setServicePackAccess($servicePackAccess = null)
     {
-        $servicePackAccess and $this->servicePackAccess = new ServiceProviderAdminServicePackAccess($servicePackAccess);
+        $this->servicePackAccess = ($servicePackAccess InstanceOf ServiceProviderAdminServicePackAccess)
+             ? $servicePackAccess
+             : new ServiceProviderAdminServicePackAccess($servicePackAccess);
     }
 
     public function getServicePackAccess()
@@ -148,9 +151,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->servicePackAccess) ?: $this->servicePackAccess->value();
     }
 
-    public function setWebBrandingAccess($webBrandingAccess)
+    public function setWebBrandingAccess($webBrandingAccess = null)
     {
-        $webBrandingAccess and $this->webBrandingAccess = new ServiceProviderAdminWebBrandingAccess($webBrandingAccess);
+        $this->webBrandingAccess = ($webBrandingAccess InstanceOf ServiceProviderAdminWebBrandingAccess)
+             ? $webBrandingAccess
+             : new ServiceProviderAdminWebBrandingAccess($webBrandingAccess);
     }
 
     public function getWebBrandingAccess()
@@ -158,9 +163,11 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
         return (!$this->webBrandingAccess) ?: $this->webBrandingAccess->value();
     }
 
-    public function setNetworkPolicyAccess($networkPolicyAccess)
+    public function setNetworkPolicyAccess($networkPolicyAccess = null)
     {
-        $networkPolicyAccess and $this->networkPolicyAccess = new EnterpriseAdminNetworkPolicyAccess($networkPolicyAccess);
+        $this->networkPolicyAccess = ($networkPolicyAccess InstanceOf EnterpriseAdminNetworkPolicyAccess)
+             ? $networkPolicyAccess
+             : new EnterpriseAdminNetworkPolicyAccess($networkPolicyAccess);
     }
 
     public function getNetworkPolicyAccess()

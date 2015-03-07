@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationControllerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ApplicationControllerName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -19,20 +19,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                   = __CLASS__;
+    protected $name                   = null;
+    protected $applicationController  = null;
 
     public function __construct(
-             $name,
-             $applicationController=null
+         $name,
+         $applicationController = null
     ) {
-        $this->name                  = new RoutePointExternalSystem($name);
-        $this->applicationController = $applicationController;
-        $this->args                  = func_get_args();
+        $this->setName($name);
+        $this->setApplicationController($applicationController);
     }
 
-    public function setName($name)
+    public function setName($name = null)
     {
-        $name and $this->name = new RoutePointExternalSystem($name);
+        $this->name = ($name InstanceOf RoutePointExternalSystem)
+             ? $name
+             : new RoutePointExternalSystem($name);
     }
 
     public function getName()
@@ -40,9 +43,11 @@ class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends 
         return (!$this->name) ?: $this->name->value();
     }
 
-    public function setApplicationController($applicationController)
+    public function setApplicationController($applicationController = null)
     {
-        $applicationController and $this->applicationController = new ApplicationControllerName($applicationController);
+        $this->applicationController = ($applicationController InstanceOf ApplicationControllerName)
+             ? $applicationController
+             : new ApplicationControllerName($applicationController);
     }
 
     public function getApplicationController()

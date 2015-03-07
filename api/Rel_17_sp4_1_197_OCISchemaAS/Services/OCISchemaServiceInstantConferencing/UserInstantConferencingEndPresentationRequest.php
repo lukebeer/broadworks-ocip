@@ -7,10 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAccessCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingDocumentId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingDocumentId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingAccessCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InstantConferencingSlideName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,26 +21,32 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingEndPresentationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                 = __CLASS__;
+    protected $userId               = null;
+    protected $bridgeServiceUserId  = null;
+    protected $documentId           = null;
+    protected $accessCode           = null;
+    protected $slideName            = null;
 
     public function __construct(
-             $userId,
-             $bridgeServiceUserId,
-             $documentId,
-             $accessCode,
-             $slideName
+         $userId,
+         $bridgeServiceUserId,
+         $documentId,
+         $accessCode,
+         $slideName
     ) {
-        $this->userId              = new UserId($userId);
-        $this->bridgeServiceUserId = new UserId($bridgeServiceUserId);
-        $this->documentId          = $documentId;
-        $this->accessCode          = $accessCode;
-        $this->slideName           = $slideName;
-        $this->args                = func_get_args();
+        $this->setUserId($userId);
+        $this->setBridgeServiceUserId($bridgeServiceUserId);
+        $this->setDocumentId($documentId);
+        $this->setAccessCode($accessCode);
+        $this->setSlideName($slideName);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -48,9 +54,11 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setBridgeServiceUserId($bridgeServiceUserId)
+    public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        $bridgeServiceUserId and $this->bridgeServiceUserId = new UserId($bridgeServiceUserId);
+        $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
+             ? $bridgeServiceUserId
+             : new UserId($bridgeServiceUserId);
     }
 
     public function getBridgeServiceUserId()
@@ -58,9 +66,11 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
     }
 
-    public function setDocumentId($documentId)
+    public function setDocumentId($documentId = null)
     {
-        $documentId and $this->documentId = new InstantConferencingDocumentId($documentId);
+        $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
+             ? $documentId
+             : new InstantConferencingDocumentId($documentId);
     }
 
     public function getDocumentId()
@@ -68,9 +78,11 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         return (!$this->documentId) ?: $this->documentId->value();
     }
 
-    public function setAccessCode($accessCode)
+    public function setAccessCode($accessCode = null)
     {
-        $accessCode and $this->accessCode = new InstantConferencingAccessCode($accessCode);
+        $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
+             ? $accessCode
+             : new InstantConferencingAccessCode($accessCode);
     }
 
     public function getAccessCode()
@@ -78,9 +90,11 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         return (!$this->accessCode) ?: $this->accessCode->value();
     }
 
-    public function setSlideName($slideName)
+    public function setSlideName($slideName = null)
     {
-        $slideName and $this->slideName = new InstantConferencingSlideName($slideName);
+        $this->slideName = ($slideName InstanceOf InstantConferencingSlideName)
+             ? $slideName
+             : new InstantConferencingSlideName($slideName);
     }
 
     public function getSlideName()

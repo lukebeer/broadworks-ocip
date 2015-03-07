@@ -7,10 +7,9 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AttendantConsoleReplacementDisplayColumnList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleReplacementDisplayColumnList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
@@ -21,28 +20,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name                        = __CLASS__;
+    protected $userId                      = null;
+    protected $launchOnLogin               = null;
+    protected $allowUserConfigCallDetails  = null;
+    protected $allowUserViewCallDetails    = null;
+    protected $displayColumnList           = null;
+    protected $monitoredUserIdList         = null;
 
     public function __construct(
-             $userId,
-             $launchOnLogin=null,
-             $allowUserConfigCallDetails=null,
-             $allowUserViewCallDetails=null,
-             $displayColumnList=null,
-             ReplacementUserIdList $monitoredUserIdList=null
+         $userId,
+         $launchOnLogin = null,
+         $allowUserConfigCallDetails = null,
+         $allowUserViewCallDetails = null,
+         AttendantConsoleReplacementDisplayColumnList $displayColumnList = null,
+         ReplacementUserIdList $monitoredUserIdList = null
     ) {
-        $this->userId                     = new UserId($userId);
-        $this->launchOnLogin              = $launchOnLogin;
-        $this->allowUserConfigCallDetails = $allowUserConfigCallDetails;
-        $this->allowUserViewCallDetails   = $allowUserViewCallDetails;
-        $this->displayColumnList          = $displayColumnList;
-        $this->monitoredUserIdList        = $monitoredUserIdList;
-        $this->args                       = func_get_args();
+        $this->setUserId($userId);
+        $this->setLaunchOnLogin($launchOnLogin);
+        $this->setAllowUserConfigCallDetails($allowUserConfigCallDetails);
+        $this->setAllowUserViewCallDetails($allowUserViewCallDetails);
+        $this->setDisplayColumnList($displayColumnList);
+        $this->setMonitoredUserIdList($monitoredUserIdList);
     }
 
-    public function setUserId($userId)
+    public function setUserId($userId = null)
     {
-        $userId and $this->userId = new UserId($userId);
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
     }
 
     public function getUserId()
@@ -50,9 +56,8 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         return (!$this->userId) ?: $this->userId->value();
     }
 
-    public function setLaunchOnLogin($launchOnLogin)
+    public function setLaunchOnLogin(xs:boolean $launchOnLogin = null)
     {
-        $launchOnLogin and $this->launchOnLogin = new xs:boolean($launchOnLogin);
     }
 
     public function getLaunchOnLogin()
@@ -60,9 +65,8 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         return (!$this->launchOnLogin) ?: $this->launchOnLogin->value();
     }
 
-    public function setAllowUserConfigCallDetails($allowUserConfigCallDetails)
+    public function setAllowUserConfigCallDetails(xs:boolean $allowUserConfigCallDetails = null)
     {
-        $allowUserConfigCallDetails and $this->allowUserConfigCallDetails = new xs:boolean($allowUserConfigCallDetails);
     }
 
     public function getAllowUserConfigCallDetails()
@@ -70,9 +74,8 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails->value();
     }
 
-    public function setAllowUserViewCallDetails($allowUserViewCallDetails)
+    public function setAllowUserViewCallDetails(xs:boolean $allowUserViewCallDetails = null)
     {
-        $allowUserViewCallDetails and $this->allowUserViewCallDetails = new xs:boolean($allowUserViewCallDetails);
     }
 
     public function getAllowUserViewCallDetails()
@@ -80,9 +83,8 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails->value();
     }
 
-    public function setDisplayColumnList($displayColumnList)
+    public function setDisplayColumnList(AttendantConsoleReplacementDisplayColumnList $displayColumnList = null)
     {
-        $displayColumnList and $this->displayColumnList = new AttendantConsoleReplacementDisplayColumnList($displayColumnList);
     }
 
     public function getDisplayColumnList()
@@ -90,9 +92,8 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         return (!$this->displayColumnList) ?: $this->displayColumnList->value();
     }
 
-    public function setMonitoredUserIdList($monitoredUserIdList)
+    public function setMonitoredUserIdList(ReplacementUserIdList $monitoredUserIdList = null)
     {
-        $monitoredUserIdList and $this->monitoredUserIdList = new ReplacementUserIdList($monitoredUserIdList);
     }
 
     public function getMonitoredUserIdList()

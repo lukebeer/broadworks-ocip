@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\xs:boolean;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -19,20 +18,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name           = __CLASS__;
+    protected $isEnterprise   = null;
+    protected $defaultDomain  = null;
 
-    public function __construct(
-             $isEnterprise,
-             $defaultDomain
-    ) {
-        $this->isEnterprise  = $isEnterprise;
-        $this->defaultDomain = new NetAddress($defaultDomain);
-        $this->args          = func_get_args();
-    }
 
-    public function setIsEnterprise($isEnterprise)
+    public function setIsEnterprise(xs:boolean $isEnterprise = null)
     {
-        $isEnterprise and $this->isEnterprise = new xs:boolean($isEnterprise);
     }
 
     public function getIsEnterprise()
@@ -40,9 +32,11 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
         return (!$this->isEnterprise) ?: $this->isEnterprise->value();
     }
 
-    public function setDefaultDomain($defaultDomain)
+    public function setDefaultDomain($defaultDomain = null)
     {
-        $defaultDomain and $this->defaultDomain = new NetAddress($defaultDomain);
+        $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
+             ? $defaultDomain
+             : new NetAddress($defaultDomain);
     }
 
     public function getDefaultDomain()
