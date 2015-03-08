@@ -48,24 +48,24 @@ class Response
     }
 
     private function OCIResponse($cmdResponse, $outputType)
-    {
+    {   $cmdResponse = str_replace('xsi:type', 'type', $cmdResponse);
         switch ($outputType) {
             case ResponseOutput::STD:
-                $this->response = (object)json_decode(json_encode((array)simplexml_load_string($cmdResponse)), 1);
+                $this->response = (object)json_decode(json_encode((array)simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true)), 1);
                 break;
             case ResponseOutput::XML:
                 $this->response = $cmdResponse;
                 break;
             case ResponseOutput::JSON:
-                $this->response = json_encode(simplexml_load_string($cmdResponse), JSON_PRETTY_PRINT);
+                $this->response = json_encode(simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true), JSON_PRETTY_PRINT);
                 break;
             case ResponseOutput::SIMPLEXML:
-                $this->response = simplexml_load_string($cmdResponse);
+                $this->response = simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true);
                 break;
             case ResponseOutput::TABLE:
                 require_once 'Console/Table.php';
                 $tbl = new Console_Table();
-                $data = simplexml_load_string($cmdResponse);
+                $data = simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true);
                 $table = $data->children()[0];
                 if (strpos($table->getName(), 'Table')) {
                     $headers = (array)$table->children()->colHeading;
@@ -82,7 +82,7 @@ class Response
                 $this->response = $tbl->getTable();
                 break;
             case ResponseOutput::PRETTY:
-                $response = (object)json_decode(json_encode((array)simplexml_load_string($cmdResponse)), 1);
+                $response = (object)json_decode(json_encode((array)simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true)), 1);
                 //$this->response = $this->pdump($response);
                 $this->response = $response;
                 break;
