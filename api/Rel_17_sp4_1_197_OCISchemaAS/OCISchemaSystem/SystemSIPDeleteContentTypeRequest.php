@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a content type for the SIP interface.
+     * Delete a content type for the SIP interface.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $contentType  = null;
+    public    $name        = __CLASS__;
+    protected $contentType = null;
 
     public function __construct(
          $contentType
@@ -27,6 +27,9 @@ class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexIn
         $this->setContentType($contentType);
     }
 
+    /**
+     * SIP content type.
+     */
     public function setContentType($contentType = null)
     {
         $this->contentType = ($contentType InstanceOf SystemSIPContentType)
@@ -34,8 +37,11 @@ class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexIn
              : new SystemSIPContentType($contentType);
     }
 
+    /**
+     * SIP content type.
+     */
     public function getContentType()
     {
-        return (!$this->contentType) ?: $this->contentType->value();
+        return (!$this->contentType) ?: $this->contentType->getValue();
     }
 }

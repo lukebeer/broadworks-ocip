@@ -13,16 +13,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallNotifyGetRequest.
+     * Response to SystemCallNotifyGetRequest.
  */
 class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $defaultFromAddress   = null;
-    protected $useShortSubjectLine  = null;
-    protected $useDnInMailBody      = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\SystemCallNotifyGetResponse';
+    public    $name                = __CLASS__;
+    protected $defaultFromAddress  = null;
+    protected $useShortSubjectLine = null;
+    protected $useDnInMailBody     = null;
 
 
+    /**
+     * Email Address
+     */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
@@ -30,26 +34,43 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
              : new EmailAddress($defaultFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getDefaultFromAddress()
     {
-        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->value();
+        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->getValue();
     }
 
-    public function setUseShortSubjectLine(xs:boolean $useShortSubjectLine = null)
+    /**
+     * 
+     */
+    public function setUseShortSubjectLine($useShortSubjectLine = null)
     {
+        $this->useShortSubjectLine = (boolean) $useShortSubjectLine;
     }
 
+    /**
+     * 
+     */
     public function getUseShortSubjectLine()
     {
-        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->value();
+        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->getValue();
     }
 
-    public function setUseDnInMailBody(xs:boolean $useDnInMailBody = null)
+    /**
+     * 
+     */
+    public function setUseDnInMailBody($useDnInMailBody = null)
     {
+        $this->useDnInMailBody = (boolean) $useDnInMailBody;
     }
 
+    /**
+     * 
+     */
     public function getUseDnInMailBody()
     {
-        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->value();
+        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->getValue();
     }
 }

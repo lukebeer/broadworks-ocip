@@ -16,34 +16,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a UserPreAlertingAnnouncementGetRequest.
+     * Response to a UserPreAlertingAnnouncementGetRequest.
  *          The criteria table's column headings are: "Is Active", "Criteria Name", 
  *         "Blacklisted", and "Calls From".
  */
 class UserPreAlertingAnnouncementGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $isActive              = null;
-    protected $audioSelection        = null;
-    protected $audioFileDescription  = null;
-    protected $audioMediaType        = null;
-    protected $audioFileUrl          = null;
-    protected $videoSelection        = null;
-    protected $videoFileDescription  = null;
-    protected $videoMediaType        = null;
-    protected $videoFileUrl          = null;
-    protected $criteriaTable         = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement\UserPreAlertingAnnouncementGetResponse';
+    public    $name                 = __CLASS__;
+    protected $isActive             = null;
+    protected $audioSelection       = null;
+    protected $audioFileDescription = null;
+    protected $audioMediaType       = null;
+    protected $audioFileUrl         = null;
+    protected $videoSelection       = null;
+    protected $videoFileDescription = null;
+    protected $videoMediaType       = null;
+    protected $videoFileUrl         = null;
+    protected $criteriaTable        = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioSelection($audioSelection = null)
     {
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
@@ -51,11 +62,17 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new ExtendedFileResourceSelection($audioSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->value();
+        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
@@ -63,11 +80,21 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new FileDescription($audioFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
+        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setAudioMediaType($audioMediaType = null)
     {
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
@@ -75,11 +102,21 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new MediaFileType($audioMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getAudioMediaType()
     {
-        return (!$this->audioMediaType) ?: $this->audioMediaType->value();
+        return (!$this->audioMediaType) ?: $this->audioMediaType->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setAudioFileUrl($audioFileUrl = null)
     {
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
@@ -87,11 +124,17 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new URL($audioFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->value();
+        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoSelection($videoSelection = null)
     {
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
@@ -99,11 +142,17 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new ExtendedFileResourceSelection($videoSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->value();
+        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
@@ -111,11 +160,21 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new FileDescription($videoFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
+        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setVideoMediaType($videoMediaType = null)
     {
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
@@ -123,11 +182,21 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new MediaFileType($videoMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getVideoMediaType()
     {
-        return (!$this->videoMediaType) ?: $this->videoMediaType->value();
+        return (!$this->videoMediaType) ?: $this->videoMediaType->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setVideoFileUrl($videoFileUrl = null)
     {
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
@@ -135,17 +204,27 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
              : new URL($videoFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->value();
+        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
     }
 
+    /**
+     * 
+     */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
+        $this->criteriaTable = core:OCITable $criteriaTable;
     }
 
+    /**
+     * 
+     */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->value();
+        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
     }
 }

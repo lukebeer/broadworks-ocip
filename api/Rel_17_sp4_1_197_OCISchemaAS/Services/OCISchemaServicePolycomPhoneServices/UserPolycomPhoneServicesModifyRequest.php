@@ -15,18 +15,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's Polycom Phone Services attributes.
+     * Modify the user's Polycom Phone Services attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPolycomPhoneServicesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                           = __CLASS__;
-    protected $userId                                         = null;
-    protected $accessDevice                                   = null;
-    protected $integratePhoneDirectoryWithBroadWorks          = null;
-    protected $includeUserPersonalPhoneListInDirectory        = null;
-    protected $includeGroupCustomContactDirectoryInDirectory  = null;
-    protected $groupCustomContactDirectory                    = null;
+    public    $name                                          = __CLASS__;
+    protected $userId                                        = null;
+    protected $accessDevice                                  = null;
+    protected $integratePhoneDirectoryWithBroadWorks         = null;
+    protected $includeUserPersonalPhoneListInDirectory       = null;
+    protected $includeGroupCustomContactDirectoryInDirectory = null;
+    protected $groupCustomContactDirectory                   = null;
 
     public function __construct(
          $userId,
@@ -44,6 +44,13 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
         $this->setGroupCustomContactDirectory($groupCustomContactDirectory);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -51,47 +58,85 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
+        $this->accessDevice = AccessDevice $accessDevice;
     }
 
+    /**
+     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     */
     public function getAccessDevice()
     {
-        return (!$this->accessDevice) ?: $this->accessDevice->value();
+        return (!$this->accessDevice) ?: $this->accessDevice->getValue();
     }
 
-    public function setIntegratePhoneDirectoryWithBroadWorks(xs:boolean $integratePhoneDirectoryWithBroadWorks = null)
+    /**
+     * 
+     */
+    public function setIntegratePhoneDirectoryWithBroadWorks($integratePhoneDirectoryWithBroadWorks = null)
     {
+        $this->integratePhoneDirectoryWithBroadWorks = (boolean) $integratePhoneDirectoryWithBroadWorks;
     }
 
+    /**
+     * 
+     */
     public function getIntegratePhoneDirectoryWithBroadWorks()
     {
-        return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks->value();
+        return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks->getValue();
     }
 
-    public function setIncludeUserPersonalPhoneListInDirectory(xs:boolean $includeUserPersonalPhoneListInDirectory = null)
+    /**
+     * 
+     */
+    public function setIncludeUserPersonalPhoneListInDirectory($includeUserPersonalPhoneListInDirectory = null)
     {
+        $this->includeUserPersonalPhoneListInDirectory = (boolean) $includeUserPersonalPhoneListInDirectory;
     }
 
+    /**
+     * 
+     */
     public function getIncludeUserPersonalPhoneListInDirectory()
     {
-        return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory->value();
+        return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory->getValue();
     }
 
-    public function setIncludeGroupCustomContactDirectoryInDirectory(xs:boolean $includeGroupCustomContactDirectoryInDirectory = null)
+    /**
+     * 
+     */
+    public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory = null)
     {
+        $this->includeGroupCustomContactDirectoryInDirectory = (boolean) $includeGroupCustomContactDirectoryInDirectory;
     }
 
+    /**
+     * 
+     */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
-        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->value();
+        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->getValue();
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setGroupCustomContactDirectory($groupCustomContactDirectory = null)
     {
         $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
@@ -99,8 +144,11 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
              : new CustomContactDirectoryName($groupCustomContactDirectory);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getGroupCustomContactDirectory()
     {
-        return (!$this->groupCustomContactDirectory) ?: $this->groupCustomContactDirectory->value();
+        return (!$this->groupCustomContactDirectory) ?: $this->groupCustomContactDirectory->getValue();
     }
 }

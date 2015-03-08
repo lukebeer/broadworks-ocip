@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to export an existing Device Type to a Device Type Archive File (DTAF).
+     * Request to export an existing Device Type to a Device Type Archive File (DTAF).
  *         The response is either a SystemDeviceTypeExportResponse or an ErrorResponse.
  */
 class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeExportResponse';
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
 
     public function __construct(
          $deviceType
@@ -27,6 +28,9 @@ class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterf
         $this->setDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -34,8 +38,11 @@ class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterf
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 }

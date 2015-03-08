@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserAccessDeviceFileGetListRequest.
+     * Response to UserAccessDeviceFileGetListRequest.
  *         Contains a table of user modifiable Device Management files.
  *         The column headings are: "File Format", "Template URL".
  */
 class UserAccessDeviceFileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $deviceFilesTable  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetListResponse';
+    public    $name             = __CLASS__;
+    protected $deviceFilesTable = null;
 
 
+    /**
+     * 
+     */
     public function setDeviceFilesTable(core:OCITable $deviceFilesTable = null)
     {
+        $this->deviceFilesTable = core:OCITable $deviceFilesTable;
     }
 
+    /**
+     * 
+     */
     public function getDeviceFilesTable()
     {
-        return (!$this->deviceFilesTable) ?: $this->deviceFilesTable->value();
+        return (!$this->deviceFilesTable) ?: $this->deviceFilesTable->getValue();
     }
 }

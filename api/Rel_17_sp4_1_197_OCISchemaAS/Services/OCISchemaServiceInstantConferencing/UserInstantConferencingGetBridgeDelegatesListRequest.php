@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of delegates of a bridge administrator.
+     * Get a list of delegates of a bridge administrator.
  *         The response is either UserInstantConferencingGetBridgeDelegatesListResponse or ErrorResponse.
  */
 class UserInstantConferencingGetBridgeDelegatesListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $userId               = null;
-    protected $bridgeServiceUserId  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetBridgeDelegatesListResponse';
+    public    $name                = __CLASS__;
+    protected $userId              = null;
+    protected $bridgeServiceUserId = null;
 
     public function __construct(
          $userId,
@@ -30,6 +31,13 @@ class UserInstantConferencingGetBridgeDelegatesListRequest extends ComplexType i
         $this->setBridgeServiceUserId($bridgeServiceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -37,11 +45,25 @@ class UserInstantConferencingGetBridgeDelegatesListRequest extends ComplexType i
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
@@ -49,8 +71,15 @@ class UserInstantConferencingGetBridgeDelegatesListRequest extends ComplexType i
              : new UserId($bridgeServiceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getBridgeServiceUserId()
     {
-        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
+        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->getValue();
     }
 }

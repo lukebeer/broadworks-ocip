@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Dialable Caller ID Criteria.
+     * Delete a Dialable Caller ID Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
         $this->setName($name);
     }
 
+    /**
+     * Dialable Caller ID Criteria name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
@@ -34,8 +37,11 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
              : new DialableCallerIDCriteriaName($name);
     }
 
+    /**
+     * Dialable Caller ID Criteria name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

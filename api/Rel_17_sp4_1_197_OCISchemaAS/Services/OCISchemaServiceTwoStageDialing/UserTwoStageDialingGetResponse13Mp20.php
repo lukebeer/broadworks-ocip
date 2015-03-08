@@ -13,30 +13,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserTwoStageDialingGetRequest13Mp20.
+     * Response to UserTwoStageDialingGetRequest13Mp20.
  */
 class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
-    protected $isActive                          = null;
-    protected $allowActivationWithUserAddresses  = null;
+    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\UserTwoStageDialingGetResponse13Mp20';
+    public    $name                             = __CLASS__;
+    protected $isActive                         = null;
+    protected $allowActivationWithUserAddresses = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setAllowActivationWithUserAddresses(xs:boolean $allowActivationWithUserAddresses = null)
+    /**
+     * 
+     */
+    public function setAllowActivationWithUserAddresses($allowActivationWithUserAddresses = null)
     {
+        $this->allowActivationWithUserAddresses = (boolean) $allowActivationWithUserAddresses;
     }
 
+    /**
+     * 
+     */
     public function getAllowActivationWithUserAddresses()
     {
-        return (!$this->allowActivationWithUserAddresses) ?: $this->allowActivationWithUserAddresses->value();
+        return (!$this->allowActivationWithUserAddresses) ?: $this->allowActivationWithUserAddresses->getValue();
     }
 }

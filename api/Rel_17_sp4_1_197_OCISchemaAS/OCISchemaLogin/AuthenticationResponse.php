@@ -14,16 +14,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * AuthenticationRequest/Response is 1st stage of the 2 stage OCI login process.
+     * AuthenticationRequest/Response is 1st stage of the 2 stage OCI login process.
  */
 class AuthenticationResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $userId             = null;
-    protected $nonce              = null;
-    protected $passwordAlgorithm  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationResponse';
+    public    $name              = __CLASS__;
+    protected $userId            = null;
+    protected $nonce             = null;
+    protected $passwordAlgorithm = null;
 
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -31,20 +39,37 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setNonce(xs:string $nonce = null)
+    /**
+     * 
+     */
+    public function setNonce($nonce = null)
     {
+        $this->nonce = (string) $nonce;
     }
 
+    /**
+     * 
+     */
     public function getNonce()
     {
-        return (!$this->nonce) ?: $this->nonce->value();
+        return (!$this->nonce) ?: $this->nonce->getValue();
     }
 
+    /**
+     * Possible algorithms for digital signatures supported by the provisioning server.
+     */
     public function setPasswordAlgorithm($passwordAlgorithm = null)
     {
         $this->passwordAlgorithm = ($passwordAlgorithm InstanceOf DigitalSignatureAlgorithm)
@@ -52,8 +77,11 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
              : new DigitalSignatureAlgorithm($passwordAlgorithm);
     }
 
+    /**
+     * Possible algorithms for digital signatures supported by the provisioning server.
+     */
     public function getPasswordAlgorithm()
     {
-        return (!$this->passwordAlgorithm) ?: $this->passwordAlgorithm->value();
+        return (!$this->passwordAlgorithm) ?: $this->passwordAlgorithm->getValue();
     }
 }

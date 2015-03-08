@@ -13,16 +13,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemDeviceManagementTagSetGetListRequest.
+     * Response to SystemDeviceManagementTagSetGetListRequest.
  *         The response includes an array of tag set names defined in the system.
  *         The system default tag set name is not part of this response.
  */
 class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $tagSetName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagSetGetListResponse';
+    public    $name       = __CLASS__;
+    protected $tagSetName = null;
 
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function setTagSetName($tagSetName = null)
     {
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
@@ -30,8 +34,11 @@ class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements
              : new DeviceManagementTagSetName($tagSetName);
     }
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function getTagSetName()
     {
-        return (!$this->tagSetName) ?: $this->tagSetName->value();
+        return (!$this->tagSetName) ?: $this->tagSetName->getValue();
     }
 }

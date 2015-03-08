@@ -16,7 +16,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a call center reporting server.
+     * Add a call center reporting server.
  * 
  *         name - A unique name given to the CCR inside the AS.
  *                CCR are associated to the Call Center through that name.
@@ -30,11 +30,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterReportingServerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $name         = null;
-    protected $url          = null;
-    protected $netAddress   = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $name        = null;
+    protected $url         = null;
+    protected $netAddress  = null;
+    protected $description = null;
 
     public function __construct(
          $name,
@@ -48,6 +48,9 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
         $this->setDescription($description);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallCenterReportingServerName)
@@ -55,11 +58,17 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
              : new CallCenterReportingServerName($name);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setUrl($url = null)
     {
         $this->url = ($url InstanceOf URL)
@@ -67,11 +76,17 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
              : new URL($url);
     }
 
+    /**
+     * URL.
+     */
     public function getUrl()
     {
-        return (!$this->url) ?: $this->url->value();
+        return (!$this->url) ?: $this->url->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -79,11 +94,17 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * Call Center Reporting Server Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf CallCenterReportingServerDescription)
@@ -91,8 +112,11 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
              : new CallCenterReportingServerDescription($description);
     }
 
+    /**
+     * Call Center Reporting Server Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

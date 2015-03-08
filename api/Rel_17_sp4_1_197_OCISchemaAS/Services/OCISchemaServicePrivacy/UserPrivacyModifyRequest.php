@@ -14,19 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Privacy.
+     * Modify the user level data associated with Privacy.
  *         This command is supported for regular users only.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
-    protected $userId                                      = null;
-    protected $enableDirectoryPrivacy                      = null;
-    protected $enableAutoAttendantExtensionDialingPrivacy  = null;
-    protected $enableAutoAttendantNameDialingPrivacy       = null;
-    protected $enablePhoneStatusPrivacy                    = null;
-    protected $permittedMonitorUserIdList                  = null;
+    public    $name                                       = __CLASS__;
+    protected $userId                                     = null;
+    protected $enableDirectoryPrivacy                     = null;
+    protected $enableAutoAttendantExtensionDialingPrivacy = null;
+    protected $enableAutoAttendantNameDialingPrivacy      = null;
+    protected $enablePhoneStatusPrivacy                   = null;
+    protected $permittedMonitorUserIdList                 = null;
 
     public function __construct(
          $userId,
@@ -44,6 +44,13 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
         $this->setPermittedMonitorUserIdList($permittedMonitorUserIdList);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -51,53 +58,97 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setEnableDirectoryPrivacy(xs:boolean $enableDirectoryPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
+        $this->enableDirectoryPrivacy = (boolean) $enableDirectoryPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->value();
+        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->getValue();
     }
 
-    public function setEnableAutoAttendantExtensionDialingPrivacy(xs:boolean $enableAutoAttendantExtensionDialingPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy = null)
     {
+        $this->enableAutoAttendantExtensionDialingPrivacy = (boolean) $enableAutoAttendantExtensionDialingPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->value();
+        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
     }
 
-    public function setEnableAutoAttendantNameDialingPrivacy(xs:boolean $enableAutoAttendantNameDialingPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy = null)
     {
+        $this->enableAutoAttendantNameDialingPrivacy = (boolean) $enableAutoAttendantNameDialingPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->value();
+        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->getValue();
     }
 
-    public function setEnablePhoneStatusPrivacy(xs:boolean $enablePhoneStatusPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnablePhoneStatusPrivacy($enablePhoneStatusPrivacy = null)
     {
+        $this->enablePhoneStatusPrivacy = (boolean) $enablePhoneStatusPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnablePhoneStatusPrivacy()
     {
-        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy->value();
+        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setPermittedMonitorUserIdList(ReplacementUserIdList $permittedMonitorUserIdList = null)
     {
+        $this->permittedMonitorUserIdList = ReplacementUserIdList $permittedMonitorUserIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getPermittedMonitorUserIdList()
     {
-        return (!$this->permittedMonitorUserIdList) ?: $this->permittedMonitorUserIdList->value();
+        return (!$this->permittedMonitorUserIdList) ?: $this->permittedMonitorUserIdList->getValue();
     }
 }

@@ -13,17 +13,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Server Addresses.
+     * Request to modify Server Addresses.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServerAddressesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = __CLASS__;
-    protected $webServerClusterPublicFQDN                    = null;
-    protected $applicationServerClusterPrimaryPublicFQDN     = null;
-    protected $applicationServerClusterSecondaryPublicFQDN   = null;
-    protected $applicationServerClusterPrimaryPrivateFQDN    = null;
-    protected $applicationServerClusterSecondaryPrivateFQDN  = null;
+    public    $name                                         = __CLASS__;
+    protected $webServerClusterPublicFQDN                   = null;
+    protected $applicationServerClusterPrimaryPublicFQDN    = null;
+    protected $applicationServerClusterSecondaryPublicFQDN  = null;
+    protected $applicationServerClusterPrimaryPrivateFQDN   = null;
+    protected $applicationServerClusterSecondaryPrivateFQDN = null;
 
     public function __construct(
          $webServerClusterPublicFQDN = null,
@@ -39,6 +39,9 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
         $this->setApplicationServerClusterSecondaryPrivateFQDN($applicationServerClusterSecondaryPrivateFQDN);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setWebServerClusterPublicFQDN($webServerClusterPublicFQDN = null)
     {
         $this->webServerClusterPublicFQDN = ($webServerClusterPublicFQDN InstanceOf NetAddress)
@@ -46,11 +49,17 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
              : new NetAddress($webServerClusterPublicFQDN);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getWebServerClusterPublicFQDN()
     {
-        return (!$this->webServerClusterPublicFQDN) ?: $this->webServerClusterPublicFQDN->value();
+        return (!$this->webServerClusterPublicFQDN) ?: $this->webServerClusterPublicFQDN->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setApplicationServerClusterPrimaryPublicFQDN($applicationServerClusterPrimaryPublicFQDN = null)
     {
         $this->applicationServerClusterPrimaryPublicFQDN = ($applicationServerClusterPrimaryPublicFQDN InstanceOf NetAddress)
@@ -58,11 +67,17 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
              : new NetAddress($applicationServerClusterPrimaryPublicFQDN);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getApplicationServerClusterPrimaryPublicFQDN()
     {
-        return (!$this->applicationServerClusterPrimaryPublicFQDN) ?: $this->applicationServerClusterPrimaryPublicFQDN->value();
+        return (!$this->applicationServerClusterPrimaryPublicFQDN) ?: $this->applicationServerClusterPrimaryPublicFQDN->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setApplicationServerClusterSecondaryPublicFQDN($applicationServerClusterSecondaryPublicFQDN = null)
     {
         $this->applicationServerClusterSecondaryPublicFQDN = ($applicationServerClusterSecondaryPublicFQDN InstanceOf NetAddress)
@@ -70,11 +85,17 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
              : new NetAddress($applicationServerClusterSecondaryPublicFQDN);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getApplicationServerClusterSecondaryPublicFQDN()
     {
-        return (!$this->applicationServerClusterSecondaryPublicFQDN) ?: $this->applicationServerClusterSecondaryPublicFQDN->value();
+        return (!$this->applicationServerClusterSecondaryPublicFQDN) ?: $this->applicationServerClusterSecondaryPublicFQDN->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setApplicationServerClusterPrimaryPrivateFQDN($applicationServerClusterPrimaryPrivateFQDN = null)
     {
         $this->applicationServerClusterPrimaryPrivateFQDN = ($applicationServerClusterPrimaryPrivateFQDN InstanceOf NetAddress)
@@ -82,11 +103,17 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
              : new NetAddress($applicationServerClusterPrimaryPrivateFQDN);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getApplicationServerClusterPrimaryPrivateFQDN()
     {
-        return (!$this->applicationServerClusterPrimaryPrivateFQDN) ?: $this->applicationServerClusterPrimaryPrivateFQDN->value();
+        return (!$this->applicationServerClusterPrimaryPrivateFQDN) ?: $this->applicationServerClusterPrimaryPrivateFQDN->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setApplicationServerClusterSecondaryPrivateFQDN($applicationServerClusterSecondaryPrivateFQDN = null)
     {
         $this->applicationServerClusterSecondaryPrivateFQDN = ($applicationServerClusterSecondaryPrivateFQDN InstanceOf NetAddress)
@@ -94,8 +121,11 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
              : new NetAddress($applicationServerClusterSecondaryPrivateFQDN);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getApplicationServerClusterSecondaryPrivateFQDN()
     {
-        return (!$this->applicationServerClusterSecondaryPrivateFQDN) ?: $this->applicationServerClusterSecondaryPrivateFQDN->value();
+        return (!$this->applicationServerClusterSecondaryPrivateFQDN) ?: $this->applicationServerClusterSecondaryPrivateFQDN->getValue();
     }
 }

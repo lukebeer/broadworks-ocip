@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an entry from the call control access control list.
+     * Modify an entry from the call control access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCICallControlApplicationModifyACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $applicationId  = null;
-    protected $netAddress     = null;
-    protected $description    = null;
+    public    $name          = __CLASS__;
+    protected $applicationId = null;
+    protected $netAddress    = null;
+    protected $description   = null;
 
     public function __construct(
          $applicationId,
@@ -35,6 +35,9 @@ class SystemOCICallControlApplicationModifyACLEntryRequest extends ComplexType i
         $this->setDescription($description);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
@@ -42,11 +45,17 @@ class SystemOCICallControlApplicationModifyACLEntryRequest extends ComplexType i
              : new OCICallControlApplicationId($applicationId);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf IPAddress)
@@ -54,11 +63,17 @@ class SystemOCICallControlApplicationModifyACLEntryRequest extends ComplexType i
              : new IPAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
@@ -66,8 +81,11 @@ class SystemOCICallControlApplicationModifyACLEntryRequest extends ComplexType i
              : new NetworkACLEntryDescription($description);
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

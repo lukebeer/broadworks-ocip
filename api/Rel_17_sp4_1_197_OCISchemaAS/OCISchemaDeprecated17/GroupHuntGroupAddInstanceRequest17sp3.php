@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Hunt Group instance to a group.
+     * Add a Hunt Group instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  *         The following elements are only used in AS data mode:
@@ -29,21 +29,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $serviceProviderId              = null;
-    protected $groupId                        = null;
-    protected $serviceUserId                  = null;
-    protected $serviceInstanceProfile         = null;
-    protected $policy                         = null;
-    protected $huntAfterNoAnswer              = null;
-    protected $noAnswerNumberOfRings          = null;
-    protected $forwardAfterTimeout            = null;
-    protected $forwardTimeoutSeconds          = null;
-    protected $forwardToPhoneNumber           = null;
-    protected $agentUserId                    = null;
-    protected $allowCallWaitingForAgents      = null;
-    protected $useSystemHuntGroupCLIDSetting  = null;
-    protected $includeHuntGroupNameInCLID     = null;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $serviceUserId                 = null;
+    protected $serviceInstanceProfile        = null;
+    protected $policy                        = null;
+    protected $huntAfterNoAnswer             = null;
+    protected $noAnswerNumberOfRings         = null;
+    protected $forwardAfterTimeout           = null;
+    protected $forwardTimeoutSeconds         = null;
+    protected $forwardToPhoneNumber          = null;
+    protected $agentUserId                   = null;
+    protected $allowCallWaitingForAgents     = null;
+    protected $useSystemHuntGroupCLIDSetting = null;
+    protected $includeHuntGroupNameInCLID    = null;
 
     public function __construct(
          $serviceProviderId,
@@ -77,6 +77,10 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
         $this->setIncludeHuntGroupNameInCLID($includeHuntGroupNameInCLID);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -84,11 +88,19 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -96,11 +108,22 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -108,20 +131,37 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function setPolicy($policy = null)
     {
         $this->policy = ($policy InstanceOf HuntPolicy)
@@ -129,20 +169,34 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new HuntPolicy($policy);
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function getPolicy()
     {
-        return (!$this->policy) ?: $this->policy->value();
+        return (!$this->policy) ?: $this->policy->getValue();
     }
 
-    public function setHuntAfterNoAnswer(xs:boolean $huntAfterNoAnswer = null)
+    /**
+     * 
+     */
+    public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
+        $this->huntAfterNoAnswer = (boolean) $huntAfterNoAnswer;
     }
 
+    /**
+     * 
+     */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->value();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
     }
 
+    /**
+     * Number of rings to wait for the currently hunted agent to answer before
+     *         hunting to the next available agent.
+     */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
@@ -150,20 +204,34 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
     }
 
+    /**
+     * Number of rings to wait for the currently hunted agent to answer before
+     *         hunting to the next available agent.
+     */
     public function getNoAnswerNumberOfRings()
     {
-        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->value();
+        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->getValue();
     }
 
-    public function setForwardAfterTimeout(xs:boolean $forwardAfterTimeout = null)
+    /**
+     * 
+     */
+    public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
+        $this->forwardAfterTimeout = (boolean) $forwardAfterTimeout;
     }
 
+    /**
+     * 
+     */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->value();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
@@ -171,11 +239,19 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function getForwardTimeoutSeconds()
     {
-        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->value();
+        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
@@ -183,11 +259,23 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new OutgoingDN($forwardToPhoneNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
+        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setAgentUserId($agentUserId = null)
     {
         $this->agentUserId = ($agentUserId InstanceOf UserId)
@@ -195,35 +283,63 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
              : new UserId($agentUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getAgentUserId()
     {
-        return (!$this->agentUserId) ?: $this->agentUserId->value();
+        return (!$this->agentUserId) ?: $this->agentUserId->getValue();
     }
 
-    public function setAllowCallWaitingForAgents(xs:boolean $allowCallWaitingForAgents = null)
+    /**
+     * 
+     */
+    public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
+        $this->allowCallWaitingForAgents = (boolean) $allowCallWaitingForAgents;
     }
 
+    /**
+     * 
+     */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->value();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
     }
 
-    public function setUseSystemHuntGroupCLIDSetting(xs:boolean $useSystemHuntGroupCLIDSetting = null)
+    /**
+     * 
+     */
+    public function setUseSystemHuntGroupCLIDSetting($useSystemHuntGroupCLIDSetting = null)
     {
+        $this->useSystemHuntGroupCLIDSetting = (boolean) $useSystemHuntGroupCLIDSetting;
     }
 
+    /**
+     * 
+     */
     public function getUseSystemHuntGroupCLIDSetting()
     {
-        return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting->value();
+        return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting->getValue();
     }
 
-    public function setIncludeHuntGroupNameInCLID(xs:boolean $includeHuntGroupNameInCLID = null)
+    /**
+     * 
+     */
+    public function setIncludeHuntGroupNameInCLID($includeHuntGroupNameInCLID = null)
     {
+        $this->includeHuntGroupNameInCLID = (boolean) $includeHuntGroupNameInCLID;
     }
 
+    /**
+     * 
+     */
     public function getIncludeHuntGroupNameInCLID()
     {
-        return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID->value();
+        return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID->getValue();
     }
 }

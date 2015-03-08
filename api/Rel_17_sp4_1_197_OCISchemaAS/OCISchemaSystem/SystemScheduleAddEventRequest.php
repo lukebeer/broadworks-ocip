@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an event to system schedule.
+     * Add an event to system schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemScheduleAddEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $scheduleKey  = null;
-    protected $eventName    = null;
-    protected $startDate    = null;
-    protected $endDate      = null;
-    protected $recurrence   = null;
+    public    $name        = __CLASS__;
+    protected $scheduleKey = null;
+    protected $eventName   = null;
+    protected $startDate   = null;
+    protected $endDate     = null;
+    protected $recurrence  = null;
 
     public function __construct(
          ScheduleKey $scheduleKey,
@@ -41,15 +41,25 @@ class SystemScheduleAddEventRequest extends ComplexType implements ComplexInterf
         $this->setRecurrence($recurrence);
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 
+    /**
+     * Event name.
+     */
     public function setEventName($eventName = null)
     {
         $this->eventName = ($eventName InstanceOf EventName)
@@ -57,35 +67,59 @@ class SystemScheduleAddEventRequest extends ComplexType implements ComplexInterf
              : new EventName($eventName);
     }
 
+    /**
+     * Event name.
+     */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->value();
+        return (!$this->eventName) ?: $this->eventName->getValue();
     }
 
+    /**
+     * 
+     */
     public function setStartDate(xs:date $startDate = null)
     {
+        $this->startDate = xs:date $startDate;
     }
 
+    /**
+     * 
+     */
     public function getStartDate()
     {
-        return (!$this->startDate) ?: $this->startDate->value();
+        return (!$this->startDate) ?: $this->startDate->getValue();
     }
 
+    /**
+     * 
+     */
     public function setEndDate(xs:date $endDate = null)
     {
+        $this->endDate = xs:date $endDate;
     }
 
+    /**
+     * 
+     */
     public function getEndDate()
     {
-        return (!$this->endDate) ?: $this->endDate->value();
+        return (!$this->endDate) ?: $this->endDate->getValue();
     }
 
+    /**
+     * Defines recurrence.
+     */
     public function setRecurrence(Recurrence $recurrence = null)
     {
+        $this->recurrence = Recurrence $recurrence;
     }
 
+    /**
+     * Defines recurrence.
+     */
     public function getRecurrence()
     {
-        return (!$this->recurrence) ?: $this->recurrence->value();
+        return (!$this->recurrence) ?: $this->recurrence->getValue();
     }
 }

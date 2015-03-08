@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Remove a Diameter peer.  A peer cannot be removed if is referenced by a Realm Routing Table entry.
+     * Remove a Diameter peer.  A peer cannot be removed if is referenced by a Realm Routing Table entry.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $instance  = null;
-    protected $identity  = null;
+    public    $name     = __CLASS__;
+    protected $instance = null;
+    protected $identity = null;
 
     public function __construct(
          $instance,
@@ -31,6 +31,9 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
         $this->setIdentity($identity);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function setInstance($instance = null)
     {
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
@@ -38,11 +41,17 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
              : new BwDiameterPeerInstance($instance);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->value();
+        return (!$this->instance) ?: $this->instance->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setIdentity($identity = null)
     {
         $this->identity = ($identity InstanceOf DomainName)
@@ -50,8 +59,11 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
              : new DomainName($identity);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getIdentity()
     {
-        return (!$this->identity) ?: $this->identity->value();
+        return (!$this->identity) ?: $this->identity->getValue();
     }
 }

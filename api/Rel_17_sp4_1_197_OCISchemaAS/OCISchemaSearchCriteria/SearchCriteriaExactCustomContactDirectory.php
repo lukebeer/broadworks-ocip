@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a particular fully specified custom contact directory.
+     * Criteria for searching for a particular fully specified custom contact directory.
  */
 class SearchCriteriaExactCustomContactDirectory extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $customContactDirectoryName  = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCustomContactDirectory';
+    public    $name                       = __CLASS__;
+    protected $customContactDirectoryName = null;
 
     public function __construct(
          $customContactDirectoryName
@@ -26,6 +27,9 @@ class SearchCriteriaExactCustomContactDirectory extends ComplexType implements C
         $this->setCustomContactDirectoryName($customContactDirectoryName);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setCustomContactDirectoryName($customContactDirectoryName = null)
     {
         $this->customContactDirectoryName = ($customContactDirectoryName InstanceOf CustomContactDirectoryName)
@@ -33,8 +37,11 @@ class SearchCriteriaExactCustomContactDirectory extends ComplexType implements C
              : new CustomContactDirectoryName($customContactDirectoryName);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getCustomContactDirectoryName()
     {
-        return (!$this->customContactDirectoryName) ?: $this->customContactDirectoryName->value();
+        return (!$this->customContactDirectoryName) ?: $this->customContactDirectoryName->getValue();
     }
 }

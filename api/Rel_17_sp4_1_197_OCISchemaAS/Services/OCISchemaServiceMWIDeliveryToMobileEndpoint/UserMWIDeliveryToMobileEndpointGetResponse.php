@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserMWIDeliveryToMobileEndpointGetRequest.
+     * Response to UserMWIDeliveryToMobileEndpointGetRequest.
  */
 class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $isActive           = null;
-    protected $mobilePhoneNumber  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint\UserMWIDeliveryToMobileEndpointGetResponse';
+    public    $name              = __CLASS__;
+    protected $isActive          = null;
+    protected $mobilePhoneNumber = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
@@ -38,8 +49,11 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
              : new DN($mobilePhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getMobilePhoneNumber()
     {
-        return (!$this->mobilePhoneNumber) ?: $this->mobilePhoneNumber->value();
+        return (!$this->mobilePhoneNumber) ?: $this->mobilePhoneNumber->getValue();
     }
 }

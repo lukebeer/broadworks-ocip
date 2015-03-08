@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Physical Location system parameters.
+     * Request to modify Physical Location system parameters.
  *          The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPhysicalLocationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $alwaysAllowEmergencyCalls  = null;
+    public    $name                      = __CLASS__;
+    protected $alwaysAllowEmergencyCalls = null;
 
     public function __construct(
          $alwaysAllowEmergencyCalls = null
@@ -27,12 +27,19 @@ class SystemPhysicalLocationModifyRequest extends ComplexType implements Complex
         $this->setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls);
     }
 
-    public function setAlwaysAllowEmergencyCalls(xs:boolean $alwaysAllowEmergencyCalls = null)
+    /**
+     * 
+     */
+    public function setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls = null)
     {
+        $this->alwaysAllowEmergencyCalls = (boolean) $alwaysAllowEmergencyCalls;
     }
 
+    /**
+     * 
+     */
     public function getAlwaysAllowEmergencyCalls()
     {
-        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls->value();
+        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls->getValue();
     }
 }

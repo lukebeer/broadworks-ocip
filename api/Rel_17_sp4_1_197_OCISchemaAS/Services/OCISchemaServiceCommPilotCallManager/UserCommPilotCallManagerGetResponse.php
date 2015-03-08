@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCommPilotCallManagerGetRequest.
+     * Response to UserCommPilotCallManagerGetRequest.
  */
 class UserCommPilotCallManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $launchOnLogin  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager\UserCommPilotCallManagerGetResponse';
+    public    $name          = __CLASS__;
+    protected $launchOnLogin = null;
 
 
-    public function setLaunchOnLogin(xs:boolean $launchOnLogin = null)
+    /**
+     * 
+     */
+    public function setLaunchOnLogin($launchOnLogin = null)
     {
+        $this->launchOnLogin = (boolean) $launchOnLogin;
     }
 
+    /**
+     * 
+     */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin->value();
+        return (!$this->launchOnLogin) ?: $this->launchOnLogin->getValue();
     }
 }

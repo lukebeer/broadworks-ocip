@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify Attendant Console settings.
+     * Modify Attendant Console settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAttendantConsoleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $maxMonitoredUsers  = null;
+    public    $name              = __CLASS__;
+    protected $maxMonitoredUsers = null;
 
     public function __construct(
          $maxMonitoredUsers = null
@@ -27,6 +27,9 @@ class SystemAttendantConsoleModifyRequest extends ComplexType implements Complex
         $this->setMaxMonitoredUsers($maxMonitoredUsers);
     }
 
+    /**
+     * Maximum number of users allowed in a monitored user list.
+     */
     public function setMaxMonitoredUsers($maxMonitoredUsers = null)
     {
         $this->maxMonitoredUsers = ($maxMonitoredUsers InstanceOf MaximumMonitoredUsers)
@@ -34,8 +37,11 @@ class SystemAttendantConsoleModifyRequest extends ComplexType implements Complex
              : new MaximumMonitoredUsers($maxMonitoredUsers);
     }
 
+    /**
+     * Maximum number of users allowed in a monitored user list.
+     */
     public function getMaxMonitoredUsers()
     {
-        return (!$this->maxMonitoredUsers) ?: $this->maxMonitoredUsers->value();
+        return (!$this->maxMonitoredUsers) ?: $this->maxMonitoredUsers->getValue();
     }
 }

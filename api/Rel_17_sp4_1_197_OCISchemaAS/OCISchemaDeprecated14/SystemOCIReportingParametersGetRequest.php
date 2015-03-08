@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of OCIReporting system parameters.
+     * Request to get the list of OCIReporting system parameters.
  *         The response is either SystemOCIReportingParametersGetResponse or ErrorResponse.
  */
 class SystemOCIReportingParametersGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemOCIReportingParametersGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

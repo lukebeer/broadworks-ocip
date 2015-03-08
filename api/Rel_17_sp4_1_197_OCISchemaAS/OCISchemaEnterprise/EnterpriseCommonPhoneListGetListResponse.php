@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the EnterpriseCommonPhoneListGetListRequest.
+     * Response to the EnterpriseCommonPhoneListGetListRequest.
  *         The response contains the enterprise's common phone list.
  */
 class EnterpriseCommonPhoneListGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
-    protected $entry  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse';
+    public    $name  = __CLASS__;
+    protected $entry = null;
 
 
+    /**
+     * Phone list entry.
+     */
     public function setEntry(PhoneListEntry $entry = null)
     {
+        $this->entry = PhoneListEntry $entry;
     }
 
+    /**
+     * Phone list entry.
+     */
     public function getEntry()
     {
-        return (!$this->entry) ?: $this->entry->value();
+        return (!$this->entry) ?: $this->entry->getValue();
     }
 }

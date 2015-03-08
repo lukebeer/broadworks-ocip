@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of all system-level Application Server aliases.
+     * Requests the list of all system-level Application Server aliases.
  *         The response is either SystemAliasGetListResponse or ErrorResponse.
  */
 class SystemAliasGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAliasGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

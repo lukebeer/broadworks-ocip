@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserBroadWorksCommunicatorGetRequest.
+     * Response to UserBroadWorksCommunicatorGetRequest.
  */
 class UserBroadWorksCommunicatorGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $configurationServerURL  = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicator\UserBroadWorksCommunicatorGetResponse';
+    public    $name                   = __CLASS__;
+    protected $configurationServerURL = null;
 
 
+    /**
+     * URL.
+     */
     public function setConfigurationServerURL($configurationServerURL = null)
     {
         $this->configurationServerURL = ($configurationServerURL InstanceOf URL)
@@ -28,8 +32,11 @@ class UserBroadWorksCommunicatorGetResponse extends ComplexType implements Compl
              : new URL($configurationServerURL);
     }
 
+    /**
+     * URL.
+     */
     public function getConfigurationServerURL()
     {
-        return (!$this->configurationServerURL) ?: $this->configurationServerURL->value();
+        return (!$this->configurationServerURL) ?: $this->configurationServerURL->getValue();
     }
 }

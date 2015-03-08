@@ -16,17 +16,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests a list of groups to migrate.
+     * Requests a list of groups to migrate.
  *         The response is either ServiceProviderServicePackMigrationTaskGetAvailabeGroupListResponse
  *         or ErrorResponse.
  */
 class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $serviceProviderId        = null;
-    protected $responseSizeLimit        = null;
-    protected $searchCriteriaGroupId    = null;
-    protected $searchCriteriaGroupName  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse';
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $responseSizeLimit       = null;
+    protected $searchCriteriaGroupId   = null;
+    protected $searchCriteriaGroupName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -40,6 +41,10 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extend
         $this->setSearchCriteriaGroupName($searchCriteriaGroupName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -47,11 +52,20 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extend
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -59,26 +73,45 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extend
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
+        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
+        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
     }
 
+    /**
+     * Criteria for searching for a group name.
+     */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
+        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
     }
 
+    /**
+     * Criteria for searching for a group name.
+     */
     public function getSearchCriteriaGroupName()
     {
-        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->value();
+        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->getValue();
     }
 }

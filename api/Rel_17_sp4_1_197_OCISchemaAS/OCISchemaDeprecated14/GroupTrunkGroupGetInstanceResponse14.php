@@ -18,40 +18,62 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupTrunkGroupGetInstanceRequest.
+     * Response to GroupTrunkGroupGetInstanceRequest.
  *         The publicUserIdentity in the ServiceInstanceReadProfile is not used for trunk groups.
  *         Returns the profile information for the Trunk Group.
  */
 class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $serviceInstanceProfile     = null;
-    protected $accessDeviceEndpoint       = null;
-    protected $maxActiveCalls             = null;
-    protected $maxIncomingCalls           = null;
-    protected $maxOutgoingCalls           = null;
-    protected $requireAuthentication      = null;
-    protected $sipAuthenticationUserName  = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14';
+    public    $name                      = __CLASS__;
+    protected $serviceInstanceProfile    = null;
+    protected $accessDeviceEndpoint      = null;
+    protected $maxActiveCalls            = null;
+    protected $maxIncomingCalls          = null;
+    protected $maxOutgoingCalls          = null;
+    protected $requireAuthentication     = null;
+    protected $sipAuthenticationUserName = null;
 
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Access device end point.
+     */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
+        $this->accessDeviceEndpoint = AccessDeviceEndpointRead14 $accessDeviceEndpoint;
     }
 
+    /**
+     * Access device end point.
+     */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->value();
+        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
     }
 
+    /**
+     * Maximum Number of Active Calls
+     */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
@@ -59,11 +81,17 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
              : new MaxActiveCalls($maxActiveCalls);
     }
 
+    /**
+     * Maximum Number of Active Calls
+     */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
+        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
     }
 
+    /**
+     * Maximum Number of Incoming Calls
+     */
     public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
@@ -71,11 +99,17 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
              : new MaxIncomingCalls($maxIncomingCalls);
     }
 
+    /**
+     * Maximum Number of Incoming Calls
+     */
     public function getMaxIncomingCalls()
     {
-        return (!$this->maxIncomingCalls) ?: $this->maxIncomingCalls->value();
+        return (!$this->maxIncomingCalls) ?: $this->maxIncomingCalls->getValue();
     }
 
+    /**
+     * Maximum Number of Outgoing Calls
+     */
     public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
@@ -83,20 +117,33 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
              : new MaxOutgoingCalls($maxOutgoingCalls);
     }
 
+    /**
+     * Maximum Number of Outgoing Calls
+     */
     public function getMaxOutgoingCalls()
     {
-        return (!$this->maxOutgoingCalls) ?: $this->maxOutgoingCalls->value();
+        return (!$this->maxOutgoingCalls) ?: $this->maxOutgoingCalls->getValue();
     }
 
-    public function setRequireAuthentication(xs:boolean $requireAuthentication = null)
+    /**
+     * 
+     */
+    public function setRequireAuthentication($requireAuthentication = null)
     {
+        $this->requireAuthentication = (boolean) $requireAuthentication;
     }
 
+    /**
+     * 
+     */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->value();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
     }
 
+    /**
+     * SIP Authentication User Name.
+     */
     public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
@@ -104,8 +151,11 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
     }
 
+    /**
+     * SIP Authentication User Name.
+     */
     public function getSipAuthenticationUserName()
     {
-        return (!$this->sipAuthenticationUserName) ?: $this->sipAuthenticationUserName->value();
+        return (!$this->sipAuthenticationUserName) ?: $this->sipAuthenticationUserName->getValue();
     }
 }

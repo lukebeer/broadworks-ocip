@@ -15,71 +15,110 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest.
+     * Response to UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest.
  */
 class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
-    protected $isRealtimeReport                     = null;
-    protected $requireAgentParam                    = null;
-    protected $requireCallCenterParam               = null;
-    protected $requireCallCenterDnisParam           = null;
-    protected $requireSamplingPeriodParam           = null;
-    protected $callCompletionThresholdParam         = null;
-    protected $shortDurationThresholdParam          = null;
-    protected $serviceLevelThresholdParam           = null;
-    protected $serviceLevelInclusionsParam          = null;
-    protected $serviceLevelObjectiveThresholdParam  = null;
-    protected $abandonedCallThresholdParam          = null;
-    protected $serviceLevelThresholdParamNumber     = null;
-    protected $abandonedCallThresholdParamNumber    = null;
+    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse';
+    public    $name                                = __CLASS__;
+    protected $isRealtimeReport                    = null;
+    protected $requireAgentParam                   = null;
+    protected $requireCallCenterParam              = null;
+    protected $requireCallCenterDnisParam          = null;
+    protected $requireSamplingPeriodParam          = null;
+    protected $callCompletionThresholdParam        = null;
+    protected $shortDurationThresholdParam         = null;
+    protected $serviceLevelThresholdParam          = null;
+    protected $serviceLevelInclusionsParam         = null;
+    protected $serviceLevelObjectiveThresholdParam = null;
+    protected $abandonedCallThresholdParam         = null;
+    protected $serviceLevelThresholdParamNumber    = null;
+    protected $abandonedCallThresholdParamNumber   = null;
 
 
-    public function setIsRealtimeReport(xs:boolean $isRealtimeReport = null)
+    /**
+     * 
+     */
+    public function setIsRealtimeReport($isRealtimeReport = null)
     {
+        $this->isRealtimeReport = (boolean) $isRealtimeReport;
     }
 
+    /**
+     * 
+     */
     public function getIsRealtimeReport()
     {
-        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport->value();
+        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport->getValue();
     }
 
-    public function setRequireAgentParam(xs:boolean $requireAgentParam = null)
+    /**
+     * 
+     */
+    public function setRequireAgentParam($requireAgentParam = null)
     {
+        $this->requireAgentParam = (boolean) $requireAgentParam;
     }
 
+    /**
+     * 
+     */
     public function getRequireAgentParam()
     {
-        return (!$this->requireAgentParam) ?: $this->requireAgentParam->value();
+        return (!$this->requireAgentParam) ?: $this->requireAgentParam->getValue();
     }
 
-    public function setRequireCallCenterParam(xs:boolean $requireCallCenterParam = null)
+    /**
+     * 
+     */
+    public function setRequireCallCenterParam($requireCallCenterParam = null)
     {
+        $this->requireCallCenterParam = (boolean) $requireCallCenterParam;
     }
 
+    /**
+     * 
+     */
     public function getRequireCallCenterParam()
     {
-        return (!$this->requireCallCenterParam) ?: $this->requireCallCenterParam->value();
+        return (!$this->requireCallCenterParam) ?: $this->requireCallCenterParam->getValue();
     }
 
-    public function setRequireCallCenterDnisParam(xs:boolean $requireCallCenterDnisParam = null)
+    /**
+     * 
+     */
+    public function setRequireCallCenterDnisParam($requireCallCenterDnisParam = null)
     {
+        $this->requireCallCenterDnisParam = (boolean) $requireCallCenterDnisParam;
     }
 
+    /**
+     * 
+     */
     public function getRequireCallCenterDnisParam()
     {
-        return (!$this->requireCallCenterDnisParam) ?: $this->requireCallCenterDnisParam->value();
+        return (!$this->requireCallCenterDnisParam) ?: $this->requireCallCenterDnisParam->getValue();
     }
 
-    public function setRequireSamplingPeriodParam(xs:boolean $requireSamplingPeriodParam = null)
+    /**
+     * 
+     */
+    public function setRequireSamplingPeriodParam($requireSamplingPeriodParam = null)
     {
+        $this->requireSamplingPeriodParam = (boolean) $requireSamplingPeriodParam;
     }
 
+    /**
+     * 
+     */
     public function getRequireSamplingPeriodParam()
     {
-        return (!$this->requireSamplingPeriodParam) ?: $this->requireSamplingPeriodParam->value();
+        return (!$this->requireSamplingPeriodParam) ?: $this->requireSamplingPeriodParam->getValue();
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function setCallCompletionThresholdParam($callCompletionThresholdParam = null)
     {
         $this->callCompletionThresholdParam = ($callCompletionThresholdParam InstanceOf CallCenterReportInputParameterOption)
@@ -87,11 +126,17 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportInputParameterOption($callCompletionThresholdParam);
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function getCallCompletionThresholdParam()
     {
-        return (!$this->callCompletionThresholdParam) ?: $this->callCompletionThresholdParam->value();
+        return (!$this->callCompletionThresholdParam) ?: $this->callCompletionThresholdParam->getValue();
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function setShortDurationThresholdParam($shortDurationThresholdParam = null)
     {
         $this->shortDurationThresholdParam = ($shortDurationThresholdParam InstanceOf CallCenterReportInputParameterOption)
@@ -99,11 +144,17 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportInputParameterOption($shortDurationThresholdParam);
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function getShortDurationThresholdParam()
     {
-        return (!$this->shortDurationThresholdParam) ?: $this->shortDurationThresholdParam->value();
+        return (!$this->shortDurationThresholdParam) ?: $this->shortDurationThresholdParam->getValue();
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function setServiceLevelThresholdParam($serviceLevelThresholdParam = null)
     {
         $this->serviceLevelThresholdParam = ($serviceLevelThresholdParam InstanceOf CallCenterReportInputParameterOption)
@@ -111,11 +162,17 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportInputParameterOption($serviceLevelThresholdParam);
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function getServiceLevelThresholdParam()
     {
-        return (!$this->serviceLevelThresholdParam) ?: $this->serviceLevelThresholdParam->value();
+        return (!$this->serviceLevelThresholdParam) ?: $this->serviceLevelThresholdParam->getValue();
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function setServiceLevelInclusionsParam($serviceLevelInclusionsParam = null)
     {
         $this->serviceLevelInclusionsParam = ($serviceLevelInclusionsParam InstanceOf CallCenterReportInputParameterOption)
@@ -123,11 +180,17 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportInputParameterOption($serviceLevelInclusionsParam);
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function getServiceLevelInclusionsParam()
     {
-        return (!$this->serviceLevelInclusionsParam) ?: $this->serviceLevelInclusionsParam->value();
+        return (!$this->serviceLevelInclusionsParam) ?: $this->serviceLevelInclusionsParam->getValue();
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function setServiceLevelObjectiveThresholdParam($serviceLevelObjectiveThresholdParam = null)
     {
         $this->serviceLevelObjectiveThresholdParam = ($serviceLevelObjectiveThresholdParam InstanceOf CallCenterReportInputParameterOption)
@@ -135,11 +198,17 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportInputParameterOption($serviceLevelObjectiveThresholdParam);
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function getServiceLevelObjectiveThresholdParam()
     {
-        return (!$this->serviceLevelObjectiveThresholdParam) ?: $this->serviceLevelObjectiveThresholdParam->value();
+        return (!$this->serviceLevelObjectiveThresholdParam) ?: $this->serviceLevelObjectiveThresholdParam->getValue();
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function setAbandonedCallThresholdParam($abandonedCallThresholdParam = null)
     {
         $this->abandonedCallThresholdParam = ($abandonedCallThresholdParam InstanceOf CallCenterReportInputParameterOption)
@@ -147,11 +216,17 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportInputParameterOption($abandonedCallThresholdParam);
     }
 
+    /**
+     * Options for call center enhanced reporting input parameters.
+     */
     public function getAbandonedCallThresholdParam()
     {
-        return (!$this->abandonedCallThresholdParam) ?: $this->abandonedCallThresholdParam->value();
+        return (!$this->abandonedCallThresholdParam) ?: $this->abandonedCallThresholdParam->getValue();
     }
 
+    /**
+     * Number of Service Level input parameters.
+     */
     public function setServiceLevelThresholdParamNumber($serviceLevelThresholdParamNumber = null)
     {
         $this->serviceLevelThresholdParamNumber = ($serviceLevelThresholdParamNumber InstanceOf CallCenterReportServiceLevelInputParameterNumber)
@@ -159,11 +234,17 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportServiceLevelInputParameterNumber($serviceLevelThresholdParamNumber);
     }
 
+    /**
+     * Number of Service Level input parameters.
+     */
     public function getServiceLevelThresholdParamNumber()
     {
-        return (!$this->serviceLevelThresholdParamNumber) ?: $this->serviceLevelThresholdParamNumber->value();
+        return (!$this->serviceLevelThresholdParamNumber) ?: $this->serviceLevelThresholdParamNumber->getValue();
     }
 
+    /**
+     * Number of Abandoned Call input parameters.
+     */
     public function setAbandonedCallThresholdParamNumber($abandonedCallThresholdParamNumber = null)
     {
         $this->abandonedCallThresholdParamNumber = ($abandonedCallThresholdParamNumber InstanceOf CallCenterReportAbandonedCallInputParameterNumber)
@@ -171,8 +252,11 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
              : new CallCenterReportAbandonedCallInputParameterNumber($abandonedCallThresholdParamNumber);
     }
 
+    /**
+     * Number of Abandoned Call input parameters.
+     */
     public function getAbandonedCallThresholdParamNumber()
     {
-        return (!$this->abandonedCallThresholdParamNumber) ?: $this->abandonedCallThresholdParamNumber->value();
+        return (!$this->abandonedCallThresholdParamNumber) ?: $this->abandonedCallThresholdParamNumber->getValue();
     }
 }

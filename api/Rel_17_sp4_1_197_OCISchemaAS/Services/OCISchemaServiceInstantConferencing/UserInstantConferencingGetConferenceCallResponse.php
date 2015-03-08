@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserInstantConferencingGetConferenceCallRequest.
+     * Response to UserInstantConferencingGetConferenceCallRequest.
  *         Contains the information of a conference call.
  *         The conferenceLegTable contains a table with column headings:
  *         "Is Leader", "Phone Number", "User Name", "Status" and "Leg Id".
@@ -21,25 +21,36 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetConferenceCallResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $isBridgeActive      = null;
-    protected $title               = null;
-    protected $isLocked            = null;
-    protected $isRecording         = null;
-    protected $isExpired           = null;
-    protected $isPaused            = null;
-    protected $conferenceLegTable  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceCallResponse';
+    public    $name               = __CLASS__;
+    protected $isBridgeActive     = null;
+    protected $title              = null;
+    protected $isLocked           = null;
+    protected $isRecording        = null;
+    protected $isExpired          = null;
+    protected $isPaused           = null;
+    protected $conferenceLegTable = null;
 
 
-    public function setIsBridgeActive(xs:boolean $isBridgeActive = null)
+    /**
+     * 
+     */
+    public function setIsBridgeActive($isBridgeActive = null)
     {
+        $this->isBridgeActive = (boolean) $isBridgeActive;
     }
 
+    /**
+     * 
+     */
     public function getIsBridgeActive()
     {
-        return (!$this->isBridgeActive) ?: $this->isBridgeActive->value();
+        return (!$this->isBridgeActive) ?: $this->isBridgeActive->getValue();
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function setTitle($title = null)
     {
         $this->title = ($title InstanceOf InstantConferencingTitle)
@@ -47,53 +58,91 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
              : new InstantConferencingTitle($title);
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->value();
+        return (!$this->title) ?: $this->title->getValue();
     }
 
-    public function setIsLocked(xs:boolean $isLocked = null)
+    /**
+     * 
+     */
+    public function setIsLocked($isLocked = null)
     {
+        $this->isLocked = (boolean) $isLocked;
     }
 
+    /**
+     * 
+     */
     public function getIsLocked()
     {
-        return (!$this->isLocked) ?: $this->isLocked->value();
+        return (!$this->isLocked) ?: $this->isLocked->getValue();
     }
 
-    public function setIsRecording(xs:boolean $isRecording = null)
+    /**
+     * 
+     */
+    public function setIsRecording($isRecording = null)
     {
+        $this->isRecording = (boolean) $isRecording;
     }
 
+    /**
+     * 
+     */
     public function getIsRecording()
     {
-        return (!$this->isRecording) ?: $this->isRecording->value();
+        return (!$this->isRecording) ?: $this->isRecording->getValue();
     }
 
-    public function setIsExpired(xs:boolean $isExpired = null)
+    /**
+     * 
+     */
+    public function setIsExpired($isExpired = null)
     {
+        $this->isExpired = (boolean) $isExpired;
     }
 
+    /**
+     * 
+     */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired->value();
+        return (!$this->isExpired) ?: $this->isExpired->getValue();
     }
 
-    public function setIsPaused(xs:boolean $isPaused = null)
+    /**
+     * 
+     */
+    public function setIsPaused($isPaused = null)
     {
+        $this->isPaused = (boolean) $isPaused;
     }
 
+    /**
+     * 
+     */
     public function getIsPaused()
     {
-        return (!$this->isPaused) ?: $this->isPaused->value();
+        return (!$this->isPaused) ?: $this->isPaused->getValue();
     }
 
+    /**
+     * 
+     */
     public function setConferenceLegTable(core:OCITable $conferenceLegTable = null)
     {
+        $this->conferenceLegTable = core:OCITable $conferenceLegTable;
     }
 
+    /**
+     * 
+     */
     public function getConferenceLegTable()
     {
-        return (!$this->conferenceLegTable) ?: $this->conferenceLegTable->value();
+        return (!$this->conferenceLegTable) ?: $this->conferenceLegTable->getValue();
     }
 }

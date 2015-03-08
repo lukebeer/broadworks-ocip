@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupTrunkGroupGetInstanceUserListRequest14sp4.
+     * Response to GroupTrunkGroupGetInstanceUserListRequest14sp4.
  *         The response contains a 7 column table with column headings "User Id", "Last Name",
  *         "First Name", "Department", "Phone Number", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupTrunkGroupGetInstanceUserListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $trunkGroupUserTable  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4';
+    public    $name                = __CLASS__;
+    protected $trunkGroupUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setTrunkGroupUserTable(core:OCITable $trunkGroupUserTable = null)
     {
+        $this->trunkGroupUserTable = core:OCITable $trunkGroupUserTable;
     }
 
+    /**
+     * 
+     */
     public function getTrunkGroupUserTable()
     {
-        return (!$this->trunkGroupUserTable) ?: $this->trunkGroupUserTable->value();
+        return (!$this->trunkGroupUserTable) ?: $this->trunkGroupUserTable->getValue();
     }
 }

@@ -13,33 +13,48 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallWaitingGetRequest17sp4.
+     * Response to UserCallWaitingGetRequest17sp4.
  *         
  *         The following elements are only used in AS data mode:
  *           disableCallingLineIdDelivery
  */
 class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $isActive                      = null;
-    protected $disableCallingLineIdDelivery  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\UserCallWaitingGetResponse17sp4';
+    public    $name                         = __CLASS__;
+    protected $isActive                     = null;
+    protected $disableCallingLineIdDelivery = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setDisableCallingLineIdDelivery(xs:boolean $disableCallingLineIdDelivery = null)
+    /**
+     * 
+     */
+    public function setDisableCallingLineIdDelivery($disableCallingLineIdDelivery = null)
     {
+        $this->disableCallingLineIdDelivery = (boolean) $disableCallingLineIdDelivery;
     }
 
+    /**
+     * 
+     */
     public function getDisableCallingLineIdDelivery()
     {
-        return (!$this->disableCallingLineIdDelivery) ?: $this->disableCallingLineIdDelivery->value();
+        return (!$this->disableCallingLineIdDelivery) ?: $this->disableCallingLineIdDelivery->getValue();
     }
 }

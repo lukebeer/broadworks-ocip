@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallParkGetAvailableAlternateRecallUserListResponse.
+     * Response to the GroupCallParkGetAvailableAlternateRecallUserListResponse.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $availableHuntGroupTable  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetAvailableAlternateRecallUserListResponse';
+    public    $name                    = __CLASS__;
+    protected $availableHuntGroupTable = null;
 
 
+    /**
+     * 
+     */
     public function setAvailableHuntGroupTable(core:OCITable $availableHuntGroupTable = null)
     {
+        $this->availableHuntGroupTable = core:OCITable $availableHuntGroupTable;
     }
 
+    /**
+     * 
+     */
     public function getAvailableHuntGroupTable()
     {
-        return (!$this->availableHuntGroupTable) ?: $this->availableHuntGroupTable->value();
+        return (!$this->availableHuntGroupTable) ?: $this->availableHuntGroupTable->getValue();
     }
 }

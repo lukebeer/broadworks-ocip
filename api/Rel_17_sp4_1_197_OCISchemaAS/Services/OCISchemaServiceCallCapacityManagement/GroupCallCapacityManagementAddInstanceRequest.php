@@ -17,20 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Adds a Call Capacity Management group.
+     * Adds a Call Capacity Management group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $serviceProviderId              = null;
-    protected $groupId                        = null;
-    protected $name                           = null;
-    protected $maxActiveCallsAllowed          = null;
-    protected $maxIncomingActiveCallsAllowed  = null;
-    protected $maxOutgoingActiveCallsAllowed  = null;
-    protected $becomeDefaultGroupForNewUsers  = null;
-    protected $userId                         = null;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $name                          = null;
+    protected $maxActiveCallsAllowed         = null;
+    protected $maxIncomingActiveCallsAllowed = null;
+    protected $maxOutgoingActiveCallsAllowed = null;
+    protected $becomeDefaultGroupForNewUsers = null;
+    protected $userId                        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -52,6 +52,10 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
         $this->setUserId($userId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -59,11 +63,19 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -71,11 +83,18 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -83,11 +102,17 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxActiveCallsAllowed($maxActiveCallsAllowed = null)
     {
         $this->maxActiveCallsAllowed = ($maxActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -95,11 +120,17 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
              : new CallCapacityCallLimit($maxActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxActiveCallsAllowed()
     {
-        return (!$this->maxActiveCallsAllowed) ?: $this->maxActiveCallsAllowed->value();
+        return (!$this->maxActiveCallsAllowed) ?: $this->maxActiveCallsAllowed->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxIncomingActiveCallsAllowed($maxIncomingActiveCallsAllowed = null)
     {
         $this->maxIncomingActiveCallsAllowed = ($maxIncomingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -107,11 +138,17 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
              : new CallCapacityCallLimit($maxIncomingActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxIncomingActiveCallsAllowed()
     {
-        return (!$this->maxIncomingActiveCallsAllowed) ?: $this->maxIncomingActiveCallsAllowed->value();
+        return (!$this->maxIncomingActiveCallsAllowed) ?: $this->maxIncomingActiveCallsAllowed->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxOutgoingActiveCallsAllowed($maxOutgoingActiveCallsAllowed = null)
     {
         $this->maxOutgoingActiveCallsAllowed = ($maxOutgoingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -119,20 +156,37 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
              : new CallCapacityCallLimit($maxOutgoingActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxOutgoingActiveCallsAllowed()
     {
-        return (!$this->maxOutgoingActiveCallsAllowed) ?: $this->maxOutgoingActiveCallsAllowed->value();
+        return (!$this->maxOutgoingActiveCallsAllowed) ?: $this->maxOutgoingActiveCallsAllowed->getValue();
     }
 
-    public function setBecomeDefaultGroupForNewUsers(xs:boolean $becomeDefaultGroupForNewUsers = null)
+    /**
+     * 
+     */
+    public function setBecomeDefaultGroupForNewUsers($becomeDefaultGroupForNewUsers = null)
     {
+        $this->becomeDefaultGroupForNewUsers = (boolean) $becomeDefaultGroupForNewUsers;
     }
 
+    /**
+     * 
+     */
     public function getBecomeDefaultGroupForNewUsers()
     {
-        return (!$this->becomeDefaultGroupForNewUsers) ?: $this->becomeDefaultGroupForNewUsers->value();
+        return (!$this->becomeDefaultGroupForNewUsers) ?: $this->becomeDefaultGroupForNewUsers->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -140,8 +194,15 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 }

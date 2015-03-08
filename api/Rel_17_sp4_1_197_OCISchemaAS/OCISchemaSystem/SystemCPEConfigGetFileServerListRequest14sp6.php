@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of device CPE config file servers.
+     * Requests the list of device CPE config file servers.
  *         The response is either SystemCPEConfigGetFileServerListResponse14sp6 or ErrorResponse.
  */
 class SystemCPEConfigGetFileServerListRequest14sp6 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigGetFileServerListResponse14sp6';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

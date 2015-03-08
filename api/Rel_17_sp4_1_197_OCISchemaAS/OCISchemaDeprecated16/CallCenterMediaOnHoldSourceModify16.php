@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains the call center media on hold source configuration.
+     * Contains the call center media on hold source configuration.
  */
 class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallCenterMediaOnHoldSourceModify16';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

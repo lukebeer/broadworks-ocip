@@ -14,15 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the Group level data associated with Call Center.
+     * Request the Group level data associated with Call Center.
  *         The response is either a GroupCallCenterGetResponse or an
  *         ErrorResponse.
  */
 class GroupCallCenterGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
 
     public function __construct(
          $serviceProviderId,
@@ -32,6 +33,10 @@ class GroupCallCenterGetRequest extends ComplexType implements ComplexInterface
         $this->setGroupId($groupId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -39,11 +44,19 @@ class GroupCallCenterGetRequest extends ComplexType implements ComplexInterface
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -51,8 +64,12 @@ class GroupCallCenterGetRequest extends ComplexType implements ComplexInterface
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 }

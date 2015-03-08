@@ -17,22 +17,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterGetDNISResponse.
+     * Response to the GroupCallCenterGetDNISResponse.
  */
 class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $dnisPhoneNumber                    = null;
-    protected $extension                          = null;
-    protected $useCustomCLIDSettings              = null;
-    protected $callingLineIdPhoneNumber           = null;
-    protected $callingLineIdLastName              = null;
-    protected $callingLineIdFirstName             = null;
-    protected $useCustomDnisAnnouncementSettings  = null;
-    protected $priority                           = null;
-    protected $allowOutgoingACDCall               = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISResponse';
+    public    $name                              = __CLASS__;
+    protected $dnisPhoneNumber                   = null;
+    protected $extension                         = null;
+    protected $useCustomCLIDSettings             = null;
+    protected $callingLineIdPhoneNumber          = null;
+    protected $callingLineIdLastName             = null;
+    protected $callingLineIdFirstName            = null;
+    protected $useCustomDnisAnnouncementSettings = null;
+    protected $priority                          = null;
+    protected $allowOutgoingACDCall              = null;
 
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setDnisPhoneNumber($dnisPhoneNumber = null)
     {
         $this->dnisPhoneNumber = ($dnisPhoneNumber InstanceOf DN)
@@ -40,11 +44,17 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
              : new DN($dnisPhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getDnisPhoneNumber()
     {
-        return (!$this->dnisPhoneNumber) ?: $this->dnisPhoneNumber->value();
+        return (!$this->dnisPhoneNumber) ?: $this->dnisPhoneNumber->getValue();
     }
 
+    /**
+     * Extension.
+     */
     public function setExtension($extension = null)
     {
         $this->extension = ($extension InstanceOf Extension17)
@@ -52,20 +62,33 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
              : new Extension17($extension);
     }
 
+    /**
+     * Extension.
+     */
     public function getExtension()
     {
-        return (!$this->extension) ?: $this->extension->value();
+        return (!$this->extension) ?: $this->extension->getValue();
     }
 
-    public function setUseCustomCLIDSettings(xs:boolean $useCustomCLIDSettings = null)
+    /**
+     * 
+     */
+    public function setUseCustomCLIDSettings($useCustomCLIDSettings = null)
     {
+        $this->useCustomCLIDSettings = (boolean) $useCustomCLIDSettings;
     }
 
+    /**
+     * 
+     */
     public function getUseCustomCLIDSettings()
     {
-        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings->value();
+        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
@@ -73,11 +96,17 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
              : new DN($callingLineIdPhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getCallingLineIdPhoneNumber()
     {
-        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->value();
+        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->getValue();
     }
 
+    /**
+     * Last Name for Calling Line Id Display.
+     */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
@@ -85,11 +114,17 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
              : new CallingLineIdLastName($callingLineIdLastName);
     }
 
+    /**
+     * Last Name for Calling Line Id Display.
+     */
     public function getCallingLineIdLastName()
     {
-        return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->value();
+        return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->getValue();
     }
 
+    /**
+     * First Name for Calling Line Id Display.
+     */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
@@ -97,20 +132,33 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
              : new CallingLineIdFirstName($callingLineIdFirstName);
     }
 
+    /**
+     * First Name for Calling Line Id Display.
+     */
     public function getCallingLineIdFirstName()
     {
-        return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->value();
+        return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->getValue();
     }
 
-    public function setUseCustomDnisAnnouncementSettings(xs:boolean $useCustomDnisAnnouncementSettings = null)
+    /**
+     * 
+     */
+    public function setUseCustomDnisAnnouncementSettings($useCustomDnisAnnouncementSettings = null)
     {
+        $this->useCustomDnisAnnouncementSettings = (boolean) $useCustomDnisAnnouncementSettings;
     }
 
+    /**
+     * 
+     */
     public function getUseCustomDnisAnnouncementSettings()
     {
-        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings->value();
+        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings->getValue();
     }
 
+    /**
+     * Choices for DNIS priority.
+     */
     public function setPriority($priority = null)
     {
         $this->priority = ($priority InstanceOf DNISPriority)
@@ -118,17 +166,27 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
              : new DNISPriority($priority);
     }
 
+    /**
+     * Choices for DNIS priority.
+     */
     public function getPriority()
     {
-        return (!$this->priority) ?: $this->priority->value();
+        return (!$this->priority) ?: $this->priority->getValue();
     }
 
-    public function setAllowOutgoingACDCall(xs:boolean $allowOutgoingACDCall = null)
+    /**
+     * 
+     */
+    public function setAllowOutgoingACDCall($allowOutgoingACDCall = null)
     {
+        $this->allowOutgoingACDCall = (boolean) $allowOutgoingACDCall;
     }
 
+    /**
+     * 
+     */
     public function getAllowOutgoingACDCall()
     {
-        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall->value();
+        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall->getValue();
     }
 }

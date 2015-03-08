@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCallCenterCallDispositionCodeGetAvailableListRequest.
+     * Response to the UserCallCenterCallDispositionCodeGetAvailableListRequest.
  *         This list may include Group/Enterprise level codes in addition to the Call Center level codes, 
  *         depending on the call center disposition codes settings.
  *         Only active codes are included in the list.
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterCallDispositionCodeGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $dispositionCodesTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterCallDispositionCodeGetAvailableListResponse';
+    public    $name                  = __CLASS__;
+    protected $dispositionCodesTable = null;
 
 
+    /**
+     * 
+     */
     public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
     {
+        $this->dispositionCodesTable = core:OCITable $dispositionCodesTable;
     }
 
+    /**
+     * 
+     */
     public function getDispositionCodesTable()
     {
-        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->value();
+        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->getValue();
     }
 }

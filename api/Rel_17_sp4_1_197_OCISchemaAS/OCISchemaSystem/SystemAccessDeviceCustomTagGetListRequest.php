@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of custom configuration tags managed by the Device Management System, on a per-device profile basis.
+     * Request to get the list of custom configuration tags managed by the Device Management System, on a per-device profile basis.
  *         The response is either SystemAccessDeviceCustomTagGetListResponse or ErrorResponse.
  */
 class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagGetListResponse';
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
 
     public function __construct(
          $deviceName
@@ -27,6 +28,9 @@ class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements C
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -34,8 +38,11 @@ class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements C
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

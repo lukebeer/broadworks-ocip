@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a language for a service provder.
+     * Request to add a language for a service provder.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $language           = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $language          = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
         $this->setLanguage($language);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -50,8 +61,11 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 }

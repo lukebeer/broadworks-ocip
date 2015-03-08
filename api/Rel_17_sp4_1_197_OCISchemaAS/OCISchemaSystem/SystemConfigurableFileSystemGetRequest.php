@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the File System parameters.
+     * Request to get the File System parameters.
  *         The response is either SystemConfigurableFileSystemGetResponse or ErrorResponse.
  */
 class SystemConfigurableFileSystemGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableFileSystemGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the group's extension length range.
+     * Modify the group's extension length range.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $minExtensionLength  = null;
-    protected $maxExtensionLength  = null;
+    public    $name               = __CLASS__;
+    protected $minExtensionLength = null;
+    protected $maxExtensionLength = null;
 
     public function __construct(
          $minExtensionLength = null,
@@ -30,6 +30,9 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
         $this->setMaxExtensionLength($maxExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function setMinExtensionLength($minExtensionLength = null)
     {
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
@@ -37,11 +40,17 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
              : new ExtensionLength($minExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getMinExtensionLength()
     {
-        return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
+        return (!$this->minExtensionLength) ?: $this->minExtensionLength->getValue();
     }
 
+    /**
+     * The group's extension length.
+     */
     public function setMaxExtensionLength($maxExtensionLength = null)
     {
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
@@ -49,8 +58,11 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
              : new ExtensionLength($maxExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getMaxExtensionLength()
     {
-        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
+        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->getValue();
     }
 }

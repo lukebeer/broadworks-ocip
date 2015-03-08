@@ -17,17 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an Instant Conferencing device to the system.
+     * Add an Instant Conferencing device to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $deviceName         = null;
-    protected $clusterNetAddress  = null;
-    protected $signalingPort      = null;
-    protected $description        = null;
-    protected $transportProtocol  = null;
+    public    $name              = __CLASS__;
+    protected $deviceName        = null;
+    protected $clusterNetAddress = null;
+    protected $signalingPort     = null;
+    protected $description       = null;
+    protected $transportProtocol = null;
 
     public function __construct(
          $deviceName,
@@ -43,6 +43,9 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
         $this->setTransportProtocol($transportProtocol);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -50,11 +53,17 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setClusterNetAddress($clusterNetAddress = null)
     {
         $this->clusterNetAddress = ($clusterNetAddress InstanceOf NetAddress)
@@ -62,11 +71,17 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
              : new NetAddress($clusterNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getClusterNetAddress()
     {
-        return (!$this->clusterNetAddress) ?: $this->clusterNetAddress->value();
+        return (!$this->clusterNetAddress) ?: $this->clusterNetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setSignalingPort($signalingPort = null)
     {
         $this->signalingPort = ($signalingPort InstanceOf Port1025)
@@ -74,11 +89,17 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
              : new Port1025($signalingPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getSignalingPort()
     {
-        return (!$this->signalingPort) ?: $this->signalingPort->value();
+        return (!$this->signalingPort) ?: $this->signalingPort->getValue();
     }
 
+    /**
+     * Instant Conferencing device description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf InstantConferencingDeviceDescription)
@@ -86,11 +107,17 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
              : new InstantConferencingDeviceDescription($description);
     }
 
+    /**
+     * Instant Conferencing device description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function setTransportProtocol($transportProtocol = null)
     {
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
@@ -98,8 +125,11 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
              : new TransportProtocol($transportProtocol);
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function getTransportProtocol()
     {
-        return (!$this->transportProtocol) ?: $this->transportProtocol->value();
+        return (!$this->transportProtocol) ?: $this->transportProtocol->getValue();
     }
 }

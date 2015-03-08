@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Home Network.
+     * Add a Home Network.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $mscAddress  = null;
+    public    $name       = __CLASS__;
+    protected $mscAddress = null;
 
     public function __construct(
          $mscAddress
@@ -27,6 +27,9 @@ class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterfac
         $this->setMscAddress($mscAddress);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setMscAddress($mscAddress = null)
     {
         $this->mscAddress = ($mscAddress InstanceOf DN)
@@ -34,8 +37,11 @@ class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterfac
              : new DN($mscAddress);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getMscAddress()
     {
-        return (!$this->mscAddress) ?: $this->mscAddress->value();
+        return (!$this->mscAddress) ?: $this->mscAddress->getValue();
     }
 }

@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderLanguageGetListRequest.
+     * Response to ServiceProviderLanguageGetListRequest.
  */
 class ServiceProviderLanguageGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $language         = null;
-    protected $defaultLanguage  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageGetListResponse';
+    public    $name            = __CLASS__;
+    protected $language        = null;
+    protected $defaultLanguage = null;
 
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -29,11 +33,17 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setDefaultLanguage($defaultLanguage = null)
     {
         $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
@@ -41,8 +51,11 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
              : new Language($defaultLanguage);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getDefaultLanguage()
     {
-        return (!$this->defaultLanguage) ?: $this->defaultLanguage->value();
+        return (!$this->defaultLanguage) ?: $this->defaultLanguage->getValue();
     }
 }

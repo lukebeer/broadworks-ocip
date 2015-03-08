@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemSIPDeviceTypeServiceGetRequest.
+     * Response to SystemSIPDeviceTypeServiceGetRequest.
  *         Contains the list of device type services integrated to BroadWorks.
  */
 class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $supportsPolycomPhoneServices  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeServiceGetResponse';
+    public    $name                         = __CLASS__;
+    protected $supportsPolycomPhoneServices = null;
 
 
-    public function setSupportsPolycomPhoneServices(xs:boolean $supportsPolycomPhoneServices = null)
+    /**
+     * 
+     */
+    public function setSupportsPolycomPhoneServices($supportsPolycomPhoneServices = null)
     {
+        $this->supportsPolycomPhoneServices = (boolean) $supportsPolycomPhoneServices;
     }
 
+    /**
+     * 
+     */
     public function getSupportsPolycomPhoneServices()
     {
-        return (!$this->supportsPolycomPhoneServices) ?: $this->supportsPolycomPhoneServices->value();
+        return (!$this->supportsPolycomPhoneServices) ?: $this->supportsPolycomPhoneServices->getValue();
     }
 }

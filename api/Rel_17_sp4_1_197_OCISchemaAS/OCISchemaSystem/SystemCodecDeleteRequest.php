@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a supported codec from the system.
+     * Request to delete a supported codec from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
-    protected $codec  = null;
+    public    $name  = __CLASS__;
+    protected $codec = null;
 
     public function __construct(
          $codec
@@ -27,6 +27,9 @@ class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
         $this->setCodec($codec);
     }
 
+    /**
+     * Codec.
+     */
     public function setCodec($codec = null)
     {
         $this->codec = ($codec InstanceOf Codec)
@@ -34,8 +37,11 @@ class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
              : new Codec($codec);
     }
 
+    /**
+     * Codec.
+     */
     public function getCodec()
     {
-        return (!$this->codec) ?: $this->codec->value();
+        return (!$this->codec) ?: $this->codec->getValue();
     }
 }

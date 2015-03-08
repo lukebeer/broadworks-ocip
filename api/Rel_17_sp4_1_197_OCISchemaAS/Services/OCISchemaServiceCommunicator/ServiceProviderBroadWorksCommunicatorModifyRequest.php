@@ -14,13 +14,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the Configuration URL. The response is either a SuccessResponse or an ErrorResponse.
+     * Request to modify the Configuration URL. The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceProviderId       = null;
-    protected $configurationServerURL  = null;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $configurationServerURL = null;
 
     public function __construct(
          $serviceProviderId = null,
@@ -30,6 +30,10 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
         $this->setConfigurationServerURL($configurationServerURL);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -37,11 +41,18 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setConfigurationServerURL($configurationServerURL = null)
     {
         $this->configurationServerURL = ($configurationServerURL InstanceOf URL)
@@ -49,8 +60,11 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
              : new URL($configurationServerURL);
     }
 
+    /**
+     * URL.
+     */
     public function getConfigurationServerURL()
     {
-        return (!$this->configurationServerURL) ?: $this->configurationServerURL->value();
+        return (!$this->configurationServerURL) ?: $this->configurationServerURL->getValue();
     }
 }

@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a SystemFileGetContentRequest. The fileContent length returned is limited to 128KBytes.
+     * Response to a SystemFileGetContentRequest. The fileContent length returned is limited to 128KBytes.
  */
 class SystemFileGetContentResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $fileContent  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileGetContentResponse';
+    public    $name        = __CLASS__;
+    protected $fileContent = null;
 
 
+    /**
+     * 
+     */
     public function setFileContent(xs:base64Binary $fileContent = null)
     {
+        $this->fileContent = xs:base64Binary $fileContent;
     }
 
+    /**
+     * 
+     */
     public function getFileContent()
     {
-        return (!$this->fileContent) ?: $this->fileContent->value();
+        return (!$this->fileContent) ?: $this->fileContent->getValue();
     }
 }

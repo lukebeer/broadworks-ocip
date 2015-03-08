@@ -16,21 +16,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallCenterGetRequest16.
+     * Response to SystemCallCenterGetRequest16.
  */
 class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                                  = __CLASS__;
-    protected $defaultFromAddress                                    = null;
-    protected $statisticsSamplingPeriodMinutes                       = null;
-    protected $defaultEnableGuardTimer                               = null;
-    protected $defaultGuardTimerSeconds                              = null;
-    protected $forceAgentUnavailableOnDNDActivation                  = null;
-    protected $forceAgentUnavailableOnPersonalCalls                  = null;
-    protected $forceAgentUnavailableOnBouncedCallLimit               = null;
-    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable  = null;
+    const     RESPONSE_TYPE                                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCallCenterGetResponse16';
+    public    $name                                                 = __CLASS__;
+    protected $defaultFromAddress                                   = null;
+    protected $statisticsSamplingPeriodMinutes                      = null;
+    protected $defaultEnableGuardTimer                              = null;
+    protected $defaultGuardTimerSeconds                             = null;
+    protected $forceAgentUnavailableOnDNDActivation                 = null;
+    protected $forceAgentUnavailableOnPersonalCalls                 = null;
+    protected $forceAgentUnavailableOnBouncedCallLimit              = null;
+    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable = null;
 
 
+    /**
+     * Email Address
+     */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
@@ -38,11 +42,17 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
              : new EmailAddress($defaultFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getDefaultFromAddress()
     {
-        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->value();
+        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->getValue();
     }
 
+    /**
+     * Call Center statistics sampling period.
+     */
     public function setStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes = null)
     {
         $this->statisticsSamplingPeriodMinutes = ($statisticsSamplingPeriodMinutes InstanceOf CallCenterStatisticsSamplingPeriodMinutes)
@@ -50,20 +60,33 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
              : new CallCenterStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
     }
 
+    /**
+     * Call Center statistics sampling period.
+     */
     public function getStatisticsSamplingPeriodMinutes()
     {
-        return (!$this->statisticsSamplingPeriodMinutes) ?: $this->statisticsSamplingPeriodMinutes->value();
+        return (!$this->statisticsSamplingPeriodMinutes) ?: $this->statisticsSamplingPeriodMinutes->getValue();
     }
 
-    public function setDefaultEnableGuardTimer(xs:boolean $defaultEnableGuardTimer = null)
+    /**
+     * 
+     */
+    public function setDefaultEnableGuardTimer($defaultEnableGuardTimer = null)
     {
+        $this->defaultEnableGuardTimer = (boolean) $defaultEnableGuardTimer;
     }
 
+    /**
+     * 
+     */
     public function getDefaultEnableGuardTimer()
     {
-        return (!$this->defaultEnableGuardTimer) ?: $this->defaultEnableGuardTimer->value();
+        return (!$this->defaultEnableGuardTimer) ?: $this->defaultEnableGuardTimer->getValue();
     }
 
+    /**
+     * The timer determines how long the system will wait before routing a call to a free agent.
+     */
     public function setDefaultGuardTimerSeconds($defaultGuardTimerSeconds = null)
     {
         $this->defaultGuardTimerSeconds = ($defaultGuardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
@@ -71,38 +94,65 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
              : new CallCenterGuardTimerSeconds($defaultGuardTimerSeconds);
     }
 
+    /**
+     * The timer determines how long the system will wait before routing a call to a free agent.
+     */
     public function getDefaultGuardTimerSeconds()
     {
-        return (!$this->defaultGuardTimerSeconds) ?: $this->defaultGuardTimerSeconds->value();
+        return (!$this->defaultGuardTimerSeconds) ?: $this->defaultGuardTimerSeconds->getValue();
     }
 
-    public function setForceAgentUnavailableOnDNDActivation(xs:boolean $forceAgentUnavailableOnDNDActivation = null)
+    /**
+     * 
+     */
+    public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation = null)
     {
+        $this->forceAgentUnavailableOnDNDActivation = (boolean) $forceAgentUnavailableOnDNDActivation;
     }
 
+    /**
+     * 
+     */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->value();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
     }
 
-    public function setForceAgentUnavailableOnPersonalCalls(xs:boolean $forceAgentUnavailableOnPersonalCalls = null)
+    /**
+     * 
+     */
+    public function setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls = null)
     {
+        $this->forceAgentUnavailableOnPersonalCalls = (boolean) $forceAgentUnavailableOnPersonalCalls;
     }
 
+    /**
+     * 
+     */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
-        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->value();
+        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->getValue();
     }
 
-    public function setForceAgentUnavailableOnBouncedCallLimit(xs:boolean $forceAgentUnavailableOnBouncedCallLimit = null)
+    /**
+     * 
+     */
+    public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit = null)
     {
+        $this->forceAgentUnavailableOnBouncedCallLimit = (boolean) $forceAgentUnavailableOnBouncedCallLimit;
     }
 
+    /**
+     * 
+     */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->value();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
     }
 
+    /**
+     * Call center maximum number of consecutive bounced calls allowed before forcing agent to become unavailable.
+     */
     public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
         $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
@@ -110,8 +160,11 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
              : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
     }
 
+    /**
+     * Call center maximum number of consecutive bounced calls allowed before forcing agent to become unavailable.
+     */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {
-        return (!$this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ?: $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->value();
+        return (!$this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ?: $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getValue();
     }
 }

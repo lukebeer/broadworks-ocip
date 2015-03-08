@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+     * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
  */
 class IncomingCallingPlanPermissions extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissions';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Uniquely identifies a Call Center DNIS.
+     * Uniquely identifies a Call Center DNIS.
  */
 class DNISKey extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

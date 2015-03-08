@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the list of users for a file repository in the system.
+     * Request the list of users for a file repository in the system.
  *         The response is either a SystemFileRepositoryDeviceUserGetListResponse or an ErrorResponse.
  */
 class SystemFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $fileRepositoryName  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetListResponse';
+    public    $name               = __CLASS__;
+    protected $fileRepositoryName = null;
 
     public function __construct(
          $fileRepositoryName
@@ -27,6 +28,9 @@ class SystemFileRepositoryDeviceUserGetListRequest extends ComplexType implement
         $this->setFileRepositoryName($fileRepositoryName);
     }
 
+    /**
+     * File repository name.
+     */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
@@ -34,8 +38,11 @@ class SystemFileRepositoryDeviceUserGetListRequest extends ComplexType implement
              : new FileRepositoryName($fileRepositoryName);
     }
 
+    /**
+     * File repository name.
+     */
     public function getFileRepositoryName()
     {
-        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->value();
+        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->getValue();
     }
 }

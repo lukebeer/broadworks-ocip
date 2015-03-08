@@ -13,31 +13,46 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemAnonymousCallRejectionGetRequest.
+     * Response to the SystemAnonymousCallRejectionGetRequest.
  *         The response contains the anonymous call rejection system.".
  */
 class SystemAnonymousCallRejectionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $paiRequired           = null;
-    protected $screenOnlyLocalCalls  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAnonymousCallRejection\SystemAnonymousCallRejectionGetResponse';
+    public    $name                 = __CLASS__;
+    protected $paiRequired          = null;
+    protected $screenOnlyLocalCalls = null;
 
 
-    public function setPaiRequired(xs:boolean $paiRequired = null)
+    /**
+     * 
+     */
+    public function setPaiRequired($paiRequired = null)
     {
+        $this->paiRequired = (boolean) $paiRequired;
     }
 
+    /**
+     * 
+     */
     public function getPaiRequired()
     {
-        return (!$this->paiRequired) ?: $this->paiRequired->value();
+        return (!$this->paiRequired) ?: $this->paiRequired->getValue();
     }
 
-    public function setScreenOnlyLocalCalls(xs:boolean $screenOnlyLocalCalls = null)
+    /**
+     * 
+     */
+    public function setScreenOnlyLocalCalls($screenOnlyLocalCalls = null)
     {
+        $this->screenOnlyLocalCalls = (boolean) $screenOnlyLocalCalls;
     }
 
+    /**
+     * 
+     */
     public function getScreenOnlyLocalCalls()
     {
-        return (!$this->screenOnlyLocalCalls) ?: $this->screenOnlyLocalCalls->value();
+        return (!$this->screenOnlyLocalCalls) ?: $this->screenOnlyLocalCalls->getValue();
     }
 }

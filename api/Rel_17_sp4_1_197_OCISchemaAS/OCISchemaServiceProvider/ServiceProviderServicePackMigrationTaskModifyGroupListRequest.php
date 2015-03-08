@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Replace the list of groups to be migrated for a specified service pack migration task.
+     * Replace the list of groups to be migrated for a specified service pack migration task.
  *         Modification is only allowed prior to task execution.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $taskName           = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $taskName          = null;
 
     public function __construct(
          $serviceProviderId,
@@ -32,6 +32,10 @@ class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends Comp
         $this->setTaskName($taskName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -39,11 +43,18 @@ class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Service pack migration task name.
+     */
     public function setTaskName($taskName = null)
     {
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
@@ -51,8 +62,11 @@ class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends Comp
              : new ServicePackMigrationTaskName($taskName);
     }
 
+    /**
+     * Service pack migration task name.
+     */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->value();
+        return (!$this->taskName) ?: $this->taskName->getValue();
     }
 }

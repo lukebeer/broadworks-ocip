@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of all Digit Pattern Criteria defined at the system level.
+     * Get the list of all Digit Pattern Criteria defined at the system level.
  *         The response is either a SystemCommunicationBarringDigitPatternCriteriaGetListResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

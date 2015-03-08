@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Reservationless conference schedule used in the context of a conference add.
+     * Reservationless conference schedule used in the context of a conference add.
  */
 class InstantConferencingScheduleReservationless extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $endDate  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleReservationless';
+    public    $name    = __CLASS__;
+    protected $endDate = null;
 
     public function __construct(
          $endDate
@@ -26,12 +27,19 @@ class InstantConferencingScheduleReservationless extends ComplexType implements 
         $this->setEndDate($endDate);
     }
 
+    /**
+     * 
+     */
     public function setEndDate(xs:date $endDate = null)
     {
+        $this->endDate = xs:date $endDate;
     }
 
+    /**
+     * 
+     */
     public function getEndDate()
     {
-        return (!$this->endDate) ?: $this->endDate->value();
+        return (!$this->endDate) ?: $this->endDate->getValue();
     }
 }

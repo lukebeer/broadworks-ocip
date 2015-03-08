@@ -23,7 +23,7 @@ class AccessDeviceEnhancedConfigurationType14 extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new Enumeration([
             '2 File Configuration',
             '3 File Configuration',

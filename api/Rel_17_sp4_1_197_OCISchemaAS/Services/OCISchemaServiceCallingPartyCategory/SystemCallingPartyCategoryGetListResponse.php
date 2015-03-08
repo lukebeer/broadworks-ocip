@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallingPartyCategoryGetListRequest.
+     * Response to SystemCallingPartyCategoryGetListRequest.
  *         Contains a table of Calling Party Category defined in system.
  *         The column headings are: "Category Name", "User Category", "Collect Call", "Default" and "Web Display Key".
  */
 class SystemCallingPartyCategoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $callingPartyCategoryTable  = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetListResponse';
+    public    $name                      = __CLASS__;
+    protected $callingPartyCategoryTable = null;
 
 
+    /**
+     * 
+     */
     public function setCallingPartyCategoryTable(core:OCITable $callingPartyCategoryTable = null)
     {
+        $this->callingPartyCategoryTable = core:OCITable $callingPartyCategoryTable;
     }
 
+    /**
+     * 
+     */
     public function getCallingPartyCategoryTable()
     {
-        return (!$this->callingPartyCategoryTable) ?: $this->callingPartyCategoryTable->value();
+        return (!$this->callingPartyCategoryTable) ?: $this->callingPartyCategoryTable->getValue();
     }
 }

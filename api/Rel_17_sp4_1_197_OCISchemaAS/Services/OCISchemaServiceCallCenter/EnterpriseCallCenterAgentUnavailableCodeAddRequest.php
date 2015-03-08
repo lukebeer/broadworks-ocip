@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Call Center Agent Unavailable Code.
+     * Add a Call Center Agent Unavailable Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $isActive           = null;
-    protected $code               = null;
-    protected $description        = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $isActive          = null;
+    protected $code              = null;
+    protected $description       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -38,6 +38,10 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
         $this->setDescription($description);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -45,20 +49,34 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function setCode($code = null)
     {
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
@@ -66,11 +84,17 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
              : new CallCenterAgentUnavailableCode($code);
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 
+    /**
+     * Call Center Agent Unavailable Code Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
@@ -78,8 +102,11 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
              : new CallCenterAgentUnavailableCodeDescription($description);
     }
 
+    /**
+     * Call Center Agent Unavailable Code Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

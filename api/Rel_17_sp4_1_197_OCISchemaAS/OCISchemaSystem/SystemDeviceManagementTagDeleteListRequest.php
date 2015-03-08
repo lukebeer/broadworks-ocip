@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete static configuration tags.
+     * Request to delete static configuration tags.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $tagName  = null;
+    public    $name    = __CLASS__;
+    protected $tagName = null;
 
     public function __construct(
          $tagName = null
@@ -27,6 +27,11 @@ class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements 
         $this->setTagName($tagName);
     }
 
+    /**
+     * A static tag name for access device files managed by the Device Management System on BroadWorks.
+     *         The static tag name must start and end with a % with no other % in between. The tag must not
+     *         start with %BW.
+     */
     public function setTagName($tagName = null)
     {
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
@@ -34,8 +39,13 @@ class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements 
              : new DeviceManagementTagName($tagName);
     }
 
+    /**
+     * A static tag name for access device files managed by the Device Management System on BroadWorks.
+     *         The static tag name must start and end with a % with no other % in between. The tag must not
+     *         start with %BW.
+     */
     public function getTagName()
     {
-        return (!$this->tagName) ?: $this->tagName->value();
+        return (!$this->tagName) ?: $this->tagName->getValue();
     }
 }

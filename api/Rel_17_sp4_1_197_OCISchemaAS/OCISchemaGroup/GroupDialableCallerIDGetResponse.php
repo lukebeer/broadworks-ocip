@@ -13,26 +13,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupDialableCallerIDGetRequest.
+     * Response to the GroupDialableCallerIDGetRequest.
  *         The criteria tables column headings are "Active", "Name", "Description", Prefix Digits, Priority.
  */
 class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $useGroupCriteria          = null;
-    protected $nsScreeningFailurePolicy  = null;
-    protected $criteriaTable             = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDGetResponse';
+    public    $name                     = __CLASS__;
+    protected $useGroupCriteria         = null;
+    protected $nsScreeningFailurePolicy = null;
+    protected $criteriaTable            = null;
 
 
-    public function setUseGroupCriteria(xs:boolean $useGroupCriteria = null)
+    /**
+     * 
+     */
+    public function setUseGroupCriteria($useGroupCriteria = null)
     {
+        $this->useGroupCriteria = (boolean) $useGroupCriteria;
     }
 
+    /**
+     * 
+     */
     public function getUseGroupCriteria()
     {
-        return (!$this->useGroupCriteria) ?: $this->useGroupCriteria->value();
+        return (!$this->useGroupCriteria) ?: $this->useGroupCriteria->getValue();
     }
 
+    /**
+     * How the incomming caller ID should be displayed in the case of an NS screening failure
+     */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
@@ -40,17 +51,27 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
     }
 
+    /**
+     * How the incomming caller ID should be displayed in the case of an NS screening failure
+     */
     public function getNsScreeningFailurePolicy()
     {
-        return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->value();
+        return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->getValue();
     }
 
+    /**
+     * 
+     */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
+        $this->criteriaTable = core:OCITable $criteriaTable;
     }
 
+    /**
+     * 
+     */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->value();
+        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
     }
 }

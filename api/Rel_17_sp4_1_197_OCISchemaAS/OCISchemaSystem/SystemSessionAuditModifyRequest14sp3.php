@@ -20,29 +20,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with session audit.
+     * Modify the system level data associated with session audit.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $isAuditActive                       = null;
-    protected $auditIntervalSeconds                = null;
-    protected $auditTimeoutSeconds                 = null;
-    protected $releaseCallOnAuditFailure           = null;
-    protected $isSIPRefreshAllowedOnAudit          = null;
-    protected $allowUpdateForSIPRefresh            = null;
-    protected $isSIPSessionTimerActive             = null;
-    protected $sipSessionExpiresMinimumSeconds     = null;
-    protected $enforceSIPSessionExpiresMaximum     = null;
-    protected $sipSessionExpiresMaximumSeconds     = null;
-    protected $sipSessionExpiresTimerSeconds       = null;
-    protected $alwaysUseSessionTimerWhenSupported  = null;
-    protected $preferredSessionTimerRefresher      = null;
-    protected $enableEmergencyCallAlarmTimer       = null;
-    protected $emergencyCallAlarmMinutes           = null;
-    protected $enableEmergencyCallCleanupTimer     = null;
-    protected $emergencyCallCleanupMinutes         = null;
+    public    $name                               = __CLASS__;
+    protected $isAuditActive                      = null;
+    protected $auditIntervalSeconds               = null;
+    protected $auditTimeoutSeconds                = null;
+    protected $releaseCallOnAuditFailure          = null;
+    protected $isSIPRefreshAllowedOnAudit         = null;
+    protected $allowUpdateForSIPRefresh           = null;
+    protected $isSIPSessionTimerActive            = null;
+    protected $sipSessionExpiresMinimumSeconds    = null;
+    protected $enforceSIPSessionExpiresMaximum    = null;
+    protected $sipSessionExpiresMaximumSeconds    = null;
+    protected $sipSessionExpiresTimerSeconds      = null;
+    protected $alwaysUseSessionTimerWhenSupported = null;
+    protected $preferredSessionTimerRefresher     = null;
+    protected $enableEmergencyCallAlarmTimer      = null;
+    protected $emergencyCallAlarmMinutes          = null;
+    protected $enableEmergencyCallCleanupTimer    = null;
+    protected $emergencyCallCleanupMinutes        = null;
 
     public function __construct(
          $isAuditActive = null,
@@ -82,15 +82,25 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
         $this->setEmergencyCallCleanupMinutes($emergencyCallCleanupMinutes);
     }
 
-    public function setIsAuditActive(xs:boolean $isAuditActive = null)
+    /**
+     * 
+     */
+    public function setIsAuditActive($isAuditActive = null)
     {
+        $this->isAuditActive = (boolean) $isAuditActive;
     }
 
+    /**
+     * 
+     */
     public function getIsAuditActive()
     {
-        return (!$this->isAuditActive) ?: $this->isAuditActive->value();
+        return (!$this->isAuditActive) ?: $this->isAuditActive->getValue();
     }
 
+    /**
+     * Session Audit interval seconds.
+     */
     public function setAuditIntervalSeconds($auditIntervalSeconds = null)
     {
         $this->auditIntervalSeconds = ($auditIntervalSeconds InstanceOf SessionAuditIntervalSeconds)
@@ -98,11 +108,17 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new SessionAuditIntervalSeconds($auditIntervalSeconds);
     }
 
+    /**
+     * Session Audit interval seconds.
+     */
     public function getAuditIntervalSeconds()
     {
-        return (!$this->auditIntervalSeconds) ?: $this->auditIntervalSeconds->value();
+        return (!$this->auditIntervalSeconds) ?: $this->auditIntervalSeconds->getValue();
     }
 
+    /**
+     * Session Audit timeout period seconds.
+     */
     public function setAuditTimeoutSeconds($auditTimeoutSeconds = null)
     {
         $this->auditTimeoutSeconds = ($auditTimeoutSeconds InstanceOf SessionAuditTimeoutPeriodSeconds)
@@ -110,47 +126,81 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new SessionAuditTimeoutPeriodSeconds($auditTimeoutSeconds);
     }
 
+    /**
+     * Session Audit timeout period seconds.
+     */
     public function getAuditTimeoutSeconds()
     {
-        return (!$this->auditTimeoutSeconds) ?: $this->auditTimeoutSeconds->value();
+        return (!$this->auditTimeoutSeconds) ?: $this->auditTimeoutSeconds->getValue();
     }
 
-    public function setReleaseCallOnAuditFailure(xs:boolean $releaseCallOnAuditFailure = null)
+    /**
+     * 
+     */
+    public function setReleaseCallOnAuditFailure($releaseCallOnAuditFailure = null)
     {
+        $this->releaseCallOnAuditFailure = (boolean) $releaseCallOnAuditFailure;
     }
 
+    /**
+     * 
+     */
     public function getReleaseCallOnAuditFailure()
     {
-        return (!$this->releaseCallOnAuditFailure) ?: $this->releaseCallOnAuditFailure->value();
+        return (!$this->releaseCallOnAuditFailure) ?: $this->releaseCallOnAuditFailure->getValue();
     }
 
-    public function setIsSIPRefreshAllowedOnAudit(xs:boolean $isSIPRefreshAllowedOnAudit = null)
+    /**
+     * 
+     */
+    public function setIsSIPRefreshAllowedOnAudit($isSIPRefreshAllowedOnAudit = null)
     {
+        $this->isSIPRefreshAllowedOnAudit = (boolean) $isSIPRefreshAllowedOnAudit;
     }
 
+    /**
+     * 
+     */
     public function getIsSIPRefreshAllowedOnAudit()
     {
-        return (!$this->isSIPRefreshAllowedOnAudit) ?: $this->isSIPRefreshAllowedOnAudit->value();
+        return (!$this->isSIPRefreshAllowedOnAudit) ?: $this->isSIPRefreshAllowedOnAudit->getValue();
     }
 
-    public function setAllowUpdateForSIPRefresh(xs:boolean $allowUpdateForSIPRefresh = null)
+    /**
+     * 
+     */
+    public function setAllowUpdateForSIPRefresh($allowUpdateForSIPRefresh = null)
     {
+        $this->allowUpdateForSIPRefresh = (boolean) $allowUpdateForSIPRefresh;
     }
 
+    /**
+     * 
+     */
     public function getAllowUpdateForSIPRefresh()
     {
-        return (!$this->allowUpdateForSIPRefresh) ?: $this->allowUpdateForSIPRefresh->value();
+        return (!$this->allowUpdateForSIPRefresh) ?: $this->allowUpdateForSIPRefresh->getValue();
     }
 
-    public function setIsSIPSessionTimerActive(xs:boolean $isSIPSessionTimerActive = null)
+    /**
+     * 
+     */
+    public function setIsSIPSessionTimerActive($isSIPSessionTimerActive = null)
     {
+        $this->isSIPSessionTimerActive = (boolean) $isSIPSessionTimerActive;
     }
 
+    /**
+     * 
+     */
     public function getIsSIPSessionTimerActive()
     {
-        return (!$this->isSIPSessionTimerActive) ?: $this->isSIPSessionTimerActive->value();
+        return (!$this->isSIPSessionTimerActive) ?: $this->isSIPSessionTimerActive->getValue();
     }
 
+    /**
+     * Corresponds to the SIP Min-SE header.
+     */
     public function setSipSessionExpiresMinimumSeconds($sipSessionExpiresMinimumSeconds = null)
     {
         $this->sipSessionExpiresMinimumSeconds = ($sipSessionExpiresMinimumSeconds InstanceOf SIPSessionExpiresMinimumSeconds)
@@ -158,20 +208,33 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new SIPSessionExpiresMinimumSeconds($sipSessionExpiresMinimumSeconds);
     }
 
+    /**
+     * Corresponds to the SIP Min-SE header.
+     */
     public function getSipSessionExpiresMinimumSeconds()
     {
-        return (!$this->sipSessionExpiresMinimumSeconds) ?: $this->sipSessionExpiresMinimumSeconds->value();
+        return (!$this->sipSessionExpiresMinimumSeconds) ?: $this->sipSessionExpiresMinimumSeconds->getValue();
     }
 
-    public function setEnforceSIPSessionExpiresMaximum(xs:boolean $enforceSIPSessionExpiresMaximum = null)
+    /**
+     * 
+     */
+    public function setEnforceSIPSessionExpiresMaximum($enforceSIPSessionExpiresMaximum = null)
     {
+        $this->enforceSIPSessionExpiresMaximum = (boolean) $enforceSIPSessionExpiresMaximum;
     }
 
+    /**
+     * 
+     */
     public function getEnforceSIPSessionExpiresMaximum()
     {
-        return (!$this->enforceSIPSessionExpiresMaximum) ?: $this->enforceSIPSessionExpiresMaximum->value();
+        return (!$this->enforceSIPSessionExpiresMaximum) ?: $this->enforceSIPSessionExpiresMaximum->getValue();
     }
 
+    /**
+     * Corresponds to the SIP Max-SE header.
+     */
     public function setSipSessionExpiresMaximumSeconds($sipSessionExpiresMaximumSeconds = null)
     {
         $this->sipSessionExpiresMaximumSeconds = ($sipSessionExpiresMaximumSeconds InstanceOf SIPSessionExpiresMaximumSeconds)
@@ -179,11 +242,17 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new SIPSessionExpiresMaximumSeconds($sipSessionExpiresMaximumSeconds);
     }
 
+    /**
+     * Corresponds to the SIP Max-SE header.
+     */
     public function getSipSessionExpiresMaximumSeconds()
     {
-        return (!$this->sipSessionExpiresMaximumSeconds) ?: $this->sipSessionExpiresMaximumSeconds->value();
+        return (!$this->sipSessionExpiresMaximumSeconds) ?: $this->sipSessionExpiresMaximumSeconds->getValue();
     }
 
+    /**
+     * Corresponds to the SIP Session-Expires header.
+     */
     public function setSipSessionExpiresTimerSeconds($sipSessionExpiresTimerSeconds = null)
     {
         $this->sipSessionExpiresTimerSeconds = ($sipSessionExpiresTimerSeconds InstanceOf SIPSessionExpiresTimerSeconds)
@@ -191,20 +260,33 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new SIPSessionExpiresTimerSeconds($sipSessionExpiresTimerSeconds);
     }
 
+    /**
+     * Corresponds to the SIP Session-Expires header.
+     */
     public function getSipSessionExpiresTimerSeconds()
     {
-        return (!$this->sipSessionExpiresTimerSeconds) ?: $this->sipSessionExpiresTimerSeconds->value();
+        return (!$this->sipSessionExpiresTimerSeconds) ?: $this->sipSessionExpiresTimerSeconds->getValue();
     }
 
-    public function setAlwaysUseSessionTimerWhenSupported(xs:boolean $alwaysUseSessionTimerWhenSupported = null)
+    /**
+     * 
+     */
+    public function setAlwaysUseSessionTimerWhenSupported($alwaysUseSessionTimerWhenSupported = null)
     {
+        $this->alwaysUseSessionTimerWhenSupported = (boolean) $alwaysUseSessionTimerWhenSupported;
     }
 
+    /**
+     * 
+     */
     public function getAlwaysUseSessionTimerWhenSupported()
     {
-        return (!$this->alwaysUseSessionTimerWhenSupported) ?: $this->alwaysUseSessionTimerWhenSupported->value();
+        return (!$this->alwaysUseSessionTimerWhenSupported) ?: $this->alwaysUseSessionTimerWhenSupported->getValue();
     }
 
+    /**
+     * Choices for Preferred Session Timer Refresher.
+     */
     public function setPreferredSessionTimerRefresher($preferredSessionTimerRefresher = null)
     {
         $this->preferredSessionTimerRefresher = ($preferredSessionTimerRefresher InstanceOf SessionTimerRefresher)
@@ -212,20 +294,33 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new SessionTimerRefresher($preferredSessionTimerRefresher);
     }
 
+    /**
+     * Choices for Preferred Session Timer Refresher.
+     */
     public function getPreferredSessionTimerRefresher()
     {
-        return (!$this->preferredSessionTimerRefresher) ?: $this->preferredSessionTimerRefresher->value();
+        return (!$this->preferredSessionTimerRefresher) ?: $this->preferredSessionTimerRefresher->getValue();
     }
 
-    public function setEnableEmergencyCallAlarmTimer(xs:boolean $enableEmergencyCallAlarmTimer = null)
+    /**
+     * 
+     */
+    public function setEnableEmergencyCallAlarmTimer($enableEmergencyCallAlarmTimer = null)
     {
+        $this->enableEmergencyCallAlarmTimer = (boolean) $enableEmergencyCallAlarmTimer;
     }
 
+    /**
+     * 
+     */
     public function getEnableEmergencyCallAlarmTimer()
     {
-        return (!$this->enableEmergencyCallAlarmTimer) ?: $this->enableEmergencyCallAlarmTimer->value();
+        return (!$this->enableEmergencyCallAlarmTimer) ?: $this->enableEmergencyCallAlarmTimer->getValue();
     }
 
+    /**
+     * Duration of emergency call before BroadWorks sends an SNMP notification.
+     */
     public function setEmergencyCallAlarmMinutes($emergencyCallAlarmMinutes = null)
     {
         $this->emergencyCallAlarmMinutes = ($emergencyCallAlarmMinutes InstanceOf EmergencyCallAlarmMinutes)
@@ -233,20 +328,33 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new EmergencyCallAlarmMinutes($emergencyCallAlarmMinutes);
     }
 
+    /**
+     * Duration of emergency call before BroadWorks sends an SNMP notification.
+     */
     public function getEmergencyCallAlarmMinutes()
     {
-        return (!$this->emergencyCallAlarmMinutes) ?: $this->emergencyCallAlarmMinutes->value();
+        return (!$this->emergencyCallAlarmMinutes) ?: $this->emergencyCallAlarmMinutes->getValue();
     }
 
-    public function setEnableEmergencyCallCleanupTimer(xs:boolean $enableEmergencyCallCleanupTimer = null)
+    /**
+     * 
+     */
+    public function setEnableEmergencyCallCleanupTimer($enableEmergencyCallCleanupTimer = null)
     {
+        $this->enableEmergencyCallCleanupTimer = (boolean) $enableEmergencyCallCleanupTimer;
     }
 
+    /**
+     * 
+     */
     public function getEnableEmergencyCallCleanupTimer()
     {
-        return (!$this->enableEmergencyCallCleanupTimer) ?: $this->enableEmergencyCallCleanupTimer->value();
+        return (!$this->enableEmergencyCallCleanupTimer) ?: $this->enableEmergencyCallCleanupTimer->getValue();
     }
 
+    /**
+     * Duration of emergency call before BroadWorks releases all internal resources.
+     */
     public function setEmergencyCallCleanupMinutes($emergencyCallCleanupMinutes = null)
     {
         $this->emergencyCallCleanupMinutes = ($emergencyCallCleanupMinutes InstanceOf EmergencyCallCleanupMinutes)
@@ -254,8 +362,11 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
              : new EmergencyCallCleanupMinutes($emergencyCallCleanupMinutes);
     }
 
+    /**
+     * Duration of emergency call before BroadWorks releases all internal resources.
+     */
     public function getEmergencyCallCleanupMinutes()
     {
-        return (!$this->emergencyCallCleanupMinutes) ?: $this->emergencyCallCleanupMinutes->value();
+        return (!$this->emergencyCallCleanupMinutes) ?: $this->emergencyCallCleanupMinutes->getValue();
     }
 }

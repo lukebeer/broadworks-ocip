@@ -15,15 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get an enterprise trunk
+     * Request to get an enterprise trunk
  *         The response is either an GroupEnterpriseTrunkGetResponse or an ErrorResponse.
  */
 class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $serviceProviderId    = null;
-    protected $groupId              = null;
-    protected $enterpriseTrunkName  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse';
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $groupId             = null;
+    protected $enterpriseTrunkName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +36,10 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +47,19 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +67,19 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
@@ -66,8 +87,12 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
              : new EnterpriseTrunkName($enterpriseTrunkName);
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function getEnterpriseTrunkName()
     {
-        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->value();
+        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->getValue();
     }
 }

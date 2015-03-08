@@ -21,23 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the list of users in the system.
+     * Request the list of users in the system.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a UserGetListInSystemResponse or an ErrorResponse.
  */
 class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = __CLASS__;
-    protected $responseSizeLimit                             = null;
-    protected $searchCriteriaUserLastName                    = null;
-    protected $searchCriteriaUserFirstName                   = null;
-    protected $searchCriteriaDn                              = null;
-    protected $searchCriteriaEmailAddress                    = null;
-    protected $searchCriteriaGroupId                         = null;
-    protected $searchCriteriaExactServiceProvider            = null;
-    protected $searchCriteriaExactUserInTrunkGroup           = null;
-    protected $searchCriteriaExactUserNetworkClassOfService  = null;
+    const     RESPONSE_TYPE                                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse';
+    public    $name                                         = __CLASS__;
+    protected $responseSizeLimit                            = null;
+    protected $searchCriteriaUserLastName                   = null;
+    protected $searchCriteriaUserFirstName                  = null;
+    protected $searchCriteriaDn                             = null;
+    protected $searchCriteriaEmailAddress                   = null;
+    protected $searchCriteriaGroupId                        = null;
+    protected $searchCriteriaExactServiceProvider           = null;
+    protected $searchCriteriaExactUserInTrunkGroup          = null;
+    protected $searchCriteriaExactUserNetworkClassOfService = null;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -61,6 +62,11 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->setSearchCriteriaExactUserNetworkClassOfService($searchCriteriaExactUserNetworkClassOfService);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -68,80 +74,141 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
+        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
+        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
+        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
+        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
     }
 
+    /**
+     * Criteria for searching for a email address.
+     */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
+        $this->searchCriteriaEmailAddress = SearchCriteriaEmailAddress $searchCriteriaEmailAddress;
     }
 
+    /**
+     * Criteria for searching for a email address.
+     */
     public function getSearchCriteriaEmailAddress()
     {
-        return (!$this->searchCriteriaEmailAddress) ?: $this->searchCriteriaEmailAddress->value();
+        return (!$this->searchCriteriaEmailAddress) ?: $this->searchCriteriaEmailAddress->getValue();
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
+        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
+        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service provider.
+     */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
+        $this->searchCriteriaExactServiceProvider = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service provider.
+     */
     public function getSearchCriteriaExactServiceProvider()
     {
-        return (!$this->searchCriteriaExactServiceProvider) ?: $this->searchCriteriaExactServiceProvider->value();
+        return (!$this->searchCriteriaExactServiceProvider) ?: $this->searchCriteriaExactServiceProvider->getValue();
     }
 
+    /**
+     * Criteria for searching for user in/not in a trunk group.
+     */
     public function setSearchCriteriaExactUserInTrunkGroup(SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null)
     {
+        $this->searchCriteriaExactUserInTrunkGroup = SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup;
     }
 
+    /**
+     * Criteria for searching for user in/not in a trunk group.
+     */
     public function getSearchCriteriaExactUserInTrunkGroup()
     {
-        return (!$this->searchCriteriaExactUserInTrunkGroup) ?: $this->searchCriteriaExactUserInTrunkGroup->value();
+        return (!$this->searchCriteriaExactUserInTrunkGroup) ?: $this->searchCriteriaExactUserInTrunkGroup->getValue();
     }
 
+    /**
+     * Criteria for searching for users with a specified network class of service.
+     */
     public function setSearchCriteriaExactUserNetworkClassOfService(SearchCriteriaExactUserNetworkClassOfService $searchCriteriaExactUserNetworkClassOfService = null)
     {
+        $this->searchCriteriaExactUserNetworkClassOfService = SearchCriteriaExactUserNetworkClassOfService $searchCriteriaExactUserNetworkClassOfService;
     }
 
+    /**
+     * Criteria for searching for users with a specified network class of service.
+     */
     public function getSearchCriteriaExactUserNetworkClassOfService()
     {
-        return (!$this->searchCriteriaExactUserNetworkClassOfService) ?: $this->searchCriteriaExactUserNetworkClassOfService->value();
+        return (!$this->searchCriteriaExactUserNetworkClassOfService) ?: $this->searchCriteriaExactUserNetworkClassOfService->getValue();
     }
 }

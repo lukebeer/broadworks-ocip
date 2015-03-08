@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Assigned User Services List Entry.
+     * Assigned User Services List Entry.
  *         The isActive element is true, false, or could be missing completely.
  */
 class AssignedUserServicesEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AssignedUserServicesEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Type to retrieve a particular page or the last page.
+     * Type to retrieve a particular page or the last page.
  */
 class LDAPPage extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\LDAPPage';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * CommPilot Express Available In Office Settings.
+     * CommPilot Express Available In Office Settings.
  */
 class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableInOffice';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

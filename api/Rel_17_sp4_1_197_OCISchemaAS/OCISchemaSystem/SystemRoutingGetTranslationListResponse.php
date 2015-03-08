@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemRoutingGetTranslationListRequest. The column headings are "Routing Digits"
+     * Response to SystemRoutingGetTranslationListRequest. The column headings are "Routing Digits"
  *         and "Route".
  */
 class SystemRoutingGetTranslationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $routingTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetTranslationListResponse';
+    public    $name         = __CLASS__;
+    protected $routingTable = null;
 
 
+    /**
+     * 
+     */
     public function setRoutingTable(core:OCITable $routingTable = null)
     {
+        $this->routingTable = core:OCITable $routingTable;
     }
 
+    /**
+     * 
+     */
     public function getRoutingTable()
     {
-        return (!$this->routingTable) ?: $this->routingTable->value();
+        return (!$this->routingTable) ?: $this->routingTable->getValue();
     }
 }

@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains a simple list of all system-level domain names.
+     * Contains a simple list of all system-level domain names.
  */
 class SystemDomainGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $systemDefaultDomain  = null;
-    protected $domain               = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetListResponse';
+    public    $name                = __CLASS__;
+    protected $systemDefaultDomain = null;
+    protected $domain              = null;
 
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setSystemDefaultDomain($systemDefaultDomain = null)
     {
         $this->systemDefaultDomain = ($systemDefaultDomain InstanceOf NetAddress)
@@ -29,11 +33,17 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
              : new NetAddress($systemDefaultDomain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getSystemDefaultDomain()
     {
-        return (!$this->systemDefaultDomain) ?: $this->systemDefaultDomain->value();
+        return (!$this->systemDefaultDomain) ?: $this->systemDefaultDomain->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setDomain($domain = null)
     {
         $this->domain = ($domain InstanceOf NetAddress)
@@ -41,8 +51,11 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
              : new NetAddress($domain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getDomain()
     {
-        return (!$this->domain) ?: $this->domain->value();
+        return (!$this->domain) ?: $this->domain->getValue();
     }
 }

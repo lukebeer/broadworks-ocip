@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a static configuration tag for a service provider access device.
+     * Request to modify a static configuration tag for a service provider access device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $deviceName         = null;
-    protected $tagName            = null;
-    protected $tagValue           = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $deviceName        = null;
+    protected $tagName           = null;
+    protected $tagValue          = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
         $this->setTagValue($tagValue);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,18 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -58,11 +69,19 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * A static tag name for access device files managed by the Device Management System on BroadWorks.
+     *         The static tag name must start and end with a % with no other % in between. The tag must not
+     *         start with %BW.
+     */
     public function setTagName($tagName = null)
     {
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
@@ -70,11 +89,19 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
              : new DeviceManagementTagName($tagName);
     }
 
+    /**
+     * A static tag name for access device files managed by the Device Management System on BroadWorks.
+     *         The static tag name must start and end with a % with no other % in between. The tag must not
+     *         start with %BW.
+     */
     public function getTagName()
     {
-        return (!$this->tagName) ?: $this->tagName->value();
+        return (!$this->tagName) ?: $this->tagName->getValue();
     }
 
+    /**
+     * A static tag value for access device files managed by the Device Management System on BroadWorks.
+     */
     public function setTagValue($tagValue = null)
     {
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
@@ -82,8 +109,11 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
              : new DeviceManagementTagValue($tagValue);
     }
 
+    /**
+     * A static tag value for access device files managed by the Device Management System on BroadWorks.
+     */
     public function getTagValue()
     {
-        return (!$this->tagValue) ?: $this->tagValue->value();
+        return (!$this->tagValue) ?: $this->tagValue->getValue();
     }
 }

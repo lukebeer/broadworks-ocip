@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a SMDI Server from the system.
+     * Request to delete a SMDI Server from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskDeleteServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
 
     public function __construct(
          $deviceName
@@ -27,6 +27,9 @@ class SystemSMDIMessageDeskDeleteServerRequest extends ComplexType implements Co
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * SMDI device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
@@ -34,8 +37,11 @@ class SystemSMDIMessageDeskDeleteServerRequest extends ComplexType implements Co
              : new SMDIDeviceName($deviceName);
     }
 
+    /**
+     * SMDI device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

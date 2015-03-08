@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * This command is used to resynchronize all the conference bridges and
+     * This command is used to resynchronize all the conference bridges and
  *         administrators defined on the specified device, pushing data from the
  *         Application Server to the Conferencing Server.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInstantConferencingResynchronizeDeviceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
 
     public function __construct(
          $deviceName
@@ -29,6 +29,9 @@ class SystemInstantConferencingResynchronizeDeviceRequest extends ComplexType im
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -36,8 +39,11 @@ class SystemInstantConferencingResynchronizeDeviceRequest extends ComplexType im
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

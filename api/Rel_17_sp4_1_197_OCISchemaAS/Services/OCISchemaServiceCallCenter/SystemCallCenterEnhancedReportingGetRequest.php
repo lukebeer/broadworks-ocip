@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the call center enhanced reporting system settings.
+     * Request to get the call center enhanced reporting system settings.
  *         The response is either a SystemCallCenterEnhancedReportingGetResponse or an ErrorResponse.
  */
 class SystemCallCenterEnhancedReportingGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an existing Communication Barring Digit Pattern Criteria.
+     * Delete an existing Communication Barring Digit Pattern Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $name               = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $name              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest exten
         $this->setName($name);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest exten
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
@@ -50,8 +61,11 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest exten
              : new DigitPatternCriteriaName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

@@ -16,31 +16,42 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserInterceptUserGetRequest.
+     * Response to the UserInterceptUserGetRequest.
  *         Replaced By: UserInterceptUserGetResponse16
  */
 class UserInterceptUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $isActive                     = null;
-    protected $announcementSelection        = null;
-    protected $audioFileDescription         = null;
-    protected $videoFileDescription         = null;
-    protected $playNewPhoneNumber           = null;
-    protected $newPhoneNumber               = null;
-    protected $transferOnZeroToPhoneNumber  = null;
-    protected $transferPhoneNumber          = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserInterceptUserGetResponse';
+    public    $name                        = __CLASS__;
+    protected $isActive                    = null;
+    protected $announcementSelection       = null;
+    protected $audioFileDescription        = null;
+    protected $videoFileDescription        = null;
+    protected $playNewPhoneNumber          = null;
+    protected $newPhoneNumber              = null;
+    protected $transferOnZeroToPhoneNumber = null;
+    protected $transferPhoneNumber         = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Announcement Selection.
+     */
     public function setAnnouncementSelection($announcementSelection = null)
     {
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
@@ -48,11 +59,17 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
              : new AnnouncementSelection($announcementSelection);
     }
 
+    /**
+     * Announcement Selection.
+     */
     public function getAnnouncementSelection()
     {
-        return (!$this->announcementSelection) ?: $this->announcementSelection->value();
+        return (!$this->announcementSelection) ?: $this->announcementSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
@@ -60,11 +77,17 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
              : new FileDescription($audioFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
+        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
@@ -72,20 +95,33 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
              : new FileDescription($videoFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
+        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
     }
 
-    public function setPlayNewPhoneNumber(xs:boolean $playNewPhoneNumber = null)
+    /**
+     * 
+     */
+    public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
+        $this->playNewPhoneNumber = (boolean) $playNewPhoneNumber;
     }
 
+    /**
+     * 
+     */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->value();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
@@ -93,20 +129,35 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
              : new DN($newPhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getNewPhoneNumber()
     {
-        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->value();
+        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->getValue();
     }
 
-    public function setTransferOnZeroToPhoneNumber(xs:boolean $transferOnZeroToPhoneNumber = null)
+    /**
+     * 
+     */
+    public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
+        $this->transferOnZeroToPhoneNumber = (boolean) $transferOnZeroToPhoneNumber;
     }
 
+    /**
+     * 
+     */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->value();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
@@ -114,8 +165,13 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
              : new OutgoingDN($transferPhoneNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
+        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
     }
 }

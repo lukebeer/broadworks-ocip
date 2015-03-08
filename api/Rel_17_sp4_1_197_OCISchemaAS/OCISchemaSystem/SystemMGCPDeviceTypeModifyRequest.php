@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a mgcp device type. In release 14, this is limited to changing the obsolete flag.
+     * Request to modify a mgcp device type. In release 14, this is limited to changing the obsolete flag.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
-    protected $isObsolete  = null;
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
+    protected $isObsolete = null;
 
     public function __construct(
          $deviceType,
@@ -30,6 +30,9 @@ class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexIn
         $this->setIsObsolete($isObsolete);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -37,17 +40,27 @@ class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexIn
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
-    public function setIsObsolete(xs:boolean $isObsolete = null)
+    /**
+     * 
+     */
+    public function setIsObsolete($isObsolete = null)
     {
+        $this->isObsolete = (boolean) $isObsolete;
     }
 
+    /**
+     * 
+     */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->value();
+        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
     }
 }

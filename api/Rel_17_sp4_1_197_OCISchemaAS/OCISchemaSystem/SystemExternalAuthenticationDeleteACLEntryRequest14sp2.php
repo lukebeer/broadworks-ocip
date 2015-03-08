@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an entry from the external authentication access control list.
+     * Delete an entry from the external authentication access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExternalAuthenticationDeleteACLEntryRequest14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $netAddress  = null;
+    public    $name       = __CLASS__;
+    protected $netAddress = null;
 
     public function __construct(
          $netAddress
@@ -27,6 +27,9 @@ class SystemExternalAuthenticationDeleteACLEntryRequest14sp2 extends ComplexType
         $this->setNetAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf IPAddress)
@@ -34,8 +37,11 @@ class SystemExternalAuthenticationDeleteACLEntryRequest14sp2 extends ComplexType
              : new IPAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 }

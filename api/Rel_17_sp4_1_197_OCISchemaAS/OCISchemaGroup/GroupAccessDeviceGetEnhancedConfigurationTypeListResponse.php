@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupAccessDeviceGetEnhancedConfigurationTypeListRequest.
+     * Response to GroupAccessDeviceGetEnhancedConfigurationTypeListRequest.
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeListResponse';
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
 
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -28,8 +32,11 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeListResponse extends ComplexT
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 }

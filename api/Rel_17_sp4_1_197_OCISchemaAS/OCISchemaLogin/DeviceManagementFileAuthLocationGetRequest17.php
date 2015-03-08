@@ -22,23 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the address and credentials of the File Repository hosting the requested access device file. 
+     * Get the address and credentials of the File Repository hosting the requested access device file. 
  *         Also get the file name and path on the File Repository. 
  *         The response is either a DeviceManagementFileAuthLocationGetResponse17 or an ErrorResponse.
  */
 class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $deviceAccessProtocol      = null;
-    protected $deviceAccessMethod        = null;
-    protected $deviceAccessURI           = null;
-    protected $accessDeviceUserName      = null;
-    protected $accessDeviceUserPassword  = null;
-    protected $signedPassword            = null;
-    protected $macAddress                = null;
-    protected $realmName                 = null;
-    protected $digestHa1Complement       = null;
-    protected $digestResponse            = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17';
+    public    $name                     = __CLASS__;
+    protected $deviceAccessProtocol     = null;
+    protected $deviceAccessMethod       = null;
+    protected $deviceAccessURI          = null;
+    protected $accessDeviceUserName     = null;
+    protected $accessDeviceUserPassword = null;
+    protected $signedPassword           = null;
+    protected $macAddress               = null;
+    protected $realmName                = null;
+    protected $digestHa1Complement      = null;
+    protected $digestResponse           = null;
 
     public function __construct(
          $deviceAccessProtocol,
@@ -64,6 +65,9 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
         $this->setDigestResponse($digestResponse);
     }
 
+    /**
+     * Protocols that an access device can use to fetch files from BroadWorks.
+     */
     public function setDeviceAccessProtocol($deviceAccessProtocol = null)
     {
         $this->deviceAccessProtocol = ($deviceAccessProtocol InstanceOf DeviceAccessProtocol16)
@@ -71,11 +75,17 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new DeviceAccessProtocol16($deviceAccessProtocol);
     }
 
+    /**
+     * Protocols that an access device can use to fetch files from BroadWorks.
+     */
     public function getDeviceAccessProtocol()
     {
-        return (!$this->deviceAccessProtocol) ?: $this->deviceAccessProtocol->value();
+        return (!$this->deviceAccessProtocol) ?: $this->deviceAccessProtocol->getValue();
     }
 
+    /**
+     * 
+     */
     public function setDeviceAccessMethod($deviceAccessMethod = null)
     {
         $this->deviceAccessMethod = ($deviceAccessMethod InstanceOf FileRepositoryAccessType)
@@ -83,11 +93,17 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new FileRepositoryAccessType($deviceAccessMethod);
     }
 
+    /**
+     * 
+     */
     public function getDeviceAccessMethod()
     {
-        return (!$this->deviceAccessMethod) ?: $this->deviceAccessMethod->value();
+        return (!$this->deviceAccessMethod) ?: $this->deviceAccessMethod->getValue();
     }
 
+    /**
+     * The access URI that a device uses to access files on BroadWorks.
+     */
     public function setDeviceAccessURI($deviceAccessURI = null)
     {
         $this->deviceAccessURI = ($deviceAccessURI InstanceOf DeviceManagementAccessURI)
@@ -95,11 +111,21 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new DeviceManagementAccessURI($deviceAccessURI);
     }
 
+    /**
+     * The access URI that a device uses to access files on BroadWorks.
+     */
     public function getDeviceAccessURI()
     {
-        return (!$this->deviceAccessURI) ?: $this->deviceAccessURI->value();
+        return (!$this->deviceAccessURI) ?: $this->deviceAccessURI->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setAccessDeviceUserName($accessDeviceUserName = null)
     {
         $this->accessDeviceUserName = ($accessDeviceUserName InstanceOf UserId)
@@ -107,11 +133,21 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new UserId($accessDeviceUserName);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getAccessDeviceUserName()
     {
-        return (!$this->accessDeviceUserName) ?: $this->accessDeviceUserName->value();
+        return (!$this->accessDeviceUserName) ?: $this->accessDeviceUserName->getValue();
     }
 
+    /**
+     * 
+     */
     public function setAccessDeviceUserPassword($accessDeviceUserPassword = null)
     {
         $this->accessDeviceUserPassword = ($accessDeviceUserPassword InstanceOf Password)
@@ -119,11 +155,17 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new Password($accessDeviceUserPassword);
     }
 
+    /**
+     * 
+     */
     public function getAccessDeviceUserPassword()
     {
-        return (!$this->accessDeviceUserPassword) ?: $this->accessDeviceUserPassword->value();
+        return (!$this->accessDeviceUserPassword) ?: $this->accessDeviceUserPassword->getValue();
     }
 
+    /**
+     * Signed Password.
+     */
     public function setSignedPassword($signedPassword = null)
     {
         $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
@@ -131,11 +173,17 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new SignedPassword($signedPassword);
     }
 
+    /**
+     * Signed Password.
+     */
     public function getSignedPassword()
     {
-        return (!$this->signedPassword) ?: $this->signedPassword->value();
+        return (!$this->signedPassword) ?: $this->signedPassword->getValue();
     }
 
+    /**
+     * Access device MAC address.
+     */
     public function setMacAddress($macAddress = null)
     {
         $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
@@ -143,11 +191,17 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new AccessDeviceMACAddress($macAddress);
     }
 
+    /**
+     * Access device MAC address.
+     */
     public function getMacAddress()
     {
-        return (!$this->macAddress) ?: $this->macAddress->value();
+        return (!$this->macAddress) ?: $this->macAddress->getValue();
     }
 
+    /**
+     * Realm Name.
+     */
     public function setRealmName($realmName = null)
     {
         $this->realmName = ($realmName InstanceOf RealmName)
@@ -155,11 +209,17 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new RealmName($realmName);
     }
 
+    /**
+     * Realm Name.
+     */
     public function getRealmName()
     {
-        return (!$this->realmName) ?: $this->realmName->value();
+        return (!$this->realmName) ?: $this->realmName->getValue();
     }
 
+    /**
+     * Ha1 Complement of a Http Digest Authentication.
+     */
     public function setDigestHa1Complement($digestHa1Complement = null)
     {
         $this->digestHa1Complement = ($digestHa1Complement InstanceOf DigestHa1Complement)
@@ -167,11 +227,17 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new DigestHa1Complement($digestHa1Complement);
     }
 
+    /**
+     * Ha1 Complement of a Http Digest Authentication.
+     */
     public function getDigestHa1Complement()
     {
-        return (!$this->digestHa1Complement) ?: $this->digestHa1Complement->value();
+        return (!$this->digestHa1Complement) ?: $this->digestHa1Complement->getValue();
     }
 
+    /**
+     * Byte Representation of a Md5 Hash.
+     */
     public function setDigestResponse($digestResponse = null)
     {
         $this->digestResponse = ($digestResponse InstanceOf Md5Hash)
@@ -179,8 +245,11 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
              : new Md5Hash($digestResponse);
     }
 
+    /**
+     * Byte Representation of a Md5 Hash.
+     */
     public function getDigestResponse()
     {
-        return (!$this->digestResponse) ?: $this->digestResponse->value();
+        return (!$this->digestResponse) ?: $this->digestResponse->getValue();
     }
 }

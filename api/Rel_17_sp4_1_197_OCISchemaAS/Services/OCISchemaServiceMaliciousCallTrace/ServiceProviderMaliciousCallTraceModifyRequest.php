@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the service provider's Malicious Call Trace settings.
+     * Modify the service provider's Malicious Call Trace settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
-    protected $serviceProviderId                    = null;
-    protected $useSystemPlayMCTWarningAnnouncement  = null;
-    protected $playMCTWarningAnnouncement           = null;
+    public    $name                                = __CLASS__;
+    protected $serviceProviderId                   = null;
+    protected $useSystemPlayMCTWarningAnnouncement = null;
+    protected $playMCTWarningAnnouncement          = null;
 
     public function __construct(
          $serviceProviderId,
@@ -33,6 +33,10 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
         $this->setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -40,26 +44,44 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setUseSystemPlayMCTWarningAnnouncement(xs:boolean $useSystemPlayMCTWarningAnnouncement = null)
+    /**
+     * 
+     */
+    public function setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement = null)
     {
+        $this->useSystemPlayMCTWarningAnnouncement = (boolean) $useSystemPlayMCTWarningAnnouncement;
     }
 
+    /**
+     * 
+     */
     public function getUseSystemPlayMCTWarningAnnouncement()
     {
-        return (!$this->useSystemPlayMCTWarningAnnouncement) ?: $this->useSystemPlayMCTWarningAnnouncement->value();
+        return (!$this->useSystemPlayMCTWarningAnnouncement) ?: $this->useSystemPlayMCTWarningAnnouncement->getValue();
     }
 
-    public function setPlayMCTWarningAnnouncement(xs:boolean $playMCTWarningAnnouncement = null)
+    /**
+     * 
+     */
+    public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
+        $this->playMCTWarningAnnouncement = (boolean) $playMCTWarningAnnouncement;
     }
 
+    /**
+     * 
+     */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->value();
+        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->getValue();
     }
 }

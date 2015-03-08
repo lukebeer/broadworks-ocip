@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemCommunicationBarringServiceProviderGetCriteriaUsageListRequest.
+     * Response to the SystemCommunicationBarringServiceProviderGetCriteriaUsageListRequest.
  *         The response contains a table of all Service Providers that use the specific Communication Barring criteria. The column headings are "Service Provider Id", "Service Provider Name" and "Is Enterprise"
  */
 class SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $serviceProviderTable  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse';
+    public    $name                 = __CLASS__;
+    protected $serviceProviderTable = null;
 
 
+    /**
+     * 
+     */
     public function setServiceProviderTable(core:OCITable $serviceProviderTable = null)
     {
+        $this->serviceProviderTable = core:OCITable $serviceProviderTable;
     }
 
+    /**
+     * 
+     */
     public function getServiceProviderTable()
     {
-        return (!$this->serviceProviderTable) ?: $this->serviceProviderTable->value();
+        return (!$this->serviceProviderTable) ?: $this->serviceProviderTable->getValue();
     }
 }

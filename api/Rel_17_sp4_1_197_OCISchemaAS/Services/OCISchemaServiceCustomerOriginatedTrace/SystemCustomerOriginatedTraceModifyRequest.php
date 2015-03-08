@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Customer Originated Trace.
+     * Modify the system level data associated with Customer Originated Trace.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $screenMaliciousCallers  = null;
+    public    $name                   = __CLASS__;
+    protected $screenMaliciousCallers = null;
 
     public function __construct(
          $screenMaliciousCallers = null
@@ -27,12 +27,19 @@ class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements 
         $this->setScreenMaliciousCallers($screenMaliciousCallers);
     }
 
-    public function setScreenMaliciousCallers(xs:boolean $screenMaliciousCallers = null)
+    /**
+     * 
+     */
+    public function setScreenMaliciousCallers($screenMaliciousCallers = null)
     {
+        $this->screenMaliciousCallers = (boolean) $screenMaliciousCallers;
     }
 
+    /**
+     * 
+     */
     public function getScreenMaliciousCallers()
     {
-        return (!$this->screenMaliciousCallers) ?: $this->screenMaliciousCallers->value();
+        return (!$this->screenMaliciousCallers) ?: $this->screenMaliciousCallers->getValue();
     }
 }

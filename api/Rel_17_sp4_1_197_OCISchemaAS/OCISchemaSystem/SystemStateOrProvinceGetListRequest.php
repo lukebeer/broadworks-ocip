@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of state and province names.
+     * Requests the list of state and province names.
  *         The response is either SystemStateOrProvinceGetListResponse or ErrorResponse.
  */
 class SystemStateOrProvinceGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemStateOrProvinceGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

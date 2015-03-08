@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupRoutePointGetInstanceListRequest.
+     * Response to the GroupRoutePointGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department", "Is Active".
  *         The column values for "Video" and "Is Active" can either be true, or false.
  */
 class GroupRoutePointGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $routePointTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse';
+    public    $name            = __CLASS__;
+    protected $routePointTable = null;
 
 
+    /**
+     * 
+     */
     public function setRoutePointTable(core:OCITable $routePointTable = null)
     {
+        $this->routePointTable = core:OCITable $routePointTable;
     }
 
+    /**
+     * 
+     */
     public function getRoutePointTable()
     {
-        return (!$this->routePointTable) ?: $this->routePointTable->value();
+        return (!$this->routePointTable) ?: $this->routePointTable->getValue();
     }
 }

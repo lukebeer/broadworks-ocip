@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderEnhancedCallLogsGetRequest.
+     * Response to ServiceProviderEnhancedCallLogsGetRequest.
  */
 class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $maxLoggedCalls      = null;
-    protected $callExpirationDays  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderEnhancedCallLogsGetResponse';
+    public    $name               = __CLASS__;
+    protected $maxLoggedCalls     = null;
+    protected $callExpirationDays = null;
 
 
+    /**
+     * Sets the maximum number of logged calls that can be stored.
+     */
     public function setMaxLoggedCalls($maxLoggedCalls = null)
     {
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
@@ -30,11 +34,17 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
              : new EnhancedCallLogsMaxLoggedCalls($maxLoggedCalls);
     }
 
+    /**
+     * Sets the maximum number of logged calls that can be stored.
+     */
     public function getMaxLoggedCalls()
     {
-        return (!$this->maxLoggedCalls) ?: $this->maxLoggedCalls->value();
+        return (!$this->maxLoggedCalls) ?: $this->maxLoggedCalls->getValue();
     }
 
+    /**
+     * The maximum length of time the system will store logged calls.
+     */
     public function setCallExpirationDays($callExpirationDays = null)
     {
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
@@ -42,8 +52,11 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
     }
 
+    /**
+     * The maximum length of time the system will store logged calls.
+     */
     public function getCallExpirationDays()
     {
-        return (!$this->callExpirationDays) ?: $this->callExpirationDays->value();
+        return (!$this->callExpirationDays) ?: $this->callExpirationDays->getValue();
     }
 }

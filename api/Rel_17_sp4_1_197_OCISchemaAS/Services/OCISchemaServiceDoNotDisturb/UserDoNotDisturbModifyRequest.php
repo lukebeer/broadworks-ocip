@@ -13,16 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Do Not Disturb.
+     * Modify the user level data associated with Do Not Disturb.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  */
 class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $userId      = null;
-    protected $isActive    = null;
-    protected $ringSplash  = null;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $isActive   = null;
+    protected $ringSplash = null;
 
     public function __construct(
          $userId,
@@ -34,6 +34,13 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
         $this->setRingSplash($ringSplash);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -41,26 +48,47 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setRingSplash(xs:boolean $ringSplash = null)
+    /**
+     * 
+     */
+    public function setRingSplash($ringSplash = null)
     {
+        $this->ringSplash = (boolean) $ringSplash;
     }
 
+    /**
+     * 
+     */
     public function getRingSplash()
     {
-        return (!$this->ringSplash) ?: $this->ringSplash->value();
+        return (!$this->ringSplash) ?: $this->ringSplash->getValue();
     }
 }

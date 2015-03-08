@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the default Network Classes of Service of a Service Provider.
+     * Modifies the default Network Classes of Service of a Service Provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $serviceProviderId      = null;
-    protected $networkClassOfService  = null;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $networkClassOfService = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
         $this->setNetworkClassOfService($networkClassOfService);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
@@ -50,8 +61,11 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
              : new NetworkClassOfServiceName($networkClassOfService);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->value();
+        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
     }
 }

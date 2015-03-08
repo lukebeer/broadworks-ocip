@@ -19,25 +19,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterHolidayServiceGetRequest17.
+     * Response to the GroupCallCenterHolidayServiceGetRequest17.
  */
 class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $action                        = null;
-    protected $holidaySchedule               = null;
-    protected $transferPhoneNumber           = null;
-    protected $playAnnouncementBeforeAction  = null;
-    protected $audioMessageSelection         = null;
-    protected $audioUrlList                  = null;
-    protected $audioFileList                 = null;
-    protected $audioMediaTypeList            = null;
-    protected $videoMessageSelection         = null;
-    protected $videoUrlList                  = null;
-    protected $videoFileList                 = null;
-    protected $videoMediaTypeList            = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallCenterHolidayServiceGetResponse17';
+    public    $name                         = __CLASS__;
+    protected $action                       = null;
+    protected $holidaySchedule              = null;
+    protected $transferPhoneNumber          = null;
+    protected $playAnnouncementBeforeAction = null;
+    protected $audioMessageSelection        = null;
+    protected $audioUrlList                 = null;
+    protected $audioFileList                = null;
+    protected $audioMediaTypeList           = null;
+    protected $videoMessageSelection        = null;
+    protected $videoUrlList                 = null;
+    protected $videoFileList                = null;
+    protected $videoMediaTypeList           = null;
 
 
+    /**
+     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     */
     public function setAction($action = null)
     {
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
@@ -45,11 +49,17 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
              : new CallCenterScheduledServiceAction($action);
     }
 
+    /**
+     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     */
     public function getAction()
     {
-        return (!$this->action) ?: $this->action->value();
+        return (!$this->action) ?: $this->action->getValue();
     }
 
+    /**
+     * Schedule name.
+     */
     public function setHolidaySchedule($holidaySchedule = null)
     {
         $this->holidaySchedule = ($holidaySchedule InstanceOf ScheduleName)
@@ -57,11 +67,24 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
              : new ScheduleName($holidaySchedule);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getHolidaySchedule()
     {
-        return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
+        return (!$this->holidaySchedule) ?: $this->holidaySchedule->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -69,20 +92,40 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
              : new OutgoingDNorSIPURI($transferPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
+        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
     }
 
-    public function setPlayAnnouncementBeforeAction(xs:boolean $playAnnouncementBeforeAction = null)
+    /**
+     * 
+     */
+    public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
+        $this->playAnnouncementBeforeAction = (boolean) $playAnnouncementBeforeAction;
     }
 
+    /**
+     * 
+     */
     public function getPlayAnnouncementBeforeAction()
     {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction->value();
+        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -90,38 +133,65 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
              : new ExtendedFileResourceSelection($audioMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->value();
+        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
     }
 
+    /**
+     * Contains list of urls
+     */
     public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
+        $this->audioUrlList = CallCenterAnnouncementURLList $audioUrlList;
     }
 
+    /**
+     * Contains list of urls
+     */
     public function getAudioUrlList()
     {
-        return (!$this->audioUrlList) ?: $this->audioUrlList->value();
+        return (!$this->audioUrlList) ?: $this->audioUrlList->getValue();
     }
 
+    /**
+     * Contains list of file descriptions for audio or video files
+     */
     public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
+        $this->audioFileList = CallCenterAnnouncementDescriptionList $audioFileList;
     }
 
+    /**
+     * Contains list of file descriptions for audio or video files
+     */
     public function getAudioFileList()
     {
-        return (!$this->audioFileList) ?: $this->audioFileList->value();
+        return (!$this->audioFileList) ?: $this->audioFileList->getValue();
     }
 
+    /**
+     * Contains list of file media types for audio or video files
+     */
     public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
+        $this->audioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList;
     }
 
+    /**
+     * Contains list of file media types for audio or video files
+     */
     public function getAudioMediaTypeList()
     {
-        return (!$this->audioMediaTypeList) ?: $this->audioMediaTypeList->value();
+        return (!$this->audioMediaTypeList) ?: $this->audioMediaTypeList->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -129,35 +199,59 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
              : new ExtendedFileResourceSelection($videoMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->value();
+        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
     }
 
+    /**
+     * Contains list of urls
+     */
     public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
+        $this->videoUrlList = CallCenterAnnouncementURLList $videoUrlList;
     }
 
+    /**
+     * Contains list of urls
+     */
     public function getVideoUrlList()
     {
-        return (!$this->videoUrlList) ?: $this->videoUrlList->value();
+        return (!$this->videoUrlList) ?: $this->videoUrlList->getValue();
     }
 
+    /**
+     * Contains list of file descriptions for audio or video files
+     */
     public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
+        $this->videoFileList = CallCenterAnnouncementDescriptionList $videoFileList;
     }
 
+    /**
+     * Contains list of file descriptions for audio or video files
+     */
     public function getVideoFileList()
     {
-        return (!$this->videoFileList) ?: $this->videoFileList->value();
+        return (!$this->videoFileList) ?: $this->videoFileList->getValue();
     }
 
+    /**
+     * Contains list of file media types for audio or video files
+     */
     public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
+        $this->videoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList;
     }
 
+    /**
+     * Contains list of file media types for audio or video files
+     */
     public function getVideoMediaTypeList()
     {
-        return (!$this->videoMediaTypeList) ?: $this->videoMediaTypeList->value();
+        return (!$this->videoMediaTypeList) ?: $this->videoMediaTypeList->getValue();
     }
 }

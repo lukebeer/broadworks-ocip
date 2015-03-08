@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the defined languages in the system.
+     * Request the defined languages in the system.
  *         The response is either a SystemLanguageGetListResponse or an ErrorResponse.
  */
 class SystemLanguageGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLanguageGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

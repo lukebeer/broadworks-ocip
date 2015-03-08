@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a country code from the system.
+     * Delete a country code from the system.
  *         A country code cannot be deleted if it is the default country code or
  *         if any carriers or call type mappings are defined against it.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $countryCode  = null;
+    public    $name        = __CLASS__;
+    protected $countryCode = null;
 
     public function __construct(
          $countryCode
@@ -29,6 +29,9 @@ class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInter
         $this->setCountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -36,8 +39,11 @@ class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInter
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 }

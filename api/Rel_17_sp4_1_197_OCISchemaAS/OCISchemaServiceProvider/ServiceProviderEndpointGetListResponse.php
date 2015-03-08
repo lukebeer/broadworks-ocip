@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderEndpointGetListRequest.
+     * Response to ServiceProviderEndpointGetListRequest.
  *         The column headings for the endpointTable are: 
  *           "Group Id", "Line/Port", "Last Name", "First Name",  "User Id", "User Type", "Phone Number", "Extension", "Device Type", "Device Name", "Net Address", "MAC Address".
  * 		Possible values for User Type are ‘User’, ‘CCBasic’, ‘CCStandard’, ‘CCPremium’, ‘RP’, ‘MOH’, ‘MOHVideo’.
  */
 class ServiceProviderEndpointGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $endpointTable  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse';
+    public    $name          = __CLASS__;
+    protected $endpointTable = null;
 
 
+    /**
+     * 
+     */
     public function setEndpointTable(core:OCITable $endpointTable = null)
     {
+        $this->endpointTable = core:OCITable $endpointTable;
     }
 
+    /**
+     * 
+     */
     public function getEndpointTable()
     {
-        return (!$this->endpointTable) ?: $this->endpointTable->value();
+        return (!$this->endpointTable) ?: $this->endpointTable->getValue();
     }
 }

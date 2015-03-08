@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a list of routes in the system.
+     * Request to get a list of routes in the system.
  *         The response is either a SystemRoutingGetRouteListResponse or an ErrorResponse.
  */
 class SystemRoutingGetRouteListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetRouteListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

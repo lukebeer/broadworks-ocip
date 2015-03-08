@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Client Session (web and CLI) system parameters.
+     * Request to modify Client Session (web and CLI) system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemClientSessionParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $enableInactivityTimeout   = null;
-    protected $inactivityTimeoutMinutes  = null;
+    public    $name                     = __CLASS__;
+    protected $enableInactivityTimeout  = null;
+    protected $inactivityTimeoutMinutes = null;
 
     public function __construct(
          $enableInactivityTimeout = null,
@@ -30,15 +30,25 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
         $this->setInactivityTimeoutMinutes($inactivityTimeoutMinutes);
     }
 
-    public function setEnableInactivityTimeout(xs:boolean $enableInactivityTimeout = null)
+    /**
+     * 
+     */
+    public function setEnableInactivityTimeout($enableInactivityTimeout = null)
     {
+        $this->enableInactivityTimeout = (boolean) $enableInactivityTimeout;
     }
 
+    /**
+     * 
+     */
     public function getEnableInactivityTimeout()
     {
-        return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout->value();
+        return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout->getValue();
     }
 
+    /**
+     * Client session (web and CLI) inactivity timeout in minutes.
+     */
     public function setInactivityTimeoutMinutes($inactivityTimeoutMinutes = null)
     {
         $this->inactivityTimeoutMinutes = ($inactivityTimeoutMinutes InstanceOf ClientSessionTimeoutMinutes)
@@ -46,8 +56,11 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
              : new ClientSessionTimeoutMinutes($inactivityTimeoutMinutes);
     }
 
+    /**
+     * Client session (web and CLI) inactivity timeout in minutes.
+     */
     public function getInactivityTimeoutMinutes()
     {
-        return (!$this->inactivityTimeoutMinutes) ?: $this->inactivityTimeoutMinutes->value();
+        return (!$this->inactivityTimeoutMinutes) ?: $this->inactivityTimeoutMinutes->getValue();
     }
 }

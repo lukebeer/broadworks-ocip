@@ -16,18 +16,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of all available trunk groups defined in a group.
+     * Request to get the list of all available trunk groups defined in a group.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse or an ErrorResponse.
  */
 class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $serviceProviderId             = null;
-    protected $groupId                       = null;
-    protected $responseSizeLimit             = null;
-    protected $searchCriteriaTrunkGroupName  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse';
+    public    $name                         = __CLASS__;
+    protected $serviceProviderId            = null;
+    protected $groupId                      = null;
+    protected $responseSizeLimit            = null;
+    protected $searchCriteriaTrunkGroupName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +42,10 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
         $this->setSearchCriteriaTrunkGroupName($searchCriteriaTrunkGroupName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,11 +53,19 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -60,11 +73,20 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -72,17 +94,29 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a trunk group
+     */
     public function setSearchCriteriaTrunkGroupName(SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null)
     {
+        $this->searchCriteriaTrunkGroupName = SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName;
     }
 
+    /**
+     * Criteria for searching for a trunk group
+     */
     public function getSearchCriteriaTrunkGroupName()
     {
-        return (!$this->searchCriteriaTrunkGroupName) ?: $this->searchCriteriaTrunkGroupName->value();
+        return (!$this->searchCriteriaTrunkGroupName) ?: $this->searchCriteriaTrunkGroupName->getValue();
     }
 }

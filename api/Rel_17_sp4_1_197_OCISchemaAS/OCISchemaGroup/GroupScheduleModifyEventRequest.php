@@ -17,20 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an event of a group schedule.
+     * Modify an event of a group schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $scheduleKey        = null;
-    protected $eventName          = null;
-    protected $newEventName       = null;
-    protected $startDate          = null;
-    protected $endDate            = null;
-    protected $recurrence         = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $scheduleKey       = null;
+    protected $eventName         = null;
+    protected $newEventName      = null;
+    protected $startDate         = null;
+    protected $endDate           = null;
+    protected $recurrence        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -52,6 +52,10 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
         $this->setRecurrence($recurrence);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -59,11 +63,19 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -71,20 +83,34 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 
+    /**
+     * Event name.
+     */
     public function setEventName($eventName = null)
     {
         $this->eventName = ($eventName InstanceOf EventName)
@@ -92,11 +118,17 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
              : new EventName($eventName);
     }
 
+    /**
+     * Event name.
+     */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->value();
+        return (!$this->eventName) ?: $this->eventName->getValue();
     }
 
+    /**
+     * Event name.
+     */
     public function setNewEventName($newEventName = null)
     {
         $this->newEventName = ($newEventName InstanceOf EventName)
@@ -104,35 +136,59 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
              : new EventName($newEventName);
     }
 
+    /**
+     * Event name.
+     */
     public function getNewEventName()
     {
-        return (!$this->newEventName) ?: $this->newEventName->value();
+        return (!$this->newEventName) ?: $this->newEventName->getValue();
     }
 
+    /**
+     * 
+     */
     public function setStartDate(xs:date $startDate = null)
     {
+        $this->startDate = xs:date $startDate;
     }
 
+    /**
+     * 
+     */
     public function getStartDate()
     {
-        return (!$this->startDate) ?: $this->startDate->value();
+        return (!$this->startDate) ?: $this->startDate->getValue();
     }
 
+    /**
+     * 
+     */
     public function setEndDate(xs:date $endDate = null)
     {
+        $this->endDate = xs:date $endDate;
     }
 
+    /**
+     * 
+     */
     public function getEndDate()
     {
-        return (!$this->endDate) ?: $this->endDate->value();
+        return (!$this->endDate) ?: $this->endDate->getValue();
     }
 
+    /**
+     * Defines recurrence.
+     */
     public function setRecurrence(Recurrence $recurrence = null)
     {
+        $this->recurrence = Recurrence $recurrence;
     }
 
+    /**
+     * Defines recurrence.
+     */
     public function getRecurrence()
     {
-        return (!$this->recurrence) ?: $this->recurrence->value();
+        return (!$this->recurrence) ?: $this->recurrence->getValue();
     }
 }

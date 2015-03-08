@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a device CPE config file server.
+     * Delete a device CPE config file server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCPEConfigDeleteFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
 
     public function __construct(
          $deviceType
@@ -27,6 +27,9 @@ class SystemCPEConfigDeleteFileServerRequest extends ComplexType implements Comp
         $this->setDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -34,8 +37,11 @@ class SystemCPEConfigDeleteFileServerRequest extends ComplexType implements Comp
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 }

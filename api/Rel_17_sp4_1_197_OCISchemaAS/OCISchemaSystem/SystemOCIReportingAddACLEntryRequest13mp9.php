@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an entry to the OCI Reporting Access Control List.
+     * Add an entry to the OCI Reporting Access Control List.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $netAddress        = null;
-    protected $description       = null;
-    protected $restrictMessages  = null;
+    public    $name             = __CLASS__;
+    protected $netAddress       = null;
+    protected $description      = null;
+    protected $restrictMessages = null;
 
     public function __construct(
          $netAddress,
@@ -34,6 +34,9 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
         $this->setRestrictMessages($restrictMessages);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -41,11 +44,17 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
@@ -53,17 +62,27 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
              : new NetworkACLEntryDescription($description);
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
-    public function setRestrictMessages(xs:boolean $restrictMessages = null)
+    /**
+     * 
+     */
+    public function setRestrictMessages($restrictMessages = null)
     {
+        $this->restrictMessages = (boolean) $restrictMessages;
     }
 
+    /**
+     * 
+     */
     public function getRestrictMessages()
     {
-        return (!$this->restrictMessages) ?: $this->restrictMessages->value();
+        return (!$this->restrictMessages) ?: $this->restrictMessages->getValue();
     }
 }

@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of all Communication Barring Profiles.
+     * Get the list of all Communication Barring Profiles.
  *         The response is either a 
  *         SystemCommunicationBarringProfileGetListResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringProfileGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

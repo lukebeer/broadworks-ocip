@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemInterceptUserGetRequest.
+     * Response to the SystemInterceptUserGetRequest.
  */
 class SystemInterceptUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $emergencyAndRepairIntercept  = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserGetResponse';
+    public    $name                        = __CLASS__;
+    protected $emergencyAndRepairIntercept = null;
 
 
-    public function setEmergencyAndRepairIntercept(xs:boolean $emergencyAndRepairIntercept = null)
+    /**
+     * 
+     */
+    public function setEmergencyAndRepairIntercept($emergencyAndRepairIntercept = null)
     {
+        $this->emergencyAndRepairIntercept = (boolean) $emergencyAndRepairIntercept;
     }
 
+    /**
+     * 
+     */
     public function getEmergencyAndRepairIntercept()
     {
-        return (!$this->emergencyAndRepairIntercept) ?: $this->emergencyAndRepairIntercept->value();
+        return (!$this->emergencyAndRepairIntercept) ?: $this->emergencyAndRepairIntercept->getValue();
     }
 }

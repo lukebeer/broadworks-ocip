@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains the music on hold source configuration.
+     * Contains the music on hold source configuration.
  */
 class MusicOnHoldSourceRead16 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\MusicOnHoldSourceRead16';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

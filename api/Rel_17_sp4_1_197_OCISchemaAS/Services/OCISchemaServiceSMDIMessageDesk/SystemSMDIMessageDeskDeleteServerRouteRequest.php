@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a SMDI Server route from the system.
+     * Request to delete a SMDI Server route from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $routeDestination  = null;
+    public    $name             = __CLASS__;
+    protected $routeDestination = null;
 
     public function __construct(
          $routeDestination
@@ -27,6 +27,9 @@ class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implemen
         $this->setRouteDestination($routeDestination);
     }
 
+    /**
+     * SMDI server route destination, a 3 to 10 digits number
+     */
     public function setRouteDestination($routeDestination = null)
     {
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
@@ -34,8 +37,11 @@ class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implemen
              : new SMDIServerRouteDestination($routeDestination);
     }
 
+    /**
+     * SMDI server route destination, a 3 to 10 digits number
+     */
     public function getRouteDestination()
     {
-        return (!$this->routeDestination) ?: $this->routeDestination->value();
+        return (!$this->routeDestination) ?: $this->routeDestination->getValue();
     }
 }

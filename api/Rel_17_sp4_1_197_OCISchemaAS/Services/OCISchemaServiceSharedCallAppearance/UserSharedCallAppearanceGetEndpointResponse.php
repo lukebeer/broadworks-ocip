@@ -13,40 +13,62 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserSharedCallAppearanceGetEndpointRequest.
+     * Response to the UserSharedCallAppearanceGetEndpointRequest.
  */
 class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $isActive          = null;
-    protected $allowOrigination  = null;
-    protected $allowTermination  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse';
+    public    $name             = __CLASS__;
+    protected $isActive         = null;
+    protected $allowOrigination = null;
+    protected $allowTermination = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setAllowOrigination(xs:boolean $allowOrigination = null)
+    /**
+     * 
+     */
+    public function setAllowOrigination($allowOrigination = null)
     {
+        $this->allowOrigination = (boolean) $allowOrigination;
     }
 
+    /**
+     * 
+     */
     public function getAllowOrigination()
     {
-        return (!$this->allowOrigination) ?: $this->allowOrigination->value();
+        return (!$this->allowOrigination) ?: $this->allowOrigination->getValue();
     }
 
-    public function setAllowTermination(xs:boolean $allowTermination = null)
+    /**
+     * 
+     */
+    public function setAllowTermination($allowTermination = null)
     {
+        $this->allowTermination = (boolean) $allowTermination;
     }
 
+    /**
+     * 
+     */
     public function getAllowTermination()
     {
-        return (!$this->allowTermination) ?: $this->allowTermination->value();
+        return (!$this->allowTermination) ?: $this->allowTermination->getValue();
     }
 }

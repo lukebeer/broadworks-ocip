@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's simultaneous ring personal service setting.
+     * Modify the user's simultaneous ring personal service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSimultaneousRingPersonalModifyRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $userId         = null;
-    protected $isActive       = null;
-    protected $incomingCalls  = null;
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $isActive      = null;
+    protected $incomingCalls = null;
 
     public function __construct(
          $userId,
@@ -34,6 +34,13 @@ class UserSimultaneousRingPersonalModifyRequest14sp4 extends ComplexType impleme
         $this->setIncomingCalls($incomingCalls);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -41,20 +48,37 @@ class UserSimultaneousRingPersonalModifyRequest14sp4 extends ComplexType impleme
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Simultaneous Ring Selection.
+     */
     public function setIncomingCalls($incomingCalls = null)
     {
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
@@ -62,8 +86,11 @@ class UserSimultaneousRingPersonalModifyRequest14sp4 extends ComplexType impleme
              : new SimultaneousRingSelection($incomingCalls);
     }
 
+    /**
+     * Simultaneous Ring Selection.
+     */
     public function getIncomingCalls()
     {
-        return (!$this->incomingCalls) ?: $this->incomingCalls->value();
+        return (!$this->incomingCalls) ?: $this->incomingCalls->getValue();
     }
 }

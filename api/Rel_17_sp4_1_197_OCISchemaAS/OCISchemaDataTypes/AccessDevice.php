@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * Uniquely identifies an Identity/device profile created anywhere in the system.
  */
 class AccessDevice extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

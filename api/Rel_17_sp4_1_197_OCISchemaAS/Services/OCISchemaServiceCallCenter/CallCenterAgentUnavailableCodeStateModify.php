@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains a Call Center Agent Unavailable Code and its active state
+     * Contains a Call Center Agent Unavailable Code and its active state
  */
 class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeStateModify';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

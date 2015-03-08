@@ -14,25 +14,36 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserVideoAddOnGetRequest14.
+     * Response to the UserVideoAddOnGetRequest14.
  */
 class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $isActive                        = null;
-    protected $maxOriginatingCallDelaySeconds  = null;
-    protected $accessDeviceEndpoint            = null;
+    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVideoAddOn\UserVideoAddOnGetResponse14';
+    public    $name                           = __CLASS__;
+    protected $isActive                       = null;
+    protected $maxOriginatingCallDelaySeconds = null;
+    protected $accessDeviceEndpoint           = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Maximum Originating Call Delay.
+     */
     public function setMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds = null)
     {
         $this->maxOriginatingCallDelaySeconds = ($maxOriginatingCallDelaySeconds InstanceOf VideoAddOnMaxOriginatingCallDelaySeconds)
@@ -40,17 +51,27 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
              : new VideoAddOnMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
     }
 
+    /**
+     * Maximum Originating Call Delay.
+     */
     public function getMaxOriginatingCallDelaySeconds()
     {
-        return (!$this->maxOriginatingCallDelaySeconds) ?: $this->maxOriginatingCallDelaySeconds->value();
+        return (!$this->maxOriginatingCallDelaySeconds) ?: $this->maxOriginatingCallDelaySeconds->getValue();
     }
 
+    /**
+     * Access device end point.
+     */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
+        $this->accessDeviceEndpoint = AccessDeviceEndpointRead14 $accessDeviceEndpoint;
     }
 
+    /**
+     * Access device end point.
+     */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->value();
+        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
     }
 }

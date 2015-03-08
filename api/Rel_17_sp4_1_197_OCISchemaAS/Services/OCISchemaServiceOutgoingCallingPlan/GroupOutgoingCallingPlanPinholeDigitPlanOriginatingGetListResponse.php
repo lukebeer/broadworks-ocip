@@ -14,30 +14,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListRequest.
+     * Response to GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListRequest.
  */
 class GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $groupPermissions       = null;
-    protected $departmentPermissions  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $groupPermissions      = null;
+    protected $departmentPermissions = null;
 
 
+    /**
+     * Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+     */
     public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $groupPermissions = null)
     {
+        $this->groupPermissions = OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $groupPermissions;
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+     */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->value();
+        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan department originating call permissions for specified digit patterns.
+     */
     public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions $departmentPermissions = null)
     {
+        $this->departmentPermissions = OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions $departmentPermissions;
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan department originating call permissions for specified digit patterns.
+     */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->value();
+        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
     }
 }

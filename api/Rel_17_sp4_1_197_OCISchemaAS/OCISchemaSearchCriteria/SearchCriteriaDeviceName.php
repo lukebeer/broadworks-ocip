@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for device name.
+     * Criteria for searching for device name.
  */
 class SearchCriteriaDeviceName extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $mode               = null;
-    protected $value              = null;
-    protected $isCaseInsensitive  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceName';
+    public    $name              = __CLASS__;
+    protected $mode              = null;
+    protected $value             = null;
+    protected $isCaseInsensitive = null;
 
     public function __construct(
          $mode,
@@ -33,6 +34,9 @@ class SearchCriteriaDeviceName extends ComplexType implements ComplexInterface
         $this->setIsCaseInsensitive($isCaseInsensitive);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function setMode($mode = null)
     {
         $this->mode = ($mode InstanceOf SearchMode)
@@ -40,11 +44,17 @@ class SearchCriteriaDeviceName extends ComplexType implements ComplexInterface
              : new SearchMode($mode);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->value();
+        return (!$this->mode) ?: $this->mode->getValue();
     }
 
+    /**
+     * Access device name.
+     */
     public function setValue($value = null)
     {
         $this->value = ($value InstanceOf AccessDeviceName)
@@ -52,17 +62,27 @@ class SearchCriteriaDeviceName extends ComplexType implements ComplexInterface
              : new AccessDeviceName($value);
     }
 
+    /**
+     * Access device name.
+     */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->value();
+        return (!$this->value) ?: $this->value->getValue();
     }
 
-    public function setIsCaseInsensitive(xs:boolean $isCaseInsensitive = null)
+    /**
+     * 
+     */
+    public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
+        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
     }
 
+    /**
+     * 
+     */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->value();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
     }
 }

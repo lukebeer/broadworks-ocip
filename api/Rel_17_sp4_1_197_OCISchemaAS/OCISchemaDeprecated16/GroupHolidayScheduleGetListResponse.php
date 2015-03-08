@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupHolidayScheduleGetListRequest.
+     * Response to the GroupHolidayScheduleGetListRequest.
  *         The response contains all the group's holiday schedule name.
  */
 class GroupHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $holidayScheduleName  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHolidayScheduleGetListResponse';
+    public    $name                = __CLASS__;
+    protected $holidayScheduleName = null;
 
 
+    /**
+     * Schedule name.
+     */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
@@ -29,8 +33,11 @@ class GroupHolidayScheduleGetListResponse extends ComplexType implements Complex
              : new ScheduleName($holidayScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getHolidayScheduleName()
     {
-        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->value();
+        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the system settings for the call center enhanced reporting scheduling tasks.
+     * Request to get the system settings for the call center enhanced reporting scheduling tasks.
  *         The response is either a SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse or an ErrorResponse.
  */
 class SystemCallCenterEnhancedReportingScheduledTaskParametersGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

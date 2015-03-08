@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * User can either use it's group's preferred carrier or use it's own.
+     * User can either use it's group's preferred carrier or use it's own.
  *         You can use the group's preferred carrier without clearing the user carrier name --
  *         in this case, the user carrier name is retained.
  */
 class UserPreferredCarrierNameModify extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\UserPreferredCarrierNameModify';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

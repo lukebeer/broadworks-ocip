@@ -16,17 +16,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get all the current and past call centers for the group.
+     * Request to get all the current and past call centers for the group.
  *         The response is either GroupCallCenterCurrentAndPastCallCenterGetListResponse or ErrorResponse.
  */
 class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $serviceProviderId             = null;
-    protected $isPremiumOnly                 = null;
-    protected $groupId                       = null;
-    protected $responseSizeLimit             = null;
-    protected $searchCriteriaCallCenterName  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastCallCenterGetListResponse';
+    public    $name                         = __CLASS__;
+    protected $serviceProviderId            = null;
+    protected $isPremiumOnly                = null;
+    protected $groupId                      = null;
+    protected $responseSizeLimit            = null;
+    protected $searchCriteriaCallCenterName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -42,6 +43,10 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
         $this->setSearchCriteriaCallCenterName($searchCriteriaCallCenterName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -49,20 +54,35 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setIsPremiumOnly(xs:boolean $isPremiumOnly = null)
+    /**
+     * 
+     */
+    public function setIsPremiumOnly($isPremiumOnly = null)
     {
+        $this->isPremiumOnly = (boolean) $isPremiumOnly;
     }
 
+    /**
+     * 
+     */
     public function getIsPremiumOnly()
     {
-        return (!$this->isPremiumOnly) ?: $this->isPremiumOnly->value();
+        return (!$this->isPremiumOnly) ?: $this->isPremiumOnly->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -70,11 +90,20 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -82,17 +111,29 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a call center
+     */
     public function setSearchCriteriaCallCenterName(SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null)
     {
+        $this->searchCriteriaCallCenterName = SearchCriteriaCallCenterName $searchCriteriaCallCenterName;
     }
 
+    /**
+     * Criteria for searching for a call center
+     */
     public function getSearchCriteriaCallCenterName()
     {
-        return (!$this->searchCriteriaCallCenterName) ?: $this->searchCriteriaCallCenterName->value();
+        return (!$this->searchCriteriaCallCenterName) ?: $this->searchCriteriaCallCenterName->getValue();
     }
 }

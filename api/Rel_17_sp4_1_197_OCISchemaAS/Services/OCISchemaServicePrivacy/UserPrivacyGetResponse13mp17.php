@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPrivacyGetRequest13mp17.  The
+     * Response to UserPrivacyGetRequest13mp17.  The
  *         permittedMonitorUserIdTable contains the members of
  *         the enterprise or group allowed to monitor the phone
  *         status of the user specified in the request.  Members
@@ -25,56 +25,92 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
-    protected $enableDirectoryPrivacy                      = null;
-    protected $enableAutoAttendantExtensionDialingPrivacy  = null;
-    protected $enableAutoAttendantNameDialingPrivacy       = null;
-    protected $enablePhoneStatusPrivacy                    = null;
-    protected $permittedMonitorUserIdTable                 = null;
+    const     RESPONSE_TYPE                               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17';
+    public    $name                                       = __CLASS__;
+    protected $enableDirectoryPrivacy                     = null;
+    protected $enableAutoAttendantExtensionDialingPrivacy = null;
+    protected $enableAutoAttendantNameDialingPrivacy      = null;
+    protected $enablePhoneStatusPrivacy                   = null;
+    protected $permittedMonitorUserIdTable                = null;
 
 
-    public function setEnableDirectoryPrivacy(xs:boolean $enableDirectoryPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
+        $this->enableDirectoryPrivacy = (boolean) $enableDirectoryPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->value();
+        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->getValue();
     }
 
-    public function setEnableAutoAttendantExtensionDialingPrivacy(xs:boolean $enableAutoAttendantExtensionDialingPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy = null)
     {
+        $this->enableAutoAttendantExtensionDialingPrivacy = (boolean) $enableAutoAttendantExtensionDialingPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->value();
+        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
     }
 
-    public function setEnableAutoAttendantNameDialingPrivacy(xs:boolean $enableAutoAttendantNameDialingPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy = null)
     {
+        $this->enableAutoAttendantNameDialingPrivacy = (boolean) $enableAutoAttendantNameDialingPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->value();
+        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->getValue();
     }
 
-    public function setEnablePhoneStatusPrivacy(xs:boolean $enablePhoneStatusPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnablePhoneStatusPrivacy($enablePhoneStatusPrivacy = null)
     {
+        $this->enablePhoneStatusPrivacy = (boolean) $enablePhoneStatusPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnablePhoneStatusPrivacy()
     {
-        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy->value();
+        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy->getValue();
     }
 
+    /**
+     * 
+     */
     public function setPermittedMonitorUserIdTable(core:OCITable $permittedMonitorUserIdTable = null)
     {
+        $this->permittedMonitorUserIdTable = core:OCITable $permittedMonitorUserIdTable;
     }
 
+    /**
+     * 
+     */
     public function getPermittedMonitorUserIdTable()
     {
-        return (!$this->permittedMonitorUserIdTable) ?: $this->permittedMonitorUserIdTable->value();
+        return (!$this->permittedMonitorUserIdTable) ?: $this->permittedMonitorUserIdTable->getValue();
     }
 }

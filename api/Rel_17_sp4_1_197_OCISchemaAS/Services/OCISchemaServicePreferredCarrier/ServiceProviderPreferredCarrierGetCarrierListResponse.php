@@ -13,17 +13,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a ServiceProviderPreferredCarrierGetCarrierListRequest.
+     * Response to a ServiceProviderPreferredCarrierGetCarrierListRequest.
  *         Contains the lists of carriers for a specified country code for a service provider / enterprise.
  */
 class ServiceProviderPreferredCarrierGetCarrierListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $intraLataCarrier      = null;
-    protected $interLataCarrier      = null;
-    protected $internationalCarrier  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse';
+    public    $name                 = __CLASS__;
+    protected $intraLataCarrier     = null;
+    protected $interLataCarrier     = null;
+    protected $internationalCarrier = null;
 
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setIntraLataCarrier($intraLataCarrier = null)
     {
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf PreferredCarrierName)
@@ -31,11 +35,17 @@ class ServiceProviderPreferredCarrierGetCarrierListResponse extends ComplexType 
              : new PreferredCarrierName($intraLataCarrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getIntraLataCarrier()
     {
-        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->value();
+        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->getValue();
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setInterLataCarrier($interLataCarrier = null)
     {
         $this->interLataCarrier = ($interLataCarrier InstanceOf PreferredCarrierName)
@@ -43,11 +53,17 @@ class ServiceProviderPreferredCarrierGetCarrierListResponse extends ComplexType 
              : new PreferredCarrierName($interLataCarrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getInterLataCarrier()
     {
-        return (!$this->interLataCarrier) ?: $this->interLataCarrier->value();
+        return (!$this->interLataCarrier) ?: $this->interLataCarrier->getValue();
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setInternationalCarrier($internationalCarrier = null)
     {
         $this->internationalCarrier = ($internationalCarrier InstanceOf PreferredCarrierName)
@@ -55,8 +71,11 @@ class ServiceProviderPreferredCarrierGetCarrierListResponse extends ComplexType 
              : new PreferredCarrierName($internationalCarrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getInternationalCarrier()
     {
-        return (!$this->internationalCarrier) ?: $this->internationalCarrier->value();
+        return (!$this->internationalCarrier) ?: $this->internationalCarrier->getValue();
     }
 }

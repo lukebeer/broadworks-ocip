@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of Server Addresses.
+     * Request to get the list of Server Addresses.
  *         The response is either SystemServerAddressesGetResponse or ErrorResponse.
  *         See also:
  *           PrimaryInfoGetRequest
@@ -21,6 +21,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemServerAddressesGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServerAddressesGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

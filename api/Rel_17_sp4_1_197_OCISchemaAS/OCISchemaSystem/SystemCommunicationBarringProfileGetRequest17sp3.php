@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Communication Barring Profile.
+     * Get an existing Communication Barring Profile.
  *         The response is either a SystemCommunicationBarringProfileGetResponse17sp3
  *         or an ErrorResponse.
  */
 class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetResponse17sp3';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -28,6 +29,9 @@ class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType imple
         $this->setName($name);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
@@ -35,8 +39,11 @@ class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType imple
              : new CommunicationBarringProfileName($name);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

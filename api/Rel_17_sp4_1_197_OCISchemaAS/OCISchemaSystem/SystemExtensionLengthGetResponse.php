@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemExtensionLengthGetRequest.
+     * Response to SystemExtensionLengthGetRequest.
  */
 class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $minExtensionLength  = null;
-    protected $maxExtensionLength  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExtensionLengthGetResponse';
+    public    $name               = __CLASS__;
+    protected $minExtensionLength = null;
+    protected $maxExtensionLength = null;
 
 
+    /**
+     * The group's extension length.
+     */
     public function setMinExtensionLength($minExtensionLength = null)
     {
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
@@ -29,11 +33,17 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
              : new ExtensionLength($minExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getMinExtensionLength()
     {
-        return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
+        return (!$this->minExtensionLength) ?: $this->minExtensionLength->getValue();
     }
 
+    /**
+     * The group's extension length.
+     */
     public function setMaxExtensionLength($maxExtensionLength = null)
     {
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
@@ -41,8 +51,11 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
              : new ExtensionLength($maxExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getMaxExtensionLength()
     {
-        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
+        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->getValue();
     }
 }

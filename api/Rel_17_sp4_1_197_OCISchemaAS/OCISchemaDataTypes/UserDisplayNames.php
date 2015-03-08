@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The parts of a user's display name that a client can display in whatever way is appropriate
+     * The parts of a user's display name that a client can display in whatever way is appropriate
  *         for the client application.
  */
 class UserDisplayNames extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserDisplayNames';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an Route Point External System.
+     * Modify an Route Point External System.
  *       The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $name         = null;
-    protected $newName      = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $name        = null;
+    protected $newName     = null;
+    protected $description = null;
 
     public function __construct(
          $name,
@@ -34,6 +34,9 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
         $this->setDescription($description);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf RoutePointExternalSystem)
@@ -41,11 +44,17 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
              : new RoutePointExternalSystem($name);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setNewName($newName = null)
     {
         $this->newName = ($newName InstanceOf RoutePointExternalSystem)
@@ -53,11 +62,17 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
              : new RoutePointExternalSystem($newName);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->value();
+        return (!$this->newName) ?: $this->newName->getValue();
     }
 
+    /**
+     * The Route Point External System's description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf ExternalSystemDescription)
@@ -65,8 +80,11 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
              : new ExternalSystemDescription($description);
     }
 
+    /**
+     * The Route Point External System's description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains a 4 column table with column headings 'Instance', 'Realm', 'ApplicationID', and 'Default'.  One row is present for each Diameter routing realm.
+     * Contains a 4 column table with column headings 'Instance', 'Realm', 'ApplicationID', and 'Default'.  One row is present for each Diameter routing realm.
  */
 class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $routingRealmTable  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingRealmGetListResponse';
+    public    $name              = __CLASS__;
+    protected $routingRealmTable = null;
 
 
+    /**
+     * 
+     */
     public function setRoutingRealmTable(core:OCITable $routingRealmTable = null)
     {
+        $this->routingRealmTable = core:OCITable $routingRealmTable;
     }
 
+    /**
+     * 
+     */
     public function getRoutingRealmTable()
     {
-        return (!$this->routingRealmTable) ?: $this->routingRealmTable->value();
+        return (!$this->routingRealmTable) ?: $this->routingRealmTable->getValue();
     }
 }

@@ -14,26 +14,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemSessionAuditGetRequest.
+     * Response to SystemSessionAuditGetRequest.
  *         Replaced By: SystemSessionAuditGetResponse14sp3
  */
 class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $isActive              = null;
-    protected $intervalSeconds       = null;
-    protected $timeoutPeriodSeconds  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSessionAuditGetResponse';
+    public    $name                 = __CLASS__;
+    protected $isActive             = null;
+    protected $intervalSeconds      = null;
+    protected $timeoutPeriodSeconds = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Session Audit interval seconds.
+     */
     public function setIntervalSeconds($intervalSeconds = null)
     {
         $this->intervalSeconds = ($intervalSeconds InstanceOf SessionAuditIntervalSeconds)
@@ -41,11 +52,17 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
              : new SessionAuditIntervalSeconds($intervalSeconds);
     }
 
+    /**
+     * Session Audit interval seconds.
+     */
     public function getIntervalSeconds()
     {
-        return (!$this->intervalSeconds) ?: $this->intervalSeconds->value();
+        return (!$this->intervalSeconds) ?: $this->intervalSeconds->getValue();
     }
 
+    /**
+     * Session Audit timeout period seconds.
+     */
     public function setTimeoutPeriodSeconds($timeoutPeriodSeconds = null)
     {
         $this->timeoutPeriodSeconds = ($timeoutPeriodSeconds InstanceOf SessionAuditTimeoutPeriodSeconds)
@@ -53,8 +70,11 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
              : new SessionAuditTimeoutPeriodSeconds($timeoutPeriodSeconds);
     }
 
+    /**
+     * Session Audit timeout period seconds.
+     */
     public function getTimeoutPeriodSeconds()
     {
-        return (!$this->timeoutPeriodSeconds) ?: $this->timeoutPeriodSeconds->value();
+        return (!$this->timeoutPeriodSeconds) ?: $this->timeoutPeriodSeconds->getValue();
     }
 }

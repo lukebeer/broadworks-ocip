@@ -15,7 +15,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with External Custom Ringback.  
+     * Modify the user level data associated with External Custom Ringback.  
  *         The user SIP URI, when selected, it replaces the SP address, port and prefix.  
  *         The user SIP URI, if selected, is the Request URI of the SIP INVITE sent 
  *         to the external server.  When the service provider data is used instead, 
@@ -25,11 +25,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserExternalCustomRingbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $userId           = null;
-    protected $isActive         = null;
-    protected $useSettingLevel  = null;
-    protected $sipRequestURI    = null;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $isActive        = null;
+    protected $useSettingLevel = null;
+    protected $sipRequestURI   = null;
 
     public function __construct(
          $userId,
@@ -43,6 +43,13 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         $this->setSipRequestURI($sipRequestURI);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -50,20 +57,37 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Choices for the External Custom Ringback feature to decide which type of settings to use.
+     */
     public function setUseSettingLevel($useSettingLevel = null)
     {
         $this->useSettingLevel = ($useSettingLevel InstanceOf ExternalCustomRingbackSettingLevel)
@@ -71,11 +95,21 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
              : new ExternalCustomRingbackSettingLevel($useSettingLevel);
     }
 
+    /**
+     * Choices for the External Custom Ringback feature to decide which type of settings to use.
+     */
     public function getUseSettingLevel()
     {
-        return (!$this->useSettingLevel) ?: $this->useSettingLevel->value();
+        return (!$this->useSettingLevel) ?: $this->useSettingLevel->getValue();
     }
 
+    /**
+     * SIP Registration Contact without the sip: prefix.
+     *         Validation:
+     *          - do not allow sip:
+     *          - allow the following characters:
+     *            alphanumeric   ampersand    =   +   $   ,   ;   ?   /   -   _   .   !   ~   *   '   (   )   :  @
+     */
     public function setSipRequestURI($sipRequestURI = null)
     {
         $this->sipRequestURI = ($sipRequestURI InstanceOf SIPContact)
@@ -83,8 +117,15 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
              : new SIPContact($sipRequestURI);
     }
 
+    /**
+     * SIP Registration Contact without the sip: prefix.
+     *         Validation:
+     *          - do not allow sip:
+     *          - allow the following characters:
+     *            alphanumeric   ampersand    =   +   $   ,   ;   ?   /   -   _   .   !   ~   *   '   (   )   :  @
+     */
     public function getSipRequestURI()
     {
-        return (!$this->sipRequestURI) ?: $this->sipRequestURI->value();
+        return (!$this->sipRequestURI) ?: $this->sipRequestURI->getValue();
     }
 }

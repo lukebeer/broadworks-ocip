@@ -13,20 +13,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderVoiceMessagingGroupGetRequest.
+     * Response to ServiceProviderVoiceMessagingGroupGetRequest.
  *         Contains the service provider's or enterprise's voice messaging settings.
  */
 class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                           = __CLASS__;
-    protected $deliveryFromAddress                            = null;
-    protected $notificationFromAddress                        = null;
-    protected $voicePortalLockoutFromAddress                  = null;
-    protected $useSystemDefaultDeliveryFromAddress            = null;
-    protected $useSystemDefaultNotificationFromAddress        = null;
-    protected $useSystemDefaultVoicePortalLockoutFromAddress  = null;
+    const     RESPONSE_TYPE                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupGetResponse';
+    public    $name                                          = __CLASS__;
+    protected $deliveryFromAddress                           = null;
+    protected $notificationFromAddress                       = null;
+    protected $voicePortalLockoutFromAddress                 = null;
+    protected $useSystemDefaultDeliveryFromAddress           = null;
+    protected $useSystemDefaultNotificationFromAddress       = null;
+    protected $useSystemDefaultVoicePortalLockoutFromAddress = null;
 
 
+    /**
+     * Email Address
+     */
     public function setDeliveryFromAddress($deliveryFromAddress = null)
     {
         $this->deliveryFromAddress = ($deliveryFromAddress InstanceOf EmailAddress)
@@ -34,11 +38,17 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
              : new EmailAddress($deliveryFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getDeliveryFromAddress()
     {
-        return (!$this->deliveryFromAddress) ?: $this->deliveryFromAddress->value();
+        return (!$this->deliveryFromAddress) ?: $this->deliveryFromAddress->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setNotificationFromAddress($notificationFromAddress = null)
     {
         $this->notificationFromAddress = ($notificationFromAddress InstanceOf EmailAddress)
@@ -46,11 +56,17 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
              : new EmailAddress($notificationFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getNotificationFromAddress()
     {
-        return (!$this->notificationFromAddress) ?: $this->notificationFromAddress->value();
+        return (!$this->notificationFromAddress) ?: $this->notificationFromAddress->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setVoicePortalLockoutFromAddress($voicePortalLockoutFromAddress = null)
     {
         $this->voicePortalLockoutFromAddress = ($voicePortalLockoutFromAddress InstanceOf EmailAddress)
@@ -58,35 +74,59 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
              : new EmailAddress($voicePortalLockoutFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getVoicePortalLockoutFromAddress()
     {
-        return (!$this->voicePortalLockoutFromAddress) ?: $this->voicePortalLockoutFromAddress->value();
+        return (!$this->voicePortalLockoutFromAddress) ?: $this->voicePortalLockoutFromAddress->getValue();
     }
 
-    public function setUseSystemDefaultDeliveryFromAddress(xs:boolean $useSystemDefaultDeliveryFromAddress = null)
+    /**
+     * 
+     */
+    public function setUseSystemDefaultDeliveryFromAddress($useSystemDefaultDeliveryFromAddress = null)
     {
+        $this->useSystemDefaultDeliveryFromAddress = (boolean) $useSystemDefaultDeliveryFromAddress;
     }
 
+    /**
+     * 
+     */
     public function getUseSystemDefaultDeliveryFromAddress()
     {
-        return (!$this->useSystemDefaultDeliveryFromAddress) ?: $this->useSystemDefaultDeliveryFromAddress->value();
+        return (!$this->useSystemDefaultDeliveryFromAddress) ?: $this->useSystemDefaultDeliveryFromAddress->getValue();
     }
 
-    public function setUseSystemDefaultNotificationFromAddress(xs:boolean $useSystemDefaultNotificationFromAddress = null)
+    /**
+     * 
+     */
+    public function setUseSystemDefaultNotificationFromAddress($useSystemDefaultNotificationFromAddress = null)
     {
+        $this->useSystemDefaultNotificationFromAddress = (boolean) $useSystemDefaultNotificationFromAddress;
     }
 
+    /**
+     * 
+     */
     public function getUseSystemDefaultNotificationFromAddress()
     {
-        return (!$this->useSystemDefaultNotificationFromAddress) ?: $this->useSystemDefaultNotificationFromAddress->value();
+        return (!$this->useSystemDefaultNotificationFromAddress) ?: $this->useSystemDefaultNotificationFromAddress->getValue();
     }
 
-    public function setUseSystemDefaultVoicePortalLockoutFromAddress(xs:boolean $useSystemDefaultVoicePortalLockoutFromAddress = null)
+    /**
+     * 
+     */
+    public function setUseSystemDefaultVoicePortalLockoutFromAddress($useSystemDefaultVoicePortalLockoutFromAddress = null)
     {
+        $this->useSystemDefaultVoicePortalLockoutFromAddress = (boolean) $useSystemDefaultVoicePortalLockoutFromAddress;
     }
 
+    /**
+     * 
+     */
     public function getUseSystemDefaultVoicePortalLockoutFromAddress()
     {
-        return (!$this->useSystemDefaultVoicePortalLockoutFromAddress) ?: $this->useSystemDefaultVoicePortalLockoutFromAddress->value();
+        return (!$this->useSystemDefaultVoicePortalLockoutFromAddress) ?: $this->useSystemDefaultVoicePortalLockoutFromAddress->getValue();
     }
 }

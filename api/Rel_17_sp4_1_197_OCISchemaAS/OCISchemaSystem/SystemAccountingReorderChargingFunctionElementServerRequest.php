@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Reorder the charging function element servers. You can not add or delete addresses,
+     * Reorder the charging function element servers. You can not add or delete addresses,
  *         only re-ordering the list is allowed. The ordered list of addresses can be obtained
  *         with the SystemAccountingGetChargingFunctionElementServerListRequest command.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingReorderChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $orderedAddressList  = null;
+    public    $name               = __CLASS__;
+    protected $orderedAddressList = null;
 
     public function __construct(
          $orderedAddressList = null
@@ -29,6 +29,10 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
         $this->setOrderedAddressList($orderedAddressList);
     }
 
+    /**
+     * This is a net address or can contain a string that includes additional items
+     *         such as protocols and transports.
+     */
     public function setOrderedAddressList($orderedAddressList = null)
     {
         $this->orderedAddressList = ($orderedAddressList InstanceOf NetAddressExtended)
@@ -36,8 +40,12 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
              : new NetAddressExtended($orderedAddressList);
     }
 
+    /**
+     * This is a net address or can contain a string that includes additional items
+     *         such as protocols and transports.
+     */
     public function getOrderedAddressList()
     {
-        return (!$this->orderedAddressList) ?: $this->orderedAddressList->value();
+        return (!$this->orderedAddressList) ?: $this->orderedAddressList->getValue();
     }
 }

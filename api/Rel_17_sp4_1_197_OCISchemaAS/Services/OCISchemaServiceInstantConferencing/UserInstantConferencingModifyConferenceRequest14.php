@@ -17,20 +17,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an existing conference.
+     * Modify an existing conference.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingModifyConferenceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $userId                          = null;
-    protected $conferenceKey                   = null;
-    protected $title                           = null;
-    protected $leaderRequired                  = null;
-    protected $leaderReleaseDropsParticipants  = null;
-    protected $announceCallers                 = null;
-    protected $conferenceSchedule              = null;
-    protected $billingCode                     = null;
+    public    $name                           = __CLASS__;
+    protected $userId                         = null;
+    protected $conferenceKey                  = null;
+    protected $title                          = null;
+    protected $leaderRequired                 = null;
+    protected $leaderReleaseDropsParticipants = null;
+    protected $announceCallers                = null;
+    protected $conferenceSchedule             = null;
+    protected $billingCode                    = null;
 
     public function __construct(
          $userId,
@@ -52,6 +52,13 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         $this->setBillingCode($billingCode);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -59,20 +66,37 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Uniquely identifies a conference by the combination of bridge id and conference id within the bridge.
+     */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
+        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
     }
 
+    /**
+     * Uniquely identifies a conference by the combination of bridge id and conference id within the bridge.
+     */
     public function getConferenceKey()
     {
-        return (!$this->conferenceKey) ?: $this->conferenceKey->value();
+        return (!$this->conferenceKey) ?: $this->conferenceKey->getValue();
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function setTitle($title = null)
     {
         $this->title = ($title InstanceOf InstantConferencingTitle)
@@ -80,47 +104,81 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
              : new InstantConferencingTitle($title);
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->value();
+        return (!$this->title) ?: $this->title->getValue();
     }
 
-    public function setLeaderRequired(xs:boolean $leaderRequired = null)
+    /**
+     * 
+     */
+    public function setLeaderRequired($leaderRequired = null)
     {
+        $this->leaderRequired = (boolean) $leaderRequired;
     }
 
+    /**
+     * 
+     */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->value();
+        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
     }
 
-    public function setLeaderReleaseDropsParticipants(xs:boolean $leaderReleaseDropsParticipants = null)
+    /**
+     * 
+     */
+    public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants = null)
     {
+        $this->leaderReleaseDropsParticipants = (boolean) $leaderReleaseDropsParticipants;
     }
 
+    /**
+     * 
+     */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->value();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
     }
 
-    public function setAnnounceCallers(xs:boolean $announceCallers = null)
+    /**
+     * 
+     */
+    public function setAnnounceCallers($announceCallers = null)
     {
+        $this->announceCallers = (boolean) $announceCallers;
     }
 
+    /**
+     * 
+     */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->value();
+        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
     }
 
+    /**
+     * Conference schedule used in the context of a conference add.
+     */
     public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
+        $this->conferenceSchedule = InstantConferencingSchedule $conferenceSchedule;
     }
 
+    /**
+     * Conference schedule used in the context of a conference add.
+     */
     public function getConferenceSchedule()
     {
-        return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->value();
+        return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->getValue();
     }
 
+    /**
+     * Instant conferencing project billing code.
+     */
     public function setBillingCode($billingCode = null)
     {
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
@@ -128,8 +186,11 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
              : new InstantConferencingBillingCode($billingCode);
     }
 
+    /**
+     * Instant conferencing project billing code.
+     */
     public function getBillingCode()
     {
-        return (!$this->billingCode) ?: $this->billingCode->value();
+        return (!$this->billingCode) ?: $this->billingCode->getValue();
     }
 }

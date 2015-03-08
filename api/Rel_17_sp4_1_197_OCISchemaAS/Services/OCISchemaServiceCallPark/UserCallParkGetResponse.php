@@ -13,18 +13,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCallParkGetRequest.
+     * Response to the UserCallParkGetRequest.
  *         Identifies which Call Park group the user belongs to and the list of users in the group.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", 
  *         "Hiragana First Name".  The users are in the table in the order they will try to be parked on.
  */
 class UserCallParkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $name       = null;
-    protected $userTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\UserCallParkGetResponse';
+    public    $name      = __CLASS__;
+    protected $name      = null;
+    protected $userTable = null;
 
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -32,17 +36,27 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * 
+     */
     public function setUserTable(core:OCITable $userTable = null)
     {
+        $this->userTable = core:OCITable $userTable;
     }
 
+    /**
+     * 
+     */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->value();
+        return (!$this->userTable) ?: $this->userTable->getValue();
     }
 }

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete an enterprise trunk in an enterprise.
+     * Request to delete an enterprise trunk in an enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $serviceProviderId    = null;
-    protected $enterpriseTrunkName  = null;
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $enterpriseTrunkName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,19 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
@@ -50,8 +62,12 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
              : new EnterpriseTrunkName($enterpriseTrunkName);
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function getEnterpriseTrunkName()
     {
-        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->value();
+        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->getValue();
     }
 }

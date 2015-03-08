@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Communication Barring.
+     * Modify the system level data associated with Communication Barring.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $directTransferScreening  = null;
+    public    $name                    = __CLASS__;
+    protected $directTransferScreening = null;
 
     public function __construct(
          $directTransferScreening = null
@@ -27,12 +27,19 @@ class SystemCommunicationBarringModifyRequest extends ComplexType implements Com
         $this->setDirectTransferScreening($directTransferScreening);
     }
 
-    public function setDirectTransferScreening(xs:boolean $directTransferScreening = null)
+    /**
+     * 
+     */
+    public function setDirectTransferScreening($directTransferScreening = null)
     {
+        $this->directTransferScreening = (boolean) $directTransferScreening;
     }
 
+    /**
+     * 
+     */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening->value();
+        return (!$this->directTransferScreening) ?: $this->directTransferScreening->getValue();
     }
 }

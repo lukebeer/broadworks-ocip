@@ -14,26 +14,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains Call Center statistics reporting settings.
+     * Contains Call Center statistics reporting settings.
  */
 class GroupCallCenterGetInstanceStatisticsReportingResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $generateDailyReport      = null;
-    protected $collectionPeriodMinutes  = null;
-    protected $reportingEmailAddress1   = null;
-    protected $reportingEmailAddress2   = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetInstanceStatisticsReportingResponse';
+    public    $name                    = __CLASS__;
+    protected $generateDailyReport     = null;
+    protected $collectionPeriodMinutes = null;
+    protected $reportingEmailAddress1  = null;
+    protected $reportingEmailAddress2  = null;
 
 
-    public function setGenerateDailyReport(xs:boolean $generateDailyReport = null)
+    /**
+     * 
+     */
+    public function setGenerateDailyReport($generateDailyReport = null)
     {
+        $this->generateDailyReport = (boolean) $generateDailyReport;
     }
 
+    /**
+     * 
+     */
     public function getGenerateDailyReport()
     {
-        return (!$this->generateDailyReport) ?: $this->generateDailyReport->value();
+        return (!$this->generateDailyReport) ?: $this->generateDailyReport->getValue();
     }
 
+    /**
+     * Statistics reporting interval in minutes.
+     */
     public function setCollectionPeriodMinutes($collectionPeriodMinutes = null)
     {
         $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
@@ -41,11 +52,17 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse extends ComplexType 
              : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
     }
 
+    /**
+     * Statistics reporting interval in minutes.
+     */
     public function getCollectionPeriodMinutes()
     {
-        return (!$this->collectionPeriodMinutes) ?: $this->collectionPeriodMinutes->value();
+        return (!$this->collectionPeriodMinutes) ?: $this->collectionPeriodMinutes->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setReportingEmailAddress1($reportingEmailAddress1 = null)
     {
         $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
@@ -53,11 +70,17 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse extends ComplexType 
              : new EmailAddress($reportingEmailAddress1);
     }
 
+    /**
+     * Email Address
+     */
     public function getReportingEmailAddress1()
     {
-        return (!$this->reportingEmailAddress1) ?: $this->reportingEmailAddress1->value();
+        return (!$this->reportingEmailAddress1) ?: $this->reportingEmailAddress1->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setReportingEmailAddress2($reportingEmailAddress2 = null)
     {
         $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
@@ -65,8 +88,11 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse extends ComplexType 
              : new EmailAddress($reportingEmailAddress2);
     }
 
+    /**
+     * Email Address
+     */
     public function getReportingEmailAddress2()
     {
-        return (!$this->reportingEmailAddress2) ?: $this->reportingEmailAddress2->value();
+        return (!$this->reportingEmailAddress2) ?: $this->reportingEmailAddress2->getValue();
     }
 }

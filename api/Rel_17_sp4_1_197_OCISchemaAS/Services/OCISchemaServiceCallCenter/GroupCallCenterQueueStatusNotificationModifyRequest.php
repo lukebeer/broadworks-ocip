@@ -15,18 +15,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Set the status configuration for a given call center.
+     * Set the status configuration for a given call center.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $serviceUserId                  = null;
-    protected $enableQueueStatusNotification  = null;
-    protected $enableQueueDepthThreshold      = null;
-    protected $enableWaitingTimeThreshold     = null;
-    protected $numberOfCallsThreshold         = null;
-    protected $waitingTimeOfCallsThreshold    = null;
+    public    $name                          = __CLASS__;
+    protected $serviceUserId                 = null;
+    protected $enableQueueStatusNotification = null;
+    protected $enableQueueDepthThreshold     = null;
+    protected $enableWaitingTimeThreshold    = null;
+    protected $numberOfCallsThreshold        = null;
+    protected $waitingTimeOfCallsThreshold   = null;
 
     public function __construct(
          $serviceUserId,
@@ -44,6 +44,13 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
         $this->setWaitingTimeOfCallsThreshold($waitingTimeOfCallsThreshold);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -51,38 +58,69 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
-    public function setEnableQueueStatusNotification(xs:boolean $enableQueueStatusNotification = null)
+    /**
+     * 
+     */
+    public function setEnableQueueStatusNotification($enableQueueStatusNotification = null)
     {
+        $this->enableQueueStatusNotification = (boolean) $enableQueueStatusNotification;
     }
 
+    /**
+     * 
+     */
     public function getEnableQueueStatusNotification()
     {
-        return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification->value();
+        return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification->getValue();
     }
 
-    public function setEnableQueueDepthThreshold(xs:boolean $enableQueueDepthThreshold = null)
+    /**
+     * 
+     */
+    public function setEnableQueueDepthThreshold($enableQueueDepthThreshold = null)
     {
+        $this->enableQueueDepthThreshold = (boolean) $enableQueueDepthThreshold;
     }
 
+    /**
+     * 
+     */
     public function getEnableQueueDepthThreshold()
     {
-        return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold->value();
+        return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold->getValue();
     }
 
-    public function setEnableWaitingTimeThreshold(xs:boolean $enableWaitingTimeThreshold = null)
+    /**
+     * 
+     */
+    public function setEnableWaitingTimeThreshold($enableWaitingTimeThreshold = null)
     {
+        $this->enableWaitingTimeThreshold = (boolean) $enableWaitingTimeThreshold;
     }
 
+    /**
+     * 
+     */
     public function getEnableWaitingTimeThreshold()
     {
-        return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold->value();
+        return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold->getValue();
     }
 
+    /**
+     * Number of calls in queue before notification to agents devices.
+     */
     public function setNumberOfCallsThreshold($numberOfCallsThreshold = null)
     {
         $this->numberOfCallsThreshold = ($numberOfCallsThreshold InstanceOf CallCenterQueueDepthNotificationThreshold)
@@ -90,11 +128,17 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
              : new CallCenterQueueDepthNotificationThreshold($numberOfCallsThreshold);
     }
 
+    /**
+     * Number of calls in queue before notification to agents devices.
+     */
     public function getNumberOfCallsThreshold()
     {
-        return (!$this->numberOfCallsThreshold) ?: $this->numberOfCallsThreshold->value();
+        return (!$this->numberOfCallsThreshold) ?: $this->numberOfCallsThreshold->getValue();
     }
 
+    /**
+     * Waiting time for a given call before notification to agents devices.
+     */
     public function setWaitingTimeOfCallsThreshold($waitingTimeOfCallsThreshold = null)
     {
         $this->waitingTimeOfCallsThreshold = ($waitingTimeOfCallsThreshold InstanceOf CallCenterWaitingTimeNotificationThresholdSeconds)
@@ -102,8 +146,11 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
              : new CallCenterWaitingTimeNotificationThresholdSeconds($waitingTimeOfCallsThreshold);
     }
 
+    /**
+     * Waiting time for a given call before notification to agents devices.
+     */
     public function getWaitingTimeOfCallsThreshold()
     {
-        return (!$this->waitingTimeOfCallsThreshold) ?: $this->waitingTimeOfCallsThreshold->value();
+        return (!$this->waitingTimeOfCallsThreshold) ?: $this->waitingTimeOfCallsThreshold->getValue();
     }
 }

@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallCenterMonitoringGetRequest.
+     * Response to UserCallCenterMonitoringGetRequest.
  */
 class UserCallCenterMonitoringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $playToneToAgentForSilentMonitoring  = null;
+    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenterMonitoring\UserCallCenterMonitoringGetResponse';
+    public    $name                               = __CLASS__;
+    protected $playToneToAgentForSilentMonitoring = null;
 
 
-    public function setPlayToneToAgentForSilentMonitoring(xs:boolean $playToneToAgentForSilentMonitoring = null)
+    /**
+     * 
+     */
+    public function setPlayToneToAgentForSilentMonitoring($playToneToAgentForSilentMonitoring = null)
     {
+        $this->playToneToAgentForSilentMonitoring = (boolean) $playToneToAgentForSilentMonitoring;
     }
 
+    /**
+     * 
+     */
     public function getPlayToneToAgentForSilentMonitoring()
     {
-        return (!$this->playToneToAgentForSilentMonitoring) ?: $this->playToneToAgentForSilentMonitoring->value();
+        return (!$this->playToneToAgentForSilentMonitoring) ?: $this->playToneToAgentForSilentMonitoring->getValue();
     }
 }

@@ -14,15 +14,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserNetworkConferencingGetRequest.
+     * Response to UserNetworkConferencingGetRequest.
  */
 class UserNetworkConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $conferenceURI         = null;
-    protected $maxConferenceParties  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserNetworkConferencingGetResponse';
+    public    $name                 = __CLASS__;
+    protected $conferenceURI        = null;
+    protected $maxConferenceParties = null;
 
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function setConferenceURI($conferenceURI = null)
     {
         $this->conferenceURI = ($conferenceURI InstanceOf SIPURI)
@@ -30,11 +41,24 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
              : new SIPURI($conferenceURI);
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function getConferenceURI()
     {
-        return (!$this->conferenceURI) ?: $this->conferenceURI->value();
+        return (!$this->conferenceURI) ?: $this->conferenceURI->getValue();
     }
 
+    /**
+     * Maximum number of Parties allowed in a conference call.
+     */
     public function setMaxConferenceParties($maxConferenceParties = null)
     {
         $this->maxConferenceParties = ($maxConferenceParties InstanceOf CallProcessingMaxConferenceParties)
@@ -42,8 +66,11 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
              : new CallProcessingMaxConferenceParties($maxConferenceParties);
     }
 
+    /**
+     * Maximum number of Parties allowed in a conference call.
+     */
     public function getMaxConferenceParties()
     {
-        return (!$this->maxConferenceParties) ?: $this->maxConferenceParties->value();
+        return (!$this->maxConferenceParties) ?: $this->maxConferenceParties->getValue();
     }
 }

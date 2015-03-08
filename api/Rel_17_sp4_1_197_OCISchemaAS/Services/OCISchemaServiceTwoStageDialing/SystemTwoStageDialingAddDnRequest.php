@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add Two Stage Dialing number to the system.
+     * Request to add Two Stage Dialing number to the system.
  *              The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $phoneNumber  = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $phoneNumber = null;
+    protected $description = null;
 
     public function __construct(
          $phoneNumber,
@@ -31,6 +31,9 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
         $this->setDescription($description);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
@@ -38,11 +41,17 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
              : new DN($phoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->value();
+        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
     }
 
+    /**
+     * Two Stage Dialing phone number's description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf TwoStageDialingDescription)
@@ -50,8 +59,11 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
              : new TwoStageDialingDescription($description);
     }
 
+    /**
+     * Two Stage Dialing phone number's description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

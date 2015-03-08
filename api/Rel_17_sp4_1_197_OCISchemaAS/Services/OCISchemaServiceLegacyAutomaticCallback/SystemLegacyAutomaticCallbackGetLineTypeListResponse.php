@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemLegacyAutomaticCallbackGetLineTypeListRequest. Returns a 3 column
+     * Response to SystemLegacyAutomaticCallbackGetLineTypeListRequest. Returns a 3 column
  *         table with column headings: "Line Type", "Match" and "No Match". The possible values
  *         for the "Match" and "No Match" columns are "Accept" and "Deny".
  */
 class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $lineTypeTable  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackGetLineTypeListResponse';
+    public    $name          = __CLASS__;
+    protected $lineTypeTable = null;
 
 
+    /**
+     * 
+     */
     public function setLineTypeTable(core:OCITable $lineTypeTable = null)
     {
+        $this->lineTypeTable = core:OCITable $lineTypeTable;
     }
 
+    /**
+     * 
+     */
     public function getLineTypeTable()
     {
-        return (!$this->lineTypeTable) ?: $this->lineTypeTable->value();
+        return (!$this->lineTypeTable) ?: $this->lineTypeTable->getValue();
     }
 }

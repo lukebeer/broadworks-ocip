@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupDialPlanPolicyGetAccessCodeListRequest
+     * Response to GroupDialPlanPolicyGetAccessCodeListRequest
  *         Contains a table with column headings: "Access Code",
  *         "Enable Secondary Dial Tone", "Description"
  */
 class GroupDialPlanPolicyGetAccessCodeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $accessCodeTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyGetAccessCodeListResponse';
+    public    $name            = __CLASS__;
+    protected $accessCodeTable = null;
 
 
+    /**
+     * 
+     */
     public function setAccessCodeTable(core:OCITable $accessCodeTable = null)
     {
+        $this->accessCodeTable = core:OCITable $accessCodeTable;
     }
 
+    /**
+     * 
+     */
     public function getAccessCodeTable()
     {
-        return (!$this->accessCodeTable) ?: $this->accessCodeTable->value();
+        return (!$this->accessCodeTable) ?: $this->accessCodeTable->getValue();
     }
 }

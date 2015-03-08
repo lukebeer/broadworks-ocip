@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemHolidayScheduleGetListRequest.
+     * Response to the SystemHolidayScheduleGetListRequest.
  *         The response contains all the system holiday schedule names.
  */
 class SystemHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $holidayScheduleName  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemHolidayScheduleGetListResponse';
+    public    $name                = __CLASS__;
+    protected $holidayScheduleName = null;
 
 
+    /**
+     * Schedule name.
+     */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
@@ -29,8 +33,11 @@ class SystemHolidayScheduleGetListResponse extends ComplexType implements Comple
              : new ScheduleName($holidayScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getHolidayScheduleName()
     {
-        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->value();
+        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->getValue();
     }
 }

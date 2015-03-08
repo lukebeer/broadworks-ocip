@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupExtensionLengthGetRequest.
+     * Response to GroupExtensionLengthGetRequest.
  */
 class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $extensionLength  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupExtensionLengthGetResponse';
+    public    $name            = __CLASS__;
+    protected $extensionLength = null;
 
 
+    /**
+     * The group's extension length.
+     */
     public function setExtensionLength($extensionLength = null)
     {
         $this->extensionLength = ($extensionLength InstanceOf GroupExtensionLength)
@@ -28,8 +32,11 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
              : new GroupExtensionLength($extensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getExtensionLength()
     {
-        return (!$this->extensionLength) ?: $this->extensionLength->value();
+        return (!$this->extensionLength) ?: $this->extensionLength->getValue();
     }
 }

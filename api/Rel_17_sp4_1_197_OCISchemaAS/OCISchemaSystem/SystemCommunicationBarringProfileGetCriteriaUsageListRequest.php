@@ -13,15 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of Communication Barring Proifles that uses a specific
+     * Get the list of Communication Barring Proifles that uses a specific
  *         Communication Barring criteria.
  *         The response is either a SystemCommunicationBarringProfileGetCriteriaUsageListResponse
  *         or an ErrorResponse.
  */
 class SystemCommunicationBarringProfileGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetCriteriaUsageListResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -29,6 +30,9 @@ class SystemCommunicationBarringProfileGetCriteriaUsageListRequest extends Compl
         $this->setName($name);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CommunicationBarringCriteriaName)
@@ -36,8 +40,11 @@ class SystemCommunicationBarringProfileGetCriteriaUsageListRequest extends Compl
              : new CommunicationBarringCriteriaName($name);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

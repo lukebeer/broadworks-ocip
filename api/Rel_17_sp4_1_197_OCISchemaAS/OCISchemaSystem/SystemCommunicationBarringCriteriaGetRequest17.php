@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Communication Barring Criteria.
+     * Get an existing Communication Barring Criteria.
  *         The response is either a  
  *         SystemCommunicationBarringCriteriaGetResponse17 or an ErrorResponse.
  */
 class SystemCommunicationBarringCriteriaGetRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCriteriaGetResponse17';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -28,6 +29,9 @@ class SystemCommunicationBarringCriteriaGetRequest17 extends ComplexType impleme
         $this->setName($name);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CommunicationBarringCriteriaName)
@@ -35,8 +39,11 @@ class SystemCommunicationBarringCriteriaGetRequest17 extends ComplexType impleme
              : new CommunicationBarringCriteriaName($name);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

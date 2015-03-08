@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a SystemTreatmentMappingCallBlockingServiceGetListRequest. Contains a table with one row per mapping.
+     * Response to a SystemTreatmentMappingCallBlockingServiceGetListRequest. Contains a table with one row per mapping.
  *         The table columns are: "Service", "Treatment Id".
  */
 class SystemTreatmentMappingCallBlockingServiceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $treatmentMappingTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingCallBlockingServiceGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $treatmentMappingTable = null;
 
 
+    /**
+     * 
+     */
     public function setTreatmentMappingTable(core:OCITable $treatmentMappingTable = null)
     {
+        $this->treatmentMappingTable = core:OCITable $treatmentMappingTable;
     }
 
+    /**
+     * 
+     */
     public function getTreatmentMappingTable()
     {
-        return (!$this->treatmentMappingTable) ?: $this->treatmentMappingTable->value();
+        return (!$this->treatmentMappingTable) ?: $this->treatmentMappingTable->getValue();
     }
 }

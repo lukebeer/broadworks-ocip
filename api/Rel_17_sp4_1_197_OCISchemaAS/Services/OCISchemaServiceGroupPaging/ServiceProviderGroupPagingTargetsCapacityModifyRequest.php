@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the maximum number of target users per paging group configured for a service provider.
+     * Modify the maximum number of target users per paging group configured for a service provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $serviceProviderId   = null;
-    protected $maximumTargetUsers  = null;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $maximumTargetUsers = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
         $this->setMaximumTargetUsers($maximumTargetUsers);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
@@ -50,8 +61,11 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function getMaximumTargetUsers()
     {
-        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->value();
+        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->getValue();
     }
 }

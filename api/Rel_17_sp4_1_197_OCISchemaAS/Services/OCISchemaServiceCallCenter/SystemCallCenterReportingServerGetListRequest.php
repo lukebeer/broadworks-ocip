@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a list of Call Center Reporting Server.
+     * Request to get a list of Call Center Reporting Server.
  *         The response is either SystemCallCenterReportingServerGetListResponse or ErrorResponse.
  */
 class SystemCallCenterReportingServerGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

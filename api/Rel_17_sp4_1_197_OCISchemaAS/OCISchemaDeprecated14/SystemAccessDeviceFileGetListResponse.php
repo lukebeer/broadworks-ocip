@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemAccessDeviceFileGetListRequest.
+     * Response to SystemAccessDeviceFileGetListRequest.
  *           Contains a table of device files managed by the Device Management System on a per-device profile basis.
  *           The column headings are: "File Type", "File Format", "Is Authenticated".
  *           Replaced By: SystemAccessDeviceFileGetListResponse14sp8
  */
 class SystemAccessDeviceFileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $deviceFilesTable  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceFileGetListResponse';
+    public    $name             = __CLASS__;
+    protected $deviceFilesTable = null;
 
 
+    /**
+     * 
+     */
     public function setDeviceFilesTable(core:OCITable $deviceFilesTable = null)
     {
+        $this->deviceFilesTable = core:OCITable $deviceFilesTable;
     }
 
+    /**
+     * 
+     */
     public function getDeviceFilesTable()
     {
-        return (!$this->deviceFilesTable) ?: $this->deviceFilesTable->value();
+        return (!$this->deviceFilesTable) ?: $this->deviceFilesTable->getValue();
     }
 }

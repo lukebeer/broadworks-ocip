@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get list of Application Server sets.
+     * Get list of Application Server sets.
  *         The response is either SystemApplicationServerSetGetListResponse or ErrorResponse.
  */
 class SystemApplicationServerSetGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

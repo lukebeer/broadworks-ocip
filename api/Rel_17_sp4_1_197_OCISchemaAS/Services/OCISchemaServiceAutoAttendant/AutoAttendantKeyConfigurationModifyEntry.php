@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The configuration of a key for Auto Attendant.
+     * The configuration of a key for Auto Attendant.
  */
 class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\AutoAttendantKeyConfigurationModifyEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserSMDIMessageDeskGetRequest.
+     * Response to the UserSMDIMessageDeskGetRequest.
  */
 class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $isActive           = null;
-    protected $messageDeskNumber  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\UserSMDIMessageDeskGetResponse';
+    public    $name              = __CLASS__;
+    protected $isActive          = null;
+    protected $messageDeskNumber = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * SMDI Message Desk number.
+     */
     public function setMessageDeskNumber($messageDeskNumber = null)
     {
         $this->messageDeskNumber = ($messageDeskNumber InstanceOf SMDIMessageDeskNumber)
@@ -38,8 +49,11 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
              : new SMDIMessageDeskNumber($messageDeskNumber);
     }
 
+    /**
+     * SMDI Message Desk number.
+     */
     public function getMessageDeskNumber()
     {
-        return (!$this->messageDeskNumber) ?: $this->messageDeskNumber->value();
+        return (!$this->messageDeskNumber) ?: $this->messageDeskNumber->getValue();
     }
 }

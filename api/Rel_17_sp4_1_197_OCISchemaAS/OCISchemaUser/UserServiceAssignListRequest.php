@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to assign the user services and service packs for a user.
+     * Request to assign the user services and service packs for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserServiceAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $userId           = null;
-    protected $serviceName      = null;
-    protected $servicePackName  = null;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $serviceName     = null;
+    protected $servicePackName = null;
 
     public function __construct(
          $userId,
@@ -35,6 +35,13 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
         $this->setServicePackName($servicePackName);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -42,11 +49,21 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * User level services.
+     */
     public function setServiceName($serviceName = null)
     {
         $this->serviceName = ($serviceName InstanceOf UserService)
@@ -54,11 +71,17 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
              : new UserService($serviceName);
     }
 
+    /**
+     * User level services.
+     */
     public function getServiceName()
     {
-        return (!$this->serviceName) ?: $this->serviceName->value();
+        return (!$this->serviceName) ?: $this->serviceName->getValue();
     }
 
+    /**
+     * Service Pack name.
+     */
     public function setServicePackName($servicePackName = null)
     {
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
@@ -66,8 +89,11 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
              : new ServicePackName($servicePackName);
     }
 
+    /**
+     * Service Pack name.
+     */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->value();
+        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
     }
 }

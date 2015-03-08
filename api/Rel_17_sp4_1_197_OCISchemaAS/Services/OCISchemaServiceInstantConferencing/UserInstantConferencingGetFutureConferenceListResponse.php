@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserInstantConferencingGetFutureConferenceListRequest.
+     * Response to the UserInstantConferencingGetFutureConferenceListRequest.
  *         Contains a table with column headings:
  *         "Bridge Service User Id", "Bridge Name", "Conference Id",
  *         "Owner User Id", "Owner Last Name", "Owner First Name", "Owner Hiragana Last Name", "Owner Hiragana First Name",
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetFutureConferenceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $conferenceTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetFutureConferenceListResponse';
+    public    $name            = __CLASS__;
+    protected $conferenceTable = null;
 
 
+    /**
+     * 
+     */
     public function setConferenceTable(core:OCITable $conferenceTable = null)
     {
+        $this->conferenceTable = core:OCITable $conferenceTable;
     }
 
+    /**
+     * 
+     */
     public function getConferenceTable()
     {
-        return (!$this->conferenceTable) ?: $this->conferenceTable->value();
+        return (!$this->conferenceTable) ?: $this->conferenceTable->getValue();
     }
 }

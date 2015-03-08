@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an entry from the SIP access control list.
+     * Modify an entry from the SIP access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $netAddress         = null;
-    protected $transportProtocol  = null;
-    protected $description        = null;
+    public    $name              = __CLASS__;
+    protected $netAddress        = null;
+    protected $transportProtocol = null;
+    protected $description       = null;
 
     public function __construct(
          $netAddress,
@@ -35,6 +35,9 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
         $this->setDescription($description);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -42,11 +45,17 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * SIP ACL Network Transport Protocol.
+     */
     public function setTransportProtocol($transportProtocol = null)
     {
         $this->transportProtocol = ($transportProtocol InstanceOf SIPACLTransportProtocol)
@@ -54,11 +63,17 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
              : new SIPACLTransportProtocol($transportProtocol);
     }
 
+    /**
+     * SIP ACL Network Transport Protocol.
+     */
     public function getTransportProtocol()
     {
-        return (!$this->transportProtocol) ?: $this->transportProtocol->value();
+        return (!$this->transportProtocol) ?: $this->transportProtocol->getValue();
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
@@ -66,8 +81,11 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
              : new NetworkACLEntryDescription($description);
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

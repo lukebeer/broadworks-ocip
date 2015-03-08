@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemBroadWorksMobilityDnGetListRequest.
+     * Response to SystemBroadWorksMobilityDnGetListRequest.
  */
 class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $imrnNumber  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
+    public    $name       = __CLASS__;
+    protected $imrnNumber = null;
 
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setImrnNumber($imrnNumber = null)
     {
         $this->imrnNumber = ($imrnNumber InstanceOf DN)
@@ -28,8 +32,11 @@ class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements
              : new DN($imrnNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getImrnNumber()
     {
-        return (!$this->imrnNumber) ?: $this->imrnNumber->value();
+        return (!$this->imrnNumber) ?: $this->imrnNumber->getValue();
     }
 }

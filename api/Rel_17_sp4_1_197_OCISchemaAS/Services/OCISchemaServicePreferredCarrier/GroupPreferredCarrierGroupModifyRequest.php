@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the currently configured carriers for a group.
+     * Modifies the currently configured carriers for a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $serviceProviderId     = null;
-    protected $groupId               = null;
-    protected $intraLataCarrier      = null;
-    protected $interLataCarrier      = null;
-    protected $internationalCarrier  = null;
+    public    $name                 = __CLASS__;
+    protected $serviceProviderId    = null;
+    protected $groupId              = null;
+    protected $intraLataCarrier     = null;
+    protected $interLataCarrier     = null;
+    protected $internationalCarrier = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +41,10 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         $this->setInternationalCarrier($internationalCarrier);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,11 +52,19 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -60,35 +72,72 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+     *         You can use the Service Provider preferred carrier without clearing the group
+     *         carrier name -- in this case, the group carrier name is retained.
+     */
     public function setIntraLataCarrier(GroupPreferredCarrierNameModify $intraLataCarrier = null)
     {
+        $this->intraLataCarrier = GroupPreferredCarrierNameModify $intraLataCarrier;
     }
 
+    /**
+     * Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+     *         You can use the Service Provider preferred carrier without clearing the group
+     *         carrier name -- in this case, the group carrier name is retained.
+     */
     public function getIntraLataCarrier()
     {
-        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->value();
+        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->getValue();
     }
 
+    /**
+     * Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+     *         You can use the Service Provider preferred carrier without clearing the group
+     *         carrier name -- in this case, the group carrier name is retained.
+     */
     public function setInterLataCarrier(GroupPreferredCarrierNameModify $interLataCarrier = null)
     {
+        $this->interLataCarrier = GroupPreferredCarrierNameModify $interLataCarrier;
     }
 
+    /**
+     * Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+     *         You can use the Service Provider preferred carrier without clearing the group
+     *         carrier name -- in this case, the group carrier name is retained.
+     */
     public function getInterLataCarrier()
     {
-        return (!$this->interLataCarrier) ?: $this->interLataCarrier->value();
+        return (!$this->interLataCarrier) ?: $this->interLataCarrier->getValue();
     }
 
+    /**
+     * Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+     *         You can use the Service Provider preferred carrier without clearing the group
+     *         carrier name -- in this case, the group carrier name is retained.
+     */
     public function setInternationalCarrier(GroupPreferredCarrierNameModify $internationalCarrier = null)
     {
+        $this->internationalCarrier = GroupPreferredCarrierNameModify $internationalCarrier;
     }
 
+    /**
+     * Group can either use it's service provider/enterprise's preferred carrier or use it's own.
+     *         You can use the Service Provider preferred carrier without clearing the group
+     *         carrier name -- in this case, the group carrier name is retained.
+     */
     public function getInternationalCarrier()
     {
-        return (!$this->internationalCarrier) ?: $this->internationalCarrier->value();
+        return (!$this->internationalCarrier) ?: $this->internationalCarrier->getValue();
     }
 }

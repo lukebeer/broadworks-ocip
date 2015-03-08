@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserOutgoingCallingPlanAuthorizationCodeGetRequest.
+     * Response to UserOutgoingCallingPlanAuthorizationCodeGetRequest.
  */
 class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $code  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse';
+    public    $name = __CLASS__;
+    protected $code = null;
 
 
+    /**
+     * Outgoing Calling Plan Authorization Code.
+     */
     public function setCode($code = null)
     {
         $this->code = ($code InstanceOf OutgoingCallingPlanAuthorizationCode)
@@ -28,8 +32,11 @@ class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends Compl
              : new OutgoingCallingPlanAuthorizationCode($code);
     }
 
+    /**
+     * Outgoing Calling Plan Authorization Code.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 }

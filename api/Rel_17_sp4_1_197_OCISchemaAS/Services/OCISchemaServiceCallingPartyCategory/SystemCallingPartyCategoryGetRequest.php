@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Calling Party Category in system.
+     * Get an existing Calling Party Category in system.
  *         The response is either a SystemCallingPartyCategoryGetResponse or an ErrorResponse.
  */
 class SystemCallingPartyCategoryGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $category  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetResponse';
+    public    $name     = __CLASS__;
+    protected $category = null;
 
     public function __construct(
          $category
@@ -27,6 +28,9 @@ class SystemCallingPartyCategoryGetRequest extends ComplexType implements Comple
         $this->setCategory($category);
     }
 
+    /**
+     * Name for the Calling Party Category.
+     */
     public function setCategory($category = null)
     {
         $this->category = ($category InstanceOf CallingPartyCategoryName)
@@ -34,8 +38,11 @@ class SystemCallingPartyCategoryGetRequest extends ComplexType implements Comple
              : new CallingPartyCategoryName($category);
     }
 
+    /**
+     * Name for the Calling Party Category.
+     */
     public function getCategory()
     {
-        return (!$this->category) ?: $this->category->value();
+        return (!$this->category) ?: $this->category->getValue();
     }
 }

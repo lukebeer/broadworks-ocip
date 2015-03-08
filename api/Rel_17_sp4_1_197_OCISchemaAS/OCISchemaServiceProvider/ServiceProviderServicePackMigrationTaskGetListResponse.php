@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderServicePackMigrationTaskGetListRequest.
+     * Response to ServiceProviderServicePackMigrationTaskGetListRequest.
  *         Contains a table with  a row for each service pack migration task and column headings :
  *         "Start Timestamp Milliseconds", "Name", "Status", "Error Count", "Users Processed", "Users Total".
  *         The start timestamp column is the number of milliseconds since the standard base time known as "the epoch",
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $taskTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetListResponse';
+    public    $name      = __CLASS__;
+    protected $taskTable = null;
 
 
+    /**
+     * 
+     */
     public function setTaskTable(core:OCITable $taskTable = null)
     {
+        $this->taskTable = core:OCITable $taskTable;
     }
 
+    /**
+     * 
+     */
     public function getTaskTable()
     {
-        return (!$this->taskTable) ?: $this->taskTable->value();
+        return (!$this->taskTable) ?: $this->taskTable->getValue();
     }
 }

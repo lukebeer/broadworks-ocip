@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Call center reporting data template info.
+     * Call center reporting data template info.
  */
 class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportDataTemplateInfo';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

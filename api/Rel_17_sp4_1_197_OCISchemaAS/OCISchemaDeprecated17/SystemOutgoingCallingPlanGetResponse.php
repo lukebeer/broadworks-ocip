@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemOutgoingCallingPlanGetRequest.
+     * Response to SystemOutgoingCallingPlanGetRequest.
  */
 class SystemOutgoingCallingPlanGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $directTransferScreening  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemOutgoingCallingPlanGetResponse';
+    public    $name                    = __CLASS__;
+    protected $directTransferScreening = null;
 
 
-    public function setDirectTransferScreening(xs:boolean $directTransferScreening = null)
+    /**
+     * 
+     */
+    public function setDirectTransferScreening($directTransferScreening = null)
     {
+        $this->directTransferScreening = (boolean) $directTransferScreening;
     }
 
+    /**
+     * 
+     */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening->value();
+        return (!$this->directTransferScreening) ?: $this->directTransferScreening->getValue();
     }
 }

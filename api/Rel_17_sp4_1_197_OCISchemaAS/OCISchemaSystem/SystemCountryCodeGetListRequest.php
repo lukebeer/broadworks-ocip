@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request data for all country codes.
+     * Request data for all country codes.
  *         The response is either a SystemCountryCodeGetListResponse or an
  *         ErrorResponse.
  */
 class SystemCountryCodeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCountryCodeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

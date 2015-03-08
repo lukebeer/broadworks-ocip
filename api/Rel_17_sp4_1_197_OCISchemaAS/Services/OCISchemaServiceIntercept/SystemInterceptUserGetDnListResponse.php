@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemInterceptUserGetDnListRequest.
+     * Response to SystemInterceptUserGetDnListRequest.
  *           The Intercept User DN List.
  */
 class SystemInterceptUserGetDnListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $interceptUserList  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserGetDnListResponse';
+    public    $name              = __CLASS__;
+    protected $interceptUserList = null;
 
 
+    /**
+     * Intercept User Entry containing the phone number and a Description.
+     */
     public function setInterceptUserList(InterceptDNListEntry $interceptUserList = null)
     {
+        $this->interceptUserList = InterceptDNListEntry $interceptUserList;
     }
 
+    /**
+     * Intercept User Entry containing the phone number and a Description.
+     */
     public function getInterceptUserList()
     {
-        return (!$this->interceptUserList) ?: $this->interceptUserList->value();
+        return (!$this->interceptUserList) ?: $this->interceptUserList->getValue();
     }
 }

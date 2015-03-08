@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the attributes of carrier.
+     * Requests the attributes of carrier.
  *         The response is either a SystemPreferreredCarrierGetResponse or an ErrorResponse.
  */
 class SystemPreferredCarrierGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $carrier  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetResponse';
+    public    $name    = __CLASS__;
+    protected $carrier = null;
 
     public function __construct(
          $carrier
@@ -27,6 +28,9 @@ class SystemPreferredCarrierGetRequest extends ComplexType implements ComplexInt
         $this->setCarrier($carrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setCarrier($carrier = null)
     {
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
@@ -34,8 +38,11 @@ class SystemPreferredCarrierGetRequest extends ComplexType implements ComplexInt
              : new PreferredCarrierName($carrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getCarrier()
     {
-        return (!$this->carrier) ?: $this->carrier->value();
+        return (!$this->carrier) ?: $this->carrier->getValue();
     }
 }

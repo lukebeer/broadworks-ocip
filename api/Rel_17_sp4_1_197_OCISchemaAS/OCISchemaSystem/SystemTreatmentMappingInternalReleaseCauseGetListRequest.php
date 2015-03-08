@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests a table of all the Internal Release Cause mappings in the system.
+     * Requests a table of all the Internal Release Cause mappings in the system.
  *         The response is either a SystemTreatmentMappingInternalReleaseCauseGetListResponse
  *         or an ErrorResponse.
  */
 class SystemTreatmentMappingInternalReleaseCauseGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingInternalReleaseCauseGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

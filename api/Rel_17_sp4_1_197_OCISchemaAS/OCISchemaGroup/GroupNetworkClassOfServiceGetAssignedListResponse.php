@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupNetworkClassOfServiceGetAssignedListRequest.
+     * Response to GroupNetworkClassOfServiceGetAssignedListRequest.
  *         Contains a table of all Network Classes of Service assigned to
  *         the group. The column headings are: "Name", "Description" and "Default".
  */
 class GroupNetworkClassOfServiceGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $networkClassOfServiceTable  = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNetworkClassOfServiceGetAssignedListResponse';
+    public    $name                       = __CLASS__;
+    protected $networkClassOfServiceTable = null;
 
 
+    /**
+     * 
+     */
     public function setNetworkClassOfServiceTable(core:OCITable $networkClassOfServiceTable = null)
     {
+        $this->networkClassOfServiceTable = core:OCITable $networkClassOfServiceTable;
     }
 
+    /**
+     * 
+     */
     public function getNetworkClassOfServiceTable()
     {
-        return (!$this->networkClassOfServiceTable) ?: $this->networkClassOfServiceTable->value();
+        return (!$this->networkClassOfServiceTable) ?: $this->networkClassOfServiceTable->getValue();
     }
 }

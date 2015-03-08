@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Communication Barring Profile defined as part of the Network Class
+     * Communication Barring Profile defined as part of the Network Class
  *         Of Service. There can be only one primary profile within a Network
  *         Class Of Service.
  */
 class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceCommunicationBarringProfile';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

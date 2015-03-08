@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Activates or Deactivates the BroadWorks Mobile Manager.
+     * Activates or Deactivates the BroadWorks Mobile Manager.
  *         The deactivationReason is required when isActive is set to false. 
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $isActive            = null;
-    protected $deactivationReason  = null;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $isActive           = null;
+    protected $deactivationReason = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
         $this->setDeactivationReason($deactivationReason);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,20 +70,34 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Deactivation reason.
+     */
     public function setDeactivationReason($deactivationReason = null)
     {
         $this->deactivationReason = ($deactivationReason InstanceOf BroadWorksMobileManagerDeactivationReason)
@@ -79,8 +105,11 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
              : new BroadWorksMobileManagerDeactivationReason($deactivationReason);
     }
 
+    /**
+     * Deactivation reason.
+     */
     public function getDeactivationReason()
     {
-        return (!$this->deactivationReason) ?: $this->deactivationReason->value();
+        return (!$this->deactivationReason) ?: $this->deactivationReason->getValue();
     }
 }

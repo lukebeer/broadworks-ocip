@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the list of transfer numbers for a group default and it's departments.
+     * Modify the list of transfer numbers for a group default and it's departments.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $groupNumbers       = null;
-    protected $departmentNumbers  = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $groupNumbers      = null;
+    protected $departmentNumbers = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
         $this->setDepartmentNumbers($departmentNumbers);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,26 +70,44 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Outgoing Calling Plan transfer numbers.
+     */
     public function setGroupNumbers(OutgoingCallingPlanTransferNumbersModify $groupNumbers = null)
     {
+        $this->groupNumbers = OutgoingCallingPlanTransferNumbersModify $groupNumbers;
     }
 
+    /**
+     * Outgoing Calling Plan transfer numbers.
+     */
     public function getGroupNumbers()
     {
-        return (!$this->groupNumbers) ?: $this->groupNumbers->value();
+        return (!$this->groupNumbers) ?: $this->groupNumbers->getValue();
     }
 
+    /**
+     * Outgoing Calling Plan transfer numbers for a department.
+     */
     public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers = null)
     {
+        $this->departmentNumbers = OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers;
     }
 
+    /**
+     * Outgoing Calling Plan transfer numbers for a department.
+     */
     public function getDepartmentNumbers()
     {
-        return (!$this->departmentNumbers) ?: $this->departmentNumbers->value();
+        return (!$this->departmentNumbers) ?: $this->departmentNumbers->getValue();
     }
 }

@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallCenterGetAvailableDNISListRequest.
+     * Response to UserCallCenterGetAvailableDNISListRequest.
  *         Contains a list of available DNIS for agent to select.
  */
 class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $availableDNIS  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetAvailableDNISListResponse';
+    public    $name          = __CLASS__;
+    protected $availableDNIS = null;
 
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function setAvailableDNIS(DNISKey $availableDNIS = null)
     {
+        $this->availableDNIS = DNISKey $availableDNIS;
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function getAvailableDNIS()
     {
-        return (!$this->availableDNIS) ?: $this->availableDNIS->value();
+        return (!$this->availableDNIS) ?: $this->availableDNIS->getValue();
     }
 }

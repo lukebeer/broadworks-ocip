@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for users with a specified network class of service.
+     * Criteria for searching for users with a specified network class of service.
  */
 class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $networkClassOfService  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserNetworkClassOfService';
+    public    $name                  = __CLASS__;
+    protected $networkClassOfService = null;
 
     public function __construct(
          $networkClassOfService
@@ -26,6 +27,9 @@ class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implement
         $this->setNetworkClassOfService($networkClassOfService);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
@@ -33,8 +37,11 @@ class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implement
              : new NetworkClassOfServiceName($networkClassOfService);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->value();
+        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
     }
 }

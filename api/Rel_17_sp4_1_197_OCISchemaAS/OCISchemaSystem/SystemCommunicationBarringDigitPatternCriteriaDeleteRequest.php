@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an existing Communication Barring Digit Pattern Criteria.
+     * Delete an existing Communication Barring Digit Pattern Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends Comple
         $this->setName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
@@ -34,8 +37,11 @@ class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends Comple
              : new DigitPatternCriteriaName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

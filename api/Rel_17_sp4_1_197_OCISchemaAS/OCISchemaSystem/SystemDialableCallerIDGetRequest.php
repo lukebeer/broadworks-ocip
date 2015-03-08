@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the system level Dialable Caller ID criteria list.
+     * Get the system level Dialable Caller ID criteria list.
  *         The response is either a 
  *         SystemDialableCallerIDGetResponse or an ErrorResponse.
  */
 class SystemDialableCallerIDGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

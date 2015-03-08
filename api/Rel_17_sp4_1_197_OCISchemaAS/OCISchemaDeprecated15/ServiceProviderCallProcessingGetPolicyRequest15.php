@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the service provider level data associated with Call Processing
+     * Request the service provider level data associated with Call Processing
  *             Policy. The response is either a
  *             ServiceProviderCallProcessingGetPolicyResponse15 or an ErrorResponse.
  * 
@@ -21,8 +21,9 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCallProcessingGetPolicyRequest15 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderCallProcessingGetPolicyResponse15';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
 
     public function __construct(
          $serviceProviderId
@@ -30,6 +31,10 @@ class ServiceProviderCallProcessingGetPolicyRequest15 extends ComplexType implem
         $this->setServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -37,8 +42,12 @@ class ServiceProviderCallProcessingGetPolicyRequest15 extends ComplexType implem
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 }

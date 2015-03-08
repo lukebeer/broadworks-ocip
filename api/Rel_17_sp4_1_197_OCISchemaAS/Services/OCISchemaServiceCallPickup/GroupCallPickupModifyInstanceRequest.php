@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies a Call Pickup group. Replaces the entire list of users in the group.
+     * Modifies a Call Pickup group. Replaces the entire list of users in the group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallPickupModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $name               = null;
-    protected $newName            = null;
-    protected $userIdList         = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $name              = null;
+    protected $newName           = null;
+    protected $userIdList        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -42,6 +42,10 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
         $this->setUserIdList($userIdList);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -49,11 +53,19 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -61,11 +73,18 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -73,11 +92,17 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setNewName($newName = null)
     {
         $this->newName = ($newName InstanceOf ServiceInstanceName)
@@ -85,17 +110,29 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
              : new ServiceInstanceName($newName);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->value();
+        return (!$this->newName) ?: $this->newName->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
+        $this->userIdList = ReplacementUserIdList $userIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getUserIdList()
     {
-        return (!$this->userIdList) ?: $this->userIdList->value();
+        return (!$this->userIdList) ?: $this->userIdList->getValue();
     }
 }

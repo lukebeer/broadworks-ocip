@@ -17,19 +17,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Change the group's account/authorization codes setting.
+     * Change the group's account/authorization codes setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $serviceProviderId           = null;
-    protected $groupId                     = null;
-    protected $codeType                    = null;
-    protected $numberOfDigits              = null;
-    protected $allowLocalAndTollFreeCalls  = null;
-    protected $mandatoryUsageUserIdList    = null;
-    protected $optionalUsageUserIdList     = null;
+    public    $name                       = __CLASS__;
+    protected $serviceProviderId          = null;
+    protected $groupId                    = null;
+    protected $codeType                   = null;
+    protected $numberOfDigits             = null;
+    protected $allowLocalAndTollFreeCalls = null;
+    protected $mandatoryUsageUserIdList   = null;
+    protected $optionalUsageUserIdList    = null;
 
     public function __construct(
          $serviceProviderId,
@@ -49,6 +49,10 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->setOptionalUsageUserIdList($optionalUsageUserIdList);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -56,11 +60,19 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -68,11 +80,18 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Account/Authorization Code Type.
+     */
     public function setCodeType($codeType = null)
     {
         $this->codeType = ($codeType InstanceOf AccountAuthorizationCodeType)
@@ -80,11 +99,17 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
              : new AccountAuthorizationCodeType($codeType);
     }
 
+    /**
+     * Account/Authorization Code Type.
+     */
     public function getCodeType()
     {
-        return (!$this->codeType) ?: $this->codeType->value();
+        return (!$this->codeType) ?: $this->codeType->getValue();
     }
 
+    /**
+     * Number of Account/Authorization Code Digits.
+     */
     public function setNumberOfDigits($numberOfDigits = null)
     {
         $this->numberOfDigits = ($numberOfDigits InstanceOf AccountAuthorizationCodeNumberOfDigits)
@@ -92,35 +117,63 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
              : new AccountAuthorizationCodeNumberOfDigits($numberOfDigits);
     }
 
+    /**
+     * Number of Account/Authorization Code Digits.
+     */
     public function getNumberOfDigits()
     {
-        return (!$this->numberOfDigits) ?: $this->numberOfDigits->value();
+        return (!$this->numberOfDigits) ?: $this->numberOfDigits->getValue();
     }
 
-    public function setAllowLocalAndTollFreeCalls(xs:boolean $allowLocalAndTollFreeCalls = null)
+    /**
+     * 
+     */
+    public function setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls = null)
     {
+        $this->allowLocalAndTollFreeCalls = (boolean) $allowLocalAndTollFreeCalls;
     }
 
+    /**
+     * 
+     */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls->value();
+        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setMandatoryUsageUserIdList(ReplacementUserIdList $mandatoryUsageUserIdList = null)
     {
+        $this->mandatoryUsageUserIdList = ReplacementUserIdList $mandatoryUsageUserIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getMandatoryUsageUserIdList()
     {
-        return (!$this->mandatoryUsageUserIdList) ?: $this->mandatoryUsageUserIdList->value();
+        return (!$this->mandatoryUsageUserIdList) ?: $this->mandatoryUsageUserIdList->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setOptionalUsageUserIdList(ReplacementUserIdList $optionalUsageUserIdList = null)
     {
+        $this->optionalUsageUserIdList = ReplacementUserIdList $optionalUsageUserIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getOptionalUsageUserIdList()
     {
-        return (!$this->optionalUsageUserIdList) ?: $this->optionalUsageUserIdList->value();
+        return (!$this->optionalUsageUserIdList) ?: $this->optionalUsageUserIdList->getValue();
     }
 }

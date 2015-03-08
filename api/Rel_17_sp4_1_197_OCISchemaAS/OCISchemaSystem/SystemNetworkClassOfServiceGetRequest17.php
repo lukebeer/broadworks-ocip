@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Network Class of Service.
+     * Get an existing Network Class of Service.
  *         The response is either a SystemNetworkClassOfServiceGetResponse17
  *         or an ErrorResponse.
  */
 class SystemNetworkClassOfServiceGetRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetResponse17';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -28,6 +29,9 @@ class SystemNetworkClassOfServiceGetRequest17 extends ComplexType implements Com
         $this->setName($name);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
@@ -35,8 +39,11 @@ class SystemNetworkClassOfServiceGetRequest17 extends ComplexType implements Com
              : new NetworkClassOfServiceName($name);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

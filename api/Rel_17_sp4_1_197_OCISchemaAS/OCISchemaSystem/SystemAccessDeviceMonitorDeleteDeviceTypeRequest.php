@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Remove a device type to be monitored.
+     * Remove a device type to be monitored.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccessDeviceMonitorDeleteDeviceTypeRequest extends ComplexType implements ComplexInterface

@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemVirtualOnNetCallTypeGetListRequest.
+     * Response to SystemVirtualOnNetCallTypeGetListRequest.
  *         Contains a table with column headings: 
  *         "Virtual On-Net Call Type Name", "Virtual On-Net Call Type CDR Value" 
  *         in a row for each Virtual On-Net Call Type.
  */
 class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $virtualOnNetCallTypeTable  = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\SystemVirtualOnNetCallTypeGetListResponse';
+    public    $name                      = __CLASS__;
+    protected $virtualOnNetCallTypeTable = null;
 
 
+    /**
+     * 
+     */
     public function setVirtualOnNetCallTypeTable(core:OCITable $virtualOnNetCallTypeTable = null)
     {
+        $this->virtualOnNetCallTypeTable = core:OCITable $virtualOnNetCallTypeTable;
     }
 
+    /**
+     * 
+     */
     public function getVirtualOnNetCallTypeTable()
     {
-        return (!$this->virtualOnNetCallTypeTable) ?: $this->virtualOnNetCallTypeTable->value();
+        return (!$this->virtualOnNetCallTypeTable) ?: $this->virtualOnNetCallTypeTable->getValue();
     }
 }

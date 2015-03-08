@@ -15,15 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Gets a Call Pickup group.
+     * Gets a Call Pickup group.
  *         The response is either GroupCallPickupGetInstanceResponse or ErrorResponse.
  */
 class GroupCallPickupGetInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $name               = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $name              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +36,10 @@ class GroupCallPickupGetInstanceRequest extends ComplexType implements ComplexIn
         $this->setName($name);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +47,19 @@ class GroupCallPickupGetInstanceRequest extends ComplexType implements ComplexIn
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +67,18 @@ class GroupCallPickupGetInstanceRequest extends ComplexType implements ComplexIn
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -66,8 +86,11 @@ class GroupCallPickupGetInstanceRequest extends ComplexType implements ComplexIn
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

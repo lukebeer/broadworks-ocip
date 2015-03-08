@@ -21,7 +21,7 @@ class CallParkRecallTo extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new Enumeration([
             'Parking User Only',
             'Parking User Then Alternate User',

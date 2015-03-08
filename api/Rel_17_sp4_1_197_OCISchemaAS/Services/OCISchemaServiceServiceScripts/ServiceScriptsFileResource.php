@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Service Scripts File Resource for uploading file content.
+     * Service Scripts File Resource for uploading file content.
  */
 class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\ServiceScriptsFileResource';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the fields for a Q850CauseValue mapping.
+     * Modify the fields for a Q850CauseValue mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingQ850CauseModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $q850CauseValue  = null;
-    protected $treatmentId     = null;
+    public    $name           = __CLASS__;
+    protected $q850CauseValue = null;
+    protected $treatmentId    = null;
 
     public function __construct(
          $q850CauseValue,
@@ -31,6 +31,9 @@ class SystemTreatmentMappingQ850CauseModifyRequest extends ComplexType implement
         $this->setTreatmentId($treatmentId);
     }
 
+    /**
+     * The possible range values for Q850 Cause Value.
+     */
     public function setQ850CauseValue($q850CauseValue = null)
     {
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
@@ -38,11 +41,17 @@ class SystemTreatmentMappingQ850CauseModifyRequest extends ComplexType implement
              : new Q850CauseValue($q850CauseValue);
     }
 
+    /**
+     * The possible range values for Q850 Cause Value.
+     */
     public function getQ850CauseValue()
     {
-        return (!$this->q850CauseValue) ?: $this->q850CauseValue->value();
+        return (!$this->q850CauseValue) ?: $this->q850CauseValue->getValue();
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
@@ -50,8 +59,11 @@ class SystemTreatmentMappingQ850CauseModifyRequest extends ComplexType implement
              : new TreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->value();
+        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
     }
 }

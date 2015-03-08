@@ -16,17 +16,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallingNameRetrievalGetRequest14.
+     * Response to SystemCallingNameRetrievalGetRequest14.
  */
 class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $queryTimerMilliSeconds   = null;
-    protected $serverNetAddress         = null;
-    protected $serverPort               = null;
-    protected $serverTransportProtocol  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCallingNameRetrievalGetResponse14';
+    public    $name                    = __CLASS__;
+    protected $queryTimerMilliSeconds  = null;
+    protected $serverNetAddress        = null;
+    protected $serverPort              = null;
+    protected $serverTransportProtocol = null;
 
 
+    /**
+     * Query timer milli-seconds.
+     */
     public function setQueryTimerMilliSeconds($queryTimerMilliSeconds = null)
     {
         $this->queryTimerMilliSeconds = ($queryTimerMilliSeconds InstanceOf CallingNameRetrievalQueryTimerMilliSeconds)
@@ -34,11 +38,17 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
              : new CallingNameRetrievalQueryTimerMilliSeconds($queryTimerMilliSeconds);
     }
 
+    /**
+     * Query timer milli-seconds.
+     */
     public function getQueryTimerMilliSeconds()
     {
-        return (!$this->queryTimerMilliSeconds) ?: $this->queryTimerMilliSeconds->value();
+        return (!$this->queryTimerMilliSeconds) ?: $this->queryTimerMilliSeconds->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setServerNetAddress($serverNetAddress = null)
     {
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
@@ -46,11 +56,17 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
              : new NetAddress($serverNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getServerNetAddress()
     {
-        return (!$this->serverNetAddress) ?: $this->serverNetAddress->value();
+        return (!$this->serverNetAddress) ?: $this->serverNetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServerPort($serverPort = null)
     {
         $this->serverPort = ($serverPort InstanceOf Port1025)
@@ -58,11 +74,17 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
              : new Port1025($serverPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->value();
+        return (!$this->serverPort) ?: $this->serverPort->getValue();
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function setServerTransportProtocol($serverTransportProtocol = null)
     {
         $this->serverTransportProtocol = ($serverTransportProtocol InstanceOf TransportProtocol)
@@ -70,8 +92,11 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
              : new TransportProtocol($serverTransportProtocol);
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function getServerTransportProtocol()
     {
-        return (!$this->serverTransportProtocol) ?: $this->serverTransportProtocol->value();
+        return (!$this->serverTransportProtocol) ?: $this->serverTransportProtocol->getValue();
     }
 }

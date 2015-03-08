@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a Radius Server from the system.
+     * Request to delete a Radius Server from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $netAddress  = null;
-    protected $port        = null;
+    public    $name       = __CLASS__;
+    protected $netAddress = null;
+    protected $port       = null;
 
     public function __construct(
          $netAddress,
@@ -31,6 +31,9 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
         $this->setPort($port);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -38,11 +41,17 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setPort($port = null)
     {
         $this->port = ($port InstanceOf Port1025)
@@ -50,8 +59,11 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
              : new Port1025($port);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->value();
+        return (!$this->port) ?: $this->port->getValue();
     }
 }

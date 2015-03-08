@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a system level call center report template.
+     * Request to delete a system level call center report template.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallCenterEnhancedReportingReportTemplateDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemCallCenterEnhancedReportingReportTemplateDeleteRequest extends Compl
         $this->setName($name);
     }
 
+    /**
+     * The call center enhanced reporting report template name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
@@ -34,8 +37,11 @@ class SystemCallCenterEnhancedReportingReportTemplateDeleteRequest extends Compl
              : new CallCenterReportTemplateName($name);
     }
 
+    /**
+     * The call center enhanced reporting report template name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

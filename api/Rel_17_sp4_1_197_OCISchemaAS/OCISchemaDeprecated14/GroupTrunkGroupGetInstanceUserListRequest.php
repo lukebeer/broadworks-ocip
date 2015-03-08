@@ -18,18 +18,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of user's on a Trunk Group Instance.
+     * Get a list of user's on a Trunk Group Instance.
  *         The response is either a GroupTrunkGroupGetInstanceUserListResponse or an ErrorResponse.
  */
 class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $serviceUserId                      = null;
-    protected $responseSizeLimit                  = null;
-    protected $searchCriteriaUserLastName         = null;
-    protected $searchCriteriaUserFirstName        = null;
-    protected $searchCriteriaDn                   = null;
-    protected $searchCriteriaExactUserDepartment  = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceUserListResponse';
+    public    $name                              = __CLASS__;
+    protected $serviceUserId                     = null;
+    protected $responseSizeLimit                 = null;
+    protected $searchCriteriaUserLastName        = null;
+    protected $searchCriteriaUserFirstName       = null;
+    protected $searchCriteriaDn                  = null;
+    protected $searchCriteriaExactUserDepartment = null;
 
     public function __construct(
          $serviceUserId,
@@ -47,6 +48,13 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -54,11 +62,23 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -66,44 +86,77 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
+        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
+        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
+        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
+        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
+        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function getSearchCriteriaExactUserDepartment()
     {
-        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->value();
+        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->getValue();
     }
 }

@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterprisePhoneDirectoryGetListRequest17.
+     * Response to EnterprisePhoneDirectoryGetListRequest17.
  *         Contains a table with  a row for each phone number and column headings :
  *         "Name", "Number", "Extension", "Mobile", "Email Address", 
  *         "Department", "Hiragana Name", "Group Id", "Yahoo Id", "Is Virtual On-Net User".
@@ -24,16 +24,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterprisePhoneDirectoryGetListResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $directoryTable  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterprisePhoneDirectoryGetListResponse17';
+    public    $name           = __CLASS__;
+    protected $directoryTable = null;
 
 
+    /**
+     * 
+     */
     public function setDirectoryTable(core:OCITable $directoryTable = null)
     {
+        $this->directoryTable = core:OCITable $directoryTable;
     }
 
+    /**
+     * 
+     */
     public function getDirectoryTable()
     {
-        return (!$this->directoryTable) ?: $this->directoryTable->value();
+        return (!$this->directoryTable) ?: $this->directoryTable->getValue();
     }
 }

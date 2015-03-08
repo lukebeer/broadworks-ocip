@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemPerformanceMeasurementReportingGetFileServerListRequest. The table columns are:
+     * Response to SystemPerformanceMeasurementReportingGetFileServerListRequest. The table columns are:
  *         "FTP Host Net Address", "FTP User Id", "Passive FTP".
  */
 class SystemPerformanceMeasurementReportingGetFileServerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $fileServerTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetFileServerListResponse';
+    public    $name            = __CLASS__;
+    protected $fileServerTable = null;
 
 
+    /**
+     * 
+     */
     public function setFileServerTable(core:OCITable $fileServerTable = null)
     {
+        $this->fileServerTable = core:OCITable $fileServerTable;
     }
 
+    /**
+     * 
+     */
     public function getFileServerTable()
     {
-        return (!$this->fileServerTable) ?: $this->fileServerTable->value();
+        return (!$this->fileServerTable) ?: $this->fileServerTable->getValue();
     }
 }

@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Calling Name Delivery.
+     * Modify the user level data associated with Calling Name Delivery.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallingNameDeliveryModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $userId                    = null;
-    protected $isActiveForExternalCalls  = null;
-    protected $isActiveForInternalCalls  = null;
+    public    $name                     = __CLASS__;
+    protected $userId                   = null;
+    protected $isActiveForExternalCalls = null;
+    protected $isActiveForInternalCalls = null;
 
     public function __construct(
          $userId,
@@ -33,6 +33,13 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
         $this->setIsActiveForInternalCalls($isActiveForInternalCalls);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -40,26 +47,47 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActiveForExternalCalls(xs:boolean $isActiveForExternalCalls = null)
+    /**
+     * 
+     */
+    public function setIsActiveForExternalCalls($isActiveForExternalCalls = null)
     {
+        $this->isActiveForExternalCalls = (boolean) $isActiveForExternalCalls;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveForExternalCalls()
     {
-        return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls->value();
+        return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls->getValue();
     }
 
-    public function setIsActiveForInternalCalls(xs:boolean $isActiveForInternalCalls = null)
+    /**
+     * 
+     */
+    public function setIsActiveForInternalCalls($isActiveForInternalCalls = null)
     {
+        $this->isActiveForInternalCalls = (boolean) $isActiveForInternalCalls;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveForInternalCalls()
     {
-        return (!$this->isActiveForInternalCalls) ?: $this->isActiveForInternalCalls->value();
+        return (!$this->isActiveForInternalCalls) ?: $this->isActiveForInternalCalls->getValue();
     }
 }

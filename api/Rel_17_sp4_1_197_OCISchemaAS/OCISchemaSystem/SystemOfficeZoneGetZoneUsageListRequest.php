@@ -13,15 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of Office Zones that contain a specific
+     * Get the list of Office Zones that contain a specific
  *         Zone.
  *         The response is either a SystemOfficeZoneGetZoneUsageListResponse
  *         or an ErrorResponse.
  */
 class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $zoneName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse';
+    public    $name     = __CLASS__;
+    protected $zoneName = null;
 
     public function __construct(
          $zoneName
@@ -29,6 +30,9 @@ class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements Com
         $this->setZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -36,8 +40,11 @@ class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements Com
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 }

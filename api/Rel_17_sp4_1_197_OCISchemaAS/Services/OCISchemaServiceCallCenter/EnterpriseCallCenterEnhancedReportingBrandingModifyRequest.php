@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the enterprise branding configuration.
+     * Request to modify the enterprise branding configuration.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $brandingChoice     = null;
-    protected $brandingFile       = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $brandingChoice    = null;
+    protected $brandingFile      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
         $this->setBrandingFile($brandingFile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,18 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * The call center enhanced reporting Enterprise or Group level branding choice.
+     */
     public function setBrandingChoice($brandingChoice = null)
     {
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
@@ -54,17 +65,29 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
     }
 
+    /**
+     * The call center enhanced reporting Enterprise or Group level branding choice.
+     */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->value();
+        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setBrandingFile(LabeledFileResource $brandingFile = null)
     {
+        $this->brandingFile = LabeledFileResource $brandingFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getBrandingFile()
     {
-        return (!$this->brandingFile) ?: $this->brandingFile->value();
+        return (!$this->brandingFile) ?: $this->brandingFile->getValue();
     }
 }

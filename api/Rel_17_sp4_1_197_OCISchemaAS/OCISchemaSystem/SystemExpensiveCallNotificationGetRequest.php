@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the expensive call notification service parameters.
+     * Request to get the expensive call notification service parameters.
  *         The response is either a SystemExpensiveCallNotificationGetResponse or an ErrorResponse.
  */
 class SystemExpensiveCallNotificationGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallNotificationGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

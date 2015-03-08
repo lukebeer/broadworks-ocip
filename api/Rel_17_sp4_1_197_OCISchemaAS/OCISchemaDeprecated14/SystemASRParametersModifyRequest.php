@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Application Server Registration system parameters.
+     * Request to modify Application Server Registration system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemASRParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $maxTransmissions                 = null;
-    protected $retransmissionDelayMilliSeconds  = null;
-    protected $listeningPort                    = null;
-    protected $sourceAddress                    = null;
+    public    $name                            = __CLASS__;
+    protected $maxTransmissions                = null;
+    protected $retransmissionDelayMilliSeconds = null;
+    protected $listeningPort                   = null;
+    protected $sourceAddress                   = null;
 
     public function __construct(
          $maxTransmissions = null,
@@ -39,6 +39,9 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
         $this->setSourceAddress($sourceAddress);
     }
 
+    /**
+     * Maximum number of transmissions.
+     */
     public function setMaxTransmissions($maxTransmissions = null)
     {
         $this->maxTransmissions = ($maxTransmissions InstanceOf ASRMaxTransmissions)
@@ -46,11 +49,17 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
              : new ASRMaxTransmissions($maxTransmissions);
     }
 
+    /**
+     * Maximum number of transmissions.
+     */
     public function getMaxTransmissions()
     {
-        return (!$this->maxTransmissions) ?: $this->maxTransmissions->value();
+        return (!$this->maxTransmissions) ?: $this->maxTransmissions->getValue();
     }
 
+    /**
+     * Retransmission timer
+     */
     public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
         $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf ASRRetransmissionDelayMilliSeconds)
@@ -58,11 +67,17 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
              : new ASRRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
     }
 
+    /**
+     * Retransmission timer
+     */
     public function getRetransmissionDelayMilliSeconds()
     {
-        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->value();
+        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setListeningPort($listeningPort = null)
     {
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
@@ -70,11 +85,17 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
              : new Port1025($listeningPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getListeningPort()
     {
-        return (!$this->listeningPort) ?: $this->listeningPort->value();
+        return (!$this->listeningPort) ?: $this->listeningPort->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setSourceAddress($sourceAddress = null)
     {
         $this->sourceAddress = ($sourceAddress InstanceOf NetAddress)
@@ -82,8 +103,11 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
              : new NetAddress($sourceAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getSourceAddress()
     {
-        return (!$this->sourceAddress) ?: $this->sourceAddress->value();
+        return (!$this->sourceAddress) ?: $this->sourceAddress->getValue();
     }
 }

@@ -14,13 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Enterprise Voice VPN Digit Manipulation Entry that optionally has a value.
+     * Enterprise Voice VPN Digit Manipulation Entry that optionally has a value.
  */
 class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $operation  = null;
-    protected $value      = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOptionalValue';
+    public    $name      = __CLASS__;
+    protected $operation = null;
+    protected $value     = null;
 
     public function __construct(
          $operation,
@@ -30,6 +31,9 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
         $this->setValue($value);
     }
 
+    /**
+     * Enterprise Voice VPN Digit Manipulation Operations that may or may not have a value.
+     */
     public function setOperation($operation = null)
     {
         $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationOptionalValue)
@@ -37,11 +41,17 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
              : new EnterpriseVoiceVPNDigitManipulationOperationOptionalValue($operation);
     }
 
+    /**
+     * Enterprise Voice VPN Digit Manipulation Operations that may or may not have a value.
+     */
     public function getOperation()
     {
-        return (!$this->operation) ?: $this->operation->value();
+        return (!$this->operation) ?: $this->operation->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Digit Manipulation value.
+     */
     public function setValue($value = null)
     {
         $this->value = ($value InstanceOf EnterpriseVoiceVPNDigitManipulationValue)
@@ -49,8 +59,11 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
              : new EnterpriseVoiceVPNDigitManipulationValue($value);
     }
 
+    /**
+     * Enterprise Voice VPN Digit Manipulation value.
+     */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->value();
+        return (!$this->value) ?: $this->value->getValue();
     }
 }

@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an Route Point External System, which is a cluster of Application 
+     * Add an Route Point External System, which is a cluster of Application 
  *       Controllers.     
  *       The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutePointExternalSystemAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $name         = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $name        = null;
+    protected $description = null;
 
     public function __construct(
          $name,
@@ -32,6 +32,9 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
         $this->setDescription($description);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf RoutePointExternalSystem)
@@ -39,11 +42,17 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
              : new RoutePointExternalSystem($name);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * The Route Point External System's description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf ExternalSystemDescription)
@@ -51,8 +60,11 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
              : new ExternalSystemDescription($description);
     }
 
+    /**
+     * The Route Point External System's description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a list of routing Network Servers defined in the system.
+     * Request to get a list of routing Network Servers defined in the system.
  *         The response is either a SystemNetworkRoutingServerGetListResponse or an ErrorResponse.
  */
 class SystemNetworkRoutingServerGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkRoutingServerGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

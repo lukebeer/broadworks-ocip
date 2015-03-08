@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of mgcp device types in the system.
+     * Request to get the list of mgcp device types in the system.
  *         See Also: SystemDeviceTypeGetAvailableListRequest.
  *         The response is either SystemMGCPDeviceTypeGetListResponse or ErrorResponse.
  */
 class SystemMGCPDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

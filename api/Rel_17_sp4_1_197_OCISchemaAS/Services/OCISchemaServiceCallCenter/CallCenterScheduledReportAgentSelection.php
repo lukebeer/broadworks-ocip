@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Either all agents or list of agents.
+     * Either all agents or list of agents.
  */
 class CallCenterScheduledReportAgentSelection extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterScheduledReportAgentSelection';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

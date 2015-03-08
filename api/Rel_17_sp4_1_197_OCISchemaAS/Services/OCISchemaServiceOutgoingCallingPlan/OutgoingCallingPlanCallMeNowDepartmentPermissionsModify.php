@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify outgoing Calling Plan for Call Me Now call permissions for a department.
+     * Modify outgoing Calling Plan for Call Me Now call permissions for a department.
  */
 class OutgoingCallingPlanCallMeNowDepartmentPermissionsModify extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanCallMeNowDepartmentPermissionsModify';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

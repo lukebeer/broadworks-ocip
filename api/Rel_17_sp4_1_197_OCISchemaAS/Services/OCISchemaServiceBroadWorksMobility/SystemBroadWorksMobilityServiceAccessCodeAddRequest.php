@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a system service access code.
+     * Add a system service access code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemBroadWorksMobilityServiceAccessCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceAccessCode  = null;
-    protected $countryCode        = null;
-    protected $description        = null;
+    public    $name              = __CLASS__;
+    protected $serviceAccessCode = null;
+    protected $countryCode       = null;
+    protected $description       = null;
 
     public function __construct(
          $serviceAccessCode,
@@ -35,6 +35,9 @@ class SystemBroadWorksMobilityServiceAccessCodeAddRequest extends ComplexType im
         $this->setDescription($description);
     }
 
+    /**
+     * The Service Access Code composed of DTMF digits 0-9, # or *.
+     */
     public function setServiceAccessCode($serviceAccessCode = null)
     {
         $this->serviceAccessCode = ($serviceAccessCode InstanceOf ServiceAccessCode)
@@ -42,11 +45,17 @@ class SystemBroadWorksMobilityServiceAccessCodeAddRequest extends ComplexType im
              : new ServiceAccessCode($serviceAccessCode);
     }
 
+    /**
+     * The Service Access Code composed of DTMF digits 0-9, # or *.
+     */
     public function getServiceAccessCode()
     {
-        return (!$this->serviceAccessCode) ?: $this->serviceAccessCode->value();
+        return (!$this->serviceAccessCode) ?: $this->serviceAccessCode->getValue();
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -54,11 +63,17 @@ class SystemBroadWorksMobilityServiceAccessCodeAddRequest extends ComplexType im
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 
+    /**
+     * Service Access Code description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf ServiceAccessCodeDescription)
@@ -66,8 +81,11 @@ class SystemBroadWorksMobilityServiceAccessCodeAddRequest extends ComplexType im
              : new ServiceAccessCodeDescription($description);
     }
 
+    /**
+     * Service Access Code description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

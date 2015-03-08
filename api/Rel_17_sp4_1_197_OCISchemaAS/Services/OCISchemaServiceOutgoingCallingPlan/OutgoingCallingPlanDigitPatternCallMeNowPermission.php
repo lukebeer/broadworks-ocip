@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Indicates whether Call Me Now calls using specified digit patterns are permitted.
+     * Indicates whether Call Me Now calls using specified digit patterns are permitted.
  */
 class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternCallMeNowPermission';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

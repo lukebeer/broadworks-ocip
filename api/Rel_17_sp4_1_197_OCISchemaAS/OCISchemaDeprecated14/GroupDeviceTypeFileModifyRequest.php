@@ -18,19 +18,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a specified device type file for a group.
+     * Request to modify a specified device type file for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced By: GroupDeviceTypeFileModifyRequest14sp8
  */
 class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $deviceType         = null;
-    protected $fileType           = null;
-    protected $fileSource         = null;
-    protected $uploadFile         = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $deviceType        = null;
+    protected $fileType          = null;
+    protected $fileSource        = null;
+    protected $uploadFile        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -48,6 +48,10 @@ class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInt
         $this->setUploadFile($uploadFile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -55,11 +59,19 @@ class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInt
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -67,11 +79,18 @@ class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInt
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -79,11 +98,17 @@ class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInt
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileType($fileType = null)
     {
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
@@ -91,11 +116,17 @@ class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInt
              : new DeviceManagementFileType($fileType);
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileType()
     {
-        return (!$this->fileType) ?: $this->fileType->value();
+        return (!$this->fileType) ?: $this->fileType->getValue();
     }
 
+    /**
+     * Choices for the access device configuration mode.
+     */
     public function setFileSource($fileSource = null)
     {
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
@@ -103,17 +134,29 @@ class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInt
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
     }
 
+    /**
+     * Choices for the access device configuration mode.
+     */
     public function getFileSource()
     {
-        return (!$this->fileSource) ?: $this->fileSource->value();
+        return (!$this->fileSource) ?: $this->fileSource->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer.
+     */
     public function setUploadFile(FileResource $uploadFile = null)
     {
+        $this->uploadFile = FileResource $uploadFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer.
+     */
     public function getUploadFile()
     {
-        return (!$this->uploadFile) ?: $this->uploadFile->value();
+        return (!$this->uploadFile) ?: $this->uploadFile->getValue();
     }
 }

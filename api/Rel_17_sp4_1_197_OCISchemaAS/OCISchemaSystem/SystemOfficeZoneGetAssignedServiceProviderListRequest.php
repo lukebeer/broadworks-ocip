@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a list of service providers that have a given Office Zone assigned.  The response is either a SystemOfficeZoneGetAssignedServiceProviderListResponse or ErrorResponse.
+     * Request a list of service providers that have a given Office Zone assigned.  The response is either a SystemOfficeZoneGetAssignedServiceProviderListResponse or ErrorResponse.
  */
 class SystemOfficeZoneGetAssignedServiceProviderListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $officeZoneName  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetAssignedServiceProviderListResponse';
+    public    $name           = __CLASS__;
+    protected $officeZoneName = null;
 
     public function __construct(
          $officeZoneName
@@ -26,6 +27,9 @@ class SystemOfficeZoneGetAssignedServiceProviderListRequest extends ComplexType 
         $this->setOfficeZoneName($officeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function setOfficeZoneName($officeZoneName = null)
     {
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
@@ -33,8 +37,11 @@ class SystemOfficeZoneGetAssignedServiceProviderListRequest extends ComplexType 
              : new OfficeZoneName($officeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->value();
+        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
     }
 }

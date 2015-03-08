@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Attributes of the FTP protocol when the file repository interface is using FTP.
+     * Attributes of the FTP protocol when the file repository interface is using FTP.
  */
 class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\FileRepositoryProtocolFTP16';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

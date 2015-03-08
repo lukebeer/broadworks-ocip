@@ -13,28 +13,39 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemPerformanceMeasurementReportingGetRequest.
+     * Response to SystemPerformanceMeasurementReportingGetRequest.
  */
 class SystemPerformanceMeasurementReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
-    protected $isActive                          = null;
-    protected $reportingInterval                 = null;
-    protected $resetMeasurementsAfterEachReport  = null;
-    protected $reportEnterprise                  = null;
-    protected $reportServiceProvider             = null;
-    protected $reportDevice                      = null;
+    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetResponse';
+    public    $name                             = __CLASS__;
+    protected $isActive                         = null;
+    protected $reportingInterval                = null;
+    protected $resetMeasurementsAfterEachReport = null;
+    protected $reportEnterprise                 = null;
+    protected $reportServiceProvider            = null;
+    protected $reportDevice                     = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Performance Measurement Reporting Interval Minutes.
+     */
     public function setReportingInterval($reportingInterval = null)
     {
         $this->reportingInterval = ($reportingInterval InstanceOf PerformanceMeasurementReportingIntervalMinutes)
@@ -42,44 +53,75 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
              : new PerformanceMeasurementReportingIntervalMinutes($reportingInterval);
     }
 
+    /**
+     * Performance Measurement Reporting Interval Minutes.
+     */
     public function getReportingInterval()
     {
-        return (!$this->reportingInterval) ?: $this->reportingInterval->value();
+        return (!$this->reportingInterval) ?: $this->reportingInterval->getValue();
     }
 
-    public function setResetMeasurementsAfterEachReport(xs:boolean $resetMeasurementsAfterEachReport = null)
+    /**
+     * 
+     */
+    public function setResetMeasurementsAfterEachReport($resetMeasurementsAfterEachReport = null)
     {
+        $this->resetMeasurementsAfterEachReport = (boolean) $resetMeasurementsAfterEachReport;
     }
 
+    /**
+     * 
+     */
     public function getResetMeasurementsAfterEachReport()
     {
-        return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport->value();
+        return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport->getValue();
     }
 
-    public function setReportEnterprise(xs:boolean $reportEnterprise = null)
+    /**
+     * 
+     */
+    public function setReportEnterprise($reportEnterprise = null)
     {
+        $this->reportEnterprise = (boolean) $reportEnterprise;
     }
 
+    /**
+     * 
+     */
     public function getReportEnterprise()
     {
-        return (!$this->reportEnterprise) ?: $this->reportEnterprise->value();
+        return (!$this->reportEnterprise) ?: $this->reportEnterprise->getValue();
     }
 
-    public function setReportServiceProvider(xs:boolean $reportServiceProvider = null)
+    /**
+     * 
+     */
+    public function setReportServiceProvider($reportServiceProvider = null)
     {
+        $this->reportServiceProvider = (boolean) $reportServiceProvider;
     }
 
+    /**
+     * 
+     */
     public function getReportServiceProvider()
     {
-        return (!$this->reportServiceProvider) ?: $this->reportServiceProvider->value();
+        return (!$this->reportServiceProvider) ?: $this->reportServiceProvider->getValue();
     }
 
-    public function setReportDevice(xs:boolean $reportDevice = null)
+    /**
+     * 
+     */
+    public function setReportDevice($reportDevice = null)
     {
+        $this->reportDevice = (boolean) $reportDevice;
     }
 
+    /**
+     * 
+     */
     public function getReportDevice()
     {
-        return (!$this->reportDevice) ?: $this->reportDevice->value();
+        return (!$this->reportDevice) ?: $this->reportDevice->getValue();
     }
 }

@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the service provider's digit collection attributes.
+     * Modifies the service provider's digit collection attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $accessCode         = null;
-    protected $publicDigitMap     = null;
-    protected $privateDigitMap    = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $accessCode        = null;
+    protected $publicDigitMap    = null;
+    protected $privateDigitMap   = null;
 
     public function __construct(
          $serviceProviderId,
@@ -38,6 +38,10 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
         $this->setPrivateDigitMap($privateDigitMap);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -45,11 +49,18 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Digit Collection Access Code.
+     */
     public function setAccessCode($accessCode = null)
     {
         $this->accessCode = ($accessCode InstanceOf AccessCode)
@@ -57,11 +68,17 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
              : new AccessCode($accessCode);
     }
 
+    /**
+     * Digit Collection Access Code.
+     */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->value();
+        return (!$this->accessCode) ?: $this->accessCode->getValue();
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function setPublicDigitMap($publicDigitMap = null)
     {
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
@@ -69,11 +86,17 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
              : new DigitMap($publicDigitMap);
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->value();
+        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
@@ -81,8 +104,11 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
              : new DigitMap($privateDigitMap);
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->value();
+        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
     }
 }

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's authentication service information.
+     * Modify the user's authentication service information.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAuthenticationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $userId    = null;
-    protected $userName  = null;
+    public    $name     = __CLASS__;
+    protected $userId   = null;
+    protected $userName = null;
 
     public function __construct(
          $userId,
@@ -31,6 +31,13 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
         $this->setUserName($userName);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -38,11 +45,21 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * SIP Authentication User Name.
+     */
     public function setUserName($userName = null)
     {
         $this->userName = ($userName InstanceOf SIPAuthenticationUserName)
@@ -50,8 +67,11 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
              : new SIPAuthenticationUserName($userName);
     }
 
+    /**
+     * SIP Authentication User Name.
+     */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->value();
+        return (!$this->userName) ?: $this->userName->getValue();
     }
 }

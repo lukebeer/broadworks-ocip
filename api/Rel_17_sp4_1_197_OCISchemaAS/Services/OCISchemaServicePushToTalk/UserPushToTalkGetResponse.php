@@ -14,28 +14,39 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPushToTalkGetRequest.  It returns the service settings and a
+     * Response to UserPushToTalkGetRequest.  It returns the service settings and a
  *         5 column selected user table with the following column headings:
  *           "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
  */
 class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $allowAutoAnswer              = null;
-    protected $outgoingConnectionSelection  = null;
-    protected $accessListSelection          = null;
-    protected $selectedUserTable            = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePushToTalk\UserPushToTalkGetResponse';
+    public    $name                        = __CLASS__;
+    protected $allowAutoAnswer             = null;
+    protected $outgoingConnectionSelection = null;
+    protected $accessListSelection         = null;
+    protected $selectedUserTable           = null;
 
 
-    public function setAllowAutoAnswer(xs:boolean $allowAutoAnswer = null)
+    /**
+     * 
+     */
+    public function setAllowAutoAnswer($allowAutoAnswer = null)
     {
+        $this->allowAutoAnswer = (boolean) $allowAutoAnswer;
     }
 
+    /**
+     * 
+     */
     public function getAllowAutoAnswer()
     {
-        return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer->value();
+        return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer->getValue();
     }
 
+    /**
+     * Push to talk outgoing connection type.
+     */
     public function setOutgoingConnectionSelection($outgoingConnectionSelection = null)
     {
         $this->outgoingConnectionSelection = ($outgoingConnectionSelection InstanceOf PushToTalkOutgoingConnectionSelection)
@@ -43,11 +54,17 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
              : new PushToTalkOutgoingConnectionSelection($outgoingConnectionSelection);
     }
 
+    /**
+     * Push to talk outgoing connection type.
+     */
     public function getOutgoingConnectionSelection()
     {
-        return (!$this->outgoingConnectionSelection) ?: $this->outgoingConnectionSelection->value();
+        return (!$this->outgoingConnectionSelection) ?: $this->outgoingConnectionSelection->getValue();
     }
 
+    /**
+     * Push to talk access list.
+     */
     public function setAccessListSelection($accessListSelection = null)
     {
         $this->accessListSelection = ($accessListSelection InstanceOf PushToTalkAccessListSelection)
@@ -55,17 +72,27 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
              : new PushToTalkAccessListSelection($accessListSelection);
     }
 
+    /**
+     * Push to talk access list.
+     */
     public function getAccessListSelection()
     {
-        return (!$this->accessListSelection) ?: $this->accessListSelection->value();
+        return (!$this->accessListSelection) ?: $this->accessListSelection->getValue();
     }
 
+    /**
+     * 
+     */
     public function setSelectedUserTable(core:OCITable $selectedUserTable = null)
     {
+        $this->selectedUserTable = core:OCITable $selectedUserTable;
     }
 
+    /**
+     * 
+     */
     public function getSelectedUserTable()
     {
-        return (!$this->selectedUserTable) ?: $this->selectedUserTable->value();
+        return (!$this->selectedUserTable) ?: $this->selectedUserTable->getValue();
     }
 }

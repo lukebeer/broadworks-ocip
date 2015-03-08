@@ -18,7 +18,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of agents supervised by a supervisor on a given call
+     * Get a list of agents supervised by a supervisor on a given call
  *        center.  The response is either a UserCallCenterGetSupervisedAgentListResponse
  *        or an ErrorResponse.
  *        The search can be done using multiple criterias.
@@ -31,15 +31,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $supervisorUserId             = null;
-    protected $serviceUserId                = null;
-    protected $responseSizeLimit            = null;
-    protected $searchCriteriaModeOr         = null;
-    protected $searchCriteriaUserLastName   = null;
-    protected $searchCriteriaUserFirstName  = null;
-    protected $searchCriteriaDn             = null;
-    protected $searchCriteriaExtension      = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisedAgentListResponse';
+    public    $name                        = __CLASS__;
+    protected $supervisorUserId            = null;
+    protected $serviceUserId               = null;
+    protected $responseSizeLimit           = null;
+    protected $searchCriteriaModeOr        = null;
+    protected $searchCriteriaUserLastName  = null;
+    protected $searchCriteriaUserFirstName = null;
+    protected $searchCriteriaDn            = null;
+    protected $searchCriteriaExtension     = null;
 
     public function __construct(
          $supervisorUserId,
@@ -61,6 +62,13 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->setSearchCriteriaExtension($searchCriteriaExtension);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setSupervisorUserId($supervisorUserId = null)
     {
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
@@ -68,11 +76,25 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
              : new UserId($supervisorUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getSupervisorUserId()
     {
-        return (!$this->supervisorUserId) ?: $this->supervisorUserId->value();
+        return (!$this->supervisorUserId) ?: $this->supervisorUserId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -80,11 +102,23 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -92,53 +126,93 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
-    public function setSearchCriteriaModeOr(xs:boolean $searchCriteriaModeOr = null)
+    /**
+     * 
+     */
+    public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
+        $this->searchCriteriaModeOr = (boolean) $searchCriteriaModeOr;
     }
 
+    /**
+     * 
+     */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->value();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
+        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
+        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
+        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
+        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
+        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function getSearchCriteriaExtension()
     {
-        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->value();
+        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->getValue();
     }
 }

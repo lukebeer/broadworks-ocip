@@ -16,17 +16,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get all the current and past call centers for the enterprise.
+     * Request to get all the current and past call centers for the enterprise.
  *         The response is either EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse or ErrorResponse.
  */
 class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $serviceProviderId             = null;
-    protected $isPremiumOnly                 = null;
-    protected $responseSizeLimit             = null;
-    protected $searchCriteriaExactUserGroup  = null;
-    protected $searchCriteriaCallCenterName  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse';
+    public    $name                         = __CLASS__;
+    protected $serviceProviderId            = null;
+    protected $isPremiumOnly                = null;
+    protected $responseSizeLimit            = null;
+    protected $searchCriteriaExactUserGroup = null;
+    protected $searchCriteriaCallCenterName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -42,6 +43,10 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         $this->setSearchCriteriaCallCenterName($searchCriteriaCallCenterName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -49,20 +54,36 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setIsPremiumOnly(xs:boolean $isPremiumOnly = null)
+    /**
+     * 
+     */
+    public function setIsPremiumOnly($isPremiumOnly = null)
     {
+        $this->isPremiumOnly = (boolean) $isPremiumOnly;
     }
 
+    /**
+     * 
+     */
     public function getIsPremiumOnly()
     {
-        return (!$this->isPremiumOnly) ?: $this->isPremiumOnly->value();
+        return (!$this->isPremiumOnly) ?: $this->isPremiumOnly->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -70,26 +91,45 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's group.
+     */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
+        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's group.
+     */
     public function getSearchCriteriaExactUserGroup()
     {
-        return (!$this->searchCriteriaExactUserGroup) ?: $this->searchCriteriaExactUserGroup->value();
+        return (!$this->searchCriteriaExactUserGroup) ?: $this->searchCriteriaExactUserGroup->getValue();
     }
 
+    /**
+     * Criteria for searching for a call center
+     */
     public function setSearchCriteriaCallCenterName(SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null)
     {
+        $this->searchCriteriaCallCenterName = SearchCriteriaCallCenterName $searchCriteriaCallCenterName;
     }
 
+    /**
+     * Criteria for searching for a call center
+     */
     public function getSearchCriteriaCallCenterName()
     {
-        return (!$this->searchCriteriaCallCenterName) ?: $this->searchCriteriaCallCenterName->value();
+        return (!$this->searchCriteriaCallCenterName) ?: $this->searchCriteriaCallCenterName->getValue();
     }
 }

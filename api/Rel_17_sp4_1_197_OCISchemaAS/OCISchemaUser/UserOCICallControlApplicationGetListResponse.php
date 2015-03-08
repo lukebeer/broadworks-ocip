@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserOCICallControlApplicationGetListRequest.
+     * Response to UserOCICallControlApplicationGetListRequest.
  */
 class UserOCICallControlApplicationGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $applicationId  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserOCICallControlApplicationGetListResponse';
+    public    $name          = __CLASS__;
+    protected $applicationId = null;
 
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
@@ -28,8 +32,11 @@ class UserOCICallControlApplicationGetListResponse extends ComplexType implement
              : new OCICallControlApplicationId($applicationId);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 }

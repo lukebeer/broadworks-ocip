@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Regenerate new credentials for the conference bridges defined on the
+     * Regenerate new credentials for the conference bridges defined on the
  *         specified device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
 
     public function __construct(
          $deviceName
@@ -28,6 +28,9 @@ class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType imp
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -35,8 +38,11 @@ class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType imp
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

@@ -17,22 +17,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the properties of a specified service pack migration task.
+     * Modify the properties of a specified service pack migration task.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
-    protected $serviceProviderId                      = null;
-    protected $taskName                               = null;
-    protected $startTimestamp                         = null;
-    protected $maxDurationHours                       = null;
-    protected $sendReportEmail                        = null;
-    protected $reportDeliveryEmailAddress             = null;
-    protected $abortOnError                           = null;
-    protected $abortErrorThreshold                    = null;
-    protected $reportAllUsers                         = null;
-    protected $automaticallyIncrementServiceQuantity  = null;
+    public    $name                                  = __CLASS__;
+    protected $serviceProviderId                     = null;
+    protected $taskName                              = null;
+    protected $startTimestamp                        = null;
+    protected $maxDurationHours                      = null;
+    protected $sendReportEmail                       = null;
+    protected $reportDeliveryEmailAddress            = null;
+    protected $abortOnError                          = null;
+    protected $abortErrorThreshold                   = null;
+    protected $reportAllUsers                        = null;
+    protected $automaticallyIncrementServiceQuantity = null;
 
     public function __construct(
          $serviceProviderId,
@@ -58,6 +58,10 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
         $this->setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -65,11 +69,18 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Service pack migration task name.
+     */
     public function setTaskName($taskName = null)
     {
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
@@ -77,20 +88,33 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
              : new ServicePackMigrationTaskName($taskName);
     }
 
+    /**
+     * Service pack migration task name.
+     */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->value();
+        return (!$this->taskName) ?: $this->taskName->getValue();
     }
 
+    /**
+     * 
+     */
     public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
+        $this->startTimestamp = xs:dateTime $startTimestamp;
     }
 
+    /**
+     * 
+     */
     public function getStartTimestamp()
     {
-        return (!$this->startTimestamp) ?: $this->startTimestamp->value();
+        return (!$this->startTimestamp) ?: $this->startTimestamp->getValue();
     }
 
+    /**
+     * The maximum duration of a service pack migration task.
+     */
     public function setMaxDurationHours($maxDurationHours = null)
     {
         $this->maxDurationHours = ($maxDurationHours InstanceOf ServicePackMigrationMaxDurationHours)
@@ -98,20 +122,33 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
              : new ServicePackMigrationMaxDurationHours($maxDurationHours);
     }
 
+    /**
+     * The maximum duration of a service pack migration task.
+     */
     public function getMaxDurationHours()
     {
-        return (!$this->maxDurationHours) ?: $this->maxDurationHours->value();
+        return (!$this->maxDurationHours) ?: $this->maxDurationHours->getValue();
     }
 
-    public function setSendReportEmail(xs:boolean $sendReportEmail = null)
+    /**
+     * 
+     */
+    public function setSendReportEmail($sendReportEmail = null)
     {
+        $this->sendReportEmail = (boolean) $sendReportEmail;
     }
 
+    /**
+     * 
+     */
     public function getSendReportEmail()
     {
-        return (!$this->sendReportEmail) ?: $this->sendReportEmail->value();
+        return (!$this->sendReportEmail) ?: $this->sendReportEmail->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
@@ -119,20 +156,33 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
              : new EmailAddress($reportDeliveryEmailAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getReportDeliveryEmailAddress()
     {
-        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->value();
+        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->getValue();
     }
 
-    public function setAbortOnError(xs:boolean $abortOnError = null)
+    /**
+     * 
+     */
+    public function setAbortOnError($abortOnError = null)
     {
+        $this->abortOnError = (boolean) $abortOnError;
     }
 
+    /**
+     * 
+     */
     public function getAbortOnError()
     {
-        return (!$this->abortOnError) ?: $this->abortOnError->value();
+        return (!$this->abortOnError) ?: $this->abortOnError->getValue();
     }
 
+    /**
+     * The service pack migration task will be aborted if this many errors occurs.
+     */
     public function setAbortErrorThreshold($abortErrorThreshold = null)
     {
         $this->abortErrorThreshold = ($abortErrorThreshold InstanceOf ServicePackMigrationAbortErrorThreshold)
@@ -140,26 +190,43 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
              : new ServicePackMigrationAbortErrorThreshold($abortErrorThreshold);
     }
 
+    /**
+     * The service pack migration task will be aborted if this many errors occurs.
+     */
     public function getAbortErrorThreshold()
     {
-        return (!$this->abortErrorThreshold) ?: $this->abortErrorThreshold->value();
+        return (!$this->abortErrorThreshold) ?: $this->abortErrorThreshold->getValue();
     }
 
-    public function setReportAllUsers(xs:boolean $reportAllUsers = null)
+    /**
+     * 
+     */
+    public function setReportAllUsers($reportAllUsers = null)
     {
+        $this->reportAllUsers = (boolean) $reportAllUsers;
     }
 
+    /**
+     * 
+     */
     public function getReportAllUsers()
     {
-        return (!$this->reportAllUsers) ?: $this->reportAllUsers->value();
+        return (!$this->reportAllUsers) ?: $this->reportAllUsers->getValue();
     }
 
-    public function setAutomaticallyIncrementServiceQuantity(xs:boolean $automaticallyIncrementServiceQuantity = null)
+    /**
+     * 
+     */
+    public function setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity = null)
     {
+        $this->automaticallyIncrementServiceQuantity = (boolean) $automaticallyIncrementServiceQuantity;
     }
 
+    /**
+     * 
+     */
     public function getAutomaticallyIncrementServiceQuantity()
     {
-        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity->value();
+        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity->getValue();
     }
 }

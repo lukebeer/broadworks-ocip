@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Call Log entry describing a placed, received, or missed call.
+     * Call Log entry describing a placed, received, or missed call.
  */
 class CallLogsEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

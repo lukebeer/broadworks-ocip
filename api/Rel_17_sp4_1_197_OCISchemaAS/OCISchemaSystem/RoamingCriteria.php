@@ -21,7 +21,7 @@ class RoamingCriteria extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new Enumeration([
             'In Home Network',
             'In Roaming Network',

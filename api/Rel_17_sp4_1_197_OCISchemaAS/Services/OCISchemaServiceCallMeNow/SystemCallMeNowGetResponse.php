@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallMeNowGetRequest.
+     * Response to SystemCallMeNowGetRequest.
  */
 class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $passcodeLength          = null;
-    protected $passcodeTimeoutSeconds  = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\SystemCallMeNowGetResponse';
+    public    $name                   = __CLASS__;
+    protected $passcodeLength         = null;
+    protected $passcodeTimeoutSeconds = null;
 
 
+    /**
+     * Maximum number of characters for Call Me Now passcode.
+     */
     public function setPasscodeLength($passcodeLength = null)
     {
         $this->passcodeLength = ($passcodeLength InstanceOf CallMeNowPasscodeLength)
@@ -30,11 +34,17 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
              : new CallMeNowPasscodeLength($passcodeLength);
     }
 
+    /**
+     * Maximum number of characters for Call Me Now passcode.
+     */
     public function getPasscodeLength()
     {
-        return (!$this->passcodeLength) ?: $this->passcodeLength->value();
+        return (!$this->passcodeLength) ?: $this->passcodeLength->getValue();
     }
 
+    /**
+     * Timeout in seconds for call me now passcode validation.
+     */
     public function setPasscodeTimeoutSeconds($passcodeTimeoutSeconds = null)
     {
         $this->passcodeTimeoutSeconds = ($passcodeTimeoutSeconds InstanceOf CallMeNowPasscodeTimeoutSeconds)
@@ -42,8 +52,11 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
              : new CallMeNowPasscodeTimeoutSeconds($passcodeTimeoutSeconds);
     }
 
+    /**
+     * Timeout in seconds for call me now passcode validation.
+     */
     public function getPasscodeTimeoutSeconds()
     {
-        return (!$this->passcodeTimeoutSeconds) ?: $this->passcodeTimeoutSeconds->value();
+        return (!$this->passcodeTimeoutSeconds) ?: $this->passcodeTimeoutSeconds->getValue();
     }
 }

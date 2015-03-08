@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get an enterprise trunk
+     * Request to get an enterprise trunk
  *         The response is either an EnterpriseEnterpriseTrunkGetResponse or an ErrorResponse.
  */
 class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $serviceProviderId    = null;
-    protected $enterpriseTrunkName  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetResponse';
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $enterpriseTrunkName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,19 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
@@ -50,8 +63,12 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
              : new EnterpriseTrunkName($enterpriseTrunkName);
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function getEnterpriseTrunkName()
     {
-        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->value();
+        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->getValue();
     }
 }

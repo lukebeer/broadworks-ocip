@@ -13,31 +13,46 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupTrunkGroupGetRequest.
+     * Response to the GroupTrunkGroupGetRequest.
  *         The response contains the maximum permissible active trunk group calls for the group.
  */
 class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $maxActiveCalls           = null;
-    protected $maxAvailableActiveCalls  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetResponse';
+    public    $name                    = __CLASS__;
+    protected $maxActiveCalls          = null;
+    protected $maxAvailableActiveCalls = null;
 
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
+        $this->maxActiveCalls = UnboundedNonNegativeInt $maxActiveCalls;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
+        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function setMaxAvailableActiveCalls(UnboundedNonNegativeInt $maxAvailableActiveCalls = null)
     {
+        $this->maxAvailableActiveCalls = UnboundedNonNegativeInt $maxAvailableActiveCalls;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function getMaxAvailableActiveCalls()
     {
-        return (!$this->maxAvailableActiveCalls) ?: $this->maxAvailableActiveCalls->value();
+        return (!$this->maxAvailableActiveCalls) ?: $this->maxAvailableActiveCalls->getValue();
     }
 }

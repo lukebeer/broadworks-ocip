@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the maximum and bursting maximum permissible active Trunk Group calls for the group.
+     * Modify the maximum and bursting maximum permissible active Trunk Group calls for the group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceProviderId       = null;
-    protected $groupId                 = null;
-    protected $maxActiveCalls          = null;
-    protected $burstingMaxActiveCalls  = null;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $groupId                = null;
+    protected $maxActiveCalls         = null;
+    protected $burstingMaxActiveCalls = null;
 
     public function __construct(
          $serviceProviderId,
@@ -38,6 +38,10 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
         $this->setBurstingMaxActiveCalls($burstingMaxActiveCalls);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -45,11 +49,19 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -57,26 +69,44 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setMaxActiveCalls(xs:int $maxActiveCalls = null)
+    /**
+     * 
+     */
+    public function setMaxActiveCalls($maxActiveCalls = null)
     {
+        $this->maxActiveCalls = (int) $maxActiveCalls;
     }
 
+    /**
+     * 
+     */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
+        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
+        $this->burstingMaxActiveCalls = UnboundedNonNegativeInt $burstingMaxActiveCalls;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function getBurstingMaxActiveCalls()
     {
-        return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->value();
+        return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->getValue();
     }
 }

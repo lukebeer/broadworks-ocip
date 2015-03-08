@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemAutomaticCallbackGetReleaseCauseListRequest.
+     * Response to SystemAutomaticCallbackGetReleaseCauseListRequest.
  */
 class SystemAutomaticCallbackGetReleaseCauseListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $releaseCause  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackGetReleaseCauseListResponse';
+    public    $name         = __CLASS__;
+    protected $releaseCause = null;
 
 
+    /**
+     * Callback Release Cause.
+     */
     public function setReleaseCause($releaseCause = null)
     {
         $this->releaseCause = ($releaseCause InstanceOf AutomaticCallbackReleaseCause)
@@ -28,8 +32,11 @@ class SystemAutomaticCallbackGetReleaseCauseListResponse extends ComplexType imp
              : new AutomaticCallbackReleaseCause($releaseCause);
     }
 
+    /**
+     * Callback Release Cause.
+     */
     public function getReleaseCause()
     {
-        return (!$this->releaseCause) ?: $this->releaseCause->value();
+        return (!$this->releaseCause) ?: $this->releaseCause->getValue();
     }
 }

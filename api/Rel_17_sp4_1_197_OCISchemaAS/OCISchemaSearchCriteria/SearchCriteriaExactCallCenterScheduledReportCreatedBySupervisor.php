@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for call center scheduled report created by a
+     * Criteria for searching for call center scheduled report created by a
  *         supervisor or administrator.
  */
 class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $createdBySupervisor  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor';
+    public    $name                = __CLASS__;
+    protected $createdBySupervisor = null;
 
     public function __construct(
          $createdBySupervisor
@@ -27,12 +28,19 @@ class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends Co
         $this->setCreatedBySupervisor($createdBySupervisor);
     }
 
-    public function setCreatedBySupervisor(xs:boolean $createdBySupervisor = null)
+    /**
+     * 
+     */
+    public function setCreatedBySupervisor($createdBySupervisor = null)
     {
+        $this->createdBySupervisor = (boolean) $createdBySupervisor;
     }
 
+    /**
+     * 
+     */
     public function getCreatedBySupervisor()
     {
-        return (!$this->createdBySupervisor) ?: $this->createdBySupervisor->value();
+        return (!$this->createdBySupervisor) ?: $this->createdBySupervisor->getValue();
     }
 }

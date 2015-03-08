@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Service Profile Information for a call center.
+     * Service Profile Information for a call center.
  *         Password is required.
  */
 class ServiceInstanceAddProfileCallCenter extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfileCallCenter';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

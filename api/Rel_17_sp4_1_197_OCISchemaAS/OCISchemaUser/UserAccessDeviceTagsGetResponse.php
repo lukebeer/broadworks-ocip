@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserAccessDeviceTagsGetRequest.
+     * Response to UserAccessDeviceTagsGetRequest.
  *         The response contains a table with columns: "Tag Name", and "Tag Value".
  */
 class UserAccessDeviceTagsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $deviceTagsTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceTagsGetResponse';
+    public    $name            = __CLASS__;
+    protected $deviceTagsTable = null;
 
 
+    /**
+     * 
+     */
     public function setDeviceTagsTable(core:OCITable $deviceTagsTable = null)
     {
+        $this->deviceTagsTable = core:OCITable $deviceTagsTable;
     }
 
+    /**
+     * 
+     */
     public function getDeviceTagsTable()
     {
-        return (!$this->deviceTagsTable) ?: $this->deviceTagsTable->value();
+        return (!$this->deviceTagsTable) ?: $this->deviceTagsTable->getValue();
     }
 }

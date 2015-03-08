@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of Call Center Call Disposition Codes.
+     * Get the list of Call Center Call Disposition Codes.
  *         The response is either EnterpriseCallCenterCallDispositionCodeGetListResponse or ErrorResponse.
  */
 class EnterpriseCallCenterCallDispositionCodeGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeGetListResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
 
     public function __construct(
          $serviceProviderId
@@ -27,6 +28,10 @@ class EnterpriseCallCenterCallDispositionCodeGetListRequest extends ComplexType 
         $this->setServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -34,8 +39,12 @@ class EnterpriseCallCenterCallDispositionCodeGetListRequest extends ComplexType 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 }

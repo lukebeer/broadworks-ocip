@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a system time schedule.
+     * Delete a system time schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $timeScheduleName  = null;
+    public    $name             = __CLASS__;
+    protected $timeScheduleName = null;
 
     public function __construct(
          $timeScheduleName
@@ -27,6 +27,9 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
         $this->setTimeScheduleName($timeScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function setTimeScheduleName($timeScheduleName = null)
     {
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
@@ -34,8 +37,11 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
              : new ScheduleName($timeScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getTimeScheduleName()
     {
-        return (!$this->timeScheduleName) ?: $this->timeScheduleName->value();
+        return (!$this->timeScheduleName) ?: $this->timeScheduleName->getValue();
     }
 }

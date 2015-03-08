@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an event from a system schedule.
+     * Get an event from a system schedule.
  *         The response is either a SystemScheduleGetEventResponse or an ErrorResponse.
  */
 class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $scheduleKey  = null;
-    protected $eventName    = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventResponse';
+    public    $name        = __CLASS__;
+    protected $scheduleKey = null;
+    protected $eventName   = null;
 
     public function __construct(
          ScheduleKey $scheduleKey,
@@ -31,15 +32,25 @@ class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterf
         $this->setEventName($eventName);
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 
+    /**
+     * Event name.
+     */
     public function setEventName($eventName = null)
     {
         $this->eventName = ($eventName InstanceOf EventName)
@@ -47,8 +58,11 @@ class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterf
              : new EventName($eventName);
     }
 
+    /**
+     * Event name.
+     */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->value();
+        return (!$this->eventName) ?: $this->eventName->getValue();
     }
 }

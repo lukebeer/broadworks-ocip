@@ -13,15 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the information about the specified device type without regard to whether the
+     * Requests the information about the specified device type without regard to whether the
  *         type is SIP or MGCP.
  *         The response is either SystemDeviceTypeGetResponse16 or ErrorResponse.
  *         Replaced by: SystemDeviceTypeGetRequest16sp1
  */
 class SystemDeviceTypeGetRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemDeviceTypeGetResponse16';
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
 
     public function __construct(
          $deviceType
@@ -29,6 +30,9 @@ class SystemDeviceTypeGetRequest16 extends ComplexType implements ComplexInterfa
         $this->setDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -36,8 +40,11 @@ class SystemDeviceTypeGetRequest16 extends ComplexType implements ComplexInterfa
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 }

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Call center routing order
+     * Call center routing order
  */
 class CallCenterRoutingPriorityOrder extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterRoutingPriorityOrder';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

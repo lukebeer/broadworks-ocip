@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserInstantConferencingGetConferenceBridgeReportRequest.
+     * Response to UserInstantConferencingGetConferenceBridgeReportRequest.
  *         Contains a table of report.
  *         The table has column headings: "Bridge Name", "Call Date", "Call Start Time",
  *         "Time Zone", "Call Owner", "Phone Number", "Direction", "Leg Start", "Duration",
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $conferenceReportTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse';
+    public    $name                  = __CLASS__;
+    protected $conferenceReportTable = null;
 
 
+    /**
+     * 
+     */
     public function setConferenceReportTable(core:OCITable $conferenceReportTable = null)
     {
+        $this->conferenceReportTable = core:OCITable $conferenceReportTable;
     }
 
+    /**
+     * 
+     */
     public function getConferenceReportTable()
     {
-        return (!$this->conferenceReportTable) ?: $this->conferenceReportTable->value();
+        return (!$this->conferenceReportTable) ?: $this->conferenceReportTable->getValue();
     }
 }

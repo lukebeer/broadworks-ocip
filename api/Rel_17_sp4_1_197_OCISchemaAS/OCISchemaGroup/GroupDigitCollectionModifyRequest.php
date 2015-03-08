@@ -17,18 +17,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the group's digit collection attributes.
+     * Modifies the group's digit collection attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $useSetting         = null;
-    protected $accessCode         = null;
-    protected $publicDigitMap     = null;
-    protected $privateDigitMap    = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $useSetting        = null;
+    protected $accessCode        = null;
+    protected $publicDigitMap    = null;
+    protected $privateDigitMap   = null;
 
     public function __construct(
          $serviceProviderId,
@@ -46,6 +46,10 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->setPrivateDigitMap($privateDigitMap);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -53,11 +57,19 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -65,11 +77,18 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Choices for the group digit collection feature to decide which type of settings to use.
+     */
     public function setUseSetting($useSetting = null)
     {
         $this->useSetting = ($useSetting InstanceOf GroupDigitCollectionSettingLevel)
@@ -77,11 +96,17 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
              : new GroupDigitCollectionSettingLevel($useSetting);
     }
 
+    /**
+     * Choices for the group digit collection feature to decide which type of settings to use.
+     */
     public function getUseSetting()
     {
-        return (!$this->useSetting) ?: $this->useSetting->value();
+        return (!$this->useSetting) ?: $this->useSetting->getValue();
     }
 
+    /**
+     * Digit Collection Access Code.
+     */
     public function setAccessCode($accessCode = null)
     {
         $this->accessCode = ($accessCode InstanceOf AccessCode)
@@ -89,11 +114,17 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
              : new AccessCode($accessCode);
     }
 
+    /**
+     * Digit Collection Access Code.
+     */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->value();
+        return (!$this->accessCode) ?: $this->accessCode->getValue();
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function setPublicDigitMap($publicDigitMap = null)
     {
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
@@ -101,11 +132,17 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
              : new DigitMap($publicDigitMap);
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->value();
+        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
@@ -113,8 +150,11 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
              : new DigitMap($privateDigitMap);
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->value();
+        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
     }
 }

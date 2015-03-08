@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupNetworkClassOfServiceGetAssignedUserListRequest.
+     * Response to GroupNetworkClassOfServiceGetAssignedUserListRequest.
  *         Contains a table of users that have the Network Class of Service 
  *         assigned. The column headings are: "User Id", "User Type", "Last Name", "First Name",
  *         "Department", "Phone Number", "Email Address", "Service Provider Id", 
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupNetworkClassOfServiceGetAssignedUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $userTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNetworkClassOfServiceGetAssignedUserListResponse';
+    public    $name      = __CLASS__;
+    protected $userTable = null;
 
 
+    /**
+     * 
+     */
     public function setUserTable(core:OCITable $userTable = null)
     {
+        $this->userTable = core:OCITable $userTable;
     }
 
+    /**
+     * 
+     */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->value();
+        return (!$this->userTable) ?: $this->userTable->getValue();
     }
 }

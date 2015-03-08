@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a zone.
+     * Add a zone.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced by: SystemZoneAddRequest
  */
 class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $zoneName          = null;
-    protected $physicalLocation  = null;
+    public    $name             = __CLASS__;
+    protected $zoneName         = null;
+    protected $physicalLocation = null;
 
     public function __construct(
          $zoneName,
@@ -32,6 +32,9 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
         $this->setPhysicalLocation($physicalLocation);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -39,11 +42,17 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function setPhysicalLocation($physicalLocation = null)
     {
         $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
@@ -51,8 +60,11 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
              : new PhysicalLocation($physicalLocation);
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function getPhysicalLocation()
     {
-        return (!$this->physicalLocation) ?: $this->physicalLocation->value();
+        return (!$this->physicalLocation) ?: $this->physicalLocation->getValue();
     }
 }

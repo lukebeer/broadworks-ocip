@@ -13,24 +13,42 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallForwardingNotReachableGetRequest.
+     * Response to UserCallForwardingNotReachableGetRequest.
  */
 class UserCallForwardingNotReachableGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $isActive              = null;
-    protected $forwardToPhoneNumber  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingNotReachable\UserCallForwardingNotReachableGetResponse';
+    public    $name                 = __CLASS__;
+    protected $isActive             = null;
+    protected $forwardToPhoneNumber = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -38,8 +56,18 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
+        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
     }
 }

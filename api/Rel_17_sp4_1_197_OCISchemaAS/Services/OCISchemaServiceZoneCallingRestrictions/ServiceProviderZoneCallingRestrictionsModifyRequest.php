@@ -13,17 +13,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the Service Provider/Enterprise level Zone Calling Restrictions Policies.
+     * Modifies the Service Provider/Enterprise level Zone Calling Restrictions Policies.
  *         The response is SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                           = __CLASS__;
-    protected $serviceProviderId                              = null;
-    protected $enableZoneCallingRestrictions                  = null;
-    protected $enableOriginationRoamingRestrictions           = null;
-    protected $enableEmergencyOriginationRoamingRestrictions  = null;
-    protected $enableTerminationRoamingRestrictions           = null;
+    public    $name                                          = __CLASS__;
+    protected $serviceProviderId                             = null;
+    protected $enableZoneCallingRestrictions                 = null;
+    protected $enableOriginationRoamingRestrictions          = null;
+    protected $enableEmergencyOriginationRoamingRestrictions = null;
+    protected $enableTerminationRoamingRestrictions          = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
         $this->setEnableTerminationRoamingRestrictions($enableTerminationRoamingRestrictions);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,44 +50,76 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setEnableZoneCallingRestrictions(xs:boolean $enableZoneCallingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableZoneCallingRestrictions($enableZoneCallingRestrictions = null)
     {
+        $this->enableZoneCallingRestrictions = (boolean) $enableZoneCallingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableZoneCallingRestrictions()
     {
-        return (!$this->enableZoneCallingRestrictions) ?: $this->enableZoneCallingRestrictions->value();
+        return (!$this->enableZoneCallingRestrictions) ?: $this->enableZoneCallingRestrictions->getValue();
     }
 
-    public function setEnableOriginationRoamingRestrictions(xs:boolean $enableOriginationRoamingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableOriginationRoamingRestrictions($enableOriginationRoamingRestrictions = null)
     {
+        $this->enableOriginationRoamingRestrictions = (boolean) $enableOriginationRoamingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableOriginationRoamingRestrictions()
     {
-        return (!$this->enableOriginationRoamingRestrictions) ?: $this->enableOriginationRoamingRestrictions->value();
+        return (!$this->enableOriginationRoamingRestrictions) ?: $this->enableOriginationRoamingRestrictions->getValue();
     }
 
-    public function setEnableEmergencyOriginationRoamingRestrictions(xs:boolean $enableEmergencyOriginationRoamingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableEmergencyOriginationRoamingRestrictions($enableEmergencyOriginationRoamingRestrictions = null)
     {
+        $this->enableEmergencyOriginationRoamingRestrictions = (boolean) $enableEmergencyOriginationRoamingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableEmergencyOriginationRoamingRestrictions()
     {
-        return (!$this->enableEmergencyOriginationRoamingRestrictions) ?: $this->enableEmergencyOriginationRoamingRestrictions->value();
+        return (!$this->enableEmergencyOriginationRoamingRestrictions) ?: $this->enableEmergencyOriginationRoamingRestrictions->getValue();
     }
 
-    public function setEnableTerminationRoamingRestrictions(xs:boolean $enableTerminationRoamingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableTerminationRoamingRestrictions($enableTerminationRoamingRestrictions = null)
     {
+        $this->enableTerminationRoamingRestrictions = (boolean) $enableTerminationRoamingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableTerminationRoamingRestrictions()
     {
-        return (!$this->enableTerminationRoamingRestrictions) ?: $this->enableTerminationRoamingRestrictions->value();
+        return (!$this->enableTerminationRoamingRestrictions) ?: $this->enableTerminationRoamingRestrictions->getValue();
     }
 }

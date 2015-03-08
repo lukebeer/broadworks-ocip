@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with CommPilot Call Manager.
+     * Modify the user level data associated with CommPilot Call Manager.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCommPilotCallManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $userId         = null;
-    protected $launchOnLogin  = null;
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $launchOnLogin = null;
 
     public function __construct(
          $userId,
@@ -30,6 +30,13 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
         $this->setLaunchOnLogin($launchOnLogin);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -37,17 +44,31 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setLaunchOnLogin(xs:boolean $launchOnLogin = null)
+    /**
+     * 
+     */
+    public function setLaunchOnLogin($launchOnLogin = null)
     {
+        $this->launchOnLogin = (boolean) $launchOnLogin;
     }
 
+    /**
+     * 
+     */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin->value();
+        return (!$this->launchOnLogin) ?: $this->launchOnLogin->getValue();
     }
 }

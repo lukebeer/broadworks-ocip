@@ -16,16 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a group device type file.
+     * Request to get a group device type file.
  *         The response is either GroupDeviceTypeFileGetResponse16sp1 or ErrorResponse.
  */
 class GroupDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $deviceType         = null;
-    protected $fileFormat         = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileGetResponse16sp1';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $deviceType        = null;
+    protected $fileFormat        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +40,10 @@ class GroupDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexI
         $this->setFileFormat($fileFormat);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +51,19 @@ class GroupDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexI
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,11 +71,18 @@ class GroupDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexI
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -70,11 +90,17 @@ class GroupDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexI
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileFormat($fileFormat = null)
     {
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
@@ -82,8 +108,11 @@ class GroupDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexI
              : new DeviceManagementFileFormat($fileFormat);
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->value();
+        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
     }
 }

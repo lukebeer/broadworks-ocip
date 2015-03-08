@@ -20,22 +20,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the list of Service Instances in the system.
+     * Request the list of Service Instances in the system.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a UserGetServiceInstanceListInSystemResponse or an ErrorResponse.
  */
 class UserGetServiceInstanceListInSystemRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $responseSizeLimit                   = null;
-    protected $searchCriteriaExactServiceType      = null;
-    protected $searchCriteriaUserId                = null;
-    protected $searchCriteriaUserLastName          = null;
-    protected $searchCriteriaDn                    = null;
-    protected $searchCriteriaExtension             = null;
-    protected $searchCriteriaGroupId               = null;
-    protected $searchCriteriaExactServiceProvider  = null;
+    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInSystemResponse';
+    public    $name                               = __CLASS__;
+    protected $responseSizeLimit                  = null;
+    protected $searchCriteriaExactServiceType     = null;
+    protected $searchCriteriaUserId               = null;
+    protected $searchCriteriaUserLastName         = null;
+    protected $searchCriteriaDn                   = null;
+    protected $searchCriteriaExtension            = null;
+    protected $searchCriteriaGroupId              = null;
+    protected $searchCriteriaExactServiceProvider = null;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -57,6 +58,11 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -64,71 +70,125 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service type.
+     */
     public function setSearchCriteriaExactServiceType(SearchCriteriaExactServiceType $searchCriteriaExactServiceType = null)
     {
+        $this->searchCriteriaExactServiceType = SearchCriteriaExactServiceType $searchCriteriaExactServiceType;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service type.
+     */
     public function getSearchCriteriaExactServiceType()
     {
-        return (!$this->searchCriteriaExactServiceType) ?: $this->searchCriteriaExactServiceType->value();
+        return (!$this->searchCriteriaExactServiceType) ?: $this->searchCriteriaExactServiceType->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
+        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function getSearchCriteriaUserId()
     {
-        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
+        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
+        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
+        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
+        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function getSearchCriteriaExtension()
     {
-        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->value();
+        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->getValue();
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
+        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
+        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service provider.
+     */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
+        $this->searchCriteriaExactServiceProvider = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service provider.
+     */
     public function getSearchCriteriaExactServiceProvider()
     {
-        return (!$this->searchCriteriaExactServiceProvider) ?: $this->searchCriteriaExactServiceProvider->value();
+        return (!$this->searchCriteriaExactServiceProvider) ?: $this->searchCriteriaExactServiceProvider->getValue();
     }
 }

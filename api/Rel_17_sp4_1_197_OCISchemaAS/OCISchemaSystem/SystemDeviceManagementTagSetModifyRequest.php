@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a static configuration tag set.
+     * Request to modify a static configuration tag set.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $tagSetName     = null;
-    protected $newTagSetName  = null;
+    public    $name          = __CLASS__;
+    protected $tagSetName    = null;
+    protected $newTagSetName = null;
 
     public function __construct(
          $tagSetName,
@@ -30,6 +30,9 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
         $this->setNewTagSetName($newTagSetName);
     }
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function setTagSetName($tagSetName = null)
     {
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
@@ -37,11 +40,17 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
              : new DeviceManagementTagSetName($tagSetName);
     }
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function getTagSetName()
     {
-        return (!$this->tagSetName) ?: $this->tagSetName->value();
+        return (!$this->tagSetName) ?: $this->tagSetName->getValue();
     }
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function setNewTagSetName($newTagSetName = null)
     {
         $this->newTagSetName = ($newTagSetName InstanceOf DeviceManagementTagSetName)
@@ -49,8 +58,11 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
              : new DeviceManagementTagSetName($newTagSetName);
     }
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function getNewTagSetName()
     {
-        return (!$this->newTagSetName) ?: $this->newTagSetName->value();
+        return (!$this->newTagSetName) ?: $this->newTagSetName->getValue();
     }
 }

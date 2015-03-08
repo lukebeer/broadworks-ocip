@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a group schedule.
+     * Modify a group schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $scheduleKey        = null;
-    protected $newScheduleName    = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $scheduleKey       = null;
+    protected $newScheduleName   = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupScheduleModifyRequest extends ComplexType implements ComplexInterface
         $this->setNewScheduleName($newScheduleName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupScheduleModifyRequest extends ComplexType implements ComplexInterface
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,20 +70,34 @@ class GroupScheduleModifyRequest extends ComplexType implements ComplexInterface
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 
+    /**
+     * Schedule name.
+     */
     public function setNewScheduleName($newScheduleName = null)
     {
         $this->newScheduleName = ($newScheduleName InstanceOf ScheduleName)
@@ -79,8 +105,11 @@ class GroupScheduleModifyRequest extends ComplexType implements ComplexInterface
              : new ScheduleName($newScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getNewScheduleName()
     {
-        return (!$this->newScheduleName) ?: $this->newScheduleName->value();
+        return (!$this->newScheduleName) ?: $this->newScheduleName->getValue();
     }
 }

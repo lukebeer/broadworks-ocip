@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupThirdPartyVoiceMailSupportGetRequest.
+     * Response to GroupThirdPartyVoiceMailSupportGetRequest.
  */
 class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $isActive     = null;
-    protected $groupServer  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceThirdPartyVoiceMailSupport\GroupThirdPartyVoiceMailSupportGetResponse';
+    public    $name        = __CLASS__;
+    protected $isActive    = null;
+    protected $groupServer = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Uniquely identifies an external voice mail server.
+     */
     public function setGroupServer($groupServer = null)
     {
         $this->groupServer = ($groupServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
@@ -38,8 +49,11 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
              : new ThirdPartyVoiceMailSupportMailServer($groupServer);
     }
 
+    /**
+     * Uniquely identifies an external voice mail server.
+     */
     public function getGroupServer()
     {
-        return (!$this->groupServer) ?: $this->groupServer->value();
+        return (!$this->groupServer) ?: $this->groupServer->getValue();
     }
 }

@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an application controller, which is a server where remote 
+     * Add an application controller, which is a server where remote 
  *       application resides and controls the Route Point.
  *       The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemApplicationControllerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $name          = null;
-    protected $subscriberId  = null;
-    protected $channelSetId  = null;
+    public    $name         = __CLASS__;
+    protected $name         = null;
+    protected $subscriberId = null;
+    protected $channelSetId = null;
 
     public function __construct(
          $name,
@@ -36,6 +36,9 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
         $this->setChannelSetId($channelSetId);
     }
 
+    /**
+     * The application controller name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ApplicationControllerName)
@@ -43,11 +46,21 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
              : new ApplicationControllerName($name);
     }
 
+    /**
+     * The application controller name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setSubscriberId($subscriberId = null)
     {
         $this->subscriberId = ($subscriberId InstanceOf UserId)
@@ -55,11 +68,21 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
              : new UserId($subscriberId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getSubscriberId()
     {
-        return (!$this->subscriberId) ?: $this->subscriberId->value();
+        return (!$this->subscriberId) ?: $this->subscriberId->getValue();
     }
 
+    /**
+     * The channel set id.
+     */
     public function setChannelSetId($channelSetId = null)
     {
         $this->channelSetId = ($channelSetId InstanceOf ChannelSetId)
@@ -67,8 +90,11 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
              : new ChannelSetId($channelSetId);
     }
 
+    /**
+     * The channel set id.
+     */
     public function getChannelSetId()
     {
-        return (!$this->channelSetId) ?: $this->channelSetId->value();
+        return (!$this->channelSetId) ?: $this->channelSetId->getValue();
     }
 }

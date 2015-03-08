@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Assign a list of Communication Barring Criteria to a service provider.
+     * Assign a list of Communication Barring Criteria to a service provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $criteriaName       = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $criteriaName      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends Compl
         $this->setCriteriaName($criteriaName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function setCriteriaName($criteriaName = null)
     {
         $this->criteriaName = ($criteriaName InstanceOf CommunicationBarringCriteriaName)
@@ -50,8 +61,11 @@ class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends Compl
              : new CommunicationBarringCriteriaName($criteriaName);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->value();
+        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
     }
 }

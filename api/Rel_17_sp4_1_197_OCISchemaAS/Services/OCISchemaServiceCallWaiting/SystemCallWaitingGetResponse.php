@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallWaitingGetRequest.
+     * Response to SystemCallWaitingGetRequest.
  */
 class SystemCallWaitingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $playDistinctiveRingback  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\SystemCallWaitingGetResponse';
+    public    $name                    = __CLASS__;
+    protected $playDistinctiveRingback = null;
 
 
-    public function setPlayDistinctiveRingback(xs:boolean $playDistinctiveRingback = null)
+    /**
+     * 
+     */
+    public function setPlayDistinctiveRingback($playDistinctiveRingback = null)
     {
+        $this->playDistinctiveRingback = (boolean) $playDistinctiveRingback;
     }
 
+    /**
+     * 
+     */
     public function getPlayDistinctiveRingback()
     {
-        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback->value();
+        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback->getValue();
     }
 }

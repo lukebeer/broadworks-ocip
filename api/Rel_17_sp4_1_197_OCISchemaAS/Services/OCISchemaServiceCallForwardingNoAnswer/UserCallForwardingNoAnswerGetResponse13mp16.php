@@ -14,25 +14,43 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallForwardingNoAnswerGetRequest13mp16.
+     * Response to UserCallForwardingNoAnswerGetRequest13mp16.
  */
 class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $isActive              = null;
-    protected $forwardToPhoneNumber  = null;
-    protected $numberOfRings         = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingNoAnswer\UserCallForwardingNoAnswerGetResponse13mp16';
+    public    $name                 = __CLASS__;
+    protected $isActive             = null;
+    protected $forwardToPhoneNumber = null;
+    protected $numberOfRings        = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -40,11 +58,24 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
+        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
     }
 
+    /**
+     * Number of Rings until call is redirected.
+     */
     public function setNumberOfRings($numberOfRings = null)
     {
         $this->numberOfRings = ($numberOfRings InstanceOf CallForwardingNoAnswerNumberOfRings)
@@ -52,8 +83,11 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
              : new CallForwardingNoAnswerNumberOfRings($numberOfRings);
     }
 
+    /**
+     * Number of Rings until call is redirected.
+     */
     public function getNumberOfRings()
     {
-        return (!$this->numberOfRings) ?: $this->numberOfRings->value();
+        return (!$this->numberOfRings) ?: $this->numberOfRings->getValue();
     }
 }

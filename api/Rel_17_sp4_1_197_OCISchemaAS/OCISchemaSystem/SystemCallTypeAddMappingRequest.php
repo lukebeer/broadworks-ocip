@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a system call type mapping.
+     * Add a system call type mapping.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $countryCode  = null;
-    protected $digitMap     = null;
-    protected $callType     = null;
+    public    $name        = __CLASS__;
+    protected $countryCode = null;
+    protected $digitMap    = null;
+    protected $callType    = null;
 
     public function __construct(
          $countryCode,
@@ -35,6 +35,9 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
         $this->setCallType($callType);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -42,11 +45,17 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 
+    /**
+     * Call Type Digit Map.
+     */
     public function setDigitMap($digitMap = null)
     {
         $this->digitMap = ($digitMap InstanceOf CallTypeDigitMap)
@@ -54,11 +63,17 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
              : new CallTypeDigitMap($digitMap);
     }
 
+    /**
+     * Call Type Digit Map.
+     */
     public function getDigitMap()
     {
-        return (!$this->digitMap) ?: $this->digitMap->value();
+        return (!$this->digitMap) ?: $this->digitMap->getValue();
     }
 
+    /**
+     * System Call Type
+     */
     public function setCallType($callType = null)
     {
         $this->callType = ($callType InstanceOf SystemCallType)
@@ -66,8 +81,11 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
              : new SystemCallType($callType);
     }
 
+    /**
+     * System Call Type
+     */
     public function getCallType()
     {
-        return (!$this->callType) ?: $this->callType->value();
+        return (!$this->callType) ?: $this->callType->getValue();
     }
 }

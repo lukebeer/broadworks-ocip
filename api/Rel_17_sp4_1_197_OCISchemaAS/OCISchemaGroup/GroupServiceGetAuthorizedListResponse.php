@@ -15,16 +15,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupServiceGetAuthorizedListRequest.
+     * Response to GroupServiceGetAuthorizedListRequest.
  */
 class GroupServiceGetAuthorizedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $servicePackName   = null;
-    protected $groupServiceName  = null;
-    protected $userServiceName   = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizedListResponse';
+    public    $name             = __CLASS__;
+    protected $servicePackName  = null;
+    protected $groupServiceName = null;
+    protected $userServiceName  = null;
 
 
+    /**
+     * Service Pack name.
+     */
     public function setServicePackName($servicePackName = null)
     {
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
@@ -32,11 +36,17 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
              : new ServicePackName($servicePackName);
     }
 
+    /**
+     * Service Pack name.
+     */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->value();
+        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
     }
 
+    /**
+     * Group level services.
+     */
     public function setGroupServiceName($groupServiceName = null)
     {
         $this->groupServiceName = ($groupServiceName InstanceOf GroupService)
@@ -44,11 +54,17 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
              : new GroupService($groupServiceName);
     }
 
+    /**
+     * Group level services.
+     */
     public function getGroupServiceName()
     {
-        return (!$this->groupServiceName) ?: $this->groupServiceName->value();
+        return (!$this->groupServiceName) ?: $this->groupServiceName->getValue();
     }
 
+    /**
+     * User level services.
+     */
     public function setUserServiceName($userServiceName = null)
     {
         $this->userServiceName = ($userServiceName InstanceOf UserService)
@@ -56,8 +72,11 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
              : new UserService($userServiceName);
     }
 
+    /**
+     * User level services.
+     */
     public function getUserServiceName()
     {
-        return (!$this->userServiceName) ?: $this->userServiceName->value();
+        return (!$this->userServiceName) ?: $this->userServiceName->getValue();
     }
 }

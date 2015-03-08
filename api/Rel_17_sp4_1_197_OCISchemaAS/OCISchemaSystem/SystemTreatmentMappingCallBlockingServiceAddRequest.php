@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Call Blocking Service mapping.
+     * Add a Call Blocking Service mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingCallBlockingServiceAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $callBlockingService  = null;
-    protected $treatmentId          = null;
+    public    $name                = __CLASS__;
+    protected $callBlockingService = null;
+    protected $treatmentId         = null;
 
     public function __construct(
          $callBlockingService,
@@ -31,6 +31,18 @@ class SystemTreatmentMappingCallBlockingServiceAddRequest extends ComplexType im
         $this->setTreatmentId($treatmentId);
     }
 
+    /**
+     * Possible types of Call Blocking Services.
+     *         The following enumeration values are only used in AS Data mode:
+     *            PTT
+     *            SAC
+     *            BroadWorks Mobility Deny Originations
+     *            BroadWorks Mobility Deny Terminations
+     *          The following types are only used in HSS data mode:
+     * 	    Incoming Communication Barring
+     * 	    Hierarchical Communication Barring
+     * 	    Incoming Hierarchical Communication Barring
+     */
     public function setCallBlockingService($callBlockingService = null)
     {
         $this->callBlockingService = ($callBlockingService InstanceOf CallBlockingService)
@@ -38,11 +50,26 @@ class SystemTreatmentMappingCallBlockingServiceAddRequest extends ComplexType im
              : new CallBlockingService($callBlockingService);
     }
 
+    /**
+     * Possible types of Call Blocking Services.
+     *         The following enumeration values are only used in AS Data mode:
+     *            PTT
+     *            SAC
+     *            BroadWorks Mobility Deny Originations
+     *            BroadWorks Mobility Deny Terminations
+     *          The following types are only used in HSS data mode:
+     * 	    Incoming Communication Barring
+     * 	    Hierarchical Communication Barring
+     * 	    Incoming Hierarchical Communication Barring
+     */
     public function getCallBlockingService()
     {
-        return (!$this->callBlockingService) ?: $this->callBlockingService->value();
+        return (!$this->callBlockingService) ?: $this->callBlockingService->getValue();
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
@@ -50,8 +77,11 @@ class SystemTreatmentMappingCallBlockingServiceAddRequest extends ComplexType im
              : new TreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->value();
+        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
     }
 }

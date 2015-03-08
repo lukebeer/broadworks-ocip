@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Dispatches a Public Identity refresh task on the local Application Server node for the specified public identity.
+     * Dispatches a Public Identity refresh task on the local Application Server node for the specified public identity.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $publicUserIdentity  = null;
+    public    $name               = __CLASS__;
+    protected $publicUserIdentity = null;
 
     public function __construct(
          PublicUserIdentity $publicUserIdentity
@@ -27,12 +27,19 @@ class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType i
         $this->setPublicUserIdentity($publicUserIdentity);
     }
 
+    /**
+     * Public User Identity
+     */
     public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
+        $this->publicUserIdentity = PublicUserIdentity $publicUserIdentity;
     }
 
+    /**
+     * Public User Identity
+     */
     public function getPublicUserIdentity()
     {
-        return (!$this->publicUserIdentity) ?: $this->publicUserIdentity->value();
+        return (!$this->publicUserIdentity) ?: $this->publicUserIdentity->getValue();
     }
 }

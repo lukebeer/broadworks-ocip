@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of migrated users.
+     * Get a list of migrated users.
  *         The response is either SystemLicensingGetResponse or ErrorResponse.
  */
 class SystemMigratedUsersGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMigratedUsersGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

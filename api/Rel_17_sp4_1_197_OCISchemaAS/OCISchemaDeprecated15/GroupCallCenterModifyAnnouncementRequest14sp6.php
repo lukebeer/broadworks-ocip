@@ -16,24 +16,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a call center's announcement settings.
+     * Modify a call center's announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         
  *         Replaced By: GroupCallCenterModifyAnnouncementRequest16
  */
 class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
-    protected $serviceUserId                             = null;
-    protected $entranceMessageSelection                  = null;
-    protected $entranceMessageAudioFile                  = null;
-    protected $entranceMessageVideoFile                  = null;
-    protected $periodicComfortMessageSelection           = null;
-    protected $periodicComfortMessageAudioFile           = null;
-    protected $periodicComfortMessageVideoFile           = null;
-    protected $onHoldSource                              = null;
-    protected $onHoldUseAlternateSourceForInternalCalls  = null;
-    protected $onHoldInternalSource                      = null;
+    public    $name                                     = __CLASS__;
+    protected $serviceUserId                            = null;
+    protected $entranceMessageSelection                 = null;
+    protected $entranceMessageAudioFile                 = null;
+    protected $entranceMessageVideoFile                 = null;
+    protected $periodicComfortMessageSelection          = null;
+    protected $periodicComfortMessageAudioFile          = null;
+    protected $periodicComfortMessageVideoFile          = null;
+    protected $onHoldSource                             = null;
+    protected $onHoldUseAlternateSourceForInternalCalls = null;
+    protected $onHoldInternalSource                     = null;
 
     public function __construct(
          $serviceUserId,
@@ -59,6 +59,13 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         $this->setOnHoldInternalSource($onHoldInternalSource);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -66,11 +73,21 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Call Center Announcement Selection.
+     */
     public function setEntranceMessageSelection($entranceMessageSelection = null)
     {
         $this->entranceMessageSelection = ($entranceMessageSelection InstanceOf CallCenterAnnouncementSelection)
@@ -78,29 +95,53 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
              : new CallCenterAnnouncementSelection($entranceMessageSelection);
     }
 
+    /**
+     * Call Center Announcement Selection.
+     */
     public function getEntranceMessageSelection()
     {
-        return (!$this->entranceMessageSelection) ?: $this->entranceMessageSelection->value();
+        return (!$this->entranceMessageSelection) ?: $this->entranceMessageSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setEntranceMessageAudioFile(LabeledFileResource $entranceMessageAudioFile = null)
     {
+        $this->entranceMessageAudioFile = LabeledFileResource $entranceMessageAudioFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getEntranceMessageAudioFile()
     {
-        return (!$this->entranceMessageAudioFile) ?: $this->entranceMessageAudioFile->value();
+        return (!$this->entranceMessageAudioFile) ?: $this->entranceMessageAudioFile->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setEntranceMessageVideoFile(LabeledFileResource $entranceMessageVideoFile = null)
     {
+        $this->entranceMessageVideoFile = LabeledFileResource $entranceMessageVideoFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getEntranceMessageVideoFile()
     {
-        return (!$this->entranceMessageVideoFile) ?: $this->entranceMessageVideoFile->value();
+        return (!$this->entranceMessageVideoFile) ?: $this->entranceMessageVideoFile->getValue();
     }
 
+    /**
+     * Call Center Announcement Selection.
+     */
     public function setPeriodicComfortMessageSelection($periodicComfortMessageSelection = null)
     {
         $this->periodicComfortMessageSelection = ($periodicComfortMessageSelection InstanceOf CallCenterAnnouncementSelection)
@@ -108,53 +149,95 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
              : new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
     }
 
+    /**
+     * Call Center Announcement Selection.
+     */
     public function getPeriodicComfortMessageSelection()
     {
-        return (!$this->periodicComfortMessageSelection) ?: $this->periodicComfortMessageSelection->value();
+        return (!$this->periodicComfortMessageSelection) ?: $this->periodicComfortMessageSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setPeriodicComfortMessageAudioFile(LabeledFileResource $periodicComfortMessageAudioFile = null)
     {
+        $this->periodicComfortMessageAudioFile = LabeledFileResource $periodicComfortMessageAudioFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getPeriodicComfortMessageAudioFile()
     {
-        return (!$this->periodicComfortMessageAudioFile) ?: $this->periodicComfortMessageAudioFile->value();
+        return (!$this->periodicComfortMessageAudioFile) ?: $this->periodicComfortMessageAudioFile->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setPeriodicComfortMessageVideoFile(LabeledFileResource $periodicComfortMessageVideoFile = null)
     {
+        $this->periodicComfortMessageVideoFile = LabeledFileResource $periodicComfortMessageVideoFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getPeriodicComfortMessageVideoFile()
     {
-        return (!$this->periodicComfortMessageVideoFile) ?: $this->periodicComfortMessageVideoFile->value();
+        return (!$this->periodicComfortMessageVideoFile) ?: $this->periodicComfortMessageVideoFile->getValue();
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function setOnHoldSource(CallCenterMusicOnHoldSourceModify $onHoldSource = null)
     {
+        $this->onHoldSource = CallCenterMusicOnHoldSourceModify $onHoldSource;
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function getOnHoldSource()
     {
-        return (!$this->onHoldSource) ?: $this->onHoldSource->value();
+        return (!$this->onHoldSource) ?: $this->onHoldSource->getValue();
     }
 
-    public function setOnHoldUseAlternateSourceForInternalCalls(xs:boolean $onHoldUseAlternateSourceForInternalCalls = null)
+    /**
+     * 
+     */
+    public function setOnHoldUseAlternateSourceForInternalCalls($onHoldUseAlternateSourceForInternalCalls = null)
     {
+        $this->onHoldUseAlternateSourceForInternalCalls = (boolean) $onHoldUseAlternateSourceForInternalCalls;
     }
 
+    /**
+     * 
+     */
     public function getOnHoldUseAlternateSourceForInternalCalls()
     {
-        return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls->value();
+        return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls->getValue();
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function setOnHoldInternalSource(CallCenterMusicOnHoldSourceModify $onHoldInternalSource = null)
     {
+        $this->onHoldInternalSource = CallCenterMusicOnHoldSourceModify $onHoldInternalSource;
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function getOnHoldInternalSource()
     {
-        return (!$this->onHoldInternalSource) ?: $this->onHoldInternalSource->value();
+        return (!$this->onHoldInternalSource) ?: $this->onHoldInternalSource->getValue();
     }
 }

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Uniquely identifies Holiday and Time Schedules throughout all System, Service Provider, Group and User level.
+     * Uniquely identifies Holiday and Time Schedules throughout all System, Service Provider, Group and User level.
  */
 class ScheduleGlobalKey extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleGlobalKey';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

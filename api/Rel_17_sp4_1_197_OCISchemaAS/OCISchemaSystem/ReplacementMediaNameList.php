@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * A list of media that replaces a previously configured list.
+     * A list of media that replaces a previously configured list.
  */
 class ReplacementMediaNameList extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementMediaNameList';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

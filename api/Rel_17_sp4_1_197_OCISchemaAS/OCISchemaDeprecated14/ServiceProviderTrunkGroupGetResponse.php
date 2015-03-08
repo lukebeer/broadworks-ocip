@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the ServiceProviderTrunkGroupGetRequest.
+     * Response to the ServiceProviderTrunkGroupGetRequest.
  *         The response contains the maximum permissible active trunk group calls for the service provider.
  */
 class ServiceProviderTrunkGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $maxActiveCalls  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderTrunkGroupGetResponse';
+    public    $name           = __CLASS__;
+    protected $maxActiveCalls = null;
 
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
+        $this->maxActiveCalls = UnboundedNonNegativeInt $maxActiveCalls;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
+        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
     }
 }

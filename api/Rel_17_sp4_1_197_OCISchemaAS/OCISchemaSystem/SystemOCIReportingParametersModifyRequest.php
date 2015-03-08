@@ -14,17 +14,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify OCI Reporting system parameters.
+     * Request to modify OCI Reporting system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCIReportingParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $serverPort                     = null;
-    protected $enableConnectionPing           = null;
-    protected $connectionPingIntervalSeconds  = null;
-    protected $alterPasswords                 = null;
-    protected $enablePublicIdentityReporting  = null;
+    public    $name                          = __CLASS__;
+    protected $serverPort                    = null;
+    protected $enableConnectionPing          = null;
+    protected $connectionPingIntervalSeconds = null;
+    protected $alterPasswords                = null;
+    protected $enablePublicIdentityReporting = null;
 
     public function __construct(
          $serverPort = null,
@@ -40,6 +40,9 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
         $this->setEnablePublicIdentityReporting($enablePublicIdentityReporting);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServerPort($serverPort = null)
     {
         $this->serverPort = ($serverPort InstanceOf Port1025)
@@ -47,20 +50,33 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
              : new Port1025($serverPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->value();
+        return (!$this->serverPort) ?: $this->serverPort->getValue();
     }
 
-    public function setEnableConnectionPing(xs:boolean $enableConnectionPing = null)
+    /**
+     * 
+     */
+    public function setEnableConnectionPing($enableConnectionPing = null)
     {
+        $this->enableConnectionPing = (boolean) $enableConnectionPing;
     }
 
+    /**
+     * 
+     */
     public function getEnableConnectionPing()
     {
-        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing->value();
+        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing->getValue();
     }
 
+    /**
+     * Connection ping interval in seconds
+     */
     public function setConnectionPingIntervalSeconds($connectionPingIntervalSeconds = null)
     {
         $this->connectionPingIntervalSeconds = ($connectionPingIntervalSeconds InstanceOf OCIReportingConnectionPingIntervalSeconds)
@@ -68,26 +84,43 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
              : new OCIReportingConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
     }
 
+    /**
+     * Connection ping interval in seconds
+     */
     public function getConnectionPingIntervalSeconds()
     {
-        return (!$this->connectionPingIntervalSeconds) ?: $this->connectionPingIntervalSeconds->value();
+        return (!$this->connectionPingIntervalSeconds) ?: $this->connectionPingIntervalSeconds->getValue();
     }
 
-    public function setAlterPasswords(xs:boolean $alterPasswords = null)
+    /**
+     * 
+     */
+    public function setAlterPasswords($alterPasswords = null)
     {
+        $this->alterPasswords = (boolean) $alterPasswords;
     }
 
+    /**
+     * 
+     */
     public function getAlterPasswords()
     {
-        return (!$this->alterPasswords) ?: $this->alterPasswords->value();
+        return (!$this->alterPasswords) ?: $this->alterPasswords->getValue();
     }
 
-    public function setEnablePublicIdentityReporting(xs:boolean $enablePublicIdentityReporting = null)
+    /**
+     * 
+     */
+    public function setEnablePublicIdentityReporting($enablePublicIdentityReporting = null)
     {
+        $this->enablePublicIdentityReporting = (boolean) $enablePublicIdentityReporting;
     }
 
+    /**
+     * 
+     */
     public function getEnablePublicIdentityReporting()
     {
-        return (!$this->enablePublicIdentityReporting) ?: $this->enablePublicIdentityReporting->value();
+        return (!$this->enablePublicIdentityReporting) ?: $this->enablePublicIdentityReporting->getValue();
     }
 }

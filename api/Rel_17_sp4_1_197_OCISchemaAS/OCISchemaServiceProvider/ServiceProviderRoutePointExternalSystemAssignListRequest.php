@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Assign a list of route point external systems to a service provider.
+     * Assign a list of route point external systems to a service provider.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $serviceProviderId         = null;
-    protected $routePointExternalSystem  = null;
+    public    $name                     = __CLASS__;
+    protected $serviceProviderId        = null;
+    protected $routePointExternalSystem = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexTy
         $this->setRoutePointExternalSystem($routePointExternalSystem);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexTy
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setRoutePointExternalSystem($routePointExternalSystem = null)
     {
         $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
@@ -50,8 +61,11 @@ class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexTy
              : new RoutePointExternalSystem($routePointExternalSystem);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getRoutePointExternalSystem()
     {
-        return (!$this->routePointExternalSystem) ?: $this->routePointExternalSystem->value();
+        return (!$this->routePointExternalSystem) ?: $this->routePointExternalSystem->getValue();
     }
 }

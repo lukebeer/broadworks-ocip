@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest.
+     * Response to EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest.
  */
 class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $trunkGroup  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse';
+    public    $name       = __CLASS__;
+    protected $trunkGroup = null;
 
 
+    /**
+     * Identifies a trunk group within an Enterprise Trunk where the service provider id is already known.
+     */
     public function setTrunkGroup(EnterpriseTrunkTrunkGroupKey $trunkGroup = null)
     {
+        $this->trunkGroup = EnterpriseTrunkTrunkGroupKey $trunkGroup;
     }
 
+    /**
+     * Identifies a trunk group within an Enterprise Trunk where the service provider id is already known.
+     */
     public function getTrunkGroup()
     {
-        return (!$this->trunkGroup) ?: $this->trunkGroup->value();
+        return (!$this->trunkGroup) ?: $this->trunkGroup->getValue();
     }
 }

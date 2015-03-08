@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the service provider's enhanced call log settings.
+     * Get the service provider's enhanced call log settings.
  *         The response is either a ServiceProviderEnhancedCallLogsGetResponse17sp4 or an ErrorResponse.
  *         This command will return an ErrorResponse if DBS is used as the call log server.
  */
 class ServiceProviderEnhancedCallLogsGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
 
     public function __construct(
          $serviceProviderId
@@ -28,6 +29,10 @@ class ServiceProviderEnhancedCallLogsGetRequest17sp4 extends ComplexType impleme
         $this->setServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -35,8 +40,12 @@ class ServiceProviderEnhancedCallLogsGetRequest17sp4 extends ComplexType impleme
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 }

@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the system's DTMF based in-call service activation trigger  attributes.The response is either a SuccessResponse or an ErrorResponse.
+     * Modifies the system's DTMF based in-call service activation trigger  attributes.The response is either a SuccessResponse or an ErrorResponse.
  * 
  *           Replaced by: SystemInCallServiceActivationModifyRequest17
  */
 class SystemInCallServiceActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $defaultActivationDigits  = null;
+    public    $name                    = __CLASS__;
+    protected $defaultActivationDigits = null;
 
     public function __construct(
          $defaultActivationDigits = null
@@ -28,6 +28,9 @@ class SystemInCallServiceActivationModifyRequest extends ComplexType implements 
         $this->setDefaultActivationDigits($defaultActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setDefaultActivationDigits($defaultActivationDigits = null)
     {
         $this->defaultActivationDigits = ($defaultActivationDigits InstanceOf InCallServiceActivationDigits)
@@ -35,8 +38,11 @@ class SystemInCallServiceActivationModifyRequest extends ComplexType implements 
              : new InCallServiceActivationDigits($defaultActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getDefaultActivationDigits()
     {
-        return (!$this->defaultActivationDigits) ?: $this->defaultActivationDigits->value();
+        return (!$this->defaultActivationDigits) ?: $this->defaultActivationDigits->getValue();
     }
 }

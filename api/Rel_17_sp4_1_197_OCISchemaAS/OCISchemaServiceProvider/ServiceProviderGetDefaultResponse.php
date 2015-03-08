@@ -13,25 +13,36 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the ServiceProviderGetDefaultRequest. All values are default values for
+     * Response to the ServiceProviderGetDefaultRequest. All values are default values for
  *         a service provider or enterprise's profile.
  */
 class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $isEnterprise   = null;
-    protected $defaultDomain  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetDefaultResponse';
+    public    $name          = __CLASS__;
+    protected $isEnterprise  = null;
+    protected $defaultDomain = null;
 
 
-    public function setIsEnterprise(xs:boolean $isEnterprise = null)
+    /**
+     * 
+     */
+    public function setIsEnterprise($isEnterprise = null)
     {
+        $this->isEnterprise = (boolean) $isEnterprise;
     }
 
+    /**
+     * 
+     */
     public function getIsEnterprise()
     {
-        return (!$this->isEnterprise) ?: $this->isEnterprise->value();
+        return (!$this->isEnterprise) ?: $this->isEnterprise->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setDefaultDomain($defaultDomain = null)
     {
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
@@ -39,8 +50,11 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
              : new NetAddress($defaultDomain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->value();
+        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
     }
 }

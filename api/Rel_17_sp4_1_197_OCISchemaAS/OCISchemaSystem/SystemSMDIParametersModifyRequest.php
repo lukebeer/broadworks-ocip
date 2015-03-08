@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify SMDI system parameters.
+     * Request to modify SMDI system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $enableSMDI      = null;
-    protected $listeningPort   = null;
-    protected $maxConnections  = null;
+    public    $name           = __CLASS__;
+    protected $enableSMDI     = null;
+    protected $listeningPort  = null;
+    protected $maxConnections = null;
 
     public function __construct(
          $enableSMDI = null,
@@ -34,15 +34,25 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
         $this->setMaxConnections($maxConnections);
     }
 
-    public function setEnableSMDI(xs:boolean $enableSMDI = null)
+    /**
+     * 
+     */
+    public function setEnableSMDI($enableSMDI = null)
     {
+        $this->enableSMDI = (boolean) $enableSMDI;
     }
 
+    /**
+     * 
+     */
     public function getEnableSMDI()
     {
-        return (!$this->enableSMDI) ?: $this->enableSMDI->value();
+        return (!$this->enableSMDI) ?: $this->enableSMDI->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setListeningPort($listeningPort = null)
     {
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
@@ -50,11 +60,17 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
              : new Port1025($listeningPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getListeningPort()
     {
-        return (!$this->listeningPort) ?: $this->listeningPort->value();
+        return (!$this->listeningPort) ?: $this->listeningPort->getValue();
     }
 
+    /**
+     * Maximum Number of SMDI connections.
+     */
     public function setMaxConnections($maxConnections = null)
     {
         $this->maxConnections = ($maxConnections InstanceOf SMDIMaxConnections)
@@ -62,8 +78,11 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
              : new SMDIMaxConnections($maxConnections);
     }
 
+    /**
+     * Maximum Number of SMDI connections.
+     */
     public function getMaxConnections()
     {
-        return (!$this->maxConnections) ?: $this->maxConnections->value();
+        return (!$this->maxConnections) ?: $this->maxConnections->getValue();
     }
 }

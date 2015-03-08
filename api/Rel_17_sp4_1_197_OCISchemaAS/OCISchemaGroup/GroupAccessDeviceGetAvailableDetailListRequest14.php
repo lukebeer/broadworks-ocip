@@ -14,18 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of available access devices for assignment to a user
+     * Requests the list of available access devices for assignment to a user
  *         within a group. The list includes devices created at the system, service provider, and group levels.
  *         The response is either GroupAccessDeviceGetAvailableDetailListResponse14 or
  *         ErrorResponse.
  */
 class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $isMusicOnHold      = null;
-    protected $onlyVideoCapable   = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $isMusicOnHold     = null;
+    protected $onlyVideoCapable  = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +40,10 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
         $this->setOnlyVideoCapable($onlyVideoCapable);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +51,19 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,26 +71,44 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setIsMusicOnHold(xs:boolean $isMusicOnHold = null)
+    /**
+     * 
+     */
+    public function setIsMusicOnHold($isMusicOnHold = null)
     {
+        $this->isMusicOnHold = (boolean) $isMusicOnHold;
     }
 
+    /**
+     * 
+     */
     public function getIsMusicOnHold()
     {
-        return (!$this->isMusicOnHold) ?: $this->isMusicOnHold->value();
+        return (!$this->isMusicOnHold) ?: $this->isMusicOnHold->getValue();
     }
 
-    public function setOnlyVideoCapable(xs:boolean $onlyVideoCapable = null)
+    /**
+     * 
+     */
+    public function setOnlyVideoCapable($onlyVideoCapable = null)
     {
+        $this->onlyVideoCapable = (boolean) $onlyVideoCapable;
     }
 
+    /**
+     * 
+     */
     public function getOnlyVideoCapable()
     {
-        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable->value();
+        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable->getValue();
     }
 }

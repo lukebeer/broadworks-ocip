@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a country code to the system.
+     * Add a country code to the system.
  *         If ringPeriodMilliseconds is not specified, a default of 6000 milliseconds is assumed.
  *         If offHookWarningTimerSeconds is not specified, a default of 30 seconds is assumed.
  *         If enableNationalPrefix is not specified, a default of false is assumed.
@@ -28,15 +28,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = __CLASS__;
-    protected $countryCode                              = null;
-    protected $countryName                              = null;
-    protected $ringPeriodMilliseconds                   = null;
-    protected $offHookWarningTimerSeconds               = null;
-    protected $enableNationalPrefix                     = null;
-    protected $nationalPrefix                           = null;
-    protected $maxCallWaitingTones                      = null;
-    protected $timeBetweenCallWaitingTonesMilliseconds  = null;
+    public    $name                                    = __CLASS__;
+    protected $countryCode                             = null;
+    protected $countryName                             = null;
+    protected $ringPeriodMilliseconds                  = null;
+    protected $offHookWarningTimerSeconds              = null;
+    protected $enableNationalPrefix                    = null;
+    protected $nationalPrefix                          = null;
+    protected $maxCallWaitingTones                     = null;
+    protected $timeBetweenCallWaitingTonesMilliseconds = null;
 
     public function __construct(
          $countryCode,
@@ -58,6 +58,9 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
         $this->setTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -65,11 +68,17 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 
+    /**
+     * The name of a country.
+     */
     public function setCountryName($countryName = null)
     {
         $this->countryName = ($countryName InstanceOf CountryName)
@@ -77,11 +86,17 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
              : new CountryName($countryName);
     }
 
+    /**
+     * The name of a country.
+     */
     public function getCountryName()
     {
-        return (!$this->countryName) ?: $this->countryName->value();
+        return (!$this->countryName) ?: $this->countryName->getValue();
     }
 
+    /**
+     * Country code ring period milliseconds.
+     */
     public function setRingPeriodMilliseconds($ringPeriodMilliseconds = null)
     {
         $this->ringPeriodMilliseconds = ($ringPeriodMilliseconds InstanceOf CountryCodeRingPeriodMilliseconds)
@@ -89,11 +104,17 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
              : new CountryCodeRingPeriodMilliseconds($ringPeriodMilliseconds);
     }
 
+    /**
+     * Country code ring period milliseconds.
+     */
     public function getRingPeriodMilliseconds()
     {
-        return (!$this->ringPeriodMilliseconds) ?: $this->ringPeriodMilliseconds->value();
+        return (!$this->ringPeriodMilliseconds) ?: $this->ringPeriodMilliseconds->getValue();
     }
 
+    /**
+     * Country code off hook warning timer seconds.
+     */
     public function setOffHookWarningTimerSeconds($offHookWarningTimerSeconds = null)
     {
         $this->offHookWarningTimerSeconds = ($offHookWarningTimerSeconds InstanceOf CountryCodeOffHookWarningTimerSeconds)
@@ -101,20 +122,33 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
              : new CountryCodeOffHookWarningTimerSeconds($offHookWarningTimerSeconds);
     }
 
+    /**
+     * Country code off hook warning timer seconds.
+     */
     public function getOffHookWarningTimerSeconds()
     {
-        return (!$this->offHookWarningTimerSeconds) ?: $this->offHookWarningTimerSeconds->value();
+        return (!$this->offHookWarningTimerSeconds) ?: $this->offHookWarningTimerSeconds->getValue();
     }
 
-    public function setEnableNationalPrefix(xs:boolean $enableNationalPrefix = null)
+    /**
+     * 
+     */
+    public function setEnableNationalPrefix($enableNationalPrefix = null)
     {
+        $this->enableNationalPrefix = (boolean) $enableNationalPrefix;
     }
 
+    /**
+     * 
+     */
     public function getEnableNationalPrefix()
     {
-        return (!$this->enableNationalPrefix) ?: $this->enableNationalPrefix->value();
+        return (!$this->enableNationalPrefix) ?: $this->enableNationalPrefix->getValue();
     }
 
+    /**
+     * The national prefix dialing digits.
+     */
     public function setNationalPrefix($nationalPrefix = null)
     {
         $this->nationalPrefix = ($nationalPrefix InstanceOf NationalPrefix)
@@ -122,11 +156,17 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
              : new NationalPrefix($nationalPrefix);
     }
 
+    /**
+     * The national prefix dialing digits.
+     */
     public function getNationalPrefix()
     {
-        return (!$this->nationalPrefix) ?: $this->nationalPrefix->value();
+        return (!$this->nationalPrefix) ?: $this->nationalPrefix->getValue();
     }
 
+    /**
+     * The maximum number of call waiting tones per call.
+     */
     public function setMaxCallWaitingTones($maxCallWaitingTones = null)
     {
         $this->maxCallWaitingTones = ($maxCallWaitingTones InstanceOf CountryCodeMaxCallWaitingTones)
@@ -134,11 +174,17 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
              : new CountryCodeMaxCallWaitingTones($maxCallWaitingTones);
     }
 
+    /**
+     * The maximum number of call waiting tones per call.
+     */
     public function getMaxCallWaitingTones()
     {
-        return (!$this->maxCallWaitingTones) ?: $this->maxCallWaitingTones->value();
+        return (!$this->maxCallWaitingTones) ?: $this->maxCallWaitingTones->getValue();
     }
 
+    /**
+     * The amount of quiet time between call waiting tones.
+     */
     public function setTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds = null)
     {
         $this->timeBetweenCallWaitingTonesMilliseconds = ($timeBetweenCallWaitingTonesMilliseconds InstanceOf CountryCodeTimeBetweenCallWaitingTonesMilliseconds)
@@ -146,8 +192,11 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
              : new CountryCodeTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds);
     }
 
+    /**
+     * The amount of quiet time between call waiting tones.
+     */
     public function getTimeBetweenCallWaitingTonesMilliseconds()
     {
-        return (!$this->timeBetweenCallWaitingTonesMilliseconds) ?: $this->timeBetweenCallWaitingTonesMilliseconds->value();
+        return (!$this->timeBetweenCallWaitingTonesMilliseconds) ?: $this->timeBetweenCallWaitingTonesMilliseconds->getValue();
     }
 }

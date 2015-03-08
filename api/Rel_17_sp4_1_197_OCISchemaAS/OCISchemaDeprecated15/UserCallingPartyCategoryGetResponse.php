@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallingPartyCategoryGetRequest.
+     * Response to UserCallingPartyCategoryGetRequest.
  */
 class UserCallingPartyCategoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $category  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallingPartyCategoryGetResponse';
+    public    $name     = __CLASS__;
+    protected $category = null;
 
 
+    /**
+     * Calling Party Category Selection
+     */
     public function setCategory($category = null)
     {
         $this->category = ($category InstanceOf CallingPartyCategorySelection)
@@ -28,8 +32,11 @@ class UserCallingPartyCategoryGetResponse extends ComplexType implements Complex
              : new CallingPartyCategorySelection($category);
     }
 
+    /**
+     * Calling Party Category Selection
+     */
     public function getCategory()
     {
-        return (!$this->category) ?: $this->category->value();
+        return (!$this->category) ?: $this->category->getValue();
     }
 }

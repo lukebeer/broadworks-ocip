@@ -13,17 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCallForwardingSelectiveGetRequest. The criteria table's column headings are:        
+     * Response to the UserCallForwardingSelectiveGetRequest. The criteria table's column headings are:        
  *          "Is Active", "Criteria Name", "Time Schedule", "Calls From" and "Forward To".
  */
 class UserCallForwardingSelectiveGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $defaultForwardToPhoneNumber  = null;
-    protected $playRingReminder             = null;
-    protected $criteriaTable                = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallForwardingSelectiveGetResponse';
+    public    $name                        = __CLASS__;
+    protected $defaultForwardToPhoneNumber = null;
+    protected $playRingReminder            = null;
+    protected $criteriaTable               = null;
 
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber = null)
     {
         $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -31,26 +42,50 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
              : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getDefaultForwardToPhoneNumber()
     {
-        return (!$this->defaultForwardToPhoneNumber) ?: $this->defaultForwardToPhoneNumber->value();
+        return (!$this->defaultForwardToPhoneNumber) ?: $this->defaultForwardToPhoneNumber->getValue();
     }
 
-    public function setPlayRingReminder(xs:boolean $playRingReminder = null)
+    /**
+     * 
+     */
+    public function setPlayRingReminder($playRingReminder = null)
     {
+        $this->playRingReminder = (boolean) $playRingReminder;
     }
 
+    /**
+     * 
+     */
     public function getPlayRingReminder()
     {
-        return (!$this->playRingReminder) ?: $this->playRingReminder->value();
+        return (!$this->playRingReminder) ?: $this->playRingReminder->getValue();
     }
 
+    /**
+     * 
+     */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
+        $this->criteriaTable = core:OCITable $criteriaTable;
     }
 
+    /**
+     * 
+     */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->value();
+        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
     }
 }

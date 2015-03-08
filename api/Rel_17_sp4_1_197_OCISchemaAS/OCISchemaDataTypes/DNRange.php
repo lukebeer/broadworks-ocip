@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Directory number range. The minimum and maximum values are inclusive.
+     * Directory number range. The minimum and maximum values are inclusive.
  */
 class DNRange extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

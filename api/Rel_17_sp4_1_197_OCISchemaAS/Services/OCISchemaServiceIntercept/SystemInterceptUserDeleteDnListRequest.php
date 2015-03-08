@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete an Intercept User number(s) from the system.
+     * Request to delete an Intercept User number(s) from the system.
  *               The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInterceptUserDeleteDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $phoneNumbers  = null;
+    public    $name         = __CLASS__;
+    protected $phoneNumbers = null;
 
     public function __construct(
          $phoneNumbers = null
@@ -27,6 +27,9 @@ class SystemInterceptUserDeleteDnListRequest extends ComplexType implements Comp
         $this->setPhoneNumbers($phoneNumbers);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setPhoneNumbers($phoneNumbers = null)
     {
         $this->phoneNumbers = ($phoneNumbers InstanceOf DN)
@@ -34,8 +37,11 @@ class SystemInterceptUserDeleteDnListRequest extends ComplexType implements Comp
              : new DN($phoneNumbers);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getPhoneNumbers()
     {
-        return (!$this->phoneNumbers) ?: $this->phoneNumbers->value();
+        return (!$this->phoneNumbers) ?: $this->phoneNumbers->getValue();
     }
 }

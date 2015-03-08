@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserRoutePointCallDispositionCodeGetAvailableListRequest.
+     * Response to the UserRoutePointCallDispositionCodeGetAvailableListRequest.
  *         This list may include Group/Enterprise level codes in addition to the Route Point level codes, 
  *         depending on the call center disposition codes settings.
  *         Only active codes are included in the list.
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserRoutePointCallDispositionCodeGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $dispositionCodesTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\UserRoutePointCallDispositionCodeGetAvailableListResponse';
+    public    $name                  = __CLASS__;
+    protected $dispositionCodesTable = null;
 
 
+    /**
+     * 
+     */
     public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
     {
+        $this->dispositionCodesTable = core:OCITable $dispositionCodesTable;
     }
 
+    /**
+     * 
+     */
     public function getDispositionCodesTable()
     {
-        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->value();
+        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->getValue();
     }
 }

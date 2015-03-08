@@ -18,24 +18,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserVoiceMessagingUserGetAdvancedVoiceManagementRequest.
+     * Response to the UserVoiceMessagingUserGetAdvancedVoiceManagementRequest.
  *         Replaced By: UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3
  */
 class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
-    protected $mailServerSelection                  = null;
-    protected $groupMailServerEmailAddress          = null;
-    protected $groupMailServerUserId                = null;
-    protected $groupMailServerPassword              = null;
-    protected $personalMailServerNetAddress         = null;
-    protected $personalMailServerProtocol           = null;
-    protected $personalMailServerRealDeleteForImap  = null;
-    protected $personalMailServerEmailAddress       = null;
-    protected $personalMailServerUserId             = null;
-    protected $personalMailServerPassword           = null;
+    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetAdvancedVoiceManagementResponse';
+    public    $name                                = __CLASS__;
+    protected $mailServerSelection                 = null;
+    protected $groupMailServerEmailAddress         = null;
+    protected $groupMailServerUserId               = null;
+    protected $groupMailServerPassword             = null;
+    protected $personalMailServerNetAddress        = null;
+    protected $personalMailServerProtocol          = null;
+    protected $personalMailServerRealDeleteForImap = null;
+    protected $personalMailServerEmailAddress      = null;
+    protected $personalMailServerUserId            = null;
+    protected $personalMailServerPassword          = null;
 
 
+    /**
+     * Voice Messaging user-level mail server choices.
+     */
     public function setMailServerSelection($mailServerSelection = null)
     {
         $this->mailServerSelection = ($mailServerSelection InstanceOf VoiceMessagingUserMailServerSelection)
@@ -43,11 +47,17 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new VoiceMessagingUserMailServerSelection($mailServerSelection);
     }
 
+    /**
+     * Voice Messaging user-level mail server choices.
+     */
     public function getMailServerSelection()
     {
-        return (!$this->mailServerSelection) ?: $this->mailServerSelection->value();
+        return (!$this->mailServerSelection) ?: $this->mailServerSelection->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setGroupMailServerEmailAddress($groupMailServerEmailAddress = null)
     {
         $this->groupMailServerEmailAddress = ($groupMailServerEmailAddress InstanceOf EmailAddress)
@@ -55,11 +65,17 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new EmailAddress($groupMailServerEmailAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getGroupMailServerEmailAddress()
     {
-        return (!$this->groupMailServerEmailAddress) ?: $this->groupMailServerEmailAddress->value();
+        return (!$this->groupMailServerEmailAddress) ?: $this->groupMailServerEmailAddress->getValue();
     }
 
+    /**
+     * User Id for a mail server.
+     */
     public function setGroupMailServerUserId($groupMailServerUserId = null)
     {
         $this->groupMailServerUserId = ($groupMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
@@ -67,11 +83,17 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new VoiceMessagingMailServerUserId($groupMailServerUserId);
     }
 
+    /**
+     * User Id for a mail server.
+     */
     public function getGroupMailServerUserId()
     {
-        return (!$this->groupMailServerUserId) ?: $this->groupMailServerUserId->value();
+        return (!$this->groupMailServerUserId) ?: $this->groupMailServerUserId->getValue();
     }
 
+    /**
+     * 
+     */
     public function setGroupMailServerPassword($groupMailServerPassword = null)
     {
         $this->groupMailServerPassword = ($groupMailServerPassword InstanceOf Password)
@@ -79,11 +101,17 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new Password($groupMailServerPassword);
     }
 
+    /**
+     * 
+     */
     public function getGroupMailServerPassword()
     {
-        return (!$this->groupMailServerPassword) ?: $this->groupMailServerPassword->value();
+        return (!$this->groupMailServerPassword) ?: $this->groupMailServerPassword->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setPersonalMailServerNetAddress($personalMailServerNetAddress = null)
     {
         $this->personalMailServerNetAddress = ($personalMailServerNetAddress InstanceOf NetAddress)
@@ -91,11 +119,17 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new NetAddress($personalMailServerNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getPersonalMailServerNetAddress()
     {
-        return (!$this->personalMailServerNetAddress) ?: $this->personalMailServerNetAddress->value();
+        return (!$this->personalMailServerNetAddress) ?: $this->personalMailServerNetAddress->getValue();
     }
 
+    /**
+     * Protocol used by mail server holding voice messages
+     */
     public function setPersonalMailServerProtocol($personalMailServerProtocol = null)
     {
         $this->personalMailServerProtocol = ($personalMailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
@@ -103,20 +137,33 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new VoiceMessagingMailServerProtocol($personalMailServerProtocol);
     }
 
+    /**
+     * Protocol used by mail server holding voice messages
+     */
     public function getPersonalMailServerProtocol()
     {
-        return (!$this->personalMailServerProtocol) ?: $this->personalMailServerProtocol->value();
+        return (!$this->personalMailServerProtocol) ?: $this->personalMailServerProtocol->getValue();
     }
 
-    public function setPersonalMailServerRealDeleteForImap(xs:boolean $personalMailServerRealDeleteForImap = null)
+    /**
+     * 
+     */
+    public function setPersonalMailServerRealDeleteForImap($personalMailServerRealDeleteForImap = null)
     {
+        $this->personalMailServerRealDeleteForImap = (boolean) $personalMailServerRealDeleteForImap;
     }
 
+    /**
+     * 
+     */
     public function getPersonalMailServerRealDeleteForImap()
     {
-        return (!$this->personalMailServerRealDeleteForImap) ?: $this->personalMailServerRealDeleteForImap->value();
+        return (!$this->personalMailServerRealDeleteForImap) ?: $this->personalMailServerRealDeleteForImap->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setPersonalMailServerEmailAddress($personalMailServerEmailAddress = null)
     {
         $this->personalMailServerEmailAddress = ($personalMailServerEmailAddress InstanceOf EmailAddress)
@@ -124,11 +171,17 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new EmailAddress($personalMailServerEmailAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getPersonalMailServerEmailAddress()
     {
-        return (!$this->personalMailServerEmailAddress) ?: $this->personalMailServerEmailAddress->value();
+        return (!$this->personalMailServerEmailAddress) ?: $this->personalMailServerEmailAddress->getValue();
     }
 
+    /**
+     * User Id for a mail server.
+     */
     public function setPersonalMailServerUserId($personalMailServerUserId = null)
     {
         $this->personalMailServerUserId = ($personalMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
@@ -136,11 +189,17 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new VoiceMessagingMailServerUserId($personalMailServerUserId);
     }
 
+    /**
+     * User Id for a mail server.
+     */
     public function getPersonalMailServerUserId()
     {
-        return (!$this->personalMailServerUserId) ?: $this->personalMailServerUserId->value();
+        return (!$this->personalMailServerUserId) ?: $this->personalMailServerUserId->getValue();
     }
 
+    /**
+     * 
+     */
     public function setPersonalMailServerPassword($personalMailServerPassword = null)
     {
         $this->personalMailServerPassword = ($personalMailServerPassword InstanceOf Password)
@@ -148,8 +207,11 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
              : new Password($personalMailServerPassword);
     }
 
+    /**
+     * 
+     */
     public function getPersonalMailServerPassword()
     {
-        return (!$this->personalMailServerPassword) ?: $this->personalMailServerPassword->value();
+        return (!$this->personalMailServerPassword) ?: $this->personalMailServerPassword->getValue();
     }
 }

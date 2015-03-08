@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's Video Add-On service setting.
+     * Modify the user's Video Add-On service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $userId                          = null;
-    protected $isActive                        = null;
-    protected $maxOriginatingCallDelaySeconds  = null;
-    protected $accessDeviceEndpoint            = null;
+    public    $name                           = __CLASS__;
+    protected $userId                         = null;
+    protected $isActive                       = null;
+    protected $maxOriginatingCallDelaySeconds = null;
+    protected $accessDeviceEndpoint           = null;
 
     public function __construct(
          $userId,
@@ -38,6 +38,13 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -45,20 +52,37 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Maximum Originating Call Delay.
+     */
     public function setMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds = null)
     {
         $this->maxOriginatingCallDelaySeconds = ($maxOriginatingCallDelaySeconds InstanceOf VideoAddOnMaxOriginatingCallDelaySeconds)
@@ -66,17 +90,27 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
              : new VideoAddOnMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
     }
 
+    /**
+     * Maximum Originating Call Delay.
+     */
     public function getMaxOriginatingCallDelaySeconds()
     {
-        return (!$this->maxOriginatingCallDelaySeconds) ?: $this->maxOriginatingCallDelaySeconds->value();
+        return (!$this->maxOriginatingCallDelaySeconds) ?: $this->maxOriginatingCallDelaySeconds->getValue();
     }
 
+    /**
+     * Access device end point used in the context of modify.
+     */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointModify $accessDeviceEndpoint = null)
     {
+        $this->accessDeviceEndpoint = AccessDeviceEndpointModify $accessDeviceEndpoint;
     }
 
+    /**
+     * Access device end point used in the context of modify.
+     */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->value();
+        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
     }
 }

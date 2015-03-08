@@ -16,24 +16,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a session admission control group for the enterprise.
+     * Request to modify a session admission control group for the enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $serviceProviderId                = null;
-    protected $name                             = null;
-    protected $newName                          = null;
-    protected $maxSession                       = null;
-    protected $maxUserOriginatingSessions       = null;
-    protected $maxUserTerminatingSessions       = null;
-    protected $reservedSession                  = null;
-    protected $reservedUserOriginatingSessions  = null;
-    protected $reservedUserTerminatingSessions  = null;
-    protected $becomeDefaultGroup               = null;
-    protected $countIntraSACGroupSessions       = null;
-    protected $deviceList                       = null;
+    public    $name                            = __CLASS__;
+    protected $serviceProviderId               = null;
+    protected $name                            = null;
+    protected $newName                         = null;
+    protected $maxSession                      = null;
+    protected $maxUserOriginatingSessions      = null;
+    protected $maxUserTerminatingSessions      = null;
+    protected $reservedSession                 = null;
+    protected $reservedUserOriginatingSessions = null;
+    protected $reservedUserTerminatingSessions = null;
+    protected $becomeDefaultGroup              = null;
+    protected $countIntraSACGroupSessions      = null;
+    protected $deviceList                      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -63,6 +63,10 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
         $this->setDeviceList($deviceList);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -70,11 +74,19 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
@@ -82,11 +94,19 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new SessionAdmissionControlGroupName($name);
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function setNewName($newName = null)
     {
         $this->newName = ($newName InstanceOf SessionAdmissionControlGroupName)
@@ -94,11 +114,18 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new SessionAdmissionControlGroupName($newName);
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->value();
+        return (!$this->newName) ?: $this->newName->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setMaxSession($maxSession = null)
     {
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
@@ -106,11 +133,17 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new NonNegativeInt($maxSession);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getMaxSession()
     {
-        return (!$this->maxSession) ?: $this->maxSession->value();
+        return (!$this->maxSession) ?: $this->maxSession->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
@@ -118,11 +151,17 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new NonNegativeInt($maxUserOriginatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getMaxUserOriginatingSessions()
     {
-        return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->value();
+        return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
@@ -130,11 +169,17 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new NonNegativeInt($maxUserTerminatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getMaxUserTerminatingSessions()
     {
-        return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->value();
+        return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setReservedSession($reservedSession = null)
     {
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
@@ -142,11 +187,17 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new NonNegativeInt($reservedSession);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getReservedSession()
     {
-        return (!$this->reservedSession) ?: $this->reservedSession->value();
+        return (!$this->reservedSession) ?: $this->reservedSession->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions = null)
     {
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
@@ -154,11 +205,17 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new NonNegativeInt($reservedUserOriginatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getReservedUserOriginatingSessions()
     {
-        return (!$this->reservedUserOriginatingSessions) ?: $this->reservedUserOriginatingSessions->value();
+        return (!$this->reservedUserOriginatingSessions) ?: $this->reservedUserOriginatingSessions->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions = null)
     {
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
@@ -166,35 +223,61 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
              : new NonNegativeInt($reservedUserTerminatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getReservedUserTerminatingSessions()
     {
-        return (!$this->reservedUserTerminatingSessions) ?: $this->reservedUserTerminatingSessions->value();
+        return (!$this->reservedUserTerminatingSessions) ?: $this->reservedUserTerminatingSessions->getValue();
     }
 
-    public function setBecomeDefaultGroup(xs:boolean $becomeDefaultGroup = null)
+    /**
+     * 
+     */
+    public function setBecomeDefaultGroup($becomeDefaultGroup = null)
     {
+        $this->becomeDefaultGroup = (boolean) $becomeDefaultGroup;
     }
 
+    /**
+     * 
+     */
     public function getBecomeDefaultGroup()
     {
-        return (!$this->becomeDefaultGroup) ?: $this->becomeDefaultGroup->value();
+        return (!$this->becomeDefaultGroup) ?: $this->becomeDefaultGroup->getValue();
     }
 
-    public function setCountIntraSACGroupSessions(xs:boolean $countIntraSACGroupSessions = null)
+    /**
+     * 
+     */
+    public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
+        $this->countIntraSACGroupSessions = (boolean) $countIntraSACGroupSessions;
     }
 
+    /**
+     * 
+     */
     public function getCountIntraSACGroupSessions()
     {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->value();
+        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->getValue();
     }
 
+    /**
+     * A list of enterprise accessible devices that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setDeviceList(ReplacementEnterpriseDeviceList $deviceList = null)
     {
+        $this->deviceList = ReplacementEnterpriseDeviceList $deviceList;
     }
 
+    /**
+     * A list of enterprise accessible devices that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getDeviceList()
     {
-        return (!$this->deviceList) ?: $this->deviceList->value();
+        return (!$this->deviceList) ?: $this->deviceList->getValue();
     }
 }

@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Adds a list of IP addresses to a zone
+     * Adds a list of IP addresses to a zone
  *         The response is SuccessResponse or an ErrorResponse.
  */
 class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $zoneName         = null;
-    protected $netAddress       = null;
-    protected $netAddressRange  = null;
+    public    $name            = __CLASS__;
+    protected $zoneName        = null;
+    protected $netAddress      = null;
+    protected $netAddressRange = null;
 
     public function __construct(
          $zoneName,
@@ -35,6 +35,9 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
         $this->setNetAddressRange($netAddressRange);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -42,11 +45,17 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf IPAddress)
@@ -54,17 +63,27 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
              : new IPAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * IP Address Range.
+     */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
+        $this->netAddressRange = IPAddressRange $netAddressRange;
     }
 
+    /**
+     * IP Address Range.
+     */
     public function getNetAddressRange()
     {
-        return (!$this->netAddressRange) ?: $this->netAddressRange->value();
+        return (!$this->netAddressRange) ?: $this->netAddressRange->getValue();
     }
 }

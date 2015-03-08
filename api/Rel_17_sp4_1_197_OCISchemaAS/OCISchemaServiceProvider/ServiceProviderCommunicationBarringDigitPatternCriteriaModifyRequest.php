@@ -16,18 +16,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an existing Communication Barring Digit Pattern Criteria.
+     * Modify an existing Communication Barring Digit Pattern Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $serviceProviderId        = null;
-    protected $name                     = null;
-    protected $newName                  = null;
-    protected $description              = null;
-    protected $addMatchDigitPattern     = null;
-    protected $deleteMatchDigitPattern  = null;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $name                    = null;
+    protected $newName                 = null;
+    protected $description             = null;
+    protected $addMatchDigitPattern    = null;
+    protected $deleteMatchDigitPattern = null;
 
     public function __construct(
          $serviceProviderId,
@@ -45,6 +45,10 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
         $this->setDeleteMatchDigitPattern($deleteMatchDigitPattern);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -52,11 +56,18 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
@@ -64,11 +75,17 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
              : new DigitPatternCriteriaName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setNewName($newName = null)
     {
         $this->newName = ($newName InstanceOf DigitPatternCriteriaName)
@@ -76,11 +93,17 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
              : new DigitPatternCriteriaName($newName);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->value();
+        return (!$this->newName) ?: $this->newName->getValue();
     }
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
@@ -88,11 +111,21 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
              : new DigitPatternCriteriaDescription($description);
     }
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function setAddMatchDigitPattern($addMatchDigitPattern = null)
     {
         $this->addMatchDigitPattern = ($addMatchDigitPattern InstanceOf DigitPattern)
@@ -100,11 +133,25 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
              : new DigitPattern($addMatchDigitPattern);
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function getAddMatchDigitPattern()
     {
-        return (!$this->addMatchDigitPattern) ?: $this->addMatchDigitPattern->value();
+        return (!$this->addMatchDigitPattern) ?: $this->addMatchDigitPattern->getValue();
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function setDeleteMatchDigitPattern($deleteMatchDigitPattern = null)
     {
         $this->deleteMatchDigitPattern = ($deleteMatchDigitPattern InstanceOf DigitPattern)
@@ -112,8 +159,15 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
              : new DigitPattern($deleteMatchDigitPattern);
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function getDeleteMatchDigitPattern()
     {
-        return (!$this->deleteMatchDigitPattern) ?: $this->deleteMatchDigitPattern->value();
+        return (!$this->deleteMatchDigitPattern) ?: $this->deleteMatchDigitPattern->getValue();
     }
 }

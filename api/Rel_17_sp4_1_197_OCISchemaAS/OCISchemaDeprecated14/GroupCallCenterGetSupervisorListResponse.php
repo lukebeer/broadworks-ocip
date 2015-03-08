@@ -13,18 +13,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterGetSupervisorListRequest.
+     * Response to the GroupCallCenterGetSupervisorListRequest.
  *         Contains a table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
  *         Replaced By: GroupCallCenterSupervisorReportingGetResponse
  */
 class GroupCallCenterGetSupervisorListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $reportingServerURL  = null;
-    protected $supervisorTable     = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetSupervisorListResponse';
+    public    $name               = __CLASS__;
+    protected $reportingServerURL = null;
+    protected $supervisorTable    = null;
 
 
+    /**
+     * URL.
+     */
     public function setReportingServerURL($reportingServerURL = null)
     {
         $this->reportingServerURL = ($reportingServerURL InstanceOf URL)
@@ -32,17 +36,27 @@ class GroupCallCenterGetSupervisorListResponse extends ComplexType implements Co
              : new URL($reportingServerURL);
     }
 
+    /**
+     * URL.
+     */
     public function getReportingServerURL()
     {
-        return (!$this->reportingServerURL) ?: $this->reportingServerURL->value();
+        return (!$this->reportingServerURL) ?: $this->reportingServerURL->getValue();
     }
 
+    /**
+     * 
+     */
     public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
+        $this->supervisorTable = core:OCITable $supervisorTable;
     }
 
+    /**
+     * 
+     */
     public function getSupervisorTable()
     {
-        return (!$this->supervisorTable) ?: $this->supervisorTable->value();
+        return (!$this->supervisorTable) ?: $this->supervisorTable->getValue();
     }
 }

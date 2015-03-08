@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the Application Server set for a group.
+     * Modify the Application Server set for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $applicationServerSetName  = null;
-    protected $groupId                   = null;
-    protected $serviceProviderId         = null;
+    public    $name                     = __CLASS__;
+    protected $applicationServerSetName = null;
+    protected $groupId                  = null;
+    protected $serviceProviderId        = null;
 
     public function __construct(
          $applicationServerSetName = null,
@@ -35,6 +35,9 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
         $this->setServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function setApplicationServerSetName($applicationServerSetName = null)
     {
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
@@ -42,11 +45,18 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
              : new ApplicationServerSetName($applicationServerSetName);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function getApplicationServerSetName()
     {
-        return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->value();
+        return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +64,19 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -66,8 +84,12 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 }

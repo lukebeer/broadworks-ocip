@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a session admission control group for the enterprise.
+     * Request to get a session admission control group for the enterprise.
  *         The response is either an EnterpriseSessionAdmissionControlGroupGetResponse or an ErrorResponse.
  */
 class EnterpriseSessionAdmissionControlGroupGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $name               = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $name              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class EnterpriseSessionAdmissionControlGroupGetRequest extends ComplexType imple
         $this->setName($name);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,19 @@ class EnterpriseSessionAdmissionControlGroupGetRequest extends ComplexType imple
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
@@ -50,8 +63,12 @@ class EnterpriseSessionAdmissionControlGroupGetRequest extends ComplexType imple
              : new SessionAdmissionControlGroupName($name);
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

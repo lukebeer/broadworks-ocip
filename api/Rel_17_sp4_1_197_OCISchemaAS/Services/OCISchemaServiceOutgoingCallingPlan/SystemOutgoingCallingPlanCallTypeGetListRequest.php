@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of call types of outgoing calling plan
+     * Request to get the list of call types of outgoing calling plan
  *         Response is SystemOutgoingCallingPlanCallTypeGetListRequest or ErrorResponse.
  */
 class SystemOutgoingCallingPlanCallTypeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

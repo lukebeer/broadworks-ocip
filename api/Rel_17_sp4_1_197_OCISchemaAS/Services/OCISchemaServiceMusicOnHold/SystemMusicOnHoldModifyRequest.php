@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Music On Hold.
+     * Modify the system level data associated with Music On Hold.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $delayMilliseconds  = null;
+    public    $name              = __CLASS__;
+    protected $delayMilliseconds = null;
 
     public function __construct(
          $delayMilliseconds = null
@@ -27,6 +27,9 @@ class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInter
         $this->setDelayMilliseconds($delayMilliseconds);
     }
 
+    /**
+     * Delay in milliseconds.
+     */
     public function setDelayMilliseconds($delayMilliseconds = null)
     {
         $this->delayMilliseconds = ($delayMilliseconds InstanceOf MusicOnHoldDelayMilliseconds)
@@ -34,8 +37,11 @@ class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInter
              : new MusicOnHoldDelayMilliseconds($delayMilliseconds);
     }
 
+    /**
+     * Delay in milliseconds.
+     */
     public function getDelayMilliseconds()
     {
-        return (!$this->delayMilliseconds) ?: $this->delayMilliseconds->value();
+        return (!$this->delayMilliseconds) ?: $this->delayMilliseconds->getValue();
     }
 }

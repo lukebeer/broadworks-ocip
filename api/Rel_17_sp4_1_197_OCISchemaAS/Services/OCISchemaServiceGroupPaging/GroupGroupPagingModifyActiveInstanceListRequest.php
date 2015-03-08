@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to set the active status of Group Paging instances.
+     * Request to set the active status of Group Paging instances.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupGroupPagingModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceActivation  = null;
+    public    $name              = __CLASS__;
+    protected $serviceActivation = null;
 
     public function __construct(
          ServiceActivation $serviceActivation = null
@@ -27,12 +27,19 @@ class GroupGroupPagingModifyActiveInstanceListRequest extends ComplexType implem
         $this->setServiceActivation($serviceActivation);
     }
 
+    /**
+     * Service Instance active status indicator
+     */
     public function setServiceActivation(ServiceActivation $serviceActivation = null)
     {
+        $this->serviceActivation = ServiceActivation $serviceActivation;
     }
 
+    /**
+     * Service Instance active status indicator
+     */
     public function getServiceActivation()
     {
-        return (!$this->serviceActivation) ?: $this->serviceActivation->value();
+        return (!$this->serviceActivation) ?: $this->serviceActivation->getValue();
     }
 }

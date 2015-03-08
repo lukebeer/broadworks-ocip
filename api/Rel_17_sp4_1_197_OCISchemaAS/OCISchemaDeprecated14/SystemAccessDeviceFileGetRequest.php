@@ -14,15 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a device profile file.
+     * Request to get a device profile file.
  *           The response is either SystemAccessDeviceFileGetResponse or ErrorResponse.
  *           Replaced By: SystemAccessDeviceFileGetRequest14sp8
  */
 class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
-    protected $fileType    = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceFileGetResponse';
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
+    protected $fileType   = null;
 
     public function __construct(
          $deviceName,
@@ -32,6 +33,9 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
         $this->setFileType($fileType);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -39,11 +43,17 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileType($fileType = null)
     {
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
@@ -51,8 +61,11 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
              : new DeviceManagementFileType($fileType);
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileType()
     {
-        return (!$this->fileType) ?: $this->fileType->value();
+        return (!$this->fileType) ?: $this->fileType->getValue();
     }
 }

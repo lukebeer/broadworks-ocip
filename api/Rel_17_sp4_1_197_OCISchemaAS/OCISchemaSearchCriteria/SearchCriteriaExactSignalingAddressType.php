@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a particular fully specified SignalingAddressType.
+     * Criteria for searching for a particular fully specified SignalingAddressType.
  */
 class SearchCriteriaExactSignalingAddressType extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $profile  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactSignalingAddressType';
+    public    $name    = __CLASS__;
+    protected $profile = null;
 
     public function __construct(
          $profile
@@ -26,6 +27,9 @@ class SearchCriteriaExactSignalingAddressType extends ComplexType implements Com
         $this->setProfile($profile);
     }
 
+    /**
+     * Device type signaling address types.
+     */
     public function setProfile($profile = null)
     {
         $this->profile = ($profile InstanceOf SignalingAddressType)
@@ -33,8 +37,11 @@ class SearchCriteriaExactSignalingAddressType extends ComplexType implements Com
              : new SignalingAddressType($profile);
     }
 
+    /**
+     * Device type signaling address types.
+     */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->value();
+        return (!$this->profile) ?: $this->profile->getValue();
     }
 }

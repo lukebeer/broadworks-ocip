@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupEnterpriseTrunkGetListRequest.
+     * Response to GroupEnterpriseTrunkGetListRequest.
  *         Contains a table of enterprise trunks defined in the enterprise
  *         The column headings are: "Enterprise Trunk Name", "Routing Type"
  */
 class GroupEnterpriseTrunkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $enterpriseTrunkTable  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetListResponse';
+    public    $name                 = __CLASS__;
+    protected $enterpriseTrunkTable = null;
 
 
+    /**
+     * 
+     */
     public function setEnterpriseTrunkTable(core:OCITable $enterpriseTrunkTable = null)
     {
+        $this->enterpriseTrunkTable = core:OCITable $enterpriseTrunkTable;
     }
 
+    /**
+     * 
+     */
     public function getEnterpriseTrunkTable()
     {
-        return (!$this->enterpriseTrunkTable) ?: $this->enterpriseTrunkTable->value();
+        return (!$this->enterpriseTrunkTable) ?: $this->enterpriseTrunkTable->getValue();
     }
 }

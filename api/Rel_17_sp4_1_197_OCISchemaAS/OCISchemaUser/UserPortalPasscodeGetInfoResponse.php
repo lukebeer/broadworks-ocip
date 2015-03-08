@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPortalPasscodeGetInfoRequest.
+     * Response to UserPortalPasscodeGetInfoRequest.
  */
 class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $isLoginDisabled  = null;
-    protected $passcode         = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPortalPasscodeGetInfoResponse';
+    public    $name            = __CLASS__;
+    protected $isLoginDisabled = null;
+    protected $passcode        = null;
 
 
-    public function setIsLoginDisabled(xs:boolean $isLoginDisabled = null)
+    /**
+     * 
+     */
+    public function setIsLoginDisabled($isLoginDisabled = null)
     {
+        $this->isLoginDisabled = (boolean) $isLoginDisabled;
     }
 
+    /**
+     * 
+     */
     public function getIsLoginDisabled()
     {
-        return (!$this->isLoginDisabled) ?: $this->isLoginDisabled->value();
+        return (!$this->isLoginDisabled) ?: $this->isLoginDisabled->getValue();
     }
 
+    /**
+     * Portal passcode
+     */
     public function setPasscode($passcode = null)
     {
         $this->passcode = ($passcode InstanceOf Passcode)
@@ -38,8 +49,11 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
              : new Passcode($passcode);
     }
 
+    /**
+     * Portal passcode
+     */
     public function getPasscode()
     {
-        return (!$this->passcode) ?: $this->passcode->value();
+        return (!$this->passcode) ?: $this->passcode->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of Media Sets in the system.
+     * Request to get the list of Media Sets in the system.
  *         The response is either a SystemMediaSetGetListResponse or an ErrorResponse.
  */
 class SystemMediaSetGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

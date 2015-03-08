@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a carrier from the system.
+     * Delete a carrier from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         An ErrorResponse is returned if the carrier is in use, or if the carrier didn't exist prior to deletion..
  */
 class SystemPreferredCarrierDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $carrier  = null;
+    public    $name    = __CLASS__;
+    protected $carrier = null;
 
     public function __construct(
          $carrier
@@ -28,6 +28,9 @@ class SystemPreferredCarrierDeleteRequest extends ComplexType implements Complex
         $this->setCarrier($carrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setCarrier($carrier = null)
     {
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
@@ -35,8 +38,11 @@ class SystemPreferredCarrierDeleteRequest extends ComplexType implements Complex
              : new PreferredCarrierName($carrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getCarrier()
     {
-        return (!$this->carrier) ?: $this->carrier->value();
+        return (!$this->carrier) ?: $this->carrier->getValue();
     }
 }

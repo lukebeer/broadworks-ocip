@@ -18,19 +18,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's commPilot express service setting.
+     * Modify the user's commPilot express service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  */
 class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $userId                = null;
-    protected $profile               = null;
-    protected $availableInOffice     = null;
-    protected $availableOutOfOffice  = null;
-    protected $busy                  = null;
-    protected $unavailable           = null;
+    public    $name                 = __CLASS__;
+    protected $userId               = null;
+    protected $profile              = null;
+    protected $availableInOffice    = null;
+    protected $availableOutOfOffice = null;
+    protected $busy                 = null;
+    protected $unavailable          = null;
 
     public function __construct(
          $userId,
@@ -48,6 +48,13 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
         $this->setUnavailable($unavailable);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -55,11 +62,21 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * CommPilot Express Profile Type.
+     */
     public function setProfile($profile = null)
     {
         $this->profile = ($profile InstanceOf CommPilotExpressProfile)
@@ -67,44 +84,75 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
              : new CommPilotExpressProfile($profile);
     }
 
+    /**
+     * CommPilot Express Profile Type.
+     */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->value();
+        return (!$this->profile) ?: $this->profile->getValue();
     }
 
+    /**
+     * CommPilot Express Available In Office Settings.
+     */
     public function setAvailableInOffice(CommPilotExpressAvailableInOfficeModify $availableInOffice = null)
     {
+        $this->availableInOffice = CommPilotExpressAvailableInOfficeModify $availableInOffice;
     }
 
+    /**
+     * CommPilot Express Available In Office Settings.
+     */
     public function getAvailableInOffice()
     {
-        return (!$this->availableInOffice) ?: $this->availableInOffice->value();
+        return (!$this->availableInOffice) ?: $this->availableInOffice->getValue();
     }
 
+    /**
+     * CommPilot Express Available Out Of Office Configuration used in the context of a modify.
+     */
     public function setAvailableOutOfOffice(CommPilotExpressAvailableOutOfOfficeModify $availableOutOfOffice = null)
     {
+        $this->availableOutOfOffice = CommPilotExpressAvailableOutOfOfficeModify $availableOutOfOffice;
     }
 
+    /**
+     * CommPilot Express Available Out Of Office Configuration used in the context of a modify.
+     */
     public function getAvailableOutOfOffice()
     {
-        return (!$this->availableOutOfOffice) ?: $this->availableOutOfOffice->value();
+        return (!$this->availableOutOfOffice) ?: $this->availableOutOfOffice->getValue();
     }
 
+    /**
+     * CommPilot Express Available In Office Configuration used in the context of a modify.
+     */
     public function setBusy(CommPilotExpressBusyModify $busy = null)
     {
+        $this->busy = CommPilotExpressBusyModify $busy;
     }
 
+    /**
+     * CommPilot Express Available In Office Configuration used in the context of a modify.
+     */
     public function getBusy()
     {
-        return (!$this->busy) ?: $this->busy->value();
+        return (!$this->busy) ?: $this->busy->getValue();
     }
 
+    /**
+     * CommPilot Express Unavailable Configuration used in the context of a modify.
+     */
     public function setUnavailable(CommPilotExpressUnavailableModify $unavailable = null)
     {
+        $this->unavailable = CommPilotExpressUnavailableModify $unavailable;
     }
 
+    /**
+     * CommPilot Express Unavailable Configuration used in the context of a modify.
+     */
     public function getUnavailable()
     {
-        return (!$this->unavailable) ?: $this->unavailable->value();
+        return (!$this->unavailable) ?: $this->unavailable->getValue();
     }
 }

@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCustomerOriginatedTraceGetRequest.
+     * Response to SystemCustomerOriginatedTraceGetRequest.
  */
 class SystemCustomerOriginatedTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $screenMaliciousCallers  = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace\SystemCustomerOriginatedTraceGetResponse';
+    public    $name                   = __CLASS__;
+    protected $screenMaliciousCallers = null;
 
 
-    public function setScreenMaliciousCallers(xs:boolean $screenMaliciousCallers = null)
+    /**
+     * 
+     */
+    public function setScreenMaliciousCallers($screenMaliciousCallers = null)
     {
+        $this->screenMaliciousCallers = (boolean) $screenMaliciousCallers;
     }
 
+    /**
+     * 
+     */
     public function getScreenMaliciousCallers()
     {
-        return (!$this->screenMaliciousCallers) ?: $this->screenMaliciousCallers->value();
+        return (!$this->screenMaliciousCallers) ?: $this->screenMaliciousCallers->getValue();
     }
 }

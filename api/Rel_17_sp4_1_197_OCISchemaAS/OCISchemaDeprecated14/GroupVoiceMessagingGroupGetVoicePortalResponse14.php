@@ -16,22 +16,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupVoiceMessagingGroupGetVoicePortalRequest14.
+     * Response to the GroupVoiceMessagingGroupGetVoicePortalRequest14.
  *         Replaced by GroupVoiceMessagingGroupGetVoicePortalResponse15
  */
 class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                                                       = __CLASS__;
-    protected $serviceUserId                                              = null;
-    protected $serviceInstanceProfile                                     = null;
-    protected $isActive                                                   = null;
-    protected $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin  = null;
-    protected $useVoicePortalWizard                                       = null;
-    protected $voicePortalExternalRoutingScope                            = null;
-    protected $useExternalRouting                                         = null;
-    protected $externalRoutingAddress                                     = null;
+    const     RESPONSE_TYPE                                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupVoiceMessagingGroupGetVoicePortalResponse14';
+    public    $name                                                      = __CLASS__;
+    protected $serviceUserId                                             = null;
+    protected $serviceInstanceProfile                                    = null;
+    protected $isActive                                                  = null;
+    protected $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null;
+    protected $useVoicePortalWizard                                      = null;
+    protected $voicePortalExternalRoutingScope                           = null;
+    protected $useExternalRouting                                        = null;
+    protected $externalRoutingAddress                                    = null;
 
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -39,47 +47,89 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin(xs:boolean $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null)
+    /**
+     * 
+     */
+    public function setAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin($allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null)
     {
+        $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = (boolean) $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin;
     }
 
+    /**
+     * 
+     */
     public function getAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin()
     {
-        return (!$this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) ?: $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->value();
+        return (!$this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) ?: $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->getValue();
     }
 
-    public function setUseVoicePortalWizard(xs:boolean $useVoicePortalWizard = null)
+    /**
+     * 
+     */
+    public function setUseVoicePortalWizard($useVoicePortalWizard = null)
     {
+        $this->useVoicePortalWizard = (boolean) $useVoicePortalWizard;
     }
 
+    /**
+     * 
+     */
     public function getUseVoicePortalWizard()
     {
-        return (!$this->useVoicePortalWizard) ?: $this->useVoicePortalWizard->value();
+        return (!$this->useVoicePortalWizard) ?: $this->useVoicePortalWizard->getValue();
     }
 
+    /**
+     * Choices for the voice portal's external routing to decide which settings to use.
+     */
     public function setVoicePortalExternalRoutingScope($voicePortalExternalRoutingScope = null)
     {
         $this->voicePortalExternalRoutingScope = ($voicePortalExternalRoutingScope InstanceOf VoicePortalExternalRoutingScope)
@@ -87,20 +137,40 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
              : new VoicePortalExternalRoutingScope($voicePortalExternalRoutingScope);
     }
 
+    /**
+     * Choices for the voice portal's external routing to decide which settings to use.
+     */
     public function getVoicePortalExternalRoutingScope()
     {
-        return (!$this->voicePortalExternalRoutingScope) ?: $this->voicePortalExternalRoutingScope->value();
+        return (!$this->voicePortalExternalRoutingScope) ?: $this->voicePortalExternalRoutingScope->getValue();
     }
 
-    public function setUseExternalRouting(xs:boolean $useExternalRouting = null)
+    /**
+     * 
+     */
+    public function setUseExternalRouting($useExternalRouting = null)
     {
+        $this->useExternalRouting = (boolean) $useExternalRouting;
     }
 
+    /**
+     * 
+     */
     public function getUseExternalRouting()
     {
-        return (!$this->useExternalRouting) ?: $this->useExternalRouting->value();
+        return (!$this->useExternalRouting) ?: $this->useExternalRouting->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setExternalRoutingAddress($externalRoutingAddress = null)
     {
         $this->externalRoutingAddress = ($externalRoutingAddress InstanceOf OutgoingDNorSIPURI)
@@ -108,8 +178,18 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
              : new OutgoingDNorSIPURI($externalRoutingAddress);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getExternalRoutingAddress()
     {
-        return (!$this->externalRoutingAddress) ?: $this->externalRoutingAddress->value();
+        return (!$this->externalRoutingAddress) ?: $this->externalRoutingAddress->getValue();
     }
 }

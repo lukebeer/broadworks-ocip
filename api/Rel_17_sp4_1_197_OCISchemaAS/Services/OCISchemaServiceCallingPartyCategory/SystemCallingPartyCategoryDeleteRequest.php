@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Calling Party Category from system. The category cannot be deleted if it is the default or is in use by any users.
+     * Delete a Calling Party Category from system. The category cannot be deleted if it is the default or is in use by any users.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $category  = null;
+    public    $name     = __CLASS__;
+    protected $category = null;
 
     public function __construct(
          $category
@@ -27,6 +27,9 @@ class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements Com
         $this->setCategory($category);
     }
 
+    /**
+     * Name for the Calling Party Category.
+     */
     public function setCategory($category = null)
     {
         $this->category = ($category InstanceOf CallingPartyCategoryName)
@@ -34,8 +37,11 @@ class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements Com
              : new CallingPartyCategoryName($category);
     }
 
+    /**
+     * Name for the Calling Party Category.
+     */
     public function getCategory()
     {
-        return (!$this->category) ?: $this->category->value();
+        return (!$this->category) ?: $this->category->getValue();
     }
 }

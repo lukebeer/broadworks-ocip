@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the group call center routing policy.
+     * Modify the group call center routing policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $serviceProviderId     = null;
-    protected $groupId               = null;
-    protected $routingPolicy         = null;
-    protected $routingPriorityOrder  = null;
+    public    $name                 = __CLASS__;
+    protected $serviceProviderId    = null;
+    protected $groupId              = null;
+    protected $routingPolicy        = null;
+    protected $routingPriorityOrder = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
         $this->setRoutingPriorityOrder($routingPriorityOrder);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,11 +70,18 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Call center routing policy.
+     */
     public function setRoutingPolicy($routingPolicy = null)
     {
         $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
@@ -70,17 +89,27 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
              : new CallCenterRoutingPolicy($routingPolicy);
     }
 
+    /**
+     * Call center routing policy.
+     */
     public function getRoutingPolicy()
     {
-        return (!$this->routingPolicy) ?: $this->routingPolicy->value();
+        return (!$this->routingPolicy) ?: $this->routingPolicy->getValue();
     }
 
+    /**
+     * Call center routing order
+     */
     public function setRoutingPriorityOrder(CallCenterRoutingPriorityOrder $routingPriorityOrder = null)
     {
+        $this->routingPriorityOrder = CallCenterRoutingPriorityOrder $routingPriorityOrder;
     }
 
+    /**
+     * Call center routing order
+     */
     public function getRoutingPriorityOrder()
     {
-        return (!$this->routingPriorityOrder) ?: $this->routingPriorityOrder->value();
+        return (!$this->routingPriorityOrder) ?: $this->routingPriorityOrder->getValue();
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request user's call logs.
+     * Request user's call logs.
  *         If the callLogType is not specified, all types of calls logs (placed, received, missed) are returned.
  *         The filters "dateTimeRange", "numberFilter", "redirectedNumberFilter", accountAuthorizationCodeFilter"
  *         and ""subscriberType" are ignored if call logs are stored in CDS. When "ReceivedOrMissed" is specified
@@ -32,15 +32,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $userId                          = null;
-    protected $callLogType                     = null;
-    protected $dateTimeRange                   = null;
-    protected $numberFilter                    = null;
-    protected $redirectedNumberFilter          = null;
-    protected $accountAuthorizationCodeFilter  = null;
-    protected $subscriberType                  = null;
-    protected $responsePagingControl           = null;
+    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4';
+    public    $name                           = __CLASS__;
+    protected $userId                         = null;
+    protected $callLogType                    = null;
+    protected $dateTimeRange                  = null;
+    protected $numberFilter                   = null;
+    protected $redirectedNumberFilter         = null;
+    protected $accountAuthorizationCodeFilter = null;
+    protected $subscriberType                 = null;
+    protected $responsePagingControl          = null;
 
     public function __construct(
          $userId,
@@ -62,6 +63,13 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->setResponsePagingControl($responsePagingControl);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -69,11 +77,21 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Call Log type used by enhanced call logs requests
+     */
     public function setCallLogType($callLogType = null)
     {
         $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsCallLogsRequestType)
@@ -81,47 +99,85 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
              : new EnhancedCallLogsCallLogsRequestType($callLogType);
     }
 
+    /**
+     * Call Log type used by enhanced call logs requests
+     */
     public function getCallLogType()
     {
-        return (!$this->callLogType) ?: $this->callLogType->value();
+        return (!$this->callLogType) ?: $this->callLogType->getValue();
     }
 
+    /**
+     * Time range used to filter call logs.
+     */
     public function setDateTimeRange(EnhancedCallLogsTimeRange $dateTimeRange = null)
     {
+        $this->dateTimeRange = EnhancedCallLogsTimeRange $dateTimeRange;
     }
 
+    /**
+     * Time range used to filter call logs.
+     */
     public function getDateTimeRange()
     {
-        return (!$this->dateTimeRange) ?: $this->dateTimeRange->value();
+        return (!$this->dateTimeRange) ?: $this->dateTimeRange->getValue();
     }
 
+    /**
+     * Filter criteria based on the called number or number called.
+     */
     public function setNumberFilter(EnhancedCallLogsNumberFilter $numberFilter = null)
     {
+        $this->numberFilter = EnhancedCallLogsNumberFilter $numberFilter;
     }
 
+    /**
+     * Filter criteria based on the called number or number called.
+     */
     public function getNumberFilter()
     {
-        return (!$this->numberFilter) ?: $this->numberFilter->value();
+        return (!$this->numberFilter) ?: $this->numberFilter->getValue();
     }
 
+    /**
+     * Filter criteria based on the transferred/forwarded number.
+     */
     public function setRedirectedNumberFilter(EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null)
     {
+        $this->redirectedNumberFilter = EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter;
     }
 
+    /**
+     * Filter criteria based on the transferred/forwarded number.
+     */
     public function getRedirectedNumberFilter()
     {
-        return (!$this->redirectedNumberFilter) ?: $this->redirectedNumberFilter->value();
+        return (!$this->redirectedNumberFilter) ?: $this->redirectedNumberFilter->getValue();
     }
 
+    /**
+     * Filter criteria based on the account code.
+     *         When "callsWithCodes" is set to true, all call logs with account/authorization codes are returned. 
+     *         When it set to false, all call logs without account/authorization codes are returned.
+     */
     public function setAccountAuthorizationCodeFilter(EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null)
     {
+        $this->accountAuthorizationCodeFilter = EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter;
     }
 
+    /**
+     * Filter criteria based on the account code.
+     *         When "callsWithCodes" is set to true, all call logs with account/authorization codes are returned. 
+     *         When it set to false, all call logs without account/authorization codes are returned.
+     */
     public function getAccountAuthorizationCodeFilter()
     {
-        return (!$this->accountAuthorizationCodeFilter) ?: $this->accountAuthorizationCodeFilter->value();
+        return (!$this->accountAuthorizationCodeFilter) ?: $this->accountAuthorizationCodeFilter->getValue();
     }
 
+    /**
+     * Subscriber type
+     */
     public function setSubscriberType($subscriberType = null)
     {
         $this->subscriberType = ($subscriberType InstanceOf EnhancedCallLogsSubscriberType)
@@ -129,17 +185,31 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
              : new EnhancedCallLogsSubscriberType($subscriberType);
     }
 
+    /**
+     * Subscriber type
+     */
     public function getSubscriberType()
     {
-        return (!$this->subscriberType) ?: $this->subscriberType->value();
+        return (!$this->subscriberType) ?: $this->subscriberType->getValue();
     }
 
+    /**
+     * Used in queries to restrict the set of result rows when making a request that can result in
+     *         a large dataset. The client specifies the starting row and the number of rows requested. 
+     *         The server only provides those rows in results, if available.
+     */
     public function setResponsePagingControl(ResponsePagingControl $responsePagingControl = null)
     {
+        $this->responsePagingControl = ResponsePagingControl $responsePagingControl;
     }
 
+    /**
+     * Used in queries to restrict the set of result rows when making a request that can result in
+     *         a large dataset. The client specifies the starting row and the number of rows requested. 
+     *         The server only provides those rows in results, if available.
+     */
     public function getResponsePagingControl()
     {
-        return (!$this->responsePagingControl) ?: $this->responsePagingControl->value();
+        return (!$this->responsePagingControl) ?: $this->responsePagingControl->getValue();
     }
 }

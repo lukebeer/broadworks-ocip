@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of BroadWorks services that can be integrated to a device type and the level of integration for this device type.
+     * Request to get the list of BroadWorks services that can be integrated to a device type and the level of integration for this device type.
  *         The response is either SystemSIPDeviceTypeServiceGetResponse or ErrorResponse.
  */
 class SystemSIPDeviceTypeServiceGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeServiceGetResponse';
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
 
     public function __construct(
          $deviceType
@@ -27,6 +28,9 @@ class SystemSIPDeviceTypeServiceGetRequest extends ComplexType implements Comple
         $this->setDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -34,8 +38,11 @@ class SystemSIPDeviceTypeServiceGetRequest extends ComplexType implements Comple
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 }

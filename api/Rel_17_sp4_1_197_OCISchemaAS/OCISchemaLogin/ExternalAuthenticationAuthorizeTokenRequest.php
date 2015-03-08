@@ -15,7 +15,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * This command is part of the Portal API.
+     * This command is part of the Portal API.
  *         Sent when a Web or CLI user logs in using external authentication.
  *         The password must be hashed. The password hashing algorithm is:
  *         1) The message digest of the user's plain password is calculated using the SHA algorithm.
@@ -27,10 +27,10 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $userId      = null;
-    protected $password    = null;
-    protected $loginToken  = null;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $password   = null;
+    protected $loginToken = null;
 
     public function __construct(
          $userId,
@@ -42,6 +42,13 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
         $this->setLoginToken($loginToken);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -49,11 +56,21 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * 
+     */
     public function setPassword($password = null)
     {
         $this->password = ($password InstanceOf Password)
@@ -61,11 +78,17 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
              : new Password($password);
     }
 
+    /**
+     * 
+     */
     public function getPassword()
     {
-        return (!$this->password) ?: $this->password->value();
+        return (!$this->password) ?: $this->password->getValue();
     }
 
+    /**
+     * Login Token.
+     */
     public function setLoginToken($loginToken = null)
     {
         $this->loginToken = ($loginToken InstanceOf LoginToken)
@@ -73,8 +96,11 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
              : new LoginToken($loginToken);
     }
 
+    /**
+     * Login Token.
+     */
     public function getLoginToken()
     {
-        return (!$this->loginToken) ?: $this->loginToken->value();
+        return (!$this->loginToken) ?: $this->loginToken->getValue();
     }
 }

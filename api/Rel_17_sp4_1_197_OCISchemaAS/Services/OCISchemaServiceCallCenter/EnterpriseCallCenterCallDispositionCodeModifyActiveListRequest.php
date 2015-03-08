@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to set the active status of Call Center Call Disposition Codes.      
+     * Request to set the active status of Call Center Call Disposition Codes.      
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $serviceProviderId              = null;
-    protected $callDispositionCodeActivation  = null;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $callDispositionCodeActivation = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
         $this->setCallDispositionCodeActivation($callDispositionCodeActivation);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,17 +42,28 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Contains a Call Center Call Disposition Code and its active state
+     */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
+        $this->callDispositionCodeActivation = CallDispositionCodeActivation $callDispositionCodeActivation;
     }
 
+    /**
+     * Contains a Call Center Call Disposition Code and its active state
+     */
     public function getCallDispositionCodeActivation()
     {
-        return (!$this->callDispositionCodeActivation) ?: $this->callDispositionCodeActivation->value();
+        return (!$this->callDispositionCodeActivation) ?: $this->callDispositionCodeActivation->getValue();
     }
 }

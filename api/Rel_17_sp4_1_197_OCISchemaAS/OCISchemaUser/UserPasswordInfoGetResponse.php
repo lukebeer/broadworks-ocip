@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPasswordInfoGetRequest.
+     * Response to UserPasswordInfoGetRequest.
  */
 class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $isLoginDisabled  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPasswordInfoGetResponse';
+    public    $name            = __CLASS__;
+    protected $isLoginDisabled = null;
 
 
-    public function setIsLoginDisabled(xs:boolean $isLoginDisabled = null)
+    /**
+     * 
+     */
+    public function setIsLoginDisabled($isLoginDisabled = null)
     {
+        $this->isLoginDisabled = (boolean) $isLoginDisabled;
     }
 
+    /**
+     * 
+     */
     public function getIsLoginDisabled()
     {
-        return (!$this->isLoginDisabled) ?: $this->isLoginDisabled->value();
+        return (!$this->isLoginDisabled) ?: $this->isLoginDisabled->getValue();
     }
 }

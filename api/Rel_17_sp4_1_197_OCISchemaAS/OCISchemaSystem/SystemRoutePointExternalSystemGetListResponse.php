@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemRoutePointExternalSystemGetListRequest.
+     * Response to the SystemRoutePointExternalSystemGetListRequest.
  * 
  *       Contains a table with column headings:
  *       "External System", "Description".
  */
 class SystemRoutePointExternalSystemGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $externalSystemTable  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetListResponse';
+    public    $name                = __CLASS__;
+    protected $externalSystemTable = null;
 
 
+    /**
+     * 
+     */
     public function setExternalSystemTable(core:OCITable $externalSystemTable = null)
     {
+        $this->externalSystemTable = core:OCITable $externalSystemTable;
     }
 
+    /**
+     * 
+     */
     public function getExternalSystemTable()
     {
-        return (!$this->externalSystemTable) ?: $this->externalSystemTable->value();
+        return (!$this->externalSystemTable) ?: $this->externalSystemTable->getValue();
     }
 }

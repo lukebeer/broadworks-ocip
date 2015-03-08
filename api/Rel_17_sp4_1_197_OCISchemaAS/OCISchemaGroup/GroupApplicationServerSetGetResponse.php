@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupApplicationServerSetGetRequest.
+     * Response to the GroupApplicationServerSetGetRequest.
  *         The response contains the group's Application Server set information.
  */
 class GroupApplicationServerSetGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $applicationServerSetName  = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse';
+    public    $name                     = __CLASS__;
+    protected $applicationServerSetName = null;
 
 
+    /**
+     * Application Server set name.
+     */
     public function setApplicationServerSetName($applicationServerSetName = null)
     {
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
@@ -29,8 +33,11 @@ class GroupApplicationServerSetGetResponse extends ComplexType implements Comple
              : new ApplicationServerSetName($applicationServerSetName);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function getApplicationServerSetName()
     {
-        return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->value();
+        return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->getValue();
     }
 }

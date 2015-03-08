@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a SystemConfigurableTreatmentGetListRequest. Contains a table with one row per treatment.
+     * Response to a SystemConfigurableTreatmentGetListRequest. Contains a table with one row per treatment.
  *         The table columns are: "Treatment Id", "Description".
  */
 class SystemConfigurableTreatmentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $treatmentTable  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentGetListResponse';
+    public    $name           = __CLASS__;
+    protected $treatmentTable = null;
 
 
+    /**
+     * 
+     */
     public function setTreatmentTable(core:OCITable $treatmentTable = null)
     {
+        $this->treatmentTable = core:OCITable $treatmentTable;
     }
 
+    /**
+     * 
+     */
     public function getTreatmentTable()
     {
-        return (!$this->treatmentTable) ?: $this->treatmentTable->value();
+        return (!$this->treatmentTable) ?: $this->treatmentTable->getValue();
     }
 }

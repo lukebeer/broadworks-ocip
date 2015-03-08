@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemDnGetSummaryListRequest.
+     * Response to SystemDnGetSummaryListRequest.
  *         The column headings are "Phone Numbers, "Service Provider Id" and "Is Enterprise"
  */
 class SystemDnGetSummaryListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $dnSummaryTable  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDnGetSummaryListResponse';
+    public    $name           = __CLASS__;
+    protected $dnSummaryTable = null;
 
 
+    /**
+     * 
+     */
     public function setDnSummaryTable(core:OCITable $dnSummaryTable = null)
     {
+        $this->dnSummaryTable = core:OCITable $dnSummaryTable;
     }
 
+    /**
+     * 
+     */
     public function getDnSummaryTable()
     {
-        return (!$this->dnSummaryTable) ?: $this->dnSummaryTable->value();
+        return (!$this->dnSummaryTable) ?: $this->dnSummaryTable->getValue();
     }
 }

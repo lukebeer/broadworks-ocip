@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupEnhancedCallLogsGetListRequest.
+     * Response to GroupEnhancedCallLogsGetListRequest.
  *         Total numbers of rows is:
  *         - the total number of retrievable logs of the call log type that was specified in the GroupEnhancedCallLogsGetListRequest, 
  *           if a call log type was specified in the request.
@@ -23,26 +23,65 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEnhancedCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $totalNumberOfRows  = null;
-    protected $extendedCallLog    = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\GroupEnhancedCallLogsGetListResponse';
+    public    $name              = __CLASS__;
+    protected $totalNumberOfRows = null;
+    protected $extendedCallLog   = null;
 
 
-    public function setTotalNumberOfRows(xs:int $totalNumberOfRows = null)
+    /**
+     * 
+     */
+    public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
+        $this->totalNumberOfRows = (int) $totalNumberOfRows;
     }
 
+    /**
+     * 
+     */
     public function getTotalNumberOfRows()
     {
-        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->value();
+        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->getValue();
     }
 
+    /**
+     * Extended Call Log entry describing a placed, received, or missed call.
+     *         "countryCode" is the user's country code
+     *         The following time elements are represented as timestamp, i.e., the number of milliseconds
+     *         since January 1, 1970, 00:00:00 GMT.
+     *         "startTime" represents the time when the system sends out a call invitation message (e.g. for
+     *         placed calls) or receives a call invitation message (e.g. for missed/received calls). 
+     *         "answerTime" represents the time when the call is answered by the terminating party. 
+     *         "detachTime" represents the time when the call is successfully redirected by the system. 
+     *         "releaseTime" represents the time when the call is released. This time corresponds to the 
+     *         moment the call is released by the system, and not necessarily when one party hangs up, since this 
+     *         does not always mean the call is released (e.g. Emergency/911 calls).
+     *         The elements "GroupId", "userId","userPrimaryDn","userPrimaryExtension", "Extension17" and "isRealUser"
+     *         are only returned when the enterprise or group level requests are used.
+     */
     public function setExtendedCallLog(ExtendedMixedCallLogsEntry $extendedCallLog = null)
     {
+        $this->extendedCallLog = ExtendedMixedCallLogsEntry $extendedCallLog;
     }
 
+    /**
+     * Extended Call Log entry describing a placed, received, or missed call.
+     *         "countryCode" is the user's country code
+     *         The following time elements are represented as timestamp, i.e., the number of milliseconds
+     *         since January 1, 1970, 00:00:00 GMT.
+     *         "startTime" represents the time when the system sends out a call invitation message (e.g. for
+     *         placed calls) or receives a call invitation message (e.g. for missed/received calls). 
+     *         "answerTime" represents the time when the call is answered by the terminating party. 
+     *         "detachTime" represents the time when the call is successfully redirected by the system. 
+     *         "releaseTime" represents the time when the call is released. This time corresponds to the 
+     *         moment the call is released by the system, and not necessarily when one party hangs up, since this 
+     *         does not always mean the call is released (e.g. Emergency/911 calls).
+     *         The elements "GroupId", "userId","userPrimaryDn","userPrimaryExtension", "Extension17" and "isRealUser"
+     *         are only returned when the enterprise or group level requests are used.
+     */
     public function getExtendedCallLog()
     {
-        return (!$this->extendedCallLog) ?: $this->extendedCallLog->value();
+        return (!$this->extendedCallLog) ?: $this->extendedCallLog->getValue();
     }
 }

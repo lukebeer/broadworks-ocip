@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Replace the list of devices associated with a SMDI server route destination.
+     * Replace the list of devices associated with a SMDI server route destination.
  *         There must be at least one device in the list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $routeDestination  = null;
-    protected $deviceNameList    = null;
+    public    $name             = __CLASS__;
+    protected $routeDestination = null;
+    protected $deviceNameList   = null;
 
     public function __construct(
          $routeDestination,
@@ -31,6 +31,9 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
         $this->setDeviceNameList($deviceNameList);
     }
 
+    /**
+     * SMDI server route destination, a 3 to 10 digits number
+     */
     public function setRouteDestination($routeDestination = null)
     {
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
@@ -38,18 +41,27 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
              : new SMDIServerRouteDestination($routeDestination);
     }
 
+    /**
+     * SMDI server route destination, a 3 to 10 digits number
+     */
     public function getRouteDestination()
     {
-        return (!$this->routeDestination) ?: $this->routeDestination->value();
+        return (!$this->routeDestination) ?: $this->routeDestination->getValue();
     }
 
+    /**
+     * 
+     */
     public function setDeviceNameList($deviceNameList = null)
     {
         $this->deviceNameList = $deviceNameList;
     }
 
+    /**
+     * 
+     */
     public function getDeviceNameList()
     {
-        return (!$this->deviceNameList) ?: $this->deviceNameList->value();
+        return (!$this->deviceNameList) ?: $this->deviceNameList->getValue();
     }
 }

@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallCenterGetRequest.
+     * Response to SystemCallCenterGetRequest.
  *         Replaced By: SystemCallCenterGetResponse14sp9
  */
 class SystemCallCenterGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $defaultFromAddress  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCallCenterGetResponse';
+    public    $name               = __CLASS__;
+    protected $defaultFromAddress = null;
 
 
+    /**
+     * Email Address
+     */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
@@ -29,8 +33,11 @@ class SystemCallCenterGetResponse extends ComplexType implements ComplexInterfac
              : new EmailAddress($defaultFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getDefaultFromAddress()
     {
-        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->value();
+        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an entry from the OCI call control application list.
+     * Delete an entry from the OCI call control application list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCICallControlApplicationDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $applicationId  = null;
+    public    $name          = __CLASS__;
+    protected $applicationId = null;
 
     public function __construct(
          $applicationId
@@ -27,6 +27,9 @@ class SystemOCICallControlApplicationDeleteRequest extends ComplexType implement
         $this->setApplicationId($applicationId);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
@@ -34,8 +37,11 @@ class SystemOCICallControlApplicationDeleteRequest extends ComplexType implement
              : new OCICallControlApplicationId($applicationId);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 }

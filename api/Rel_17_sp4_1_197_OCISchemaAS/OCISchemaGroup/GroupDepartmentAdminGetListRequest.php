@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of department administrators for the department.
+     * Get a list of department administrators for the department.
  *         The response is either a GroupDepartmentAdminGetListResponse or an ErrorResponse.
  */
 class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $departmentKey  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetListResponse';
+    public    $name          = __CLASS__;
+    protected $departmentKey = null;
 
     public function __construct(
          GroupDepartmentKey $departmentKey
@@ -27,12 +28,23 @@ class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexI
         $this->setDepartmentKey($departmentKey);
     }
 
+    /**
+     * Uniquely identifies a department defined within a group.
+     *         To uniquely identify a group department, we must know the department name and which
+     *         group contains the department.
+     */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
+        $this->departmentKey = GroupDepartmentKey $departmentKey;
     }
 
+    /**
+     * Uniquely identifies a department defined within a group.
+     *         To uniquely identify a group department, we must know the department name and which
+     *         group contains the department.
+     */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->value();
+        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
     }
 }

@@ -13,15 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of Call Centers that are using the specified reporting
+     * Get a list of Call Centers that are using the specified reporting
  *         server.  The response is either a
  *         SystemCallCenterReportingServerGetCallCenterListResponse or an
  *         ErrorResponse.
  */
 class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $reportingServerName  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse';
+    public    $name                = __CLASS__;
+    protected $reportingServerName = null;
 
     public function __construct(
          $reportingServerName
@@ -29,6 +30,9 @@ class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexTyp
         $this->setReportingServerName($reportingServerName);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function setReportingServerName($reportingServerName = null)
     {
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
@@ -36,8 +40,11 @@ class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexTyp
              : new CallCenterReportingServerName($reportingServerName);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function getReportingServerName()
     {
-        return (!$this->reportingServerName) ?: $this->reportingServerName->value();
+        return (!$this->reportingServerName) ?: $this->reportingServerName->getValue();
     }
 }

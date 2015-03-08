@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Inventory Report.
+     * Modify the system level data associated with Inventory Report.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInventoryReportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $defaultFromAddress  = null;
+    public    $name               = __CLASS__;
+    protected $defaultFromAddress = null;
 
     public function __construct(
          $defaultFromAddress = null
@@ -27,6 +27,9 @@ class SystemInventoryReportModifyRequest extends ComplexType implements ComplexI
         $this->setDefaultFromAddress($defaultFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
@@ -34,8 +37,11 @@ class SystemInventoryReportModifyRequest extends ComplexType implements ComplexI
              : new EmailAddress($defaultFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getDefaultFromAddress()
     {
-        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->value();
+        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->getValue();
     }
 }

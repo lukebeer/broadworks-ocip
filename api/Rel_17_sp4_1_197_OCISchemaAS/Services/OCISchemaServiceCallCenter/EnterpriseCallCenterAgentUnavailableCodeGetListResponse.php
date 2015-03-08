@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the EnterpriseCallCenterAgentUnavailableCodeGetListRequest.
+     * Response to the EnterpriseCallCenterAgentUnavailableCodeGetListRequest.
  *         Contains a table with column headings: "Is Active", "Code", "Description".
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $unavailableCodesTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $unavailableCodesTable = null;
 
 
+    /**
+     * 
+     */
     public function setUnavailableCodesTable(core:OCITable $unavailableCodesTable = null)
     {
+        $this->unavailableCodesTable = core:OCITable $unavailableCodesTable;
     }
 
+    /**
+     * 
+     */
     public function getUnavailableCodesTable()
     {
-        return (!$this->unavailableCodesTable) ?: $this->unavailableCodesTable->value();
+        return (!$this->unavailableCodesTable) ?: $this->unavailableCodesTable->getValue();
     }
 }

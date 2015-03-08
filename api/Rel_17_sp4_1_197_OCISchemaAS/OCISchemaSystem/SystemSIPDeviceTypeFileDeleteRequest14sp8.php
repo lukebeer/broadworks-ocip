@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a sip device type file.
+     * Request to delete a sip device type file.
  *           The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
-    protected $fileFormat  = null;
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
+    protected $fileFormat = null;
 
     public function __construct(
          $deviceType,
@@ -31,6 +31,9 @@ class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements C
         $this->setFileFormat($fileFormat);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -38,11 +41,17 @@ class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements C
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileFormat($fileFormat = null)
     {
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
@@ -50,8 +59,11 @@ class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements C
              : new DeviceManagementFileFormat($fileFormat);
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->value();
+        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
     }
 }

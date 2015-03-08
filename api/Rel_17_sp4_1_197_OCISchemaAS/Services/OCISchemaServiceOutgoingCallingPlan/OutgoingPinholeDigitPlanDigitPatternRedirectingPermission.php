@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Indicates whether redirecting calls using specified Pinhole digit patterns are permitted.
+     * Indicates whether redirecting calls using specified Pinhole digit patterns are permitted.
  */
 class OutgoingPinholeDigitPlanDigitPatternRedirectingPermission extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternRedirectingPermission';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

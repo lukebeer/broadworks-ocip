@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify enterprise level call center enhanced reporting settings.
+     * Request to modify enterprise level call center enhanced reporting settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $serviceProviderId   = null;
-    protected $reportingServer     = null;
-    protected $webStatisticSource  = null;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $reportingServer    = null;
+    protected $webStatisticSource = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
         $this->setWebStatisticSource($webStatisticSource);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,18 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Call center report server choice.
+     */
     public function setReportingServer($reportingServer = null)
     {
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
@@ -54,11 +65,17 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
              : new CallCenterReportServerChoice($reportingServer);
     }
 
+    /**
+     * Call center report server choice.
+     */
     public function getReportingServer()
     {
-        return (!$this->reportingServer) ?: $this->reportingServer->value();
+        return (!$this->reportingServer) ?: $this->reportingServer->getValue();
     }
 
+    /**
+     * Call center report web statistics source.
+     */
     public function setWebStatisticSource($webStatisticSource = null)
     {
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
@@ -66,8 +83,11 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
     }
 
+    /**
+     * Call center report web statistics source.
+     */
     public function getWebStatisticSource()
     {
-        return (!$this->webStatisticSource) ?: $this->webStatisticSource->value();
+        return (!$this->webStatisticSource) ?: $this->webStatisticSource->getValue();
     }
 }

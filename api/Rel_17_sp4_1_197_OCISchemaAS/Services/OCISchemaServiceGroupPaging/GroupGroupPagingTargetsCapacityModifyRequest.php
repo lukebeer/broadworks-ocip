@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the maximum number of target users per paging group configured for a group.
+     * Modify the maximum number of target users per paging group configured for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $maximumTargetUsers  = null;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $maximumTargetUsers = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
         $this->setMaximumTargetUsers($maximumTargetUsers);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +66,18 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
@@ -66,8 +85,11 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function getMaximumTargetUsers()
     {
-        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->value();
+        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->getValue();
     }
 }

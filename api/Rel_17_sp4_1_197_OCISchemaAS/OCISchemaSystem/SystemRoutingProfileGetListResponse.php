@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemRoutingProfileGetListRequest.  
+     * Response to SystemRoutingProfileGetListRequest.  
  *         Returns a list of routing profiles defined in the system.
  */
 class SystemRoutingProfileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $routingProfile  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingProfileGetListResponse';
+    public    $name           = __CLASS__;
+    protected $routingProfile = null;
 
 
+    /**
+     * Routing Profile.
+     */
     public function setRoutingProfile($routingProfile = null)
     {
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
@@ -29,8 +33,11 @@ class SystemRoutingProfileGetListResponse extends ComplexType implements Complex
              : new RoutingProfile($routingProfile);
     }
 
+    /**
+     * Routing Profile.
+     */
     public function getRoutingProfile()
     {
-        return (!$this->routingProfile) ?: $this->routingProfile->value();
+        return (!$this->routingProfile) ?: $this->routingProfile->getValue();
     }
 }

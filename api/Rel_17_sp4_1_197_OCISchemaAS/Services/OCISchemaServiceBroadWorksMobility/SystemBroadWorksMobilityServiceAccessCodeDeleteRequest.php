@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a system service access code.
+     * Delete a system service access code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $countryCode        = null;
-    protected $serviceAccessCode  = null;
+    public    $name              = __CLASS__;
+    protected $countryCode       = null;
+    protected $serviceAccessCode = null;
 
     public function __construct(
          $countryCode,
@@ -31,6 +31,9 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
         $this->setServiceAccessCode($serviceAccessCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -38,11 +41,17 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 
+    /**
+     * The Service Access Code composed of DTMF digits 0-9, # or *.
+     */
     public function setServiceAccessCode($serviceAccessCode = null)
     {
         $this->serviceAccessCode = ($serviceAccessCode InstanceOf ServiceAccessCode)
@@ -50,8 +59,11 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
              : new ServiceAccessCode($serviceAccessCode);
     }
 
+    /**
+     * The Service Access Code composed of DTMF digits 0-9, # or *.
+     */
     public function getServiceAccessCode()
     {
-        return (!$this->serviceAccessCode) ?: $this->serviceAccessCode->value();
+        return (!$this->serviceAccessCode) ?: $this->serviceAccessCode->getValue();
     }
 }

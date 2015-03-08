@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a summary table of all DNs in the system.
+     * Request a summary table of all DNs in the system.
  *         The response is either SystemDnGetSummaryListResponse or ErrorResponse.
  */
 class SystemDnGetSummaryListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDnGetSummaryListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

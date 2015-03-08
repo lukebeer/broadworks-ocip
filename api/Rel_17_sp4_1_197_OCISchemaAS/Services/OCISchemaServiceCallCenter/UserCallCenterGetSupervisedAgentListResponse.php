@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCallCenterGetSupervisedAgentListRequest.
+     * Response to the UserCallCenterGetSupervisedAgentListRequest.
  *         Contains a table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name", "Phone Number", "Extension".
  */
 class UserCallCenterGetSupervisedAgentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $agentUserTable  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisedAgentListResponse';
+    public    $name           = __CLASS__;
+    protected $agentUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setAgentUserTable(core:OCITable $agentUserTable = null)
     {
+        $this->agentUserTable = core:OCITable $agentUserTable;
     }
 
+    /**
+     * 
+     */
     public function getAgentUserTable()
     {
-        return (!$this->agentUserTable) ?: $this->agentUserTable->value();
+        return (!$this->agentUserTable) ?: $this->agentUserTable->getValue();
     }
 }

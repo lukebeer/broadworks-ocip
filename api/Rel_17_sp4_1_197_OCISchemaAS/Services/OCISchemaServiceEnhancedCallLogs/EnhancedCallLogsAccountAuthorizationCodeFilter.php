@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Filter criteria based on the account code.
+     * Filter criteria based on the account code.
  *         When "callsWithCodes" is set to true, all call logs with account/authorization codes are returned. 
  *         When it set to false, all call logs without account/authorization codes are returned.
  */
 class EnhancedCallLogsAccountAuthorizationCodeFilter extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsAccountAuthorizationCodeFilter';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

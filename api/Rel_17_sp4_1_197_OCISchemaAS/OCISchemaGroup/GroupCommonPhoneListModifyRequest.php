@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an entry in a group's common phone list.
+     * Modify an entry in a group's common phone list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $entryName          = null;
-    protected $newEntryName       = null;
-    protected $phoneNumber        = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $entryName         = null;
+    protected $newEntryName      = null;
+    protected $phoneNumber       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -42,6 +42,10 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         $this->setPhoneNumber($phoneNumber);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -49,11 +53,19 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -61,11 +73,18 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function setEntryName($entryName = null)
     {
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
@@ -73,11 +92,17 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
              : new PhoneListEntryName($entryName);
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function getEntryName()
     {
-        return (!$this->entryName) ?: $this->entryName->value();
+        return (!$this->entryName) ?: $this->entryName->getValue();
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function setNewEntryName($newEntryName = null)
     {
         $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
@@ -85,11 +110,19 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
              : new PhoneListEntryName($newEntryName);
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function getNewEntryName()
     {
-        return (!$this->newEntryName) ?: $this->newEntryName->value();
+        return (!$this->newEntryName) ?: $this->newEntryName->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
@@ -97,8 +130,13 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
              : new OutgoingDN($phoneNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->value();
+        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
     }
 }

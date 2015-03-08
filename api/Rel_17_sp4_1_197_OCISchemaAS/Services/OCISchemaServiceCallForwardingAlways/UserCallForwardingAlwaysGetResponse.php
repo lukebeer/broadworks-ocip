@@ -13,25 +13,43 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallForwardingAlwaysGetRequest.
+     * Response to UserCallForwardingAlwaysGetRequest.
  */
 class UserCallForwardingAlwaysGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $isActive              = null;
-    protected $forwardToPhoneNumber  = null;
-    protected $isRingSplashActive    = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways\UserCallForwardingAlwaysGetResponse';
+    public    $name                 = __CLASS__;
+    protected $isActive             = null;
+    protected $forwardToPhoneNumber = null;
+    protected $isRingSplashActive   = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -39,17 +57,34 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
+        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
     }
 
-    public function setIsRingSplashActive(xs:boolean $isRingSplashActive = null)
+    /**
+     * 
+     */
+    public function setIsRingSplashActive($isRingSplashActive = null)
     {
+        $this->isRingSplashActive = (boolean) $isRingSplashActive;
     }
 
+    /**
+     * 
+     */
     public function getIsRingSplashActive()
     {
-        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive->value();
+        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive->getValue();
     }
 }

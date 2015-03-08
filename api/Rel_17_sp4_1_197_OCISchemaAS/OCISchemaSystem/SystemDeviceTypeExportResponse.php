@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemDeviceTypeExportRequest.
+     * Response to SystemDeviceTypeExportRequest.
  */
 class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $file  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeExportResponse';
+    public    $name = __CLASS__;
+    protected $file = null;
 
 
+    /**
+     * URL.
+     */
     public function setFile($file = null)
     {
         $this->file = ($file InstanceOf URL)
@@ -28,8 +32,11 @@ class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInter
              : new URL($file);
     }
 
+    /**
+     * URL.
+     */
     public function getFile()
     {
-        return (!$this->file) ?: $this->file->value();
+        return (!$this->file) ?: $this->file->getValue();
     }
 }

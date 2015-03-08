@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a list of ChargingFunctionElementServers defined in the system.
+     * Request to get a list of ChargingFunctionElementServers defined in the system.
  *         The response is either a SystemAccountingGetChargingFunctionElementServerListResponse
  *         or an ErrorResponse.
  */
 class SystemAccountingGetChargingFunctionElementServerListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingGetChargingFunctionElementServerListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

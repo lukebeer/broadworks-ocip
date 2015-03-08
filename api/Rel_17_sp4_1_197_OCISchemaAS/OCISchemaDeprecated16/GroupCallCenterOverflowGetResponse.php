@@ -19,26 +19,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterOverflowGetRequest.
+     * Response to the GroupCallCenterOverflowGetRequest.
  */
 class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
-    protected $action                                    = null;
-    protected $transferPhoneNumber                       = null;
-    protected $overflowAfterTimeout                      = null;
-    protected $timeoutSeconds                            = null;
-    protected $playAnnouncementBeforeOverflowProcessing  = null;
-    protected $audioMessageSelection                     = null;
-    protected $audioFileUrl                              = null;
-    protected $audioFileDescription                      = null;
-    protected $audioMediaType                            = null;
-    protected $videoMessageSelection                     = null;
-    protected $videoFileUrl                              = null;
-    protected $videoFileDescription                      = null;
-    protected $videoMediaType                            = null;
+    const     RESPONSE_TYPE                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterOverflowGetResponse';
+    public    $name                                     = __CLASS__;
+    protected $action                                   = null;
+    protected $transferPhoneNumber                      = null;
+    protected $overflowAfterTimeout                     = null;
+    protected $timeoutSeconds                           = null;
+    protected $playAnnouncementBeforeOverflowProcessing = null;
+    protected $audioMessageSelection                    = null;
+    protected $audioFileUrl                             = null;
+    protected $audioFileDescription                     = null;
+    protected $audioMediaType                           = null;
+    protected $videoMessageSelection                    = null;
+    protected $videoFileUrl                             = null;
+    protected $videoFileDescription                     = null;
+    protected $videoMediaType                           = null;
 
 
+    /**
+     * Call center overflow processing action.
+     */
     public function setAction($action = null)
     {
         $this->action = ($action InstanceOf CallCenterOverflowProcessingAction)
@@ -46,11 +50,24 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new CallCenterOverflowProcessingAction($action);
     }
 
+    /**
+     * Call center overflow processing action.
+     */
     public function getAction()
     {
-        return (!$this->action) ?: $this->action->value();
+        return (!$this->action) ?: $this->action->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -58,20 +75,40 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new OutgoingDNorSIPURI($transferPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
+        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
     }
 
-    public function setOverflowAfterTimeout(xs:boolean $overflowAfterTimeout = null)
+    /**
+     * 
+     */
+    public function setOverflowAfterTimeout($overflowAfterTimeout = null)
     {
+        $this->overflowAfterTimeout = (boolean) $overflowAfterTimeout;
     }
 
+    /**
+     * 
+     */
     public function getOverflowAfterTimeout()
     {
-        return (!$this->overflowAfterTimeout) ?: $this->overflowAfterTimeout->value();
+        return (!$this->overflowAfterTimeout) ?: $this->overflowAfterTimeout->getValue();
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
@@ -79,20 +116,33 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new HuntForwardTimeoutSeconds($timeoutSeconds);
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function getTimeoutSeconds()
     {
-        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->value();
+        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->getValue();
     }
 
-    public function setPlayAnnouncementBeforeOverflowProcessing(xs:boolean $playAnnouncementBeforeOverflowProcessing = null)
+    /**
+     * 
+     */
+    public function setPlayAnnouncementBeforeOverflowProcessing($playAnnouncementBeforeOverflowProcessing = null)
     {
+        $this->playAnnouncementBeforeOverflowProcessing = (boolean) $playAnnouncementBeforeOverflowProcessing;
     }
 
+    /**
+     * 
+     */
     public function getPlayAnnouncementBeforeOverflowProcessing()
     {
-        return (!$this->playAnnouncementBeforeOverflowProcessing) ?: $this->playAnnouncementBeforeOverflowProcessing->value();
+        return (!$this->playAnnouncementBeforeOverflowProcessing) ?: $this->playAnnouncementBeforeOverflowProcessing->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -100,11 +150,17 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new ExtendedFileResourceSelection($audioMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->value();
+        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setAudioFileUrl($audioFileUrl = null)
     {
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
@@ -112,11 +168,17 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new URL($audioFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->value();
+        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
@@ -124,11 +186,21 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new FileDescription($audioFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
+        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setAudioMediaType($audioMediaType = null)
     {
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
@@ -136,11 +208,21 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new MediaFileType($audioMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getAudioMediaType()
     {
-        return (!$this->audioMediaType) ?: $this->audioMediaType->value();
+        return (!$this->audioMediaType) ?: $this->audioMediaType->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -148,11 +230,17 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new ExtendedFileResourceSelection($videoMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->value();
+        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setVideoFileUrl($videoFileUrl = null)
     {
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
@@ -160,11 +248,17 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new URL($videoFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->value();
+        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
@@ -172,11 +266,21 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new FileDescription($videoFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
+        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setVideoMediaType($videoMediaType = null)
     {
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
@@ -184,8 +288,15 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
              : new MediaFileType($videoMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getVideoMediaType()
     {
-        return (!$this->videoMediaType) ?: $this->videoMediaType->value();
+        return (!$this->videoMediaType) ?: $this->videoMediaType->getValue();
     }
 }

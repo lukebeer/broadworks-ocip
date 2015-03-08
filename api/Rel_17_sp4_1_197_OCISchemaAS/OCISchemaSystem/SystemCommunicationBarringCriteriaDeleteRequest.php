@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an existing Communication Barring Criteria.
+     * Delete an existing Communication Barring Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implem
         $this->setName($name);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CommunicationBarringCriteriaName)
@@ -34,8 +37,11 @@ class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implem
              : new CommunicationBarringCriteriaName($name);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

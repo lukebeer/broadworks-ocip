@@ -13,17 +13,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Replaced by: SystemRedundancyParametersGetResponse16sp2
+     * Replaced by: SystemRedundancyParametersGetResponse16sp2
  *       
  *         Response to SystemRedundancyParametersGetRequest.
  *         Contains a list of system Redundancy parameters.
  */
 class SystemRedundancyParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $rollBackTimerMinutes  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemRedundancyParametersGetResponse';
+    public    $name                 = __CLASS__;
+    protected $rollBackTimerMinutes = null;
 
 
+    /**
+     * Redundancy rollback timer in minutes.
+     */
     public function setRollBackTimerMinutes($rollBackTimerMinutes = null)
     {
         $this->rollBackTimerMinutes = ($rollBackTimerMinutes InstanceOf RedundancyRollBackTimerMinutes)
@@ -31,8 +35,11 @@ class SystemRedundancyParametersGetResponse extends ComplexType implements Compl
              : new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
     }
 
+    /**
+     * Redundancy rollback timer in minutes.
+     */
     public function getRollBackTimerMinutes()
     {
-        return (!$this->rollBackTimerMinutes) ?: $this->rollBackTimerMinutes->value();
+        return (!$this->rollBackTimerMinutes) ?: $this->rollBackTimerMinutes->getValue();
     }
 }

@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a Route Point Call Disposition Code.
+     * Get a Route Point Call Disposition Code.
  *         The response is either GroupRoutePointQueueCallDispositionCodeGetResponse or ErrorResponse.
  */
 class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $serviceUserId  = null;
-    protected $code           = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetResponse';
+    public    $name          = __CLASS__;
+    protected $serviceUserId = null;
+    protected $code          = null;
 
     public function __construct(
          $serviceUserId,
@@ -31,6 +32,13 @@ class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType impl
         $this->setCode($code);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -38,11 +46,21 @@ class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType impl
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function setCode($code = null)
     {
         $this->code = ($code InstanceOf CallDispositionCode)
@@ -50,8 +68,11 @@ class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType impl
              : new CallDispositionCode($code);
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 }

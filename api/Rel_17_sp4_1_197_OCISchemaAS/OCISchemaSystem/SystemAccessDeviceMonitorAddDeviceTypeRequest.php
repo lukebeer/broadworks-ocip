@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a device type to be monitored.
+     * Add a device type to be monitored.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccessDeviceMonitorAddDeviceTypeRequest extends ComplexType implements ComplexInterface

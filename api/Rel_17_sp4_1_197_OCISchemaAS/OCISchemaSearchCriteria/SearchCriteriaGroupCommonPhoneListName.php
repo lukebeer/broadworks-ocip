@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a name in a group common phone list.
+     * Criteria for searching for a name in a group common phone list.
  */
 class SearchCriteriaGroupCommonPhoneListName extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $mode               = null;
-    protected $value              = null;
-    protected $isCaseInsensitive  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupCommonPhoneListName';
+    public    $name              = __CLASS__;
+    protected $mode              = null;
+    protected $value             = null;
+    protected $isCaseInsensitive = null;
 
     public function __construct(
          $mode,
@@ -33,6 +34,9 @@ class SearchCriteriaGroupCommonPhoneListName extends ComplexType implements Comp
         $this->setIsCaseInsensitive($isCaseInsensitive);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function setMode($mode = null)
     {
         $this->mode = ($mode InstanceOf SearchMode)
@@ -40,11 +44,17 @@ class SearchCriteriaGroupCommonPhoneListName extends ComplexType implements Comp
              : new SearchMode($mode);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->value();
+        return (!$this->mode) ?: $this->mode->getValue();
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function setValue($value = null)
     {
         $this->value = ($value InstanceOf PhoneListEntryName)
@@ -52,17 +62,27 @@ class SearchCriteriaGroupCommonPhoneListName extends ComplexType implements Comp
              : new PhoneListEntryName($value);
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->value();
+        return (!$this->value) ?: $this->value->getValue();
     }
 
-    public function setIsCaseInsensitive(xs:boolean $isCaseInsensitive = null)
+    /**
+     * 
+     */
+    public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
+        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
     }
 
+    /**
+     * 
+     */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->value();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
     }
 }

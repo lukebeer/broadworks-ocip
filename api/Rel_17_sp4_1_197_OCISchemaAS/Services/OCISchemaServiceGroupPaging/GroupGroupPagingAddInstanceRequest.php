@@ -18,20 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Group Paging instance to a group.
+     * Add a Group Paging instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $serviceProviderId               = null;
-    protected $groupId                         = null;
-    protected $serviceUserId                   = null;
-    protected $serviceInstanceProfile          = null;
-    protected $confirmationToneTimeoutSeconds  = null;
-    protected $deliverOriginatorCLIDInstead    = null;
-    protected $originatorCLIDPrefix            = null;
+    public    $name                           = __CLASS__;
+    protected $serviceProviderId              = null;
+    protected $groupId                        = null;
+    protected $serviceUserId                  = null;
+    protected $serviceInstanceProfile         = null;
+    protected $confirmationToneTimeoutSeconds = null;
+    protected $deliverOriginatorCLIDInstead   = null;
+    protected $originatorCLIDPrefix           = null;
 
     public function __construct(
          $serviceProviderId,
@@ -51,6 +51,10 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->setOriginatorCLIDPrefix($originatorCLIDPrefix);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -58,11 +62,19 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -70,11 +82,22 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -82,20 +105,38 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Maximum time to wait after the first answer is received from a target before
+     *         sending back the confirmation tone to the originator.
+     */
     public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
@@ -103,20 +144,34 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
     }
 
+    /**
+     * Maximum time to wait after the first answer is received from a target before
+     *         sending back the confirmation tone to the originator.
+     */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return (!$this->confirmationToneTimeoutSeconds) ?: $this->confirmationToneTimeoutSeconds->value();
+        return (!$this->confirmationToneTimeoutSeconds) ?: $this->confirmationToneTimeoutSeconds->getValue();
     }
 
-    public function setDeliverOriginatorCLIDInstead(xs:boolean $deliverOriginatorCLIDInstead = null)
+    /**
+     * 
+     */
+    public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
+        $this->deliverOriginatorCLIDInstead = (boolean) $deliverOriginatorCLIDInstead;
     }
 
+    /**
+     * 
+     */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead->value();
+        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead->getValue();
     }
 
+    /**
+     * Prefix for Calling Line Id Display.
+     */
     public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
@@ -124,8 +179,11 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
     }
 
+    /**
+     * Prefix for Calling Line Id Display.
+     */
     public function getOriginatorCLIDPrefix()
     {
-        return (!$this->originatorCLIDPrefix) ?: $this->originatorCLIDPrefix->value();
+        return (!$this->originatorCLIDPrefix) ?: $this->originatorCLIDPrefix->getValue();
     }
 }

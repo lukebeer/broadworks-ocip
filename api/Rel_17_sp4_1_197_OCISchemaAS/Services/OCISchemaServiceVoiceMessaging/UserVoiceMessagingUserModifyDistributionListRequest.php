@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a voice mail distribution list for a users voice message.
+     * Modify a voice mail distribution list for a users voice message.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $userId           = null;
-    protected $listId           = null;
-    protected $description      = null;
-    protected $phoneNumberList  = null;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $listId          = null;
+    protected $description     = null;
+    protected $phoneNumberList = null;
 
     public function __construct(
          $userId,
@@ -39,6 +39,13 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
         $this->setPhoneNumberList($phoneNumberList);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -46,11 +53,21 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Distribution List Id.
+     */
     public function setListId($listId = null)
     {
         $this->listId = ($listId InstanceOf VoiceMessagingDistributionListId)
@@ -58,11 +75,17 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
              : new VoiceMessagingDistributionListId($listId);
     }
 
+    /**
+     * Distribution List Id.
+     */
     public function getListId()
     {
-        return (!$this->listId) ?: $this->listId->value();
+        return (!$this->listId) ?: $this->listId->getValue();
     }
 
+    /**
+     * Distribution List Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf VoiceMessagingDistributionListDescription)
@@ -70,17 +93,29 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
              : new VoiceMessagingDistributionListDescription($description);
     }
 
+    /**
+     * Distribution List Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * A list of phone numbers or sipuris that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setPhoneNumberList(ReplacementOutgoingDNorSIPURIList $phoneNumberList = null)
     {
+        $this->phoneNumberList = ReplacementOutgoingDNorSIPURIList $phoneNumberList;
     }
 
+    /**
+     * A list of phone numbers or sipuris that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getPhoneNumberList()
     {
-        return (!$this->phoneNumberList) ?: $this->phoneNumberList->value();
+        return (!$this->phoneNumberList) ?: $this->phoneNumberList->getValue();
     }
 }

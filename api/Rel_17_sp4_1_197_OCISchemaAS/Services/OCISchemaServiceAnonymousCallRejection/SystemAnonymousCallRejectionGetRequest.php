@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get Anonymous Call Rejection system parameters.
+     * Get Anonymous Call Rejection system parameters.
  *         The response is either a SystemAnonymousCallRejectionGetResponse or 
  *         an ErrorResponse.
  */
 class SystemAnonymousCallRejectionGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAnonymousCallRejection\SystemAnonymousCallRejectionGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

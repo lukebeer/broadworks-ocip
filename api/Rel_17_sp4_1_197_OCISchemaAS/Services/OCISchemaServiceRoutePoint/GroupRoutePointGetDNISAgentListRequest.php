@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of agent who selected the DNIS as the outgoing call.
+     * Get a list of agent who selected the DNIS as the outgoing call.
  *         The response is either GroupRoutePointGetDNISAgentListResponse or ErrorResponse.
  */
 class GroupRoutePointGetDNISAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $dnisKey  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse';
+    public    $name    = __CLASS__;
+    protected $dnisKey = null;
 
     public function __construct(
          DNISKey $dnisKey
@@ -27,12 +28,19 @@ class GroupRoutePointGetDNISAgentListRequest extends ComplexType implements Comp
         $this->setDnisKey($dnisKey);
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
+        $this->dnisKey = DNISKey $dnisKey;
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->value();
+        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
     }
 }

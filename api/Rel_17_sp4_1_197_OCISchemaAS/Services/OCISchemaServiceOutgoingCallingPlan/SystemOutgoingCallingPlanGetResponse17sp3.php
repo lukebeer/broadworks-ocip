@@ -13,30 +13,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemOutgoingCallingPlanGetRequest17sp3.
+     * Response to SystemOutgoingCallingPlanGetRequest17sp3.
  */
 class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $directTransferScreening       = null;
-    protected $enableEnhancedTollCallTyping  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanGetResponse17sp3';
+    public    $name                         = __CLASS__;
+    protected $directTransferScreening      = null;
+    protected $enableEnhancedTollCallTyping = null;
 
 
-    public function setDirectTransferScreening(xs:boolean $directTransferScreening = null)
+    /**
+     * 
+     */
+    public function setDirectTransferScreening($directTransferScreening = null)
     {
+        $this->directTransferScreening = (boolean) $directTransferScreening;
     }
 
+    /**
+     * 
+     */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening->value();
+        return (!$this->directTransferScreening) ?: $this->directTransferScreening->getValue();
     }
 
-    public function setEnableEnhancedTollCallTyping(xs:boolean $enableEnhancedTollCallTyping = null)
+    /**
+     * 
+     */
+    public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping = null)
     {
+        $this->enableEnhancedTollCallTyping = (boolean) $enableEnhancedTollCallTyping;
     }
 
+    /**
+     * 
+     */
     public function getEnableEnhancedTollCallTyping()
     {
-        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping->value();
+        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping->getValue();
     }
 }

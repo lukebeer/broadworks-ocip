@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Trunk group device endpoint.
+     * Trunk group device endpoint.
  */
 class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupDeviceEndpointRead14sp4';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -15,7 +15,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the country code preferred carriers for a service provider or enterprise. For each
+     * Modify the country code preferred carriers for a service provider or enterprise. For each
  *         combination of service provider and country code, you can assign an intra-lata, inter-lata,
  *         and international carrier. Each of the 3 types of carriers is optional.
  *         If an optional carrier is not specified, the assignment will not change.
@@ -26,12 +26,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $serviceProviderId     = null;
-    protected $countryCode           = null;
-    protected $intraLataCarrier      = null;
-    protected $interLataCarrier      = null;
-    protected $internationalCarrier  = null;
+    public    $name                 = __CLASS__;
+    protected $serviceProviderId    = null;
+    protected $countryCode          = null;
+    protected $intraLataCarrier     = null;
+    protected $interLataCarrier     = null;
+    protected $internationalCarrier = null;
 
     public function __construct(
          $serviceProviderId,
@@ -47,6 +47,10 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
         $this->setInternationalCarrier($internationalCarrier);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -54,11 +58,18 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -66,11 +77,17 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setIntraLataCarrier($intraLataCarrier = null)
     {
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf PreferredCarrierName)
@@ -78,11 +95,17 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
              : new PreferredCarrierName($intraLataCarrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getIntraLataCarrier()
     {
-        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->value();
+        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->getValue();
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setInterLataCarrier($interLataCarrier = null)
     {
         $this->interLataCarrier = ($interLataCarrier InstanceOf PreferredCarrierName)
@@ -90,11 +113,17 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
              : new PreferredCarrierName($interLataCarrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getInterLataCarrier()
     {
-        return (!$this->interLataCarrier) ?: $this->interLataCarrier->value();
+        return (!$this->interLataCarrier) ?: $this->interLataCarrier->getValue();
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function setInternationalCarrier($internationalCarrier = null)
     {
         $this->internationalCarrier = ($internationalCarrier InstanceOf PreferredCarrierName)
@@ -102,8 +131,11 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
              : new PreferredCarrierName($internationalCarrier);
     }
 
+    /**
+     * Uniquely identifies a carrier.
+     */
     public function getInternationalCarrier()
     {
-        return (!$this->internationalCarrier) ?: $this->internationalCarrier->value();
+        return (!$this->internationalCarrier) ?: $this->internationalCarrier->getValue();
     }
 }

@@ -14,16 +14,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of Trunk Groups for the group or enterprise.
+     * Get a list of Trunk Groups for the group or enterprise.
  *         It is possible to restrict the results to a particular department, or expand the list to the entire enterprise.
  *         The response is either a GroupTrunkGroupGetInstanceListResponse14sp4 or an ErrorResponse.
  */
 class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $serviceProviderId          = null;
-    protected $groupId                    = null;
-    protected $onlyTrunkGroupsWithDevice  = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceListResponse14sp4';
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupId                   = null;
+    protected $onlyTrunkGroupsWithDevice = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +36,10 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
         $this->setOnlyTrunkGroupsWithDevice($onlyTrunkGroupsWithDevice);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +47,19 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,17 +67,28 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setOnlyTrunkGroupsWithDevice(xs:boolean $onlyTrunkGroupsWithDevice = null)
+    /**
+     * 
+     */
+    public function setOnlyTrunkGroupsWithDevice($onlyTrunkGroupsWithDevice = null)
     {
+        $this->onlyTrunkGroupsWithDevice = (boolean) $onlyTrunkGroupsWithDevice;
     }
 
+    /**
+     * 
+     */
     public function getOnlyTrunkGroupsWithDevice()
     {
-        return (!$this->onlyTrunkGroupsWithDevice) ?: $this->onlyTrunkGroupsWithDevice->value();
+        return (!$this->onlyTrunkGroupsWithDevice) ?: $this->onlyTrunkGroupsWithDevice->getValue();
     }
 }

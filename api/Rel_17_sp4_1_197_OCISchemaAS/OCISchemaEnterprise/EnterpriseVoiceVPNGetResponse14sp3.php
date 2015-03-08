@@ -14,26 +14,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterpriseVoiceVPNGetRequest14sp3.
+     * Response to EnterpriseVoiceVPNGetRequest14sp3.
  */
 class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $isActive          = null;
-    protected $defaultSelection  = null;
-    protected $e164Selection     = null;
-    protected $usePhoneContext   = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3';
+    public    $name             = __CLASS__;
+    protected $isActive         = null;
+    protected $defaultSelection = null;
+    protected $e164Selection    = null;
+    protected $usePhoneContext  = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Default Selector.
+     */
     public function setDefaultSelection($defaultSelection = null)
     {
         $this->defaultSelection = ($defaultSelection InstanceOf EnterpriseVoiceVPNDefaultSelection)
@@ -41,11 +52,17 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
              : new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
     }
 
+    /**
+     * Enterprise Voice VPN Default Selector.
+     */
     public function getDefaultSelection()
     {
-        return (!$this->defaultSelection) ?: $this->defaultSelection->value();
+        return (!$this->defaultSelection) ?: $this->defaultSelection->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     */
     public function setE164Selection($e164Selection = null)
     {
         $this->e164Selection = ($e164Selection InstanceOf EnterpriseVoiceVPNNonMatchingE164NumberSelection)
@@ -53,17 +70,27 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
              : new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
     }
 
+    /**
+     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     */
     public function getE164Selection()
     {
-        return (!$this->e164Selection) ?: $this->e164Selection->value();
+        return (!$this->e164Selection) ?: $this->e164Selection->getValue();
     }
 
-    public function setUsePhoneContext(xs:boolean $usePhoneContext = null)
+    /**
+     * 
+     */
+    public function setUsePhoneContext($usePhoneContext = null)
     {
+        $this->usePhoneContext = (boolean) $usePhoneContext;
     }
 
+    /**
+     * 
+     */
     public function getUsePhoneContext()
     {
-        return (!$this->usePhoneContext) ?: $this->usePhoneContext->value();
+        return (!$this->usePhoneContext) ?: $this->usePhoneContext->getValue();
     }
 }

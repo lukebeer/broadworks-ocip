@@ -14,17 +14,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the password for a user/administrator.
+     * Modify the password for a user/administrator.
  *         When oldPassword is specified, password rule applies. If oldPassword in not specified,
  *         any password rule related to old password does not apply.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class PasswordModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $userId       = null;
-    protected $oldPassword  = null;
-    protected $newPassword  = null;
+    public    $name        = __CLASS__;
+    protected $userId      = null;
+    protected $oldPassword = null;
+    protected $newPassword = null;
 
     public function __construct(
          $userId,
@@ -36,6 +36,13 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
         $this->setNewPassword($newPassword);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -43,11 +50,21 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * 
+     */
     public function setOldPassword($oldPassword = null)
     {
         $this->oldPassword = ($oldPassword InstanceOf Password)
@@ -55,11 +72,17 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
              : new Password($oldPassword);
     }
 
+    /**
+     * 
+     */
     public function getOldPassword()
     {
-        return (!$this->oldPassword) ?: $this->oldPassword->value();
+        return (!$this->oldPassword) ?: $this->oldPassword->getValue();
     }
 
+    /**
+     * 
+     */
     public function setNewPassword($newPassword = null)
     {
         $this->newPassword = ($newPassword InstanceOf Password)
@@ -67,8 +90,11 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
              : new Password($newPassword);
     }
 
+    /**
+     * 
+     */
     public function getNewPassword()
     {
-        return (!$this->newPassword) ?: $this->newPassword->value();
+        return (!$this->newPassword) ?: $this->newPassword->getValue();
     }
 }

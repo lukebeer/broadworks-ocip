@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupAdminGetListRequest.
+     * Response to GroupAdminGetListRequest.
  *         Contains a 5 column table with column headings "Administrator ID",
  *         "Last Name", "First Name", "Department", "Language".
  */
 class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $groupAdminTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetListResponse';
+    public    $name            = __CLASS__;
+    protected $groupAdminTable = null;
 
 
+    /**
+     * 
+     */
     public function setGroupAdminTable(core:OCITable $groupAdminTable = null)
     {
+        $this->groupAdminTable = core:OCITable $groupAdminTable;
     }
 
+    /**
+     * 
+     */
     public function getGroupAdminTable()
     {
-        return (!$this->groupAdminTable) ?: $this->groupAdminTable->value();
+        return (!$this->groupAdminTable) ?: $this->groupAdminTable->getValue();
     }
 }

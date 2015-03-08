@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserHotelingGuestGetAvailableUserListRequest.
+     * Response to the UserHotelingGuestGetAvailableUserListRequest.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name", "Association Limit Hours", "Enable Association Limit".
  */
 class UserHotelingGuestGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $hostUserTable  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingGuest\UserHotelingGuestGetAvailableUserListResponse';
+    public    $name          = __CLASS__;
+    protected $hostUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setHostUserTable(core:OCITable $hostUserTable = null)
     {
+        $this->hostUserTable = core:OCITable $hostUserTable;
     }
 
+    /**
+     * 
+     */
     public function getHostUserTable()
     {
-        return (!$this->hostUserTable) ?: $this->hostUserTable->value();
+        return (!$this->hostUserTable) ?: $this->hostUserTable->getValue();
     }
 }

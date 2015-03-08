@@ -14,15 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the information of a conference recording..
+     * Get the information of a conference recording..
  *         The response is either UserInstantConferencingGetStandAloneConferenceRecordingResponse
  *         or ErrorResponse.
  */
 class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $conferenceOwnerUserId  = null;
-    protected $recordingKey           = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceRecordingResponse';
+    public    $name                  = __CLASS__;
+    protected $conferenceOwnerUserId = null;
+    protected $recordingKey          = null;
 
     public function __construct(
          $conferenceOwnerUserId,
@@ -32,6 +33,13 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
         $this->setRecordingKey($recordingKey);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
@@ -39,17 +47,31 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
              : new UserId($conferenceOwnerUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getConferenceOwnerUserId()
     {
-        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->value();
+        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->getValue();
     }
 
+    /**
+     * Identifier for conference recording.
+     */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
+        $this->recordingKey = InstantConferencingRecordingKey $recordingKey;
     }
 
+    /**
+     * Identifier for conference recording.
+     */
     public function getRecordingKey()
     {
-        return (!$this->recordingKey) ?: $this->recordingKey->value();
+        return (!$this->recordingKey) ?: $this->recordingKey->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get all the Communication Barring Alternate Call Indicator defined
+     * Get all the Communication Barring Alternate Call Indicator defined
  *         in the system. The response is either a SystemCommunicationBarringAlternateCallIndicatorGetListResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringAlternateCallIndicatorGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringAlternateCallIndicatorGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

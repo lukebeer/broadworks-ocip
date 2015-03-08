@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Adds a Custom Contact Directory to a group.
+     * Adds a Custom Contact Directory to a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCustomContactDirectoryAddRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $name               = null;
-    protected $entry              = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $name              = null;
+    protected $entry             = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupCustomContactDirectoryAddRequest17 extends ComplexType implements Com
         $this->setEntry($entry);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupCustomContactDirectoryAddRequest17 extends ComplexType implements Com
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,11 +70,18 @@ class GroupCustomContactDirectoryAddRequest17 extends ComplexType implements Com
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CustomContactDirectoryName)
@@ -70,17 +89,33 @@ class GroupCustomContactDirectoryAddRequest17 extends ComplexType implements Com
              : new CustomContactDirectoryName($name);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Represents either an existing user's Id or an existing Virtual 
+     *         On-Net user's DN. For a DN the groupId is used to make it unique 
+     *         within an Enterprise, however the groupId is not used with Service 
+     *         Providers.
+     */
     public function setEntry(CustomContactDirectoryEntry $entry = null)
     {
+        $this->entry = CustomContactDirectoryEntry $entry;
     }
 
+    /**
+     * Represents either an existing user's Id or an existing Virtual 
+     *         On-Net user's DN. For a DN the groupId is used to make it unique 
+     *         within an Enterprise, however the groupId is not used with Service 
+     *         Providers.
+     */
     public function getEntry()
     {
-        return (!$this->entry) ?: $this->entry->value();
+        return (!$this->entry) ?: $this->entry->getValue();
     }
 }

@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemSoftwareVersionGetRequest.
+     * Response to the SystemSoftwareVersionGetRequest.
  */
 class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $version  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSoftwareVersionGetResponse';
+    public    $name    = __CLASS__;
+    protected $version = null;
 
 
-    public function setVersion(xs:token $version = null)
+    /**
+     * 
+     */
+    public function setVersion($version = null)
     {
+        $this->version = (string) $version;
     }
 
+    /**
+     * 
+     */
     public function getVersion()
     {
-        return (!$this->version) ?: $this->version->value();
+        return (!$this->version) ?: $this->version->getValue();
     }
 }

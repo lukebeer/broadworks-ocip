@@ -16,17 +16,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderExternalCustomRingbackGetRequest.
+     * Response to ServiceProviderExternalCustomRingbackGetRequest.
  */
 class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $prefixDigits      = null;
-    protected $serverNetAddress  = null;
-    protected $serverPort        = null;
-    protected $timeoutSeconds    = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback\ServiceProviderExternalCustomRingbackGetResponse';
+    public    $name             = __CLASS__;
+    protected $prefixDigits     = null;
+    protected $serverNetAddress = null;
+    protected $serverPort       = null;
+    protected $timeoutSeconds   = null;
 
 
+    /**
+     * Prefix digits prepended to the address to reach the external ringback server.
+     */
     public function setPrefixDigits($prefixDigits = null)
     {
         $this->prefixDigits = ($prefixDigits InstanceOf ExternalCustomRingbackPrefixDigits)
@@ -34,11 +38,17 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
              : new ExternalCustomRingbackPrefixDigits($prefixDigits);
     }
 
+    /**
+     * Prefix digits prepended to the address to reach the external ringback server.
+     */
     public function getPrefixDigits()
     {
-        return (!$this->prefixDigits) ?: $this->prefixDigits->value();
+        return (!$this->prefixDigits) ?: $this->prefixDigits->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setServerNetAddress($serverNetAddress = null)
     {
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
@@ -46,11 +56,17 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
              : new NetAddress($serverNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getServerNetAddress()
     {
-        return (!$this->serverNetAddress) ?: $this->serverNetAddress->value();
+        return (!$this->serverNetAddress) ?: $this->serverNetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServerPort($serverPort = null)
     {
         $this->serverPort = ($serverPort InstanceOf Port1025)
@@ -58,11 +74,17 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
              : new Port1025($serverPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->value();
+        return (!$this->serverPort) ?: $this->serverPort->getValue();
     }
 
+    /**
+     * Time to wait for any External Media Server to reply with custom ringback.
+     */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ExternalCustomRingbackTimeoutSeconds)
@@ -70,8 +92,11 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
              : new ExternalCustomRingbackTimeoutSeconds($timeoutSeconds);
     }
 
+    /**
+     * Time to wait for any External Media Server to reply with custom ringback.
+     */
     public function getTimeoutSeconds()
     {
-        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->value();
+        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->getValue();
     }
 }

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete an enterprise level call center reporting scheduled report.
+     * Request to delete an enterprise level call center reporting scheduled report.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $name               = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $name              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends 
         $this->setName($name);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * The call center enhanced reporting scheduled report name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
@@ -50,8 +61,11 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends 
              : new CallCenterScheduledReportName($name);
     }
 
+    /**
+     * The call center enhanced reporting scheduled report name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

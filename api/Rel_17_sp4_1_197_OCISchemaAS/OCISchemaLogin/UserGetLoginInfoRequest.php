@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * UserGetLoginInfoRequest is used to access login information for a user
+     * UserGetLoginInfoRequest is used to access login information for a user
  *         either by a userId or dn.  The phone number may be any
  *         DN associated with a user.
  *         The response is a UserGetLoginInfoResponse or an ErrorResponse
  */
 class UserGetLoginInfoRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\UserGetLoginInfoResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,21 +14,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupMusicOnHoldGetInstanceRequest16.
+     * Response to the GroupMusicOnHoldGetInstanceRequest16.
  */
 class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $serviceUserId                       = null;
-    protected $isActiveDuringCallHold              = null;
-    protected $isActiveDuringCallPark              = null;
-    protected $isActiveDuringBusyCampOn            = null;
-    protected $enableVideo                         = null;
-    protected $source                              = null;
-    protected $useAlternateSourceForInternalCalls  = null;
-    protected $internalSource                      = null;
+    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetInstanceResponse16';
+    public    $name                               = __CLASS__;
+    protected $serviceUserId                      = null;
+    protected $isActiveDuringCallHold             = null;
+    protected $isActiveDuringCallPark             = null;
+    protected $isActiveDuringBusyCampOn           = null;
+    protected $enableVideo                        = null;
+    protected $source                             = null;
+    protected $useAlternateSourceForInternalCalls = null;
+    protected $internalSource                     = null;
 
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -36,71 +44,127 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
-    public function setIsActiveDuringCallHold(xs:boolean $isActiveDuringCallHold = null)
+    /**
+     * 
+     */
+    public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
+        $this->isActiveDuringCallHold = (boolean) $isActiveDuringCallHold;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->value();
+        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->getValue();
     }
 
-    public function setIsActiveDuringCallPark(xs:boolean $isActiveDuringCallPark = null)
+    /**
+     * 
+     */
+    public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
+        $this->isActiveDuringCallPark = (boolean) $isActiveDuringCallPark;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->value();
+        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->getValue();
     }
 
-    public function setIsActiveDuringBusyCampOn(xs:boolean $isActiveDuringBusyCampOn = null)
+    /**
+     * 
+     */
+    public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
+        $this->isActiveDuringBusyCampOn = (boolean) $isActiveDuringBusyCampOn;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveDuringBusyCampOn()
     {
-        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->value();
+        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->getValue();
     }
 
-    public function setEnableVideo(xs:boolean $enableVideo = null)
+    /**
+     * 
+     */
+    public function setEnableVideo($enableVideo = null)
     {
+        $this->enableVideo = (boolean) $enableVideo;
     }
 
+    /**
+     * 
+     */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->value();
+        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function setSource(MusicOnHoldSourceRead16 $source = null)
     {
+        $this->source = MusicOnHoldSourceRead16 $source;
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function getSource()
     {
-        return (!$this->source) ?: $this->source->value();
+        return (!$this->source) ?: $this->source->getValue();
     }
 
-    public function setUseAlternateSourceForInternalCalls(xs:boolean $useAlternateSourceForInternalCalls = null)
+    /**
+     * 
+     */
+    public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
+        $this->useAlternateSourceForInternalCalls = (boolean) $useAlternateSourceForInternalCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->value();
+        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->getValue();
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function setInternalSource(MusicOnHoldSourceRead16 $internalSource = null)
     {
+        $this->internalSource = MusicOnHoldSourceRead16 $internalSource;
     }
 
+    /**
+     * Contains the music on hold source configuration.
+     */
     public function getInternalSource()
     {
-        return (!$this->internalSource) ?: $this->internalSource->value();
+        return (!$this->internalSource) ?: $this->internalSource->getValue();
     }
 }

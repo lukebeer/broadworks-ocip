@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the ServiceProviderRoutePointExternalSystemGetAssignedListRequest.
+     * Response to the ServiceProviderRoutePointExternalSystemGetAssignedListRequest.
  *         Contains a table of all Route Point External Systems assigned to the
  *         service provider.  The column headings are: "Name" and "Description".
  */
 class ServiceProviderRoutePointExternalSystemGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $externalSystemTable  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedListResponse';
+    public    $name                = __CLASS__;
+    protected $externalSystemTable = null;
 
 
+    /**
+     * 
+     */
     public function setExternalSystemTable(core:OCITable $externalSystemTable = null)
     {
+        $this->externalSystemTable = core:OCITable $externalSystemTable;
     }
 
+    /**
+     * 
+     */
     public function getExternalSystemTable()
     {
-        return (!$this->externalSystemTable) ?: $this->externalSystemTable->value();
+        return (!$this->externalSystemTable) ?: $this->externalSystemTable->getValue();
     }
 }

@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests to change the service provider's service authorization status.
+     * Requests to change the service provider's service authorization status.
  *         The boolean flags are used to authorize or unauthorize services.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $serviceProviderId          = null;
-    protected $groupServiceAuthorization  = null;
-    protected $userServiceAuthorization   = null;
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupServiceAuthorization = null;
+    protected $userServiceAuthorization  = null;
 
     public function __construct(
          $serviceProviderId,
@@ -36,6 +36,10 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
         $this->setUserServiceAuthorization($userServiceAuthorization);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -43,26 +47,44 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Authorize (with quantity) or unauthorize a group service.
+     */
     public function setGroupServiceAuthorization(GroupServiceAuthorization $groupServiceAuthorization = null)
     {
+        $this->groupServiceAuthorization = GroupServiceAuthorization $groupServiceAuthorization;
     }
 
+    /**
+     * Authorize (with quantity) or unauthorize a group service.
+     */
     public function getGroupServiceAuthorization()
     {
-        return (!$this->groupServiceAuthorization) ?: $this->groupServiceAuthorization->value();
+        return (!$this->groupServiceAuthorization) ?: $this->groupServiceAuthorization->getValue();
     }
 
+    /**
+     * Authorize (with quantity) or unauthorize a user service.
+     */
     public function setUserServiceAuthorization(UserServiceAuthorization $userServiceAuthorization = null)
     {
+        $this->userServiceAuthorization = UserServiceAuthorization $userServiceAuthorization;
     }
 
+    /**
+     * Authorize (with quantity) or unauthorize a user service.
+     */
     public function getUserServiceAuthorization()
     {
-        return (!$this->userServiceAuthorization) ?: $this->userServiceAuthorization->value();
+        return (!$this->userServiceAuthorization) ?: $this->userServiceAuthorization->getValue();
     }
 }

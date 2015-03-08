@@ -14,28 +14,39 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallTransferGetRequest.
+     * Response to UserCallTransferGetRequest.
  */
 class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
-    protected $isRecallActive                             = null;
-    protected $recallNumberOfRings                        = null;
-    protected $useDiversionInhibitorForBlindTransfer      = null;
-    protected $useDiversionInhibitorForConsultativeCalls  = null;
-    protected $enableBusyCampOn                           = null;
-    protected $busyCampOnSeconds                          = null;
+    const     RESPONSE_TYPE                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallTransfer\UserCallTransferGetResponse14sp4';
+    public    $name                                      = __CLASS__;
+    protected $isRecallActive                            = null;
+    protected $recallNumberOfRings                       = null;
+    protected $useDiversionInhibitorForBlindTransfer     = null;
+    protected $useDiversionInhibitorForConsultativeCalls = null;
+    protected $enableBusyCampOn                          = null;
+    protected $busyCampOnSeconds                         = null;
 
 
-    public function setIsRecallActive(xs:boolean $isRecallActive = null)
+    /**
+     * 
+     */
+    public function setIsRecallActive($isRecallActive = null)
     {
+        $this->isRecallActive = (boolean) $isRecallActive;
     }
 
+    /**
+     * 
+     */
     public function getIsRecallActive()
     {
-        return (!$this->isRecallActive) ?: $this->isRecallActive->value();
+        return (!$this->isRecallActive) ?: $this->isRecallActive->getValue();
     }
 
+    /**
+     * Number of Rings until a transferred call is recalled.
+     */
     public function setRecallNumberOfRings($recallNumberOfRings = null)
     {
         $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
@@ -43,38 +54,65 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
              : new CallTransferRecallNumberOfRings($recallNumberOfRings);
     }
 
+    /**
+     * Number of Rings until a transferred call is recalled.
+     */
     public function getRecallNumberOfRings()
     {
-        return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->value();
+        return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->getValue();
     }
 
-    public function setUseDiversionInhibitorForBlindTransfer(xs:boolean $useDiversionInhibitorForBlindTransfer = null)
+    /**
+     * 
+     */
+    public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer = null)
     {
+        $this->useDiversionInhibitorForBlindTransfer = (boolean) $useDiversionInhibitorForBlindTransfer;
     }
 
+    /**
+     * 
+     */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->value();
+        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->getValue();
     }
 
-    public function setUseDiversionInhibitorForConsultativeCalls(xs:boolean $useDiversionInhibitorForConsultativeCalls = null)
+    /**
+     * 
+     */
+    public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls = null)
     {
+        $this->useDiversionInhibitorForConsultativeCalls = (boolean) $useDiversionInhibitorForConsultativeCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->value();
+        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->getValue();
     }
 
-    public function setEnableBusyCampOn(xs:boolean $enableBusyCampOn = null)
+    /**
+     * 
+     */
+    public function setEnableBusyCampOn($enableBusyCampOn = null)
     {
+        $this->enableBusyCampOn = (boolean) $enableBusyCampOn;
     }
 
+    /**
+     * 
+     */
     public function getEnableBusyCampOn()
     {
-        return (!$this->enableBusyCampOn) ?: $this->enableBusyCampOn->value();
+        return (!$this->enableBusyCampOn) ?: $this->enableBusyCampOn->getValue();
     }
 
+    /**
+     * The allotted time for a call to camp on on busy transefer call.
+     */
     public function setBusyCampOnSeconds($busyCampOnSeconds = null)
     {
         $this->busyCampOnSeconds = ($busyCampOnSeconds InstanceOf CallTransferBusyCampOnSeconds)
@@ -82,8 +120,11 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
              : new CallTransferBusyCampOnSeconds($busyCampOnSeconds);
     }
 
+    /**
+     * The allotted time for a call to camp on on busy transefer call.
+     */
     public function getBusyCampOnSeconds()
     {
-        return (!$this->busyCampOnSeconds) ?: $this->busyCampOnSeconds->value();
+        return (!$this->busyCampOnSeconds) ?: $this->busyCampOnSeconds->getValue();
     }
 }

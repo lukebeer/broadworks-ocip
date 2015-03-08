@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of all Roaming Networks.
+     * Get the list of all Roaming Networks.
  *         The response is either a SystemRoamingNetworkGetListResponse or an ErrorResponse.
  */
 class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $responseSizeLimit                = null;
-    protected $searchCriteriaRoamingMscAddress  = null;
+    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkGetListResponse';
+    public    $name                            = __CLASS__;
+    protected $responseSizeLimit               = null;
+    protected $searchCriteriaRoamingMscAddress = null;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -31,6 +32,11 @@ class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexI
         $this->setSearchCriteriaRoamingMscAddress($searchCriteriaRoamingMscAddress);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -38,17 +44,29 @@ class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexI
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a system Roaming Network Msc Address.
+     */
     public function setSearchCriteriaRoamingMscAddress(SearchCriteriaRoamingMscAddress $searchCriteriaRoamingMscAddress = null)
     {
+        $this->searchCriteriaRoamingMscAddress = SearchCriteriaRoamingMscAddress $searchCriteriaRoamingMscAddress;
     }
 
+    /**
+     * Criteria for searching for a system Roaming Network Msc Address.
+     */
     public function getSearchCriteriaRoamingMscAddress()
     {
-        return (!$this->searchCriteriaRoamingMscAddress) ?: $this->searchCriteriaRoamingMscAddress->value();
+        return (!$this->searchCriteriaRoamingMscAddress) ?: $this->searchCriteriaRoamingMscAddress->getValue();
     }
 }

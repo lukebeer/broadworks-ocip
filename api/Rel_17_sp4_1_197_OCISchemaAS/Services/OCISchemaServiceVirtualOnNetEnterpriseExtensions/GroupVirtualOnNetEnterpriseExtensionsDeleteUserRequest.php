@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an existing Virtual On-Net user from a Group.
+     * Delete an existing Virtual On-Net user from a Group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $phoneNumber        = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $phoneNumber       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
         $this->setPhoneNumber($phoneNumber);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +66,18 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
@@ -66,8 +85,11 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
              : new DN($phoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->value();
+        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
     }
 }

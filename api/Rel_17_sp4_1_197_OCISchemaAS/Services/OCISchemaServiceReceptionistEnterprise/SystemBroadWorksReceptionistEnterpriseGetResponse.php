@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemBroadWorksReceptionistEnterpriseGetRequest.
+     * Response to SystemBroadWorksReceptionistEnterpriseGetRequest.
  *         Contains a list of BroadWorks Receptionist - Enterprise parameters.
  */
 class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $maxMonitoredUsers  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\SystemBroadWorksReceptionistEnterpriseGetResponse';
+    public    $name              = __CLASS__;
+    protected $maxMonitoredUsers = null;
 
 
+    /**
+     * Maximum number of users allowed in a monitored user list.
+     */
     public function setMaxMonitoredUsers($maxMonitoredUsers = null)
     {
         $this->maxMonitoredUsers = ($maxMonitoredUsers InstanceOf MaximumMonitoredUsers)
@@ -29,8 +33,11 @@ class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType impl
              : new MaximumMonitoredUsers($maxMonitoredUsers);
     }
 
+    /**
+     * Maximum number of users allowed in a monitored user list.
+     */
     public function getMaxMonitoredUsers()
     {
-        return (!$this->maxMonitoredUsers) ?: $this->maxMonitoredUsers->value();
+        return (!$this->maxMonitoredUsers) ?: $this->maxMonitoredUsers->getValue();
     }
 }

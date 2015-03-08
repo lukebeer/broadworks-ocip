@@ -15,17 +15,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupDigitCollectionGetRequest13mp4.
+     * Response to GroupDigitCollectionGetRequest13mp4.
  */
 class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $useSetting       = null;
-    protected $accessCode       = null;
-    protected $publicDigitMap   = null;
-    protected $privateDigitMap  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDigitCollectionGetResponse13mp4';
+    public    $name            = __CLASS__;
+    protected $useSetting      = null;
+    protected $accessCode      = null;
+    protected $publicDigitMap  = null;
+    protected $privateDigitMap = null;
 
 
+    /**
+     * Choices for the group digit collection feature to decide which type of settings to use.
+     */
     public function setUseSetting($useSetting = null)
     {
         $this->useSetting = ($useSetting InstanceOf GroupDigitCollectionSettingLevel)
@@ -33,11 +37,17 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
              : new GroupDigitCollectionSettingLevel($useSetting);
     }
 
+    /**
+     * Choices for the group digit collection feature to decide which type of settings to use.
+     */
     public function getUseSetting()
     {
-        return (!$this->useSetting) ?: $this->useSetting->value();
+        return (!$this->useSetting) ?: $this->useSetting->getValue();
     }
 
+    /**
+     * Digit Collection Access Code.
+     */
     public function setAccessCode($accessCode = null)
     {
         $this->accessCode = ($accessCode InstanceOf AccessCode)
@@ -45,11 +55,17 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
              : new AccessCode($accessCode);
     }
 
+    /**
+     * Digit Collection Access Code.
+     */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->value();
+        return (!$this->accessCode) ?: $this->accessCode->getValue();
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function setPublicDigitMap($publicDigitMap = null)
     {
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
@@ -57,11 +73,17 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
              : new DigitMap($publicDigitMap);
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->value();
+        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
@@ -69,8 +91,11 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
              : new DigitMap($privateDigitMap);
     }
 
+    /**
+     * Digit Collection Digit Map.
+     */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->value();
+        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
     }
 }

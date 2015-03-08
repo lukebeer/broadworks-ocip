@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Gets the home zone for a user
+     * Gets the home zone for a user
  *         Response to a UserZoneCallingRestrictionsGetRequest
  */
 class UserZoneCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $homeZoneName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions\UserZoneCallingRestrictionsGetResponse';
+    public    $name         = __CLASS__;
+    protected $homeZoneName = null;
 
 
+    /**
+     * Zone Name.
+     */
     public function setHomeZoneName($homeZoneName = null)
     {
         $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
@@ -29,8 +33,11 @@ class UserZoneCallingRestrictionsGetResponse extends ComplexType implements Comp
              : new ZoneName($homeZoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getHomeZoneName()
     {
-        return (!$this->homeZoneName) ?: $this->homeZoneName->value();
+        return (!$this->homeZoneName) ?: $this->homeZoneName->getValue();
     }
 }

@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Change the group's incoming calling plan settings.
+     * Change the group's incoming calling plan settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $groupPermissions       = null;
-    protected $departmentPermissions  = null;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $groupId               = null;
+    protected $groupPermissions      = null;
+    protected $departmentPermissions = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
         $this->setDepartmentPermissions($departmentPermissions);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,26 +70,48 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+     *         For use when modifing settings.
+     */
     public function setGroupPermissions(IncomingCallingPlanPermissionsModify $groupPermissions = null)
     {
+        $this->groupPermissions = IncomingCallingPlanPermissionsModify $groupPermissions;
     }
 
+    /**
+     * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+     *         For use when modifing settings.
+     */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->value();
+        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
     }
 
+    /**
+     * Allows or disallows various types of incoming calls for a specified department.
+     *         For use when modifing settings.
+     */
     public function setDepartmentPermissions(IncomingCallingPlanDepartmentPermissionsModify $departmentPermissions = null)
     {
+        $this->departmentPermissions = IncomingCallingPlanDepartmentPermissionsModify $departmentPermissions;
     }
 
+    /**
+     * Allows or disallows various types of incoming calls for a specified department.
+     *         For use when modifing settings.
+     */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->value();
+        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
     }
 }

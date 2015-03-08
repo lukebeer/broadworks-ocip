@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a system-level Application Server alias from the system.
+     * Delete a system-level Application Server alias from the system.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemAliasDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $aliasNetAddress  = null;
+    public    $name            = __CLASS__;
+    protected $aliasNetAddress = null;
 
     public function __construct(
          $aliasNetAddress
@@ -27,6 +27,9 @@ class SystemAliasDeleteRequest extends ComplexType implements ComplexInterface
         $this->setAliasNetAddress($aliasNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setAliasNetAddress($aliasNetAddress = null)
     {
         $this->aliasNetAddress = ($aliasNetAddress InstanceOf NetAddress)
@@ -34,8 +37,11 @@ class SystemAliasDeleteRequest extends ComplexType implements ComplexInterface
              : new NetAddress($aliasNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getAliasNetAddress()
     {
-        return (!$this->aliasNetAddress) ?: $this->aliasNetAddress->value();
+        return (!$this->aliasNetAddress) ?: $this->aliasNetAddress->getValue();
     }
 }

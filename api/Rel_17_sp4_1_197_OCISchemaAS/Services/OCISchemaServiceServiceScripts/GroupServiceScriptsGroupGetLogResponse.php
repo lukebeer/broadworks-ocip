@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupServiceScriptsGroupGetLogRequest.
+     * Response to GroupServiceScriptsGroupGetLogRequest.
  */
 class GroupServiceScriptsGroupGetLogResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $logContent  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\GroupServiceScriptsGroupGetLogResponse';
+    public    $name       = __CLASS__;
+    protected $logContent = null;
 
 
+    /**
+     * 
+     */
     public function setLogContent(xs:base64Binary $logContent = null)
     {
+        $this->logContent = xs:base64Binary $logContent;
     }
 
+    /**
+     * 
+     */
     public function getLogContent()
     {
-        return (!$this->logContent) ?: $this->logContent->value();
+        return (!$this->logContent) ?: $this->logContent->getValue();
     }
 }

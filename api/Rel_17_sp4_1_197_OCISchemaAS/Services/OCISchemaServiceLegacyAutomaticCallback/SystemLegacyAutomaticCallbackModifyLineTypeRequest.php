@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the system's legacy automatic callback line type attributes.
+     * Modifies the system's legacy automatic callback line type attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $lineType       = null;
-    protected $matchAction    = null;
-    protected $noMatchAction  = null;
+    public    $name          = __CLASS__;
+    protected $lineType      = null;
+    protected $matchAction   = null;
+    protected $noMatchAction = null;
 
     public function __construct(
          $lineType,
@@ -34,6 +34,9 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
         $this->setNoMatchAction($noMatchAction);
     }
 
+    /**
+     * Legacy Automatic Callback line type.
+     */
     public function setLineType($lineType = null)
     {
         $this->lineType = ($lineType InstanceOf LegacyAutomaticCallbackLineType)
@@ -41,11 +44,17 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
              : new LegacyAutomaticCallbackLineType($lineType);
     }
 
+    /**
+     * Legacy Automatic Callback line type.
+     */
     public function getLineType()
     {
-        return (!$this->lineType) ?: $this->lineType->value();
+        return (!$this->lineType) ?: $this->lineType->getValue();
     }
 
+    /**
+     * Legacy Automatic Callback line type match action.
+     */
     public function setMatchAction($matchAction = null)
     {
         $this->matchAction = ($matchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
@@ -53,11 +62,17 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
              : new LegacyAutomaticCallbackLineMatchAction($matchAction);
     }
 
+    /**
+     * Legacy Automatic Callback line type match action.
+     */
     public function getMatchAction()
     {
-        return (!$this->matchAction) ?: $this->matchAction->value();
+        return (!$this->matchAction) ?: $this->matchAction->getValue();
     }
 
+    /**
+     * Legacy Automatic Callback line type match action.
+     */
     public function setNoMatchAction($noMatchAction = null)
     {
         $this->noMatchAction = ($noMatchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
@@ -65,8 +80,11 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
              : new LegacyAutomaticCallbackLineMatchAction($noMatchAction);
     }
 
+    /**
+     * Legacy Automatic Callback line type match action.
+     */
     public function getNoMatchAction()
     {
-        return (!$this->noMatchAction) ?: $this->noMatchAction->value();
+        return (!$this->noMatchAction) ?: $this->noMatchAction->getValue();
     }
 }

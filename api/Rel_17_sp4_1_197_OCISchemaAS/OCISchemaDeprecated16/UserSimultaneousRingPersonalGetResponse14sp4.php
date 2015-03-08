@@ -13,26 +13,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserSimultaneousRingPersonalGetRequest14sp4.
+     * Response to the UserSimultaneousRingPersonalGetRequest14sp4.
  *         Contains a table with column headings: "Phone Number", "Answer Confirmation Required".
  */
 class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $isActive          = null;
-    protected $incomingCalls     = null;
-    protected $phoneNumberTable  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingPersonalGetResponse14sp4';
+    public    $name             = __CLASS__;
+    protected $isActive         = null;
+    protected $incomingCalls    = null;
+    protected $phoneNumberTable = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Simultaneous Ring Selection.
+     */
     public function setIncomingCalls($incomingCalls = null)
     {
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
@@ -40,17 +51,27 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
              : new SimultaneousRingSelection($incomingCalls);
     }
 
+    /**
+     * Simultaneous Ring Selection.
+     */
     public function getIncomingCalls()
     {
-        return (!$this->incomingCalls) ?: $this->incomingCalls->value();
+        return (!$this->incomingCalls) ?: $this->incomingCalls->getValue();
     }
 
+    /**
+     * 
+     */
     public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
+        $this->phoneNumberTable = core:OCITable $phoneNumberTable;
     }
 
+    /**
+     * 
+     */
     public function getPhoneNumberTable()
     {
-        return (!$this->phoneNumberTable) ?: $this->phoneNumberTable->value();
+        return (!$this->phoneNumberTable) ?: $this->phoneNumberTable->getValue();
     }
 }

@@ -13,26 +13,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallTransferGetRequest.
+     * Response to UserCallTransferGetRequest.
  */
 class UserCallTransferGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
-    protected $isRecallActive                             = null;
-    protected $recallNumberOfRings                        = null;
-    protected $useDiversionInhibitorForBlindTransfer      = null;
-    protected $useDiversionInhibitorForConsultativeCalls  = null;
+    const     RESPONSE_TYPE                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallTransferGetResponse';
+    public    $name                                      = __CLASS__;
+    protected $isRecallActive                            = null;
+    protected $recallNumberOfRings                       = null;
+    protected $useDiversionInhibitorForBlindTransfer     = null;
+    protected $useDiversionInhibitorForConsultativeCalls = null;
 
 
-    public function setIsRecallActive(xs:boolean $isRecallActive = null)
+    /**
+     * 
+     */
+    public function setIsRecallActive($isRecallActive = null)
     {
+        $this->isRecallActive = (boolean) $isRecallActive;
     }
 
+    /**
+     * 
+     */
     public function getIsRecallActive()
     {
-        return (!$this->isRecallActive) ?: $this->isRecallActive->value();
+        return (!$this->isRecallActive) ?: $this->isRecallActive->getValue();
     }
 
+    /**
+     * Number of Rings until a transferred call is recalled.
+     */
     public function setRecallNumberOfRings($recallNumberOfRings = null)
     {
         $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
@@ -40,26 +51,43 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
              : new CallTransferRecallNumberOfRings($recallNumberOfRings);
     }
 
+    /**
+     * Number of Rings until a transferred call is recalled.
+     */
     public function getRecallNumberOfRings()
     {
-        return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->value();
+        return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->getValue();
     }
 
-    public function setUseDiversionInhibitorForBlindTransfer(xs:boolean $useDiversionInhibitorForBlindTransfer = null)
+    /**
+     * 
+     */
+    public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer = null)
     {
+        $this->useDiversionInhibitorForBlindTransfer = (boolean) $useDiversionInhibitorForBlindTransfer;
     }
 
+    /**
+     * 
+     */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->value();
+        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->getValue();
     }
 
-    public function setUseDiversionInhibitorForConsultativeCalls(xs:boolean $useDiversionInhibitorForConsultativeCalls = null)
+    /**
+     * 
+     */
+    public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls = null)
     {
+        $this->useDiversionInhibitorForConsultativeCalls = (boolean) $useDiversionInhibitorForConsultativeCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->value();
+        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->getValue();
     }
 }

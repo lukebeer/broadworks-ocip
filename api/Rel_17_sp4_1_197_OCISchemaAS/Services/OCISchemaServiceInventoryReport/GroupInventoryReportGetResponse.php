@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupInventoryReportGetRequest.
+     * Response to GroupInventoryReportGetRequest.
  */
 class GroupInventoryReportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $inventoryReportTable  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
+    public    $name                 = __CLASS__;
+    protected $inventoryReportTable = null;
 
 
+    /**
+     * 
+     */
     public function setInventoryReportTable(core:OCITable $inventoryReportTable = null)
     {
+        $this->inventoryReportTable = core:OCITable $inventoryReportTable;
     }
 
+    /**
+     * 
+     */
     public function getInventoryReportTable()
     {
-        return (!$this->inventoryReportTable) ?: $this->inventoryReportTable->value();
+        return (!$this->inventoryReportTable) ?: $this->inventoryReportTable->getValue();
     }
 }

@@ -18,21 +18,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * LoginRequest14sp4/Response14sp4 is 2nd stage of the 2 stage OCI login process.
+     * LoginRequest14sp4/Response14sp4 is 2nd stage of the 2 stage OCI login process.
  */
 class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $loginType            = null;
-    protected $locale               = null;
-    protected $encoding             = null;
-    protected $groupId              = null;
-    protected $serviceProviderId    = null;
-    protected $isEnterprise         = null;
-    protected $passwordExpiresDays  = null;
-    protected $userDomain           = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4';
+    public    $name                = __CLASS__;
+    protected $loginType           = null;
+    protected $locale              = null;
+    protected $encoding            = null;
+    protected $groupId             = null;
+    protected $serviceProviderId   = null;
+    protected $isEnterprise        = null;
+    protected $passwordExpiresDays = null;
+    protected $userDomain          = null;
 
 
+    /**
+     * The login type of the admin/user.
+     */
     public function setLoginType($loginType = null)
     {
         $this->loginType = ($loginType InstanceOf LoginType)
@@ -40,11 +44,17 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
              : new LoginType($loginType);
     }
 
+    /**
+     * The login type of the admin/user.
+     */
     public function getLoginType()
     {
-        return (!$this->loginType) ?: $this->loginType->value();
+        return (!$this->loginType) ?: $this->loginType->getValue();
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function setLocale($locale = null)
     {
         $this->locale = ($locale InstanceOf OCILocale)
@@ -52,11 +62,17 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
              : new OCILocale($locale);
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->value();
+        return (!$this->locale) ?: $this->locale->getValue();
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function setEncoding($encoding = null)
     {
         $this->encoding = ($encoding InstanceOf Encoding)
@@ -64,11 +80,18 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
              : new Encoding($encoding);
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->value();
+        return (!$this->encoding) ?: $this->encoding->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -76,11 +99,19 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -88,29 +119,50 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setIsEnterprise(xs:boolean $isEnterprise = null)
+    /**
+     * 
+     */
+    public function setIsEnterprise($isEnterprise = null)
     {
+        $this->isEnterprise = (boolean) $isEnterprise;
     }
 
+    /**
+     * 
+     */
     public function getIsEnterprise()
     {
-        return (!$this->isEnterprise) ?: $this->isEnterprise->value();
+        return (!$this->isEnterprise) ?: $this->isEnterprise->getValue();
     }
 
-    public function setPasswordExpiresDays(xs:int $passwordExpiresDays = null)
+    /**
+     * 
+     */
+    public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
+        $this->passwordExpiresDays = (int) $passwordExpiresDays;
     }
 
+    /**
+     * 
+     */
     public function getPasswordExpiresDays()
     {
-        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->value();
+        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setUserDomain($userDomain = null)
     {
         $this->userDomain = ($userDomain InstanceOf NetAddress)
@@ -118,8 +170,11 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
              : new NetAddress($userDomain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getUserDomain()
     {
-        return (!$this->userDomain) ?: $this->userDomain->value();
+        return (!$this->userDomain) ?: $this->userDomain->getValue();
     }
 }

@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Call Policies.
+     * Modify the user level data associated with Call Policies.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $userId                              = null;
-    protected $redirectedCallsCOLPPrivacy          = null;
-    protected $callBeingForwardedResponseCallType  = null;
+    public    $name                               = __CLASS__;
+    protected $userId                             = null;
+    protected $redirectedCallsCOLPPrivacy         = null;
+    protected $callBeingForwardedResponseCallType = null;
 
     public function __construct(
          $userId,
@@ -35,6 +35,13 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
         $this->setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -42,11 +49,21 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Choices for Connected Line Identification Privacy on Redirected Calls
+     */
     public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
@@ -54,11 +71,17 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
     }
 
+    /**
+     * Choices for Connected Line Identification Privacy on Redirected Calls
+     */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->value();
+        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->getValue();
     }
 
+    /**
+     * Call type choices for sending call being forward response on Redirected Calls
+     */
     public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType = null)
     {
         $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
@@ -66,8 +89,11 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
              : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
     }
 
+    /**
+     * Call type choices for sending call being forward response on Redirected Calls
+     */
     public function getCallBeingForwardedResponseCallType()
     {
-        return (!$this->callBeingForwardedResponseCallType) ?: $this->callBeingForwardedResponseCallType->value();
+        return (!$this->callBeingForwardedResponseCallType) ?: $this->callBeingForwardedResponseCallType->getValue();
     }
 }

@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests a table of all the existing Access Side SIP Status Code Mappings in the system.
+     * Requests a table of all the existing Access Side SIP Status Code Mappings in the system.
  *         The response is either an SystemTreatmentMappingAccessSIPStatusGetListResponse
  *         or an ErrorResponse.
  */
 class SystemTreatmentMappingAccessSIPStatusGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingAccessSIPStatusGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

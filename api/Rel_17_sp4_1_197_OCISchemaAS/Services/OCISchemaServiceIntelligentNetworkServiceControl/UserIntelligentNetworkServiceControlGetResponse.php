@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserIntelligentNetworkServiceControlGetRequest.
+     * Response to UserIntelligentNetworkServiceControlGetRequest.
  */
 class UserIntelligentNetworkServiceControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $preAnswerActionsEnabled  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl\UserIntelligentNetworkServiceControlGetResponse';
+    public    $name                    = __CLASS__;
+    protected $preAnswerActionsEnabled = null;
 
 
-    public function setPreAnswerActionsEnabled(xs:boolean $preAnswerActionsEnabled = null)
+    /**
+     * 
+     */
+    public function setPreAnswerActionsEnabled($preAnswerActionsEnabled = null)
     {
+        $this->preAnswerActionsEnabled = (boolean) $preAnswerActionsEnabled;
     }
 
+    /**
+     * 
+     */
     public function getPreAnswerActionsEnabled()
     {
-        return (!$this->preAnswerActionsEnabled) ?: $this->preAnswerActionsEnabled->value();
+        return (!$this->preAnswerActionsEnabled) ?: $this->preAnswerActionsEnabled->getValue();
     }
 }

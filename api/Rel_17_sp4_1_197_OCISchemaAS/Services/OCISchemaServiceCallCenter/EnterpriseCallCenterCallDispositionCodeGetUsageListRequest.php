@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of Call Centers and Route Points using the specified disposition code.
+     * Get the list of Call Centers and Route Points using the specified disposition code.
  *         The response is either EnterpriseCallCenterCallDispositionCodeGetUsageListResponse or ErrorResponse.
  */
 class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $code               = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeGetUsageListResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $code              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends Complex
         $this->setCode($code);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,18 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends Complex
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function setCode($code = null)
     {
         $this->code = ($code InstanceOf CallDispositionCode)
@@ -50,8 +62,11 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends Complex
              : new CallDispositionCode($code);
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 }

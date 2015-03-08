@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupAutoAttendantGetInstanceListRequest.
+     * Response to the GroupAutoAttendantGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department", "Is Active".
  *         The column values for "Video" and "Is Active" can either be true, or false.
  */
 class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $autoAttendantTable  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceListResponse';
+    public    $name               = __CLASS__;
+    protected $autoAttendantTable = null;
 
 
+    /**
+     * 
+     */
     public function setAutoAttendantTable(core:OCITable $autoAttendantTable = null)
     {
+        $this->autoAttendantTable = core:OCITable $autoAttendantTable;
     }
 
+    /**
+     * 
+     */
     public function getAutoAttendantTable()
     {
-        return (!$this->autoAttendantTable) ?: $this->autoAttendantTable->value();
+        return (!$this->autoAttendantTable) ?: $this->autoAttendantTable->getValue();
     }
 }

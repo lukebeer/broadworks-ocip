@@ -21,22 +21,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a new Communication Barring Profile.
+     * Add a new Communication Barring Profile.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringProfileAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
-    protected $name                              = null;
-    protected $description                       = null;
-    protected $originatingDefaultAction          = null;
-    protected $originatingDefaultTreatmentId     = null;
-    protected $originatingDefaultTransferNumber  = null;
-    protected $originatingDefaultCallTimeout     = null;
-    protected $originatingRule                   = null;
-    protected $redirectingDefaultAction          = null;
-    protected $redirectingDefaultCallTimeout     = null;
-    protected $redirectingRule                   = null;
+    public    $name                             = __CLASS__;
+    protected $name                             = null;
+    protected $description                      = null;
+    protected $originatingDefaultAction         = null;
+    protected $originatingDefaultTreatmentId    = null;
+    protected $originatingDefaultTransferNumber = null;
+    protected $originatingDefaultCallTimeout    = null;
+    protected $originatingRule                  = null;
+    protected $redirectingDefaultAction         = null;
+    protected $redirectingDefaultCallTimeout    = null;
+    protected $redirectingRule                  = null;
 
     public function __construct(
          $name,
@@ -62,6 +62,9 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
         $this->setRedirectingRule($redirectingRule);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
@@ -69,11 +72,17 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new CommunicationBarringProfileName($name);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Communication Barring Profile description
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf CommunicationBarringProfileDescription)
@@ -81,11 +90,17 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new CommunicationBarringProfileDescription($description);
     }
 
+    /**
+     * Communication Barring Profile description
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * Possible originating actions for Communication Barring.
+     */
     public function setOriginatingDefaultAction($originatingDefaultAction = null)
     {
         $this->originatingDefaultAction = ($originatingDefaultAction InstanceOf CommunicationBarringOriginatingAction)
@@ -93,11 +108,17 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new CommunicationBarringOriginatingAction($originatingDefaultAction);
     }
 
+    /**
+     * Possible originating actions for Communication Barring.
+     */
     public function getOriginatingDefaultAction()
     {
-        return (!$this->originatingDefaultAction) ?: $this->originatingDefaultAction->value();
+        return (!$this->originatingDefaultAction) ?: $this->originatingDefaultAction->getValue();
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setOriginatingDefaultTreatmentId($originatingDefaultTreatmentId = null)
     {
         $this->originatingDefaultTreatmentId = ($originatingDefaultTreatmentId InstanceOf TreatmentId)
@@ -105,11 +126,19 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new TreatmentId($originatingDefaultTreatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getOriginatingDefaultTreatmentId()
     {
-        return (!$this->originatingDefaultTreatmentId) ?: $this->originatingDefaultTreatmentId->value();
+        return (!$this->originatingDefaultTreatmentId) ?: $this->originatingDefaultTreatmentId->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setOriginatingDefaultTransferNumber($originatingDefaultTransferNumber = null)
     {
         $this->originatingDefaultTransferNumber = ($originatingDefaultTransferNumber InstanceOf OutgoingDN)
@@ -117,11 +146,19 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new OutgoingDN($originatingDefaultTransferNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getOriginatingDefaultTransferNumber()
     {
-        return (!$this->originatingDefaultTransferNumber) ?: $this->originatingDefaultTransferNumber->value();
+        return (!$this->originatingDefaultTransferNumber) ?: $this->originatingDefaultTransferNumber->getValue();
     }
 
+    /**
+     * Time to wait before shutting down a call.
+     */
     public function setOriginatingDefaultCallTimeout($originatingDefaultCallTimeout = null)
     {
         $this->originatingDefaultCallTimeout = ($originatingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
@@ -129,20 +166,33 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new CommunicationBarringTimeoutSeconds($originatingDefaultCallTimeout);
     }
 
+    /**
+     * Time to wait before shutting down a call.
+     */
     public function getOriginatingDefaultCallTimeout()
     {
-        return (!$this->originatingDefaultCallTimeout) ?: $this->originatingDefaultCallTimeout->value();
+        return (!$this->originatingDefaultCallTimeout) ?: $this->originatingDefaultCallTimeout->getValue();
     }
 
+    /**
+     * Communication Barring Originating Rule
+     */
     public function setOriginatingRule(CommunicationBarringOriginatingRule $originatingRule = null)
     {
+        $this->originatingRule = CommunicationBarringOriginatingRule $originatingRule;
     }
 
+    /**
+     * Communication Barring Originating Rule
+     */
     public function getOriginatingRule()
     {
-        return (!$this->originatingRule) ?: $this->originatingRule->value();
+        return (!$this->originatingRule) ?: $this->originatingRule->getValue();
     }
 
+    /**
+     * Possible redirecting actions for Communication Barring.
+     */
     public function setRedirectingDefaultAction($redirectingDefaultAction = null)
     {
         $this->redirectingDefaultAction = ($redirectingDefaultAction InstanceOf CommunicationBarringRedirectingAction)
@@ -150,11 +200,17 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new CommunicationBarringRedirectingAction($redirectingDefaultAction);
     }
 
+    /**
+     * Possible redirecting actions for Communication Barring.
+     */
     public function getRedirectingDefaultAction()
     {
-        return (!$this->redirectingDefaultAction) ?: $this->redirectingDefaultAction->value();
+        return (!$this->redirectingDefaultAction) ?: $this->redirectingDefaultAction->getValue();
     }
 
+    /**
+     * Time to wait before shutting down a call.
+     */
     public function setRedirectingDefaultCallTimeout($redirectingDefaultCallTimeout = null)
     {
         $this->redirectingDefaultCallTimeout = ($redirectingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
@@ -162,17 +218,27 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
              : new CommunicationBarringTimeoutSeconds($redirectingDefaultCallTimeout);
     }
 
+    /**
+     * Time to wait before shutting down a call.
+     */
     public function getRedirectingDefaultCallTimeout()
     {
-        return (!$this->redirectingDefaultCallTimeout) ?: $this->redirectingDefaultCallTimeout->value();
+        return (!$this->redirectingDefaultCallTimeout) ?: $this->redirectingDefaultCallTimeout->getValue();
     }
 
+    /**
+     * Communication Barring Redirecting Rule
+     */
     public function setRedirectingRule(CommunicationBarringRedirectingRule $redirectingRule = null)
     {
+        $this->redirectingRule = CommunicationBarringRedirectingRule $redirectingRule;
     }
 
+    /**
+     * Communication Barring Redirecting Rule
+     */
     public function getRedirectingRule()
     {
-        return (!$this->redirectingRule) ?: $this->redirectingRule->value();
+        return (!$this->redirectingRule) ?: $this->redirectingRule->getValue();
     }
 }

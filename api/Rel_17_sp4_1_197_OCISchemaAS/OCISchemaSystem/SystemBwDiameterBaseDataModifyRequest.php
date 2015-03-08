@@ -20,26 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the System Diameter base parameters.
+     * Modifies the System Diameter base parameters.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = __CLASS__;
-    protected $xsRealm                               = null;
-    protected $xsListeningPort                       = null;
-    protected $psRealm                               = null;
-    protected $psListeningPort                       = null;
-    protected $psRelayThroughXs                      = null;
-    protected $xsRelayListeningPort                  = null;
-    protected $tcTimerSeconds                        = null;
-    protected $twTimerSeconds                        = null;
-    protected $requestTimerSeconds                   = null;
-    protected $busyPeerDetectionOutstandingTxnCount  = null;
-    protected $busyPeerRestoreOutstandingTxnCount    = null;
-    protected $dynamicEntryInactivityTimerHours      = null;
-    protected $advertisedOfflineBillingApplication   = null;
-    protected $advertisedOnlineBillingApplication    = null;
+    public    $name                                 = __CLASS__;
+    protected $xsRealm                              = null;
+    protected $xsListeningPort                      = null;
+    protected $psRealm                              = null;
+    protected $psListeningPort                      = null;
+    protected $psRelayThroughXs                     = null;
+    protected $xsRelayListeningPort                 = null;
+    protected $tcTimerSeconds                       = null;
+    protected $twTimerSeconds                       = null;
+    protected $requestTimerSeconds                  = null;
+    protected $busyPeerDetectionOutstandingTxnCount = null;
+    protected $busyPeerRestoreOutstandingTxnCount   = null;
+    protected $dynamicEntryInactivityTimerHours     = null;
+    protected $advertisedOfflineBillingApplication  = null;
+    protected $advertisedOnlineBillingApplication   = null;
 
     public function __construct(
          $xsRealm = null,
@@ -73,6 +73,9 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
         $this->setAdvertisedOnlineBillingApplication($advertisedOnlineBillingApplication);
     }
 
+    /**
+     * Network domain name.
+     */
     public function setXsRealm($xsRealm = null)
     {
         $this->xsRealm = ($xsRealm InstanceOf DomainName)
@@ -80,11 +83,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new DomainName($xsRealm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getXsRealm()
     {
-        return (!$this->xsRealm) ?: $this->xsRealm->value();
+        return (!$this->xsRealm) ?: $this->xsRealm->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setXsListeningPort($xsListeningPort = null)
     {
         $this->xsListeningPort = ($xsListeningPort InstanceOf Port1025)
@@ -92,11 +101,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new Port1025($xsListeningPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getXsListeningPort()
     {
-        return (!$this->xsListeningPort) ?: $this->xsListeningPort->value();
+        return (!$this->xsListeningPort) ?: $this->xsListeningPort->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setPsRealm($psRealm = null)
     {
         $this->psRealm = ($psRealm InstanceOf DomainName)
@@ -104,11 +119,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new DomainName($psRealm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getPsRealm()
     {
-        return (!$this->psRealm) ?: $this->psRealm->value();
+        return (!$this->psRealm) ?: $this->psRealm->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setPsListeningPort($psListeningPort = null)
     {
         $this->psListeningPort = ($psListeningPort InstanceOf Port1025)
@@ -116,20 +137,33 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new Port1025($psListeningPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getPsListeningPort()
     {
-        return (!$this->psListeningPort) ?: $this->psListeningPort->value();
+        return (!$this->psListeningPort) ?: $this->psListeningPort->getValue();
     }
 
-    public function setPsRelayThroughXs(xs:boolean $psRelayThroughXs = null)
+    /**
+     * 
+     */
+    public function setPsRelayThroughXs($psRelayThroughXs = null)
     {
+        $this->psRelayThroughXs = (boolean) $psRelayThroughXs;
     }
 
+    /**
+     * 
+     */
     public function getPsRelayThroughXs()
     {
-        return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs->value();
+        return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setXsRelayListeningPort($xsRelayListeningPort = null)
     {
         $this->xsRelayListeningPort = ($xsRelayListeningPort InstanceOf Port1025)
@@ -137,11 +171,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new Port1025($xsRelayListeningPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getXsRelayListeningPort()
     {
-        return (!$this->xsRelayListeningPort) ?: $this->xsRelayListeningPort->value();
+        return (!$this->xsRelayListeningPort) ?: $this->xsRelayListeningPort->getValue();
     }
 
+    /**
+     * Delay afer which the Diameter stack attempts to reconnect to a peer after detecting a connection failure.
+     */
     public function setTcTimerSeconds($tcTimerSeconds = null)
     {
         $this->tcTimerSeconds = ($tcTimerSeconds InstanceOf BwDiameterTcTimerSeconds)
@@ -149,11 +189,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterTcTimerSeconds($tcTimerSeconds);
     }
 
+    /**
+     * Delay afer which the Diameter stack attempts to reconnect to a peer after detecting a connection failure.
+     */
     public function getTcTimerSeconds()
     {
-        return (!$this->tcTimerSeconds) ?: $this->tcTimerSeconds->value();
+        return (!$this->tcTimerSeconds) ?: $this->tcTimerSeconds->getValue();
     }
 
+    /**
+     * Timer that controls the frequency of Device-Watchdog messages (when no other messages are exchanged on the peer connection) and is used in the connection failure detection algorithm.
+     */
     public function setTwTimerSeconds($twTimerSeconds = null)
     {
         $this->twTimerSeconds = ($twTimerSeconds InstanceOf BwDiameterTwTimerSeconds)
@@ -161,11 +207,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterTwTimerSeconds($twTimerSeconds);
     }
 
+    /**
+     * Timer that controls the frequency of Device-Watchdog messages (when no other messages are exchanged on the peer connection) and is used in the connection failure detection algorithm.
+     */
     public function getTwTimerSeconds()
     {
-        return (!$this->twTimerSeconds) ?: $this->twTimerSeconds->value();
+        return (!$this->twTimerSeconds) ?: $this->twTimerSeconds->getValue();
     }
 
+    /**
+     * Time after which the Diameter stack reports a timeout to applications and removes the request from its requests queue.
+     */
     public function setRequestTimerSeconds($requestTimerSeconds = null)
     {
         $this->requestTimerSeconds = ($requestTimerSeconds InstanceOf BwDiameterRequestTimerSeconds)
@@ -173,11 +225,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterRequestTimerSeconds($requestTimerSeconds);
     }
 
+    /**
+     * Time after which the Diameter stack reports a timeout to applications and removes the request from its requests queue.
+     */
     public function getRequestTimerSeconds()
     {
-        return (!$this->requestTimerSeconds) ?: $this->requestTimerSeconds->value();
+        return (!$this->requestTimerSeconds) ?: $this->requestTimerSeconds->getValue();
     }
 
+    /**
+     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     */
     public function setBusyPeerDetectionOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount = null)
     {
         $this->busyPeerDetectionOutstandingTxnCount = ($busyPeerDetectionOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
@@ -185,11 +243,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount);
     }
 
+    /**
+     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     */
     public function getBusyPeerDetectionOutstandingTxnCount()
     {
-        return (!$this->busyPeerDetectionOutstandingTxnCount) ?: $this->busyPeerDetectionOutstandingTxnCount->value();
+        return (!$this->busyPeerDetectionOutstandingTxnCount) ?: $this->busyPeerDetectionOutstandingTxnCount->getValue();
     }
 
+    /**
+     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     */
     public function setBusyPeerRestoreOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount = null)
     {
         $this->busyPeerRestoreOutstandingTxnCount = ($busyPeerRestoreOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
@@ -197,11 +261,17 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount);
     }
 
+    /**
+     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     */
     public function getBusyPeerRestoreOutstandingTxnCount()
     {
-        return (!$this->busyPeerRestoreOutstandingTxnCount) ?: $this->busyPeerRestoreOutstandingTxnCount->value();
+        return (!$this->busyPeerRestoreOutstandingTxnCount) ?: $this->busyPeerRestoreOutstandingTxnCount->getValue();
     }
 
+    /**
+     * Idle time allowed for a dynamic entry (either Realm Routing Table entry or Peer Table entry) before it is removed.
+     */
     public function setDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours = null)
     {
         $this->dynamicEntryInactivityTimerHours = ($dynamicEntryInactivityTimerHours InstanceOf BwDiameterDynamicEntryInactivityTimerHours)
@@ -209,11 +279,19 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours);
     }
 
+    /**
+     * Idle time allowed for a dynamic entry (either Realm Routing Table entry or Peer Table entry) before it is removed.
+     */
     public function getDynamicEntryInactivityTimerHours()
     {
-        return (!$this->dynamicEntryInactivityTimerHours) ?: $this->dynamicEntryInactivityTimerHours->value();
+        return (!$this->dynamicEntryInactivityTimerHours) ?: $this->dynamicEntryInactivityTimerHours->getValue();
     }
 
+    /**
+     * The application Id advertised for billing (Ro or Rf) during the Diameter Capability Exchange.
+     *         When base is selected, Acct-Application-Id=3 is advertised for offline billing and Auth-Application-Id=4 for online billing.
+     *         When 3gpp is selected, Vendor-Specific-Application-Id(Acct-Application-Id=3; Vendor-Id=10415) is advertised for offline billing and Vendor-Specific-Application-Id(Auth-Application-Id=4; Vendor-Id=10415) for online billing.
+     */
     public function setAdvertisedOfflineBillingApplication($advertisedOfflineBillingApplication = null)
     {
         $this->advertisedOfflineBillingApplication = ($advertisedOfflineBillingApplication InstanceOf BwDiameterAdvertisedApplication)
@@ -221,11 +299,21 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterAdvertisedApplication($advertisedOfflineBillingApplication);
     }
 
+    /**
+     * The application Id advertised for billing (Ro or Rf) during the Diameter Capability Exchange.
+     *         When base is selected, Acct-Application-Id=3 is advertised for offline billing and Auth-Application-Id=4 for online billing.
+     *         When 3gpp is selected, Vendor-Specific-Application-Id(Acct-Application-Id=3; Vendor-Id=10415) is advertised for offline billing and Vendor-Specific-Application-Id(Auth-Application-Id=4; Vendor-Id=10415) for online billing.
+     */
     public function getAdvertisedOfflineBillingApplication()
     {
-        return (!$this->advertisedOfflineBillingApplication) ?: $this->advertisedOfflineBillingApplication->value();
+        return (!$this->advertisedOfflineBillingApplication) ?: $this->advertisedOfflineBillingApplication->getValue();
     }
 
+    /**
+     * The application Id advertised for billing (Ro or Rf) during the Diameter Capability Exchange.
+     *         When base is selected, Acct-Application-Id=3 is advertised for offline billing and Auth-Application-Id=4 for online billing.
+     *         When 3gpp is selected, Vendor-Specific-Application-Id(Acct-Application-Id=3; Vendor-Id=10415) is advertised for offline billing and Vendor-Specific-Application-Id(Auth-Application-Id=4; Vendor-Id=10415) for online billing.
+     */
     public function setAdvertisedOnlineBillingApplication($advertisedOnlineBillingApplication = null)
     {
         $this->advertisedOnlineBillingApplication = ($advertisedOnlineBillingApplication InstanceOf BwDiameterAdvertisedApplication)
@@ -233,8 +321,13 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
              : new BwDiameterAdvertisedApplication($advertisedOnlineBillingApplication);
     }
 
+    /**
+     * The application Id advertised for billing (Ro or Rf) during the Diameter Capability Exchange.
+     *         When base is selected, Acct-Application-Id=3 is advertised for offline billing and Auth-Application-Id=4 for online billing.
+     *         When 3gpp is selected, Vendor-Specific-Application-Id(Acct-Application-Id=3; Vendor-Id=10415) is advertised for offline billing and Vendor-Specific-Application-Id(Auth-Application-Id=4; Vendor-Id=10415) for online billing.
+     */
     public function getAdvertisedOnlineBillingApplication()
     {
-        return (!$this->advertisedOnlineBillingApplication) ?: $this->advertisedOnlineBillingApplication->value();
+        return (!$this->advertisedOnlineBillingApplication) ?: $this->advertisedOnlineBillingApplication->getValue();
     }
 }

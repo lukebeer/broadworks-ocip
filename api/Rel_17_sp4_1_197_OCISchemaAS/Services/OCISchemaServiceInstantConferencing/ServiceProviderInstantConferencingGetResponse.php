@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderInstantConferencingGetRequest.
+     * Response to ServiceProviderInstantConferencingGetRequest.
  */
 class ServiceProviderInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $portsAllocatedToServiceProvider  = null;
+    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\ServiceProviderInstantConferencingGetResponse';
+    public    $name                            = __CLASS__;
+    protected $portsAllocatedToServiceProvider = null;
 
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function setPortsAllocatedToServiceProvider(UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null)
     {
+        $this->portsAllocatedToServiceProvider = UnboundedNonNegativeInt $portsAllocatedToServiceProvider;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function getPortsAllocatedToServiceProvider()
     {
-        return (!$this->portsAllocatedToServiceProvider) ?: $this->portsAllocatedToServiceProvider->value();
+        return (!$this->portsAllocatedToServiceProvider) ?: $this->portsAllocatedToServiceProvider->getValue();
     }
 }

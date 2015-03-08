@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupGroupPagingGetTargetListRequest.
+     * Response to the GroupGroupPagingGetTargetListRequest.
  *         Contains a table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupGroupPagingGetTargetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $targetTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetTargetListResponse';
+    public    $name        = __CLASS__;
+    protected $targetTable = null;
 
 
+    /**
+     * 
+     */
     public function setTargetTable(core:OCITable $targetTable = null)
     {
+        $this->targetTable = core:OCITable $targetTable;
     }
 
+    /**
+     * 
+     */
     public function getTargetTable()
     {
-        return (!$this->targetTable) ?: $this->targetTable->value();
+        return (!$this->targetTable) ?: $this->targetTable->getValue();
     }
 }

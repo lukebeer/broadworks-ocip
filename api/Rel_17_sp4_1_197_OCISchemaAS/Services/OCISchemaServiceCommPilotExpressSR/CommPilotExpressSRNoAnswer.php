@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * CommPilot Express SR No Answer Settings used in the context of a get.
+     * CommPilot Express SR No Answer Settings used in the context of a get.
  */
 class CommPilotExpressSRNoAnswer extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRNoAnswer';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

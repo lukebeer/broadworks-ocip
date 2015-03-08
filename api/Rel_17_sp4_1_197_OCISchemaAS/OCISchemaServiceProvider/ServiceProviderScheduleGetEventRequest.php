@@ -15,15 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an event from a service provider schedule.
+     * Get an event from a service provider schedule.
  *         The response is either a ServiceProviderScheduleGetEventResponse or an ErrorResponse.
  */
 class ServiceProviderScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $scheduleKey        = null;
-    protected $eventName          = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $scheduleKey       = null;
+    protected $eventName         = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +36,10 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
         $this->setEventName($eventName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,20 +47,34 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 
+    /**
+     * Event name.
+     */
     public function setEventName($eventName = null)
     {
         $this->eventName = ($eventName InstanceOf EventName)
@@ -63,8 +82,11 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
              : new EventName($eventName);
     }
 
+    /**
+     * Event name.
+     */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->value();
+        return (!$this->eventName) ?: $this->eventName->getValue();
     }
 }

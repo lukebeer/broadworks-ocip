@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of system outgoing calling plan call type mappings.
+     * Get a list of system outgoing calling plan call type mappings.
  *         The response is either SystemOutgoingCallingPlanCallTypeGetMappingListResponse or ErrorResponse.
  */
 class SystemOutgoingCallingPlanCallTypeGetMappingListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $countryCode  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeGetMappingListResponse';
+    public    $name        = __CLASS__;
+    protected $countryCode = null;
 
     public function __construct(
          $countryCode = null
@@ -27,6 +28,9 @@ class SystemOutgoingCallingPlanCallTypeGetMappingListRequest extends ComplexType
         $this->setCountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -34,8 +38,11 @@ class SystemOutgoingCallingPlanCallTypeGetMappingListRequest extends ComplexType
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 }

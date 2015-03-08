@@ -16,23 +16,27 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallingPartyCategoryGetRequest.
+     * Response to SystemCallingPartyCategoryGetRequest.
  *         Contains information of a Calling Party Category defined in system.
  */
 class SystemCallingPartyCategoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $cpcValue       = null;
-    protected $isupOliValue   = null;
-    protected $gtdOliValue    = null;
-    protected $userCategory   = null;
-    protected $payPhone       = null;
-    protected $operator       = null;
-    protected $default        = null;
-    protected $collectCall    = null;
-    protected $webDisplayKey  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetResponse';
+    public    $name          = __CLASS__;
+    protected $cpcValue      = null;
+    protected $isupOliValue  = null;
+    protected $gtdOliValue   = null;
+    protected $userCategory  = null;
+    protected $payPhone      = null;
+    protected $operator      = null;
+    protected $default       = null;
+    protected $collectCall   = null;
+    protected $webDisplayKey = null;
 
 
+    /**
+     * Value for the Calling Party Category used in signaling.
+     */
     public function setCpcValue($cpcValue = null)
     {
         $this->cpcValue = ($cpcValue InstanceOf CallingPartyCategoryValue)
@@ -40,11 +44,17 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
              : new CallingPartyCategoryValue($cpcValue);
     }
 
+    /**
+     * Value for the Calling Party Category used in signaling.
+     */
     public function getCpcValue()
     {
-        return (!$this->cpcValue) ?: $this->cpcValue->value();
+        return (!$this->cpcValue) ?: $this->cpcValue->getValue();
     }
 
+    /**
+     * ISDN user part originating line information value for the Calling Party Category.
+     */
     public function setIsupOliValue($isupOliValue = null)
     {
         $this->isupOliValue = ($isupOliValue InstanceOf ISDNUserPartOriginatingLineInformationValue)
@@ -52,11 +62,17 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
              : new ISDNUserPartOriginatingLineInformationValue($isupOliValue);
     }
 
+    /**
+     * ISDN user part originating line information value for the Calling Party Category.
+     */
     public function getIsupOliValue()
     {
-        return (!$this->isupOliValue) ?: $this->isupOliValue->value();
+        return (!$this->isupOliValue) ?: $this->isupOliValue->getValue();
     }
 
+    /**
+     * ISDN generic transparency descriptor OLI value for the Calling Party Category.
+     */
     public function setGtdOliValue($gtdOliValue = null)
     {
         $this->gtdOliValue = ($gtdOliValue InstanceOf ISDNGenericTransparencyDescriptorOliValue)
@@ -64,56 +80,97 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
              : new ISDNGenericTransparencyDescriptorOliValue($gtdOliValue);
     }
 
+    /**
+     * ISDN generic transparency descriptor OLI value for the Calling Party Category.
+     */
     public function getGtdOliValue()
     {
-        return (!$this->gtdOliValue) ?: $this->gtdOliValue->value();
+        return (!$this->gtdOliValue) ?: $this->gtdOliValue->getValue();
     }
 
-    public function setUserCategory(xs:boolean $userCategory = null)
+    /**
+     * 
+     */
+    public function setUserCategory($userCategory = null)
     {
+        $this->userCategory = (boolean) $userCategory;
     }
 
+    /**
+     * 
+     */
     public function getUserCategory()
     {
-        return (!$this->userCategory) ?: $this->userCategory->value();
+        return (!$this->userCategory) ?: $this->userCategory->getValue();
     }
 
-    public function setPayPhone(xs:boolean $payPhone = null)
+    /**
+     * 
+     */
+    public function setPayPhone($payPhone = null)
     {
+        $this->payPhone = (boolean) $payPhone;
     }
 
+    /**
+     * 
+     */
     public function getPayPhone()
     {
-        return (!$this->payPhone) ?: $this->payPhone->value();
+        return (!$this->payPhone) ?: $this->payPhone->getValue();
     }
 
-    public function setOperator(xs:boolean $operator = null)
+    /**
+     * 
+     */
+    public function setOperator($operator = null)
     {
+        $this->operator = (boolean) $operator;
     }
 
+    /**
+     * 
+     */
     public function getOperator()
     {
-        return (!$this->operator) ?: $this->operator->value();
+        return (!$this->operator) ?: $this->operator->getValue();
     }
 
-    public function setDefault(xs:boolean $default = null)
+    /**
+     * 
+     */
+    public function setDefault($default = null)
     {
+        $this->default = (boolean) $default;
     }
 
+    /**
+     * 
+     */
     public function getDefault()
     {
-        return (!$this->default) ?: $this->default->value();
+        return (!$this->default) ?: $this->default->getValue();
     }
 
-    public function setCollectCall(xs:boolean $collectCall = null)
+    /**
+     * 
+     */
+    public function setCollectCall($collectCall = null)
     {
+        $this->collectCall = (boolean) $collectCall;
     }
 
+    /**
+     * 
+     */
     public function getCollectCall()
     {
-        return (!$this->collectCall) ?: $this->collectCall->value();
+        return (!$this->collectCall) ?: $this->collectCall->getValue();
     }
 
+    /**
+     * The web display key used for localization.
+     */
     public function setWebDisplayKey($webDisplayKey = null)
     {
         $this->webDisplayKey = ($webDisplayKey InstanceOf WebDisplayKey)
@@ -121,8 +178,11 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
              : new WebDisplayKey($webDisplayKey);
     }
 
+    /**
+     * The web display key used for localization.
+     */
     public function getWebDisplayKey()
     {
-        return (!$this->webDisplayKey) ?: $this->webDisplayKey->value();
+        return (!$this->webDisplayKey) ?: $this->webDisplayKey->getValue();
     }
 }

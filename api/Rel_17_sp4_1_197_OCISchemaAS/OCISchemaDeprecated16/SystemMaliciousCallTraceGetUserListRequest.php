@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the list of users that use the Malicious Call Trace feature.
+     * Request the list of users that use the Malicious Call Trace feature.
  *         The response is either a SystemMaliciousCallTraceGetUserListResponse or an
  *         ErrorResponse.
  *         Replaced By: SystemMaliciousCallTraceGetRequest
  */
 class SystemMaliciousCallTraceGetUserListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemMaliciousCallTraceGetUserListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a Call Center Call Disposition Code.
+     * Modify a Call Center Call Disposition Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $code               = null;
-    protected $isActive           = null;
-    protected $description        = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $code              = null;
+    protected $isActive          = null;
+    protected $description       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -42,6 +42,10 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
         $this->setDescription($description);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -49,11 +53,19 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -61,11 +73,18 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function setCode($code = null)
     {
         $this->code = ($code InstanceOf CallDispositionCode)
@@ -73,20 +92,33 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
              : new CallDispositionCode($code);
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Call Center Call Disposition Code Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf CallDispositionCodeDescription)
@@ -94,8 +126,11 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
              : new CallDispositionCodeDescription($description);
     }
 
+    /**
+     * Call Center Call Disposition Code Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

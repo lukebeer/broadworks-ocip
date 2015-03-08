@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCustomContactDirectoryGetRequest.
+     * Response to the GroupCustomContactDirectoryGetRequest.
  *         The response contains all the group's custom contact directory names.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  * 
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCustomContactDirectoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $userTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCustomContactDirectoryGetResponse';
+    public    $name      = __CLASS__;
+    protected $userTable = null;
 
 
+    /**
+     * 
+     */
     public function setUserTable(core:OCITable $userTable = null)
     {
+        $this->userTable = core:OCITable $userTable;
     }
 
+    /**
+     * 
+     */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->value();
+        return (!$this->userTable) ?: $this->userTable->getValue();
     }
 }

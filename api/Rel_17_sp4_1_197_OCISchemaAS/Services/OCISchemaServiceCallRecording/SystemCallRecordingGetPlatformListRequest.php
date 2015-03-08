@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get list of Call Recording platforms.
+     * Get list of Call Recording platforms.
  *         The response is either SystemCallRecordingGetPlatformListResponse or ErrorResponse.
  */
 class SystemCallRecordingGetPlatformListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

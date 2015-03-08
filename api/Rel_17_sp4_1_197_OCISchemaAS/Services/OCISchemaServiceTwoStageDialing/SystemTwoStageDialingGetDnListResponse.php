@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemTwoStageDialingGetDnListRequest.
+     * Response to SystemTwoStageDialingGetDnListRequest.
  *           The Two Stage Dialing DN List table column
  *           headings are: "Phone Number",  "Description".
  */
 class SystemTwoStageDialingGetDnListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $phoneNumberTable  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
+    public    $name             = __CLASS__;
+    protected $phoneNumberTable = null;
 
 
+    /**
+     * 
+     */
     public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
+        $this->phoneNumberTable = core:OCITable $phoneNumberTable;
     }
 
+    /**
+     * 
+     */
     public function getPhoneNumberTable()
     {
-        return (!$this->phoneNumberTable) ?: $this->phoneNumberTable->value();
+        return (!$this->phoneNumberTable) ?: $this->phoneNumberTable->getValue();
     }
 }

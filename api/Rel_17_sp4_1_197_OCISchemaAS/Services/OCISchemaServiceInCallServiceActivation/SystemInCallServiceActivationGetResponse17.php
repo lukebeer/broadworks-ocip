@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemInCallServiceActivationGetRequest17.
+     * Response to SystemInCallServiceActivationGetRequest17.
  */
 class SystemInCallServiceActivationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
-    protected $defaultFlashActivationDigits         = null;
-    protected $defaultCallTransferActivationDigits  = null;
+    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation\SystemInCallServiceActivationGetResponse17';
+    public    $name                                = __CLASS__;
+    protected $defaultFlashActivationDigits        = null;
+    protected $defaultCallTransferActivationDigits = null;
 
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setDefaultFlashActivationDigits($defaultFlashActivationDigits = null)
     {
         $this->defaultFlashActivationDigits = ($defaultFlashActivationDigits InstanceOf InCallServiceActivationDigits)
@@ -29,11 +33,17 @@ class SystemInCallServiceActivationGetResponse17 extends ComplexType implements 
              : new InCallServiceActivationDigits($defaultFlashActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getDefaultFlashActivationDigits()
     {
-        return (!$this->defaultFlashActivationDigits) ?: $this->defaultFlashActivationDigits->value();
+        return (!$this->defaultFlashActivationDigits) ?: $this->defaultFlashActivationDigits->getValue();
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setDefaultCallTransferActivationDigits($defaultCallTransferActivationDigits = null)
     {
         $this->defaultCallTransferActivationDigits = ($defaultCallTransferActivationDigits InstanceOf InCallServiceActivationDigits)
@@ -41,8 +51,11 @@ class SystemInCallServiceActivationGetResponse17 extends ComplexType implements 
              : new InCallServiceActivationDigits($defaultCallTransferActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getDefaultCallTransferActivationDigits()
     {
-        return (!$this->defaultCallTransferActivationDigits) ?: $this->defaultCallTransferActivationDigits->value();
+        return (!$this->defaultCallTransferActivationDigits) ?: $this->defaultCallTransferActivationDigits->getValue();
     }
 }

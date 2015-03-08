@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the file repository information.
+     * Request to get the file repository information.
  *             The response is either SystemFileRepositoryDeviceGetResponse or ErrorResponse.
  */
 class SystemFileRepositoryDeviceGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemFileRepositoryDeviceGetResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +28,9 @@ class SystemFileRepositoryDeviceGetRequest extends ComplexType implements Comple
         $this->setName($name);
     }
 
+    /**
+     * File repository name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf FileRepositoryName)
@@ -34,8 +38,11 @@ class SystemFileRepositoryDeviceGetRequest extends ComplexType implements Comple
              : new FileRepositoryName($name);
     }
 
+    /**
+     * File repository name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

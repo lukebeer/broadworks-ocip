@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a digit routing table entry in the system.
+     * Request to modify a digit routing table entry in the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutingModifyTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $digits     = null;
-    protected $routeName  = null;
+    public    $name      = __CLASS__;
+    protected $digits    = null;
+    protected $routeName = null;
 
     public function __construct(
          $digits,
@@ -31,6 +31,10 @@ class SystemRoutingModifyTranslationRequest extends ComplexType implements Compl
         $this->setRouteName($routeName);
     }
 
+    /**
+     * Digit pattern used to route a call -- a 3 to 6 digit number.
+     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     */
     public function setDigits($digits = null)
     {
         $this->digits = ($digits InstanceOf RoutingDigits)
@@ -38,11 +42,18 @@ class SystemRoutingModifyTranslationRequest extends ComplexType implements Compl
              : new RoutingDigits($digits);
     }
 
+    /**
+     * Digit pattern used to route a call -- a 3 to 6 digit number.
+     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     */
     public function getDigits()
     {
-        return (!$this->digits) ?: $this->digits->value();
+        return (!$this->digits) ?: $this->digits->getValue();
     }
 
+    /**
+     * Route name.
+     */
     public function setRouteName($routeName = null)
     {
         $this->routeName = ($routeName InstanceOf RouteName)
@@ -50,8 +61,11 @@ class SystemRoutingModifyTranslationRequest extends ComplexType implements Compl
              : new RouteName($routeName);
     }
 
+    /**
+     * Route name.
+     */
     public function getRouteName()
     {
-        return (!$this->routeName) ?: $this->routeName->value();
+        return (!$this->routeName) ?: $this->routeName->getValue();
     }
 }

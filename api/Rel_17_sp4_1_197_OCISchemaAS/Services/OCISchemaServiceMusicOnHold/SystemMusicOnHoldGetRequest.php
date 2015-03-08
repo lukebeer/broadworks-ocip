@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Music On Hold.
+     * Request the system level data associated with Music On Hold.
  *         The response is either a SystemMusicOnHoldGetResponse or an
  *         ErrorResponse.
  */
 class SystemMusicOnHoldGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\SystemMusicOnHoldGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

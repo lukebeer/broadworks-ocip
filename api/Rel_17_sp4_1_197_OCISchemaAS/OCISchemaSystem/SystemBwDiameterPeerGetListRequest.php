@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of Diameter peers.
+     * Requests the list of Diameter peers.
  *         The response is either SystemBwDiameterPeerGetListResponse or ErrorResponse
  */
 class SystemBwDiameterPeerGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterPeerGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,21 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupTrunkGroupGetAvailableDetailListRequest.
+     * Response to GroupTrunkGroupGetAvailableDetailListRequest.
  */
 class GroupTrunkGroupGetAvailableDetailListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $trunkGroup  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupTrunkGroupGetAvailableDetailListResponse';
+    public    $name       = __CLASS__;
+    protected $trunkGroup = null;
 
 
+    /**
+     * 
+     */
     public function setTrunkGroup($trunkGroup = null)
     {
         $this->trunkGroup = $trunkGroup;
     }
 
+    /**
+     * 
+     */
     public function getTrunkGroup()
     {
-        return (!$this->trunkGroup) ?: $this->trunkGroup->value();
+        return (!$this->trunkGroup) ?: $this->trunkGroup->getValue();
     }
 }

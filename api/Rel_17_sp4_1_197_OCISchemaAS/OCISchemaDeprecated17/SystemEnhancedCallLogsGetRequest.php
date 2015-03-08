@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Enhanced Call Logs.
+     * Request the system level data associated with Enhanced Call Logs.
  *         The response is either a SystemEnhancedCallLogsGetResponse or an
  *         ErrorResponse.
  */
 class SystemEnhancedCallLogsGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemEnhancedCallLogsGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

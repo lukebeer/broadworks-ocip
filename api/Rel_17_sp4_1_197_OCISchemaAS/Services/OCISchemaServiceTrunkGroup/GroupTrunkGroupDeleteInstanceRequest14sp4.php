@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Trunk Group Instance from a group.
+     * Delete a Trunk Group Instance from a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $trunkGroupKey  = null;
+    public    $name          = __CLASS__;
+    protected $trunkGroupKey = null;
 
     public function __construct(
          TrunkGroupKey $trunkGroupKey
@@ -27,12 +27,21 @@ class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements C
         $this->setTrunkGroupKey($trunkGroupKey);
     }
 
+    /**
+     * Uniquely identifies a Trunk Group system-wide.
+     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
+        $this->trunkGroupKey = TrunkGroupKey $trunkGroupKey;
     }
 
+    /**
+     * Uniquely identifies a Trunk Group system-wide.
+     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     */
     public function getTrunkGroupKey()
     {
-        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->value();
+        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->getValue();
     }
 }

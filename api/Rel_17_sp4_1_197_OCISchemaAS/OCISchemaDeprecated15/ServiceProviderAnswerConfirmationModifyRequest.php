@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a service provider or enterprise's answer confirmation settings.
+     * Modify a service provider or enterprise's answer confirmation settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced By: ServiceProviderAnswerConfirmationModifyRequest16
  */
 class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $serviceProviderId             = null;
-    protected $announcementMessageSelection  = null;
-    protected $confirmationMessageAudioFile  = null;
-    protected $confirmationTimoutSeconds     = null;
+    public    $name                         = __CLASS__;
+    protected $serviceProviderId            = null;
+    protected $announcementMessageSelection = null;
+    protected $confirmationMessageAudioFile = null;
+    protected $confirmationTimoutSeconds    = null;
 
     public function __construct(
          $serviceProviderId,
@@ -40,6 +40,10 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
         $this->setConfirmationTimoutSeconds($confirmationTimoutSeconds);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -47,11 +51,18 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Anser Confirmation Announcement Selection.
+     */
     public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
@@ -59,20 +70,35 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
     }
 
+    /**
+     * Anser Confirmation Announcement Selection.
+     */
     public function getAnnouncementMessageSelection()
     {
-        return (!$this->announcementMessageSelection) ?: $this->announcementMessageSelection->value();
+        return (!$this->announcementMessageSelection) ?: $this->announcementMessageSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setConfirmationMessageAudioFile(LabeledFileResource $confirmationMessageAudioFile = null)
     {
+        $this->confirmationMessageAudioFile = LabeledFileResource $confirmationMessageAudioFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getConfirmationMessageAudioFile()
     {
-        return (!$this->confirmationMessageAudioFile) ?: $this->confirmationMessageAudioFile->value();
+        return (!$this->confirmationMessageAudioFile) ?: $this->confirmationMessageAudioFile->getValue();
     }
 
+    /**
+     * The timer determines how long the system will wait for the confirmation.
+     */
     public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
@@ -80,8 +106,11 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
     }
 
+    /**
+     * The timer determines how long the system will wait for the confirmation.
+     */
     public function getConfirmationTimoutSeconds()
     {
-        return (!$this->confirmationTimoutSeconds) ?: $this->confirmationTimoutSeconds->value();
+        return (!$this->confirmationTimoutSeconds) ?: $this->confirmationTimoutSeconds->getValue();
     }
 }

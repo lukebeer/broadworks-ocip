@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemRoutePointExternalSystemApplicationControllerGetRequest.
+     * Response to the SystemRoutePointExternalSystemApplicationControllerGetRequest.
  */
 class SystemRoutePointExternalSystemApplicationControllerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $applicationController  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemApplicationControllerGetResponse';
+    public    $name                  = __CLASS__;
+    protected $applicationController = null;
 
 
+    /**
+     * The application controller name.
+     */
     public function setApplicationController($applicationController = null)
     {
         $this->applicationController = ($applicationController InstanceOf ApplicationControllerName)
@@ -28,8 +32,11 @@ class SystemRoutePointExternalSystemApplicationControllerGetResponse extends Com
              : new ApplicationControllerName($applicationController);
     }
 
+    /**
+     * The application controller name.
+     */
     public function getApplicationController()
     {
-        return (!$this->applicationController) ?: $this->applicationController->value();
+        return (!$this->applicationController) ?: $this->applicationController->getValue();
     }
 }

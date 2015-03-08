@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for an organization type.
+     * Criteria for searching for an organization type.
  */
 class SearchCriteriaExactOrganizationType extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $organizationType  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactOrganizationType';
+    public    $name             = __CLASS__;
+    protected $organizationType = null;
 
     public function __construct(
          $organizationType
@@ -26,6 +27,9 @@ class SearchCriteriaExactOrganizationType extends ComplexType implements Complex
         $this->setOrganizationType($organizationType);
     }
 
+    /**
+     * Types of organizations.
+     */
     public function setOrganizationType($organizationType = null)
     {
         $this->organizationType = ($organizationType InstanceOf OrganizationType)
@@ -33,8 +37,11 @@ class SearchCriteriaExactOrganizationType extends ComplexType implements Complex
              : new OrganizationType($organizationType);
     }
 
+    /**
+     * Types of organizations.
+     */
     public function getOrganizationType()
     {
-        return (!$this->organizationType) ?: $this->organizationType->value();
+        return (!$this->organizationType) ?: $this->organizationType->getValue();
     }
 }

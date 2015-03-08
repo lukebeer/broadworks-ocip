@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a list of departments in an enterprise. You may request only the
+     * Request a list of departments in an enterprise. You may request only the
  *         list of departments defined at the enterprise-level, or you may request
  *         the list of all departments in the enterprise including all the departments
  *         defined within the groups inside the enterprise.
@@ -21,9 +21,10 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $enterpriseId             = null;
-    protected $includeGroupDepartments  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetListResponse';
+    public    $name                    = __CLASS__;
+    protected $enterpriseId            = null;
+    protected $includeGroupDepartments = null;
 
     public function __construct(
          $enterpriseId,
@@ -33,6 +34,10 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
         $this->setIncludeGroupDepartments($includeGroupDepartments);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setEnterpriseId($enterpriseId = null)
     {
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
@@ -40,17 +45,28 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
              : new ServiceProviderId($enterpriseId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getEnterpriseId()
     {
-        return (!$this->enterpriseId) ?: $this->enterpriseId->value();
+        return (!$this->enterpriseId) ?: $this->enterpriseId->getValue();
     }
 
-    public function setIncludeGroupDepartments(xs:boolean $includeGroupDepartments = null)
+    /**
+     * 
+     */
+    public function setIncludeGroupDepartments($includeGroupDepartments = null)
     {
+        $this->includeGroupDepartments = (boolean) $includeGroupDepartments;
     }
 
+    /**
+     * 
+     */
     public function getIncludeGroupDepartments()
     {
-        return (!$this->includeGroupDepartments) ?: $this->includeGroupDepartments->value();
+        return (!$this->includeGroupDepartments) ?: $this->includeGroupDepartments->getValue();
     }
 }

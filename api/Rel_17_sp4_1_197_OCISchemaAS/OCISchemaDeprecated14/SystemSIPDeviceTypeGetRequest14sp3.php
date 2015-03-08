@@ -13,15 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a sip device type.
+     * Request to get a sip device type.
  *           See Also: SystemDeviceTypeGetRequest
  *           The response is either SystemSIPDeviceTypeGetResponse14sp3 or ErrorResponse.
  *           Replaced by: SystemSIPDeviceTypeGetRequest14sp6
  */
 class SystemSIPDeviceTypeGetRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSIPDeviceTypeGetResponse14sp3';
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
 
     public function __construct(
          $deviceType
@@ -29,6 +30,9 @@ class SystemSIPDeviceTypeGetRequest14sp3 extends ComplexType implements ComplexI
         $this->setDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -36,8 +40,11 @@ class SystemSIPDeviceTypeGetRequest14sp3 extends ComplexType implements ComplexI
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 }

@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the enterprise level data associated with Voice VPN location code.
+     * Request the enterprise level data associated with Voice VPN location code.
  *         The response is either a EnterpriseVoiceVPNGetPolicyResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $serviceProviderId    = null;
-    protected $locationDialingCode  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $locationDialingCode = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
         $this->setLocationDialingCode($locationDialingCode);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,18 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN location code.
+     */
     public function setLocationDialingCode($locationDialingCode = null)
     {
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
@@ -50,8 +62,11 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
     }
 
+    /**
+     * Enterprise Voice VPN location code.
+     */
     public function getLocationDialingCode()
     {
-        return (!$this->locationDialingCode) ?: $this->locationDialingCode->value();
+        return (!$this->locationDialingCode) ?: $this->locationDialingCode->getValue();
     }
 }

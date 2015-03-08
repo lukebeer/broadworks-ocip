@@ -14,17 +14,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the distinctive ringing configuration values for route point.
+     * Modify the distinctive ringing configuration values for route point.
  *         
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
-    protected $serviceUserId                               = null;
-    protected $enableDistinctiveRinging                    = null;
-    protected $distinctiveRingingRingPattern               = null;
-    protected $distinctiveRingingForceDeliveryRingPattern  = null;
+    public    $name                                       = __CLASS__;
+    protected $serviceUserId                              = null;
+    protected $enableDistinctiveRinging                   = null;
+    protected $distinctiveRingingRingPattern              = null;
+    protected $distinctiveRingingForceDeliveryRingPattern = null;
 
     public function __construct(
          $serviceUserId,
@@ -38,6 +38,13 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
         $this->setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -45,20 +52,37 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
-    public function setEnableDistinctiveRinging(xs:boolean $enableDistinctiveRinging = null)
+    /**
+     * 
+     */
+    public function setEnableDistinctiveRinging($enableDistinctiveRinging = null)
     {
+        $this->enableDistinctiveRinging = (boolean) $enableDistinctiveRinging;
     }
 
+    /**
+     * 
+     */
     public function getEnableDistinctiveRinging()
     {
-        return (!$this->enableDistinctiveRinging) ?: $this->enableDistinctiveRinging->value();
+        return (!$this->enableDistinctiveRinging) ?: $this->enableDistinctiveRinging->getValue();
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function setDistinctiveRingingRingPattern($distinctiveRingingRingPattern = null)
     {
         $this->distinctiveRingingRingPattern = ($distinctiveRingingRingPattern InstanceOf RingPattern)
@@ -66,11 +90,17 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
              : new RingPattern($distinctiveRingingRingPattern);
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function getDistinctiveRingingRingPattern()
     {
-        return (!$this->distinctiveRingingRingPattern) ?: $this->distinctiveRingingRingPattern->value();
+        return (!$this->distinctiveRingingRingPattern) ?: $this->distinctiveRingingRingPattern->getValue();
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
         $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
@@ -78,8 +108,11 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
              : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {
-        return (!$this->distinctiveRingingForceDeliveryRingPattern) ?: $this->distinctiveRingingForceDeliveryRingPattern->value();
+        return (!$this->distinctiveRingingForceDeliveryRingPattern) ?: $this->distinctiveRingingForceDeliveryRingPattern->getValue();
     }
 }

@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemZoneNetAddressGetListRequest.
+     * Response to SystemZoneNetAddressGetListRequest.
  */
 class SystemZoneNetAddressGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $netAddress       = null;
-    protected $netAddressRange  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneNetAddressGetListResponse';
+    public    $name            = __CLASS__;
+    protected $netAddress      = null;
+    protected $netAddressRange = null;
 
 
+    /**
+     * Numeric IP Address.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf IPAddress)
@@ -30,17 +34,27 @@ class SystemZoneNetAddressGetListResponse extends ComplexType implements Complex
              : new IPAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * IP Address Range.
+     */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
+        $this->netAddressRange = IPAddressRange $netAddressRange;
     }
 
+    /**
+     * IP Address Range.
+     */
     public function getNetAddressRange()
     {
-        return (!$this->netAddressRange) ?: $this->netAddressRange->value();
+        return (!$this->netAddressRange) ?: $this->netAddressRange->getValue();
     }
 }

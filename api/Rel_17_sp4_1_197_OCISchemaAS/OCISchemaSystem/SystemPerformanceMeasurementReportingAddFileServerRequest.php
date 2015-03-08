@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a performance measurements reporting ftp server.
+     * Add a performance measurements reporting ftp server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $ftpHostNetAddress  = null;
-    protected $ftpUserId          = null;
-    protected $ftpUserPassword    = null;
-    protected $passiveFTP         = null;
+    public    $name              = __CLASS__;
+    protected $ftpHostNetAddress = null;
+    protected $ftpUserId         = null;
+    protected $ftpUserPassword   = null;
+    protected $passiveFTP        = null;
 
     public function __construct(
          $ftpHostNetAddress,
@@ -38,6 +38,9 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
         $this->setPassiveFTP($passiveFTP);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
@@ -45,11 +48,17 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
              : new NetAddress($ftpHostNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getFtpHostNetAddress()
     {
-        return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->value();
+        return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->getValue();
     }
 
+    /**
+     * A user id for an FTP server.
+     */
     public function setFtpUserId($ftpUserId = null)
     {
         $this->ftpUserId = ($ftpUserId InstanceOf FTPUserId)
@@ -57,11 +66,17 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
              : new FTPUserId($ftpUserId);
     }
 
+    /**
+     * A user id for an FTP server.
+     */
     public function getFtpUserId()
     {
-        return (!$this->ftpUserId) ?: $this->ftpUserId->value();
+        return (!$this->ftpUserId) ?: $this->ftpUserId->getValue();
     }
 
+    /**
+     * A password for an FTP server.
+     */
     public function setFtpUserPassword($ftpUserPassword = null)
     {
         $this->ftpUserPassword = ($ftpUserPassword InstanceOf FTPUserPassword)
@@ -69,17 +84,27 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
              : new FTPUserPassword($ftpUserPassword);
     }
 
+    /**
+     * A password for an FTP server.
+     */
     public function getFtpUserPassword()
     {
-        return (!$this->ftpUserPassword) ?: $this->ftpUserPassword->value();
+        return (!$this->ftpUserPassword) ?: $this->ftpUserPassword->getValue();
     }
 
-    public function setPassiveFTP(xs:boolean $passiveFTP = null)
+    /**
+     * 
+     */
+    public function setPassiveFTP($passiveFTP = null)
     {
+        $this->passiveFTP = (boolean) $passiveFTP;
     }
 
+    /**
+     * 
+     */
     public function getPassiveFTP()
     {
-        return (!$this->passiveFTP) ?: $this->passiveFTP->value();
+        return (!$this->passiveFTP) ?: $this->passiveFTP->getValue();
     }
 }

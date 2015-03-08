@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemClassmarkGetUtilizationListRequest. 
+     * Response to SystemClassmarkGetUtilizationListRequest. 
  *         Contains a table with the column headings: "User Id", "Group Id", "Service Provider Id",
  *         "Last Name", "First Name", and "Phone Number".
  */
 class SystemClassmarkGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $classmarkUserTable  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\SystemClassmarkGetUtilizationListResponse';
+    public    $name               = __CLASS__;
+    protected $classmarkUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setClassmarkUserTable(core:OCITable $classmarkUserTable = null)
     {
+        $this->classmarkUserTable = core:OCITable $classmarkUserTable;
     }
 
+    /**
+     * 
+     */
     public function getClassmarkUserTable()
     {
-        return (!$this->classmarkUserTable) ?: $this->classmarkUserTable->value();
+        return (!$this->classmarkUserTable) ?: $this->classmarkUserTable->getValue();
     }
 }

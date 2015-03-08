@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request access code data associated with Service Provider level Dial Plan Policy access codes.
+     * Request access code data associated with Service Provider level Dial Plan Policy access codes.
  *         The response is either a ServiceProviderDialPlanPolicyGetAccessCodeResponse or an ErrorResponse.
  */
 class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $accessCode         = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $accessCode        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
         $this->setAccessCode($accessCode);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,19 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Dial Plan Access Code.
+     *         The Access Code may contain digits 0-9, *, and #.
+     */
     public function setAccessCode($accessCode = null)
     {
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
@@ -50,8 +63,12 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
              : new DialPlanAccessCode($accessCode);
     }
 
+    /**
+     * Dial Plan Access Code.
+     *         The Access Code may contain digits 0-9, *, and #.
+     */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->value();
+        return (!$this->accessCode) ?: $this->accessCode->getValue();
     }
 }

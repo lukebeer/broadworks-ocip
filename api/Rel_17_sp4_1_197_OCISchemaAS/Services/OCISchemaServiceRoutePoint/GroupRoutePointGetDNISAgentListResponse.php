@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupRoutePointGetDNISAgentListRequest.
+     * Response to the GroupRoutePointGetDNISAgentListRequest.
  *         Contains a table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupRoutePointGetDNISAgentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $agentTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse';
+    public    $name       = __CLASS__;
+    protected $agentTable = null;
 
 
+    /**
+     * 
+     */
     public function setAgentTable(core:OCITable $agentTable = null)
     {
+        $this->agentTable = core:OCITable $agentTable;
     }
 
+    /**
+     * 
+     */
     public function getAgentTable()
     {
-        return (!$this->agentTable) ?: $this->agentTable->value();
+        return (!$this->agentTable) ?: $this->agentTable->getValue();
     }
 }

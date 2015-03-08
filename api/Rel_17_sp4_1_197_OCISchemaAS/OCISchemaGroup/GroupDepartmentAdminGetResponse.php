@@ -17,28 +17,44 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupDepartmentAdminGetRequest.
+     * Response to the GroupDepartmentAdminGetRequest.
  *         The response contains the group department administrators profile information.
  */
 class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $departmentKey       = null;
-    protected $departmentFullPath  = null;
-    protected $firstName           = null;
-    protected $lastName            = null;
-    protected $language            = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetResponse';
+    public    $name               = __CLASS__;
+    protected $departmentKey      = null;
+    protected $departmentFullPath = null;
+    protected $firstName          = null;
+    protected $lastName           = null;
+    protected $language           = null;
 
 
+    /**
+     * Uniquely identifies a department defined within a group.
+     *         To uniquely identify a group department, we must know the department name and which
+     *         group contains the department.
+     */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
+        $this->departmentKey = GroupDepartmentKey $departmentKey;
     }
 
+    /**
+     * Uniquely identifies a department defined within a group.
+     *         To uniquely identify a group department, we must know the department name and which
+     *         group contains the department.
+     */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->value();
+        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function setDepartmentFullPath($departmentFullPath = null)
     {
         $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentName)
@@ -46,11 +62,18 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
              : new DepartmentName($departmentFullPath);
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function getDepartmentFullPath()
     {
-        return (!$this->departmentFullPath) ?: $this->departmentFullPath->value();
+        return (!$this->departmentFullPath) ?: $this->departmentFullPath->getValue();
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function setFirstName($firstName = null)
     {
         $this->firstName = ($firstName InstanceOf FirstName)
@@ -58,11 +81,17 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
              : new FirstName($firstName);
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->value();
+        return (!$this->firstName) ?: $this->firstName->getValue();
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function setLastName($lastName = null)
     {
         $this->lastName = ($lastName InstanceOf LastName)
@@ -70,11 +99,17 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
              : new LastName($lastName);
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->value();
+        return (!$this->lastName) ?: $this->lastName->getValue();
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -82,8 +117,11 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 }

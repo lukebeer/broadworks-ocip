@@ -16,19 +16,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemAdminGetRequest.
+     * Response to the SystemAdminGetRequest.
  *         The response contains the system or provisioning administrators profile information.
  */
 class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $firstName  = null;
-    protected $lastName   = null;
-    protected $language   = null;
-    protected $adminType  = null;
-    protected $readOnly   = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetResponse';
+    public    $name      = __CLASS__;
+    protected $firstName = null;
+    protected $lastName  = null;
+    protected $language  = null;
+    protected $adminType = null;
+    protected $readOnly  = null;
 
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function setFirstName($firstName = null)
     {
         $this->firstName = ($firstName InstanceOf FirstName)
@@ -36,11 +40,17 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
              : new FirstName($firstName);
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->value();
+        return (!$this->firstName) ?: $this->firstName->getValue();
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function setLastName($lastName = null)
     {
         $this->lastName = ($lastName InstanceOf LastName)
@@ -48,11 +58,17 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
              : new LastName($lastName);
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->value();
+        return (!$this->lastName) ?: $this->lastName->getValue();
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -60,11 +76,17 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 
+    /**
+     * System Administrator types.
+     */
     public function setAdminType($adminType = null)
     {
         $this->adminType = ($adminType InstanceOf SystemAdminType)
@@ -72,17 +94,27 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
              : new SystemAdminType($adminType);
     }
 
+    /**
+     * System Administrator types.
+     */
     public function getAdminType()
     {
-        return (!$this->adminType) ?: $this->adminType->value();
+        return (!$this->adminType) ?: $this->adminType->getValue();
     }
 
-    public function setReadOnly(xs:boolean $readOnly = null)
+    /**
+     * 
+     */
+    public function setReadOnly($readOnly = null)
     {
+        $this->readOnly = (boolean) $readOnly;
     }
 
+    /**
+     * 
+     */
     public function getReadOnly()
     {
-        return (!$this->readOnly) ?: $this->readOnly->value();
+        return (!$this->readOnly) ?: $this->readOnly->getValue();
     }
 }

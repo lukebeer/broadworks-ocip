@@ -13,50 +13,79 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderZoneCallingRestrictionsGetRequest
+     * Response to ServiceProviderZoneCallingRestrictionsGetRequest
  */
 class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                           = __CLASS__;
-    protected $enableZoneCallingRestrictions                  = null;
-    protected $enableOriginationRoamingRestrictions           = null;
-    protected $enableEmergencyOriginationRoamingRestrictions  = null;
-    protected $enableTerminationRoamingRestrictions           = null;
+    const     RESPONSE_TYPE                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions\ServiceProviderZoneCallingRestrictionsGetResponse';
+    public    $name                                          = __CLASS__;
+    protected $enableZoneCallingRestrictions                 = null;
+    protected $enableOriginationRoamingRestrictions          = null;
+    protected $enableEmergencyOriginationRoamingRestrictions = null;
+    protected $enableTerminationRoamingRestrictions          = null;
 
 
-    public function setEnableZoneCallingRestrictions(xs:boolean $enableZoneCallingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableZoneCallingRestrictions($enableZoneCallingRestrictions = null)
     {
+        $this->enableZoneCallingRestrictions = (boolean) $enableZoneCallingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableZoneCallingRestrictions()
     {
-        return (!$this->enableZoneCallingRestrictions) ?: $this->enableZoneCallingRestrictions->value();
+        return (!$this->enableZoneCallingRestrictions) ?: $this->enableZoneCallingRestrictions->getValue();
     }
 
-    public function setEnableOriginationRoamingRestrictions(xs:boolean $enableOriginationRoamingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableOriginationRoamingRestrictions($enableOriginationRoamingRestrictions = null)
     {
+        $this->enableOriginationRoamingRestrictions = (boolean) $enableOriginationRoamingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableOriginationRoamingRestrictions()
     {
-        return (!$this->enableOriginationRoamingRestrictions) ?: $this->enableOriginationRoamingRestrictions->value();
+        return (!$this->enableOriginationRoamingRestrictions) ?: $this->enableOriginationRoamingRestrictions->getValue();
     }
 
-    public function setEnableEmergencyOriginationRoamingRestrictions(xs:boolean $enableEmergencyOriginationRoamingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableEmergencyOriginationRoamingRestrictions($enableEmergencyOriginationRoamingRestrictions = null)
     {
+        $this->enableEmergencyOriginationRoamingRestrictions = (boolean) $enableEmergencyOriginationRoamingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableEmergencyOriginationRoamingRestrictions()
     {
-        return (!$this->enableEmergencyOriginationRoamingRestrictions) ?: $this->enableEmergencyOriginationRoamingRestrictions->value();
+        return (!$this->enableEmergencyOriginationRoamingRestrictions) ?: $this->enableEmergencyOriginationRoamingRestrictions->getValue();
     }
 
-    public function setEnableTerminationRoamingRestrictions(xs:boolean $enableTerminationRoamingRestrictions = null)
+    /**
+     * 
+     */
+    public function setEnableTerminationRoamingRestrictions($enableTerminationRoamingRestrictions = null)
     {
+        $this->enableTerminationRoamingRestrictions = (boolean) $enableTerminationRoamingRestrictions;
     }
 
+    /**
+     * 
+     */
     public function getEnableTerminationRoamingRestrictions()
     {
-        return (!$this->enableTerminationRoamingRestrictions) ?: $this->enableTerminationRoamingRestrictions->value();
+        return (!$this->enableTerminationRoamingRestrictions) ?: $this->enableTerminationRoamingRestrictions->getValue();
     }
 }

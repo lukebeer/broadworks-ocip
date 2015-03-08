@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserSpeedDial100GetListRequest.
+     * Response to the UserSpeedDial100GetListRequest.
  */
 class UserSpeedDial100GetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $prefix          = null;
-    protected $speedDialEntry  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserSpeedDial100GetListResponse';
+    public    $name           = __CLASS__;
+    protected $prefix         = null;
+    protected $speedDialEntry = null;
 
 
+    /**
+     * Speed dial prefix.
+     */
     public function setPrefix($prefix = null)
     {
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
@@ -30,17 +34,29 @@ class UserSpeedDial100GetListResponse extends ComplexType implements ComplexInte
              : new SpeedDialPrefix($prefix);
     }
 
+    /**
+     * Speed dial prefix.
+     */
     public function getPrefix()
     {
-        return (!$this->prefix) ?: $this->prefix->value();
+        return (!$this->prefix) ?: $this->prefix->getValue();
     }
 
+    /**
+     * Modify the speed dial 100 prefix setting for a group.
+     *         The response is either a SuccessResponse or an ErrorResponse.
+     */
     public function setSpeedDialEntry(SpeedDial100Entry $speedDialEntry = null)
     {
+        $this->speedDialEntry = SpeedDial100Entry $speedDialEntry;
     }
 
+    /**
+     * Modify the speed dial 100 prefix setting for a group.
+     *         The response is either a SuccessResponse or an ErrorResponse.
+     */
     public function getSpeedDialEntry()
     {
-        return (!$this->speedDialEntry) ?: $this->speedDialEntry->value();
+        return (!$this->speedDialEntry) ?: $this->speedDialEntry->getValue();
     }
 }

@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the group branding configuration.
+     * Request to modify the group branding configuration.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $brandingChoice     = null;
-    protected $brandingFile       = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $brandingChoice    = null;
+    protected $brandingFile      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
         $this->setBrandingFile($brandingFile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,11 +70,18 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * The call center enhanced reporting Enterprise or Group level branding choice.
+     */
     public function setBrandingChoice($brandingChoice = null)
     {
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
@@ -70,17 +89,29 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
     }
 
+    /**
+     * The call center enhanced reporting Enterprise or Group level branding choice.
+     */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->value();
+        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setBrandingFile(LabeledFileResource $brandingFile = null)
     {
+        $this->brandingFile = LabeledFileResource $brandingFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getBrandingFile()
     {
-        return (!$this->brandingFile) ?: $this->brandingFile->value();
+        return (!$this->brandingFile) ?: $this->brandingFile->getValue();
     }
 }

@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the information of a conference owned by the user.
+     * Get the information of a conference owned by the user.
  *         The response is either UserMeetMeConferencingGetConferenceResponse or ErrorResponse.
  */
 class UserMeetMeConferencingGetConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $userId         = null;
-    protected $conferenceKey  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceResponse';
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $conferenceKey = null;
 
     public function __construct(
          $userId,
@@ -31,6 +32,13 @@ class UserMeetMeConferencingGetConferenceRequest extends ComplexType implements 
         $this->setConferenceKey($conferenceKey);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -38,17 +46,31 @@ class UserMeetMeConferencingGetConferenceRequest extends ComplexType implements 
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Identifier for conference.
+     */
     public function setConferenceKey(MeetMeConferencingConferenceKey $conferenceKey = null)
     {
+        $this->conferenceKey = MeetMeConferencingConferenceKey $conferenceKey;
     }
 
+    /**
+     * Identifier for conference.
+     */
     public function getConferenceKey()
     {
-        return (!$this->conferenceKey) ?: $this->conferenceKey->value();
+        return (!$this->conferenceKey) ?: $this->conferenceKey->getValue();
     }
 }

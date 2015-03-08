@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete one or more entries from a group's common phone list.
+     * Delete one or more entries from a group's common phone list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCommonPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $entryName          = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $entryName         = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
         $this->setEntryName($entryName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +66,18 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function setEntryName($entryName = null)
     {
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
@@ -66,8 +85,11 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
              : new PhoneListEntryName($entryName);
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function getEntryName()
     {
-        return (!$this->entryName) ?: $this->entryName->value();
+        return (!$this->entryName) ?: $this->entryName->getValue();
     }
 }

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The OCIRequest is an abstract type from which all requests are derived.
+     * The OCIRequest is an abstract type from which all requests are derived.
  */
 class OCIRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCIResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

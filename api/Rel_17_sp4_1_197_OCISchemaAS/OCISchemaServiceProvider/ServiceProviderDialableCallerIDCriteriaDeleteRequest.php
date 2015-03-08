@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Dialable Caller ID Criteria.
+     * Delete a Dialable Caller ID Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDialableCallerIDCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $name               = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $name              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderDialableCallerIDCriteriaDeleteRequest extends ComplexType i
         $this->setName($name);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderDialableCallerIDCriteriaDeleteRequest extends ComplexType i
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Dialable Caller ID Criteria name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
@@ -50,8 +61,11 @@ class ServiceProviderDialableCallerIDCriteriaDeleteRequest extends ComplexType i
              : new DialableCallerIDCriteriaName($name);
     }
 
+    /**
+     * Dialable Caller ID Criteria name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

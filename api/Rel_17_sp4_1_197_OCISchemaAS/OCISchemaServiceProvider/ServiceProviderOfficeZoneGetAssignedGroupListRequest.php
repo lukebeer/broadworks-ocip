@@ -17,18 +17,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of groups within a service provider that have a given Office Zone assigned.
+     * Get a list of groups within a service provider that have a given Office Zone assigned.
  *         The response is either a ServiceProviderOfficeZoneGetAssignedGroupListResponse 
  *         or an ErrorResponse.
  */
 class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $serviceProviderId        = null;
-    protected $officeZoneName           = null;
-    protected $responseSizeLimit        = null;
-    protected $searchCriteriaGroupId    = null;
-    protected $searchCriteriaGroupName  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneGetAssignedGroupListResponse';
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $officeZoneName          = null;
+    protected $responseSizeLimit       = null;
+    protected $searchCriteriaGroupId   = null;
+    protected $searchCriteriaGroupName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -44,6 +45,10 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
         $this->setSearchCriteriaGroupName($searchCriteriaGroupName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -51,11 +56,18 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Office Zone name.
+     */
     public function setOfficeZoneName($officeZoneName = null)
     {
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
@@ -63,11 +75,19 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
              : new OfficeZoneName($officeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->value();
+        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -75,26 +95,45 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
+        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
+        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
     }
 
+    /**
+     * Criteria for searching for a group name.
+     */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
+        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
     }
 
+    /**
+     * Criteria for searching for a group name.
+     */
     public function getSearchCriteriaGroupName()
     {
-        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->value();
+        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->getValue();
     }
 }

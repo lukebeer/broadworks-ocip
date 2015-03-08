@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Automatic Hold/Retrieve.
+     * Modify the user level data associated with Automatic Hold/Retrieve.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $userId              = null;
-    protected $isActive            = null;
-    protected $recallTimerSeconds  = null;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $isActive           = null;
+    protected $recallTimerSeconds = null;
 
     public function __construct(
          $userId,
@@ -34,6 +34,13 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
         $this->setRecallTimerSeconds($recallTimerSeconds);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -41,20 +48,37 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Call Timer
+     */
     public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
         $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf AutomaticHoldRetrieveRecallTimerSeconds)
@@ -62,8 +86,11 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
              : new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
     }
 
+    /**
+     * Call Timer
+     */
     public function getRecallTimerSeconds()
     {
-        return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->value();
+        return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->getValue();
     }
 }

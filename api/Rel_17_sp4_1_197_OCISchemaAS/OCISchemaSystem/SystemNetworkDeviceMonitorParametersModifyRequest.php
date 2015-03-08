@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Network Device Polling system parameters.
+     * Request to modify Network Device Polling system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $pollingIntervalMinutes        = null;
-    protected $failedPollingIntervalMinutes  = null;
+    public    $name                         = __CLASS__;
+    protected $pollingIntervalMinutes       = null;
+    protected $failedPollingIntervalMinutes = null;
 
     public function __construct(
          $pollingIntervalMinutes = null,
@@ -31,6 +31,9 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
         $this->setFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
     }
 
+    /**
+     * Network Device polling interval in minutes.
+     */
     public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf NetworkDeviceMonitorPollingIntervalMinutes)
@@ -38,11 +41,17 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
              : new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
     }
 
+    /**
+     * Network Device polling interval in minutes.
+     */
     public function getPollingIntervalMinutes()
     {
-        return (!$this->pollingIntervalMinutes) ?: $this->pollingIntervalMinutes->value();
+        return (!$this->pollingIntervalMinutes) ?: $this->pollingIntervalMinutes->getValue();
     }
 
+    /**
+     * Network Device failed polling interval in minutes.
+     */
     public function setFailedPollingIntervalMinutes($failedPollingIntervalMinutes = null)
     {
         $this->failedPollingIntervalMinutes = ($failedPollingIntervalMinutes InstanceOf NetworkDeviceMonitorFailedPollingIntervalMinutes)
@@ -50,8 +59,11 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
              : new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
     }
 
+    /**
+     * Network Device failed polling interval in minutes.
+     */
     public function getFailedPollingIntervalMinutes()
     {
-        return (!$this->failedPollingIntervalMinutes) ?: $this->failedPollingIntervalMinutes->value();
+        return (!$this->failedPollingIntervalMinutes) ?: $this->failedPollingIntervalMinutes->getValue();
     }
 }

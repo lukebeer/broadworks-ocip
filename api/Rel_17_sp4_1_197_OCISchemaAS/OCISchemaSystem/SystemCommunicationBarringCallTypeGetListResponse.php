@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a SystemCommunicationBarringCallTypeGetListRequest. Contains a table with one row per Communication Barring Call Type.  The table column headings are: "Call Type" and "Network Server Call Type".
+     * Response to a SystemCommunicationBarringCallTypeGetListRequest. Contains a table with one row per Communication Barring Call Type.  The table column headings are: "Call Type" and "Network Server Call Type".
  */
 class SystemCommunicationBarringCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $callTypeTable  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCallTypeGetListResponse';
+    public    $name          = __CLASS__;
+    protected $callTypeTable = null;
 
 
+    /**
+     * 
+     */
     public function setCallTypeTable(core:OCITable $callTypeTable = null)
     {
+        $this->callTypeTable = core:OCITable $callTypeTable;
     }
 
+    /**
+     * 
+     */
     public function getCallTypeTable()
     {
-        return (!$this->callTypeTable) ?: $this->callTypeTable->value();
+        return (!$this->callTypeTable) ?: $this->callTypeTable->getValue();
     }
 }

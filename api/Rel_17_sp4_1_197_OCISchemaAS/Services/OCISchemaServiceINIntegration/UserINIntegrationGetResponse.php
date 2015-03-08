@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserINIntegrationGetRequest
+     * Response to UserINIntegrationGetRequest
  */
 class UserINIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $originatingServiceKey  = null;
-    protected $terminatingServiceKey  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration\UserINIntegrationGetResponse';
+    public    $name                  = __CLASS__;
+    protected $originatingServiceKey = null;
+    protected $terminatingServiceKey = null;
 
 
+    /**
+     * Mobility Manager service key
+     */
     public function setOriginatingServiceKey($originatingServiceKey = null)
     {
         $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
@@ -29,11 +33,17 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
              : new MobilityManagerServiceKey($originatingServiceKey);
     }
 
+    /**
+     * Mobility Manager service key
+     */
     public function getOriginatingServiceKey()
     {
-        return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->value();
+        return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->getValue();
     }
 
+    /**
+     * Mobility Manager service key
+     */
     public function setTerminatingServiceKey($terminatingServiceKey = null)
     {
         $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
@@ -41,8 +51,11 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
              : new MobilityManagerServiceKey($terminatingServiceKey);
     }
 
+    /**
+     * Mobility Manager service key
+     */
     public function getTerminatingServiceKey()
     {
-        return (!$this->terminatingServiceKey) ?: $this->terminatingServiceKey->value();
+        return (!$this->terminatingServiceKey) ?: $this->terminatingServiceKey->getValue();
     }
 }

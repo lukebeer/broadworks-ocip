@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the Service Provider level data associated with Enhanced Call Logs.
+     * Modify the Service Provider level data associated with Enhanced Call Logs.
  *         Configures the maximum number of logged calls and maximum age of your user's call logs.
  *         Log entries are deleted when either of the two limits is reached.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $serviceProviderId   = null;
-    protected $maxLoggedCalls      = null;
-    protected $callExpirationDays  = null;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $maxLoggedCalls     = null;
+    protected $callExpirationDays = null;
 
     public function __construct(
          $serviceProviderId,
@@ -37,6 +37,10 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
         $this->setCallExpirationDays($callExpirationDays);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -44,11 +48,18 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Sets the maximum number of logged calls that can be stored.
+     */
     public function setMaxLoggedCalls($maxLoggedCalls = null)
     {
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls17sp4)
@@ -56,11 +67,17 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
              : new EnhancedCallLogsMaxLoggedCalls17sp4($maxLoggedCalls);
     }
 
+    /**
+     * Sets the maximum number of logged calls that can be stored.
+     */
     public function getMaxLoggedCalls()
     {
-        return (!$this->maxLoggedCalls) ?: $this->maxLoggedCalls->value();
+        return (!$this->maxLoggedCalls) ?: $this->maxLoggedCalls->getValue();
     }
 
+    /**
+     * The maximum length of time the system will store logged calls.
+     */
     public function setCallExpirationDays($callExpirationDays = null)
     {
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
@@ -68,8 +85,11 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
     }
 
+    /**
+     * The maximum length of time the system will store logged calls.
+     */
     public function getCallExpirationDays()
     {
-        return (!$this->callExpirationDays) ?: $this->callExpirationDays->value();
+        return (!$this->callExpirationDays) ?: $this->callExpirationDays->getValue();
     }
 }

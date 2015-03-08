@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Return a table containing the list of users assigned the user service
+     * Return a table containing the list of users assigned the user service
  *         or service pack.  The table contains columns: "User Id", "Last Name",
  *         "First Name", "Department", "Phone Number", "Email Address", "Hiragana Last Name";
  *         "Hiragana First Name"
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $userListTable  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetUserServiceAssignedUserListResponse';
+    public    $name          = __CLASS__;
+    protected $userListTable = null;
 
 
+    /**
+     * 
+     */
     public function setUserListTable(core:OCITable $userListTable = null)
     {
+        $this->userListTable = core:OCITable $userListTable;
     }
 
+    /**
+     * 
+     */
     public function getUserListTable()
     {
-        return (!$this->userListTable) ?: $this->userListTable->value();
+        return (!$this->userListTable) ?: $this->userListTable->getValue();
     }
 }

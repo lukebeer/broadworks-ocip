@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify default Feature Access Codes.
+     * Modify default Feature Access Codes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemFeatureAccessCodeModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $featureAccessCode  = null;
+    public    $name              = __CLASS__;
+    protected $featureAccessCode = null;
 
     public function __construct(
          FeatureAccessCodeEntry $featureAccessCode = null
@@ -27,12 +27,19 @@ class SystemFeatureAccessCodeModifyListRequest extends ComplexType implements Co
         $this->setFeatureAccessCode($featureAccessCode);
     }
 
+    /**
+     * Feature Access Code Entry
+     */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
+        $this->featureAccessCode = FeatureAccessCodeEntry $featureAccessCode;
     }
 
+    /**
+     * Feature Access Code Entry
+     */
     public function getFeatureAccessCode()
     {
-        return (!$this->featureAccessCode) ?: $this->featureAccessCode->value();
+        return (!$this->featureAccessCode) ?: $this->featureAccessCode->getValue();
     }
 }

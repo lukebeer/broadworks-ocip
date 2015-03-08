@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Adds BroadWorks Mobility IMRN numbers to the system. It is possible to add either: 
+     * Adds BroadWorks Mobility IMRN numbers to the system. It is possible to add either: 
  *         a single number, a list of numbers, or a range of numbers, or any combination thereof.
  *         The response is either a SuccessResponse or ErrorResponse.
  */
 class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $imrnNumber   = null;
-    protected $numberRange  = null;
+    public    $name        = __CLASS__;
+    protected $imrnNumber  = null;
+    protected $numberRange = null;
 
     public function __construct(
          $imrnNumber = null,
@@ -32,6 +32,9 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
         $this->setNumberRange($numberRange);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setImrnNumber($imrnNumber = null)
     {
         $this->imrnNumber = ($imrnNumber InstanceOf DN)
@@ -39,17 +42,27 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
              : new DN($imrnNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getImrnNumber()
     {
-        return (!$this->imrnNumber) ?: $this->imrnNumber->value();
+        return (!$this->imrnNumber) ?: $this->imrnNumber->getValue();
     }
 
+    /**
+     * Directory number range. The minimum and maximum values are inclusive.
+     */
     public function setNumberRange(DNRange $numberRange = null)
     {
+        $this->numberRange = DNRange $numberRange;
     }
 
+    /**
+     * Directory number range. The minimum and maximum values are inclusive.
+     */
     public function getNumberRange()
     {
-        return (!$this->numberRange) ?: $this->numberRange->value();
+        return (!$this->numberRange) ?: $this->numberRange->getValue();
     }
 }

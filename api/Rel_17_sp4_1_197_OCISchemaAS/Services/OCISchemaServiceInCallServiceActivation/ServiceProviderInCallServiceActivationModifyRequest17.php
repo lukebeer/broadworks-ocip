@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the service provider's DTMF based in-call service activation trigger attributes.The response is either a SuccessResponse or an ErrorResponse.
+     * Modifies the service provider's DTMF based in-call service activation trigger attributes.The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $serviceProviderId             = null;
-    protected $flashActivationDigits         = null;
-    protected $callTransferActivationDigits  = null;
+    public    $name                         = __CLASS__;
+    protected $serviceProviderId            = null;
+    protected $flashActivationDigits        = null;
+    protected $callTransferActivationDigits = null;
 
     public function __construct(
          $serviceProviderId,
@@ -33,6 +33,10 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
         $this->setCallTransferActivationDigits($callTransferActivationDigits);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -40,11 +44,18 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setFlashActivationDigits($flashActivationDigits = null)
     {
         $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
@@ -52,11 +63,17 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
              : new InCallServiceActivationDigits($flashActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getFlashActivationDigits()
     {
-        return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->value();
+        return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->getValue();
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setCallTransferActivationDigits($callTransferActivationDigits = null)
     {
         $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
@@ -64,8 +81,11 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
              : new InCallServiceActivationDigits($callTransferActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getCallTransferActivationDigits()
     {
-        return (!$this->callTransferActivationDigits) ?: $this->callTransferActivationDigits->value();
+        return (!$this->callTransferActivationDigits) ?: $this->callTransferActivationDigits->getValue();
     }
 }

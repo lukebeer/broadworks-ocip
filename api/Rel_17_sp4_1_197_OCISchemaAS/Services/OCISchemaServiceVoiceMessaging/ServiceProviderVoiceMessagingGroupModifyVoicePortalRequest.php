@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to change the service provider's or enterprise's voice portal settings.
+     * Request to change the service provider's or enterprise's voice portal settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $voicePortalScope   = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $voicePortalScope  = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
         $this->setVoicePortalScope($voicePortalScope);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,23 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Voice Portal Scope.
+     *         The Service Provider option allows users to log in to their voice portal using the voice portal
+     *         of any group that is both hosted on the same application server and within the same service provider
+     *         or enterprise.
+     *         The Group option keeps groups completely independent. Users can only log in to their voice portal
+     *         using the access number for their group.
+     */
     public function setVoicePortalScope($voicePortalScope = null)
     {
         $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
@@ -50,8 +66,16 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
              : new ServiceProviderVoicePortalScope($voicePortalScope);
     }
 
+    /**
+     * Voice Portal Scope.
+     *         The Service Provider option allows users to log in to their voice portal using the voice portal
+     *         of any group that is both hosted on the same application server and within the same service provider
+     *         or enterprise.
+     *         The Group option keeps groups completely independent. Users can only log in to their voice portal
+     *         using the access number for their group.
+     */
     public function getVoicePortalScope()
     {
-        return (!$this->voicePortalScope) ?: $this->voicePortalScope->value();
+        return (!$this->voicePortalScope) ?: $this->voicePortalScope->getValue();
     }
 }

@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a group file repository user.
+     * Delete a group file repository user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $fileRepositoryName  = null;
-    protected $userName            = null;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $fileRepositoryName = null;
+    protected $userName           = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
         $this->setUserName($userName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,11 +70,18 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * File repository name.
+     */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
@@ -70,11 +89,17 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
              : new FileRepositoryName($fileRepositoryName);
     }
 
+    /**
+     * File repository name.
+     */
     public function getFileRepositoryName()
     {
-        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->value();
+        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->getValue();
     }
 
+    /**
+     * A user id for a File Repository.
+     */
     public function setUserName($userName = null)
     {
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
@@ -82,8 +107,11 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
              : new FileRepositoryUserName($userName);
     }
 
+    /**
+     * A user id for a File Repository.
+     */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->value();
+        return (!$this->userName) ?: $this->userName->getValue();
     }
 }

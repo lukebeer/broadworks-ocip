@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Number of allocated ports.
+     * Number of allocated ports.
  *         Unbounded Quantity. Can either be unlimited or an int quantity.
  */
 class InstantConferencingAllocatedPorts extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

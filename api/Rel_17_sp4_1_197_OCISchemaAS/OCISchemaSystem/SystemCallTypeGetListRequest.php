@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of system call types.
+     * Get a list of system call types.
  *         The response is either SystemCallTypeGetListResponse or ErrorResponse.
  */
 class SystemCallTypeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupRoutingProfileGetRequest.
+     * Response to GroupRoutingProfileGetRequest.
  */
 class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $routingProfile  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutingProfileGetResponse';
+    public    $name           = __CLASS__;
+    protected $routingProfile = null;
 
 
+    /**
+     * Routing Profile.
+     */
     public function setRoutingProfile($routingProfile = null)
     {
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
@@ -28,8 +32,11 @@ class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInter
              : new RoutingProfile($routingProfile);
     }
 
+    /**
+     * Routing Profile.
+     */
     public function getRoutingProfile()
     {
-        return (!$this->routingProfile) ?: $this->routingProfile->value();
+        return (!$this->routingProfile) ?: $this->routingProfile->getValue();
     }
 }

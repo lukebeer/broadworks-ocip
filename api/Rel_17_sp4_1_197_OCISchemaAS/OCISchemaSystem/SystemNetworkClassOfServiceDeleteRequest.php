@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Network Class of Service.
+     * Delete a Network Class of Service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
         $this->setName($name);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
@@ -34,8 +37,11 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
              : new NetworkClassOfServiceName($name);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

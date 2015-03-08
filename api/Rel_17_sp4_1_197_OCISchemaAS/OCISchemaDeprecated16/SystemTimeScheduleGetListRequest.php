@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a list of all system time schedules.
+     * Request a list of all system time schedules.
  *         The response is either a SystemTimeScheduleGetListResponse or an ErrorResponse.
  */
 class SystemTimeScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

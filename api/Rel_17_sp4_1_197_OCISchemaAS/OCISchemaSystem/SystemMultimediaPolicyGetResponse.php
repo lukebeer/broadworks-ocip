@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemMultimediaPolicyGetRequest
+     * Response to SystemMultimediaPolicyGetRequest
  */
 class SystemMultimediaPolicyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $restrictNonAudioVideoMediaTypes  = null;
+    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMultimediaPolicyGetResponse';
+    public    $name                            = __CLASS__;
+    protected $restrictNonAudioVideoMediaTypes = null;
 
 
-    public function setRestrictNonAudioVideoMediaTypes(xs:boolean $restrictNonAudioVideoMediaTypes = null)
+    /**
+     * 
+     */
+    public function setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes = null)
     {
+        $this->restrictNonAudioVideoMediaTypes = (boolean) $restrictNonAudioVideoMediaTypes;
     }
 
+    /**
+     * 
+     */
     public function getRestrictNonAudioVideoMediaTypes()
     {
-        return (!$this->restrictNonAudioVideoMediaTypes) ?: $this->restrictNonAudioVideoMediaTypes->value();
+        return (!$this->restrictNonAudioVideoMediaTypes) ?: $this->restrictNonAudioVideoMediaTypes->getValue();
     }
 }

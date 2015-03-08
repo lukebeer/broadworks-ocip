@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserBroadWorksReceptionistSmallBusinessGetRequest.
+     * Response to UserBroadWorksReceptionistSmallBusinessGetRequest.
  *         Returns a 10 column table with column headings:
  *           "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name", 
  *           "Group Id", "Phone Number", "Extension", "Mobile", "Email Address".
  */
 class UserBroadWorksReceptionistSmallBusinessGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $monitoredUserTable  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistSmallBusiness\UserBroadWorksReceptionistSmallBusinessGetResponse';
+    public    $name               = __CLASS__;
+    protected $monitoredUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
+        $this->monitoredUserTable = core:OCITable $monitoredUserTable;
     }
 
+    /**
+     * 
+     */
     public function getMonitoredUserTable()
     {
-        return (!$this->monitoredUserTable) ?: $this->monitoredUserTable->value();
+        return (!$this->monitoredUserTable) ?: $this->monitoredUserTable->getValue();
     }
 }

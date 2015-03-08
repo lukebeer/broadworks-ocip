@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the system's provisioning validation attributes.
+     * Request to get the system's provisioning validation attributes.
  *         The response is either a SystemProvisioningValidationGetResponse14sp2 or ErrorResponse.
  */
 class SystemProvisioningValidationGetRequest14sp2 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemProvisioningValidationGetResponse14sp2';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

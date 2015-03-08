@@ -17,19 +17,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a criteria for the user's selective call acceptance service.
+     * Modify a criteria for the user's selective call acceptance service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $userId           = null;
-    protected $criteriaName     = null;
-    protected $newCriteriaName  = null;
-    protected $timeSchedule     = null;
-    protected $fromDnCriteria   = null;
-    protected $holidaySchedule  = null;
-    protected $blacklisted      = null;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $criteriaName    = null;
+    protected $newCriteriaName = null;
+    protected $timeSchedule    = null;
+    protected $fromDnCriteria  = null;
+    protected $holidaySchedule = null;
+    protected $blacklisted     = null;
 
     public function __construct(
          $userId,
@@ -49,6 +49,13 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
         $this->setBlacklisted($blacklisted);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -56,11 +63,21 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Criteria Name
+     */
     public function setCriteriaName($criteriaName = null)
     {
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
@@ -68,11 +85,17 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
              : new CriteriaName($criteriaName);
     }
 
+    /**
+     * Criteria Name
+     */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->value();
+        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
     }
 
+    /**
+     * Criteria Name
+     */
     public function setNewCriteriaName($newCriteriaName = null)
     {
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
@@ -80,44 +103,75 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
              : new CriteriaName($newCriteriaName);
     }
 
+    /**
+     * Criteria Name
+     */
     public function getNewCriteriaName()
     {
-        return (!$this->newCriteriaName) ?: $this->newCriteriaName->value();
+        return (!$this->newCriteriaName) ?: $this->newCriteriaName->getValue();
     }
 
+    /**
+     * The from dn criteria.
+     */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
+        $this->timeSchedule = TimeSchedule $timeSchedule;
     }
 
+    /**
+     * The from dn criteria.
+     */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->value();
+        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
     }
 
+    /**
+     * The from dn criteria used within a modify request.
+     */
     public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
+        $this->fromDnCriteria = CriteriaFromDnModify $fromDnCriteria;
     }
 
+    /**
+     * The from dn criteria used within a modify request.
+     */
     public function getFromDnCriteria()
     {
-        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->value();
+        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->getValue();
     }
 
+    /**
+     * Holiday Schedule.
+     */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
+        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
     }
 
+    /**
+     * Holiday Schedule.
+     */
     public function getHolidaySchedule()
     {
-        return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
+        return (!$this->holidaySchedule) ?: $this->holidaySchedule->getValue();
     }
 
-    public function setBlacklisted(xs:boolean $blacklisted = null)
+    /**
+     * 
+     */
+    public function setBlacklisted($blacklisted = null)
     {
+        $this->blacklisted = (boolean) $blacklisted;
     }
 
+    /**
+     * 
+     */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->value();
+        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
     }
 }

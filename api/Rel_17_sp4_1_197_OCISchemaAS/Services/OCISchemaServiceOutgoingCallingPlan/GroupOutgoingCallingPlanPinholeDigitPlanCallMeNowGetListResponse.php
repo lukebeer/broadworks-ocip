@@ -14,30 +14,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListRequest.
+     * Response to GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListRequest.
  */
 class GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $groupPermissions       = null;
-    protected $departmentPermissions  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $groupPermissions      = null;
+    protected $departmentPermissions = null;
 
 
+    /**
+     * Outgoing Pinhole Digit Plan Call Me Now call permissions for specified digit patterns.
+     */
     public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $groupPermissions = null)
     {
+        $this->groupPermissions = OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $groupPermissions;
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan Call Me Now call permissions for specified digit patterns.
+     */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->value();
+        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan Call Me Now call permissions for a department.
+     */
     public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions $departmentPermissions = null)
     {
+        $this->departmentPermissions = OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions $departmentPermissions;
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan Call Me Now call permissions for a department.
+     */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->value();
+        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
     }
 }

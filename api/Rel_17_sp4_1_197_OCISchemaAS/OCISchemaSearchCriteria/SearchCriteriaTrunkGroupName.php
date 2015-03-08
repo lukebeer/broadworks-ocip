@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a trunk group
+     * Criteria for searching for a trunk group
  */
 class SearchCriteriaTrunkGroupName extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $mode               = null;
-    protected $value              = null;
-    protected $isCaseInsensitive  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaTrunkGroupName';
+    public    $name              = __CLASS__;
+    protected $mode              = null;
+    protected $value             = null;
+    protected $isCaseInsensitive = null;
 
     public function __construct(
          $mode,
@@ -33,6 +34,9 @@ class SearchCriteriaTrunkGroupName extends ComplexType implements ComplexInterfa
         $this->setIsCaseInsensitive($isCaseInsensitive);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function setMode($mode = null)
     {
         $this->mode = ($mode InstanceOf SearchMode)
@@ -40,11 +44,18 @@ class SearchCriteriaTrunkGroupName extends ComplexType implements ComplexInterfa
              : new SearchMode($mode);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->value();
+        return (!$this->mode) ?: $this->mode->getValue();
     }
 
+    /**
+     * Trunk Group name.
+     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     */
     public function setValue($value = null)
     {
         $this->value = ($value InstanceOf TrunkGroupName)
@@ -52,17 +63,28 @@ class SearchCriteriaTrunkGroupName extends ComplexType implements ComplexInterfa
              : new TrunkGroupName($value);
     }
 
+    /**
+     * Trunk Group name.
+     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->value();
+        return (!$this->value) ?: $this->value->getValue();
     }
 
-    public function setIsCaseInsensitive(xs:boolean $isCaseInsensitive = null)
+    /**
+     * 
+     */
+    public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
+        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
     }
 
+    /**
+     * 
+     */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->value();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
     }
 }

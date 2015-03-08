@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the system's default policy settings.
+     * Requests the system's default policy settings.
  *         The response is either SystemPolicyGetDefaultResponse16sp1 or ErrorResponse.
  */
 class SystemPolicyGetDefaultRequest16sp1 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemPolicyGetDefaultResponse16sp1';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

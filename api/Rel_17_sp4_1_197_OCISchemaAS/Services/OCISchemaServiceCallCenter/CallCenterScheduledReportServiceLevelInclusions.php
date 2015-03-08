@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The call center enhanced reporting scheduled report inclusions related to the Service Level thresholds
+     * The call center enhanced reporting scheduled report inclusions related to the Service Level thresholds
  */
 class CallCenterScheduledReportServiceLevelInclusions extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterScheduledReportServiceLevelInclusions';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

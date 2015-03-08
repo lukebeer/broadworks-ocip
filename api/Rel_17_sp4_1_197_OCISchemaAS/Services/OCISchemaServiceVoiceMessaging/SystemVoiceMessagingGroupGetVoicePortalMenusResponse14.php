@@ -13,306 +13,470 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemVoiceMessagingGroupGetVoicePortalMenusRequest14.
+     * Response to SystemVoiceMessagingGroupGetVoicePortalMenusRequest14.
  */
 class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                                               = __CLASS__;
-    protected $useVoicePortalCustomization                        = null;
-    protected $voicePortalMainMenuKeys                            = null;
-    protected $voiceMessagingMenuKeys                             = null;
-    protected $changeBusyOrNoAnswerGreetingMenuKeys               = null;
-    protected $recordNewGreetingOrPersonalizedNameMenuKeys        = null;
-    protected $deleteAllMessagesMenuKeys                          = null;
-    protected $commPilotExpressProfileMenuKeys                    = null;
-    protected $personalizedNameMenuKeys                           = null;
-    protected $callForwardingOptionsMenuKeys                      = null;
-    protected $changeCallForwardingDestinationMenuKeys            = null;
-    protected $voicePortalCallingMenuKeys                         = null;
-    protected $hotelingMenuKeys                                   = null;
-    protected $passcodeMenuKeys                                   = null;
-    protected $playMessagesMenuKeys                               = null;
-    protected $playMessageMenuKeys                                = null;
-    protected $additionalMessageOptionsMenuKeys                   = null;
-    protected $forwardOrComposeMessageMenuKeys                    = null;
-    protected $replyMessageMenuKeys                               = null;
-    protected $sendToDistributionListMenuKeys                     = null;
-    protected $selectDistributionListMenuKeys                     = null;
-    protected $reviewSelectedDistributionListMenuKeys             = null;
-    protected $sendMessageToSelectedDistributionListMenuKeys      = null;
-    protected $sendToAllGroupMembersMenuKeys                      = null;
-    protected $sendToPersonMenuKeys                               = null;
-    protected $changeCurrentIntroductionOrMessageOrReplyMenuKeys  = null;
-    protected $voicePortalLoginMenuKeys                           = null;
-    protected $faxMessagingMenuKeys                               = null;
+    const     RESPONSE_TYPE                                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
+    public    $name                                              = __CLASS__;
+    protected $useVoicePortalCustomization                       = null;
+    protected $voicePortalMainMenuKeys                           = null;
+    protected $voiceMessagingMenuKeys                            = null;
+    protected $changeBusyOrNoAnswerGreetingMenuKeys              = null;
+    protected $recordNewGreetingOrPersonalizedNameMenuKeys       = null;
+    protected $deleteAllMessagesMenuKeys                         = null;
+    protected $commPilotExpressProfileMenuKeys                   = null;
+    protected $personalizedNameMenuKeys                          = null;
+    protected $callForwardingOptionsMenuKeys                     = null;
+    protected $changeCallForwardingDestinationMenuKeys           = null;
+    protected $voicePortalCallingMenuKeys                        = null;
+    protected $hotelingMenuKeys                                  = null;
+    protected $passcodeMenuKeys                                  = null;
+    protected $playMessagesMenuKeys                              = null;
+    protected $playMessageMenuKeys                               = null;
+    protected $additionalMessageOptionsMenuKeys                  = null;
+    protected $forwardOrComposeMessageMenuKeys                   = null;
+    protected $replyMessageMenuKeys                              = null;
+    protected $sendToDistributionListMenuKeys                    = null;
+    protected $selectDistributionListMenuKeys                    = null;
+    protected $reviewSelectedDistributionListMenuKeys            = null;
+    protected $sendMessageToSelectedDistributionListMenuKeys     = null;
+    protected $sendToAllGroupMembersMenuKeys                     = null;
+    protected $sendToPersonMenuKeys                              = null;
+    protected $changeCurrentIntroductionOrMessageOrReplyMenuKeys = null;
+    protected $voicePortalLoginMenuKeys                          = null;
+    protected $faxMessagingMenuKeys                              = null;
 
 
-    public function setUseVoicePortalCustomization(xs:boolean $useVoicePortalCustomization = null)
+    /**
+     * 
+     */
+    public function setUseVoicePortalCustomization($useVoicePortalCustomization = null)
     {
+        $this->useVoicePortalCustomization = (boolean) $useVoicePortalCustomization;
     }
 
+    /**
+     * 
+     */
     public function getUseVoicePortalCustomization()
     {
-        return (!$this->useVoicePortalCustomization) ?: $this->useVoicePortalCustomization->value();
+        return (!$this->useVoicePortalCustomization) ?: $this->useVoicePortalCustomization->getValue();
     }
 
-    public function setVoicePortalMainMenuKeys(xs:boolean $voicePortalMainMenuKeys = null)
+    /**
+     * 
+     */
+    public function setVoicePortalMainMenuKeys($voicePortalMainMenuKeys = null)
     {
         $this->voicePortalMainMenuKeys = $voicePortalMainMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getVoicePortalMainMenuKeys()
     {
-        return (!$this->voicePortalMainMenuKeys) ?: $this->voicePortalMainMenuKeys->value();
+        return (!$this->voicePortalMainMenuKeys) ?: $this->voicePortalMainMenuKeys->getValue();
     }
 
-    public function setVoiceMessagingMenuKeys(xs:boolean $voiceMessagingMenuKeys = null)
+    /**
+     * 
+     */
+    public function setVoiceMessagingMenuKeys($voiceMessagingMenuKeys = null)
     {
         $this->voiceMessagingMenuKeys = $voiceMessagingMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getVoiceMessagingMenuKeys()
     {
-        return (!$this->voiceMessagingMenuKeys) ?: $this->voiceMessagingMenuKeys->value();
+        return (!$this->voiceMessagingMenuKeys) ?: $this->voiceMessagingMenuKeys->getValue();
     }
 
-    public function setChangeBusyOrNoAnswerGreetingMenuKeys(xs:boolean $changeBusyOrNoAnswerGreetingMenuKeys = null)
+    /**
+     * 
+     */
+    public function setChangeBusyOrNoAnswerGreetingMenuKeys($changeBusyOrNoAnswerGreetingMenuKeys = null)
     {
         $this->changeBusyOrNoAnswerGreetingMenuKeys = $changeBusyOrNoAnswerGreetingMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getChangeBusyOrNoAnswerGreetingMenuKeys()
     {
-        return (!$this->changeBusyOrNoAnswerGreetingMenuKeys) ?: $this->changeBusyOrNoAnswerGreetingMenuKeys->value();
+        return (!$this->changeBusyOrNoAnswerGreetingMenuKeys) ?: $this->changeBusyOrNoAnswerGreetingMenuKeys->getValue();
     }
 
-    public function setRecordNewGreetingOrPersonalizedNameMenuKeys(xs:boolean $recordNewGreetingOrPersonalizedNameMenuKeys = null)
+    /**
+     * 
+     */
+    public function setRecordNewGreetingOrPersonalizedNameMenuKeys($recordNewGreetingOrPersonalizedNameMenuKeys = null)
     {
         $this->recordNewGreetingOrPersonalizedNameMenuKeys = $recordNewGreetingOrPersonalizedNameMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getRecordNewGreetingOrPersonalizedNameMenuKeys()
     {
-        return (!$this->recordNewGreetingOrPersonalizedNameMenuKeys) ?: $this->recordNewGreetingOrPersonalizedNameMenuKeys->value();
+        return (!$this->recordNewGreetingOrPersonalizedNameMenuKeys) ?: $this->recordNewGreetingOrPersonalizedNameMenuKeys->getValue();
     }
 
-    public function setDeleteAllMessagesMenuKeys(xs:boolean $deleteAllMessagesMenuKeys = null)
+    /**
+     * 
+     */
+    public function setDeleteAllMessagesMenuKeys($deleteAllMessagesMenuKeys = null)
     {
         $this->deleteAllMessagesMenuKeys = $deleteAllMessagesMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getDeleteAllMessagesMenuKeys()
     {
-        return (!$this->deleteAllMessagesMenuKeys) ?: $this->deleteAllMessagesMenuKeys->value();
+        return (!$this->deleteAllMessagesMenuKeys) ?: $this->deleteAllMessagesMenuKeys->getValue();
     }
 
-    public function setCommPilotExpressProfileMenuKeys(xs:boolean $commPilotExpressProfileMenuKeys = null)
+    /**
+     * 
+     */
+    public function setCommPilotExpressProfileMenuKeys($commPilotExpressProfileMenuKeys = null)
     {
         $this->commPilotExpressProfileMenuKeys = $commPilotExpressProfileMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getCommPilotExpressProfileMenuKeys()
     {
-        return (!$this->commPilotExpressProfileMenuKeys) ?: $this->commPilotExpressProfileMenuKeys->value();
+        return (!$this->commPilotExpressProfileMenuKeys) ?: $this->commPilotExpressProfileMenuKeys->getValue();
     }
 
-    public function setPersonalizedNameMenuKeys(xs:boolean $personalizedNameMenuKeys = null)
+    /**
+     * 
+     */
+    public function setPersonalizedNameMenuKeys($personalizedNameMenuKeys = null)
     {
         $this->personalizedNameMenuKeys = $personalizedNameMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getPersonalizedNameMenuKeys()
     {
-        return (!$this->personalizedNameMenuKeys) ?: $this->personalizedNameMenuKeys->value();
+        return (!$this->personalizedNameMenuKeys) ?: $this->personalizedNameMenuKeys->getValue();
     }
 
-    public function setCallForwardingOptionsMenuKeys(xs:boolean $callForwardingOptionsMenuKeys = null)
+    /**
+     * 
+     */
+    public function setCallForwardingOptionsMenuKeys($callForwardingOptionsMenuKeys = null)
     {
         $this->callForwardingOptionsMenuKeys = $callForwardingOptionsMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getCallForwardingOptionsMenuKeys()
     {
-        return (!$this->callForwardingOptionsMenuKeys) ?: $this->callForwardingOptionsMenuKeys->value();
+        return (!$this->callForwardingOptionsMenuKeys) ?: $this->callForwardingOptionsMenuKeys->getValue();
     }
 
-    public function setChangeCallForwardingDestinationMenuKeys(xs:boolean $changeCallForwardingDestinationMenuKeys = null)
+    /**
+     * 
+     */
+    public function setChangeCallForwardingDestinationMenuKeys($changeCallForwardingDestinationMenuKeys = null)
     {
         $this->changeCallForwardingDestinationMenuKeys = $changeCallForwardingDestinationMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getChangeCallForwardingDestinationMenuKeys()
     {
-        return (!$this->changeCallForwardingDestinationMenuKeys) ?: $this->changeCallForwardingDestinationMenuKeys->value();
+        return (!$this->changeCallForwardingDestinationMenuKeys) ?: $this->changeCallForwardingDestinationMenuKeys->getValue();
     }
 
-    public function setVoicePortalCallingMenuKeys(xs:boolean $voicePortalCallingMenuKeys = null)
+    /**
+     * 
+     */
+    public function setVoicePortalCallingMenuKeys($voicePortalCallingMenuKeys = null)
     {
         $this->voicePortalCallingMenuKeys = $voicePortalCallingMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getVoicePortalCallingMenuKeys()
     {
-        return (!$this->voicePortalCallingMenuKeys) ?: $this->voicePortalCallingMenuKeys->value();
+        return (!$this->voicePortalCallingMenuKeys) ?: $this->voicePortalCallingMenuKeys->getValue();
     }
 
-    public function setHotelingMenuKeys(xs:boolean $hotelingMenuKeys = null)
+    /**
+     * 
+     */
+    public function setHotelingMenuKeys($hotelingMenuKeys = null)
     {
         $this->hotelingMenuKeys = $hotelingMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getHotelingMenuKeys()
     {
-        return (!$this->hotelingMenuKeys) ?: $this->hotelingMenuKeys->value();
+        return (!$this->hotelingMenuKeys) ?: $this->hotelingMenuKeys->getValue();
     }
 
-    public function setPasscodeMenuKeys(xs:boolean $passcodeMenuKeys = null)
+    /**
+     * 
+     */
+    public function setPasscodeMenuKeys($passcodeMenuKeys = null)
     {
         $this->passcodeMenuKeys = $passcodeMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getPasscodeMenuKeys()
     {
-        return (!$this->passcodeMenuKeys) ?: $this->passcodeMenuKeys->value();
+        return (!$this->passcodeMenuKeys) ?: $this->passcodeMenuKeys->getValue();
     }
 
-    public function setPlayMessagesMenuKeys(xs:boolean $playMessagesMenuKeys = null)
+    /**
+     * 
+     */
+    public function setPlayMessagesMenuKeys($playMessagesMenuKeys = null)
     {
         $this->playMessagesMenuKeys = $playMessagesMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getPlayMessagesMenuKeys()
     {
-        return (!$this->playMessagesMenuKeys) ?: $this->playMessagesMenuKeys->value();
+        return (!$this->playMessagesMenuKeys) ?: $this->playMessagesMenuKeys->getValue();
     }
 
-    public function setPlayMessageMenuKeys(xs:boolean $playMessageMenuKeys = null)
+    /**
+     * 
+     */
+    public function setPlayMessageMenuKeys($playMessageMenuKeys = null)
     {
         $this->playMessageMenuKeys = $playMessageMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getPlayMessageMenuKeys()
     {
-        return (!$this->playMessageMenuKeys) ?: $this->playMessageMenuKeys->value();
+        return (!$this->playMessageMenuKeys) ?: $this->playMessageMenuKeys->getValue();
     }
 
-    public function setAdditionalMessageOptionsMenuKeys(xs:boolean $additionalMessageOptionsMenuKeys = null)
+    /**
+     * 
+     */
+    public function setAdditionalMessageOptionsMenuKeys($additionalMessageOptionsMenuKeys = null)
     {
         $this->additionalMessageOptionsMenuKeys = $additionalMessageOptionsMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getAdditionalMessageOptionsMenuKeys()
     {
-        return (!$this->additionalMessageOptionsMenuKeys) ?: $this->additionalMessageOptionsMenuKeys->value();
+        return (!$this->additionalMessageOptionsMenuKeys) ?: $this->additionalMessageOptionsMenuKeys->getValue();
     }
 
-    public function setForwardOrComposeMessageMenuKeys(xs:boolean $forwardOrComposeMessageMenuKeys = null)
+    /**
+     * 
+     */
+    public function setForwardOrComposeMessageMenuKeys($forwardOrComposeMessageMenuKeys = null)
     {
         $this->forwardOrComposeMessageMenuKeys = $forwardOrComposeMessageMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getForwardOrComposeMessageMenuKeys()
     {
-        return (!$this->forwardOrComposeMessageMenuKeys) ?: $this->forwardOrComposeMessageMenuKeys->value();
+        return (!$this->forwardOrComposeMessageMenuKeys) ?: $this->forwardOrComposeMessageMenuKeys->getValue();
     }
 
-    public function setReplyMessageMenuKeys(xs:boolean $replyMessageMenuKeys = null)
+    /**
+     * 
+     */
+    public function setReplyMessageMenuKeys($replyMessageMenuKeys = null)
     {
         $this->replyMessageMenuKeys = $replyMessageMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getReplyMessageMenuKeys()
     {
-        return (!$this->replyMessageMenuKeys) ?: $this->replyMessageMenuKeys->value();
+        return (!$this->replyMessageMenuKeys) ?: $this->replyMessageMenuKeys->getValue();
     }
 
-    public function setSendToDistributionListMenuKeys(xs:boolean $sendToDistributionListMenuKeys = null)
+    /**
+     * 
+     */
+    public function setSendToDistributionListMenuKeys($sendToDistributionListMenuKeys = null)
     {
         $this->sendToDistributionListMenuKeys = $sendToDistributionListMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getSendToDistributionListMenuKeys()
     {
-        return (!$this->sendToDistributionListMenuKeys) ?: $this->sendToDistributionListMenuKeys->value();
+        return (!$this->sendToDistributionListMenuKeys) ?: $this->sendToDistributionListMenuKeys->getValue();
     }
 
-    public function setSelectDistributionListMenuKeys(xs:boolean $selectDistributionListMenuKeys = null)
+    /**
+     * 
+     */
+    public function setSelectDistributionListMenuKeys($selectDistributionListMenuKeys = null)
     {
         $this->selectDistributionListMenuKeys = $selectDistributionListMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getSelectDistributionListMenuKeys()
     {
-        return (!$this->selectDistributionListMenuKeys) ?: $this->selectDistributionListMenuKeys->value();
+        return (!$this->selectDistributionListMenuKeys) ?: $this->selectDistributionListMenuKeys->getValue();
     }
 
-    public function setReviewSelectedDistributionListMenuKeys(xs:boolean $reviewSelectedDistributionListMenuKeys = null)
+    /**
+     * 
+     */
+    public function setReviewSelectedDistributionListMenuKeys($reviewSelectedDistributionListMenuKeys = null)
     {
         $this->reviewSelectedDistributionListMenuKeys = $reviewSelectedDistributionListMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getReviewSelectedDistributionListMenuKeys()
     {
-        return (!$this->reviewSelectedDistributionListMenuKeys) ?: $this->reviewSelectedDistributionListMenuKeys->value();
+        return (!$this->reviewSelectedDistributionListMenuKeys) ?: $this->reviewSelectedDistributionListMenuKeys->getValue();
     }
 
-    public function setSendMessageToSelectedDistributionListMenuKeys(xs:boolean $sendMessageToSelectedDistributionListMenuKeys = null)
+    /**
+     * 
+     */
+    public function setSendMessageToSelectedDistributionListMenuKeys($sendMessageToSelectedDistributionListMenuKeys = null)
     {
         $this->sendMessageToSelectedDistributionListMenuKeys = $sendMessageToSelectedDistributionListMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getSendMessageToSelectedDistributionListMenuKeys()
     {
-        return (!$this->sendMessageToSelectedDistributionListMenuKeys) ?: $this->sendMessageToSelectedDistributionListMenuKeys->value();
+        return (!$this->sendMessageToSelectedDistributionListMenuKeys) ?: $this->sendMessageToSelectedDistributionListMenuKeys->getValue();
     }
 
-    public function setSendToAllGroupMembersMenuKeys(xs:boolean $sendToAllGroupMembersMenuKeys = null)
+    /**
+     * 
+     */
+    public function setSendToAllGroupMembersMenuKeys($sendToAllGroupMembersMenuKeys = null)
     {
         $this->sendToAllGroupMembersMenuKeys = $sendToAllGroupMembersMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getSendToAllGroupMembersMenuKeys()
     {
-        return (!$this->sendToAllGroupMembersMenuKeys) ?: $this->sendToAllGroupMembersMenuKeys->value();
+        return (!$this->sendToAllGroupMembersMenuKeys) ?: $this->sendToAllGroupMembersMenuKeys->getValue();
     }
 
-    public function setSendToPersonMenuKeys(xs:boolean $sendToPersonMenuKeys = null)
+    /**
+     * 
+     */
+    public function setSendToPersonMenuKeys($sendToPersonMenuKeys = null)
     {
         $this->sendToPersonMenuKeys = $sendToPersonMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getSendToPersonMenuKeys()
     {
-        return (!$this->sendToPersonMenuKeys) ?: $this->sendToPersonMenuKeys->value();
+        return (!$this->sendToPersonMenuKeys) ?: $this->sendToPersonMenuKeys->getValue();
     }
 
-    public function setChangeCurrentIntroductionOrMessageOrReplyMenuKeys(xs:boolean $changeCurrentIntroductionOrMessageOrReplyMenuKeys = null)
+    /**
+     * 
+     */
+    public function setChangeCurrentIntroductionOrMessageOrReplyMenuKeys($changeCurrentIntroductionOrMessageOrReplyMenuKeys = null)
     {
         $this->changeCurrentIntroductionOrMessageOrReplyMenuKeys = $changeCurrentIntroductionOrMessageOrReplyMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getChangeCurrentIntroductionOrMessageOrReplyMenuKeys()
     {
-        return (!$this->changeCurrentIntroductionOrMessageOrReplyMenuKeys) ?: $this->changeCurrentIntroductionOrMessageOrReplyMenuKeys->value();
+        return (!$this->changeCurrentIntroductionOrMessageOrReplyMenuKeys) ?: $this->changeCurrentIntroductionOrMessageOrReplyMenuKeys->getValue();
     }
 
-    public function setVoicePortalLoginMenuKeys(xs:boolean $voicePortalLoginMenuKeys = null)
+    /**
+     * 
+     */
+    public function setVoicePortalLoginMenuKeys($voicePortalLoginMenuKeys = null)
     {
         $this->voicePortalLoginMenuKeys = $voicePortalLoginMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getVoicePortalLoginMenuKeys()
     {
-        return (!$this->voicePortalLoginMenuKeys) ?: $this->voicePortalLoginMenuKeys->value();
+        return (!$this->voicePortalLoginMenuKeys) ?: $this->voicePortalLoginMenuKeys->getValue();
     }
 
-    public function setFaxMessagingMenuKeys(xs:boolean $faxMessagingMenuKeys = null)
+    /**
+     * 
+     */
+    public function setFaxMessagingMenuKeys($faxMessagingMenuKeys = null)
     {
         $this->faxMessagingMenuKeys = $faxMessagingMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getFaxMessagingMenuKeys()
     {
-        return (!$this->faxMessagingMenuKeys) ?: $this->faxMessagingMenuKeys->value();
+        return (!$this->faxMessagingMenuKeys) ?: $this->faxMessagingMenuKeys->getValue();
     }
 }

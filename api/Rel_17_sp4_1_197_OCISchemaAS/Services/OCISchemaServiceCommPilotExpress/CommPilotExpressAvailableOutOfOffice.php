@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * CommPilot Express Available Out Of Office Configuration used in the context of a get.
+     * CommPilot Express Available Out Of Office Configuration used in the context of a get.
  */
 class CommPilotExpressAvailableOutOfOffice extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableOutOfOffice';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

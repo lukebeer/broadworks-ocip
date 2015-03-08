@@ -15,16 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a service provider device profile file.
+     * Request to get a service provider device profile file.
  *           The response is either ServiceProviderAccessDeviceFileGetResponse or ErrorResponse.
  *           Replaced By: ServiceProviderAccessDeviceFileGetRequest14sp8
  */
 class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $deviceName         = null;
-    protected $fileType           = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceFileGetResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $deviceName        = null;
+    protected $fileType          = null;
 
     public function __construct(
          $serviceProviderId,
@@ -36,6 +37,10 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
         $this->setFileType($fileType);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -43,11 +48,18 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -55,11 +67,17 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileType($fileType = null)
     {
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
@@ -67,8 +85,11 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
              : new DeviceManagementFileType($fileType);
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileType()
     {
-        return (!$this->fileType) ?: $this->fileType->value();
+        return (!$this->fileType) ?: $this->fileType->getValue();
     }
 }

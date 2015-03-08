@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an entry from the OCI call control application access control list.
+     * Delete an entry from the OCI call control application access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $applicationId  = null;
-    protected $netAddress     = null;
+    public    $name          = __CLASS__;
+    protected $applicationId = null;
+    protected $netAddress    = null;
 
     public function __construct(
          $applicationId,
@@ -31,6 +31,9 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
         $this->setNetAddress($netAddress);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
@@ -38,11 +41,17 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
              : new OCICallControlApplicationId($applicationId);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf IPAddress)
@@ -50,8 +59,11 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
              : new IPAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 }

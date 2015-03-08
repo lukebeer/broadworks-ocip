@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a department to enterprise.
+     * Add a department to enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $enterpriseId         = null;
-    protected $departmentName       = null;
-    protected $parentDepartmentKey  = null;
+    public    $name                = __CLASS__;
+    protected $enterpriseId        = null;
+    protected $departmentName      = null;
+    protected $parentDepartmentKey = null;
 
     public function __construct(
          $enterpriseId,
@@ -35,6 +35,10 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
         $this->setParentDepartmentKey($parentDepartmentKey);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setEnterpriseId($enterpriseId = null)
     {
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
              : new ServiceProviderId($enterpriseId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getEnterpriseId()
     {
-        return (!$this->enterpriseId) ?: $this->enterpriseId->value();
+        return (!$this->enterpriseId) ?: $this->enterpriseId->getValue();
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function setDepartmentName($departmentName = null)
     {
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
@@ -54,17 +66,32 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
              : new DepartmentName($departmentName);
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function getDepartmentName()
     {
-        return (!$this->departmentName) ?: $this->departmentName->value();
+        return (!$this->departmentName) ?: $this->departmentName->getValue();
     }
 
+    /**
+     * Uniquely identifies a department defined within an enterprise.
+     *         To uniquely identify an enterprise department, we must know the department name and which
+     *         enterprise contains the department.
+     */
     public function setParentDepartmentKey(EnterpriseDepartmentKey $parentDepartmentKey = null)
     {
+        $this->parentDepartmentKey = EnterpriseDepartmentKey $parentDepartmentKey;
     }
 
+    /**
+     * Uniquely identifies a department defined within an enterprise.
+     *         To uniquely identify an enterprise department, we must know the department name and which
+     *         enterprise contains the department.
+     */
     public function getParentDepartmentKey()
     {
-        return (!$this->parentDepartmentKey) ?: $this->parentDepartmentKey->value();
+        return (!$this->parentDepartmentKey) ?: $this->parentDepartmentKey->getValue();
     }
 }

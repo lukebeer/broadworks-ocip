@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Alternate Number Entry.
+     * Alternate Number Entry.
  */
 class AlternateNumberEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\AlternateNumberEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest.
+     * Response to the ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest.
  *         The response contains the Digit Pattern Criteria information.
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $description  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse';
+    public    $name        = __CLASS__;
+    protected $description = null;
 
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
@@ -29,8 +33,11 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends
              : new DigitPatternCriteriaDescription($description);
     }
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

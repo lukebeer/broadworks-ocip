@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a static entry in the Realm Routing Table.
+     * Modify a static entry in the Realm Routing Table.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $instance       = null;
-    protected $realm          = null;
-    protected $applicationId  = null;
-    protected $default        = null;
+    public    $name          = __CLASS__;
+    protected $instance      = null;
+    protected $realm         = null;
+    protected $applicationId = null;
+    protected $default       = null;
 
     public function __construct(
          $instance,
@@ -38,6 +38,9 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
         $this->setDefault($default);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function setInstance($instance = null)
     {
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
@@ -45,11 +48,17 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
              : new BwDiameterPeerInstance($instance);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->value();
+        return (!$this->instance) ?: $this->instance->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setRealm($realm = null)
     {
         $this->realm = ($realm InstanceOf DomainName)
@@ -57,11 +66,17 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
              : new DomainName($realm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getRealm()
     {
-        return (!$this->realm) ?: $this->realm->value();
+        return (!$this->realm) ?: $this->realm->getValue();
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
@@ -69,17 +84,27 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
              : new BwDiameterApplicationId($applicationId);
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 
-    public function setDefault(xs:boolean $default = null)
+    /**
+     * 
+     */
+    public function setDefault($default = null)
     {
+        $this->default = (boolean) $default;
     }
 
+    /**
+     * 
+     */
     public function getDefault()
     {
-        return (!$this->default) ?: $this->default->value();
+        return (!$this->default) ?: $this->default->getValue();
     }
 }

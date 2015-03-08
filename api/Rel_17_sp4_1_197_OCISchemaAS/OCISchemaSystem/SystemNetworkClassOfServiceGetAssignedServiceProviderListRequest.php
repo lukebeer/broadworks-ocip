@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a list of service providers that have a given Network Class
+     * Request a list of service providers that have a given Network Class
  *         of Service assigned.
  *         The response is either a
  *         SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse or 
@@ -21,8 +21,9 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkClassOfServiceGetAssignedServiceProviderListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -30,6 +31,9 @@ class SystemNetworkClassOfServiceGetAssignedServiceProviderListRequest extends C
         $this->setName($name);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
@@ -37,8 +41,11 @@ class SystemNetworkClassOfServiceGetAssignedServiceProviderListRequest extends C
              : new NetworkClassOfServiceName($name);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

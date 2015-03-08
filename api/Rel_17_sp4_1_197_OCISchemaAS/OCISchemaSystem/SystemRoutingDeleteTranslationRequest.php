@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a digit routing table entry from the system.
+     * Request to delete a digit routing table entry from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutingDeleteTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
-    protected $digits  = null;
+    public    $name   = __CLASS__;
+    protected $digits = null;
 
     public function __construct(
          $digits
@@ -27,6 +27,10 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
         $this->setDigits($digits);
     }
 
+    /**
+     * Digit pattern used to route a call -- a 3 to 6 digit number.
+     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     */
     public function setDigits($digits = null)
     {
         $this->digits = ($digits InstanceOf RoutingDigits)
@@ -34,8 +38,12 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
              : new RoutingDigits($digits);
     }
 
+    /**
+     * Digit pattern used to route a call -- a 3 to 6 digit number.
+     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     */
     public function getDigits()
     {
-        return (!$this->digits) ?: $this->digits->value();
+        return (!$this->digits) ?: $this->digits->getValue();
     }
 }

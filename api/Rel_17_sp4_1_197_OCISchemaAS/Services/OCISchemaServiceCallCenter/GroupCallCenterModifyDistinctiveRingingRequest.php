@@ -14,16 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the distinctive ringing configuration values for call center.
+     * Modify the distinctive ringing configuration values for call center.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
-    protected $serviceUserId                               = null;
-    protected $distinctiveRingingCallCenterCalls           = null;
-    protected $distinctiveRingingRingPatternForCallCenter  = null;
-    protected $distinctiveRingingForceDeliveryRingPattern  = null;
+    public    $name                                       = __CLASS__;
+    protected $serviceUserId                              = null;
+    protected $distinctiveRingingCallCenterCalls          = null;
+    protected $distinctiveRingingRingPatternForCallCenter = null;
+    protected $distinctiveRingingForceDeliveryRingPattern = null;
 
     public function __construct(
          $serviceUserId,
@@ -37,6 +37,13 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
         $this->setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -44,20 +51,37 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
-    public function setDistinctiveRingingCallCenterCalls(xs:boolean $distinctiveRingingCallCenterCalls = null)
+    /**
+     * 
+     */
+    public function setDistinctiveRingingCallCenterCalls($distinctiveRingingCallCenterCalls = null)
     {
+        $this->distinctiveRingingCallCenterCalls = (boolean) $distinctiveRingingCallCenterCalls;
     }
 
+    /**
+     * 
+     */
     public function getDistinctiveRingingCallCenterCalls()
     {
-        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls->value();
+        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls->getValue();
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter = null)
     {
         $this->distinctiveRingingRingPatternForCallCenter = ($distinctiveRingingRingPatternForCallCenter InstanceOf RingPattern)
@@ -65,11 +89,17 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
              : new RingPattern($distinctiveRingingRingPatternForCallCenter);
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function getDistinctiveRingingRingPatternForCallCenter()
     {
-        return (!$this->distinctiveRingingRingPatternForCallCenter) ?: $this->distinctiveRingingRingPatternForCallCenter->value();
+        return (!$this->distinctiveRingingRingPatternForCallCenter) ?: $this->distinctiveRingingRingPatternForCallCenter->getValue();
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
         $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
@@ -77,8 +107,11 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
              : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {
-        return (!$this->distinctiveRingingForceDeliveryRingPattern) ?: $this->distinctiveRingingForceDeliveryRingPattern->value();
+        return (!$this->distinctiveRingingForceDeliveryRingPattern) ?: $this->distinctiveRingingForceDeliveryRingPattern->getValue();
     }
 }

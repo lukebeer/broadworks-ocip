@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Deletes a list of IP addresses from a zone
+     * Deletes a list of IP addresses from a zone
  *         The response is SuccessResponse or an ErrorResponse.
  *         Replaced by: SystemZoneNetAddressDeleteListRequest
  */
 class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $zoneName         = null;
-    protected $netAddress       = null;
-    protected $netAddressRange  = null;
+    public    $name            = __CLASS__;
+    protected $zoneName        = null;
+    protected $netAddress      = null;
+    protected $netAddressRange = null;
 
     public function __construct(
          $zoneName,
@@ -36,6 +36,9 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
         $this->setNetAddressRange($netAddressRange);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -43,11 +46,17 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf IPAddress)
@@ -55,17 +64,27 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
              : new IPAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * IP Address Range.
+     */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
+        $this->netAddressRange = IPAddressRange $netAddressRange;
     }
 
+    /**
+     * IP Address Range.
+     */
     public function getNetAddressRange()
     {
-        return (!$this->netAddressRange) ?: $this->netAddressRange->value();
+        return (!$this->netAddressRange) ?: $this->netAddressRange->getValue();
     }
 }

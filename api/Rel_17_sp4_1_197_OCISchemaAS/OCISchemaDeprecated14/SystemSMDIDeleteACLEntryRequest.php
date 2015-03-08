@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an entry from the SMDI access control list.
+     * Delete an entry from the SMDI access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $netAddress  = null;
+    public    $name       = __CLASS__;
+    protected $netAddress = null;
 
     public function __construct(
          $netAddress
@@ -27,6 +27,9 @@ class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInte
         $this->setNetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -34,8 +37,11 @@ class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInte
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 }

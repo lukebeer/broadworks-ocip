@@ -13,16 +13,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserChargeNumberGetRequest14sp9.
+     * Response to UserChargeNumberGetRequest14sp9.
  */
 class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
-    protected $phoneNumber                             = null;
-    protected $useChargeNumberForEnhancedTranslations  = null;
-    protected $sendChargeNumberToNetwork               = null;
+    const     RESPONSE_TYPE                           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceChargeNumber\UserChargeNumberGetResponse14sp9';
+    public    $name                                   = __CLASS__;
+    protected $phoneNumber                            = null;
+    protected $useChargeNumberForEnhancedTranslations = null;
+    protected $sendChargeNumberToNetwork              = null;
 
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
@@ -30,26 +34,43 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
              : new DN($phoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->value();
+        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
     }
 
-    public function setUseChargeNumberForEnhancedTranslations(xs:boolean $useChargeNumberForEnhancedTranslations = null)
+    /**
+     * 
+     */
+    public function setUseChargeNumberForEnhancedTranslations($useChargeNumberForEnhancedTranslations = null)
     {
+        $this->useChargeNumberForEnhancedTranslations = (boolean) $useChargeNumberForEnhancedTranslations;
     }
 
+    /**
+     * 
+     */
     public function getUseChargeNumberForEnhancedTranslations()
     {
-        return (!$this->useChargeNumberForEnhancedTranslations) ?: $this->useChargeNumberForEnhancedTranslations->value();
+        return (!$this->useChargeNumberForEnhancedTranslations) ?: $this->useChargeNumberForEnhancedTranslations->getValue();
     }
 
-    public function setSendChargeNumberToNetwork(xs:boolean $sendChargeNumberToNetwork = null)
+    /**
+     * 
+     */
+    public function setSendChargeNumberToNetwork($sendChargeNumberToNetwork = null)
     {
+        $this->sendChargeNumberToNetwork = (boolean) $sendChargeNumberToNetwork;
     }
 
+    /**
+     * 
+     */
     public function getSendChargeNumberToNetwork()
     {
-        return (!$this->sendChargeNumberToNetwork) ?: $this->sendChargeNumberToNetwork->value();
+        return (!$this->sendChargeNumberToNetwork) ?: $this->sendChargeNumberToNetwork->getValue();
     }
 }

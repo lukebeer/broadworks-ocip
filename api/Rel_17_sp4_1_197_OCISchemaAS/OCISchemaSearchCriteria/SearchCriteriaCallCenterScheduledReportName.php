@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a call center enhanced reporting scheduled report name.
+     * Criteria for searching for a call center enhanced reporting scheduled report name.
  */
 class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $mode               = null;
-    protected $value              = null;
-    protected $isCaseInsensitive  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterScheduledReportName';
+    public    $name              = __CLASS__;
+    protected $mode              = null;
+    protected $value             = null;
+    protected $isCaseInsensitive = null;
 
     public function __construct(
          $mode,
@@ -33,6 +34,9 @@ class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements
         $this->setIsCaseInsensitive($isCaseInsensitive);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function setMode($mode = null)
     {
         $this->mode = ($mode InstanceOf SearchMode)
@@ -40,11 +44,17 @@ class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements
              : new SearchMode($mode);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->value();
+        return (!$this->mode) ?: $this->mode->getValue();
     }
 
+    /**
+     * The call center enhanced reporting scheduled report name.
+     */
     public function setValue($value = null)
     {
         $this->value = ($value InstanceOf CallCenterScheduledReportName)
@@ -52,17 +62,27 @@ class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements
              : new CallCenterScheduledReportName($value);
     }
 
+    /**
+     * The call center enhanced reporting scheduled report name.
+     */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->value();
+        return (!$this->value) ?: $this->value->getValue();
     }
 
-    public function setIsCaseInsensitive(xs:boolean $isCaseInsensitive = null)
+    /**
+     * 
+     */
+    public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
+        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
     }
 
+    /**
+     * 
+     */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->value();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
     }
 }

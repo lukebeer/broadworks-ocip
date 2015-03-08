@@ -18,20 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add an Instant Group Call service instance to a group.
+     * Request to add an Instant Group Call service instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceProviderId       = null;
-    protected $groupId                 = null;
-    protected $serviceUserId           = null;
-    protected $serviceInstanceProfile  = null;
-    protected $destinationPhoneNumber  = null;
-    protected $isAnswerTimeoutEnabled  = null;
-    protected $answerTimeoutMinutes    = null;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $groupId                = null;
+    protected $serviceUserId          = null;
+    protected $serviceInstanceProfile = null;
+    protected $destinationPhoneNumber = null;
+    protected $isAnswerTimeoutEnabled = null;
+    protected $answerTimeoutMinutes   = null;
 
     public function __construct(
          $serviceProviderId,
@@ -51,6 +51,10 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->setAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -58,11 +62,19 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -70,11 +82,22 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -82,20 +105,44 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setDestinationPhoneNumber($destinationPhoneNumber = null)
     {
         $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -103,20 +150,40 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
              : new OutgoingDNorSIPURI($destinationPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getDestinationPhoneNumber()
     {
-        return (!$this->destinationPhoneNumber) ?: $this->destinationPhoneNumber->value();
+        return (!$this->destinationPhoneNumber) ?: $this->destinationPhoneNumber->getValue();
     }
 
-    public function setIsAnswerTimeoutEnabled(xs:boolean $isAnswerTimeoutEnabled = null)
+    /**
+     * 
+     */
+    public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled = null)
     {
+        $this->isAnswerTimeoutEnabled = (boolean) $isAnswerTimeoutEnabled;
     }
 
+    /**
+     * 
+     */
     public function getIsAnswerTimeoutEnabled()
     {
-        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->value();
+        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->getValue();
     }
 
+    /**
+     * The maximum duration for unanswered call.
+     */
     public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
         $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
@@ -124,8 +191,11 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
              : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
+    /**
+     * The maximum duration for unanswered call.
+     */
     public function getAnswerTimeoutMinutes()
     {
-        return (!$this->answerTimeoutMinutes) ?: $this->answerTimeoutMinutes->value();
+        return (!$this->answerTimeoutMinutes) ?: $this->answerTimeoutMinutes->getValue();
     }
 }

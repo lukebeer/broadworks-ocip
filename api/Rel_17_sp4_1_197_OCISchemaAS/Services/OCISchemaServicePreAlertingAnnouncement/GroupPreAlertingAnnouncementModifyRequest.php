@@ -18,20 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the group level pre-alerting service settings.
+     * Modify the group level pre-alerting service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $serviceProviderId          = null;
-    protected $groupId                    = null;
-    protected $announcementInterruption   = null;
-    protected $interruptionDigitSequence  = null;
-    protected $audioSelection             = null;
-    protected $audioFile                  = null;
-    protected $videoSelection             = null;
-    protected $videoFile                  = null;
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupId                   = null;
+    protected $announcementInterruption  = null;
+    protected $interruptionDigitSequence = null;
+    protected $audioSelection            = null;
+    protected $audioFile                 = null;
+    protected $videoSelection            = null;
+    protected $videoFile                 = null;
 
     public function __construct(
          $serviceProviderId,
@@ -53,6 +53,10 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->setVideoFile($videoFile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -60,11 +64,19 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -72,11 +84,18 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Pre-alerting Announcement interrupt type.
+     */
     public function setAnnouncementInterruption($announcementInterruption = null)
     {
         $this->announcementInterruption = ($announcementInterruption InstanceOf PreAlertingAnnouncementInterrupt)
@@ -84,11 +103,18 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
              : new PreAlertingAnnouncementInterrupt($announcementInterruption);
     }
 
+    /**
+     * Pre-alerting Announcement interrupt type.
+     */
     public function getAnnouncementInterruption()
     {
-        return (!$this->announcementInterruption) ?: $this->announcementInterruption->value();
+        return (!$this->announcementInterruption) ?: $this->announcementInterruption->getValue();
     }
 
+    /**
+     * Pre-alerting Announcement Interrupt digit sequence.
+     *         The Interrupt digit sequence may contain digits 0-9, *, and #.
+     */
     public function setInterruptionDigitSequence($interruptionDigitSequence = null)
     {
         $this->interruptionDigitSequence = ($interruptionDigitSequence InstanceOf PreAlertingAnnouncementInterruptDigits)
@@ -96,11 +122,18 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
              : new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
     }
 
+    /**
+     * Pre-alerting Announcement Interrupt digit sequence.
+     *         The Interrupt digit sequence may contain digits 0-9, *, and #.
+     */
     public function getInterruptionDigitSequence()
     {
-        return (!$this->interruptionDigitSequence) ?: $this->interruptionDigitSequence->value();
+        return (!$this->interruptionDigitSequence) ?: $this->interruptionDigitSequence->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioSelection($audioSelection = null)
     {
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
@@ -108,20 +141,35 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
              : new ExtendedFileResourceSelection($audioSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->value();
+        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
+        $this->audioFile = ExtendedMediaFileResource $audioFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->value();
+        return (!$this->audioFile) ?: $this->audioFile->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoSelection($videoSelection = null)
     {
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
@@ -129,17 +177,29 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
              : new ExtendedFileResourceSelection($videoSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->value();
+        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
+        $this->videoFile = ExtendedMediaFileResource $videoFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->value();
+        return (!$this->videoFile) ?: $this->videoFile->getValue();
     }
 }

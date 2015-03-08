@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Deletes a list of physical addresses from a zone
+     * Deletes a list of physical addresses from a zone
  *         The response is SuccessResponse or an ErrorResponse.
  */
 class SystemZoneLocationBasedPhysicalLocationDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $zoneName          = null;
-    protected $physicalLocation  = null;
+    public    $name             = __CLASS__;
+    protected $zoneName         = null;
+    protected $physicalLocation = null;
 
     public function __construct(
          $zoneName,
@@ -31,6 +31,9 @@ class SystemZoneLocationBasedPhysicalLocationDeleteListRequest extends ComplexTy
         $this->setPhysicalLocation($physicalLocation);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -38,11 +41,17 @@ class SystemZoneLocationBasedPhysicalLocationDeleteListRequest extends ComplexTy
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function setPhysicalLocation($physicalLocation = null)
     {
         $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
@@ -50,8 +59,11 @@ class SystemZoneLocationBasedPhysicalLocationDeleteListRequest extends ComplexTy
              : new PhysicalLocation($physicalLocation);
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function getPhysicalLocation()
     {
-        return (!$this->physicalLocation) ?: $this->physicalLocation->value();
+        return (!$this->physicalLocation) ?: $this->physicalLocation->getValue();
     }
 }

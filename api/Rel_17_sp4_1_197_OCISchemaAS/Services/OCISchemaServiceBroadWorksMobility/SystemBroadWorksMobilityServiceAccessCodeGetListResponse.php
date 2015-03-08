@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemBroadWorksMobilityServiceAccessCodeGetListRequest.
+     * Response to SystemBroadWorksMobilityServiceAccessCodeGetListRequest.
  *         Contains a table with column headings: "Country Code", "Service Access Code", "Description"
  */
 class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceAccessCodeTable  = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityServiceAccessCodeGetListResponse';
+    public    $name                   = __CLASS__;
+    protected $serviceAccessCodeTable = null;
 
 
+    /**
+     * 
+     */
     public function setServiceAccessCodeTable(core:OCITable $serviceAccessCodeTable = null)
     {
+        $this->serviceAccessCodeTable = core:OCITable $serviceAccessCodeTable;
     }
 
+    /**
+     * 
+     */
     public function getServiceAccessCodeTable()
     {
-        return (!$this->serviceAccessCodeTable) ?: $this->serviceAccessCodeTable->value();
+        return (!$this->serviceAccessCodeTable) ?: $this->serviceAccessCodeTable->getValue();
     }
 }

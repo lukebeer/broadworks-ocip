@@ -22,7 +22,7 @@ class AccountAuthorizationCode extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new MinLength("2"));
         $this->addRestriction(new MaxLength("14"));
     }

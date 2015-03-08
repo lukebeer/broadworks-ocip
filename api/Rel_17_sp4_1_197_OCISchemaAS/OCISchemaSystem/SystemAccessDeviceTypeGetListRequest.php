@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of access device types.
+     * Requests the list of access device types.
  *         The response is either SystemAccessDeviceTypeGetListResponse or ErrorResponse.
  */
 class SystemAccessDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceTypeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

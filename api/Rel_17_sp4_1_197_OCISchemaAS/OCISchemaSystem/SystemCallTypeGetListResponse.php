@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallTypeGetListRequest.
+     * Response to SystemCallTypeGetListRequest.
  */
 class SystemCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $callType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetListResponse';
+    public    $name     = __CLASS__;
+    protected $callType = null;
 
 
+    /**
+     * System Call Type
+     */
     public function setCallType($callType = null)
     {
         $this->callType = ($callType InstanceOf SystemCallType)
@@ -28,8 +32,11 @@ class SystemCallTypeGetListResponse extends ComplexType implements ComplexInterf
              : new SystemCallType($callType);
     }
 
+    /**
+     * System Call Type
+     */
     public function getCallType()
     {
-        return (!$this->callType) ?: $this->callType->value();
+        return (!$this->callType) ?: $this->callType->getValue();
     }
 }

@@ -14,18 +14,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's voice messaging voice portal settings.
+     * Modify the user's voice messaging voice portal settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  *         Replaced By: UserVoiceMessagingUserModifyVoicePortalRequest16
  */
 class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $userId                     = null;
-    protected $usePersonalizedName        = null;
-    protected $voicePortalAutoLogin       = null;
-    protected $personalizedNameAudioFile  = null;
+    public    $name                      = __CLASS__;
+    protected $userId                    = null;
+    protected $usePersonalizedName       = null;
+    protected $voicePortalAutoLogin      = null;
+    protected $personalizedNameAudioFile = null;
 
     public function __construct(
          $userId,
@@ -39,6 +39,13 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
         $this->setPersonalizedNameAudioFile($personalizedNameAudioFile);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -46,35 +53,65 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setUsePersonalizedName(xs:boolean $usePersonalizedName = null)
+    /**
+     * 
+     */
+    public function setUsePersonalizedName($usePersonalizedName = null)
     {
+        $this->usePersonalizedName = (boolean) $usePersonalizedName;
     }
 
+    /**
+     * 
+     */
     public function getUsePersonalizedName()
     {
-        return (!$this->usePersonalizedName) ?: $this->usePersonalizedName->value();
+        return (!$this->usePersonalizedName) ?: $this->usePersonalizedName->getValue();
     }
 
-    public function setVoicePortalAutoLogin(xs:boolean $voicePortalAutoLogin = null)
+    /**
+     * 
+     */
+    public function setVoicePortalAutoLogin($voicePortalAutoLogin = null)
     {
+        $this->voicePortalAutoLogin = (boolean) $voicePortalAutoLogin;
     }
 
+    /**
+     * 
+     */
     public function getVoicePortalAutoLogin()
     {
-        return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin->value();
+        return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setPersonalizedNameAudioFile(LabeledFileResource $personalizedNameAudioFile = null)
     {
+        $this->personalizedNameAudioFile = LabeledFileResource $personalizedNameAudioFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getPersonalizedNameAudioFile()
     {
-        return (!$this->personalizedNameAudioFile) ?: $this->personalizedNameAudioFile->value();
+        return (!$this->personalizedNameAudioFile) ?: $this->personalizedNameAudioFile->getValue();
     }
 }

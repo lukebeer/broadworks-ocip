@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a performance measurements reporting ftp server.
+     * Delete a performance measurements reporting ftp server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $ftpHostNetAddress  = null;
+    public    $name              = __CLASS__;
+    protected $ftpHostNetAddress = null;
 
     public function __construct(
          $ftpHostNetAddress
@@ -27,6 +27,9 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
         $this->setFtpHostNetAddress($ftpHostNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
@@ -34,8 +37,11 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
              : new NetAddress($ftpHostNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getFtpHostNetAddress()
     {
-        return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->value();
+        return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->getValue();
     }
 }

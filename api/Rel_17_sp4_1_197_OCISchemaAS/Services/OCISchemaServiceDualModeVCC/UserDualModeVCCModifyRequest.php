@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the user level IN Integration service attributes
+     * Request to modify the user level IN Integration service attributes
  *         Response is either UserINIntegrationGetResponse or ErrorResponse
  */
 class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $userId              = null;
-    protected $subscriberUserName  = null;
-    protected $subscriberPassword  = null;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $subscriberUserName = null;
+    protected $subscriberPassword = null;
 
     public function __construct(
          $userId,
@@ -35,6 +35,13 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
         $this->setSubscriberPassword($subscriberPassword);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -42,11 +49,21 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Dual Mode VCC Service subscriber user name
+     */
     public function setSubscriberUserName($subscriberUserName = null)
     {
         $this->subscriberUserName = ($subscriberUserName InstanceOf DualModeVCCSubscriberUserName)
@@ -54,11 +71,17 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
              : new DualModeVCCSubscriberUserName($subscriberUserName);
     }
 
+    /**
+     * Dual Mode VCC Service subscriber user name
+     */
     public function getSubscriberUserName()
     {
-        return (!$this->subscriberUserName) ?: $this->subscriberUserName->value();
+        return (!$this->subscriberUserName) ?: $this->subscriberUserName->getValue();
     }
 
+    /**
+     * Dual Mode VCC subscriber password
+     */
     public function setSubscriberPassword($subscriberPassword = null)
     {
         $this->subscriberPassword = ($subscriberPassword InstanceOf DualModeVCCSubscriberPassword)
@@ -66,8 +89,11 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
              : new DualModeVCCSubscriberPassword($subscriberPassword);
     }
 
+    /**
+     * Dual Mode VCC subscriber password
+     */
     public function getSubscriberPassword()
     {
-        return (!$this->subscriberPassword) ?: $this->subscriberPassword->value();
+        return (!$this->subscriberPassword) ?: $this->subscriberPassword->getValue();
     }
 }

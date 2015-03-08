@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the OCI entries from the Broadworks Common Communication Transport (BCCT) protocol to interface mapping list.
+     * Get the OCI entries from the Broadworks Common Communication Transport (BCCT) protocol to interface mapping list.
  *         The response is SystemBCCTGetOCIInterfaceAddressListResponse or ErrorResponse.
  */
 class SystemBCCTGetOCIInterfaceAddressListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemBCCTGetOCIInterfaceAddressListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

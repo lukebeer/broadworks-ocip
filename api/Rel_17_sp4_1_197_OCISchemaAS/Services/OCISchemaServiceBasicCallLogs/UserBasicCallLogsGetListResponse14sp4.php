@@ -13,40 +13,62 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserBasicCallLogsGetListRequest14sp4.
+     * Response to UserBasicCallLogsGetListRequest14sp4.
  */
 class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $placed    = null;
-    protected $received  = null;
-    protected $missed    = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4';
+    public    $name     = __CLASS__;
+    protected $placed   = null;
+    protected $received = null;
+    protected $missed   = null;
 
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     */
     public function setPlaced(CallLogsEntry $placed = null)
     {
+        $this->placed = CallLogsEntry $placed;
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     */
     public function getPlaced()
     {
-        return (!$this->placed) ?: $this->placed->value();
+        return (!$this->placed) ?: $this->placed->getValue();
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     */
     public function setReceived(CallLogsEntry $received = null)
     {
+        $this->received = CallLogsEntry $received;
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     */
     public function getReceived()
     {
-        return (!$this->received) ?: $this->received->value();
+        return (!$this->received) ?: $this->received->getValue();
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     */
     public function setMissed(CallLogsEntry $missed = null)
     {
+        $this->missed = CallLogsEntry $missed;
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     */
     public function getMissed()
     {
-        return (!$this->missed) ?: $this->missed->value();
+        return (!$this->missed) ?: $this->missed->getValue();
     }
 }

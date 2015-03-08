@@ -18,21 +18,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a BroadWorks Anywhere instance to a group.
+     * Add a BroadWorks Anywhere instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $serviceProviderId        = null;
-    protected $groupId                  = null;
-    protected $serviceUserId            = null;
-    protected $serviceInstanceProfile   = null;
-    protected $broadWorksAnywhereScope  = null;
-    protected $promptForCLID            = null;
-    protected $silentPromptMode         = null;
-    protected $promptForPasscode        = null;
+    public    $name                    = __CLASS__;
+    protected $serviceProviderId       = null;
+    protected $groupId                 = null;
+    protected $serviceUserId           = null;
+    protected $serviceInstanceProfile  = null;
+    protected $broadWorksAnywhereScope = null;
+    protected $promptForCLID           = null;
+    protected $silentPromptMode        = null;
+    protected $promptForPasscode       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -54,6 +54,10 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
         $this->setPromptForPasscode($promptForPasscode);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -61,11 +65,19 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -73,11 +85,22 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -85,20 +108,37 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Controls which users may use the BroadWorks Anywhere portal.
+     */
     public function setBroadWorksAnywhereScope($broadWorksAnywhereScope = null)
     {
         $this->broadWorksAnywhereScope = ($broadWorksAnywhereScope InstanceOf BroadWorksAnywhereScope)
@@ -106,11 +146,17 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
              : new BroadWorksAnywhereScope($broadWorksAnywhereScope);
     }
 
+    /**
+     * Controls which users may use the BroadWorks Anywhere portal.
+     */
     public function getBroadWorksAnywhereScope()
     {
-        return (!$this->broadWorksAnywhereScope) ?: $this->broadWorksAnywhereScope->value();
+        return (!$this->broadWorksAnywhereScope) ?: $this->broadWorksAnywhereScope->getValue();
     }
 
+    /**
+     * BroadWorks Anywhere Prompt for CLID options.
+     */
     public function setPromptForCLID($promptForCLID = null)
     {
         $this->promptForCLID = ($promptForCLID InstanceOf BroadWorksAnywhereCLIDPrompt)
@@ -118,26 +164,43 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
              : new BroadWorksAnywhereCLIDPrompt($promptForCLID);
     }
 
+    /**
+     * BroadWorks Anywhere Prompt for CLID options.
+     */
     public function getPromptForCLID()
     {
-        return (!$this->promptForCLID) ?: $this->promptForCLID->value();
+        return (!$this->promptForCLID) ?: $this->promptForCLID->getValue();
     }
 
-    public function setSilentPromptMode(xs:boolean $silentPromptMode = null)
+    /**
+     * 
+     */
+    public function setSilentPromptMode($silentPromptMode = null)
     {
+        $this->silentPromptMode = (boolean) $silentPromptMode;
     }
 
+    /**
+     * 
+     */
     public function getSilentPromptMode()
     {
-        return (!$this->silentPromptMode) ?: $this->silentPromptMode->value();
+        return (!$this->silentPromptMode) ?: $this->silentPromptMode->getValue();
     }
 
-    public function setPromptForPasscode(xs:boolean $promptForPasscode = null)
+    /**
+     * 
+     */
+    public function setPromptForPasscode($promptForPasscode = null)
     {
+        $this->promptForPasscode = (boolean) $promptForPasscode;
     }
 
+    /**
+     * 
+     */
     public function getPromptForPasscode()
     {
-        return (!$this->promptForPasscode) ?: $this->promptForPasscode->value();
+        return (!$this->promptForPasscode) ?: $this->promptForPasscode->getValue();
     }
 }

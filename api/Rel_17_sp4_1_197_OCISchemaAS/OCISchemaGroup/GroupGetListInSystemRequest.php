@@ -16,18 +16,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the list of groups in the system.
+     * Request the list of groups in the system.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a GroupGetListInSystemResponse or an ErrorResponse.
  */
 class GroupGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $responseSizeLimit                   = null;
-    protected $searchCriteriaGroupId               = null;
-    protected $searchCriteriaGroupName             = null;
-    protected $searchCriteriaExactServiceProvider  = null;
+    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse';
+    public    $name                               = __CLASS__;
+    protected $responseSizeLimit                  = null;
+    protected $searchCriteriaGroupId              = null;
+    protected $searchCriteriaGroupName            = null;
+    protected $searchCriteriaExactServiceProvider = null;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -41,6 +42,11 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
         $this->setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -48,35 +54,61 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
+        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
+        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
     }
 
+    /**
+     * Criteria for searching for a group name.
+     */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
+        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
     }
 
+    /**
+     * Criteria for searching for a group name.
+     */
     public function getSearchCriteriaGroupName()
     {
-        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->value();
+        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service provider.
+     */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
+        $this->searchCriteriaExactServiceProvider = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service provider.
+     */
     public function getSearchCriteriaExactServiceProvider()
     {
-        return (!$this->searchCriteriaExactServiceProvider) ?: $this->searchCriteriaExactServiceProvider->value();
+        return (!$this->searchCriteriaExactServiceProvider) ?: $this->searchCriteriaExactServiceProvider->getValue();
     }
 }

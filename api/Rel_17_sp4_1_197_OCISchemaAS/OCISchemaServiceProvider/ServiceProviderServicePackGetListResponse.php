@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderServicePackGetListRequest.
+     * Response to ServiceProviderServicePackGetListRequest.
  */
 class ServiceProviderServicePackGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $servicePackName  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetListResponse';
+    public    $name            = __CLASS__;
+    protected $servicePackName = null;
 
 
+    /**
+     * Service Pack name.
+     */
     public function setServicePackName($servicePackName = null)
     {
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
@@ -28,8 +32,11 @@ class ServiceProviderServicePackGetListResponse extends ComplexType implements C
              : new ServicePackName($servicePackName);
     }
 
+    /**
+     * Service Pack name.
+     */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->value();
+        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
     }
 }

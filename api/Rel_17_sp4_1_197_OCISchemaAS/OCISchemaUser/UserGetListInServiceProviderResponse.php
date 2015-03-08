@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserGetListInServiceProviderRequest.
+     * Response to UserGetListInServiceProviderRequest.
  *         Contains a table with column headings : "User Id", "Group Id",
  *         "Last Name", "First Name", "Department", "Phone Number", "Phone Number Activated", "Email Address", "Hiragana Last Name", "Hiragana First Name", "In Trunk Group"
  *         in a row for each user.
  */
 class UserGetListInServiceProviderResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $userTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInServiceProviderResponse';
+    public    $name      = __CLASS__;
+    protected $userTable = null;
 
 
+    /**
+     * 
+     */
     public function setUserTable(core:OCITable $userTable = null)
     {
+        $this->userTable = core:OCITable $userTable;
     }
 
+    /**
+     * 
+     */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->value();
+        return (!$this->userTable) ?: $this->userTable->getValue();
     }
 }

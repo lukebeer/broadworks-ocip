@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Media Server system parameters.
+     * Request to modify Media Server system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemMediaServerParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
-    protected $mediaServerResponseTimerMilliseconds        = null;
-    protected $mediaServerSelectionRouteTimerMilliseconds  = null;
-    protected $useStaticMediaServerDevice                  = null;
+    public    $name                                       = __CLASS__;
+    protected $mediaServerResponseTimerMilliseconds       = null;
+    protected $mediaServerSelectionRouteTimerMilliseconds = null;
+    protected $useStaticMediaServerDevice                 = null;
 
     public function __construct(
          $mediaServerResponseTimerMilliseconds = null,
@@ -34,6 +34,9 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
         $this->setUseStaticMediaServerDevice($useStaticMediaServerDevice);
     }
 
+    /**
+     * Media Server timer length.
+     */
     public function setMediaServerResponseTimerMilliseconds($mediaServerResponseTimerMilliseconds = null)
     {
         $this->mediaServerResponseTimerMilliseconds = ($mediaServerResponseTimerMilliseconds InstanceOf MediaServerResponseTimerMilliseconds)
@@ -41,11 +44,17 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
              : new MediaServerResponseTimerMilliseconds($mediaServerResponseTimerMilliseconds);
     }
 
+    /**
+     * Media Server timer length.
+     */
     public function getMediaServerResponseTimerMilliseconds()
     {
-        return (!$this->mediaServerResponseTimerMilliseconds) ?: $this->mediaServerResponseTimerMilliseconds->value();
+        return (!$this->mediaServerResponseTimerMilliseconds) ?: $this->mediaServerResponseTimerMilliseconds->getValue();
     }
 
+    /**
+     * Media Server selection route timer length.
+     */
     public function setMediaServerSelectionRouteTimerMilliseconds($mediaServerSelectionRouteTimerMilliseconds = null)
     {
         $this->mediaServerSelectionRouteTimerMilliseconds = ($mediaServerSelectionRouteTimerMilliseconds InstanceOf MediaServerSelectionRouteTimerMilliseconds)
@@ -53,17 +62,27 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
              : new MediaServerSelectionRouteTimerMilliseconds($mediaServerSelectionRouteTimerMilliseconds);
     }
 
+    /**
+     * Media Server selection route timer length.
+     */
     public function getMediaServerSelectionRouteTimerMilliseconds()
     {
-        return (!$this->mediaServerSelectionRouteTimerMilliseconds) ?: $this->mediaServerSelectionRouteTimerMilliseconds->value();
+        return (!$this->mediaServerSelectionRouteTimerMilliseconds) ?: $this->mediaServerSelectionRouteTimerMilliseconds->getValue();
     }
 
-    public function setUseStaticMediaServerDevice(xs:boolean $useStaticMediaServerDevice = null)
+    /**
+     * 
+     */
+    public function setUseStaticMediaServerDevice($useStaticMediaServerDevice = null)
     {
+        $this->useStaticMediaServerDevice = (boolean) $useStaticMediaServerDevice;
     }
 
+    /**
+     * 
+     */
     public function getUseStaticMediaServerDevice()
     {
-        return (!$this->useStaticMediaServerDevice) ?: $this->useStaticMediaServerDevice->value();
+        return (!$this->useStaticMediaServerDevice) ?: $this->useStaticMediaServerDevice->getValue();
     }
 }

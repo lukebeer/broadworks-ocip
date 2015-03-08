@@ -15,40 +15,62 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains Call Center statistics.
+     * Contains Call Center statistics.
  */
 class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $statisticsRange  = null;
-    protected $queueStatistics  = null;
-    protected $agentStatistics  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9';
+    public    $name            = __CLASS__;
+    protected $statisticsRange = null;
+    protected $queueStatistics = null;
+    protected $agentStatistics = null;
 
 
+    /**
+     * Statistics Range
+     */
     public function setStatisticsRange(CallCenterStatisticsRange $statisticsRange = null)
     {
+        $this->statisticsRange = CallCenterStatisticsRange $statisticsRange;
     }
 
+    /**
+     * Statistics Range
+     */
     public function getStatisticsRange()
     {
-        return (!$this->statisticsRange) ?: $this->statisticsRange->value();
+        return (!$this->statisticsRange) ?: $this->statisticsRange->getValue();
     }
 
+    /**
+     * Contains Call Center Queue statistics.
+     */
     public function setQueueStatistics(CallCenterQueueStatistics14sp9 $queueStatistics = null)
     {
+        $this->queueStatistics = CallCenterQueueStatistics14sp9 $queueStatistics;
     }
 
+    /**
+     * Contains Call Center Queue statistics.
+     */
     public function getQueueStatistics()
     {
-        return (!$this->queueStatistics) ?: $this->queueStatistics->value();
+        return (!$this->queueStatistics) ?: $this->queueStatistics->getValue();
     }
 
+    /**
+     * Contains Call Center statistics for a specified agent.
+     */
     public function setAgentStatistics(CallCenterAgentStatistics14sp9 $agentStatistics = null)
     {
+        $this->agentStatistics = CallCenterAgentStatistics14sp9 $agentStatistics;
     }
 
+    /**
+     * Contains Call Center statistics for a specified agent.
+     */
     public function getAgentStatistics()
     {
-        return (!$this->agentStatistics) ?: $this->agentStatistics->value();
+        return (!$this->agentStatistics) ?: $this->agentStatistics->getValue();
     }
 }

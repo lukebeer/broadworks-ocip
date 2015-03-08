@@ -14,15 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of Communication Barring profiles within a service provider that have a given Communication Barring Criteria assigned.
+     * Get a list of Communication Barring profiles within a service provider that have a given Communication Barring Criteria assigned.
  *         The response is either a ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse 
  *         or an ErrorResponse.
  */
 class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $criteriaName       = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $criteriaName      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -32,6 +33,10 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
         $this->setCriteriaName($criteriaName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -39,11 +44,18 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function setCriteriaName($criteriaName = null)
     {
         $this->criteriaName = ($criteriaName InstanceOf CommunicationBarringCriteriaName)
@@ -51,8 +63,11 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
              : new CommunicationBarringCriteriaName($criteriaName);
     }
 
+    /**
+     * Communication Barring Criteria Name
+     */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->value();
+        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
     }
 }

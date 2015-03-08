@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an Application Server set.
+     * Delete an Application Server set.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemApplicationServerSetDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemApplicationServerSetDeleteRequest extends ComplexType implements Com
         $this->setName($name);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ApplicationServerSetName)
@@ -34,8 +37,11 @@ class SystemApplicationServerSetDeleteRequest extends ComplexType implements Com
              : new ApplicationServerSetName($name);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

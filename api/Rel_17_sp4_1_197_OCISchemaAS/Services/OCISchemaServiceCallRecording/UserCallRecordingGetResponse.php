@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCallRecordingGetRequest.
+     * Response to the UserCallRecordingGetRequest.
  *         The response contains the user's Call Recording option information.
  */
 class UserCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $recordingOption  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\UserCallRecordingGetResponse';
+    public    $name            = __CLASS__;
+    protected $recordingOption = null;
 
 
+    /**
+     * Recording Service Configuration.
+     */
     public function setRecordingOption($recordingOption = null)
     {
         $this->recordingOption = ($recordingOption InstanceOf RecordingOption)
@@ -29,8 +33,11 @@ class UserCallRecordingGetResponse extends ComplexType implements ComplexInterfa
              : new RecordingOption($recordingOption);
     }
 
+    /**
+     * Recording Service Configuration.
+     */
     public function getRecordingOption()
     {
-        return (!$this->recordingOption) ?: $this->recordingOption->value();
+        return (!$this->recordingOption) ?: $this->recordingOption->getValue();
     }
 }

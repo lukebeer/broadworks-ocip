@@ -13,25 +13,36 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemClientSessionParametersGetRequest.
+     * Response to SystemClientSessionParametersGetRequest.
  *         Contains a list of system Client Session (web and CLI) parameters.
  */
 class SystemClientSessionParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $enableInactivityTimeout   = null;
-    protected $inactivityTimeoutMinutes  = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemClientSessionParametersGetResponse';
+    public    $name                     = __CLASS__;
+    protected $enableInactivityTimeout  = null;
+    protected $inactivityTimeoutMinutes = null;
 
 
-    public function setEnableInactivityTimeout(xs:boolean $enableInactivityTimeout = null)
+    /**
+     * 
+     */
+    public function setEnableInactivityTimeout($enableInactivityTimeout = null)
     {
+        $this->enableInactivityTimeout = (boolean) $enableInactivityTimeout;
     }
 
+    /**
+     * 
+     */
     public function getEnableInactivityTimeout()
     {
-        return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout->value();
+        return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout->getValue();
     }
 
+    /**
+     * Client session (web and CLI) inactivity timeout in minutes.
+     */
     public function setInactivityTimeoutMinutes($inactivityTimeoutMinutes = null)
     {
         $this->inactivityTimeoutMinutes = ($inactivityTimeoutMinutes InstanceOf ClientSessionTimeoutMinutes)
@@ -39,8 +50,11 @@ class SystemClientSessionParametersGetResponse extends ComplexType implements Co
              : new ClientSessionTimeoutMinutes($inactivityTimeoutMinutes);
     }
 
+    /**
+     * Client session (web and CLI) inactivity timeout in minutes.
+     */
     public function getInactivityTimeoutMinutes()
     {
-        return (!$this->inactivityTimeoutMinutes) ?: $this->inactivityTimeoutMinutes->value();
+        return (!$this->inactivityTimeoutMinutes) ?: $this->inactivityTimeoutMinutes->getValue();
     }
 }

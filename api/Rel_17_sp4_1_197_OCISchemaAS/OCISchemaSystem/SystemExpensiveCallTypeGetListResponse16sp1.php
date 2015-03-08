@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemExpensiveCallTypeGetListRequest16sp1. 
+     * Response to SystemExpensiveCallTypeGetListRequest16sp1. 
  *         The column headings are:
  *         "Alternate Call Indicator", "Treatment Audio File".
  */
 class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $alternateCallIndicatorTable  = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeGetListResponse16sp1';
+    public    $name                        = __CLASS__;
+    protected $alternateCallIndicatorTable = null;
 
 
+    /**
+     * 
+     */
     public function setAlternateCallIndicatorTable(core:OCITable $alternateCallIndicatorTable = null)
     {
+        $this->alternateCallIndicatorTable = core:OCITable $alternateCallIndicatorTable;
     }
 
+    /**
+     * 
+     */
     public function getAlternateCallIndicatorTable()
     {
-        return (!$this->alternateCallIndicatorTable) ?: $this->alternateCallIndicatorTable->value();
+        return (!$this->alternateCallIndicatorTable) ?: $this->alternateCallIndicatorTable->getValue();
     }
 }

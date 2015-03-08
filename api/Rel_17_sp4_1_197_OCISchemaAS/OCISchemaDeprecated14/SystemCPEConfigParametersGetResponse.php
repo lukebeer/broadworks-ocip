@@ -14,27 +14,38 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCPEConfigParametersGetListRequest.
+     * Response to SystemCPEConfigParametersGetListRequest.
  *         Contains a list of system CPE Config parameters.
  *         Replaced By: SystemCPEConfigParametersGetResponse14sp6
  */
 class SystemCPEConfigParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $enableIPDeviceManagement       = null;
-    protected $ftpConnectTimeoutSeconds       = null;
-    protected $ftpFileTransferTimeoutSeconds  = null;
+    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCPEConfigParametersGetResponse';
+    public    $name                          = __CLASS__;
+    protected $enableIPDeviceManagement      = null;
+    protected $ftpConnectTimeoutSeconds      = null;
+    protected $ftpFileTransferTimeoutSeconds = null;
 
 
-    public function setEnableIPDeviceManagement(xs:boolean $enableIPDeviceManagement = null)
+    /**
+     * 
+     */
+    public function setEnableIPDeviceManagement($enableIPDeviceManagement = null)
     {
+        $this->enableIPDeviceManagement = (boolean) $enableIPDeviceManagement;
     }
 
+    /**
+     * 
+     */
     public function getEnableIPDeviceManagement()
     {
-        return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement->value();
+        return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement->getValue();
     }
 
+    /**
+     * FTP connect timeout in seconds
+     */
     public function setFtpConnectTimeoutSeconds($ftpConnectTimeoutSeconds = null)
     {
         $this->ftpConnectTimeoutSeconds = ($ftpConnectTimeoutSeconds InstanceOf DeviceManagementFTPConnectTimeoutSeconds)
@@ -42,11 +53,17 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
              : new DeviceManagementFTPConnectTimeoutSeconds($ftpConnectTimeoutSeconds);
     }
 
+    /**
+     * FTP connect timeout in seconds
+     */
     public function getFtpConnectTimeoutSeconds()
     {
-        return (!$this->ftpConnectTimeoutSeconds) ?: $this->ftpConnectTimeoutSeconds->value();
+        return (!$this->ftpConnectTimeoutSeconds) ?: $this->ftpConnectTimeoutSeconds->getValue();
     }
 
+    /**
+     * FTP file transfer timeout in seconds
+     */
     public function setFtpFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds = null)
     {
         $this->ftpFileTransferTimeoutSeconds = ($ftpFileTransferTimeoutSeconds InstanceOf DeviceManagementFTPFileTransferTimeoutSeconds)
@@ -54,8 +71,11 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
              : new DeviceManagementFTPFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds);
     }
 
+    /**
+     * FTP file transfer timeout in seconds
+     */
     public function getFtpFileTransferTimeoutSeconds()
     {
-        return (!$this->ftpFileTransferTimeoutSeconds) ?: $this->ftpFileTransferTimeoutSeconds->value();
+        return (!$this->ftpFileTransferTimeoutSeconds) ?: $this->ftpFileTransferTimeoutSeconds->getValue();
     }
 }

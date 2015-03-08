@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterpriseCallCenterEnhancedReportingReportTemplateGetListRequest.
+     * Response to EnterpriseCallCenterEnhancedReportingReportTemplateGetListRequest.
  *         Contains a table with column headings: "Name", "Description", "Type" and "Enabled".
  */
 class EnterpriseCallCenterEnhancedReportingReportTemplateGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $reportTemplateTable  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingReportTemplateGetListResponse';
+    public    $name                = __CLASS__;
+    protected $reportTemplateTable = null;
 
 
+    /**
+     * 
+     */
     public function setReportTemplateTable(core:OCITable $reportTemplateTable = null)
     {
+        $this->reportTemplateTable = core:OCITable $reportTemplateTable;
     }
 
+    /**
+     * 
+     */
     public function getReportTemplateTable()
     {
-        return (!$this->reportTemplateTable) ?: $this->reportTemplateTable->value();
+        return (!$this->reportTemplateTable) ?: $this->reportTemplateTable->getValue();
     }
 }

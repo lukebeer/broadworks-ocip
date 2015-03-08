@@ -15,26 +15,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemMGCPDeviceTypeGetRequest.
+     * Response to SystemMGCPDeviceTypeGetRequest.
  */
 class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $isObsolete      = null;
-    protected $profile         = null;
-    protected $numberOfPorts   = null;
-    protected $protocolChoice  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeGetResponse';
+    public    $name           = __CLASS__;
+    protected $isObsolete     = null;
+    protected $profile        = null;
+    protected $numberOfPorts  = null;
+    protected $protocolChoice = null;
 
 
-    public function setIsObsolete(xs:boolean $isObsolete = null)
+    /**
+     * 
+     */
+    public function setIsObsolete($isObsolete = null)
     {
+        $this->isObsolete = (boolean) $isObsolete;
     }
 
+    /**
+     * 
+     */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->value();
+        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
     }
 
+    /**
+     * Device type signaling address types.
+     */
     public function setProfile($profile = null)
     {
         $this->profile = ($profile InstanceOf SignalingAddressType)
@@ -42,20 +53,33 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
              : new SignalingAddressType($profile);
     }
 
+    /**
+     * Device type signaling address types.
+     */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->value();
+        return (!$this->profile) ?: $this->profile->getValue();
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     */
     public function setNumberOfPorts(UnboundedPositiveInt $numberOfPorts = null)
     {
+        $this->numberOfPorts = UnboundedPositiveInt $numberOfPorts;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     */
     public function getNumberOfPorts()
     {
-        return (!$this->numberOfPorts) ?: $this->numberOfPorts->value();
+        return (!$this->numberOfPorts) ?: $this->numberOfPorts->getValue();
     }
 
+    /**
+     * Access device protocol.
+     */
     public function setProtocolChoice($protocolChoice = null)
     {
         $this->protocolChoice = ($protocolChoice InstanceOf AccessDeviceProtocol)
@@ -63,8 +87,11 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
              : new AccessDeviceProtocol($protocolChoice);
     }
 
+    /**
+     * Access device protocol.
+     */
     public function getProtocolChoice()
     {
-        return (!$this->protocolChoice) ?: $this->protocolChoice->value();
+        return (!$this->protocolChoice) ?: $this->protocolChoice->getValue();
     }
 }

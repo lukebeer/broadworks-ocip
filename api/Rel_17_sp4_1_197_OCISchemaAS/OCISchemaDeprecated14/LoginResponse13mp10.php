@@ -15,16 +15,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * LoginRequest13mp10/Response13mp10 is 2nd stage of the 2 stage OCI login process.
+     * LoginRequest13mp10/Response13mp10 is 2nd stage of the 2 stage OCI login process.
  */
 class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $loginType  = null;
-    protected $locale     = null;
-    protected $encoding   = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\LoginResponse13mp10';
+    public    $name      = __CLASS__;
+    protected $loginType = null;
+    protected $locale    = null;
+    protected $encoding  = null;
 
 
+    /**
+     * The login type of the admin/user.
+     */
     public function setLoginType($loginType = null)
     {
         $this->loginType = ($loginType InstanceOf LoginType)
@@ -32,11 +36,17 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
              : new LoginType($loginType);
     }
 
+    /**
+     * The login type of the admin/user.
+     */
     public function getLoginType()
     {
-        return (!$this->loginType) ?: $this->loginType->value();
+        return (!$this->loginType) ?: $this->loginType->getValue();
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function setLocale($locale = null)
     {
         $this->locale = ($locale InstanceOf OCILocale)
@@ -44,11 +54,17 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
              : new OCILocale($locale);
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->value();
+        return (!$this->locale) ?: $this->locale->getValue();
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function setEncoding($encoding = null)
     {
         $this->encoding = ($encoding InstanceOf Encoding)
@@ -56,8 +72,11 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
              : new Encoding($encoding);
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->value();
+        return (!$this->encoding) ?: $this->encoding->getValue();
     }
 }

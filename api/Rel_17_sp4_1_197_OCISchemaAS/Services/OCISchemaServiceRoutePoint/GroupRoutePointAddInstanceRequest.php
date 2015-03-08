@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Route Point instance to a group.
+     * Add a Route Point instance to a group.
  *         The Route Point is a Call Center queue that performs the same function but 
  *         allows an external system to perform the distribution of calls instead of making 
  *         those decisions itself.
@@ -33,25 +33,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
-    protected $serviceProviderId                    = null;
-    protected $groupId                              = null;
-    protected $serviceUserId                        = null;
-    protected $serviceInstanceProfile               = null;
-    protected $networkClassOfService                = null;
-    protected $externalPreferredAudioCodec          = null;
-    protected $internalPreferredAudioCodec          = null;
-    protected $queueLength                          = null;
-    protected $noAnswerTimeoutRings                 = null;
-    protected $enableVideo                          = null;
-    protected $playRingingWhenOfferingCall          = null;
-    protected $overrideAgentWrapUpTime              = null;
-    protected $wrapUpSeconds                        = null;
-    protected $enableAutomaticStateChangeForAgents  = null;
-    protected $agentStateAfterCall                  = null;
-    protected $agentUnavailableCode                 = null;
-    protected $forceDeliveryOfCalls                 = null;
-    protected $forceDeliveryWaitTimeSeconds         = null;
+    public    $name                                = __CLASS__;
+    protected $serviceProviderId                   = null;
+    protected $groupId                             = null;
+    protected $serviceUserId                       = null;
+    protected $serviceInstanceProfile              = null;
+    protected $networkClassOfService               = null;
+    protected $externalPreferredAudioCodec         = null;
+    protected $internalPreferredAudioCodec         = null;
+    protected $queueLength                         = null;
+    protected $noAnswerTimeoutRings                = null;
+    protected $enableVideo                         = null;
+    protected $playRingingWhenOfferingCall         = null;
+    protected $overrideAgentWrapUpTime             = null;
+    protected $wrapUpSeconds                       = null;
+    protected $enableAutomaticStateChangeForAgents = null;
+    protected $agentStateAfterCall                 = null;
+    protected $agentUnavailableCode                = null;
+    protected $forceDeliveryOfCalls                = null;
+    protected $forceDeliveryWaitTimeSeconds        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -93,6 +93,10 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
         $this->setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -100,11 +104,19 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -112,11 +124,22 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -124,20 +147,39 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for a call center.
+     *         Password is required.
+     */
     public function setServiceInstanceProfile(ServiceInstanceAddProfileCallCenter $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceAddProfileCallCenter $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for a call center.
+     *         Password is required.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
@@ -145,11 +187,17 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new NetworkClassOfServiceName($networkClassOfService);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->value();
+        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
     }
 
+    /**
+     * Audio file codec.
+     */
     public function setExternalPreferredAudioCodec($externalPreferredAudioCodec = null)
     {
         $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
@@ -157,11 +205,17 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new AudioFileCodec($externalPreferredAudioCodec);
     }
 
+    /**
+     * Audio file codec.
+     */
     public function getExternalPreferredAudioCodec()
     {
-        return (!$this->externalPreferredAudioCodec) ?: $this->externalPreferredAudioCodec->value();
+        return (!$this->externalPreferredAudioCodec) ?: $this->externalPreferredAudioCodec->getValue();
     }
 
+    /**
+     * Audio file codec.
+     */
     public function setInternalPreferredAudioCodec($internalPreferredAudioCodec = null)
     {
         $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
@@ -169,11 +223,17 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new AudioFileCodec($internalPreferredAudioCodec);
     }
 
+    /**
+     * Audio file codec.
+     */
     public function getInternalPreferredAudioCodec()
     {
-        return (!$this->internalPreferredAudioCodec) ?: $this->internalPreferredAudioCodec->value();
+        return (!$this->internalPreferredAudioCodec) ?: $this->internalPreferredAudioCodec->getValue();
     }
 
+    /**
+     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     */
     public function setQueueLength($queueLength = null)
     {
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
@@ -181,11 +241,17 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new CallCenterQueueLength16($queueLength);
     }
 
+    /**
+     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     */
     public function getQueueLength()
     {
-        return (!$this->queueLength) ?: $this->queueLength->value();
+        return (!$this->queueLength) ?: $this->queueLength->getValue();
     }
 
+    /**
+     * Number of rings to wait before timeout the outgoing call.
+     */
     public function setNoAnswerTimeoutRings($noAnswerTimeoutRings = null)
     {
         $this->noAnswerTimeoutRings = ($noAnswerTimeoutRings InstanceOf NoAnswerTimeoutRings)
@@ -193,38 +259,65 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new NoAnswerTimeoutRings($noAnswerTimeoutRings);
     }
 
+    /**
+     * Number of rings to wait before timeout the outgoing call.
+     */
     public function getNoAnswerTimeoutRings()
     {
-        return (!$this->noAnswerTimeoutRings) ?: $this->noAnswerTimeoutRings->value();
+        return (!$this->noAnswerTimeoutRings) ?: $this->noAnswerTimeoutRings->getValue();
     }
 
-    public function setEnableVideo(xs:boolean $enableVideo = null)
+    /**
+     * 
+     */
+    public function setEnableVideo($enableVideo = null)
     {
+        $this->enableVideo = (boolean) $enableVideo;
     }
 
+    /**
+     * 
+     */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->value();
+        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
     }
 
-    public function setPlayRingingWhenOfferingCall(xs:boolean $playRingingWhenOfferingCall = null)
+    /**
+     * 
+     */
+    public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall = null)
     {
+        $this->playRingingWhenOfferingCall = (boolean) $playRingingWhenOfferingCall;
     }
 
+    /**
+     * 
+     */
     public function getPlayRingingWhenOfferingCall()
     {
-        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->value();
+        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->getValue();
     }
 
-    public function setOverrideAgentWrapUpTime(xs:boolean $overrideAgentWrapUpTime = null)
+    /**
+     * 
+     */
+    public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
+        $this->overrideAgentWrapUpTime = (boolean) $overrideAgentWrapUpTime;
     }
 
+    /**
+     * 
+     */
     public function getOverrideAgentWrapUpTime()
     {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->value();
+        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->getValue();
     }
 
+    /**
+     * The ACD wrap up time in seconds.
+     */
     public function setWrapUpSeconds($wrapUpSeconds = null)
     {
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
@@ -232,20 +325,34 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
     }
 
+    /**
+     * The ACD wrap up time in seconds.
+     */
     public function getWrapUpSeconds()
     {
-        return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->value();
+        return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->getValue();
     }
 
-    public function setEnableAutomaticStateChangeForAgents(xs:boolean $enableAutomaticStateChangeForAgents = null)
+    /**
+     * 
+     */
+    public function setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents = null)
     {
+        $this->enableAutomaticStateChangeForAgents = (boolean) $enableAutomaticStateChangeForAgents;
     }
 
+    /**
+     * 
+     */
     public function getEnableAutomaticStateChangeForAgents()
     {
-        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->value();
+        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->getValue();
     }
 
+    /**
+     * Agent Automatic Call Distribution (ACD) State.
+     *         States available for Wrap-Up agent state management.
+     */
     public function setAgentStateAfterCall($agentStateAfterCall = null)
     {
         $this->agentStateAfterCall = ($agentStateAfterCall InstanceOf AgentACDAutomaticState)
@@ -253,11 +360,18 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new AgentACDAutomaticState($agentStateAfterCall);
     }
 
+    /**
+     * Agent Automatic Call Distribution (ACD) State.
+     *         States available for Wrap-Up agent state management.
+     */
     public function getAgentStateAfterCall()
     {
-        return (!$this->agentStateAfterCall) ?: $this->agentStateAfterCall->value();
+        return (!$this->agentStateAfterCall) ?: $this->agentStateAfterCall->getValue();
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function setAgentUnavailableCode($agentUnavailableCode = null)
     {
         $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
@@ -265,20 +379,33 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new CallCenterAgentUnavailableCode($agentUnavailableCode);
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function getAgentUnavailableCode()
     {
-        return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->value();
+        return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->getValue();
     }
 
-    public function setForceDeliveryOfCalls(xs:boolean $forceDeliveryOfCalls = null)
+    /**
+     * 
+     */
+    public function setForceDeliveryOfCalls($forceDeliveryOfCalls = null)
     {
+        $this->forceDeliveryOfCalls = (boolean) $forceDeliveryOfCalls;
     }
 
+    /**
+     * 
+     */
     public function getForceDeliveryOfCalls()
     {
-        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->value();
+        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->getValue();
     }
 
+    /**
+     * Call center force delivery wait time in seconds.
+     */
     public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds = null)
     {
         $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
@@ -286,8 +413,11 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
              : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
     }
 
+    /**
+     * Call center force delivery wait time in seconds.
+     */
     public function getForceDeliveryWaitTimeSeconds()
     {
-        return (!$this->forceDeliveryWaitTimeSeconds) ?: $this->forceDeliveryWaitTimeSeconds->value();
+        return (!$this->forceDeliveryWaitTimeSeconds) ?: $this->forceDeliveryWaitTimeSeconds->getValue();
     }
 }

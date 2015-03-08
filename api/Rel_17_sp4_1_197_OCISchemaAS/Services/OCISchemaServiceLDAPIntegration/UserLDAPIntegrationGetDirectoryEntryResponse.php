@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserLDAPIntegrationGetDirectoryEntryRequest.
+     * Response to UserLDAPIntegrationGetDirectoryEntryRequest.
  */
 class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $data  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryEntryResponse';
+    public    $name = __CLASS__;
+    protected $data = null;
 
 
+    /**
+     * One name value pair for a LDAP entry.
+     */
     public function setData(LDAPEntryField $data = null)
     {
+        $this->data = LDAPEntryField $data;
     }
 
+    /**
+     * One name value pair for a LDAP entry.
+     */
     public function getData()
     {
-        return (!$this->data) ?: $this->data->value();
+        return (!$this->data) ?: $this->data->getValue();
     }
 }

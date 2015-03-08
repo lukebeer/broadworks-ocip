@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * ShInterface User Id Data Entry.
+     * ShInterface User Id Data Entry.
  */
 class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ShInterfaceUserIdDataEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

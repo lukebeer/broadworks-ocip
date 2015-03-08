@@ -17,19 +17,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupAdminGetRequest.
+     * Response to the GroupAdminGetRequest.
  *         The response contains the group administrators profile information.
  */
 class GroupAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $firstName          = null;
-    protected $lastName           = null;
-    protected $language           = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $firstName         = null;
+    protected $lastName          = null;
+    protected $language          = null;
 
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -37,11 +42,19 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -49,11 +62,18 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function setFirstName($firstName = null)
     {
         $this->firstName = ($firstName InstanceOf FirstName)
@@ -61,11 +81,17 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
              : new FirstName($firstName);
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->value();
+        return (!$this->firstName) ?: $this->firstName->getValue();
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function setLastName($lastName = null)
     {
         $this->lastName = ($lastName InstanceOf LastName)
@@ -73,11 +99,17 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
              : new LastName($lastName);
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->value();
+        return (!$this->lastName) ?: $this->lastName->getValue();
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -85,8 +117,11 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 }

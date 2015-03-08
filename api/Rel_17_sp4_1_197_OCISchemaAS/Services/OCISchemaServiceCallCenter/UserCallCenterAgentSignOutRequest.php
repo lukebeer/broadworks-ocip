@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * This request signs-out a call center agent. Administrator, supervisor and agent itself can sign-out an agent. 
+     * This request signs-out a call center agent. Administrator, supervisor and agent itself can sign-out an agent. 
  *         An empty OCI table in OCI-P response indicates success and the agent has been signed out. This sign-out 
  *         command will fail if the agent is the last signed-in agent of any standard or premium call center to 
  *         which she is currently joined. If the sign-out fails, the OCI-P response will contain a list of 
@@ -24,8 +24,9 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $agentUserId  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentSignOutResponse';
+    public    $name        = __CLASS__;
+    protected $agentUserId = null;
 
     public function __construct(
          $agentUserId
@@ -33,6 +34,13 @@ class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexIn
         $this->setAgentUserId($agentUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setAgentUserId($agentUserId = null)
     {
         $this->agentUserId = ($agentUserId InstanceOf UserId)
@@ -40,8 +48,15 @@ class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexIn
              : new UserId($agentUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getAgentUserId()
     {
-        return (!$this->agentUserId) ?: $this->agentUserId->value();
+        return (!$this->agentUserId) ?: $this->agentUserId->getValue();
     }
 }

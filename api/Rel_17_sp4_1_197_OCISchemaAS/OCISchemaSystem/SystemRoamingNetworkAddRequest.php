@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Roaming Network.
+     * Add a Roaming Network.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoamingNetworkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $mscAddress               = null;
-    protected $networkTranslationIndex  = null;
+    public    $name                    = __CLASS__;
+    protected $mscAddress              = null;
+    protected $networkTranslationIndex = null;
 
     public function __construct(
          $mscAddress,
@@ -31,6 +31,9 @@ class SystemRoamingNetworkAddRequest extends ComplexType implements ComplexInter
         $this->setNetworkTranslationIndex($networkTranslationIndex);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setMscAddress($mscAddress = null)
     {
         $this->mscAddress = ($mscAddress InstanceOf DN)
@@ -38,11 +41,17 @@ class SystemRoamingNetworkAddRequest extends ComplexType implements ComplexInter
              : new DN($mscAddress);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getMscAddress()
     {
-        return (!$this->mscAddress) ?: $this->mscAddress->value();
+        return (!$this->mscAddress) ?: $this->mscAddress->getValue();
     }
 
+    /**
+     * Network Translation Index for selecting Enterprise and Public dial plans.
+     */
     public function setNetworkTranslationIndex($networkTranslationIndex = null)
     {
         $this->networkTranslationIndex = ($networkTranslationIndex InstanceOf NetworkTranslationIndex)
@@ -50,8 +59,11 @@ class SystemRoamingNetworkAddRequest extends ComplexType implements ComplexInter
              : new NetworkTranslationIndex($networkTranslationIndex);
     }
 
+    /**
+     * Network Translation Index for selecting Enterprise and Public dial plans.
+     */
     public function getNetworkTranslationIndex()
     {
-        return (!$this->networkTranslationIndex) ?: $this->networkTranslationIndex->value();
+        return (!$this->networkTranslationIndex) ?: $this->networkTranslationIndex->getValue();
     }
 }

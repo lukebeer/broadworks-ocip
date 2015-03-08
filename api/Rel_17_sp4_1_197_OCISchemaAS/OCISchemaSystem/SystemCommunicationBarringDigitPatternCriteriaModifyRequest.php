@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an existing Communication Barring Digit Pattern Criteria.
+     * Modify an existing Communication Barring Digit Pattern Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $name                     = null;
-    protected $newName                  = null;
-    protected $description              = null;
-    protected $addMatchDigitPattern     = null;
-    protected $deleteMatchDigitPattern  = null;
+    public    $name                    = __CLASS__;
+    protected $name                    = null;
+    protected $newName                 = null;
+    protected $description             = null;
+    protected $addMatchDigitPattern    = null;
+    protected $deleteMatchDigitPattern = null;
 
     public function __construct(
          $name,
@@ -41,6 +41,9 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
         $this->setDeleteMatchDigitPattern($deleteMatchDigitPattern);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
@@ -48,11 +51,17 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
              : new DigitPatternCriteriaName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setNewName($newName = null)
     {
         $this->newName = ($newName InstanceOf DigitPatternCriteriaName)
@@ -60,11 +69,17 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
              : new DigitPatternCriteriaName($newName);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->value();
+        return (!$this->newName) ?: $this->newName->getValue();
     }
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
@@ -72,11 +87,21 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
              : new DigitPatternCriteriaDescription($description);
     }
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function setAddMatchDigitPattern($addMatchDigitPattern = null)
     {
         $this->addMatchDigitPattern = ($addMatchDigitPattern InstanceOf DigitPattern)
@@ -84,11 +109,25 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
              : new DigitPattern($addMatchDigitPattern);
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function getAddMatchDigitPattern()
     {
-        return (!$this->addMatchDigitPattern) ?: $this->addMatchDigitPattern->value();
+        return (!$this->addMatchDigitPattern) ?: $this->addMatchDigitPattern->getValue();
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function setDeleteMatchDigitPattern($deleteMatchDigitPattern = null)
     {
         $this->deleteMatchDigitPattern = ($deleteMatchDigitPattern InstanceOf DigitPattern)
@@ -96,8 +135,15 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
              : new DigitPattern($deleteMatchDigitPattern);
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function getDeleteMatchDigitPattern()
     {
-        return (!$this->deleteMatchDigitPattern) ?: $this->deleteMatchDigitPattern->value();
+        return (!$this->deleteMatchDigitPattern) ?: $this->deleteMatchDigitPattern->getValue();
     }
 }

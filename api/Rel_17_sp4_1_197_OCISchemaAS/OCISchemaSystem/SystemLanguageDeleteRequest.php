@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a language from the system.
+     * Request to delete a language from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemLanguageDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $language  = null;
+    public    $name     = __CLASS__;
+    protected $language = null;
 
     public function __construct(
          $language
@@ -27,6 +27,9 @@ class SystemLanguageDeleteRequest extends ComplexType implements ComplexInterfac
         $this->setLanguage($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -34,8 +37,11 @@ class SystemLanguageDeleteRequest extends ComplexType implements ComplexInterfac
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 }

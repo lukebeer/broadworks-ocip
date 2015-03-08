@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system's automatic callback attributes.
+     * Request the system's automatic callback attributes.
  *         The response is either a SystemAutomaticCallbackGetResponse15sp2 or an ErrorResponse.
  *         Replaced by: SystemAutomaticCallbackGetRequest17
  */
 class SystemAutomaticCallbackGetRequest15sp2 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAutomaticCallbackGetResponse15sp2';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

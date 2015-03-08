@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Meet-Me Conferencing functions.
+     * Request the system level data associated with Meet-Me Conferencing functions.
  *         The response is either a SystemMeetMeConferencingGetResponse or an ErrorResponse.
  */
 class SystemMeetMeConferencingGetRequest17sp3 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\SystemMeetMeConferencingGetResponse17sp3';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

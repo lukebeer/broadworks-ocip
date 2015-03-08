@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a service code for the purpose of providing free format routable strings for dialing
+     * Request to delete a service code for the purpose of providing free format routable strings for dialing
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $serviceCode  = null;
+    public    $name        = __CLASS__;
+    protected $serviceCode = null;
 
     public function __construct(
          $serviceCode
@@ -27,6 +27,10 @@ class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInter
         $this->setServiceCode($serviceCode);
     }
 
+    /**
+     * Service Codes that are used for dialing in lieu of phone numbers.
+     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     */
     public function setServiceCode($serviceCode = null)
     {
         $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
@@ -34,8 +38,12 @@ class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInter
              : new ServiceCode($serviceCode);
     }
 
+    /**
+     * Service Codes that are used for dialing in lieu of phone numbers.
+     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     */
     public function getServiceCode()
     {
-        return (!$this->serviceCode) ?: $this->serviceCode->value();
+        return (!$this->serviceCode) ?: $this->serviceCode->getValue();
     }
 }

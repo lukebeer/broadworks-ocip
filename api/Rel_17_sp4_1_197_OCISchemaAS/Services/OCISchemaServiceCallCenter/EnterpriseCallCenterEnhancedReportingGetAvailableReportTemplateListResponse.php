@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListRequest. 
+     * Response to EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListRequest. 
  *         Contains a table with column headings: "Name", "Description" and "Level", "Is Agent Required", 
  *         "Is Call Center Required", "Is Call Center Dnis Required", "Is Real Time Report", "Is Sampling Period Required", 
  *         "Call Completion Threshold Parameter", "Short Duration Threshold Parameter", 
@@ -30,16 +30,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $reportTemplateTable  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListResponse';
+    public    $name                = __CLASS__;
+    protected $reportTemplateTable = null;
 
 
+    /**
+     * 
+     */
     public function setReportTemplateTable(core:OCITable $reportTemplateTable = null)
     {
+        $this->reportTemplateTable = core:OCITable $reportTemplateTable;
     }
 
+    /**
+     * 
+     */
     public function getReportTemplateTable()
     {
-        return (!$this->reportTemplateTable) ?: $this->reportTemplateTable->value();
+        return (!$this->reportTemplateTable) ?: $this->reportTemplateTable->getValue();
     }
 }

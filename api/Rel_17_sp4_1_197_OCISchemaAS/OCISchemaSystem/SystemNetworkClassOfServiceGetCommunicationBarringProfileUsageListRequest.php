@@ -13,15 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of Network Classes of Service that contain a specific
+     * Get the list of Network Classes of Service that contain a specific
  *         Communication Barring Profile.
  *         The response is either a SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse
  *         or an ErrorResponse.
  */
 class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -29,6 +30,9 @@ class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListRequest 
         $this->setName($name);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
@@ -36,8 +40,11 @@ class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListRequest 
              : new CommunicationBarringProfileName($name);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupDnGetAssignmentListRequest.
+     * Response to the GroupDnGetAssignmentListRequest.
  *         The response contains a table with columns: "Phone Numbers", "Assigned To", "Department".
  *         The "Phone Numbers" column contains either a single DN or a range of DNs.
  *         The "Assigned To" column contains the user name or service instance name possessing the DN(s).
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDnGetAssignmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $dnTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse';
+    public    $name    = __CLASS__;
+    protected $dnTable = null;
 
 
+    /**
+     * 
+     */
     public function setDnTable(core:OCITable $dnTable = null)
     {
+        $this->dnTable = core:OCITable $dnTable;
     }
 
+    /**
+     * 
+     */
     public function getDnTable()
     {
-        return (!$this->dnTable) ?: $this->dnTable->value();
+        return (!$this->dnTable) ?: $this->dnTable->getValue();
     }
 }

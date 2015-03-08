@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * A message contains a list of requests or responses. The server processes all the requests
+     * A message contains a list of requests or responses. The server processes all the requests
  *         and returns a message with a corresponding list of responses.
  */
 class OCIMessage extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCIMessage';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

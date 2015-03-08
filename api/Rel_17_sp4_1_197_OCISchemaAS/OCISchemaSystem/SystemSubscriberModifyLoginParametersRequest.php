@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system login configuration for all subscribers
+     * Modify the system login configuration for all subscribers
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSubscriberModifyLoginParametersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $maxFailedLoginAttempts  = null;
-    protected $minLoginIdLength        = null;
+    public    $name                   = __CLASS__;
+    protected $maxFailedLoginAttempts = null;
+    protected $minLoginIdLength       = null;
 
     public function __construct(
          $maxFailedLoginAttempts = null,
@@ -31,6 +31,9 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
         $this->setMinLoginIdLength($minLoginIdLength);
     }
 
+    /**
+     * Maximum Login Attempts.
+     */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf SystemMaxLoginAttempts)
@@ -38,11 +41,17 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
              : new SystemMaxLoginAttempts($maxFailedLoginAttempts);
     }
 
+    /**
+     * Maximum Login Attempts.
+     */
     public function getMaxFailedLoginAttempts()
     {
-        return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->value();
+        return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->getValue();
     }
 
+    /**
+     * Minimum Login Id Length.
+     */
     public function setMinLoginIdLength($minLoginIdLength = null)
     {
         $this->minLoginIdLength = ($minLoginIdLength InstanceOf SystemMinLoginIdLength)
@@ -50,8 +59,11 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
              : new SystemMinLoginIdLength($minLoginIdLength);
     }
 
+    /**
+     * Minimum Login Id Length.
+     */
     public function getMinLoginIdLength()
     {
-        return (!$this->minLoginIdLength) ?: $this->minLoginIdLength->value();
+        return (!$this->minLoginIdLength) ?: $this->minLoginIdLength->getValue();
     }
 }

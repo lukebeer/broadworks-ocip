@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a Radius Server to the system.
+     * Request to add a Radius Server to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingAddRadiusServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $netAddress   = null;
-    protected $port         = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $netAddress  = null;
+    protected $port        = null;
+    protected $description = null;
 
     public function __construct(
          $netAddress,
@@ -35,6 +35,9 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
         $this->setDescription($description);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -42,11 +45,17 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setPort($port = null)
     {
         $this->port = ($port InstanceOf Port1025)
@@ -54,11 +63,17 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
              : new Port1025($port);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->value();
+        return (!$this->port) ?: $this->port->getValue();
     }
 
+    /**
+     * Radius Server description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf RadiusServerDescription)
@@ -66,8 +81,11 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
              : new RadiusServerDescription($description);
     }
 
+    /**
+     * Radius Server description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

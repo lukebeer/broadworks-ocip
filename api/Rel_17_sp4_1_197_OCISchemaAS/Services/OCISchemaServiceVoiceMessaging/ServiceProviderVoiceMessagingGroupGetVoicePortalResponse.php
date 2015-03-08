@@ -13,14 +13,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderVoiceMessagingGroupGetVoicePortalRequest.
+     * Response to ServiceProviderVoiceMessagingGroupGetVoicePortalRequest.
  */
 class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $voicePortalScope  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupGetVoicePortalResponse';
+    public    $name             = __CLASS__;
+    protected $voicePortalScope = null;
 
 
+    /**
+     * Voice Portal Scope.
+     *         The Service Provider option allows users to log in to their voice portal using the voice portal
+     *         of any group that is both hosted on the same application server and within the same service provider
+     *         or enterprise.
+     *         The Group option keeps groups completely independent. Users can only log in to their voice portal
+     *         using the access number for their group.
+     */
     public function setVoicePortalScope($voicePortalScope = null)
     {
         $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
@@ -28,8 +37,16 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexTy
              : new ServiceProviderVoicePortalScope($voicePortalScope);
     }
 
+    /**
+     * Voice Portal Scope.
+     *         The Service Provider option allows users to log in to their voice portal using the voice portal
+     *         of any group that is both hosted on the same application server and within the same service provider
+     *         or enterprise.
+     *         The Group option keeps groups completely independent. Users can only log in to their voice portal
+     *         using the access number for their group.
+     */
     public function getVoicePortalScope()
     {
-        return (!$this->voicePortalScope) ?: $this->voicePortalScope->value();
+        return (!$this->voicePortalScope) ?: $this->voicePortalScope->getValue();
     }
 }

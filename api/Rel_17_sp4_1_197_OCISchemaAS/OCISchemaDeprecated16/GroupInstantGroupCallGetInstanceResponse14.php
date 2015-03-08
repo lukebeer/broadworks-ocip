@@ -15,27 +15,49 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupInstantGroupCallGetInstanceRequest14.
+     * Response to GroupInstantGroupCallGetInstanceRequest14.
  *         Contains the service profile information and a list of phone numbers.
  */
 class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceInstanceProfile  = null;
-    protected $destinationPhoneNumber  = null;
-    protected $isAnswerTimeoutEnabled  = null;
-    protected $answerTimeoutMinutes    = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupInstantGroupCallGetInstanceResponse14';
+    public    $name                   = __CLASS__;
+    protected $serviceInstanceProfile = null;
+    protected $destinationPhoneNumber = null;
+    protected $isAnswerTimeoutEnabled = null;
+    protected $answerTimeoutMinutes   = null;
 
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setDestinationPhoneNumber($destinationPhoneNumber = null)
     {
         $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -43,20 +65,40 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
              : new OutgoingDNorSIPURI($destinationPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getDestinationPhoneNumber()
     {
-        return (!$this->destinationPhoneNumber) ?: $this->destinationPhoneNumber->value();
+        return (!$this->destinationPhoneNumber) ?: $this->destinationPhoneNumber->getValue();
     }
 
-    public function setIsAnswerTimeoutEnabled(xs:boolean $isAnswerTimeoutEnabled = null)
+    /**
+     * 
+     */
+    public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled = null)
     {
+        $this->isAnswerTimeoutEnabled = (boolean) $isAnswerTimeoutEnabled;
     }
 
+    /**
+     * 
+     */
     public function getIsAnswerTimeoutEnabled()
     {
-        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->value();
+        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->getValue();
     }
 
+    /**
+     * The maximum duration for unanswered call.
+     */
     public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
         $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
@@ -64,8 +106,11 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
              : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
+    /**
+     * The maximum duration for unanswered call.
+     */
     public function getAnswerTimeoutMinutes()
     {
-        return (!$this->answerTimeoutMinutes) ?: $this->answerTimeoutMinutes->value();
+        return (!$this->answerTimeoutMinutes) ?: $this->answerTimeoutMinutes->getValue();
     }
 }

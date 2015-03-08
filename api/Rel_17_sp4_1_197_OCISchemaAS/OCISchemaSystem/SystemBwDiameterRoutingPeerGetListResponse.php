@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains a 6 column table with column headings 'Instance', 'Realm',  'ApplicationID', 'Identity, 'Priority', and 'Weight'.  One row is present for each Diameter Routing Peer.
+     * Contains a 6 column table with column headings 'Instance', 'Realm',  'ApplicationID', 'Identity, 'Priority', and 'Weight'.  One row is present for each Diameter Routing Peer.
  */
 class SystemBwDiameterRoutingPeerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $routingPeerTable  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingPeerGetListResponse';
+    public    $name             = __CLASS__;
+    protected $routingPeerTable = null;
 
 
+    /**
+     * 
+     */
     public function setRoutingPeerTable(core:OCITable $routingPeerTable = null)
     {
+        $this->routingPeerTable = core:OCITable $routingPeerTable;
     }
 
+    /**
+     * 
+     */
     public function getRoutingPeerTable()
     {
-        return (!$this->routingPeerTable) ?: $this->routingPeerTable->value();
+        return (!$this->routingPeerTable) ?: $this->routingPeerTable->getValue();
     }
 }

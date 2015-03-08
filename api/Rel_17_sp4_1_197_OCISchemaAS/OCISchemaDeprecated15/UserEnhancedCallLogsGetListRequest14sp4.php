@@ -16,7 +16,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request user's call logs. It is possible to get a subset of the total list of calls
+     * Request user's call logs. It is possible to get a subset of the total list of calls
  *             by specifying a starting offset and the number of calls to get.
  *             If the callLogType is not specified, all types of calls are returned.
  *             The response is either a UserEnhancedCallLogsGetListResponse14sp4 or an ErrorResponse.
@@ -25,11 +25,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $userId          = null;
-    protected $callLogType     = null;
-    protected $startingOffset  = null;
-    protected $numCalls        = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4';
+    public    $name           = __CLASS__;
+    protected $userId         = null;
+    protected $callLogType    = null;
+    protected $startingOffset = null;
+    protected $numCalls       = null;
 
     public function __construct(
          $userId,
@@ -43,6 +44,13 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
         $this->setNumCalls($numCalls);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -50,11 +58,21 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Call Log type.
+     */
     public function setCallLogType($callLogType = null)
     {
         $this->callLogType = ($callLogType InstanceOf CallLogsType)
@@ -62,11 +80,17 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
              : new CallLogsType($callLogType);
     }
 
+    /**
+     * Call Log type.
+     */
     public function getCallLogType()
     {
-        return (!$this->callLogType) ?: $this->callLogType->value();
+        return (!$this->callLogType) ?: $this->callLogType->getValue();
     }
 
+    /**
+     * The offset into the list of calls in the call log.
+     */
     public function setStartingOffset($startingOffset = null)
     {
         $this->startingOffset = ($startingOffset InstanceOf EnhancedCallLogsOffset)
@@ -74,11 +98,17 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
              : new EnhancedCallLogsOffset($startingOffset);
     }
 
+    /**
+     * The offset into the list of calls in the call log.
+     */
     public function getStartingOffset()
     {
-        return (!$this->startingOffset) ?: $this->startingOffset->value();
+        return (!$this->startingOffset) ?: $this->startingOffset->getValue();
     }
 
+    /**
+     * Sets the maximum number of logged calls that can be stored.
+     */
     public function setNumCalls($numCalls = null)
     {
         $this->numCalls = ($numCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
@@ -86,8 +116,11 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
              : new EnhancedCallLogsMaxLoggedCalls($numCalls);
     }
 
+    /**
+     * Sets the maximum number of logged calls that can be stored.
+     */
     public function getNumCalls()
     {
-        return (!$this->numCalls) ?: $this->numCalls->value();
+        return (!$this->numCalls) ?: $this->numCalls->getValue();
     }
 }

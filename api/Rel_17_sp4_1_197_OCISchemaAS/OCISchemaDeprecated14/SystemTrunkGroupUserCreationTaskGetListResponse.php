@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemTrunkGroupUserCreationTaskGetListRequest.
+     * Response to SystemTrunkGroupUserCreationTaskGetListRequest.
  *         Contains a table with a row for each user creation task and column headings :
  *         "Service User Id", "Group Id", "Organization Id", "Organization Type", "Name", "Status", "Users Created", "Total Users To Create", "Error Count".
  *         The "Organization Id" column is populated with either a service provider Id or an enterprise Id.
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTrunkGroupUserCreationTaskGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $taskTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemTrunkGroupUserCreationTaskGetListResponse';
+    public    $name      = __CLASS__;
+    protected $taskTable = null;
 
 
+    /**
+     * 
+     */
     public function setTaskTable(core:OCITable $taskTable = null)
     {
+        $this->taskTable = core:OCITable $taskTable;
     }
 
+    /**
+     * 
+     */
     public function getTaskTable()
     {
-        return (!$this->taskTable) ?: $this->taskTable->value();
+        return (!$this->taskTable) ?: $this->taskTable->getValue();
     }
 }

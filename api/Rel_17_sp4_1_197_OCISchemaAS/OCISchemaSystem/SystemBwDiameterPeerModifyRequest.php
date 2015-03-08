@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the attributes of an entry in the Diameter Peer Table.
+     * Modifies the attributes of an entry in the Diameter Peer Table.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $instance   = null;
-    protected $identity   = null;
-    protected $ipAddress  = null;
-    protected $port       = null;
-    protected $enabled    = null;
+    public    $name      = __CLASS__;
+    protected $instance  = null;
+    protected $identity  = null;
+    protected $ipAddress = null;
+    protected $port      = null;
+    protected $enabled   = null;
 
     public function __construct(
          $instance,
@@ -42,6 +42,9 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
         $this->setEnabled($enabled);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function setInstance($instance = null)
     {
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
@@ -49,11 +52,17 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
              : new BwDiameterPeerInstance($instance);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->value();
+        return (!$this->instance) ?: $this->instance->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setIdentity($identity = null)
     {
         $this->identity = ($identity InstanceOf DomainName)
@@ -61,11 +70,17 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
              : new DomainName($identity);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getIdentity()
     {
-        return (!$this->identity) ?: $this->identity->value();
+        return (!$this->identity) ?: $this->identity->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setIpAddress($ipAddress = null)
     {
         $this->ipAddress = ($ipAddress InstanceOf IPAddress)
@@ -73,11 +88,17 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
              : new IPAddress($ipAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getIpAddress()
     {
-        return (!$this->ipAddress) ?: $this->ipAddress->value();
+        return (!$this->ipAddress) ?: $this->ipAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setPort($port = null)
     {
         $this->port = ($port InstanceOf Port1025)
@@ -85,17 +106,27 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
              : new Port1025($port);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->value();
+        return (!$this->port) ?: $this->port->getValue();
     }
 
-    public function setEnabled(xs:boolean $enabled = null)
+    /**
+     * 
+     */
+    public function setEnabled($enabled = null)
     {
+        $this->enabled = (boolean) $enabled;
     }
 
+    /**
+     * 
+     */
     public function getEnabled()
     {
-        return (!$this->enabled) ?: $this->enabled->value();
+        return (!$this->enabled) ?: $this->enabled->getValue();
     }
 }

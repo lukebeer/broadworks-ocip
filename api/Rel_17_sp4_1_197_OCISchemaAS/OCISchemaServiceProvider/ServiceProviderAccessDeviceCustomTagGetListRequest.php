@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of custom configuration tags managed by the Device Management System, on a per-device profile basis.
+     * Request to get the list of custom configuration tags managed by the Device Management System, on a per-device profile basis.
  *         The response is either ServiceProviderAccessDeviceCustomTagGetListResponse or ErrorResponse.
  */
 class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $deviceName         = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceCustomTagGetListResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $deviceName        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,18 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -50,8 +62,11 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

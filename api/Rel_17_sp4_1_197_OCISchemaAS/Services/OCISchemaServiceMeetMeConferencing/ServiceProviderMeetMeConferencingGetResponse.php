@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderMeetMeConferencingGetRequest.
+     * Response to ServiceProviderMeetMeConferencingGetRequest.
  */
 class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $allocatedPorts  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\ServiceProviderMeetMeConferencingGetResponse';
+    public    $name           = __CLASS__;
+    protected $allocatedPorts = null;
 
 
+    /**
+     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
+        $this->allocatedPorts = MeetMeConferencingConferencePorts $allocatedPorts;
     }
 
+    /**
+     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     */
     public function getAllocatedPorts()
     {
-        return (!$this->allocatedPorts) ?: $this->allocatedPorts->value();
+        return (!$this->allocatedPorts) ?: $this->allocatedPorts->getValue();
     }
 }

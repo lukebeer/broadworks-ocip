@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemBCCTGetOCIInterfaceAddressListRequest.
+     * Response to SystemBCCTGetOCIInterfaceAddressListRequest.
  */
 class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $interfaceNetAddress  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemBCCTGetOCIInterfaceAddressListResponse';
+    public    $name                = __CLASS__;
+    protected $interfaceNetAddress = null;
 
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setInterfaceNetAddress($interfaceNetAddress = null)
     {
         $this->interfaceNetAddress = ($interfaceNetAddress InstanceOf NetAddress)
@@ -28,8 +32,11 @@ class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implement
              : new NetAddress($interfaceNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getInterfaceNetAddress()
     {
-        return (!$this->interfaceNetAddress) ?: $this->interfaceNetAddress->value();
+        return (!$this->interfaceNetAddress) ?: $this->interfaceNetAddress->getValue();
     }
 }

@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the input parameter info for a call center report template.
+     * Request to get the input parameter info for a call center report template.
  *         The response is either a UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse or an ErrorResponse.
  */
 class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $reportTemplate  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse';
+    public    $name           = __CLASS__;
+    protected $reportTemplate = null;
 
     public function __construct(
          CallCenterReportTemplateKey $reportTemplate
@@ -27,12 +28,19 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends C
         $this->setReportTemplate($reportTemplate);
     }
 
+    /**
+     * Uniquely identifies a call center report template created in the system.
+     */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
+        $this->reportTemplate = CallCenterReportTemplateKey $reportTemplate;
     }
 
+    /**
+     * Uniquely identifies a call center report template created in the system.
+     */
     public function getReportTemplate()
     {
-        return (!$this->reportTemplate) ?: $this->reportTemplate->value();
+        return (!$this->reportTemplate) ?: $this->reportTemplate->getValue();
     }
 }

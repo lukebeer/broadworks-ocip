@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemOutgoingCallingPlanCallTypeGetMappingListRequest. The table columns are:
+     * Response to SystemOutgoingCallingPlanCallTypeGetMappingListRequest. The table columns are:
  *         "Country Code", "Digit Map" and "Call Type".
  */
 class SystemOutgoingCallingPlanCallTypeGetMappingListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $callTypeMapping  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeGetMappingListResponse';
+    public    $name            = __CLASS__;
+    protected $callTypeMapping = null;
 
 
+    /**
+     * 
+     */
     public function setCallTypeMapping(core:OCITable $callTypeMapping = null)
     {
+        $this->callTypeMapping = core:OCITable $callTypeMapping;
     }
 
+    /**
+     * 
+     */
     public function getCallTypeMapping()
     {
-        return (!$this->callTypeMapping) ?: $this->callTypeMapping->value();
+        return (!$this->callTypeMapping) ?: $this->callTypeMapping->getValue();
     }
 }

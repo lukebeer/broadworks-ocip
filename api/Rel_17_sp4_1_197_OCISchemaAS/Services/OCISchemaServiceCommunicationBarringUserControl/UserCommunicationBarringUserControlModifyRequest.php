@@ -15,7 +15,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Enabling a profile automatically disables the currently active profile.
+     * Enabling a profile automatically disables the currently active profile.
  *         Also allows the passcode for the service to be modified and the lockout to be reset.
  *         Admins only need to populate the newPasscode field when changing the passcode.  
  *         Users must populate both the oldPasscode and new Passcode fields when changing the passcode.
@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $userId         = null;
-    protected $enableProfile  = null;
-    protected $oldPasscode    = null;
-    protected $newPasscode    = null;
-    protected $resetLockout   = null;
+    public    $name          = __CLASS__;
+    protected $userId        = null;
+    protected $enableProfile = null;
+    protected $oldPasscode   = null;
+    protected $newPasscode   = null;
+    protected $resetLockout  = null;
 
     public function __construct(
          $userId,
@@ -44,6 +44,13 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         $this->setResetLockout($resetLockout);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -51,11 +58,21 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Communication Barring Profile code identifying a profile within a Network Class of Service.
+     */
     public function setEnableProfile($enableProfile = null)
     {
         $this->enableProfile = ($enableProfile InstanceOf CommunicationBarringUserControlProfileCode)
@@ -63,11 +80,17 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
              : new CommunicationBarringUserControlProfileCode($enableProfile);
     }
 
+    /**
+     * Communication Barring Profile code identifying a profile within a Network Class of Service.
+     */
     public function getEnableProfile()
     {
-        return (!$this->enableProfile) ?: $this->enableProfile->value();
+        return (!$this->enableProfile) ?: $this->enableProfile->getValue();
     }
 
+    /**
+     * Portal passcode
+     */
     public function setOldPasscode($oldPasscode = null)
     {
         $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
@@ -75,11 +98,17 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
              : new Passcode($oldPasscode);
     }
 
+    /**
+     * Portal passcode
+     */
     public function getOldPasscode()
     {
-        return (!$this->oldPasscode) ?: $this->oldPasscode->value();
+        return (!$this->oldPasscode) ?: $this->oldPasscode->getValue();
     }
 
+    /**
+     * Portal passcode
+     */
     public function setNewPasscode($newPasscode = null)
     {
         $this->newPasscode = ($newPasscode InstanceOf Passcode)
@@ -87,17 +116,27 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
              : new Passcode($newPasscode);
     }
 
+    /**
+     * Portal passcode
+     */
     public function getNewPasscode()
     {
-        return (!$this->newPasscode) ?: $this->newPasscode->value();
+        return (!$this->newPasscode) ?: $this->newPasscode->getValue();
     }
 
-    public function setResetLockout(xs:boolean $resetLockout = null)
+    /**
+     * 
+     */
+    public function setResetLockout($resetLockout = null)
     {
+        $this->resetLockout = (boolean) $resetLockout;
     }
 
+    /**
+     * 
+     */
     public function getResetLockout()
     {
-        return (!$this->resetLockout) ?: $this->resetLockout->value();
+        return (!$this->resetLockout) ?: $this->resetLockout->getValue();
     }
 }

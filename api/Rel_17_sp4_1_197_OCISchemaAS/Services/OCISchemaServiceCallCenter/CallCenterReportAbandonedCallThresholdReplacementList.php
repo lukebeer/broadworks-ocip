@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * A list of call center reporting abandoned call threshold seconds that replaces a previously configured list.
+     * A list of call center reporting abandoned call threshold seconds that replaces a previously configured list.
  */
 class CallCenterReportAbandonedCallThresholdReplacementList extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportAbandonedCallThresholdReplacementList';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

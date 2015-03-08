@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Dialable Caller ID Criteria.
+     * Get an existing Dialable Caller ID Criteria.
  *         The response is either a  
  *         SystemDialableCallerIDCriteriaGetRequest or an ErrorResponse.
  */
 class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDCriteriaGetResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -28,6 +29,9 @@ class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements Co
         $this->setName($name);
     }
 
+    /**
+     * Dialable Caller ID Criteria name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
@@ -35,8 +39,11 @@ class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements Co
              : new DialableCallerIDCriteriaName($name);
     }
 
+    /**
+     * Dialable Caller ID Criteria name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

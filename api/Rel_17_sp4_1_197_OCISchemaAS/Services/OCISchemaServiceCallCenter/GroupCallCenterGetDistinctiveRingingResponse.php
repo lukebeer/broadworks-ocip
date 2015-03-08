@@ -13,25 +13,36 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterGetDistinctiveRingingRequest.
+     * Response to the GroupCallCenterGetDistinctiveRingingRequest.
  */
 class GroupCallCenterGetDistinctiveRingingResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
-    protected $distinctiveRingingCallCenterCalls           = null;
-    protected $distinctiveRingingRingPatternForCallCenter  = null;
-    protected $distinctiveRingingForceDeliveryRingPattern  = null;
+    const     RESPONSE_TYPE                               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDistinctiveRingingResponse';
+    public    $name                                       = __CLASS__;
+    protected $distinctiveRingingCallCenterCalls          = null;
+    protected $distinctiveRingingRingPatternForCallCenter = null;
+    protected $distinctiveRingingForceDeliveryRingPattern = null;
 
 
-    public function setDistinctiveRingingCallCenterCalls(xs:boolean $distinctiveRingingCallCenterCalls = null)
+    /**
+     * 
+     */
+    public function setDistinctiveRingingCallCenterCalls($distinctiveRingingCallCenterCalls = null)
     {
+        $this->distinctiveRingingCallCenterCalls = (boolean) $distinctiveRingingCallCenterCalls;
     }
 
+    /**
+     * 
+     */
     public function getDistinctiveRingingCallCenterCalls()
     {
-        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls->value();
+        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls->getValue();
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter = null)
     {
         $this->distinctiveRingingRingPatternForCallCenter = ($distinctiveRingingRingPatternForCallCenter InstanceOf RingPattern)
@@ -39,11 +50,17 @@ class GroupCallCenterGetDistinctiveRingingResponse extends ComplexType implement
              : new RingPattern($distinctiveRingingRingPatternForCallCenter);
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function getDistinctiveRingingRingPatternForCallCenter()
     {
-        return (!$this->distinctiveRingingRingPatternForCallCenter) ?: $this->distinctiveRingingRingPatternForCallCenter->value();
+        return (!$this->distinctiveRingingRingPatternForCallCenter) ?: $this->distinctiveRingingRingPatternForCallCenter->getValue();
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
         $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
@@ -51,8 +68,11 @@ class GroupCallCenterGetDistinctiveRingingResponse extends ComplexType implement
              : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
     }
 
+    /**
+     * The supported ring patterns.
+     */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {
-        return (!$this->distinctiveRingingForceDeliveryRingPattern) ?: $this->distinctiveRingingForceDeliveryRingPattern->value();
+        return (!$this->distinctiveRingingForceDeliveryRingPattern) ?: $this->distinctiveRingingForceDeliveryRingPattern->getValue();
     }
 }

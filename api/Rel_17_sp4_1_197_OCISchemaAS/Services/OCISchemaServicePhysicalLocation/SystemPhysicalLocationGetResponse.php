@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemPhysicalLocationGetRequest.
+     * Response to SystemPhysicalLocationGetRequest.
  *         Contains a list of system Physical Location parameters.
  */
 class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $alwaysAllowEmergencyCalls  = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation\SystemPhysicalLocationGetResponse';
+    public    $name                      = __CLASS__;
+    protected $alwaysAllowEmergencyCalls = null;
 
 
-    public function setAlwaysAllowEmergencyCalls(xs:boolean $alwaysAllowEmergencyCalls = null)
+    /**
+     * 
+     */
+    public function setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls = null)
     {
+        $this->alwaysAllowEmergencyCalls = (boolean) $alwaysAllowEmergencyCalls;
     }
 
+    /**
+     * 
+     */
     public function getAlwaysAllowEmergencyCalls()
     {
-        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls->value();
+        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls->getValue();
     }
 }

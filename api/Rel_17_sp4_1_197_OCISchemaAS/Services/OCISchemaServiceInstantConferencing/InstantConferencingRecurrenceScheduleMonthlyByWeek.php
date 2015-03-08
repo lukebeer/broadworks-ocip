@@ -14,13 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Monthly by week recurrence conference schedule used in the context of a conference add.
+     * Monthly by week recurrence conference schedule used in the context of a conference add.
  */
 class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $weekOfMonth  = null;
-    protected $dayOfWeek    = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByWeek';
+    public    $name        = __CLASS__;
+    protected $weekOfMonth = null;
+    protected $dayOfWeek   = null;
 
     public function __construct(
          $weekOfMonth,
@@ -30,6 +31,9 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
         $this->setDayOfWeek($dayOfWeek);
     }
 
+    /**
+     * Week of the month.
+     */
     public function setWeekOfMonth($weekOfMonth = null)
     {
         $this->weekOfMonth = ($weekOfMonth InstanceOf InstantConferencingWeekOfMonth)
@@ -37,11 +41,17 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
              : new InstantConferencingWeekOfMonth($weekOfMonth);
     }
 
+    /**
+     * Week of the month.
+     */
     public function getWeekOfMonth()
     {
-        return (!$this->weekOfMonth) ?: $this->weekOfMonth->value();
+        return (!$this->weekOfMonth) ?: $this->weekOfMonth->getValue();
     }
 
+    /**
+     * Days of the week (Sunday-Saturday).
+     */
     public function setDayOfWeek($dayOfWeek = null)
     {
         $this->dayOfWeek = ($dayOfWeek InstanceOf DayOfWeek)
@@ -49,8 +59,11 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
              : new DayOfWeek($dayOfWeek);
     }
 
+    /**
+     * Days of the week (Sunday-Saturday).
+     */
     public function getDayOfWeek()
     {
-        return (!$this->dayOfWeek) ?: $this->dayOfWeek->value();
+        return (!$this->dayOfWeek) ?: $this->dayOfWeek->getValue();
     }
 }

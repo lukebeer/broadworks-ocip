@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete one or more calling plan digit strings.
+     * Delete one or more calling plan digit strings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallingPlanDeleteDigitPatternListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $name               = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $name              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class GroupCallingPlanDeleteDigitPatternListRequest extends ComplexType implemen
         $this->setName($name);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class GroupCallingPlanDeleteDigitPatternListRequest extends ComplexType implemen
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +66,18 @@ class GroupCallingPlanDeleteDigitPatternListRequest extends ComplexType implemen
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Name of a calling plan digit pattern.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallingPlanDigitPatternName)
@@ -66,8 +85,11 @@ class GroupCallingPlanDeleteDigitPatternListRequest extends ComplexType implemen
              : new CallingPlanDigitPatternName($name);
     }
 
+    /**
+     * Name of a calling plan digit pattern.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

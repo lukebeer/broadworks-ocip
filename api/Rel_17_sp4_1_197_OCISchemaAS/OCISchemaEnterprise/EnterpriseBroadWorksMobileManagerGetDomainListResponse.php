@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the EnterpriseBroadWorksMobileManagerGetDomainListRequest.
+     * Response to the EnterpriseBroadWorksMobileManagerGetDomainListRequest.
  *         Contains the list of domains.
  */
 class EnterpriseBroadWorksMobileManagerGetDomainListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $domainName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetDomainListResponse';
+    public    $name       = __CLASS__;
+    protected $domainName = null;
 
 
+    /**
+     * Domain name.
+     */
     public function setDomainName($domainName = null)
     {
         $this->domainName = ($domainName InstanceOf BroadWorksMobileManagerDomainName)
@@ -29,8 +33,11 @@ class EnterpriseBroadWorksMobileManagerGetDomainListResponse extends ComplexType
              : new BroadWorksMobileManagerDomainName($domainName);
     }
 
+    /**
+     * Domain name.
+     */
     public function getDomainName()
     {
-        return (!$this->domainName) ?: $this->domainName->value();
+        return (!$this->domainName) ?: $this->domainName->getValue();
     }
 }

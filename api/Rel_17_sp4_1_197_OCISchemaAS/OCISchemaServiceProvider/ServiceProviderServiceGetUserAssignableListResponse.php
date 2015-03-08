@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderServiceGetUserAssignableListRequest.
+     * Response to ServiceProviderServiceGetUserAssignableListRequest.
  */
 class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $serviceName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServiceGetUserAssignableListResponse';
+    public    $name        = __CLASS__;
+    protected $serviceName = null;
 
 
+    /**
+     * User level services.
+     */
     public function setServiceName($serviceName = null)
     {
         $this->serviceName = ($serviceName InstanceOf UserService)
@@ -28,8 +32,11 @@ class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType im
              : new UserService($serviceName);
     }
 
+    /**
+     * User level services.
+     */
     public function getServiceName()
     {
-        return (!$this->serviceName) ?: $this->serviceName->value();
+        return (!$this->serviceName) ?: $this->serviceName->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Call Recording platform.
+     * Delete a Call Recording platform.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCallRecordingDeletePlatformRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemCallRecordingDeletePlatformRequest extends ComplexType implements Co
         $this->setName($name);
     }
 
+    /**
+     * Call Recording Platform Name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallRecordingPlatformName)
@@ -34,8 +37,11 @@ class SystemCallRecordingDeletePlatformRequest extends ComplexType implements Co
              : new CallRecordingPlatformName($name);
     }
 
+    /**
+     * Call Recording Platform Name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupOfiiceZoneGetAssignedUserListRequest.  
+     * Response to GroupOfiiceZoneGetAssignedUserListRequest.  
  *         Contains a table of users that have the Office Zone assigned. The column headings are: "User Id", "User Type", "Last Name", 
  *         "First Name", "Department", "Phone Number", "Email Address", "Hiragana Last Name" and "Hiragana First Name".
  *         Office Zones can only be unassigned if the Location-Based Calling Restrictions has been authorized to the group otherwise the request will fail.
  */
 class GroupOfficeZoneGetAssignedUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $userTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneGetAssignedUserListResponse';
+    public    $name      = __CLASS__;
+    protected $userTable = null;
 
 
+    /**
+     * 
+     */
     public function setUserTable(core:OCITable $userTable = null)
     {
+        $this->userTable = core:OCITable $userTable;
     }
 
+    /**
+     * 
+     */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->value();
+        return (!$this->userTable) ?: $this->userTable->getValue();
     }
 }

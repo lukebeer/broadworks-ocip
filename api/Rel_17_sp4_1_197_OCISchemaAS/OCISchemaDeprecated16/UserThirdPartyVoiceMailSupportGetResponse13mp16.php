@@ -17,50 +17,75 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserThirdPartyVoiceMailSupportGetRequest13mp16.
+     * Response to UserThirdPartyVoiceMailSupportGetRequest13mp16.
  *         Replaced by: UserThirdPartyVoiceMailSupportGetResponse17
  */
 class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $isActive                     = null;
-    protected $busyRedirectToVoiceMail      = null;
-    protected $noAnswerRedirectToVoiceMail  = null;
-    protected $serverSelection              = null;
-    protected $userServer                   = null;
-    protected $mailboxIdType                = null;
-    protected $mailboxURL                   = null;
-    protected $noAnswerNumberOfRings        = null;
-    protected $alwaysRedirectToVoiceMail    = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserThirdPartyVoiceMailSupportGetResponse13mp16';
+    public    $name                        = __CLASS__;
+    protected $isActive                    = null;
+    protected $busyRedirectToVoiceMail     = null;
+    protected $noAnswerRedirectToVoiceMail = null;
+    protected $serverSelection             = null;
+    protected $userServer                  = null;
+    protected $mailboxIdType               = null;
+    protected $mailboxURL                  = null;
+    protected $noAnswerNumberOfRings       = null;
+    protected $alwaysRedirectToVoiceMail   = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setBusyRedirectToVoiceMail(xs:boolean $busyRedirectToVoiceMail = null)
+    /**
+     * 
+     */
+    public function setBusyRedirectToVoiceMail($busyRedirectToVoiceMail = null)
     {
+        $this->busyRedirectToVoiceMail = (boolean) $busyRedirectToVoiceMail;
     }
 
+    /**
+     * 
+     */
     public function getBusyRedirectToVoiceMail()
     {
-        return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail->value();
+        return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail->getValue();
     }
 
-    public function setNoAnswerRedirectToVoiceMail(xs:boolean $noAnswerRedirectToVoiceMail = null)
+    /**
+     * 
+     */
+    public function setNoAnswerRedirectToVoiceMail($noAnswerRedirectToVoiceMail = null)
     {
+        $this->noAnswerRedirectToVoiceMail = (boolean) $noAnswerRedirectToVoiceMail;
     }
 
+    /**
+     * 
+     */
     public function getNoAnswerRedirectToVoiceMail()
     {
-        return (!$this->noAnswerRedirectToVoiceMail) ?: $this->noAnswerRedirectToVoiceMail->value();
+        return (!$this->noAnswerRedirectToVoiceMail) ?: $this->noAnswerRedirectToVoiceMail->getValue();
     }
 
+    /**
+     * Third Party Voice Mail user-level voice mail server choices.
+     */
     public function setServerSelection($serverSelection = null)
     {
         $this->serverSelection = ($serverSelection InstanceOf ThirdPartyVoiceMailSupportServerSelection)
@@ -68,11 +93,17 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
              : new ThirdPartyVoiceMailSupportServerSelection($serverSelection);
     }
 
+    /**
+     * Third Party Voice Mail user-level voice mail server choices.
+     */
     public function getServerSelection()
     {
-        return (!$this->serverSelection) ?: $this->serverSelection->value();
+        return (!$this->serverSelection) ?: $this->serverSelection->getValue();
     }
 
+    /**
+     * Uniquely identifies an external voice mail server.
+     */
     public function setUserServer($userServer = null)
     {
         $this->userServer = ($userServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
@@ -80,11 +111,17 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
              : new ThirdPartyVoiceMailSupportMailServer($userServer);
     }
 
+    /**
+     * Uniquely identifies an external voice mail server.
+     */
     public function getUserServer()
     {
-        return (!$this->userServer) ?: $this->userServer->value();
+        return (!$this->userServer) ?: $this->userServer->getValue();
     }
 
+    /**
+     * Mailbox Id type on Third Party Voice Mail platform.
+     */
     public function setMailboxIdType($mailboxIdType = null)
     {
         $this->mailboxIdType = ($mailboxIdType InstanceOf ThirdPartyVoiceMailSupportMailboxIdType)
@@ -92,11 +129,24 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
              : new ThirdPartyVoiceMailSupportMailboxIdType($mailboxIdType);
     }
 
+    /**
+     * Mailbox Id type on Third Party Voice Mail platform.
+     */
     public function getMailboxIdType()
     {
-        return (!$this->mailboxIdType) ?: $this->mailboxIdType->value();
+        return (!$this->mailboxIdType) ?: $this->mailboxIdType->getValue();
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function setMailboxURL($mailboxURL = null)
     {
         $this->mailboxURL = ($mailboxURL InstanceOf SIPURI)
@@ -104,11 +154,24 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
              : new SIPURI($mailboxURL);
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function getMailboxURL()
     {
-        return (!$this->mailboxURL) ?: $this->mailboxURL->value();
+        return (!$this->mailboxURL) ?: $this->mailboxURL->getValue();
     }
 
+    /**
+     * Number of Rings until call is redirected to voice mail.
+     */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf ThirdPartyVoiceMailSupportNumberOfRings)
@@ -116,17 +179,27 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
              : new ThirdPartyVoiceMailSupportNumberOfRings($noAnswerNumberOfRings);
     }
 
+    /**
+     * Number of Rings until call is redirected to voice mail.
+     */
     public function getNoAnswerNumberOfRings()
     {
-        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->value();
+        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->getValue();
     }
 
-    public function setAlwaysRedirectToVoiceMail(xs:boolean $alwaysRedirectToVoiceMail = null)
+    /**
+     * 
+     */
+    public function setAlwaysRedirectToVoiceMail($alwaysRedirectToVoiceMail = null)
     {
+        $this->alwaysRedirectToVoiceMail = (boolean) $alwaysRedirectToVoiceMail;
     }
 
+    /**
+     * 
+     */
     public function getAlwaysRedirectToVoiceMail()
     {
-        return (!$this->alwaysRedirectToVoiceMail) ?: $this->alwaysRedirectToVoiceMail->value();
+        return (!$this->alwaysRedirectToVoiceMail) ?: $this->alwaysRedirectToVoiceMail->getValue();
     }
 }

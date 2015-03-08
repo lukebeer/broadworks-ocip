@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Virtual On-Net Call Type.
+     * Delete a Virtual On-Net Call Type.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $virtualOnNetCallTypeName  = null;
+    public    $name                     = __CLASS__;
+    protected $virtualOnNetCallTypeName = null;
 
     public function __construct(
          $virtualOnNetCallTypeName
@@ -27,6 +27,9 @@ class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements Com
         $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
 
+    /**
+     * Virtual On-Net Call Type name.
+     */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
@@ -34,8 +37,11 @@ class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements Com
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
 
+    /**
+     * Virtual On-Net Call Type name.
+     */
     public function getVirtualOnNetCallTypeName()
     {
-        return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->value();
+        return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->getValue();
     }
 }

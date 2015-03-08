@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list performance measurements reporting ftp servers.
+     * Requests the list performance measurements reporting ftp servers.
  *         The response is either SystemPerformanceMeasurementReportingGetFileServerListResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementReportingGetFileServerListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetFileServerListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

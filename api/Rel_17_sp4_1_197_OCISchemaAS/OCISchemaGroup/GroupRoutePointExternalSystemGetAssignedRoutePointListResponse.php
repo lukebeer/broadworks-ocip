@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupRoutePointExternalSystemGetAssignedRoutePointListRequest.
+     * Response to the GroupRoutePointExternalSystemGetAssignedRoutePointListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department".
  *         The column values for "Video" can either be "true", or "false".
  */
 class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $routePointTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedRoutePointListResponse';
+    public    $name            = __CLASS__;
+    protected $routePointTable = null;
 
 
+    /**
+     * 
+     */
     public function setRoutePointTable(core:OCITable $routePointTable = null)
     {
+        $this->routePointTable = core:OCITable $routePointTable;
     }
 
+    /**
+     * 
+     */
     public function getRoutePointTable()
     {
-        return (!$this->routePointTable) ?: $this->routePointTable->value();
+        return (!$this->routePointTable) ?: $this->routePointTable->getValue();
     }
 }

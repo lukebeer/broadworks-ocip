@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of Attendant Console parameters.
+     * Request to get the list of Attendant Console parameters.
  *         The response is either SystemAttendantConsoleGetResponse or ErrorResponse.
  */
 class SystemAttendantConsoleGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole\SystemAttendantConsoleGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a static configuration tag for a system access device.
+     * Request to modify a static configuration tag for a system access device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
-    protected $tagName     = null;
-    protected $tagValue    = null;
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
+    protected $tagName    = null;
+    protected $tagValue   = null;
 
     public function __construct(
          $deviceName,
@@ -35,6 +35,9 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
         $this->setTagValue($tagValue);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -42,11 +45,19 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * A static tag name for access device files managed by the Device Management System on BroadWorks.
+     *         The static tag name must start and end with a % with no other % in between. The tag must not
+     *         start with %BW.
+     */
     public function setTagName($tagName = null)
     {
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
@@ -54,11 +65,19 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
              : new DeviceManagementTagName($tagName);
     }
 
+    /**
+     * A static tag name for access device files managed by the Device Management System on BroadWorks.
+     *         The static tag name must start and end with a % with no other % in between. The tag must not
+     *         start with %BW.
+     */
     public function getTagName()
     {
-        return (!$this->tagName) ?: $this->tagName->value();
+        return (!$this->tagName) ?: $this->tagName->getValue();
     }
 
+    /**
+     * A static tag value for access device files managed by the Device Management System on BroadWorks.
+     */
     public function setTagValue($tagValue = null)
     {
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
@@ -66,8 +85,11 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
              : new DeviceManagementTagValue($tagValue);
     }
 
+    /**
+     * A static tag value for access device files managed by the Device Management System on BroadWorks.
+     */
     public function getTagValue()
     {
-        return (!$this->tagValue) ?: $this->tagValue->value();
+        return (!$this->tagValue) ?: $this->tagValue->getValue();
     }
 }

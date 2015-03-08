@@ -18,18 +18,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add an enterprise trunk in a group.
+     * Request to add an enterprise trunk in a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $serviceProviderId              = null;
-    protected $groupId                        = null;
-    protected $enterpriseTrunkName            = null;
-    protected $maximumRerouteAttempts         = null;
-    protected $routeExhaustionAction          = null;
-    protected $routeExhaustionForwardAddress  = null;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $enterpriseTrunkName           = null;
+    protected $maximumRerouteAttempts        = null;
+    protected $routeExhaustionAction         = null;
+    protected $routeExhaustionForwardAddress = null;
 
     public function __construct(
          $serviceProviderId,
@@ -47,6 +47,10 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
         $this->setRouteExhaustionForwardAddress($routeExhaustionForwardAddress);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -54,11 +58,19 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -66,11 +78,19 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
@@ -78,11 +98,18 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
              : new EnterpriseTrunkName($enterpriseTrunkName);
     }
 
+    /**
+     * Enterprise Trunk name.
+     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     */
     public function getEnterpriseTrunkName()
     {
-        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->value();
+        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->getValue();
     }
 
+    /**
+     * Determines the maximum number of reroute attempts within an enterprise trunk.
+     */
     public function setMaximumRerouteAttempts($maximumRerouteAttempts = null)
     {
         $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
@@ -90,11 +117,17 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
              : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
     }
 
+    /**
+     * Determines the maximum number of reroute attempts within an enterprise trunk.
+     */
     public function getMaximumRerouteAttempts()
     {
-        return (!$this->maximumRerouteAttempts) ?: $this->maximumRerouteAttempts->value();
+        return (!$this->maximumRerouteAttempts) ?: $this->maximumRerouteAttempts->getValue();
     }
 
+    /**
+     * Enterprise Trunk Route Exhaustion Action
+     */
     public function setRouteExhaustionAction($routeExhaustionAction = null)
     {
         $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
@@ -102,11 +135,24 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
              : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
     }
 
+    /**
+     * Enterprise Trunk Route Exhaustion Action
+     */
     public function getRouteExhaustionAction()
     {
-        return (!$this->routeExhaustionAction) ?: $this->routeExhaustionAction->value();
+        return (!$this->routeExhaustionAction) ?: $this->routeExhaustionAction->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress = null)
     {
         $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
@@ -114,8 +160,18 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
              : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getRouteExhaustionForwardAddress()
     {
-        return (!$this->routeExhaustionForwardAddress) ?: $this->routeExhaustionForwardAddress->value();
+        return (!$this->routeExhaustionForwardAddress) ?: $this->routeExhaustionForwardAddress->getValue();
     }
 }

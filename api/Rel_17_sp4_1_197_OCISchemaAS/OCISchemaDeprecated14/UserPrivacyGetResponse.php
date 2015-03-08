@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPrivacyGetRequest.
+     * Response to UserPrivacyGetRequest.
  */
 class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $enableDirectoryPrivacy  = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserPrivacyGetResponse';
+    public    $name                   = __CLASS__;
+    protected $enableDirectoryPrivacy = null;
 
 
-    public function setEnableDirectoryPrivacy(xs:boolean $enableDirectoryPrivacy = null)
+    /**
+     * 
+     */
+    public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
+        $this->enableDirectoryPrivacy = (boolean) $enableDirectoryPrivacy;
     }
 
+    /**
+     * 
+     */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->value();
+        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->getValue();
     }
 }

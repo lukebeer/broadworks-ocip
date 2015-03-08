@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemShInterfaceParametersGetRequest.  Contains the Sh Interface system parameters.
+     * Response to SystemShInterfaceParametersGetRequest.  Contains the Sh Interface system parameters.
  */
 class SystemShInterfaceParametersGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $hssRealm                           = null;
-    protected $publicIdentityRefreshDelaySeconds  = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceParametersGetResponse17';
+    public    $name                              = __CLASS__;
+    protected $hssRealm                          = null;
+    protected $publicIdentityRefreshDelaySeconds = null;
 
 
+    /**
+     * Network domain name.
+     */
     public function setHssRealm($hssRealm = null)
     {
         $this->hssRealm = ($hssRealm InstanceOf DomainName)
@@ -30,11 +34,17 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
              : new DomainName($hssRealm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getHssRealm()
     {
-        return (!$this->hssRealm) ?: $this->hssRealm->value();
+        return (!$this->hssRealm) ?: $this->hssRealm->getValue();
     }
 
+    /**
+     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     */
     public function setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds = null)
     {
         $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
@@ -42,8 +52,11 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
              : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
     }
 
+    /**
+     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     */
     public function getPublicIdentityRefreshDelaySeconds()
     {
-        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->value();
+        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->getValue();
     }
 }

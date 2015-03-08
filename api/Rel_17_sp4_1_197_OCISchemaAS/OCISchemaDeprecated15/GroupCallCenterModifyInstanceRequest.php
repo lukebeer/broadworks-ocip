@@ -23,35 +23,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a Call Center instance.
+     * Request to modify a Call Center instance.
  *         The response is either SuccessResponse or ErrorResponse.
  *         
  *         Replaced By: GroupCallCenterModifyInstanceRequest16
  */
 class GroupCallCenterModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = __CLASS__;
-    protected $serviceUserId                         = null;
-    protected $serviceInstanceProfile                = null;
-    protected $policy                                = null;
-    protected $huntAfterNoAnswer                     = null;
-    protected $noAnswerNumberOfRings                 = null;
-    protected $forwardAfterTimeout                   = null;
-    protected $forwardTimeoutSeconds                 = null;
-    protected $forwardToPhoneNumber                  = null;
-    protected $enableVideo                           = null;
-    protected $queueLength                           = null;
-    protected $allowAgentLogoff                      = null;
-    protected $playMusicOnHold                       = null;
-    protected $playComfortMessage                    = null;
-    protected $timeBetweenComfortMessagesSeconds     = null;
-    protected $enableGuardTimer                      = null;
-    protected $guardTimerSeconds                     = null;
-    protected $agentUserIdList                       = null;
-    protected $allowCallWaitingForAgents             = null;
-    protected $allowCallsToAgentsInWrapUp            = null;
-    protected $enableCallQueueWhenNoAgentsAvailable  = null;
-    protected $statisticsSource                      = null;
+    public    $name                                 = __CLASS__;
+    protected $serviceUserId                        = null;
+    protected $serviceInstanceProfile               = null;
+    protected $policy                               = null;
+    protected $huntAfterNoAnswer                    = null;
+    protected $noAnswerNumberOfRings                = null;
+    protected $forwardAfterTimeout                  = null;
+    protected $forwardTimeoutSeconds                = null;
+    protected $forwardToPhoneNumber                 = null;
+    protected $enableVideo                          = null;
+    protected $queueLength                          = null;
+    protected $allowAgentLogoff                     = null;
+    protected $playMusicOnHold                      = null;
+    protected $playComfortMessage                   = null;
+    protected $timeBetweenComfortMessagesSeconds    = null;
+    protected $enableGuardTimer                     = null;
+    protected $guardTimerSeconds                    = null;
+    protected $agentUserIdList                      = null;
+    protected $allowCallWaitingForAgents            = null;
+    protected $allowCallsToAgentsInWrapUp           = null;
+    protected $enableCallQueueWhenNoAgentsAvailable = null;
+    protected $statisticsSource                     = null;
 
     public function __construct(
          $serviceUserId,
@@ -99,6 +99,13 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
         $this->setStatisticsSource($statisticsSource);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -106,20 +113,37 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service used when modifying an existing service instance.
+     */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service used when modifying an existing service instance.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function setPolicy($policy = null)
     {
         $this->policy = ($policy InstanceOf HuntPolicy)
@@ -127,20 +151,34 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new HuntPolicy($policy);
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function getPolicy()
     {
-        return (!$this->policy) ?: $this->policy->value();
+        return (!$this->policy) ?: $this->policy->getValue();
     }
 
-    public function setHuntAfterNoAnswer(xs:boolean $huntAfterNoAnswer = null)
+    /**
+     * 
+     */
+    public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
+        $this->huntAfterNoAnswer = (boolean) $huntAfterNoAnswer;
     }
 
+    /**
+     * 
+     */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->value();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
     }
 
+    /**
+     * Number of rings to wait for the currently hunted agent to answer before
+     *         hunting to the next available agent.
+     */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
@@ -148,20 +186,34 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
     }
 
+    /**
+     * Number of rings to wait for the currently hunted agent to answer before
+     *         hunting to the next available agent.
+     */
     public function getNoAnswerNumberOfRings()
     {
-        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->value();
+        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->getValue();
     }
 
-    public function setForwardAfterTimeout(xs:boolean $forwardAfterTimeout = null)
+    /**
+     * 
+     */
+    public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
+        $this->forwardAfterTimeout = (boolean) $forwardAfterTimeout;
     }
 
+    /**
+     * 
+     */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->value();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
@@ -169,11 +221,19 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function getForwardTimeoutSeconds()
     {
-        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->value();
+        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
@@ -181,20 +241,35 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new OutgoingDN($forwardToPhoneNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
+        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
     }
 
-    public function setEnableVideo(xs:boolean $enableVideo = null)
+    /**
+     * 
+     */
+    public function setEnableVideo($enableVideo = null)
     {
+        $this->enableVideo = (boolean) $enableVideo;
     }
 
+    /**
+     * 
+     */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->value();
+        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
     }
 
+    /**
+     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     */
     public function setQueueLength($queueLength = null)
     {
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength)
@@ -202,38 +277,65 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new CallCenterQueueLength($queueLength);
     }
 
+    /**
+     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     */
     public function getQueueLength()
     {
-        return (!$this->queueLength) ?: $this->queueLength->value();
+        return (!$this->queueLength) ?: $this->queueLength->getValue();
     }
 
-    public function setAllowAgentLogoff(xs:boolean $allowAgentLogoff = null)
+    /**
+     * 
+     */
+    public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
+        $this->allowAgentLogoff = (boolean) $allowAgentLogoff;
     }
 
+    /**
+     * 
+     */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->value();
+        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->getValue();
     }
 
-    public function setPlayMusicOnHold(xs:boolean $playMusicOnHold = null)
+    /**
+     * 
+     */
+    public function setPlayMusicOnHold($playMusicOnHold = null)
     {
+        $this->playMusicOnHold = (boolean) $playMusicOnHold;
     }
 
+    /**
+     * 
+     */
     public function getPlayMusicOnHold()
     {
-        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold->value();
+        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold->getValue();
     }
 
-    public function setPlayComfortMessage(xs:boolean $playComfortMessage = null)
+    /**
+     * 
+     */
+    public function setPlayComfortMessage($playComfortMessage = null)
     {
+        $this->playComfortMessage = (boolean) $playComfortMessage;
     }
 
+    /**
+     * 
+     */
     public function getPlayComfortMessage()
     {
-        return (!$this->playComfortMessage) ?: $this->playComfortMessage->value();
+        return (!$this->playComfortMessage) ?: $this->playComfortMessage->getValue();
     }
 
+    /**
+     * The interval in seconds between each repetition of the comfort message played to queued users.
+     */
     public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds = null)
     {
         $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
@@ -241,20 +343,33 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
     }
 
+    /**
+     * The interval in seconds between each repetition of the comfort message played to queued users.
+     */
     public function getTimeBetweenComfortMessagesSeconds()
     {
-        return (!$this->timeBetweenComfortMessagesSeconds) ?: $this->timeBetweenComfortMessagesSeconds->value();
+        return (!$this->timeBetweenComfortMessagesSeconds) ?: $this->timeBetweenComfortMessagesSeconds->getValue();
     }
 
-    public function setEnableGuardTimer(xs:boolean $enableGuardTimer = null)
+    /**
+     * 
+     */
+    public function setEnableGuardTimer($enableGuardTimer = null)
     {
+        $this->enableGuardTimer = (boolean) $enableGuardTimer;
     }
 
+    /**
+     * 
+     */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->value();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
     }
 
+    /**
+     * The timer determines how long the system will wait before routing a call to a free agent.
+     */
     public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
@@ -262,47 +377,83 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
     }
 
+    /**
+     * The timer determines how long the system will wait before routing a call to a free agent.
+     */
     public function getGuardTimerSeconds()
     {
-        return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->value();
+        return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
+        $this->agentUserIdList = ReplacementUserIdList $agentUserIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getAgentUserIdList()
     {
-        return (!$this->agentUserIdList) ?: $this->agentUserIdList->value();
+        return (!$this->agentUserIdList) ?: $this->agentUserIdList->getValue();
     }
 
-    public function setAllowCallWaitingForAgents(xs:boolean $allowCallWaitingForAgents = null)
+    /**
+     * 
+     */
+    public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
+        $this->allowCallWaitingForAgents = (boolean) $allowCallWaitingForAgents;
     }
 
+    /**
+     * 
+     */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->value();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
     }
 
-    public function setAllowCallsToAgentsInWrapUp(xs:boolean $allowCallsToAgentsInWrapUp = null)
+    /**
+     * 
+     */
+    public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp = null)
     {
+        $this->allowCallsToAgentsInWrapUp = (boolean) $allowCallsToAgentsInWrapUp;
     }
 
+    /**
+     * 
+     */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->value();
+        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->getValue();
     }
 
-    public function setEnableCallQueueWhenNoAgentsAvailable(xs:boolean $enableCallQueueWhenNoAgentsAvailable = null)
+    /**
+     * 
+     */
+    public function setEnableCallQueueWhenNoAgentsAvailable($enableCallQueueWhenNoAgentsAvailable = null)
     {
+        $this->enableCallQueueWhenNoAgentsAvailable = (boolean) $enableCallQueueWhenNoAgentsAvailable;
     }
 
+    /**
+     * 
+     */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {
-        return (!$this->enableCallQueueWhenNoAgentsAvailable) ?: $this->enableCallQueueWhenNoAgentsAvailable->value();
+        return (!$this->enableCallQueueWhenNoAgentsAvailable) ?: $this->enableCallQueueWhenNoAgentsAvailable->getValue();
     }
 
+    /**
+     * The call center statistics source.
+     */
     public function setStatisticsSource($statisticsSource = null)
     {
         $this->statisticsSource = ($statisticsSource InstanceOf CallCenterStatisticsSource)
@@ -310,8 +461,11 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
              : new CallCenterStatisticsSource($statisticsSource);
     }
 
+    /**
+     * The call center statistics source.
+     */
     public function getStatisticsSource()
     {
-        return (!$this->statisticsSource) ?: $this->statisticsSource->value();
+        return (!$this->statisticsSource) ?: $this->statisticsSource->getValue();
     }
 }

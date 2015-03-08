@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemMaliciousCallTraceGetRequest.
+     * Response to the SystemMaliciousCallTraceGetRequest.
  *         The response contains the Malicious Call Trace system parameters and the list of users
  *         that use the Malicious Call Trace feature.
  * 
@@ -23,26 +23,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $playMCTWarningAnnouncement  = null;
-    protected $userTable                   = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceGetResponse';
+    public    $name                       = __CLASS__;
+    protected $playMCTWarningAnnouncement = null;
+    protected $userTable                  = null;
 
 
-    public function setPlayMCTWarningAnnouncement(xs:boolean $playMCTWarningAnnouncement = null)
+    /**
+     * 
+     */
+    public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
+        $this->playMCTWarningAnnouncement = (boolean) $playMCTWarningAnnouncement;
     }
 
+    /**
+     * 
+     */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->value();
+        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->getValue();
     }
 
+    /**
+     * 
+     */
     public function setUserTable(core:OCITable $userTable = null)
     {
+        $this->userTable = core:OCITable $userTable;
     }
 
+    /**
+     * 
+     */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->value();
+        return (!$this->userTable) ?: $this->userTable->getValue();
     }
 }

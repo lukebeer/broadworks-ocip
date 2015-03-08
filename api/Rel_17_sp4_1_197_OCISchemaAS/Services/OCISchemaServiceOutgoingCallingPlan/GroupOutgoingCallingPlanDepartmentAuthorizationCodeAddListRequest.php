@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a list of authorization codes to the group's default or a department. When department is not
+     * Add a list of authorization codes to the group's default or a department. When department is not
  *         specified, it is for the group default.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $departmentKey      = null;
-    protected $codeEntry          = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $departmentKey     = null;
+    protected $codeEntry         = null;
 
     public function __construct(
          $serviceProviderId,
@@ -40,6 +40,10 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
         $this->setCodeEntry($codeEntry);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -47,11 +51,19 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -59,26 +71,56 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Uniquely identifies a department system-wide.
+     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
+     *         used by any or all groups within the enterprise. Department names are unique within a group and
+     *         within an enterprise, but the same department name can exist in 2 different groups or in both
+     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
+     *         the department name and which enterprise or group contains the department.
+     *         This type is extended by group and enterprise department keys.
+     */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
+        $this->departmentKey = DepartmentKey $departmentKey;
     }
 
+    /**
+     * Uniquely identifies a department system-wide.
+     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
+     *         used by any or all groups within the enterprise. Department names are unique within a group and
+     *         within an enterprise, but the same department name can exist in 2 different groups or in both
+     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
+     *         the department name and which enterprise or group contains the department.
+     *         This type is extended by group and enterprise department keys.
+     */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->value();
+        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
     }
 
+    /**
+     * Outgoing Calling Plan Authorization Code.
+     */
     public function setCodeEntry(OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = null)
     {
+        $this->codeEntry = OutgoingCallingPlanAuthorizationCodeEntry $codeEntry;
     }
 
+    /**
+     * Outgoing Calling Plan Authorization Code.
+     */
     public function getCodeEntry()
     {
-        return (!$this->codeEntry) ?: $this->codeEntry->value();
+        return (!$this->codeEntry) ?: $this->codeEntry->getValue();
     }
 }

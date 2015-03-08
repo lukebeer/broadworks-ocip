@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Outgoing Calling Plan being forwarded/transferred permissions.
+     * Outgoing Calling Plan being forwarded/transferred permissions.
  */
 class OutgoingCallingPlanRedirectedPermissionsModify extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanRedirectedPermissionsModify';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

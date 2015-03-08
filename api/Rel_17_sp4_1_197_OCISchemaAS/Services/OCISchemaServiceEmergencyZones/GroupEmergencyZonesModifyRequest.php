@@ -16,18 +16,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the group level data associated with Emergency Zones.
+     * Modify the group level data associated with Emergency Zones.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $serviceProviderId                = null;
-    protected $groupId                          = null;
-    protected $isActive                         = null;
-    protected $emergencyZonesProhibition        = null;
-    protected $sendEmergencyCallNotifyEmail     = null;
-    protected $emergencyCallNotifyEmailAddress  = null;
+    public    $name                            = __CLASS__;
+    protected $serviceProviderId               = null;
+    protected $groupId                         = null;
+    protected $isActive                        = null;
+    protected $emergencyZonesProhibition       = null;
+    protected $sendEmergencyCallNotifyEmail    = null;
+    protected $emergencyCallNotifyEmailAddress = null;
 
     public function __construct(
          $serviceProviderId,
@@ -45,6 +45,10 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
         $this->setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -52,11 +56,19 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -64,20 +76,35 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Emergency zone policy to specify what kind of calls will be prohibited by the service when
+     *         originated from outside the home zone.
+     */
     public function setEmergencyZonesProhibition($emergencyZonesProhibition = null)
     {
         $this->emergencyZonesProhibition = ($emergencyZonesProhibition InstanceOf EmergencyZonesProhibition)
@@ -85,20 +112,34 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
              : new EmergencyZonesProhibition($emergencyZonesProhibition);
     }
 
+    /**
+     * Emergency zone policy to specify what kind of calls will be prohibited by the service when
+     *         originated from outside the home zone.
+     */
     public function getEmergencyZonesProhibition()
     {
-        return (!$this->emergencyZonesProhibition) ?: $this->emergencyZonesProhibition->value();
+        return (!$this->emergencyZonesProhibition) ?: $this->emergencyZonesProhibition->getValue();
     }
 
-    public function setSendEmergencyCallNotifyEmail(xs:boolean $sendEmergencyCallNotifyEmail = null)
+    /**
+     * 
+     */
+    public function setSendEmergencyCallNotifyEmail($sendEmergencyCallNotifyEmail = null)
     {
+        $this->sendEmergencyCallNotifyEmail = (boolean) $sendEmergencyCallNotifyEmail;
     }
 
+    /**
+     * 
+     */
     public function getSendEmergencyCallNotifyEmail()
     {
-        return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail->value();
+        return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress = null)
     {
         $this->emergencyCallNotifyEmailAddress = ($emergencyCallNotifyEmailAddress InstanceOf EmailAddress)
@@ -106,8 +147,11 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
              : new EmailAddress($emergencyCallNotifyEmailAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getEmergencyCallNotifyEmailAddress()
     {
-        return (!$this->emergencyCallNotifyEmailAddress) ?: $this->emergencyCallNotifyEmailAddress->value();
+        return (!$this->emergencyCallNotifyEmailAddress) ?: $this->emergencyCallNotifyEmailAddress->getValue();
     }
 }

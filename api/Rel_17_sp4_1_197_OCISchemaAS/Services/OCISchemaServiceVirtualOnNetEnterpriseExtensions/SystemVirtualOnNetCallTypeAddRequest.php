@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Virtual On-Net Call Type.
+     * Add a Virtual On-Net Call Type.
  *          The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $virtualOnNetCallTypeName      = null;
-    protected $virtualOnNetCallTypeCdrValue  = null;
+    public    $name                         = __CLASS__;
+    protected $virtualOnNetCallTypeName     = null;
+    protected $virtualOnNetCallTypeCdrValue = null;
 
     public function __construct(
          $virtualOnNetCallTypeName,
@@ -31,6 +31,9 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
         $this->setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
     }
 
+    /**
+     * Virtual On-Net Call Type name.
+     */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
@@ -38,11 +41,17 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
 
+    /**
+     * Virtual On-Net Call Type name.
+     */
     public function getVirtualOnNetCallTypeName()
     {
-        return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->value();
+        return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->getValue();
     }
 
+    /**
+     * Virtual On-Net Call Type CDR value.
+     */
     public function setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue = null)
     {
         $this->virtualOnNetCallTypeCdrValue = ($virtualOnNetCallTypeCdrValue InstanceOf VirtualOnNetCallTypeCdrValue)
@@ -50,8 +59,11 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
              : new VirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
     }
 
+    /**
+     * Virtual On-Net Call Type CDR value.
+     */
     public function getVirtualOnNetCallTypeCdrValue()
     {
-        return (!$this->virtualOnNetCallTypeCdrValue) ?: $this->virtualOnNetCallTypeCdrValue->value();
+        return (!$this->virtualOnNetCallTypeCdrValue) ?: $this->virtualOnNetCallTypeCdrValue->getValue();
     }
 }

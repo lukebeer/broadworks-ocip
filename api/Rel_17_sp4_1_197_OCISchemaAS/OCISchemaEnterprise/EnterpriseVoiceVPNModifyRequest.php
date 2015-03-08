@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the enterprise voice VPN level data associated with voice VPN.
+     * Modify the enterprise voice VPN level data associated with voice VPN.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $isActive           = null;
-    protected $defaultSelection   = null;
-    protected $e164Selection      = null;
-    protected $usePhoneContext    = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $isActive          = null;
+    protected $defaultSelection  = null;
+    protected $e164Selection     = null;
+    protected $usePhoneContext   = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +41,10 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
         $this->setUsePhoneContext($usePhoneContext);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,20 +52,34 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Default Selector.
+     */
     public function setDefaultSelection($defaultSelection = null)
     {
         $this->defaultSelection = ($defaultSelection InstanceOf EnterpriseVoiceVPNDefaultSelection)
@@ -69,11 +87,17 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
              : new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
     }
 
+    /**
+     * Enterprise Voice VPN Default Selector.
+     */
     public function getDefaultSelection()
     {
-        return (!$this->defaultSelection) ?: $this->defaultSelection->value();
+        return (!$this->defaultSelection) ?: $this->defaultSelection->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     */
     public function setE164Selection($e164Selection = null)
     {
         $this->e164Selection = ($e164Selection InstanceOf EnterpriseVoiceVPNNonMatchingE164NumberSelection)
@@ -81,17 +105,27 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
              : new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
     }
 
+    /**
+     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     */
     public function getE164Selection()
     {
-        return (!$this->e164Selection) ?: $this->e164Selection->value();
+        return (!$this->e164Selection) ?: $this->e164Selection->getValue();
     }
 
-    public function setUsePhoneContext(xs:boolean $usePhoneContext = null)
+    /**
+     * 
+     */
+    public function setUsePhoneContext($usePhoneContext = null)
     {
+        $this->usePhoneContext = (boolean) $usePhoneContext;
     }
 
+    /**
+     * 
+     */
     public function getUsePhoneContext()
     {
-        return (!$this->usePhoneContext) ?: $this->usePhoneContext->value();
+        return (!$this->usePhoneContext) ?: $this->usePhoneContext->getValue();
     }
 }

@@ -14,18 +14,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupVoiceMessagingGroupGetVoicePortalBrandingRequest.
+     * Response to the GroupVoiceMessagingGroupGetVoicePortalBrandingRequest.
  *         Replaced By: GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16
  */
 class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
-    protected $voicePortalGreetingSelection           = null;
-    protected $voicePortalGreetingFileDescription     = null;
-    protected $voiceMessagingGreetingSelection        = null;
-    protected $voiceMessagingGreetingFileDescription  = null;
+    const     RESPONSE_TYPE                          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse';
+    public    $name                                  = __CLASS__;
+    protected $voicePortalGreetingSelection          = null;
+    protected $voicePortalGreetingFileDescription    = null;
+    protected $voiceMessagingGreetingSelection       = null;
+    protected $voiceMessagingGreetingFileDescription = null;
 
 
+    /**
+     * Branding Selection.
+     */
     public function setVoicePortalGreetingSelection($voicePortalGreetingSelection = null)
     {
         $this->voicePortalGreetingSelection = ($voicePortalGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
@@ -33,11 +37,17 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType
              : new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
     }
 
+    /**
+     * Branding Selection.
+     */
     public function getVoicePortalGreetingSelection()
     {
-        return (!$this->voicePortalGreetingSelection) ?: $this->voicePortalGreetingSelection->value();
+        return (!$this->voicePortalGreetingSelection) ?: $this->voicePortalGreetingSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVoicePortalGreetingFileDescription($voicePortalGreetingFileDescription = null)
     {
         $this->voicePortalGreetingFileDescription = ($voicePortalGreetingFileDescription InstanceOf FileDescription)
@@ -45,11 +55,17 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType
              : new FileDescription($voicePortalGreetingFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVoicePortalGreetingFileDescription()
     {
-        return (!$this->voicePortalGreetingFileDescription) ?: $this->voicePortalGreetingFileDescription->value();
+        return (!$this->voicePortalGreetingFileDescription) ?: $this->voicePortalGreetingFileDescription->getValue();
     }
 
+    /**
+     * Branding Selection.
+     */
     public function setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection = null)
     {
         $this->voiceMessagingGreetingSelection = ($voiceMessagingGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
@@ -57,11 +73,17 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType
              : new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
     }
 
+    /**
+     * Branding Selection.
+     */
     public function getVoiceMessagingGreetingSelection()
     {
-        return (!$this->voiceMessagingGreetingSelection) ?: $this->voiceMessagingGreetingSelection->value();
+        return (!$this->voiceMessagingGreetingSelection) ?: $this->voiceMessagingGreetingSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVoiceMessagingGreetingFileDescription($voiceMessagingGreetingFileDescription = null)
     {
         $this->voiceMessagingGreetingFileDescription = ($voiceMessagingGreetingFileDescription InstanceOf FileDescription)
@@ -69,8 +91,11 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType
              : new FileDescription($voiceMessagingGreetingFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVoiceMessagingGreetingFileDescription()
     {
-        return (!$this->voiceMessagingGreetingFileDescription) ?: $this->voiceMessagingGreetingFileDescription->value();
+        return (!$this->voiceMessagingGreetingFileDescription) ?: $this->voiceMessagingGreetingFileDescription->getValue();
     }
 }

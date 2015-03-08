@@ -18,41 +18,59 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallingNameRetrievalGetRequest17sp4.
+     * Response to SystemCallingNameRetrievalGetRequest17sp4.
  */
 class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = __CLASS__;
-    protected $triggerCNAMQueriesForAllNetworkCalls          = null;
-    protected $triggerCNAMQueriesForGroupAndEnterpriseCalls  = null;
-    protected $queryProtocol                                 = null;
-    protected $queryTimeoutMilliseconds                      = null;
-    protected $sipExternalDatabaseNetAddress                 = null;
-    protected $sipExternalDatabasePort                       = null;
-    protected $sipExternalDatabaseTransport                  = null;
-    protected $soapExternalDatabaseNetAddress                = null;
-    protected $soapSupportsDNSSRV                            = null;
-    protected $callingNameSource                             = null;
+    const     RESPONSE_TYPE                                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameRetrieval\SystemCallingNameRetrievalGetResponse17sp4';
+    public    $name                                         = __CLASS__;
+    protected $triggerCNAMQueriesForAllNetworkCalls         = null;
+    protected $triggerCNAMQueriesForGroupAndEnterpriseCalls = null;
+    protected $queryProtocol                                = null;
+    protected $queryTimeoutMilliseconds                     = null;
+    protected $sipExternalDatabaseNetAddress                = null;
+    protected $sipExternalDatabasePort                      = null;
+    protected $sipExternalDatabaseTransport                 = null;
+    protected $soapExternalDatabaseNetAddress               = null;
+    protected $soapSupportsDNSSRV                           = null;
+    protected $callingNameSource                            = null;
 
 
-    public function setTriggerCNAMQueriesForAllNetworkCalls(xs:boolean $triggerCNAMQueriesForAllNetworkCalls = null)
+    /**
+     * 
+     */
+    public function setTriggerCNAMQueriesForAllNetworkCalls($triggerCNAMQueriesForAllNetworkCalls = null)
     {
+        $this->triggerCNAMQueriesForAllNetworkCalls = (boolean) $triggerCNAMQueriesForAllNetworkCalls;
     }
 
+    /**
+     * 
+     */
     public function getTriggerCNAMQueriesForAllNetworkCalls()
     {
-        return (!$this->triggerCNAMQueriesForAllNetworkCalls) ?: $this->triggerCNAMQueriesForAllNetworkCalls->value();
+        return (!$this->triggerCNAMQueriesForAllNetworkCalls) ?: $this->triggerCNAMQueriesForAllNetworkCalls->getValue();
     }
 
-    public function setTriggerCNAMQueriesForGroupAndEnterpriseCalls(xs:boolean $triggerCNAMQueriesForGroupAndEnterpriseCalls = null)
+    /**
+     * 
+     */
+    public function setTriggerCNAMQueriesForGroupAndEnterpriseCalls($triggerCNAMQueriesForGroupAndEnterpriseCalls = null)
     {
+        $this->triggerCNAMQueriesForGroupAndEnterpriseCalls = (boolean) $triggerCNAMQueriesForGroupAndEnterpriseCalls;
     }
 
+    /**
+     * 
+     */
     public function getTriggerCNAMQueriesForGroupAndEnterpriseCalls()
     {
-        return (!$this->triggerCNAMQueriesForGroupAndEnterpriseCalls) ?: $this->triggerCNAMQueriesForGroupAndEnterpriseCalls->value();
+        return (!$this->triggerCNAMQueriesForGroupAndEnterpriseCalls) ?: $this->triggerCNAMQueriesForGroupAndEnterpriseCalls->getValue();
     }
 
+    /**
+     * Query Protocol.
+     */
     public function setQueryProtocol($queryProtocol = null)
     {
         $this->queryProtocol = ($queryProtocol InstanceOf CallingNameRetrievalQueryProtocol)
@@ -60,11 +78,17 @@ class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements 
              : new CallingNameRetrievalQueryProtocol($queryProtocol);
     }
 
+    /**
+     * Query Protocol.
+     */
     public function getQueryProtocol()
     {
-        return (!$this->queryProtocol) ?: $this->queryProtocol->value();
+        return (!$this->queryProtocol) ?: $this->queryProtocol->getValue();
     }
 
+    /**
+     * Query time out milli-seconds.
+     */
     public function setQueryTimeoutMilliseconds($queryTimeoutMilliseconds = null)
     {
         $this->queryTimeoutMilliseconds = ($queryTimeoutMilliseconds InstanceOf CallingNameRetrievalQueryTimeoutMilliseconds)
@@ -72,11 +96,17 @@ class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements 
              : new CallingNameRetrievalQueryTimeoutMilliseconds($queryTimeoutMilliseconds);
     }
 
+    /**
+     * Query time out milli-seconds.
+     */
     public function getQueryTimeoutMilliseconds()
     {
-        return (!$this->queryTimeoutMilliseconds) ?: $this->queryTimeoutMilliseconds->value();
+        return (!$this->queryTimeoutMilliseconds) ?: $this->queryTimeoutMilliseconds->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setSipExternalDatabaseNetAddress($sipExternalDatabaseNetAddress = null)
     {
         $this->sipExternalDatabaseNetAddress = ($sipExternalDatabaseNetAddress InstanceOf NetAddress)
@@ -84,11 +114,17 @@ class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements 
              : new NetAddress($sipExternalDatabaseNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getSipExternalDatabaseNetAddress()
     {
-        return (!$this->sipExternalDatabaseNetAddress) ?: $this->sipExternalDatabaseNetAddress->value();
+        return (!$this->sipExternalDatabaseNetAddress) ?: $this->sipExternalDatabaseNetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setSipExternalDatabasePort($sipExternalDatabasePort = null)
     {
         $this->sipExternalDatabasePort = ($sipExternalDatabasePort InstanceOf Port1025)
@@ -96,11 +132,17 @@ class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements 
              : new Port1025($sipExternalDatabasePort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getSipExternalDatabasePort()
     {
-        return (!$this->sipExternalDatabasePort) ?: $this->sipExternalDatabasePort->value();
+        return (!$this->sipExternalDatabasePort) ?: $this->sipExternalDatabasePort->getValue();
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function setSipExternalDatabaseTransport($sipExternalDatabaseTransport = null)
     {
         $this->sipExternalDatabaseTransport = ($sipExternalDatabaseTransport InstanceOf TransportProtocol)
@@ -108,11 +150,17 @@ class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements 
              : new TransportProtocol($sipExternalDatabaseTransport);
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function getSipExternalDatabaseTransport()
     {
-        return (!$this->sipExternalDatabaseTransport) ?: $this->sipExternalDatabaseTransport->value();
+        return (!$this->sipExternalDatabaseTransport) ?: $this->sipExternalDatabaseTransport->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setSoapExternalDatabaseNetAddress($soapExternalDatabaseNetAddress = null)
     {
         $this->soapExternalDatabaseNetAddress = ($soapExternalDatabaseNetAddress InstanceOf NetAddress)
@@ -120,20 +168,33 @@ class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements 
              : new NetAddress($soapExternalDatabaseNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getSoapExternalDatabaseNetAddress()
     {
-        return (!$this->soapExternalDatabaseNetAddress) ?: $this->soapExternalDatabaseNetAddress->value();
+        return (!$this->soapExternalDatabaseNetAddress) ?: $this->soapExternalDatabaseNetAddress->getValue();
     }
 
-    public function setSoapSupportsDNSSRV(xs:boolean $soapSupportsDNSSRV = null)
+    /**
+     * 
+     */
+    public function setSoapSupportsDNSSRV($soapSupportsDNSSRV = null)
     {
+        $this->soapSupportsDNSSRV = (boolean) $soapSupportsDNSSRV;
     }
 
+    /**
+     * 
+     */
     public function getSoapSupportsDNSSRV()
     {
-        return (!$this->soapSupportsDNSSRV) ?: $this->soapSupportsDNSSRV->value();
+        return (!$this->soapSupportsDNSSRV) ?: $this->soapSupportsDNSSRV->getValue();
     }
 
+    /**
+     * Query Protocol.
+     */
     public function setCallingNameSource($callingNameSource = null)
     {
         $this->callingNameSource = ($callingNameSource InstanceOf CallingNameRetrievalSourceIdentity)
@@ -141,8 +202,11 @@ class SystemCallingNameRetrievalGetResponse17sp4 extends ComplexType implements 
              : new CallingNameRetrievalSourceIdentity($callingNameSource);
     }
 
+    /**
+     * Query Protocol.
+     */
     public function getCallingNameSource()
     {
-        return (!$this->callingNameSource) ?: $this->callingNameSource->value();
+        return (!$this->callingNameSource) ?: $this->callingNameSource->getValue();
     }
 }

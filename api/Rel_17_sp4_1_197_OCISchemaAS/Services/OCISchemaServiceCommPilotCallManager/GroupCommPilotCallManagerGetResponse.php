@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupCommPilotCallManagerGetRequest.
+     * Response to GroupCommPilotCallManagerGetRequest.
  */
 class GroupCommPilotCallManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $groupDirectory  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager\GroupCommPilotCallManagerGetResponse';
+    public    $name           = __CLASS__;
+    protected $groupDirectory = null;
 
 
+    /**
+     * Choices for commPilot call manager group directory display.
+     */
     public function setGroupDirectory($groupDirectory = null)
     {
         $this->groupDirectory = ($groupDirectory InstanceOf CommPilotCallManagerGroupDirectoryDisplaySelection)
@@ -28,8 +32,11 @@ class GroupCommPilotCallManagerGetResponse extends ComplexType implements Comple
              : new CommPilotCallManagerGroupDirectoryDisplaySelection($groupDirectory);
     }
 
+    /**
+     * Choices for commPilot call manager group directory display.
+     */
     public function getGroupDirectory()
     {
-        return (!$this->groupDirectory) ?: $this->groupDirectory->value();
+        return (!$this->groupDirectory) ?: $this->groupDirectory->getValue();
     }
 }

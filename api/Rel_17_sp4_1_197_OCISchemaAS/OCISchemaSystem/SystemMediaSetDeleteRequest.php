@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a Media Set.
+     * Request to delete a Media Set.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMediaSetDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $setName  = null;
+    public    $name    = __CLASS__;
+    protected $setName = null;
 
     public function __construct(
          $setName
@@ -27,6 +27,9 @@ class SystemMediaSetDeleteRequest extends ComplexType implements ComplexInterfac
         $this->setSetName($setName);
     }
 
+    /**
+     * Media Set name
+     */
     public function setSetName($setName = null)
     {
         $this->setName = ($setName InstanceOf MediaSetName)
@@ -34,8 +37,11 @@ class SystemMediaSetDeleteRequest extends ComplexType implements ComplexInterfac
              : new MediaSetName($setName);
     }
 
+    /**
+     * Media Set name
+     */
     public function getSetName()
     {
-        return (!$this->setName) ?: $this->setName->value();
+        return (!$this->setName) ?: $this->setName->getValue();
     }
 }

@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the service provider level data associated with Call Procesing
+     * Modify the service provider level data associated with Call Procesing
  *         Policy. The response is either a SuccessResponse or an ErrorResponse.
  *          The following elements are only used in AS data mode:
  *            useServiceProviderDCLIDSetting
@@ -35,42 +35,42 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType implements ComplexInterface
 {
-    public    $name                                                 = __CLASS__;
-    protected $serviceProviderId                                    = null;
-    protected $useServiceProviderDCLIDSetting                       = null;
-    protected $useMaxSimultaneousCalls                              = null;
-    protected $maxSimultaneousCalls                                 = null;
-    protected $useMaxSimultaneousVideoCalls                         = null;
-    protected $maxSimultaneousVideoCalls                            = null;
-    protected $useMaxCallTimeForAnsweredCalls                       = null;
-    protected $maxCallTimeForAnsweredCallsMinutes                   = null;
-    protected $useMaxCallTimeForUnansweredCalls                     = null;
-    protected $maxCallTimeForUnansweredCallsMinutes                 = null;
-    protected $mediaPolicySelection                                 = null;
-    protected $supportedMediaSetName                                = null;
-    protected $networkUsageSelection                                = null;
-    protected $enforceGroupCallingLineIdentityRestriction           = null;
-    protected $allowEnterpriseGroupCallTypingForPrivateDialingPlan  = null;
-    protected $allowEnterpriseGroupCallTypingForPublicDialingPlan   = null;
-    protected $overrideCLIDRestrictionForPrivateCallCategory        = null;
-    protected $useEnterpriseCLIDForPrivateCallCategory              = null;
-    protected $enableEnterpriseExtensionDialing                     = null;
-    protected $enforceEnterpriseCallingLineIdentityRestriction      = null;
-    protected $useSettingLevel                                      = null;
-    protected $conferenceURI                                        = null;
-    protected $useMaxConcurrentRedirectedCalls                      = null;
-    protected $maxConcurrentRedirectedCalls                         = null;
-    protected $useMaxFindMeFollowMeDepth                            = null;
-    protected $maxFindMeFollowMeDepth                               = null;
-    protected $maxRedirectionDepth                                  = null;
-    protected $useMaxConcurrentFindMeFollowMeInvocations            = null;
-    protected $maxConcurrentFindMeFollowMeInvocations               = null;
-    protected $clidPolicy                                           = null;
-    protected $emergencyClidPolicy                                  = null;
-    protected $allowAlternateNumbersForRedirectingIdentity          = null;
-    protected $enableDialableCallerID                               = null;
-    protected $blockCallingNameForExternalCalls                     = null;
-    protected $allowConfigurableCLIDForRedirectingIdentity          = null;
+    public    $name                                                = __CLASS__;
+    protected $serviceProviderId                                   = null;
+    protected $useServiceProviderDCLIDSetting                      = null;
+    protected $useMaxSimultaneousCalls                             = null;
+    protected $maxSimultaneousCalls                                = null;
+    protected $useMaxSimultaneousVideoCalls                        = null;
+    protected $maxSimultaneousVideoCalls                           = null;
+    protected $useMaxCallTimeForAnsweredCalls                      = null;
+    protected $maxCallTimeForAnsweredCallsMinutes                  = null;
+    protected $useMaxCallTimeForUnansweredCalls                    = null;
+    protected $maxCallTimeForUnansweredCallsMinutes                = null;
+    protected $mediaPolicySelection                                = null;
+    protected $supportedMediaSetName                               = null;
+    protected $networkUsageSelection                               = null;
+    protected $enforceGroupCallingLineIdentityRestriction          = null;
+    protected $allowEnterpriseGroupCallTypingForPrivateDialingPlan = null;
+    protected $allowEnterpriseGroupCallTypingForPublicDialingPlan  = null;
+    protected $overrideCLIDRestrictionForPrivateCallCategory       = null;
+    protected $useEnterpriseCLIDForPrivateCallCategory             = null;
+    protected $enableEnterpriseExtensionDialing                    = null;
+    protected $enforceEnterpriseCallingLineIdentityRestriction     = null;
+    protected $useSettingLevel                                     = null;
+    protected $conferenceURI                                       = null;
+    protected $useMaxConcurrentRedirectedCalls                     = null;
+    protected $maxConcurrentRedirectedCalls                        = null;
+    protected $useMaxFindMeFollowMeDepth                           = null;
+    protected $maxFindMeFollowMeDepth                              = null;
+    protected $maxRedirectionDepth                                 = null;
+    protected $useMaxConcurrentFindMeFollowMeInvocations           = null;
+    protected $maxConcurrentFindMeFollowMeInvocations              = null;
+    protected $clidPolicy                                          = null;
+    protected $emergencyClidPolicy                                 = null;
+    protected $allowAlternateNumbersForRedirectingIdentity         = null;
+    protected $enableDialableCallerID                              = null;
+    protected $blockCallingNameForExternalCalls                    = null;
+    protected $allowConfigurableCLIDForRedirectingIdentity         = null;
 
     public function __construct(
          $serviceProviderId,
@@ -146,6 +146,10 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
         $this->setAllowConfigurableCLIDForRedirectingIdentity($allowConfigurableCLIDForRedirectingIdentity);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -153,29 +157,50 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setUseServiceProviderDCLIDSetting(xs:boolean $useServiceProviderDCLIDSetting = null)
+    /**
+     * 
+     */
+    public function setUseServiceProviderDCLIDSetting($useServiceProviderDCLIDSetting = null)
     {
+        $this->useServiceProviderDCLIDSetting = (boolean) $useServiceProviderDCLIDSetting;
     }
 
+    /**
+     * 
+     */
     public function getUseServiceProviderDCLIDSetting()
     {
-        return (!$this->useServiceProviderDCLIDSetting) ?: $this->useServiceProviderDCLIDSetting->value();
+        return (!$this->useServiceProviderDCLIDSetting) ?: $this->useServiceProviderDCLIDSetting->getValue();
     }
 
-    public function setUseMaxSimultaneousCalls(xs:boolean $useMaxSimultaneousCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxSimultaneousCalls($useMaxSimultaneousCalls = null)
     {
+        $this->useMaxSimultaneousCalls = (boolean) $useMaxSimultaneousCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxSimultaneousCalls()
     {
-        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->value();
+        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->getValue();
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function setMaxSimultaneousCalls($maxSimultaneousCalls = null)
     {
         $this->maxSimultaneousCalls = ($maxSimultaneousCalls InstanceOf CallProcessingMaxSimultaneousCalls)
@@ -183,20 +208,33 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function getMaxSimultaneousCalls()
     {
-        return (!$this->maxSimultaneousCalls) ?: $this->maxSimultaneousCalls->value();
+        return (!$this->maxSimultaneousCalls) ?: $this->maxSimultaneousCalls->getValue();
     }
 
-    public function setUseMaxSimultaneousVideoCalls(xs:boolean $useMaxSimultaneousVideoCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxSimultaneousVideoCalls($useMaxSimultaneousVideoCalls = null)
     {
+        $this->useMaxSimultaneousVideoCalls = (boolean) $useMaxSimultaneousVideoCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxSimultaneousVideoCalls()
     {
-        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->value();
+        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->getValue();
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function setMaxSimultaneousVideoCalls($maxSimultaneousVideoCalls = null)
     {
         $this->maxSimultaneousVideoCalls = ($maxSimultaneousVideoCalls InstanceOf CallProcessingMaxSimultaneousCalls)
@@ -204,20 +242,33 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function getMaxSimultaneousVideoCalls()
     {
-        return (!$this->maxSimultaneousVideoCalls) ?: $this->maxSimultaneousVideoCalls->value();
+        return (!$this->maxSimultaneousVideoCalls) ?: $this->maxSimultaneousVideoCalls->getValue();
     }
 
-    public function setUseMaxCallTimeForAnsweredCalls(xs:boolean $useMaxCallTimeForAnsweredCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxCallTimeForAnsweredCalls($useMaxCallTimeForAnsweredCalls = null)
     {
+        $this->useMaxCallTimeForAnsweredCalls = (boolean) $useMaxCallTimeForAnsweredCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
-        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->value();
+        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->getValue();
     }
 
+    /**
+     * Maximum Call Time for Answered Calls
+     */
     public function setMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes = null)
     {
         $this->maxCallTimeForAnsweredCallsMinutes = ($maxCallTimeForAnsweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForAnsweredCallsMinutes16)
@@ -225,20 +276,33 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxCallTimeForAnsweredCallsMinutes16($maxCallTimeForAnsweredCallsMinutes);
     }
 
+    /**
+     * Maximum Call Time for Answered Calls
+     */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
-        return (!$this->maxCallTimeForAnsweredCallsMinutes) ?: $this->maxCallTimeForAnsweredCallsMinutes->value();
+        return (!$this->maxCallTimeForAnsweredCallsMinutes) ?: $this->maxCallTimeForAnsweredCallsMinutes->getValue();
     }
 
-    public function setUseMaxCallTimeForUnansweredCalls(xs:boolean $useMaxCallTimeForUnansweredCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxCallTimeForUnansweredCalls($useMaxCallTimeForUnansweredCalls = null)
     {
+        $this->useMaxCallTimeForUnansweredCalls = (boolean) $useMaxCallTimeForUnansweredCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
-        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->value();
+        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->getValue();
     }
 
+    /**
+     * Maximum Call Time for Unanswered Calls
+     */
     public function setMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes = null)
     {
         $this->maxCallTimeForUnansweredCallsMinutes = ($maxCallTimeForUnansweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForUnansweredCallsMinutes)
@@ -246,11 +310,17 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
     }
 
+    /**
+     * Maximum Call Time for Unanswered Calls
+     */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
-        return (!$this->maxCallTimeForUnansweredCallsMinutes) ?: $this->maxCallTimeForUnansweredCallsMinutes->value();
+        return (!$this->maxCallTimeForUnansweredCallsMinutes) ?: $this->maxCallTimeForUnansweredCallsMinutes->getValue();
     }
 
+    /**
+     * Media Policy Selections.
+     */
     public function setMediaPolicySelection($mediaPolicySelection = null)
     {
         $this->mediaPolicySelection = ($mediaPolicySelection InstanceOf MediaPolicySelection)
@@ -258,11 +328,17 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new MediaPolicySelection($mediaPolicySelection);
     }
 
+    /**
+     * Media Policy Selections.
+     */
     public function getMediaPolicySelection()
     {
-        return (!$this->mediaPolicySelection) ?: $this->mediaPolicySelection->value();
+        return (!$this->mediaPolicySelection) ?: $this->mediaPolicySelection->getValue();
     }
 
+    /**
+     * Media Set name
+     */
     public function setSupportedMediaSetName($supportedMediaSetName = null)
     {
         $this->supportedMediaSetName = ($supportedMediaSetName InstanceOf MediaSetName)
@@ -270,11 +346,17 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new MediaSetName($supportedMediaSetName);
     }
 
+    /**
+     * Media Set name
+     */
     public function getSupportedMediaSetName()
     {
-        return (!$this->supportedMediaSetName) ?: $this->supportedMediaSetName->value();
+        return (!$this->supportedMediaSetName) ?: $this->supportedMediaSetName->getValue();
     }
 
+    /**
+     * Network Usage types.
+     */
     public function setNetworkUsageSelection($networkUsageSelection = null)
     {
         $this->networkUsageSelection = ($networkUsageSelection InstanceOf NetworkUsageSelection)
@@ -282,74 +364,130 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new NetworkUsageSelection($networkUsageSelection);
     }
 
+    /**
+     * Network Usage types.
+     */
     public function getNetworkUsageSelection()
     {
-        return (!$this->networkUsageSelection) ?: $this->networkUsageSelection->value();
+        return (!$this->networkUsageSelection) ?: $this->networkUsageSelection->getValue();
     }
 
-    public function setEnforceGroupCallingLineIdentityRestriction(xs:boolean $enforceGroupCallingLineIdentityRestriction = null)
+    /**
+     * 
+     */
+    public function setEnforceGroupCallingLineIdentityRestriction($enforceGroupCallingLineIdentityRestriction = null)
     {
+        $this->enforceGroupCallingLineIdentityRestriction = (boolean) $enforceGroupCallingLineIdentityRestriction;
     }
 
+    /**
+     * 
+     */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {
-        return (!$this->enforceGroupCallingLineIdentityRestriction) ?: $this->enforceGroupCallingLineIdentityRestriction->value();
+        return (!$this->enforceGroupCallingLineIdentityRestriction) ?: $this->enforceGroupCallingLineIdentityRestriction->getValue();
     }
 
-    public function setAllowEnterpriseGroupCallTypingForPrivateDialingPlan(xs:boolean $allowEnterpriseGroupCallTypingForPrivateDialingPlan = null)
+    /**
+     * 
+     */
+    public function setAllowEnterpriseGroupCallTypingForPrivateDialingPlan($allowEnterpriseGroupCallTypingForPrivateDialingPlan = null)
     {
+        $this->allowEnterpriseGroupCallTypingForPrivateDialingPlan = (boolean) $allowEnterpriseGroupCallTypingForPrivateDialingPlan;
     }
 
+    /**
+     * 
+     */
     public function getAllowEnterpriseGroupCallTypingForPrivateDialingPlan()
     {
-        return (!$this->allowEnterpriseGroupCallTypingForPrivateDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPrivateDialingPlan->value();
+        return (!$this->allowEnterpriseGroupCallTypingForPrivateDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPrivateDialingPlan->getValue();
     }
 
-    public function setAllowEnterpriseGroupCallTypingForPublicDialingPlan(xs:boolean $allowEnterpriseGroupCallTypingForPublicDialingPlan = null)
+    /**
+     * 
+     */
+    public function setAllowEnterpriseGroupCallTypingForPublicDialingPlan($allowEnterpriseGroupCallTypingForPublicDialingPlan = null)
     {
+        $this->allowEnterpriseGroupCallTypingForPublicDialingPlan = (boolean) $allowEnterpriseGroupCallTypingForPublicDialingPlan;
     }
 
+    /**
+     * 
+     */
     public function getAllowEnterpriseGroupCallTypingForPublicDialingPlan()
     {
-        return (!$this->allowEnterpriseGroupCallTypingForPublicDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPublicDialingPlan->value();
+        return (!$this->allowEnterpriseGroupCallTypingForPublicDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPublicDialingPlan->getValue();
     }
 
-    public function setOverrideCLIDRestrictionForPrivateCallCategory(xs:boolean $overrideCLIDRestrictionForPrivateCallCategory = null)
+    /**
+     * 
+     */
+    public function setOverrideCLIDRestrictionForPrivateCallCategory($overrideCLIDRestrictionForPrivateCallCategory = null)
     {
+        $this->overrideCLIDRestrictionForPrivateCallCategory = (boolean) $overrideCLIDRestrictionForPrivateCallCategory;
     }
 
+    /**
+     * 
+     */
     public function getOverrideCLIDRestrictionForPrivateCallCategory()
     {
-        return (!$this->overrideCLIDRestrictionForPrivateCallCategory) ?: $this->overrideCLIDRestrictionForPrivateCallCategory->value();
+        return (!$this->overrideCLIDRestrictionForPrivateCallCategory) ?: $this->overrideCLIDRestrictionForPrivateCallCategory->getValue();
     }
 
-    public function setUseEnterpriseCLIDForPrivateCallCategory(xs:boolean $useEnterpriseCLIDForPrivateCallCategory = null)
+    /**
+     * 
+     */
+    public function setUseEnterpriseCLIDForPrivateCallCategory($useEnterpriseCLIDForPrivateCallCategory = null)
     {
+        $this->useEnterpriseCLIDForPrivateCallCategory = (boolean) $useEnterpriseCLIDForPrivateCallCategory;
     }
 
+    /**
+     * 
+     */
     public function getUseEnterpriseCLIDForPrivateCallCategory()
     {
-        return (!$this->useEnterpriseCLIDForPrivateCallCategory) ?: $this->useEnterpriseCLIDForPrivateCallCategory->value();
+        return (!$this->useEnterpriseCLIDForPrivateCallCategory) ?: $this->useEnterpriseCLIDForPrivateCallCategory->getValue();
     }
 
-    public function setEnableEnterpriseExtensionDialing(xs:boolean $enableEnterpriseExtensionDialing = null)
+    /**
+     * 
+     */
+    public function setEnableEnterpriseExtensionDialing($enableEnterpriseExtensionDialing = null)
     {
+        $this->enableEnterpriseExtensionDialing = (boolean) $enableEnterpriseExtensionDialing;
     }
 
+    /**
+     * 
+     */
     public function getEnableEnterpriseExtensionDialing()
     {
-        return (!$this->enableEnterpriseExtensionDialing) ?: $this->enableEnterpriseExtensionDialing->value();
+        return (!$this->enableEnterpriseExtensionDialing) ?: $this->enableEnterpriseExtensionDialing->getValue();
     }
 
-    public function setEnforceEnterpriseCallingLineIdentityRestriction(xs:boolean $enforceEnterpriseCallingLineIdentityRestriction = null)
+    /**
+     * 
+     */
+    public function setEnforceEnterpriseCallingLineIdentityRestriction($enforceEnterpriseCallingLineIdentityRestriction = null)
     {
+        $this->enforceEnterpriseCallingLineIdentityRestriction = (boolean) $enforceEnterpriseCallingLineIdentityRestriction;
     }
 
+    /**
+     * 
+     */
     public function getEnforceEnterpriseCallingLineIdentityRestriction()
     {
-        return (!$this->enforceEnterpriseCallingLineIdentityRestriction) ?: $this->enforceEnterpriseCallingLineIdentityRestriction->value();
+        return (!$this->enforceEnterpriseCallingLineIdentityRestriction) ?: $this->enforceEnterpriseCallingLineIdentityRestriction->getValue();
     }
 
+    /**
+     * Choices for the service provider conference URI
+     *         setting to decide which level of settings to use.
+     */
     public function setUseSettingLevel($useSettingLevel = null)
     {
         $this->useSettingLevel = ($useSettingLevel InstanceOf ServiceProviderConferenceURISettingLevel)
@@ -357,11 +495,25 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new ServiceProviderConferenceURISettingLevel($useSettingLevel);
     }
 
+    /**
+     * Choices for the service provider conference URI
+     *         setting to decide which level of settings to use.
+     */
     public function getUseSettingLevel()
     {
-        return (!$this->useSettingLevel) ?: $this->useSettingLevel->value();
+        return (!$this->useSettingLevel) ?: $this->useSettingLevel->getValue();
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function setConferenceURI($conferenceURI = null)
     {
         $this->conferenceURI = ($conferenceURI InstanceOf SIPURI)
@@ -369,20 +521,40 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new SIPURI($conferenceURI);
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function getConferenceURI()
     {
-        return (!$this->conferenceURI) ?: $this->conferenceURI->value();
+        return (!$this->conferenceURI) ?: $this->conferenceURI->getValue();
     }
 
-    public function setUseMaxConcurrentRedirectedCalls(xs:boolean $useMaxConcurrentRedirectedCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxConcurrentRedirectedCalls($useMaxConcurrentRedirectedCalls = null)
     {
+        $this->useMaxConcurrentRedirectedCalls = (boolean) $useMaxConcurrentRedirectedCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxConcurrentRedirectedCalls()
     {
-        return (!$this->useMaxConcurrentRedirectedCalls) ?: $this->useMaxConcurrentRedirectedCalls->value();
+        return (!$this->useMaxConcurrentRedirectedCalls) ?: $this->useMaxConcurrentRedirectedCalls->getValue();
     }
 
+    /**
+     * Maximum Number of Concurrent Redirected Calls
+     */
     public function setMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls = null)
     {
         $this->maxConcurrentRedirectedCalls = ($maxConcurrentRedirectedCalls InstanceOf CallProcessingMaxConcurrentRedirectedCalls)
@@ -390,20 +562,33 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxConcurrentRedirectedCalls($maxConcurrentRedirectedCalls);
     }
 
+    /**
+     * Maximum Number of Concurrent Redirected Calls
+     */
     public function getMaxConcurrentRedirectedCalls()
     {
-        return (!$this->maxConcurrentRedirectedCalls) ?: $this->maxConcurrentRedirectedCalls->value();
+        return (!$this->maxConcurrentRedirectedCalls) ?: $this->maxConcurrentRedirectedCalls->getValue();
     }
 
-    public function setUseMaxFindMeFollowMeDepth(xs:boolean $useMaxFindMeFollowMeDepth = null)
+    /**
+     * 
+     */
+    public function setUseMaxFindMeFollowMeDepth($useMaxFindMeFollowMeDepth = null)
     {
+        $this->useMaxFindMeFollowMeDepth = (boolean) $useMaxFindMeFollowMeDepth;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxFindMeFollowMeDepth()
     {
-        return (!$this->useMaxFindMeFollowMeDepth) ?: $this->useMaxFindMeFollowMeDepth->value();
+        return (!$this->useMaxFindMeFollowMeDepth) ?: $this->useMaxFindMeFollowMeDepth->getValue();
     }
 
+    /**
+     * Maximum Number of Find Me Follow Me Depth
+     */
     public function setMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth = null)
     {
         $this->maxFindMeFollowMeDepth = ($maxFindMeFollowMeDepth InstanceOf CallProcessingMaxFindMeFollowMeDepth)
@@ -411,11 +596,17 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxFindMeFollowMeDepth($maxFindMeFollowMeDepth);
     }
 
+    /**
+     * Maximum Number of Find Me Follow Me Depth
+     */
     public function getMaxFindMeFollowMeDepth()
     {
-        return (!$this->maxFindMeFollowMeDepth) ?: $this->maxFindMeFollowMeDepth->value();
+        return (!$this->maxFindMeFollowMeDepth) ?: $this->maxFindMeFollowMeDepth->getValue();
     }
 
+    /**
+     * Maximum Number of Redirections Depth
+     */
     public function setMaxRedirectionDepth($maxRedirectionDepth = null)
     {
         $this->maxRedirectionDepth = ($maxRedirectionDepth InstanceOf CallProcessingMaxRedirectionDepth)
@@ -423,20 +614,33 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxRedirectionDepth($maxRedirectionDepth);
     }
 
+    /**
+     * Maximum Number of Redirections Depth
+     */
     public function getMaxRedirectionDepth()
     {
-        return (!$this->maxRedirectionDepth) ?: $this->maxRedirectionDepth->value();
+        return (!$this->maxRedirectionDepth) ?: $this->maxRedirectionDepth->getValue();
     }
 
-    public function setUseMaxConcurrentFindMeFollowMeInvocations(xs:boolean $useMaxConcurrentFindMeFollowMeInvocations = null)
+    /**
+     * 
+     */
+    public function setUseMaxConcurrentFindMeFollowMeInvocations($useMaxConcurrentFindMeFollowMeInvocations = null)
     {
+        $this->useMaxConcurrentFindMeFollowMeInvocations = (boolean) $useMaxConcurrentFindMeFollowMeInvocations;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
-        return (!$this->useMaxConcurrentFindMeFollowMeInvocations) ?: $this->useMaxConcurrentFindMeFollowMeInvocations->value();
+        return (!$this->useMaxConcurrentFindMeFollowMeInvocations) ?: $this->useMaxConcurrentFindMeFollowMeInvocations->getValue();
     }
 
+    /**
+     * Maximum Number of Concurrent Find Me/Follow Me Invocations
+     */
     public function setMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations = null)
     {
         $this->maxConcurrentFindMeFollowMeInvocations = ($maxConcurrentFindMeFollowMeInvocations InstanceOf CallProcessingMaxConcurrentFindMeFollowMeInvocations)
@@ -444,11 +648,17 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CallProcessingMaxConcurrentFindMeFollowMeInvocations($maxConcurrentFindMeFollowMeInvocations);
     }
 
+    /**
+     * Maximum Number of Concurrent Find Me/Follow Me Invocations
+     */
     public function getMaxConcurrentFindMeFollowMeInvocations()
     {
-        return (!$this->maxConcurrentFindMeFollowMeInvocations) ?: $this->maxConcurrentFindMeFollowMeInvocations->value();
+        return (!$this->maxConcurrentFindMeFollowMeInvocations) ?: $this->maxConcurrentFindMeFollowMeInvocations->getValue();
     }
 
+    /**
+     * Calling Line ID Policy Selections.
+     */
     public function setClidPolicy($clidPolicy = null)
     {
         $this->clidPolicy = ($clidPolicy InstanceOf CLIDPolicy)
@@ -456,11 +666,17 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CLIDPolicy($clidPolicy);
     }
 
+    /**
+     * Calling Line ID Policy Selections.
+     */
     public function getClidPolicy()
     {
-        return (!$this->clidPolicy) ?: $this->clidPolicy->value();
+        return (!$this->clidPolicy) ?: $this->clidPolicy->getValue();
     }
 
+    /**
+     * Calling Line ID Policy Selections.
+     */
     public function setEmergencyClidPolicy($emergencyClidPolicy = null)
     {
         $this->emergencyClidPolicy = ($emergencyClidPolicy InstanceOf CLIDPolicy)
@@ -468,44 +684,75 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
              : new CLIDPolicy($emergencyClidPolicy);
     }
 
+    /**
+     * Calling Line ID Policy Selections.
+     */
     public function getEmergencyClidPolicy()
     {
-        return (!$this->emergencyClidPolicy) ?: $this->emergencyClidPolicy->value();
+        return (!$this->emergencyClidPolicy) ?: $this->emergencyClidPolicy->getValue();
     }
 
-    public function setAllowAlternateNumbersForRedirectingIdentity(xs:boolean $allowAlternateNumbersForRedirectingIdentity = null)
+    /**
+     * 
+     */
+    public function setAllowAlternateNumbersForRedirectingIdentity($allowAlternateNumbersForRedirectingIdentity = null)
     {
+        $this->allowAlternateNumbersForRedirectingIdentity = (boolean) $allowAlternateNumbersForRedirectingIdentity;
     }
 
+    /**
+     * 
+     */
     public function getAllowAlternateNumbersForRedirectingIdentity()
     {
-        return (!$this->allowAlternateNumbersForRedirectingIdentity) ?: $this->allowAlternateNumbersForRedirectingIdentity->value();
+        return (!$this->allowAlternateNumbersForRedirectingIdentity) ?: $this->allowAlternateNumbersForRedirectingIdentity->getValue();
     }
 
-    public function setEnableDialableCallerID(xs:boolean $enableDialableCallerID = null)
+    /**
+     * 
+     */
+    public function setEnableDialableCallerID($enableDialableCallerID = null)
     {
+        $this->enableDialableCallerID = (boolean) $enableDialableCallerID;
     }
 
+    /**
+     * 
+     */
     public function getEnableDialableCallerID()
     {
-        return (!$this->enableDialableCallerID) ?: $this->enableDialableCallerID->value();
+        return (!$this->enableDialableCallerID) ?: $this->enableDialableCallerID->getValue();
     }
 
-    public function setBlockCallingNameForExternalCalls(xs:boolean $blockCallingNameForExternalCalls = null)
+    /**
+     * 
+     */
+    public function setBlockCallingNameForExternalCalls($blockCallingNameForExternalCalls = null)
     {
+        $this->blockCallingNameForExternalCalls = (boolean) $blockCallingNameForExternalCalls;
     }
 
+    /**
+     * 
+     */
     public function getBlockCallingNameForExternalCalls()
     {
-        return (!$this->blockCallingNameForExternalCalls) ?: $this->blockCallingNameForExternalCalls->value();
+        return (!$this->blockCallingNameForExternalCalls) ?: $this->blockCallingNameForExternalCalls->getValue();
     }
 
-    public function setAllowConfigurableCLIDForRedirectingIdentity(xs:boolean $allowConfigurableCLIDForRedirectingIdentity = null)
+    /**
+     * 
+     */
+    public function setAllowConfigurableCLIDForRedirectingIdentity($allowConfigurableCLIDForRedirectingIdentity = null)
     {
+        $this->allowConfigurableCLIDForRedirectingIdentity = (boolean) $allowConfigurableCLIDForRedirectingIdentity;
     }
 
+    /**
+     * 
+     */
     public function getAllowConfigurableCLIDForRedirectingIdentity()
     {
-        return (!$this->allowConfigurableCLIDForRedirectingIdentity) ?: $this->allowConfigurableCLIDForRedirectingIdentity->value();
+        return (!$this->allowConfigurableCLIDForRedirectingIdentity) ?: $this->allowConfigurableCLIDForRedirectingIdentity->getValue();
     }
 }

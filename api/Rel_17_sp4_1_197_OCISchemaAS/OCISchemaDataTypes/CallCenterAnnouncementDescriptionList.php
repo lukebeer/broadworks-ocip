@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains list of file descriptions for audio or video files
+     * Contains list of file descriptions for audio or video files
  */
 class CallCenterAnnouncementDescriptionList extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPolycomPhoneServicesGetPrimaryEndpointListRequest.
+     * Response to UserPolycomPhoneServicesGetPrimaryEndpointListRequest.
  *         The column headings for the deviceUserTable are: "Device Level", "Device Name", "Line/Port".
  */
 class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $deviceUserTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetPrimaryEndpointListResponse';
+    public    $name            = __CLASS__;
+    protected $deviceUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setDeviceUserTable(core:OCITable $deviceUserTable = null)
     {
+        $this->deviceUserTable = core:OCITable $deviceUserTable;
     }
 
+    /**
+     * 
+     */
     public function getDeviceUserTable()
     {
-        return (!$this->deviceUserTable) ?: $this->deviceUserTable->value();
+        return (!$this->deviceUserTable) ?: $this->deviceUserTable->getValue();
     }
 }

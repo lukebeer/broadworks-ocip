@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of BroadWorks Mobility IMRN numbers defined in the system.
+     * Request to get the list of BroadWorks Mobility IMRN numbers defined in the system.
  *         The response is either a SystemBroadWorksMobilityIMRNGetListResponse
  *         or an ErrorResponse.
  */
 class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $searchCriteriaIMRN  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
+    public    $name               = __CLASS__;
+    protected $searchCriteriaIMRN = null;
 
     public function __construct(
          SearchCriteriaIMRN $searchCriteriaIMRN = null
@@ -28,12 +29,19 @@ class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements 
         $this->setSearchCriteriaIMRN($searchCriteriaIMRN);
     }
 
+    /**
+     * Criteria for searching for an IMRN Number.
+     */
     public function setSearchCriteriaIMRN(SearchCriteriaIMRN $searchCriteriaIMRN = null)
     {
+        $this->searchCriteriaIMRN = SearchCriteriaIMRN $searchCriteriaIMRN;
     }
 
+    /**
+     * Criteria for searching for an IMRN Number.
+     */
     public function getSearchCriteriaIMRN()
     {
-        return (!$this->searchCriteriaIMRN) ?: $this->searchCriteriaIMRN->value();
+        return (!$this->searchCriteriaIMRN) ?: $this->searchCriteriaIMRN->getValue();
     }
 }

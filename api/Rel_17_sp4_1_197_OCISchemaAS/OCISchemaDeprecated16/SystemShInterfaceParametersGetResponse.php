@@ -15,16 +15,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemShInterfaceParametersGetRequest.  Contains the Sh Interface system parameters.
+     * Response to SystemShInterfaceParametersGetRequest.  Contains the Sh Interface system parameters.
  */
 class SystemShInterfaceParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $hssRealm                           = null;
-    protected $requestTimeoutSeconds              = null;
-    protected $publicIdentityRefreshDelaySeconds  = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemShInterfaceParametersGetResponse';
+    public    $name                              = __CLASS__;
+    protected $hssRealm                          = null;
+    protected $requestTimeoutSeconds             = null;
+    protected $publicIdentityRefreshDelaySeconds = null;
 
 
+    /**
+     * Network domain name.
+     */
     public function setHssRealm($hssRealm = null)
     {
         $this->hssRealm = ($hssRealm InstanceOf DomainName)
@@ -32,11 +36,17 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
              : new DomainName($hssRealm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getHssRealm()
     {
-        return (!$this->hssRealm) ?: $this->hssRealm->value();
+        return (!$this->hssRealm) ?: $this->hssRealm->getValue();
     }
 
+    /**
+     * The amount of time to wait for a response to an Sh Interface request.
+     */
     public function setRequestTimeoutSeconds($requestTimeoutSeconds = null)
     {
         $this->requestTimeoutSeconds = ($requestTimeoutSeconds InstanceOf ShInterfaceRequestTimeoutSeconds)
@@ -44,11 +54,17 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
              : new ShInterfaceRequestTimeoutSeconds($requestTimeoutSeconds);
     }
 
+    /**
+     * The amount of time to wait for a response to an Sh Interface request.
+     */
     public function getRequestTimeoutSeconds()
     {
-        return (!$this->requestTimeoutSeconds) ?: $this->requestTimeoutSeconds->value();
+        return (!$this->requestTimeoutSeconds) ?: $this->requestTimeoutSeconds->getValue();
     }
 
+    /**
+     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     */
     public function setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds = null)
     {
         $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
@@ -56,8 +72,11 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
              : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
     }
 
+    /**
+     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     */
     public function getPublicIdentityRefreshDelaySeconds()
     {
-        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->value();
+        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->getValue();
     }
 }

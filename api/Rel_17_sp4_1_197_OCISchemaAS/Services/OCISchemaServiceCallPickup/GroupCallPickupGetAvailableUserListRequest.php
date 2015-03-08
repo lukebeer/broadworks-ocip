@@ -19,21 +19,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of users that can be assigned to a Call Pickup group.
+     * Get a list of users that can be assigned to a Call Pickup group.
  *         The available user list for a new Call Pickup group can be obtained
  *         by not setting the name.
  *         The response is either GroupCallPickupGetAvailableUserListResponse or ErrorResponse.
  */
 class GroupCallPickupGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $serviceProviderId                  = null;
-    protected $groupId                            = null;
-    protected $name                               = null;
-    protected $responseSizeLimit                  = null;
-    protected $searchCriteriaUserLastName         = null;
-    protected $searchCriteriaUserFirstName        = null;
-    protected $searchCriteriaExactUserDepartment  = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPickup\GroupCallPickupGetAvailableUserListResponse';
+    public    $name                              = __CLASS__;
+    protected $serviceProviderId                 = null;
+    protected $groupId                           = null;
+    protected $name                              = null;
+    protected $responseSizeLimit                 = null;
+    protected $searchCriteriaUserLastName        = null;
+    protected $searchCriteriaUserFirstName       = null;
+    protected $searchCriteriaExactUserDepartment = null;
 
     public function __construct(
          $serviceProviderId,
@@ -53,6 +54,10 @@ class GroupCallPickupGetAvailableUserListRequest extends ComplexType implements 
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -60,11 +65,19 @@ class GroupCallPickupGetAvailableUserListRequest extends ComplexType implements 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -72,11 +85,18 @@ class GroupCallPickupGetAvailableUserListRequest extends ComplexType implements 
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -84,11 +104,19 @@ class GroupCallPickupGetAvailableUserListRequest extends ComplexType implements 
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -96,35 +124,61 @@ class GroupCallPickupGetAvailableUserListRequest extends ComplexType implements 
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
+        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
+        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
+        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function getSearchCriteriaExactUserDepartment()
     {
-        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->value();
+        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->getValue();
     }
 }

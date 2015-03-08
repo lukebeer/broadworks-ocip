@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a file repository user.
+     * Delete a file repository user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $fileRepositoryName  = null;
-    protected $userName            = null;
+    public    $name               = __CLASS__;
+    protected $fileRepositoryName = null;
+    protected $userName           = null;
 
     public function __construct(
          $fileRepositoryName,
@@ -31,6 +31,9 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
         $this->setUserName($userName);
     }
 
+    /**
+     * File repository name.
+     */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
@@ -38,11 +41,17 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
              : new FileRepositoryName($fileRepositoryName);
     }
 
+    /**
+     * File repository name.
+     */
     public function getFileRepositoryName()
     {
-        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->value();
+        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->getValue();
     }
 
+    /**
+     * A user id for a File Repository.
+     */
     public function setUserName($userName = null)
     {
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
@@ -50,8 +59,11 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
              : new FileRepositoryUserName($userName);
     }
 
+    /**
+     * A user id for a File Repository.
+     */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->value();
+        return (!$this->userName) ?: $this->userName->getValue();
     }
 }

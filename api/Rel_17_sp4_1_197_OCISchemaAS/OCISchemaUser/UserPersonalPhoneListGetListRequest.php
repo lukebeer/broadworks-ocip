@@ -16,7 +16,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a user's personal phone list.
+     * Get a user's personal phone list.
  *         The response is either a UserPersonalPhoneListGetListResponse or an ErrorResponse.
  *         The search can be done using multiple criterion.
  *         If the searchCriteriaModeOr is present, any result matching any one criteria is included in the results. 
@@ -28,12 +28,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPersonalPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
-    protected $userId                                     = null;
-    protected $responseSizeLimit                          = null;
-    protected $searchCriteriaModeOr                       = null;
-    protected $searchCriteriaUserPersonalPhoneListName    = null;
-    protected $searchCriteriaUserPersonalPhoneListNumber  = null;
+    const     RESPONSE_TYPE                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse';
+    public    $name                                      = __CLASS__;
+    protected $userId                                    = null;
+    protected $responseSizeLimit                         = null;
+    protected $searchCriteriaModeOr                      = null;
+    protected $searchCriteriaUserPersonalPhoneListName   = null;
+    protected $searchCriteriaUserPersonalPhoneListNumber = null;
 
     public function __construct(
          $userId,
@@ -49,6 +50,13 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
         $this->setSearchCriteriaUserPersonalPhoneListNumber($searchCriteriaUserPersonalPhoneListNumber);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -56,11 +64,23 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -68,35 +88,61 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
-    public function setSearchCriteriaModeOr(xs:boolean $searchCriteriaModeOr = null)
+    /**
+     * 
+     */
+    public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
+        $this->searchCriteriaModeOr = (boolean) $searchCriteriaModeOr;
     }
 
+    /**
+     * 
+     */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->value();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
     }
 
+    /**
+     * Criteria for searching for a name in a user personal phone list.
+     */
     public function setSearchCriteriaUserPersonalPhoneListName(SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null)
     {
+        $this->searchCriteriaUserPersonalPhoneListName = SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName;
     }
 
+    /**
+     * Criteria for searching for a name in a user personal phone list.
+     */
     public function getSearchCriteriaUserPersonalPhoneListName()
     {
-        return (!$this->searchCriteriaUserPersonalPhoneListName) ?: $this->searchCriteriaUserPersonalPhoneListName->value();
+        return (!$this->searchCriteriaUserPersonalPhoneListName) ?: $this->searchCriteriaUserPersonalPhoneListName->getValue();
     }
 
+    /**
+     * Criteria for searching for a phone number in a user personal phone list.
+     */
     public function setSearchCriteriaUserPersonalPhoneListNumber(SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null)
     {
+        $this->searchCriteriaUserPersonalPhoneListNumber = SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber;
     }
 
+    /**
+     * Criteria for searching for a phone number in a user personal phone list.
+     */
     public function getSearchCriteriaUserPersonalPhoneListNumber()
     {
-        return (!$this->searchCriteriaUserPersonalPhoneListNumber) ?: $this->searchCriteriaUserPersonalPhoneListNumber->value();
+        return (!$this->searchCriteriaUserPersonalPhoneListNumber) ?: $this->searchCriteriaUserPersonalPhoneListNumber->getValue();
     }
 }

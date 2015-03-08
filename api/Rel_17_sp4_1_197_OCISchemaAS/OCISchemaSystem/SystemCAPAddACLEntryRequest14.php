@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an entry to the CAP access control list.
+     * Add an entry to the CAP access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCAPAddACLEntryRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $netAddress   = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $netAddress  = null;
+    protected $description = null;
 
     public function __construct(
          $netAddress,
@@ -31,6 +31,9 @@ class SystemCAPAddACLEntryRequest14 extends ComplexType implements ComplexInterf
         $this->setDescription($description);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -38,11 +41,17 @@ class SystemCAPAddACLEntryRequest14 extends ComplexType implements ComplexInterf
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
@@ -50,8 +59,11 @@ class SystemCAPAddACLEntryRequest14 extends ComplexType implements ComplexInterf
              : new NetworkACLEntryDescription($description);
     }
 
+    /**
+     * The description for the entry in the network access control list.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

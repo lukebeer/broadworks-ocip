@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify service code.
+     * Request to modify service code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $serviceCode  = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $serviceCode = null;
+    protected $description = null;
 
     public function __construct(
          $serviceCode,
@@ -31,6 +31,10 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
         $this->setDescription($description);
     }
 
+    /**
+     * Service Codes that are used for dialing in lieu of phone numbers.
+     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     */
     public function setServiceCode($serviceCode = null)
     {
         $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
@@ -38,11 +42,18 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
              : new ServiceCode($serviceCode);
     }
 
+    /**
+     * Service Codes that are used for dialing in lieu of phone numbers.
+     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     */
     public function getServiceCode()
     {
-        return (!$this->serviceCode) ?: $this->serviceCode->value();
+        return (!$this->serviceCode) ?: $this->serviceCode->getValue();
     }
 
+    /**
+     * Service Code description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf ServiceCodeDescription)
@@ -50,8 +61,11 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
              : new ServiceCodeDescription($description);
     }
 
+    /**
+     * Service Code description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

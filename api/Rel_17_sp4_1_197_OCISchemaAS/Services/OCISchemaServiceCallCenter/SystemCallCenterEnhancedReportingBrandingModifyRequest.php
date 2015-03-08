@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the system branding configuration.
+     * Request to modify the system branding configuration.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $brandingChoice      = null;
-    protected $customBrandingFile  = null;
+    public    $name               = __CLASS__;
+    protected $brandingChoice     = null;
+    protected $customBrandingFile = null;
 
     public function __construct(
          $brandingChoice = null,
@@ -31,6 +31,9 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
         $this->setCustomBrandingFile($customBrandingFile);
     }
 
+    /**
+     * The call center enhanced reporting system level branding choice.
+     */
     public function setBrandingChoice($brandingChoice = null)
     {
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
@@ -38,17 +41,29 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
              : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
     }
 
+    /**
+     * The call center enhanced reporting system level branding choice.
+     */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->value();
+        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setCustomBrandingFile(LabeledFileResource $customBrandingFile = null)
     {
+        $this->customBrandingFile = LabeledFileResource $customBrandingFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getCustomBrandingFile()
     {
-        return (!$this->customBrandingFile) ?: $this->customBrandingFile->value();
+        return (!$this->customBrandingFile) ?: $this->customBrandingFile->getValue();
     }
 }

@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a particular User Type.
+     * Criteria for searching for a particular User Type.
  */
 class SearchCriteriaExactUserType extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $userType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserType';
+    public    $name     = __CLASS__;
+    protected $userType = null;
 
     public function __construct(
          $userType
@@ -26,6 +27,9 @@ class SearchCriteriaExactUserType extends ComplexType implements ComplexInterfac
         $this->setUserType($userType);
     }
 
+    /**
+     * Types of users in BroadWorks.
+     */
     public function setUserType($userType = null)
     {
         $this->userType = ($userType InstanceOf UserType)
@@ -33,8 +37,11 @@ class SearchCriteriaExactUserType extends ComplexType implements ComplexInterfac
              : new UserType($userType);
     }
 
+    /**
+     * Types of users in BroadWorks.
+     */
     public function getUserType()
     {
-        return (!$this->userType) ?: $this->userType->value();
+        return (!$this->userType) ?: $this->userType->getValue();
     }
 }

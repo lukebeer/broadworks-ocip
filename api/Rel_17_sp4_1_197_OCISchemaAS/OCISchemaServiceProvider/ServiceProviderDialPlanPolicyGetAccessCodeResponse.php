@@ -13,44 +13,69 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderDialPlanPolicyGetAccessCodeRequest
+     * Response to ServiceProviderDialPlanPolicyGetAccessCodeRequest
  */
 class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                         = __CLASS__;
-    protected $includeCodeForNetworkTranslationsAndRouting  = null;
-    protected $includeCodeForScreeningServices              = null;
-    protected $enableSecondaryDialTone                      = null;
-    protected $description                                  = null;
+    const     RESPONSE_TYPE                                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeResponse';
+    public    $name                                        = __CLASS__;
+    protected $includeCodeForNetworkTranslationsAndRouting = null;
+    protected $includeCodeForScreeningServices             = null;
+    protected $enableSecondaryDialTone                     = null;
+    protected $description                                 = null;
 
 
-    public function setIncludeCodeForNetworkTranslationsAndRouting(xs:boolean $includeCodeForNetworkTranslationsAndRouting = null)
+    /**
+     * 
+     */
+    public function setIncludeCodeForNetworkTranslationsAndRouting($includeCodeForNetworkTranslationsAndRouting = null)
     {
+        $this->includeCodeForNetworkTranslationsAndRouting = (boolean) $includeCodeForNetworkTranslationsAndRouting;
     }
 
+    /**
+     * 
+     */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
-        return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting->value();
+        return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting->getValue();
     }
 
-    public function setIncludeCodeForScreeningServices(xs:boolean $includeCodeForScreeningServices = null)
+    /**
+     * 
+     */
+    public function setIncludeCodeForScreeningServices($includeCodeForScreeningServices = null)
     {
+        $this->includeCodeForScreeningServices = (boolean) $includeCodeForScreeningServices;
     }
 
+    /**
+     * 
+     */
     public function getIncludeCodeForScreeningServices()
     {
-        return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices->value();
+        return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices->getValue();
     }
 
-    public function setEnableSecondaryDialTone(xs:boolean $enableSecondaryDialTone = null)
+    /**
+     * 
+     */
+    public function setEnableSecondaryDialTone($enableSecondaryDialTone = null)
     {
+        $this->enableSecondaryDialTone = (boolean) $enableSecondaryDialTone;
     }
 
+    /**
+     * 
+     */
     public function getEnableSecondaryDialTone()
     {
-        return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone->value();
+        return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone->getValue();
     }
 
+    /**
+     * Dial Plan Access Code Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf DialPlanAccessCodeDescription)
@@ -58,8 +83,11 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
              : new DialPlanAccessCodeDescription($description);
     }
 
+    /**
+     * Dial Plan Access Code Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

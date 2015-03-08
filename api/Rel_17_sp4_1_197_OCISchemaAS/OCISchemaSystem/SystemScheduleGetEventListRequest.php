@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of events of a system schedule.
+     * Get the list of events of a system schedule.
  *         The response is either a SystemScheduleGetResponse or an ErrorResponse.
  */
 class SystemScheduleGetEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $scheduleKey  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventListResponse';
+    public    $name        = __CLASS__;
+    protected $scheduleKey = null;
 
     public function __construct(
          ScheduleKey $scheduleKey
@@ -27,12 +28,19 @@ class SystemScheduleGetEventListRequest extends ComplexType implements ComplexIn
         $this->setScheduleKey($scheduleKey);
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 }

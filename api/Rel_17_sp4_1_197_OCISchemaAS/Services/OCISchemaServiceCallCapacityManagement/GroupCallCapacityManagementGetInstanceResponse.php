@@ -14,20 +14,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCapacityManagementGetInstanceRequest.
+     * Response to the GroupCallCapacityManagementGetInstanceRequest.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupCallCapacityManagementGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $name                           = null;
-    protected $maxActiveCallsAllowed          = null;
-    protected $maxIncomingActiveCallsAllowed  = null;
-    protected $maxOutgoingActiveCallsAllowed  = null;
-    protected $defaultGroupForNewUsers        = null;
-    protected $userTable                      = null;
+    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceResponse';
+    public    $name                          = __CLASS__;
+    protected $name                          = null;
+    protected $maxActiveCallsAllowed         = null;
+    protected $maxIncomingActiveCallsAllowed = null;
+    protected $maxOutgoingActiveCallsAllowed = null;
+    protected $defaultGroupForNewUsers       = null;
+    protected $userTable                     = null;
 
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -35,11 +39,17 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxActiveCallsAllowed($maxActiveCallsAllowed = null)
     {
         $this->maxActiveCallsAllowed = ($maxActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -47,11 +57,17 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
              : new CallCapacityCallLimit($maxActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxActiveCallsAllowed()
     {
-        return (!$this->maxActiveCallsAllowed) ?: $this->maxActiveCallsAllowed->value();
+        return (!$this->maxActiveCallsAllowed) ?: $this->maxActiveCallsAllowed->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxIncomingActiveCallsAllowed($maxIncomingActiveCallsAllowed = null)
     {
         $this->maxIncomingActiveCallsAllowed = ($maxIncomingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -59,11 +75,17 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
              : new CallCapacityCallLimit($maxIncomingActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxIncomingActiveCallsAllowed()
     {
-        return (!$this->maxIncomingActiveCallsAllowed) ?: $this->maxIncomingActiveCallsAllowed->value();
+        return (!$this->maxIncomingActiveCallsAllowed) ?: $this->maxIncomingActiveCallsAllowed->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxOutgoingActiveCallsAllowed($maxOutgoingActiveCallsAllowed = null)
     {
         $this->maxOutgoingActiveCallsAllowed = ($maxOutgoingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -71,26 +93,43 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
              : new CallCapacityCallLimit($maxOutgoingActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxOutgoingActiveCallsAllowed()
     {
-        return (!$this->maxOutgoingActiveCallsAllowed) ?: $this->maxOutgoingActiveCallsAllowed->value();
+        return (!$this->maxOutgoingActiveCallsAllowed) ?: $this->maxOutgoingActiveCallsAllowed->getValue();
     }
 
-    public function setDefaultGroupForNewUsers(xs:boolean $defaultGroupForNewUsers = null)
+    /**
+     * 
+     */
+    public function setDefaultGroupForNewUsers($defaultGroupForNewUsers = null)
     {
+        $this->defaultGroupForNewUsers = (boolean) $defaultGroupForNewUsers;
     }
 
+    /**
+     * 
+     */
     public function getDefaultGroupForNewUsers()
     {
-        return (!$this->defaultGroupForNewUsers) ?: $this->defaultGroupForNewUsers->value();
+        return (!$this->defaultGroupForNewUsers) ?: $this->defaultGroupForNewUsers->getValue();
     }
 
+    /**
+     * 
+     */
     public function setUserTable(core:OCITable $userTable = null)
     {
+        $this->userTable = core:OCITable $userTable;
     }
 
+    /**
+     * 
+     */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->value();
+        return (!$this->userTable) ?: $this->userTable->getValue();
     }
 }

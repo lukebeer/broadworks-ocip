@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a static configuration tag set.
+     * Request to add a static configuration tag set.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDeviceManagementTagSetAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $tagSetName  = null;
+    public    $name       = __CLASS__;
+    protected $tagSetName = null;
 
     public function __construct(
          $tagSetName
@@ -27,6 +27,9 @@ class SystemDeviceManagementTagSetAddRequest extends ComplexType implements Comp
         $this->setTagSetName($tagSetName);
     }
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function setTagSetName($tagSetName = null)
     {
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
@@ -34,8 +37,11 @@ class SystemDeviceManagementTagSetAddRequest extends ComplexType implements Comp
              : new DeviceManagementTagSetName($tagSetName);
     }
 
+    /**
+     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     */
     public function getTagSetName()
     {
-        return (!$this->tagSetName) ?: $this->tagSetName->value();
+        return (!$this->tagSetName) ?: $this->tagSetName->getValue();
     }
 }

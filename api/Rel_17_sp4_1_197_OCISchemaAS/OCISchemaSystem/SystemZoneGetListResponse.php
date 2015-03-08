@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemZoneGetListRequest.
+     * Response to the SystemZoneGetListRequest.
  */
 class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $zoneName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneGetListResponse';
+    public    $name     = __CLASS__;
+    protected $zoneName = null;
 
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -28,8 +32,11 @@ class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 }

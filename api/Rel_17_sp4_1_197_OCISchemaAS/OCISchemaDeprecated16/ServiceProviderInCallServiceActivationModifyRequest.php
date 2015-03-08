@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the service provider's DTMF based in-call service activation trigger attributes.The response is either a SuccessResponse or an ErrorResponse.
+     * Modifies the service provider's DTMF based in-call service activation trigger attributes.The response is either a SuccessResponse or an ErrorResponse.
  * 
  *           Replaced by: ServiceProviderInCallServiceActivationModifyRequest17
  */
 class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $activationDigits   = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $activationDigits  = null;
 
     public function __construct(
          $serviceProviderId,
@@ -32,6 +32,10 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
         $this->setActivationDigits($activationDigits);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -39,11 +43,18 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setActivationDigits($activationDigits = null)
     {
         $this->activationDigits = ($activationDigits InstanceOf InCallServiceActivationDigits)
@@ -51,8 +62,11 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
              : new InCallServiceActivationDigits($activationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getActivationDigits()
     {
-        return (!$this->activationDigits) ?: $this->activationDigits->value();
+        return (!$this->activationDigits) ?: $this->activationDigits->getValue();
     }
 }

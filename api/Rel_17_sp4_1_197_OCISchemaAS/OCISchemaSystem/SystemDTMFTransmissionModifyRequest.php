@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the DTMF transmission settings.
+     * Modify the DTMF transmission settings.
  *       The response is either SuccessResponse or an ErrorResponse.
  */
 class SystemDTMFTransmissionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $transmissionMethod    = null;
-    protected $signalingContentType  = null;
+    public    $name                 = __CLASS__;
+    protected $transmissionMethod   = null;
+    protected $signalingContentType = null;
 
     public function __construct(
          $transmissionMethod = null,
@@ -31,6 +31,9 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
         $this->setSignalingContentType($signalingContentType);
     }
 
+    /**
+     * The DTMF transmission method.
+     */
     public function setTransmissionMethod($transmissionMethod = null)
     {
         $this->transmissionMethod = ($transmissionMethod InstanceOf DTMFTransmissionMethod)
@@ -38,11 +41,17 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
              : new DTMFTransmissionMethod($transmissionMethod);
     }
 
+    /**
+     * The DTMF transmission method.
+     */
     public function getTransmissionMethod()
     {
-        return (!$this->transmissionMethod) ?: $this->transmissionMethod->value();
+        return (!$this->transmissionMethod) ?: $this->transmissionMethod->getValue();
     }
 
+    /**
+     * The signaling content type.
+     */
     public function setSignalingContentType($signalingContentType = null)
     {
         $this->signalingContentType = ($signalingContentType InstanceOf DtmfTransmissionSignalingContentType)
@@ -50,8 +59,11 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
              : new DtmfTransmissionSignalingContentType($signalingContentType);
     }
 
+    /**
+     * The signaling content type.
+     */
     public function getSignalingContentType()
     {
-        return (!$this->signalingContentType) ?: $this->signalingContentType->value();
+        return (!$this->signalingContentType) ?: $this->signalingContentType->getValue();
     }
 }

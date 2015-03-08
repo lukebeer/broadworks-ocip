@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemConfigurableFileSystemGetRequest.
+     * Response to SystemConfigurableFileSystemGetRequest.
  *         Contains the File System parameters.
  */
 class SystemConfigurableFileSystemGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $mediaDirectory  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableFileSystemGetResponse';
+    public    $name           = __CLASS__;
+    protected $mediaDirectory = null;
 
 
+    /**
+     * Audio/Video File Directory location.
+     */
     public function setMediaDirectory($mediaDirectory = null)
     {
         $this->mediaDirectory = ($mediaDirectory InstanceOf ConfigurableFileSystemDirectory)
@@ -29,8 +33,11 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
              : new ConfigurableFileSystemDirectory($mediaDirectory);
     }
 
+    /**
+     * Audio/Video File Directory location.
+     */
     public function getMediaDirectory()
     {
-        return (!$this->mediaDirectory) ?: $this->mediaDirectory->value();
+        return (!$this->mediaDirectory) ?: $this->mediaDirectory->getValue();
     }
 }

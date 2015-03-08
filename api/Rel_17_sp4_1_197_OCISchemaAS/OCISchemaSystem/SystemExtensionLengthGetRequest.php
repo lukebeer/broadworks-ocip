@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system's extension range.
+     * Request the system's extension range.
  *         The response is either a SystemExtensionLengthGetResponse or an ErrorResponse.
  */
 class SystemExtensionLengthGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExtensionLengthGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

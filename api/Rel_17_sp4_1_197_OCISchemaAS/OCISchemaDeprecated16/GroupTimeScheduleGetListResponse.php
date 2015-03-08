@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupTimeScheduleGetListRequest.
+     * Response to the GroupTimeScheduleGetListRequest.
  *         The response contains all the group's time schedule name.
  */
 class GroupTimeScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $timeSchedule  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupTimeScheduleGetListResponse';
+    public    $name         = __CLASS__;
+    protected $timeSchedule = null;
 
 
+    /**
+     * Schedule name.
+     */
     public function setTimeSchedule($timeSchedule = null)
     {
         $this->timeSchedule = ($timeSchedule InstanceOf ScheduleName)
@@ -29,8 +33,11 @@ class GroupTimeScheduleGetListResponse extends ComplexType implements ComplexInt
              : new ScheduleName($timeSchedule);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->value();
+        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
     }
 }

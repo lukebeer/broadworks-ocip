@@ -13,13 +13,28 @@ abstract class TypeMap {
     static public function type($type) {
         switch ($type) {
             case 'xs:boolean':
-                return "'boolean'";
+                return "(boolean)";
+            case 'xs:bool':
+                return "(bool)";
             case 'xs:NMTOKEN':
             case 'xs:string':
             case 'xs:token':
-                return "'string'";
+                return "(string)";
             case 'xs:int':
-                return "'int'";
+                return "(int)";
+            default:
+                return $type;
+        }
+    }
+
+    static public function typeStrip($type) {
+        switch ($type) {
+            case 'xs:boolean':
+            case 'xs:NMTOKEN':
+            case 'xs:string':
+            case 'xs:token':
+            case 'xs:int':
+                return "";
             default:
                 return $type;
         }
@@ -34,6 +49,7 @@ class BuildAPI {
     public $base_dir;
     public $schema;
     public $dest;
+    private $docs;
     private $path;
     private $namespaces;
     private $simpleTypes;
@@ -72,20 +88,25 @@ class BuildAPI {
                             $data[$k] = (string) $v;
                             $data['namespace'] = $namespace;
                         }
+                        $data['documentation'] = (string) $element->annotation->documentation;
                         $elements[] = $data;
                     }
                 }
                 $types = [];
                 $maxlen = 0;
                 $name = $complexType->attributes()['name'];
+                $responseName = str_replace('Request', 'Response', $name);
                 $code = "class $name extends ComplexType implements ComplexInterface\n";
                 $code .= "{\n";
                 foreach ($elements as $item) {
                     $maxlen = (strlen($item['name']) > $maxlen) ? strlen($item['name']) : $maxlen;
                 }
-                $code .= str_pad("    public    \$name", $maxlen+16, ' ')." = __CLASS__;\n";
+                if ($this->checkComplexType($responseName)) {
+                    $code .= str_pad("    const     RESPONSE_TYPE", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\$namespace\\$responseName';\n";
+                }
+                $code .= str_pad("    public    \$name", $maxlen+15, ' ')." = __CLASS__;\n";
                 foreach ($elements as $item) {
-                    $code .= str_pad("    protected \${$item['name']}", $maxlen+16, ' ')." = null;\n";
+                    $code .= str_pad("    protected \${$item['name']}", $maxlen+15, ' ')." = null;\n";
                 }
                 $code .= "\n";
                 if (!preg_match("/response/i", $name)) {
@@ -122,7 +143,12 @@ class BuildAPI {
                 $pad = "    ";
                 foreach ($elements as $item) {
                     $code .= "\n$pad";
-                    if (array_key_exists('type', $item)) $type = ($this->checkSimpleType($item['type'])) ? '' : $item['type'].' ';
+                    $type = '';
+                    if (array_key_exists('type', $item)) $type = ($this->checkSimpleType($item['type'])) ? '' : TypeMap::typeStrip($item['type']);
+                    if (!empty($type)) $type = $type.' ';
+                    $code .= "/**\n";
+                    $code .= "$pad * ". implode("\n$pad * ", explode("\n", trim($this->docs[$item['type']])));
+                    $code .= "\n$pad */\n$pad";
                     $code .= "public function set".ucfirst($item['name'])."($type\${$item['name']} = null)\n";
                     $code .= "$pad{\n";
                     if (array_key_exists('type', $item)) {
@@ -130,15 +156,20 @@ class BuildAPI {
                             $code .= "$pad    \$this->{$item['name']} = (\${$item['name']} InstanceOf {$item['type']})\n";
                             $code .= "$pad         ? \${$item['name']}\n";
                             $code .= "$pad         : new {$item['type']}(\${$item['name']});\n";
+                        } else {
+                            $code .= "$pad    \$this->{$item['name']} = ".TypeMap::type($item['type'])." \${$item['name']};\n";
                         }
                     } else {
                         $code .= "$pad    \$this->{$item['name']} = \${$item['name']};\n";
                     }
                     $code .= "$pad}\n";
                     $code .= "\n$pad";
+                    $code .= "/**\n";
+                    $code .= "$pad * ". implode("\n$pad * ", explode("\n", trim($this->docs[$item['type']])));
+                    $code .= "\n$pad */\n$pad";
                     $code .= "public function get".ucfirst($item['name'])."()\n";
                     $code .= "$pad{\n";
-                    $code .= "$pad    return (!\$this->{$item['name']}) ?: \$this->{$item['name']}->value();\n";
+                    $code .= "$pad    return (!\$this->{$item['name']}) ?: \$this->{$item['name']}->getValue();\n";
                     $code .= "$pad}\n";
                 }
                 $code .= "}\n";
@@ -155,7 +186,7 @@ class BuildAPI {
                 $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexInterface;\n";
                 $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexType;\n\n\n";
                 $header .= "/**\n";
-                $header .= " * ".implode("\n * ", explode("\n", trim($complexType->annotation->documentation)));
+                $header .= "$pad * ". implode("\n * ", explode("\n", trim($complexType->annotation->documentation)));
                 $header .= "\n */\n";
                 $code = $header . $code;
                 $out_file = dirname(str_replace($this->base_dir.$this->schema, $this->dest, $file))."/$namespace/$name.php";
@@ -259,11 +290,13 @@ class BuildAPI {
                     $name = (string) $simpleType->attributes()['name'];
                     $this->simpleTypes[] = $name;
                     $this->namespaces[$name] = str_replace('/', '\\', $base.'\\'.$namespace);
+                    $this->docs[$name] = (string) $simpleType->annotation->documentation;
                 }
                 foreach ($xml->complexType as $complexType) {
                     $name = (string) $complexType->attributes()['name'];
                     $this->complexTypes[] = $name;
                     $this->namespaces[$name] = str_replace('/', '\\', $base.'\\'.$namespace);
+                    $this->docs[$name] = (string) $complexType->annotation->documentation;
                 }
             }
         }

@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemBusyLampFieldGetRequest.
+     * Response to SystemBusyLampFieldGetRequest.
  */
 class SystemBusyLampFieldGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
-    protected $displayLocalUserIdentityLastNameFirst  = null;
+    const     RESPONSE_TYPE                          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField\SystemBusyLampFieldGetResponse';
+    public    $name                                  = __CLASS__;
+    protected $displayLocalUserIdentityLastNameFirst = null;
 
 
-    public function setDisplayLocalUserIdentityLastNameFirst(xs:boolean $displayLocalUserIdentityLastNameFirst = null)
+    /**
+     * 
+     */
+    public function setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst = null)
     {
+        $this->displayLocalUserIdentityLastNameFirst = (boolean) $displayLocalUserIdentityLastNameFirst;
     }
 
+    /**
+     * 
+     */
     public function getDisplayLocalUserIdentityLastNameFirst()
     {
-        return (!$this->displayLocalUserIdentityLastNameFirst) ?: $this->displayLocalUserIdentityLastNameFirst->value();
+        return (!$this->displayLocalUserIdentityLastNameFirst) ?: $this->displayLocalUserIdentityLastNameFirst->getValue();
     }
 }

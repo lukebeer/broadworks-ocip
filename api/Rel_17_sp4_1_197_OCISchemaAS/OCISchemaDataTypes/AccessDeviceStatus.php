@@ -21,7 +21,7 @@ class AccessDeviceStatus extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new Enumeration([
             'Online',
             'Offline',

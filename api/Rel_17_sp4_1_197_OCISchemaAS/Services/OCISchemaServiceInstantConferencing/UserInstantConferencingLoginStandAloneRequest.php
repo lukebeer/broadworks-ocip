@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Handles stand alone login. Return a set of information for the user.
+     * Handles stand alone login. Return a set of information for the user.
  *         The response is either UserInstantConferencingLoginStandAloneResponse or ErrorResponse.
  */
 class UserInstantConferencingLoginStandAloneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $bridgeServiceUserId    = null;
-    protected $conferenceOwnerUserId  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
+    public    $name                  = __CLASS__;
+    protected $bridgeServiceUserId   = null;
+    protected $conferenceOwnerUserId = null;
 
     public function __construct(
          $bridgeServiceUserId,
@@ -30,6 +31,13 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
@@ -37,11 +45,25 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
              : new UserId($bridgeServiceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getBridgeServiceUserId()
     {
-        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
+        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
@@ -49,8 +71,15 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
              : new UserId($conferenceOwnerUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getConferenceOwnerUserId()
     {
-        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->value();
+        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->getValue();
     }
 }

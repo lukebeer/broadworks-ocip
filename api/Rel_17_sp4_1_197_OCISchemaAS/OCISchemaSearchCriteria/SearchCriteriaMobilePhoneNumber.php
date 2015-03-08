@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a user's mobile phone number.
+     * Criteria for searching for a user's mobile phone number.
  */
 class SearchCriteriaMobilePhoneNumber extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $mode               = null;
-    protected $value              = null;
-    protected $isCaseInsensitive  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaMobilePhoneNumber';
+    public    $name              = __CLASS__;
+    protected $mode              = null;
+    protected $value             = null;
+    protected $isCaseInsensitive = null;
 
     public function __construct(
          $mode,
@@ -33,6 +34,9 @@ class SearchCriteriaMobilePhoneNumber extends ComplexType implements ComplexInte
         $this->setIsCaseInsensitive($isCaseInsensitive);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function setMode($mode = null)
     {
         $this->mode = ($mode InstanceOf SearchMode)
@@ -40,11 +44,19 @@ class SearchCriteriaMobilePhoneNumber extends ComplexType implements ComplexInte
              : new SearchMode($mode);
     }
 
+    /**
+     * Search mode when searching for string data.
+     */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->value();
+        return (!$this->mode) ?: $this->mode->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setValue($value = null)
     {
         $this->value = ($value InstanceOf OutgoingDN)
@@ -52,17 +64,29 @@ class SearchCriteriaMobilePhoneNumber extends ComplexType implements ComplexInte
              : new OutgoingDN($value);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->value();
+        return (!$this->value) ?: $this->value->getValue();
     }
 
-    public function setIsCaseInsensitive(xs:boolean $isCaseInsensitive = null)
+    /**
+     * 
+     */
+    public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
+        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
     }
 
+    /**
+     * 
+     */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->value();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
     }
 }

@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the system's calling name retrieval attributes.
+     * Modifies the system's calling name retrieval attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallingNameRetrievalModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $queryTimerMilliSeconds   = null;
-    protected $serverNetAddress         = null;
-    protected $serverPort               = null;
-    protected $serverTransportProtocol  = null;
+    public    $name                    = __CLASS__;
+    protected $queryTimerMilliSeconds  = null;
+    protected $serverNetAddress        = null;
+    protected $serverPort              = null;
+    protected $serverTransportProtocol = null;
 
     public function __construct(
          $queryTimerMilliSeconds = null,
@@ -39,6 +39,9 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
         $this->setServerTransportProtocol($serverTransportProtocol);
     }
 
+    /**
+     * Query timer milli-seconds.
+     */
     public function setQueryTimerMilliSeconds($queryTimerMilliSeconds = null)
     {
         $this->queryTimerMilliSeconds = ($queryTimerMilliSeconds InstanceOf CallingNameRetrievalQueryTimerMilliSeconds)
@@ -46,11 +49,17 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
              : new CallingNameRetrievalQueryTimerMilliSeconds($queryTimerMilliSeconds);
     }
 
+    /**
+     * Query timer milli-seconds.
+     */
     public function getQueryTimerMilliSeconds()
     {
-        return (!$this->queryTimerMilliSeconds) ?: $this->queryTimerMilliSeconds->value();
+        return (!$this->queryTimerMilliSeconds) ?: $this->queryTimerMilliSeconds->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setServerNetAddress($serverNetAddress = null)
     {
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
@@ -58,11 +67,17 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
              : new NetAddress($serverNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getServerNetAddress()
     {
-        return (!$this->serverNetAddress) ?: $this->serverNetAddress->value();
+        return (!$this->serverNetAddress) ?: $this->serverNetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServerPort($serverPort = null)
     {
         $this->serverPort = ($serverPort InstanceOf Port1025)
@@ -70,11 +85,17 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
              : new Port1025($serverPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->value();
+        return (!$this->serverPort) ?: $this->serverPort->getValue();
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function setServerTransportProtocol($serverTransportProtocol = null)
     {
         $this->serverTransportProtocol = ($serverTransportProtocol InstanceOf TransportProtocol)
@@ -82,8 +103,11 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
              : new TransportProtocol($serverTransportProtocol);
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function getServerTransportProtocol()
     {
-        return (!$this->serverTransportProtocol) ?: $this->serverTransportProtocol->value();
+        return (!$this->serverTransportProtocol) ?: $this->serverTransportProtocol->getValue();
     }
 }

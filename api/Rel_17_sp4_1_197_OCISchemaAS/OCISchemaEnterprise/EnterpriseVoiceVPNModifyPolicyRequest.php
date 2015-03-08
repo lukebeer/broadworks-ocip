@@ -18,19 +18,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the enterprise level data associated with a Voice VPN location code.
+     * Modify the enterprise level data associated with a Voice VPN location code.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $serviceProviderId    = null;
-    protected $locationDialingCode  = null;
-    protected $minExtensionLength   = null;
-    protected $maxExtensionLength   = null;
-    protected $description          = null;
-    protected $routeGroupId         = null;
-    protected $policySelection      = null;
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $locationDialingCode = null;
+    protected $minExtensionLength  = null;
+    protected $maxExtensionLength  = null;
+    protected $description         = null;
+    protected $routeGroupId        = null;
+    protected $policySelection     = null;
 
     public function __construct(
          $serviceProviderId,
@@ -50,6 +50,10 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
         $this->setPolicySelection($policySelection);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -57,11 +61,18 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN location code.
+     */
     public function setLocationDialingCode($locationDialingCode = null)
     {
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
@@ -69,11 +80,17 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
     }
 
+    /**
+     * Enterprise Voice VPN location code.
+     */
     public function getLocationDialingCode()
     {
-        return (!$this->locationDialingCode) ?: $this->locationDialingCode->value();
+        return (!$this->locationDialingCode) ?: $this->locationDialingCode->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Extension Length.
+     */
     public function setMinExtensionLength($minExtensionLength = null)
     {
         $this->minExtensionLength = ($minExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
@@ -81,11 +98,17 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
              : new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
     }
 
+    /**
+     * Enterprise Voice VPN Extension Length.
+     */
     public function getMinExtensionLength()
     {
-        return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
+        return (!$this->minExtensionLength) ?: $this->minExtensionLength->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Extension Length.
+     */
     public function setMaxExtensionLength($maxExtensionLength = null)
     {
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
@@ -93,11 +116,17 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
              : new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
     }
 
+    /**
+     * Enterprise Voice VPN Extension Length.
+     */
     public function getMaxExtensionLength()
     {
-        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
+        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf EnterpriseVoiceVPNDescription)
@@ -105,11 +134,18 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
              : new EnterpriseVoiceVPNDescription($description);
     }
 
+    /**
+     * Enterprise Voice VPN description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setRouteGroupId($routeGroupId = null)
     {
         $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
@@ -117,11 +153,18 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
              : new GroupId($routeGroupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getRouteGroupId()
     {
-        return (!$this->routeGroupId) ?: $this->routeGroupId->value();
+        return (!$this->routeGroupId) ?: $this->routeGroupId->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN Location Selection.
+     */
     public function setPolicySelection($policySelection = null)
     {
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
@@ -129,8 +172,11 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
     }
 
+    /**
+     * Enterprise Voice VPN Location Selection.
+     */
     public function getPolicySelection()
     {
-        return (!$this->policySelection) ?: $this->policySelection->value();
+        return (!$this->policySelection) ?: $this->policySelection->getValue();
     }
 }

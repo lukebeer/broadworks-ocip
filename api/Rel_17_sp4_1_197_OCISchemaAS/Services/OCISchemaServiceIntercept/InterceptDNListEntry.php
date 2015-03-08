@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Intercept User Entry containing the phone number and a Description.
+     * Intercept User Entry containing the phone number and a Description.
  */
 class InterceptDNListEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\InterceptDNListEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete one or more session admission control groups for the enterprise.
+     * Request to delete one or more session admission control groups for the enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $name               = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $name              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexTyp
         $this->setName($name);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,19 @@ class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexTyp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
@@ -50,8 +62,12 @@ class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexTyp
              : new SessionAdmissionControlGroupName($name);
     }
 
+    /**
+     * Session Admission Control Group name.
+     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

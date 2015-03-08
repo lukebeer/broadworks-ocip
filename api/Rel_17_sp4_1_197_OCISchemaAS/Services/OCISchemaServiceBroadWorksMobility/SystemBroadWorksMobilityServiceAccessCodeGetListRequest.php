@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of system service access codes.
+     * Get a list of system service access codes.
  *         The response is either SystemBroadWorksMobilityServiceAccessCodeGetListResponse or ErrorResponse.
  */
 class SystemBroadWorksMobilityServiceAccessCodeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityServiceAccessCodeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

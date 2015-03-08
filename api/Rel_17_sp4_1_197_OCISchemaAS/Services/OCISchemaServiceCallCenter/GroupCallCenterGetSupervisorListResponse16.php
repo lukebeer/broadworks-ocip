@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterGetSupervisorListRequest16.
+     * Response to the GroupCallCenterGetSupervisorListRequest16.
  *         Contains a table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupCallCenterGetSupervisorListResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $supervisorTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetSupervisorListResponse16';
+    public    $name            = __CLASS__;
+    protected $supervisorTable = null;
 
 
+    /**
+     * 
+     */
     public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
+        $this->supervisorTable = core:OCITable $supervisorTable;
     }
 
+    /**
+     * 
+     */
     public function getSupervisorTable()
     {
-        return (!$this->supervisorTable) ?: $this->supervisorTable->value();
+        return (!$this->supervisorTable) ?: $this->supervisorTable->getValue();
     }
 }

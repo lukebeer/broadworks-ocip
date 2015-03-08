@@ -17,18 +17,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the system's automatic callback attributes.
+     * Modifies the system's automatic callback attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced By: SystemAutomaticCallbackModifyRequest15
  */
 class SystemAutomaticCallbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $monitorMinutes                     = null;
-    protected $waitBetweenRetryOriginatorMinutes  = null;
-    protected $maxMonitorsPerOriginator           = null;
-    protected $maxCallbackRings                   = null;
-    protected $maxRetryOriginatorMinutes          = null;
+    public    $name                              = __CLASS__;
+    protected $monitorMinutes                    = null;
+    protected $waitBetweenRetryOriginatorMinutes = null;
+    protected $maxMonitorsPerOriginator          = null;
+    protected $maxCallbackRings                  = null;
+    protected $maxRetryOriginatorMinutes         = null;
 
     public function __construct(
          $monitorMinutes = null,
@@ -44,6 +44,9 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
         $this->setMaxRetryOriginatorMinutes($maxRetryOriginatorMinutes);
     }
 
+    /**
+     * Automatic Callback monitor minutes.
+     */
     public function setMonitorMinutes($monitorMinutes = null)
     {
         $this->monitorMinutes = ($monitorMinutes InstanceOf AutomaticCallbackMonitorMinutes)
@@ -51,11 +54,17 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
              : new AutomaticCallbackMonitorMinutes($monitorMinutes);
     }
 
+    /**
+     * Automatic Callback monitor minutes.
+     */
     public function getMonitorMinutes()
     {
-        return (!$this->monitorMinutes) ?: $this->monitorMinutes->value();
+        return (!$this->monitorMinutes) ?: $this->monitorMinutes->getValue();
     }
 
+    /**
+     * Wait between retry originator minutes.
+     */
     public function setWaitBetweenRetryOriginatorMinutes($waitBetweenRetryOriginatorMinutes = null)
     {
         $this->waitBetweenRetryOriginatorMinutes = ($waitBetweenRetryOriginatorMinutes InstanceOf AutomaticCallbackWaitBetweenRetryOriginatorMinutes)
@@ -63,11 +72,17 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
              : new AutomaticCallbackWaitBetweenRetryOriginatorMinutes($waitBetweenRetryOriginatorMinutes);
     }
 
+    /**
+     * Wait between retry originator minutes.
+     */
     public function getWaitBetweenRetryOriginatorMinutes()
     {
-        return (!$this->waitBetweenRetryOriginatorMinutes) ?: $this->waitBetweenRetryOriginatorMinutes->value();
+        return (!$this->waitBetweenRetryOriginatorMinutes) ?: $this->waitBetweenRetryOriginatorMinutes->getValue();
     }
 
+    /**
+     * Maximum monitors per originator.
+     */
     public function setMaxMonitorsPerOriginator($maxMonitorsPerOriginator = null)
     {
         $this->maxMonitorsPerOriginator = ($maxMonitorsPerOriginator InstanceOf AutomaticCallbackMaxMonitorsPerOriginator)
@@ -75,11 +90,17 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
              : new AutomaticCallbackMaxMonitorsPerOriginator($maxMonitorsPerOriginator);
     }
 
+    /**
+     * Maximum monitors per originator.
+     */
     public function getMaxMonitorsPerOriginator()
     {
-        return (!$this->maxMonitorsPerOriginator) ?: $this->maxMonitorsPerOriginator->value();
+        return (!$this->maxMonitorsPerOriginator) ?: $this->maxMonitorsPerOriginator->getValue();
     }
 
+    /**
+     * Maximum callback rings.
+     */
     public function setMaxCallbackRings($maxCallbackRings = null)
     {
         $this->maxCallbackRings = ($maxCallbackRings InstanceOf AutomaticCallbackMaxCallbackRings)
@@ -87,11 +108,17 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
              : new AutomaticCallbackMaxCallbackRings($maxCallbackRings);
     }
 
+    /**
+     * Maximum callback rings.
+     */
     public function getMaxCallbackRings()
     {
-        return (!$this->maxCallbackRings) ?: $this->maxCallbackRings->value();
+        return (!$this->maxCallbackRings) ?: $this->maxCallbackRings->getValue();
     }
 
+    /**
+     * Maximum retry originator minutes.
+     */
     public function setMaxRetryOriginatorMinutes($maxRetryOriginatorMinutes = null)
     {
         $this->maxRetryOriginatorMinutes = ($maxRetryOriginatorMinutes InstanceOf AutomaticCallbackMaxRetryOriginatorMinutes)
@@ -99,8 +126,11 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
              : new AutomaticCallbackMaxRetryOriginatorMinutes($maxRetryOriginatorMinutes);
     }
 
+    /**
+     * Maximum retry originator minutes.
+     */
     public function getMaxRetryOriginatorMinutes()
     {
-        return (!$this->maxRetryOriginatorMinutes) ?: $this->maxRetryOriginatorMinutes->value();
+        return (!$this->maxRetryOriginatorMinutes) ?: $this->maxRetryOriginatorMinutes->getValue();
     }
 }

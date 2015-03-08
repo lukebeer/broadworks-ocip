@@ -15,15 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a user modifiable file.
+     * Request to get a user modifiable file.
  *         The response is either UserAccessDeviceFileGetResponse or ErrorResponse.
  */
 class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $userId        = null;
-    protected $accessDevice  = null;
-    protected $fileFormat    = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetResponse';
+    public    $name         = __CLASS__;
+    protected $userId       = null;
+    protected $accessDevice = null;
+    protected $fileFormat   = null;
 
     public function __construct(
          $userId,
@@ -35,6 +36,13 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
         $this->setFileFormat($fileFormat);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -42,20 +50,37 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
+        $this->accessDevice = AccessDevice $accessDevice;
     }
 
+    /**
+     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     */
     public function getAccessDevice()
     {
-        return (!$this->accessDevice) ?: $this->accessDevice->value();
+        return (!$this->accessDevice) ?: $this->accessDevice->getValue();
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileFormat($fileFormat = null)
     {
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
@@ -63,8 +88,11 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
              : new DeviceManagementFileFormat($fileFormat);
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->value();
+        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
     }
 }

@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupGetListInSystemRequest.
+     * Response to GroupGetListInSystemRequest.
  *         Contains a table with column headings: "Group Id", "Group Name", "User Limit", "Organization Id", "Organization Type"
  *         and a row for each group.
  *         The "Organization Id" column is populated with either a service provider Id or an enterprise Id.
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGetListInSystemResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $groupTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse';
+    public    $name       = __CLASS__;
+    protected $groupTable = null;
 
 
+    /**
+     * 
+     */
     public function setGroupTable(core:OCITable $groupTable = null)
     {
+        $this->groupTable = core:OCITable $groupTable;
     }
 
+    /**
+     * 
+     */
     public function getGroupTable()
     {
-        return (!$this->groupTable) ?: $this->groupTable->value();
+        return (!$this->groupTable) ?: $this->groupTable->getValue();
     }
 }

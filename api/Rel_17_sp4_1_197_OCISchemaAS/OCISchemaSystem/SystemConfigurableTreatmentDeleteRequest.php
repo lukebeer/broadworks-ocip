@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a configurable treatment.
+     * Delete a configurable treatment.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemConfigurableTreatmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $treatmentId  = null;
+    public    $name        = __CLASS__;
+    protected $treatmentId = null;
 
     public function __construct(
          $treatmentId
@@ -27,6 +27,9 @@ class SystemConfigurableTreatmentDeleteRequest extends ComplexType implements Co
         $this->setTreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
@@ -34,8 +37,11 @@ class SystemConfigurableTreatmentDeleteRequest extends ComplexType implements Co
              : new TreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->value();
+        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
     }
 }

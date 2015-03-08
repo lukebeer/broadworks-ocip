@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The response to a SystemCommunicationBarringDigitPatternCriteriaGetRequest.
+     * The response to a SystemCommunicationBarringDigitPatternCriteriaGetRequest.
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $description   = null;
-    protected $digitPattern  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetResponse';
+    public    $name         = __CLASS__;
+    protected $description  = null;
+    protected $digitPattern = null;
 
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
@@ -30,11 +34,21 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
              : new DigitPatternCriteriaDescription($description);
     }
 
+    /**
+     * Digit Pattern Criteria Description
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function setDigitPattern($digitPattern = null)
     {
         $this->digitPattern = ($digitPattern InstanceOf DigitPattern)
@@ -42,8 +56,15 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
              : new DigitPattern($digitPattern);
     }
 
+    /**
+     * Digit patterns that are used to restrict calls Communicaton Barring.
+     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
+     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
+     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
+     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     */
     public function getDigitPattern()
     {
-        return (!$this->digitPattern) ?: $this->digitPattern->value();
+        return (!$this->digitPattern) ?: $this->digitPattern->getValue();
     }
 }

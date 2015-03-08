@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a enterprise voice VPN location.
+     * Delete a enterprise voice VPN location.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $serviceProviderId    = null;
-    protected $locationDialingCode  = null;
+    public    $name                = __CLASS__;
+    protected $serviceProviderId   = null;
+    protected $locationDialingCode = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
         $this->setLocationDialingCode($locationDialingCode);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Enterprise Voice VPN location code.
+     */
     public function setLocationDialingCode($locationDialingCode = null)
     {
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
@@ -50,8 +61,11 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
     }
 
+    /**
+     * Enterprise Voice VPN location code.
+     */
     public function getLocationDialingCode()
     {
-        return (!$this->locationDialingCode) ?: $this->locationDialingCode->value();
+        return (!$this->locationDialingCode) ?: $this->locationDialingCode->getValue();
     }
 }

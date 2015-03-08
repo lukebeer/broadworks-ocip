@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with the Busy Lamp Field
+     * Modify the system level data associated with the Busy Lamp Field
  *         Service. The response is either a SuccessResponse or an 
  *         ErrorResponse.
  */
 class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
-    protected $displayLocalUserIdentityLastNameFirst  = null;
+    public    $name                                  = __CLASS__;
+    protected $displayLocalUserIdentityLastNameFirst = null;
 
     public function __construct(
          $displayLocalUserIdentityLastNameFirst = null
@@ -28,12 +28,19 @@ class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInt
         $this->setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst);
     }
 
-    public function setDisplayLocalUserIdentityLastNameFirst(xs:boolean $displayLocalUserIdentityLastNameFirst = null)
+    /**
+     * 
+     */
+    public function setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst = null)
     {
+        $this->displayLocalUserIdentityLastNameFirst = (boolean) $displayLocalUserIdentityLastNameFirst;
     }
 
+    /**
+     * 
+     */
     public function getDisplayLocalUserIdentityLastNameFirst()
     {
-        return (!$this->displayLocalUserIdentityLastNameFirst) ?: $this->displayLocalUserIdentityLastNameFirst->value();
+        return (!$this->displayLocalUserIdentityLastNameFirst) ?: $this->displayLocalUserIdentityLastNameFirst->getValue();
     }
 }

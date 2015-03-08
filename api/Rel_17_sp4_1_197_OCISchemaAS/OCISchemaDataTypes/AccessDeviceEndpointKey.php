@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Access device end point in the context of a delete command.
+     * Access device end point in the context of a delete command.
  */
 class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointKey';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

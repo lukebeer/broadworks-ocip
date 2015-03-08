@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the system DTMF transmission configurations.
+     * Get the system DTMF transmission configurations.
  *       The response is either SystemDTMFTransmissionGetResponse or ErrorResponse.
  */
 class SystemDTMFTransmissionGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDTMFTransmissionGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the expensive call notification service parameters.
+     * Modify the expensive call notification service parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExpensiveCallNotificationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
-    protected $enablePostAnnouncementDelayTimer  = null;
-    protected $postAnnouncementDelaySeconds      = null;
+    public    $name                             = __CLASS__;
+    protected $enablePostAnnouncementDelayTimer = null;
+    protected $postAnnouncementDelaySeconds     = null;
 
     public function __construct(
          $enablePostAnnouncementDelayTimer = null,
@@ -30,15 +30,25 @@ class SystemExpensiveCallNotificationModifyRequest extends ComplexType implement
         $this->setPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds);
     }
 
-    public function setEnablePostAnnouncementDelayTimer(xs:boolean $enablePostAnnouncementDelayTimer = null)
+    /**
+     * 
+     */
+    public function setEnablePostAnnouncementDelayTimer($enablePostAnnouncementDelayTimer = null)
     {
+        $this->enablePostAnnouncementDelayTimer = (boolean) $enablePostAnnouncementDelayTimer;
     }
 
+    /**
+     * 
+     */
     public function getEnablePostAnnouncementDelayTimer()
     {
-        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer->value();
+        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer->getValue();
     }
 
+    /**
+     * Additional grace period after the expensive call notification announcement before call setup continues.
+     */
     public function setPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds = null)
     {
         $this->postAnnouncementDelaySeconds = ($postAnnouncementDelaySeconds InstanceOf ExpensiveCallNotificationPostAnnouncementDelaySeconds)
@@ -46,8 +56,11 @@ class SystemExpensiveCallNotificationModifyRequest extends ComplexType implement
              : new ExpensiveCallNotificationPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds);
     }
 
+    /**
+     * Additional grace period after the expensive call notification announcement before call setup continues.
+     */
     public function getPostAnnouncementDelaySeconds()
     {
-        return (!$this->postAnnouncementDelaySeconds) ?: $this->postAnnouncementDelaySeconds->value();
+        return (!$this->postAnnouncementDelaySeconds) ?: $this->postAnnouncementDelaySeconds->getValue();
     }
 }

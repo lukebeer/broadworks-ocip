@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests information about the primary server for high-availability support.
+     * Requests information about the primary server for high-availability support.
  */
 class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $isPrivate               = null;
-    protected $isAddressInfoRequested  = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse';
+    public    $name                   = __CLASS__;
+    protected $isPrivate              = null;
+    protected $isAddressInfoRequested = null;
 
     public function __construct(
          $isPrivate,
@@ -29,21 +30,35 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
         $this->setIsAddressInfoRequested($isAddressInfoRequested);
     }
 
-    public function setIsPrivate(xs:boolean $isPrivate = null)
+    /**
+     * 
+     */
+    public function setIsPrivate($isPrivate = null)
     {
+        $this->isPrivate = (boolean) $isPrivate;
     }
 
+    /**
+     * 
+     */
     public function getIsPrivate()
     {
-        return (!$this->isPrivate) ?: $this->isPrivate->value();
+        return (!$this->isPrivate) ?: $this->isPrivate->getValue();
     }
 
-    public function setIsAddressInfoRequested(xs:boolean $isAddressInfoRequested = null)
+    /**
+     * 
+     */
+    public function setIsAddressInfoRequested($isAddressInfoRequested = null)
     {
+        $this->isAddressInfoRequested = (boolean) $isAddressInfoRequested;
     }
 
+    /**
+     * 
+     */
     public function getIsAddressInfoRequested()
     {
-        return (!$this->isAddressInfoRequested) ?: $this->isAddressInfoRequested->value();
+        return (!$this->isAddressInfoRequested) ?: $this->isAddressInfoRequested->getValue();
     }
 }

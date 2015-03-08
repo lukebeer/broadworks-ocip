@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the system voice portal Menus setting.
+     * Requests the system voice portal Menus setting.
  *         The response is either SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 or ErrorResponse.
  */
 class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $getDefaultMenuKeys  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
+    public    $name               = __CLASS__;
+    protected $getDefaultMenuKeys = null;
 
     public function __construct(
          $getDefaultMenuKeys
@@ -27,12 +28,19 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType 
         $this->setGetDefaultMenuKeys($getDefaultMenuKeys);
     }
 
-    public function setGetDefaultMenuKeys(xs:boolean $getDefaultMenuKeys = null)
+    /**
+     * 
+     */
+    public function setGetDefaultMenuKeys($getDefaultMenuKeys = null)
     {
+        $this->getDefaultMenuKeys = (boolean) $getDefaultMenuKeys;
     }
 
+    /**
+     * 
+     */
     public function getGetDefaultMenuKeys()
     {
-        return (!$this->getDefaultMenuKeys) ?: $this->getDefaultMenuKeys->value();
+        return (!$this->getDefaultMenuKeys) ?: $this->getDefaultMenuKeys->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Q850 Cause Value mapping.
+     * Delete a Q850 Cause Value mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingQ850CauseDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $q850CauseValue  = null;
+    public    $name           = __CLASS__;
+    protected $q850CauseValue = null;
 
     public function __construct(
          $q850CauseValue
@@ -27,6 +27,9 @@ class SystemTreatmentMappingQ850CauseDeleteRequest extends ComplexType implement
         $this->setQ850CauseValue($q850CauseValue);
     }
 
+    /**
+     * The possible range values for Q850 Cause Value.
+     */
     public function setQ850CauseValue($q850CauseValue = null)
     {
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
@@ -34,8 +37,11 @@ class SystemTreatmentMappingQ850CauseDeleteRequest extends ComplexType implement
              : new Q850CauseValue($q850CauseValue);
     }
 
+    /**
+     * The possible range values for Q850 Cause Value.
+     */
     public function getQ850CauseValue()
     {
-        return (!$this->q850CauseValue) ?: $this->q850CauseValue->value();
+        return (!$this->q850CauseValue) ?: $this->q850CauseValue->getValue();
     }
 }

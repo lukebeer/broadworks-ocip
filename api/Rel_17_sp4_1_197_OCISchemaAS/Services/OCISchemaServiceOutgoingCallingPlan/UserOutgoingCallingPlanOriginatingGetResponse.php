@@ -13,30 +13,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserOutgoingCallingPlanOriginatingGetRequest.
+     * Response to UserOutgoingCallingPlanOriginatingGetRequest.
  */
 class UserOutgoingCallingPlanOriginatingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $useCustomSettings  = null;
-    protected $userPermissions    = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanOriginatingGetResponse';
+    public    $name              = __CLASS__;
+    protected $useCustomSettings = null;
+    protected $userPermissions   = null;
 
 
-    public function setUseCustomSettings(xs:boolean $useCustomSettings = null)
+    /**
+     * 
+     */
+    public function setUseCustomSettings($useCustomSettings = null)
     {
+        $this->useCustomSettings = (boolean) $useCustomSettings;
     }
 
+    /**
+     * 
+     */
     public function getUseCustomSettings()
     {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings->value();
+        return (!$this->useCustomSettings) ?: $this->useCustomSettings->getValue();
     }
 
+    /**
+     * Outgoing Calling Plan originating call permissions.
+     */
     public function setUserPermissions(OutgoingCallingPlanOriginatingPermissions $userPermissions = null)
     {
+        $this->userPermissions = OutgoingCallingPlanOriginatingPermissions $userPermissions;
     }
 
+    /**
+     * Outgoing Calling Plan originating call permissions.
+     */
     public function getUserPermissions()
     {
-        return (!$this->userPermissions) ?: $this->userPermissions->value();
+        return (!$this->userPermissions) ?: $this->userPermissions->getValue();
     }
 }

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to set a new system default configuration file for a device type.
+     * Request to set a new system default configuration file for a device type.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCPEConfigSetConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
-    protected $configFile  = null;
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
+    protected $configFile = null;
 
     public function __construct(
          $deviceType,
@@ -31,6 +31,9 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
         $this->setConfigFile($configFile);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -38,11 +41,17 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * Access device enhanced configuration file name.
+     */
     public function setConfigFile($configFile = null)
     {
         $this->configFile = ($configFile InstanceOf AccessDeviceEnhancedConfigurationFileName)
@@ -50,8 +59,11 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
              : new AccessDeviceEnhancedConfigurationFileName($configFile);
     }
 
+    /**
+     * Access device enhanced configuration file name.
+     */
     public function getConfigFile()
     {
-        return (!$this->configFile) ?: $this->configFile->value();
+        return (!$this->configFile) ?: $this->configFile->getValue();
     }
 }

@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Hunt Group.
+     * Request the system level data associated with Hunt Group.
  *         The response is either a SystemHuntGroupGetResponse or an
  *         ErrorResponse.
  */
 class SystemHuntGroupGetRequest17 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\SystemHuntGroupGetResponse17';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

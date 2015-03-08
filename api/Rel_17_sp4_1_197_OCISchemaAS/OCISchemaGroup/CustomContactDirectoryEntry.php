@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Represents either an existing user's Id or an existing Virtual 
+     * Represents either an existing user's Id or an existing Virtual 
  *         On-Net user's DN. For a DN the groupId is used to make it unique 
  *         within an Enterprise, however the groupId is not used with Service 
  *         Providers.
  */
 class CustomContactDirectoryEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\CustomContactDirectoryEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

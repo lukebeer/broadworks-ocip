@@ -15,19 +15,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemExternalEmergencyRoutingParametersGetRequest13mp13.
+     * Response to SystemExternalEmergencyRoutingParametersGetRequest13mp13.
  *         Contains a list of system External Emergency Routing parameters.
  */
 class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $serviceURI                = null;
-    protected $defaultEmergencyNumber    = null;
-    protected $isActive                  = null;
-    protected $supportsDNSSRV            = null;
-    protected $connectionTimeoutSeconds  = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalEmergencyRoutingParametersGetResponse13mp13';
+    public    $name                     = __CLASS__;
+    protected $serviceURI               = null;
+    protected $defaultEmergencyNumber   = null;
+    protected $isActive                 = null;
+    protected $supportsDNSSRV           = null;
+    protected $connectionTimeoutSeconds = null;
 
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setServiceURI($serviceURI = null)
     {
         $this->serviceURI = ($serviceURI InstanceOf NetAddress)
@@ -35,11 +39,19 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
              : new NetAddress($serviceURI);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getServiceURI()
     {
-        return (!$this->serviceURI) ?: $this->serviceURI->value();
+        return (!$this->serviceURI) ?: $this->serviceURI->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setDefaultEmergencyNumber($defaultEmergencyNumber = null)
     {
         $this->defaultEmergencyNumber = ($defaultEmergencyNumber InstanceOf OutgoingDN)
@@ -47,29 +59,51 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
              : new OutgoingDN($defaultEmergencyNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getDefaultEmergencyNumber()
     {
-        return (!$this->defaultEmergencyNumber) ?: $this->defaultEmergencyNumber->value();
+        return (!$this->defaultEmergencyNumber) ?: $this->defaultEmergencyNumber->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setSupportsDNSSRV(xs:boolean $supportsDNSSRV = null)
+    /**
+     * 
+     */
+    public function setSupportsDNSSRV($supportsDNSSRV = null)
     {
+        $this->supportsDNSSRV = (boolean) $supportsDNSSRV;
     }
 
+    /**
+     * 
+     */
     public function getSupportsDNSSRV()
     {
-        return (!$this->supportsDNSSRV) ?: $this->supportsDNSSRV->value();
+        return (!$this->supportsDNSSRV) ?: $this->supportsDNSSRV->getValue();
     }
 
+    /**
+     * Connection Timer seconds.
+     */
     public function setConnectionTimeoutSeconds($connectionTimeoutSeconds = null)
     {
         $this->connectionTimeoutSeconds = ($connectionTimeoutSeconds InstanceOf ExternalEmergencyRoutingConnectionTimeoutSeconds)
@@ -77,8 +111,11 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
              : new ExternalEmergencyRoutingConnectionTimeoutSeconds($connectionTimeoutSeconds);
     }
 
+    /**
+     * Connection Timer seconds.
+     */
     public function getConnectionTimeoutSeconds()
     {
-        return (!$this->connectionTimeoutSeconds) ?: $this->connectionTimeoutSeconds->value();
+        return (!$this->connectionTimeoutSeconds) ?: $this->connectionTimeoutSeconds->getValue();
     }
 }

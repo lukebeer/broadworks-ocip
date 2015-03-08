@@ -20,26 +20,26 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Auto Attendant instance to a group.
+     * Add a Auto Attendant instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  *         Replaced By: GroupAutoAttendantAddInstanceRequest16
  */
 class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceProviderId       = null;
-    protected $groupId                 = null;
-    protected $serviceUserId           = null;
-    protected $serviceInstanceProfile  = null;
-    protected $enableVideo             = null;
-    protected $businessHours           = null;
-    protected $holidayScheduleName     = null;
-    protected $extensionDialingScope   = null;
-    protected $nameDialingScope        = null;
-    protected $nameDialingEntries      = null;
-    protected $businessHoursMenu       = null;
-    protected $afterHoursMenu          = null;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $groupId                = null;
+    protected $serviceUserId          = null;
+    protected $serviceInstanceProfile = null;
+    protected $enableVideo            = null;
+    protected $businessHours          = null;
+    protected $holidayScheduleName    = null;
+    protected $extensionDialingScope  = null;
+    protected $nameDialingScope       = null;
+    protected $nameDialingEntries     = null;
+    protected $businessHoursMenu      = null;
+    protected $afterHoursMenu         = null;
 
     public function __construct(
          $serviceProviderId,
@@ -69,6 +69,10 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
         $this->setAfterHoursMenu($afterHoursMenu);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -76,11 +80,19 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -88,11 +100,22 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -100,29 +123,53 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
-    public function setEnableVideo(xs:boolean $enableVideo = null)
+    /**
+     * 
+     */
+    public function setEnableVideo($enableVideo = null)
     {
+        $this->enableVideo = (boolean) $enableVideo;
     }
 
+    /**
+     * 
+     */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->value();
+        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
     }
 
+    /**
+     * Schedule name.
+     */
     public function setBusinessHours($businessHours = null)
     {
         $this->businessHours = ($businessHours InstanceOf ScheduleName)
@@ -130,11 +177,17 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new ScheduleName($businessHours);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getBusinessHours()
     {
-        return (!$this->businessHours) ?: $this->businessHours->value();
+        return (!$this->businessHours) ?: $this->businessHours->getValue();
     }
 
+    /**
+     * Schedule name.
+     */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
@@ -142,11 +195,17 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new ScheduleName($holidayScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getHolidayScheduleName()
     {
-        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->value();
+        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->getValue();
     }
 
+    /**
+     * The scope of extension or name dialing.
+     */
     public function setExtensionDialingScope($extensionDialingScope = null)
     {
         $this->extensionDialingScope = ($extensionDialingScope InstanceOf AutoAttendantDialingScope)
@@ -154,11 +213,17 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new AutoAttendantDialingScope($extensionDialingScope);
     }
 
+    /**
+     * The scope of extension or name dialing.
+     */
     public function getExtensionDialingScope()
     {
-        return (!$this->extensionDialingScope) ?: $this->extensionDialingScope->value();
+        return (!$this->extensionDialingScope) ?: $this->extensionDialingScope->getValue();
     }
 
+    /**
+     * The scope of extension or name dialing.
+     */
     public function setNameDialingScope($nameDialingScope = null)
     {
         $this->nameDialingScope = ($nameDialingScope InstanceOf AutoAttendantDialingScope)
@@ -166,11 +231,17 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new AutoAttendantDialingScope($nameDialingScope);
     }
 
+    /**
+     * The scope of extension or name dialing.
+     */
     public function getNameDialingScope()
     {
-        return (!$this->nameDialingScope) ?: $this->nameDialingScope->value();
+        return (!$this->nameDialingScope) ?: $this->nameDialingScope->getValue();
     }
 
+    /**
+     * The format callers should use when dialing by name.
+     */
     public function setNameDialingEntries($nameDialingEntries = null)
     {
         $this->nameDialingEntries = ($nameDialingEntries InstanceOf AutoAttendantNameDialingEntry)
@@ -178,26 +249,47 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
              : new AutoAttendantNameDialingEntry($nameDialingEntries);
     }
 
+    /**
+     * The format callers should use when dialing by name.
+     */
     public function getNameDialingEntries()
     {
-        return (!$this->nameDialingEntries) ?: $this->nameDialingEntries->value();
+        return (!$this->nameDialingEntries) ?: $this->nameDialingEntries->getValue();
     }
 
+    /**
+     * The configuration of the automated receptionist greeting
+     *         prompt and dialing menu to be used during after business hours.
+     */
     public function setBusinessHoursMenu(AutoAttendantAddMenu $businessHoursMenu = null)
     {
+        $this->businessHoursMenu = AutoAttendantAddMenu $businessHoursMenu;
     }
 
+    /**
+     * The configuration of the automated receptionist greeting
+     *         prompt and dialing menu to be used during after business hours.
+     */
     public function getBusinessHoursMenu()
     {
-        return (!$this->businessHoursMenu) ?: $this->businessHoursMenu->value();
+        return (!$this->businessHoursMenu) ?: $this->businessHoursMenu->getValue();
     }
 
+    /**
+     * The configuration of the automated receptionist greeting
+     *         prompt and dialing menu to be used during after business hours.
+     */
     public function setAfterHoursMenu(AutoAttendantAddMenu $afterHoursMenu = null)
     {
+        $this->afterHoursMenu = AutoAttendantAddMenu $afterHoursMenu;
     }
 
+    /**
+     * The configuration of the automated receptionist greeting
+     *         prompt and dialing menu to be used during after business hours.
+     */
     public function getAfterHoursMenu()
     {
-        return (!$this->afterHoursMenu) ?: $this->afterHoursMenu->value();
+        return (!$this->afterHoursMenu) ?: $this->afterHoursMenu->getValue();
     }
 }

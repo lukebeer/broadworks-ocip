@@ -14,16 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Unassign a list of OfficeZones from a service provider.  Note: a new default must be provided if unassigning the current default.
+     * Unassign a list of OfficeZones from a service provider.  Note: a new default must be provided if unassigning the current default.
  *         Office Zones can only be unassigned if the Location-Based Calling Restrictions has been authorized to the service provider otherwise the request will fail.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderOfficeZoneUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $serviceProviderId      = null;
-    protected $officeZoneName         = null;
-    protected $defaultOfficeZoneName  = null;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $officeZoneName        = null;
+    protected $defaultOfficeZoneName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class ServiceProviderOfficeZoneUnassignListRequest extends ComplexType implement
         $this->setDefaultOfficeZoneName($defaultOfficeZoneName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,18 @@ class ServiceProviderOfficeZoneUnassignListRequest extends ComplexType implement
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Office Zone name.
+     */
     public function setOfficeZoneName($officeZoneName = null)
     {
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
@@ -54,11 +65,17 @@ class ServiceProviderOfficeZoneUnassignListRequest extends ComplexType implement
              : new OfficeZoneName($officeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->value();
+        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
     }
 
+    /**
+     * Office Zone name.
+     */
     public function setDefaultOfficeZoneName($defaultOfficeZoneName = null)
     {
         $this->defaultOfficeZoneName = ($defaultOfficeZoneName InstanceOf OfficeZoneName)
@@ -66,8 +83,11 @@ class ServiceProviderOfficeZoneUnassignListRequest extends ComplexType implement
              : new OfficeZoneName($defaultOfficeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function getDefaultOfficeZoneName()
     {
-        return (!$this->defaultOfficeZoneName) ?: $this->defaultOfficeZoneName->value();
+        return (!$this->defaultOfficeZoneName) ?: $this->defaultOfficeZoneName->getValue();
     }
 }

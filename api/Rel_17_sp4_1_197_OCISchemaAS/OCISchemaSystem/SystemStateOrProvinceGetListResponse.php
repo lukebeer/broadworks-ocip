@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains a 2 column table with column headings 'Key' and 'Display Name' and a row
+     * Contains a 2 column table with column headings 'Key' and 'Display Name' and a row
  *         for each state or province.
  */
 class SystemStateOrProvinceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $stateOrProvinceTable  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemStateOrProvinceGetListResponse';
+    public    $name                 = __CLASS__;
+    protected $stateOrProvinceTable = null;
 
 
+    /**
+     * 
+     */
     public function setStateOrProvinceTable(core:OCITable $stateOrProvinceTable = null)
     {
+        $this->stateOrProvinceTable = core:OCITable $stateOrProvinceTable;
     }
 
+    /**
+     * 
+     */
     public function getStateOrProvinceTable()
     {
-        return (!$this->stateOrProvinceTable) ?: $this->stateOrProvinceTable->value();
+        return (!$this->stateOrProvinceTable) ?: $this->stateOrProvinceTable->getValue();
     }
 }

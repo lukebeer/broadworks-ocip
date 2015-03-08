@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserAdviceOfChargeGetRequest.
+     * Response to UserAdviceOfChargeGetRequest.
  */
 class UserAdviceOfChargeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $isActive  = null;
-    protected $aocType   = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge\UserAdviceOfChargeGetResponse';
+    public    $name     = __CLASS__;
+    protected $isActive = null;
+    protected $aocType  = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Choices for Advice of Charge Type.
+     */
     public function setAocType($aocType = null)
     {
         $this->aocType = ($aocType InstanceOf AdviceOfChargeType)
@@ -38,8 +49,11 @@ class UserAdviceOfChargeGetResponse extends ComplexType implements ComplexInterf
              : new AdviceOfChargeType($aocType);
     }
 
+    /**
+     * Choices for Advice of Charge Type.
+     */
     public function getAocType()
     {
-        return (!$this->aocType) ?: $this->aocType->value();
+        return (!$this->aocType) ?: $this->aocType->getValue();
     }
 }

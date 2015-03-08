@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Replaced by: SystemRedundancyParametersGetRequest16sp2
+     * Replaced by: SystemRedundancyParametersGetRequest16sp2
  *       
  *         Request to get the list of Redundancy system parameters.
  *         The response is either SystemRedundancyParametersGetResponse or ErrorResponse.
  */
 class SystemRedundancyParametersGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemRedundancyParametersGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

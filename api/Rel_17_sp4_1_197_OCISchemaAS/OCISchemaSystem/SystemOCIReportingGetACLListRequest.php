@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the OCI Reporting Access Control List.
+     * Get the OCI Reporting Access Control List.
  *         The response is either a SystemOCIReportingACLListGetResponse or an ErrorResponse.
  */
 class SystemOCIReportingGetACLListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingGetACLListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a particular Voice VPN policy selection.
+     * Criteria for searching for a particular Voice VPN policy selection.
  */
 class SearchCriteriaExactPolicySelection extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $policySelection  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactPolicySelection';
+    public    $name            = __CLASS__;
+    protected $policySelection = null;
 
     public function __construct(
          $policySelection
@@ -26,6 +27,9 @@ class SearchCriteriaExactPolicySelection extends ComplexType implements ComplexI
         $this->setPolicySelection($policySelection);
     }
 
+    /**
+     * Enterprise Voice VPN Location Selection.
+     */
     public function setPolicySelection($policySelection = null)
     {
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
@@ -33,8 +37,11 @@ class SearchCriteriaExactPolicySelection extends ComplexType implements ComplexI
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
     }
 
+    /**
+     * Enterprise Voice VPN Location Selection.
+     */
     public function getPolicySelection()
     {
-        return (!$this->policySelection) ?: $this->policySelection->value();
+        return (!$this->policySelection) ?: $this->policySelection->getValue();
     }
 }

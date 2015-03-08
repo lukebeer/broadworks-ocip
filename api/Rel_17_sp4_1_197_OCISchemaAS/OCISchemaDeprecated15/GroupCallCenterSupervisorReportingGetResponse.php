@@ -13,17 +13,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterSupervisorReportingGetRequest.
+     * Response to the GroupCallCenterSupervisorReportingGetRequest.
  *         Contains a table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $reportingServerName  = null;
-    protected $supervisorTable      = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterSupervisorReportingGetResponse';
+    public    $name                = __CLASS__;
+    protected $reportingServerName = null;
+    protected $supervisorTable     = null;
 
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function setReportingServerName($reportingServerName = null)
     {
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
@@ -31,17 +35,27 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
              : new CallCenterReportingServerName($reportingServerName);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function getReportingServerName()
     {
-        return (!$this->reportingServerName) ?: $this->reportingServerName->value();
+        return (!$this->reportingServerName) ?: $this->reportingServerName->getValue();
     }
 
+    /**
+     * 
+     */
     public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
+        $this->supervisorTable = core:OCITable $supervisorTable;
     }
 
+    /**
+     * 
+     */
     public function getSupervisorTable()
     {
-        return (!$this->supervisorTable) ?: $this->supervisorTable->value();
+        return (!$this->supervisorTable) ?: $this->supervisorTable->getValue();
     }
 }

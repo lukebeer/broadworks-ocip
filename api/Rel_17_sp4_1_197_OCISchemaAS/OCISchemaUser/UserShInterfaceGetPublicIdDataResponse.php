@@ -17,20 +17,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserShInterfaceGetPublicIdDataRequest.
+     * Response to the UserShInterfaceGetPublicIdDataRequest.
  *         The response contains the Sh non-transparent data for the specified Public User Identity.
  *         The data also includes a userId, userType, and endpointType.
  */
 class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $userId        = null;
-    protected $userType      = null;
-    protected $endpointType  = null;
-    protected $SCSCFName     = null;
-    protected $IMSUserState  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetPublicIdDataResponse';
+    public    $name         = __CLASS__;
+    protected $userId       = null;
+    protected $userType     = null;
+    protected $endpointType = null;
+    protected $SCSCFName    = null;
+    protected $IMSUserState = null;
 
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -38,11 +46,21 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Types of users in BroadWorks.
+     */
     public function setUserType($userType = null)
     {
         $this->userType = ($userType InstanceOf UserType)
@@ -50,11 +68,17 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
              : new UserType($userType);
     }
 
+    /**
+     * Types of users in BroadWorks.
+     */
     public function getUserType()
     {
-        return (!$this->userType) ?: $this->userType->value();
+        return (!$this->userType) ?: $this->userType->getValue();
     }
 
+    /**
+     * Types of Endpoints in Broadworks.
+     */
     public function setEndpointType($endpointType = null)
     {
         $this->endpointType = ($endpointType InstanceOf EndpointType)
@@ -62,11 +86,24 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
              : new EndpointType($endpointType);
     }
 
+    /**
+     * Types of Endpoints in Broadworks.
+     */
     public function getEndpointType()
     {
-        return (!$this->endpointType) ?: $this->endpointType->value();
+        return (!$this->endpointType) ?: $this->endpointType->getValue();
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function setSCSCFName($SCSCFName = null)
     {
         $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
@@ -74,11 +111,24 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
              : new SIPURI($SCSCFName);
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function getSCSCFName()
     {
-        return (!$this->SCSCFName) ?: $this->SCSCFName->value();
+        return (!$this->SCSCFName) ?: $this->SCSCFName->getValue();
     }
 
+    /**
+     * IMS User State per the 3GPP TS 29.328 V6.3.0 spec.
+     */
     public function setIMSUserState($IMSUserState = null)
     {
         $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
@@ -86,8 +136,11 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
              : new IMSUserState($IMSUserState);
     }
 
+    /**
+     * IMS User State per the 3GPP TS 29.328 V6.3.0 spec.
+     */
     public function getIMSUserState()
     {
-        return (!$this->IMSUserState) ?: $this->IMSUserState->value();
+        return (!$this->IMSUserState) ?: $this->IMSUserState->getValue();
     }
 }

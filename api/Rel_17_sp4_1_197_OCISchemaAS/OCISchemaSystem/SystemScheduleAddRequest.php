@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a system schedule.
+     * Add a system schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemScheduleAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $scheduleName  = null;
-    protected $scheduleType  = null;
+    public    $name         = __CLASS__;
+    protected $scheduleName = null;
+    protected $scheduleType = null;
 
     public function __construct(
          $scheduleName,
@@ -31,6 +31,9 @@ class SystemScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->setScheduleType($scheduleType);
     }
 
+    /**
+     * Schedule name.
+     */
     public function setScheduleName($scheduleName = null)
     {
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
@@ -38,11 +41,17 @@ class SystemScheduleAddRequest extends ComplexType implements ComplexInterface
              : new ScheduleName($scheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getScheduleName()
     {
-        return (!$this->scheduleName) ?: $this->scheduleName->value();
+        return (!$this->scheduleName) ?: $this->scheduleName->getValue();
     }
 
+    /**
+     * Schedule type.
+     */
     public function setScheduleType($scheduleType = null)
     {
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
@@ -50,8 +59,11 @@ class SystemScheduleAddRequest extends ComplexType implements ComplexInterface
              : new ScheduleType($scheduleType);
     }
 
+    /**
+     * Schedule type.
+     */
     public function getScheduleType()
     {
-        return (!$this->scheduleType) ?: $this->scheduleType->value();
+        return (!$this->scheduleType) ?: $this->scheduleType->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Call Waiting.
+     * Modify the system level data associated with Call Waiting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $playDistinctiveRingback  = null;
+    public    $name                    = __CLASS__;
+    protected $playDistinctiveRingback = null;
 
     public function __construct(
          $playDistinctiveRingback = null
@@ -27,12 +27,19 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
         $this->setPlayDistinctiveRingback($playDistinctiveRingback);
     }
 
-    public function setPlayDistinctiveRingback(xs:boolean $playDistinctiveRingback = null)
+    /**
+     * 
+     */
+    public function setPlayDistinctiveRingback($playDistinctiveRingback = null)
     {
+        $this->playDistinctiveRingback = (boolean) $playDistinctiveRingback;
     }
 
+    /**
+     * 
+     */
     public function getPlayDistinctiveRingback()
     {
-        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback->value();
+        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback->getValue();
     }
 }

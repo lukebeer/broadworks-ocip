@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * End the presentation of a conference document.
+     * End the presentation of a conference document.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingEndPresentationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $userId               = null;
-    protected $bridgeServiceUserId  = null;
-    protected $documentId           = null;
-    protected $accessCode           = null;
-    protected $slideName            = null;
+    public    $name                = __CLASS__;
+    protected $userId              = null;
+    protected $bridgeServiceUserId = null;
+    protected $documentId          = null;
+    protected $accessCode          = null;
+    protected $slideName           = null;
 
     public function __construct(
          $userId,
@@ -42,6 +42,13 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         $this->setSlideName($slideName);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -49,11 +56,25 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
@@ -61,11 +82,21 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
              : new UserId($bridgeServiceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getBridgeServiceUserId()
     {
-        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
+        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->getValue();
     }
 
+    /**
+     * Uniquely identifies an instant conferencing document.
+     */
     public function setDocumentId($documentId = null)
     {
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
@@ -73,11 +104,17 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
              : new InstantConferencingDocumentId($documentId);
     }
 
+    /**
+     * Uniquely identifies an instant conferencing document.
+     */
     public function getDocumentId()
     {
-        return (!$this->documentId) ?: $this->documentId->value();
+        return (!$this->documentId) ?: $this->documentId->getValue();
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function setAccessCode($accessCode = null)
     {
         $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
@@ -85,11 +122,17 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
              : new InstantConferencingAccessCode($accessCode);
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->value();
+        return (!$this->accessCode) ?: $this->accessCode->getValue();
     }
 
+    /**
+     * Conference slide name.
+     */
     public function setSlideName($slideName = null)
     {
         $this->slideName = ($slideName InstanceOf InstantConferencingSlideName)
@@ -97,8 +140,11 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
              : new InstantConferencingSlideName($slideName);
     }
 
+    /**
+     * Conference slide name.
+     */
     public function getSlideName()
     {
-        return (!$this->slideName) ?: $this->slideName->value();
+        return (!$this->slideName) ?: $this->slideName->getValue();
     }
 }

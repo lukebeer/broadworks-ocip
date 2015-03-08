@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderAccessDeviceGetUserListRequest.
+     * Response to ServiceProviderAccessDeviceGetUserListRequest.
  *         The column headings for the deviceUserTable are: "Line/Port", "Last Name",
  *         "First Name", "Phone Number", "Group Id", "User Id",
  *         "User Type", "Endpoint Type", "Primary Line/Port", "Order"
@@ -24,16 +24,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAccessDeviceGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $deviceUserTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse';
+    public    $name            = __CLASS__;
+    protected $deviceUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setDeviceUserTable(core:OCITable $deviceUserTable = null)
     {
+        $this->deviceUserTable = core:OCITable $deviceUserTable;
     }
 
+    /**
+     * 
+     */
     public function getDeviceUserTable()
     {
-        return (!$this->deviceUserTable) ?: $this->deviceUserTable->value();
+        return (!$this->deviceUserTable) ?: $this->deviceUserTable->getValue();
     }
 }

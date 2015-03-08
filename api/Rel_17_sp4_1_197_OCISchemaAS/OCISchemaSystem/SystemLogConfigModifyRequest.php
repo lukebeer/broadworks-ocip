@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the log configuration file.
+     * Modify the log configuration file.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $configFile  = null;
+    public    $name       = __CLASS__;
+    protected $configFile = null;
 
     public function __construct(
          FileResource $configFile = null
@@ -27,12 +27,21 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
         $this->setConfigFile($configFile);
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer.
+     */
     public function setConfigFile(FileResource $configFile = null)
     {
+        $this->configFile = FileResource $configFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer.
+     */
     public function getConfigFile()
     {
-        return (!$this->configFile) ?: $this->configFile->value();
+        return (!$this->configFile) ?: $this->configFile->getValue();
     }
 }

@@ -19,39 +19,39 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a call center DNIS announcement settings.
+     * Modify a call center DNIS announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = __CLASS__;
-    protected $dnisKey                               = null;
-    protected $playEntranceMessage                   = null;
-    protected $mandatoryEntranceMessage              = null;
-    protected $entranceAudioMessageSelection         = null;
-    protected $entranceMessageAudioUrlList           = null;
-    protected $entranceMessageAudioFileList          = null;
-    protected $entranceVideoMessageSelection         = null;
-    protected $entranceMessageVideoUrlList           = null;
-    protected $entranceMessageVideoFileList          = null;
-    protected $playPeriodicComfortMessage            = null;
-    protected $timeBetweenComfortMessagesSeconds     = null;
-    protected $periodicComfortAudioMessageSelection  = null;
-    protected $periodicComfortMessageAudioUrlList    = null;
-    protected $periodicComfortMessageAudioFileList   = null;
-    protected $periodicComfortVideoMessageSelection  = null;
-    protected $periodicComfortMessageVideoUrlList    = null;
-    protected $periodicComfortMessageVideoFileList   = null;
-    protected $enableMediaOnHoldForQueuedCalls       = null;
-    protected $mediaOnHoldSource                     = null;
-    protected $playWhisperMessage                    = null;
-    protected $whisperAudioMessageSelection          = null;
-    protected $whisperMessageAudioUrlList            = null;
-    protected $whisperMessageAudioFileList           = null;
-    protected $whisperVideoMessageSelection          = null;
-    protected $whisperMessageVideoUrlList            = null;
-    protected $whisperMessageVideoFileList           = null;
-    protected $estimatedWaitMessageOptionsModify     = null;
+    public    $name                                 = __CLASS__;
+    protected $dnisKey                              = null;
+    protected $playEntranceMessage                  = null;
+    protected $mandatoryEntranceMessage             = null;
+    protected $entranceAudioMessageSelection        = null;
+    protected $entranceMessageAudioUrlList          = null;
+    protected $entranceMessageAudioFileList         = null;
+    protected $entranceVideoMessageSelection        = null;
+    protected $entranceMessageVideoUrlList          = null;
+    protected $entranceMessageVideoFileList         = null;
+    protected $playPeriodicComfortMessage           = null;
+    protected $timeBetweenComfortMessagesSeconds    = null;
+    protected $periodicComfortAudioMessageSelection = null;
+    protected $periodicComfortMessageAudioUrlList   = null;
+    protected $periodicComfortMessageAudioFileList  = null;
+    protected $periodicComfortVideoMessageSelection = null;
+    protected $periodicComfortMessageVideoUrlList   = null;
+    protected $periodicComfortMessageVideoFileList  = null;
+    protected $enableMediaOnHoldForQueuedCalls      = null;
+    protected $mediaOnHoldSource                    = null;
+    protected $playWhisperMessage                   = null;
+    protected $whisperAudioMessageSelection         = null;
+    protected $whisperMessageAudioUrlList           = null;
+    protected $whisperMessageAudioFileList          = null;
+    protected $whisperVideoMessageSelection         = null;
+    protected $whisperMessageVideoUrlList           = null;
+    protected $whisperMessageVideoFileList          = null;
+    protected $estimatedWaitMessageOptionsModify    = null;
 
     public function __construct(
          DNISKey $dnisKey,
@@ -111,33 +111,57 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
         $this->setEstimatedWaitMessageOptionsModify($estimatedWaitMessageOptionsModify);
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
+        $this->dnisKey = DNISKey $dnisKey;
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->value();
+        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
     }
 
-    public function setPlayEntranceMessage(xs:boolean $playEntranceMessage = null)
+    /**
+     * 
+     */
+    public function setPlayEntranceMessage($playEntranceMessage = null)
     {
+        $this->playEntranceMessage = (boolean) $playEntranceMessage;
     }
 
+    /**
+     * 
+     */
     public function getPlayEntranceMessage()
     {
-        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage->value();
+        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage->getValue();
     }
 
-    public function setMandatoryEntranceMessage(xs:boolean $mandatoryEntranceMessage = null)
+    /**
+     * 
+     */
+    public function setMandatoryEntranceMessage($mandatoryEntranceMessage = null)
     {
+        $this->mandatoryEntranceMessage = (boolean) $mandatoryEntranceMessage;
     }
 
+    /**
+     * 
+     */
     public function getMandatoryEntranceMessage()
     {
-        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage->value();
+        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setEntranceAudioMessageSelection($entranceAudioMessageSelection = null)
     {
         $this->entranceAudioMessageSelection = ($entranceAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -145,29 +169,49 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
              : new ExtendedFileResourceSelection($entranceAudioMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getEntranceAudioMessageSelection()
     {
-        return (!$this->entranceAudioMessageSelection) ?: $this->entranceAudioMessageSelection->value();
+        return (!$this->entranceAudioMessageSelection) ?: $this->entranceAudioMessageSelection->getValue();
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function setEntranceMessageAudioUrlList(CallCenterAnnouncementURLListModify $entranceMessageAudioUrlList = null)
     {
+        $this->entranceMessageAudioUrlList = CallCenterAnnouncementURLListModify $entranceMessageAudioUrlList;
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function getEntranceMessageAudioUrlList()
     {
-        return (!$this->entranceMessageAudioUrlList) ?: $this->entranceMessageAudioUrlList->value();
+        return (!$this->entranceMessageAudioUrlList) ?: $this->entranceMessageAudioUrlList->getValue();
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function setEntranceMessageAudioFileList(CallCenterAnnouncementFileListModify $entranceMessageAudioFileList = null)
     {
+        $this->entranceMessageAudioFileList = CallCenterAnnouncementFileListModify $entranceMessageAudioFileList;
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function getEntranceMessageAudioFileList()
     {
-        return (!$this->entranceMessageAudioFileList) ?: $this->entranceMessageAudioFileList->value();
+        return (!$this->entranceMessageAudioFileList) ?: $this->entranceMessageAudioFileList->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setEntranceVideoMessageSelection($entranceVideoMessageSelection = null)
     {
         $this->entranceVideoMessageSelection = ($entranceVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -175,38 +219,65 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
              : new ExtendedFileResourceSelection($entranceVideoMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getEntranceVideoMessageSelection()
     {
-        return (!$this->entranceVideoMessageSelection) ?: $this->entranceVideoMessageSelection->value();
+        return (!$this->entranceVideoMessageSelection) ?: $this->entranceVideoMessageSelection->getValue();
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function setEntranceMessageVideoUrlList(CallCenterAnnouncementURLListModify $entranceMessageVideoUrlList = null)
     {
+        $this->entranceMessageVideoUrlList = CallCenterAnnouncementURLListModify $entranceMessageVideoUrlList;
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function getEntranceMessageVideoUrlList()
     {
-        return (!$this->entranceMessageVideoUrlList) ?: $this->entranceMessageVideoUrlList->value();
+        return (!$this->entranceMessageVideoUrlList) ?: $this->entranceMessageVideoUrlList->getValue();
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function setEntranceMessageVideoFileList(CallCenterAnnouncementFileListModify $entranceMessageVideoFileList = null)
     {
+        $this->entranceMessageVideoFileList = CallCenterAnnouncementFileListModify $entranceMessageVideoFileList;
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function getEntranceMessageVideoFileList()
     {
-        return (!$this->entranceMessageVideoFileList) ?: $this->entranceMessageVideoFileList->value();
+        return (!$this->entranceMessageVideoFileList) ?: $this->entranceMessageVideoFileList->getValue();
     }
 
-    public function setPlayPeriodicComfortMessage(xs:boolean $playPeriodicComfortMessage = null)
+    /**
+     * 
+     */
+    public function setPlayPeriodicComfortMessage($playPeriodicComfortMessage = null)
     {
+        $this->playPeriodicComfortMessage = (boolean) $playPeriodicComfortMessage;
     }
 
+    /**
+     * 
+     */
     public function getPlayPeriodicComfortMessage()
     {
-        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage->value();
+        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage->getValue();
     }
 
+    /**
+     * The interval in seconds between each repetition of the comfort message played to queued users.
+     */
     public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds = null)
     {
         $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
@@ -214,11 +285,17 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
              : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
     }
 
+    /**
+     * The interval in seconds between each repetition of the comfort message played to queued users.
+     */
     public function getTimeBetweenComfortMessagesSeconds()
     {
-        return (!$this->timeBetweenComfortMessagesSeconds) ?: $this->timeBetweenComfortMessagesSeconds->value();
+        return (!$this->timeBetweenComfortMessagesSeconds) ?: $this->timeBetweenComfortMessagesSeconds->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setPeriodicComfortAudioMessageSelection($periodicComfortAudioMessageSelection = null)
     {
         $this->periodicComfortAudioMessageSelection = ($periodicComfortAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -226,29 +303,49 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
              : new ExtendedFileResourceSelection($periodicComfortAudioMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getPeriodicComfortAudioMessageSelection()
     {
-        return (!$this->periodicComfortAudioMessageSelection) ?: $this->periodicComfortAudioMessageSelection->value();
+        return (!$this->periodicComfortAudioMessageSelection) ?: $this->periodicComfortAudioMessageSelection->getValue();
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function setPeriodicComfortMessageAudioUrlList(CallCenterAnnouncementURLListModify $periodicComfortMessageAudioUrlList = null)
     {
+        $this->periodicComfortMessageAudioUrlList = CallCenterAnnouncementURLListModify $periodicComfortMessageAudioUrlList;
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function getPeriodicComfortMessageAudioUrlList()
     {
-        return (!$this->periodicComfortMessageAudioUrlList) ?: $this->periodicComfortMessageAudioUrlList->value();
+        return (!$this->periodicComfortMessageAudioUrlList) ?: $this->periodicComfortMessageAudioUrlList->getValue();
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function setPeriodicComfortMessageAudioFileList(CallCenterAnnouncementFileListModify $periodicComfortMessageAudioFileList = null)
     {
+        $this->periodicComfortMessageAudioFileList = CallCenterAnnouncementFileListModify $periodicComfortMessageAudioFileList;
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function getPeriodicComfortMessageAudioFileList()
     {
-        return (!$this->periodicComfortMessageAudioFileList) ?: $this->periodicComfortMessageAudioFileList->value();
+        return (!$this->periodicComfortMessageAudioFileList) ?: $this->periodicComfortMessageAudioFileList->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setPeriodicComfortVideoMessageSelection($periodicComfortVideoMessageSelection = null)
     {
         $this->periodicComfortVideoMessageSelection = ($periodicComfortVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -256,56 +353,97 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
              : new ExtendedFileResourceSelection($periodicComfortVideoMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getPeriodicComfortVideoMessageSelection()
     {
-        return (!$this->periodicComfortVideoMessageSelection) ?: $this->periodicComfortVideoMessageSelection->value();
+        return (!$this->periodicComfortVideoMessageSelection) ?: $this->periodicComfortVideoMessageSelection->getValue();
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function setPeriodicComfortMessageVideoUrlList(CallCenterAnnouncementURLListModify $periodicComfortMessageVideoUrlList = null)
     {
+        $this->periodicComfortMessageVideoUrlList = CallCenterAnnouncementURLListModify $periodicComfortMessageVideoUrlList;
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function getPeriodicComfortMessageVideoUrlList()
     {
-        return (!$this->periodicComfortMessageVideoUrlList) ?: $this->periodicComfortMessageVideoUrlList->value();
+        return (!$this->periodicComfortMessageVideoUrlList) ?: $this->periodicComfortMessageVideoUrlList->getValue();
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function setPeriodicComfortMessageVideoFileList(CallCenterAnnouncementFileListModify $periodicComfortMessageVideoFileList = null)
     {
+        $this->periodicComfortMessageVideoFileList = CallCenterAnnouncementFileListModify $periodicComfortMessageVideoFileList;
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function getPeriodicComfortMessageVideoFileList()
     {
-        return (!$this->periodicComfortMessageVideoFileList) ?: $this->periodicComfortMessageVideoFileList->value();
+        return (!$this->periodicComfortMessageVideoFileList) ?: $this->periodicComfortMessageVideoFileList->getValue();
     }
 
-    public function setEnableMediaOnHoldForQueuedCalls(xs:boolean $enableMediaOnHoldForQueuedCalls = null)
+    /**
+     * 
+     */
+    public function setEnableMediaOnHoldForQueuedCalls($enableMediaOnHoldForQueuedCalls = null)
     {
+        $this->enableMediaOnHoldForQueuedCalls = (boolean) $enableMediaOnHoldForQueuedCalls;
     }
 
+    /**
+     * 
+     */
     public function getEnableMediaOnHoldForQueuedCalls()
     {
-        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls->value();
+        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls->getValue();
     }
 
+    /**
+     * Contains the call center media on hold source configuration.
+     */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
+        $this->mediaOnHoldSource = CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource;
     }
 
+    /**
+     * Contains the call center media on hold source configuration.
+     */
     public function getMediaOnHoldSource()
     {
-        return (!$this->mediaOnHoldSource) ?: $this->mediaOnHoldSource->value();
+        return (!$this->mediaOnHoldSource) ?: $this->mediaOnHoldSource->getValue();
     }
 
-    public function setPlayWhisperMessage(xs:boolean $playWhisperMessage = null)
+    /**
+     * 
+     */
+    public function setPlayWhisperMessage($playWhisperMessage = null)
     {
+        $this->playWhisperMessage = (boolean) $playWhisperMessage;
     }
 
+    /**
+     * 
+     */
     public function getPlayWhisperMessage()
     {
-        return (!$this->playWhisperMessage) ?: $this->playWhisperMessage->value();
+        return (!$this->playWhisperMessage) ?: $this->playWhisperMessage->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setWhisperAudioMessageSelection($whisperAudioMessageSelection = null)
     {
         $this->whisperAudioMessageSelection = ($whisperAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -313,29 +451,49 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
              : new ExtendedFileResourceSelection($whisperAudioMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getWhisperAudioMessageSelection()
     {
-        return (!$this->whisperAudioMessageSelection) ?: $this->whisperAudioMessageSelection->value();
+        return (!$this->whisperAudioMessageSelection) ?: $this->whisperAudioMessageSelection->getValue();
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function setWhisperMessageAudioUrlList(CallCenterAnnouncementURLListModify $whisperMessageAudioUrlList = null)
     {
+        $this->whisperMessageAudioUrlList = CallCenterAnnouncementURLListModify $whisperMessageAudioUrlList;
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function getWhisperMessageAudioUrlList()
     {
-        return (!$this->whisperMessageAudioUrlList) ?: $this->whisperMessageAudioUrlList->value();
+        return (!$this->whisperMessageAudioUrlList) ?: $this->whisperMessageAudioUrlList->getValue();
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function setWhisperMessageAudioFileList(CallCenterAnnouncementFileListModify $whisperMessageAudioFileList = null)
     {
+        $this->whisperMessageAudioFileList = CallCenterAnnouncementFileListModify $whisperMessageAudioFileList;
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function getWhisperMessageAudioFileList()
     {
-        return (!$this->whisperMessageAudioFileList) ?: $this->whisperMessageAudioFileList->value();
+        return (!$this->whisperMessageAudioFileList) ?: $this->whisperMessageAudioFileList->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setWhisperVideoMessageSelection($whisperVideoMessageSelection = null)
     {
         $this->whisperVideoMessageSelection = ($whisperVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -343,35 +501,59 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
              : new ExtendedFileResourceSelection($whisperVideoMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getWhisperVideoMessageSelection()
     {
-        return (!$this->whisperVideoMessageSelection) ?: $this->whisperVideoMessageSelection->value();
+        return (!$this->whisperVideoMessageSelection) ?: $this->whisperVideoMessageSelection->getValue();
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function setWhisperMessageVideoUrlList(CallCenterAnnouncementURLListModify $whisperMessageVideoUrlList = null)
     {
+        $this->whisperMessageVideoUrlList = CallCenterAnnouncementURLListModify $whisperMessageVideoUrlList;
     }
 
+    /**
+     * Contains a list of URLs for modify.
+     */
     public function getWhisperMessageVideoUrlList()
     {
-        return (!$this->whisperMessageVideoUrlList) ?: $this->whisperMessageVideoUrlList->value();
+        return (!$this->whisperMessageVideoUrlList) ?: $this->whisperMessageVideoUrlList->getValue();
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function setWhisperMessageVideoFileList(CallCenterAnnouncementFileListModify $whisperMessageVideoFileList = null)
     {
+        $this->whisperMessageVideoFileList = CallCenterAnnouncementFileListModify $whisperMessageVideoFileList;
     }
 
+    /**
+     * Contains a list of audio or video files to modify.
+     */
     public function getWhisperMessageVideoFileList()
     {
-        return (!$this->whisperMessageVideoFileList) ?: $this->whisperMessageVideoFileList->value();
+        return (!$this->whisperMessageVideoFileList) ?: $this->whisperMessageVideoFileList->getValue();
     }
 
+    /**
+     * Estimated Wait Message Options
+     */
     public function setEstimatedWaitMessageOptionsModify(EstimatedWaitMessageOptionsModify $estimatedWaitMessageOptionsModify = null)
     {
+        $this->estimatedWaitMessageOptionsModify = EstimatedWaitMessageOptionsModify $estimatedWaitMessageOptionsModify;
     }
 
+    /**
+     * Estimated Wait Message Options
+     */
     public function getEstimatedWaitMessageOptionsModify()
     {
-        return (!$this->estimatedWaitMessageOptionsModify) ?: $this->estimatedWaitMessageOptionsModify->value();
+        return (!$this->estimatedWaitMessageOptionsModify) ?: $this->estimatedWaitMessageOptionsModify->getValue();
     }
 }

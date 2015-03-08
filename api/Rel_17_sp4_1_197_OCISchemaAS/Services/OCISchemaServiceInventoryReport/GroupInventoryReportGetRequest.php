@@ -15,20 +15,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the group's inventory report.
+     * Request the group's inventory report.
  *         The response is either a GroupInventoryReportGetResponse or an ErrorResponse.
  */
 class GroupInventoryReportGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $serviceProviderId           = null;
-    protected $groupId                     = null;
-    protected $includeUsers                = null;
-    protected $includeServices             = null;
-    protected $includeDns                  = null;
-    protected $includeAccessDevices        = null;
-    protected $includeDepartments          = null;
-    protected $reportDeliveryEmailAddress  = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
+    public    $name                       = __CLASS__;
+    protected $serviceProviderId          = null;
+    protected $groupId                    = null;
+    protected $includeUsers               = null;
+    protected $includeServices            = null;
+    protected $includeDns                 = null;
+    protected $includeAccessDevices       = null;
+    protected $includeDepartments         = null;
+    protected $reportDeliveryEmailAddress = null;
 
     public function __construct(
          $serviceProviderId,
@@ -50,6 +51,10 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
         $this->setReportDeliveryEmailAddress($reportDeliveryEmailAddress);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -57,11 +62,19 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -69,56 +82,98 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setIncludeUsers(xs:boolean $includeUsers = null)
+    /**
+     * 
+     */
+    public function setIncludeUsers($includeUsers = null)
     {
+        $this->includeUsers = (boolean) $includeUsers;
     }
 
+    /**
+     * 
+     */
     public function getIncludeUsers()
     {
-        return (!$this->includeUsers) ?: $this->includeUsers->value();
+        return (!$this->includeUsers) ?: $this->includeUsers->getValue();
     }
 
-    public function setIncludeServices(xs:boolean $includeServices = null)
+    /**
+     * 
+     */
+    public function setIncludeServices($includeServices = null)
     {
+        $this->includeServices = (boolean) $includeServices;
     }
 
+    /**
+     * 
+     */
     public function getIncludeServices()
     {
-        return (!$this->includeServices) ?: $this->includeServices->value();
+        return (!$this->includeServices) ?: $this->includeServices->getValue();
     }
 
-    public function setIncludeDns(xs:boolean $includeDns = null)
+    /**
+     * 
+     */
+    public function setIncludeDns($includeDns = null)
     {
+        $this->includeDns = (boolean) $includeDns;
     }
 
+    /**
+     * 
+     */
     public function getIncludeDns()
     {
-        return (!$this->includeDns) ?: $this->includeDns->value();
+        return (!$this->includeDns) ?: $this->includeDns->getValue();
     }
 
-    public function setIncludeAccessDevices(xs:boolean $includeAccessDevices = null)
+    /**
+     * 
+     */
+    public function setIncludeAccessDevices($includeAccessDevices = null)
     {
+        $this->includeAccessDevices = (boolean) $includeAccessDevices;
     }
 
+    /**
+     * 
+     */
     public function getIncludeAccessDevices()
     {
-        return (!$this->includeAccessDevices) ?: $this->includeAccessDevices->value();
+        return (!$this->includeAccessDevices) ?: $this->includeAccessDevices->getValue();
     }
 
-    public function setIncludeDepartments(xs:boolean $includeDepartments = null)
+    /**
+     * 
+     */
+    public function setIncludeDepartments($includeDepartments = null)
     {
+        $this->includeDepartments = (boolean) $includeDepartments;
     }
 
+    /**
+     * 
+     */
     public function getIncludeDepartments()
     {
-        return (!$this->includeDepartments) ?: $this->includeDepartments->value();
+        return (!$this->includeDepartments) ?: $this->includeDepartments->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
@@ -126,8 +181,11 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
              : new EmailAddress($reportDeliveryEmailAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getReportDeliveryEmailAddress()
     {
-        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->value();
+        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->getValue();
     }
 }

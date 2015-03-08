@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a performance measurements reporting ftp server.
+     * Modify a performance measurements reporting ftp server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementReportingModifyFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $ftpHostNetAddress  = null;
-    protected $passiveFTP         = null;
+    public    $name              = __CLASS__;
+    protected $ftpHostNetAddress = null;
+    protected $passiveFTP        = null;
 
     public function __construct(
          $ftpHostNetAddress,
@@ -30,6 +30,9 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
         $this->setPassiveFTP($passiveFTP);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
@@ -37,17 +40,27 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
              : new NetAddress($ftpHostNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getFtpHostNetAddress()
     {
-        return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->value();
+        return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->getValue();
     }
 
-    public function setPassiveFTP(xs:boolean $passiveFTP = null)
+    /**
+     * 
+     */
+    public function setPassiveFTP($passiveFTP = null)
     {
+        $this->passiveFTP = (boolean) $passiveFTP;
     }
 
+    /**
+     * 
+     */
     public function getPassiveFTP()
     {
-        return (!$this->passiveFTP) ?: $this->passiveFTP->value();
+        return (!$this->passiveFTP) ?: $this->passiveFTP->getValue();
     }
 }

@@ -13,17 +13,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupCallCenterGetRoutingPolicyRequest.
+     * Response to GroupCallCenterGetRoutingPolicyRequest.
  *         Contains a table with column headings: "Service User Id", "Name" and
  *         "Priority".
  */
 class GroupCallCenterGetRoutingPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $routingPolicy    = null;
-    protected $callCenterTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetRoutingPolicyResponse';
+    public    $name            = __CLASS__;
+    protected $routingPolicy   = null;
+    protected $callCenterTable = null;
 
 
+    /**
+     * Call center routing policy.
+     */
     public function setRoutingPolicy($routingPolicy = null)
     {
         $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
@@ -31,17 +35,27 @@ class GroupCallCenterGetRoutingPolicyResponse extends ComplexType implements Com
              : new CallCenterRoutingPolicy($routingPolicy);
     }
 
+    /**
+     * Call center routing policy.
+     */
     public function getRoutingPolicy()
     {
-        return (!$this->routingPolicy) ?: $this->routingPolicy->value();
+        return (!$this->routingPolicy) ?: $this->routingPolicy->getValue();
     }
 
+    /**
+     * 
+     */
     public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
+        $this->callCenterTable = core:OCITable $callCenterTable;
     }
 
+    /**
+     * 
+     */
     public function getCallCenterTable()
     {
-        return (!$this->callCenterTable) ?: $this->callCenterTable->value();
+        return (!$this->callCenterTable) ?: $this->callCenterTable->getValue();
     }
 }

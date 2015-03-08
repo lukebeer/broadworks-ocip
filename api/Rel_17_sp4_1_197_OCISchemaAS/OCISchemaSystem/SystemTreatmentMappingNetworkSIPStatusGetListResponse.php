@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a SystemTreatmentMappingNetworkSIPStatusGetListRequest. Contains a table with one row per mapping.
+     * Response to a SystemTreatmentMappingNetworkSIPStatusGetListRequest. Contains a table with one row per mapping.
  *         The table columns are: "SIP Status Code", "Treatment Id".
  */
 class SystemTreatmentMappingNetworkSIPStatusGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $treatmentMappingTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingNetworkSIPStatusGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $treatmentMappingTable = null;
 
 
+    /**
+     * 
+     */
     public function setTreatmentMappingTable(core:OCITable $treatmentMappingTable = null)
     {
+        $this->treatmentMappingTable = core:OCITable $treatmentMappingTable;
     }
 
+    /**
+     * 
+     */
     public function getTreatmentMappingTable()
     {
-        return (!$this->treatmentMappingTable) ?: $this->treatmentMappingTable->value();
+        return (!$this->treatmentMappingTable) ?: $this->treatmentMappingTable->getValue();
     }
 }

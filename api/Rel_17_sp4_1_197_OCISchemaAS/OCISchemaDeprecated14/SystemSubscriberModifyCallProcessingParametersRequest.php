@@ -15,19 +15,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system call processing configuration for all subscribers.
+     * Modify the system call processing configuration for all subscribers.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced By: SystemSubscriberModifyCallProcessingParametersRequest14sp7
  */
 class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
-    protected $userCallingLineIdSelection              = null;
-    protected $isExtendedCallingLineIdActive           = null;
-    protected $isRingTimeOutActive                     = null;
-    protected $ringTimeoutSeconds                      = null;
-    protected $allowEmergencyRemoteOfficeOriginations  = null;
-    protected $maxNoAnswerNumberOfRings                = null;
+    public    $name                                   = __CLASS__;
+    protected $userCallingLineIdSelection             = null;
+    protected $isExtendedCallingLineIdActive          = null;
+    protected $isRingTimeOutActive                    = null;
+    protected $ringTimeoutSeconds                     = null;
+    protected $allowEmergencyRemoteOfficeOriginations = null;
+    protected $maxNoAnswerNumberOfRings               = null;
 
     public function __construct(
          $userCallingLineIdSelection = null,
@@ -45,6 +45,9 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
         $this->setMaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings);
     }
 
+    /**
+     * System User Calling Line Id Options.
+     */
     public function setUserCallingLineIdSelection($userCallingLineIdSelection = null)
     {
         $this->userCallingLineIdSelection = ($userCallingLineIdSelection InstanceOf SystemUserCallingLineIdSelection)
@@ -52,29 +55,49 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
              : new SystemUserCallingLineIdSelection($userCallingLineIdSelection);
     }
 
+    /**
+     * System User Calling Line Id Options.
+     */
     public function getUserCallingLineIdSelection()
     {
-        return (!$this->userCallingLineIdSelection) ?: $this->userCallingLineIdSelection->value();
+        return (!$this->userCallingLineIdSelection) ?: $this->userCallingLineIdSelection->getValue();
     }
 
-    public function setIsExtendedCallingLineIdActive(xs:boolean $isExtendedCallingLineIdActive = null)
+    /**
+     * 
+     */
+    public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive = null)
     {
+        $this->isExtendedCallingLineIdActive = (boolean) $isExtendedCallingLineIdActive;
     }
 
+    /**
+     * 
+     */
     public function getIsExtendedCallingLineIdActive()
     {
-        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->value();
+        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->getValue();
     }
 
-    public function setIsRingTimeOutActive(xs:boolean $isRingTimeOutActive = null)
+    /**
+     * 
+     */
+    public function setIsRingTimeOutActive($isRingTimeOutActive = null)
     {
+        $this->isRingTimeOutActive = (boolean) $isRingTimeOutActive;
     }
 
+    /**
+     * 
+     */
     public function getIsRingTimeOutActive()
     {
-        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->value();
+        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->getValue();
     }
 
+    /**
+     * Ring timeout for a user.
+     */
     public function setRingTimeoutSeconds($ringTimeoutSeconds = null)
     {
         $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
@@ -82,20 +105,33 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
              : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
     }
 
+    /**
+     * Ring timeout for a user.
+     */
     public function getRingTimeoutSeconds()
     {
-        return (!$this->ringTimeoutSeconds) ?: $this->ringTimeoutSeconds->value();
+        return (!$this->ringTimeoutSeconds) ?: $this->ringTimeoutSeconds->getValue();
     }
 
-    public function setAllowEmergencyRemoteOfficeOriginations(xs:boolean $allowEmergencyRemoteOfficeOriginations = null)
+    /**
+     * 
+     */
+    public function setAllowEmergencyRemoteOfficeOriginations($allowEmergencyRemoteOfficeOriginations = null)
     {
+        $this->allowEmergencyRemoteOfficeOriginations = (boolean) $allowEmergencyRemoteOfficeOriginations;
     }
 
+    /**
+     * 
+     */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations->value();
+        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations->getValue();
     }
 
+    /**
+     * Maximum Number of No Answer Rings.
+     */
     public function setMaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings = null)
     {
         $this->maxNoAnswerNumberOfRings = ($maxNoAnswerNumberOfRings InstanceOf MaxNoAnswerNumberOfRings)
@@ -103,8 +139,11 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
              : new MaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings);
     }
 
+    /**
+     * Maximum Number of No Answer Rings.
+     */
     public function getMaxNoAnswerNumberOfRings()
     {
-        return (!$this->maxNoAnswerNumberOfRings) ?: $this->maxNoAnswerNumberOfRings->value();
+        return (!$this->maxNoAnswerNumberOfRings) ?: $this->maxNoAnswerNumberOfRings->getValue();
     }
 }

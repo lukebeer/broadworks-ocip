@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserEnhancedCallLogsGetListRequest17sp4.
+     * Response to UserEnhancedCallLogsGetListRequest17sp4.
  *         Total numbers of rows is:
  *         - the total number of retrievable logs of the call log type that was specified in the UserEnhancedCallLogsGetListRequest17sp4, 
  *           if a call log type was specified in the request.
@@ -24,16 +24,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserEnhancedCallLogsGetListResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $totalNumberOfRows  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4';
+    public    $name              = __CLASS__;
+    protected $totalNumberOfRows = null;
 
 
-    public function setTotalNumberOfRows(xs:int $totalNumberOfRows = null)
+    /**
+     * 
+     */
+    public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
+        $this->totalNumberOfRows = (int) $totalNumberOfRows;
     }
 
+    /**
+     * 
+     */
     public function getTotalNumberOfRows()
     {
-        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->value();
+        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->getValue();
     }
 }

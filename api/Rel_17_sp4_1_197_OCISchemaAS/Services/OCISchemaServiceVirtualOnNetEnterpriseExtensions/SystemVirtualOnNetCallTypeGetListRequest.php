@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list Virtual On-Net Call Types in the system.
+     * Get the list Virtual On-Net Call Types in the system.
  *         The response is either a SystemVirtualOnNetCallTypeGetListResponse 
  *         or an ErrorResponse.
  */
 class SystemVirtualOnNetCallTypeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\SystemVirtualOnNetCallTypeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

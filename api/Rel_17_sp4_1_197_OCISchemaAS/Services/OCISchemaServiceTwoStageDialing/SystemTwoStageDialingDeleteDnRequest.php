@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a Two Stage Dialing number from the system.
+     * Request to delete a Two Stage Dialing number from the system.
  *           The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $phoneNumber  = null;
+    public    $name        = __CLASS__;
+    protected $phoneNumber = null;
 
     public function __construct(
          $phoneNumber
@@ -27,6 +27,9 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
         $this->setPhoneNumber($phoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
@@ -34,8 +37,11 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
              : new DN($phoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->value();
+        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
     }
 }

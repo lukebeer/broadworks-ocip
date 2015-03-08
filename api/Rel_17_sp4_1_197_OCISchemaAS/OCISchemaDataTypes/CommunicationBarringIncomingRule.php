@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Communication Barring Incoming Rule
+     * Communication Barring Incoming Rule
  */
 class CommunicationBarringIncomingRule extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringIncomingRule';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

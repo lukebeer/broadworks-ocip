@@ -17,33 +17,44 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupInterceptGroupGetRequest16.
+     * Response to the GroupInterceptGroupGetRequest16.
  *         Replaced By: GroupInterceptGroupGetResponse16sp1
  */
 class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $isActive                     = null;
-    protected $announcementSelection        = null;
-    protected $audioFileDescription         = null;
-    protected $audioMediaType               = null;
-    protected $videoFileDescription         = null;
-    protected $videoMediaType               = null;
-    protected $playNewPhoneNumber           = null;
-    protected $newPhoneNumber               = null;
-    protected $transferOnZeroToPhoneNumber  = null;
-    protected $transferPhoneNumber          = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupInterceptGroupGetResponse16';
+    public    $name                        = __CLASS__;
+    protected $isActive                    = null;
+    protected $announcementSelection       = null;
+    protected $audioFileDescription        = null;
+    protected $audioMediaType              = null;
+    protected $videoFileDescription        = null;
+    protected $videoMediaType              = null;
+    protected $playNewPhoneNumber          = null;
+    protected $newPhoneNumber              = null;
+    protected $transferOnZeroToPhoneNumber = null;
+    protected $transferPhoneNumber         = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Announcement Selection.
+     */
     public function setAnnouncementSelection($announcementSelection = null)
     {
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
@@ -51,11 +62,17 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
              : new AnnouncementSelection($announcementSelection);
     }
 
+    /**
+     * Announcement Selection.
+     */
     public function getAnnouncementSelection()
     {
-        return (!$this->announcementSelection) ?: $this->announcementSelection->value();
+        return (!$this->announcementSelection) ?: $this->announcementSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
@@ -63,11 +80,21 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
              : new FileDescription($audioFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
+        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setAudioMediaType($audioMediaType = null)
     {
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
@@ -75,11 +102,21 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
              : new MediaFileType($audioMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getAudioMediaType()
     {
-        return (!$this->audioMediaType) ?: $this->audioMediaType->value();
+        return (!$this->audioMediaType) ?: $this->audioMediaType->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
@@ -87,11 +124,21 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
              : new FileDescription($videoFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
+        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setVideoMediaType($videoMediaType = null)
     {
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
@@ -99,20 +146,37 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
              : new MediaFileType($videoMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getVideoMediaType()
     {
-        return (!$this->videoMediaType) ?: $this->videoMediaType->value();
+        return (!$this->videoMediaType) ?: $this->videoMediaType->getValue();
     }
 
-    public function setPlayNewPhoneNumber(xs:boolean $playNewPhoneNumber = null)
+    /**
+     * 
+     */
+    public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
+        $this->playNewPhoneNumber = (boolean) $playNewPhoneNumber;
     }
 
+    /**
+     * 
+     */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->value();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
@@ -120,20 +184,35 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
              : new DN($newPhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getNewPhoneNumber()
     {
-        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->value();
+        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->getValue();
     }
 
-    public function setTransferOnZeroToPhoneNumber(xs:boolean $transferOnZeroToPhoneNumber = null)
+    /**
+     * 
+     */
+    public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
+        $this->transferOnZeroToPhoneNumber = (boolean) $transferOnZeroToPhoneNumber;
     }
 
+    /**
+     * 
+     */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->value();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
@@ -141,8 +220,13 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
              : new OutgoingDN($transferPhoneNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->value();
+        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
     }
 }

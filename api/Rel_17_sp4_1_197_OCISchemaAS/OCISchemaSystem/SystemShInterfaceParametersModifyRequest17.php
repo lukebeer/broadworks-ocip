@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the Sh Interface system parameters.  This request must be submitted on both nodes in the redundant Application Server cluster in order for the changes to take effect on each node without requiring a restart.
+     * Modifies the Sh Interface system parameters.  This request must be submitted on both nodes in the redundant Application Server cluster in order for the changes to take effect on each node without requiring a restart.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemShInterfaceParametersModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $hssRealm                           = null;
-    protected $publicIdentityRefreshDelaySeconds  = null;
+    public    $name                              = __CLASS__;
+    protected $hssRealm                          = null;
+    protected $publicIdentityRefreshDelaySeconds = null;
 
     public function __construct(
          $hssRealm = null,
@@ -31,6 +31,9 @@ class SystemShInterfaceParametersModifyRequest17 extends ComplexType implements 
         $this->setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
     }
 
+    /**
+     * Network domain name.
+     */
     public function setHssRealm($hssRealm = null)
     {
         $this->hssRealm = ($hssRealm InstanceOf DomainName)
@@ -38,11 +41,17 @@ class SystemShInterfaceParametersModifyRequest17 extends ComplexType implements 
              : new DomainName($hssRealm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getHssRealm()
     {
-        return (!$this->hssRealm) ?: $this->hssRealm->value();
+        return (!$this->hssRealm) ?: $this->hssRealm->getValue();
     }
 
+    /**
+     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     */
     public function setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds = null)
     {
         $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
@@ -50,8 +59,11 @@ class SystemShInterfaceParametersModifyRequest17 extends ComplexType implements 
              : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
     }
 
+    /**
+     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     */
     public function getPublicIdentityRefreshDelaySeconds()
     {
-        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->value();
+        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->getValue();
     }
 }

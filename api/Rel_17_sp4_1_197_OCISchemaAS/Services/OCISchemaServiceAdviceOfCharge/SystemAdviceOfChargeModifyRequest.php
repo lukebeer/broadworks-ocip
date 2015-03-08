@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Advice of Charge system parameters.
+     * Request to modify Advice of Charge system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $delayBetweenNotificationSeconds  = null;
-    protected $incomingAocHandling              = null;
-    protected $costInformationSource            = null;
+    public    $name                            = __CLASS__;
+    protected $delayBetweenNotificationSeconds = null;
+    protected $incomingAocHandling             = null;
+    protected $costInformationSource           = null;
 
     public function __construct(
          $delayBetweenNotificationSeconds = null,
@@ -35,6 +35,9 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
         $this->setCostInformationSource($costInformationSource);
     }
 
+    /**
+     * The time in seconds used for the interval for sending AoC-D information to the caller.
+     */
     public function setDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds = null)
     {
         $this->delayBetweenNotificationSeconds = ($delayBetweenNotificationSeconds InstanceOf AdviceOfChargeDelayBetweenNotificationSeconds)
@@ -42,11 +45,17 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
              : new AdviceOfChargeDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds);
     }
 
+    /**
+     * The time in seconds used for the interval for sending AoC-D information to the caller.
+     */
     public function getDelayBetweenNotificationSeconds()
     {
-        return (!$this->delayBetweenNotificationSeconds) ?: $this->delayBetweenNotificationSeconds->value();
+        return (!$this->delayBetweenNotificationSeconds) ?: $this->delayBetweenNotificationSeconds->getValue();
     }
 
+    /**
+     * Choices for method of how the Advice of Charge is processed by the Application Server.
+     */
     public function setIncomingAocHandling($incomingAocHandling = null)
     {
         $this->incomingAocHandling = ($incomingAocHandling InstanceOf AdviceOfChargeIncomingAocHandling)
@@ -54,11 +63,17 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
              : new AdviceOfChargeIncomingAocHandling($incomingAocHandling);
     }
 
+    /**
+     * Choices for method of how the Advice of Charge is processed by the Application Server.
+     */
     public function getIncomingAocHandling()
     {
-        return (!$this->incomingAocHandling) ?: $this->incomingAocHandling->value();
+        return (!$this->incomingAocHandling) ?: $this->incomingAocHandling->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setCostInformationSource($costInformationSource = null)
     {
         $this->costInformationSource = ($costInformationSource InstanceOf NetAddress)
@@ -66,8 +81,11 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
              : new NetAddress($costInformationSource);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getCostInformationSource()
     {
-        return (!$this->costInformationSource) ?: $this->costInformationSource->value();
+        return (!$this->costInformationSource) ?: $this->costInformationSource->getValue();
     }
 }

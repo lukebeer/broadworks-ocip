@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserLinePortGetListRequest.
+     * Response to UserLinePortGetListRequest.
  *           Contains a table of line ports configured for a user
  *           The column headings are: "Line Port", "Line Port Type", "In Trunk Group",
  *           "Contact", "Contact2", "Contact3", "Contact4", "Contact5", " Authentication Mode ",
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserLinePortGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $linePortTable  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserLinePortGetListResponse';
+    public    $name          = __CLASS__;
+    protected $linePortTable = null;
 
 
+    /**
+     * 
+     */
     public function setLinePortTable(core:OCITable $linePortTable = null)
     {
+        $this->linePortTable = core:OCITable $linePortTable;
     }
 
+    /**
+     * 
+     */
     public function getLinePortTable()
     {
-        return (!$this->linePortTable) ?: $this->linePortTable->value();
+        return (!$this->linePortTable) ?: $this->linePortTable->getValue();
     }
 }

@@ -21,7 +21,7 @@ class InstantConferencingRecordedConferenceHoldPeriodDays extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'int';
+        $this->dataType = (int);
         $this->addRestriction(new Enumeration([
             '1',
             '2',

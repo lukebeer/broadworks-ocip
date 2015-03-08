@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserDualModeVCCGetRequest
+     * Response to UserDualModeVCCGetRequest
  */
 class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $subscriberUserName  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDualModeVCC\UserDualModeVCCGetResponse';
+    public    $name               = __CLASS__;
+    protected $subscriberUserName = null;
 
 
+    /**
+     * Dual Mode VCC Service subscriber user name
+     */
     public function setSubscriberUserName($subscriberUserName = null)
     {
         $this->subscriberUserName = ($subscriberUserName InstanceOf DualModeVCCSubscriberUserName)
@@ -28,8 +32,11 @@ class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
              : new DualModeVCCSubscriberUserName($subscriberUserName);
     }
 
+    /**
+     * Dual Mode VCC Service subscriber user name
+     */
     public function getSubscriberUserName()
     {
-        return (!$this->subscriberUserName) ?: $this->subscriberUserName->value();
+        return (!$this->subscriberUserName) ?: $this->subscriberUserName->getValue();
     }
 }

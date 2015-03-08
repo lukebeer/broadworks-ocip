@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemSelectiveServicesGetRequest.
+     * Response to SystemSelectiveServicesGetRequest.
  */
 class SystemSelectiveServicesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $scheduleCombination  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSelectiveServicesGetResponse';
+    public    $name                = __CLASS__;
+    protected $scheduleCombination = null;
 
 
+    /**
+     * Schedule Combination.
+     */
     public function setScheduleCombination($scheduleCombination = null)
     {
         $this->scheduleCombination = ($scheduleCombination InstanceOf ScheduleCombinationType)
@@ -28,8 +32,11 @@ class SystemSelectiveServicesGetResponse extends ComplexType implements ComplexI
              : new ScheduleCombinationType($scheduleCombination);
     }
 
+    /**
+     * Schedule Combination.
+     */
     public function getScheduleCombination()
     {
-        return (!$this->scheduleCombination) ?: $this->scheduleCombination->value();
+        return (!$this->scheduleCombination) ?: $this->scheduleCombination->getValue();
     }
 }

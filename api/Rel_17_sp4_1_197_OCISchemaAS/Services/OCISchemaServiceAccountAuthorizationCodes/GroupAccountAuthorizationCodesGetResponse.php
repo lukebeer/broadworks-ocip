@@ -14,20 +14,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupAccountAuthorizationCodesGetRequest.
+     * Response to GroupAccountAuthorizationCodesGetRequest.
  *         The tables has the following column headings:
  *         "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
  */
 class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $type                        = null;
-    protected $numberOfDigits              = null;
-    protected $allowLocalAndTollFreeCalls  = null;
-    protected $mandatoryUsageUserTable     = null;
-    protected $optionalUsageUserTable      = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse';
+    public    $name                       = __CLASS__;
+    protected $type                       = null;
+    protected $numberOfDigits             = null;
+    protected $allowLocalAndTollFreeCalls = null;
+    protected $mandatoryUsageUserTable    = null;
+    protected $optionalUsageUserTable     = null;
 
 
+    /**
+     * Account/Authorization Code Type.
+     */
     public function setType($type = null)
     {
         $this->type = ($type InstanceOf AccountAuthorizationCodeType)
@@ -35,11 +39,17 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
              : new AccountAuthorizationCodeType($type);
     }
 
+    /**
+     * Account/Authorization Code Type.
+     */
     public function getType()
     {
-        return (!$this->type) ?: $this->type->value();
+        return (!$this->type) ?: $this->type->getValue();
     }
 
+    /**
+     * Number of Account/Authorization Code Digits.
+     */
     public function setNumberOfDigits($numberOfDigits = null)
     {
         $this->numberOfDigits = ($numberOfDigits InstanceOf AccountAuthorizationCodeNumberOfDigits)
@@ -47,35 +57,59 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
              : new AccountAuthorizationCodeNumberOfDigits($numberOfDigits);
     }
 
+    /**
+     * Number of Account/Authorization Code Digits.
+     */
     public function getNumberOfDigits()
     {
-        return (!$this->numberOfDigits) ?: $this->numberOfDigits->value();
+        return (!$this->numberOfDigits) ?: $this->numberOfDigits->getValue();
     }
 
-    public function setAllowLocalAndTollFreeCalls(xs:boolean $allowLocalAndTollFreeCalls = null)
+    /**
+     * 
+     */
+    public function setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls = null)
     {
+        $this->allowLocalAndTollFreeCalls = (boolean) $allowLocalAndTollFreeCalls;
     }
 
+    /**
+     * 
+     */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls->value();
+        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls->getValue();
     }
 
+    /**
+     * 
+     */
     public function setMandatoryUsageUserTable(core:OCITable $mandatoryUsageUserTable = null)
     {
+        $this->mandatoryUsageUserTable = core:OCITable $mandatoryUsageUserTable;
     }
 
+    /**
+     * 
+     */
     public function getMandatoryUsageUserTable()
     {
-        return (!$this->mandatoryUsageUserTable) ?: $this->mandatoryUsageUserTable->value();
+        return (!$this->mandatoryUsageUserTable) ?: $this->mandatoryUsageUserTable->getValue();
     }
 
+    /**
+     * 
+     */
     public function setOptionalUsageUserTable(core:OCITable $optionalUsageUserTable = null)
     {
+        $this->optionalUsageUserTable = core:OCITable $optionalUsageUserTable;
     }
 
+    /**
+     * 
+     */
     public function getOptionalUsageUserTable()
     {
-        return (!$this->optionalUsageUserTable) ?: $this->optionalUsageUserTable->value();
+        return (!$this->optionalUsageUserTable) ?: $this->optionalUsageUserTable->getValue();
     }
 }

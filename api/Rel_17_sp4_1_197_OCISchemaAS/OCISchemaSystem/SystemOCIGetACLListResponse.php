@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemOCIGetACLListRequest.
+     * Response to SystemOCIGetACLListRequest.
  *         Returns a 2 coulmn table with column headings:
  *           "Net Address" and "Description".
  */
 class SystemOCIGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $aclTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIGetACLListResponse';
+    public    $name     = __CLASS__;
+    protected $aclTable = null;
 
 
+    /**
+     * 
+     */
     public function setAclTable(core:OCITable $aclTable = null)
     {
+        $this->aclTable = core:OCITable $aclTable;
     }
 
+    /**
+     * 
+     */
     public function getAclTable()
     {
-        return (!$this->aclTable) ?: $this->aclTable->value();
+        return (!$this->aclTable) ?: $this->aclTable->getValue();
     }
 }

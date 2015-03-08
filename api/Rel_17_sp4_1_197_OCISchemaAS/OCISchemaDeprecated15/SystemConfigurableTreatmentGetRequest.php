@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get all the attributes of a configurable treatment.
+     * Get all the attributes of a configurable treatment.
  *             The response is either a SystemConfigurableTreatmentGetResponse or an ErrorResponse.
  *             Replaced By: SystemConfigurableTreatmentGetRequest16
  */
 class SystemConfigurableTreatmentGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $treatmentId  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemConfigurableTreatmentGetResponse';
+    public    $name        = __CLASS__;
+    protected $treatmentId = null;
 
     public function __construct(
          $treatmentId
@@ -28,6 +29,9 @@ class SystemConfigurableTreatmentGetRequest extends ComplexType implements Compl
         $this->setTreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
@@ -35,8 +39,11 @@ class SystemConfigurableTreatmentGetRequest extends ComplexType implements Compl
              : new TreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->value();
+        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
     }
 }

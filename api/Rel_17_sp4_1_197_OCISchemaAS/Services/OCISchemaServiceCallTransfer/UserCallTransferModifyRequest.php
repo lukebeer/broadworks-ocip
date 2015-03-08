@@ -15,19 +15,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Call Transfer.
+     * Modify the user level data associated with Call Transfer.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallTransferModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
-    protected $userId                                     = null;
-    protected $isRecallActive                             = null;
-    protected $recallNumberOfRings                        = null;
-    protected $useDiversionInhibitorForBlindTransfer      = null;
-    protected $useDiversionInhibitorForConsultativeCalls  = null;
-    protected $enableBusyCampOn                           = null;
-    protected $busyCampOnSeconds                          = null;
+    public    $name                                      = __CLASS__;
+    protected $userId                                    = null;
+    protected $isRecallActive                            = null;
+    protected $recallNumberOfRings                       = null;
+    protected $useDiversionInhibitorForBlindTransfer     = null;
+    protected $useDiversionInhibitorForConsultativeCalls = null;
+    protected $enableBusyCampOn                          = null;
+    protected $busyCampOnSeconds                         = null;
 
     public function __construct(
          $userId,
@@ -47,6 +47,13 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         $this->setBusyCampOnSeconds($busyCampOnSeconds);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -54,20 +61,37 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsRecallActive(xs:boolean $isRecallActive = null)
+    /**
+     * 
+     */
+    public function setIsRecallActive($isRecallActive = null)
     {
+        $this->isRecallActive = (boolean) $isRecallActive;
     }
 
+    /**
+     * 
+     */
     public function getIsRecallActive()
     {
-        return (!$this->isRecallActive) ?: $this->isRecallActive->value();
+        return (!$this->isRecallActive) ?: $this->isRecallActive->getValue();
     }
 
+    /**
+     * Number of Rings until a transferred call is recalled.
+     */
     public function setRecallNumberOfRings($recallNumberOfRings = null)
     {
         $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
@@ -75,38 +99,65 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
              : new CallTransferRecallNumberOfRings($recallNumberOfRings);
     }
 
+    /**
+     * Number of Rings until a transferred call is recalled.
+     */
     public function getRecallNumberOfRings()
     {
-        return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->value();
+        return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->getValue();
     }
 
-    public function setUseDiversionInhibitorForBlindTransfer(xs:boolean $useDiversionInhibitorForBlindTransfer = null)
+    /**
+     * 
+     */
+    public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer = null)
     {
+        $this->useDiversionInhibitorForBlindTransfer = (boolean) $useDiversionInhibitorForBlindTransfer;
     }
 
+    /**
+     * 
+     */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->value();
+        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->getValue();
     }
 
-    public function setUseDiversionInhibitorForConsultativeCalls(xs:boolean $useDiversionInhibitorForConsultativeCalls = null)
+    /**
+     * 
+     */
+    public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls = null)
     {
+        $this->useDiversionInhibitorForConsultativeCalls = (boolean) $useDiversionInhibitorForConsultativeCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->value();
+        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->getValue();
     }
 
-    public function setEnableBusyCampOn(xs:boolean $enableBusyCampOn = null)
+    /**
+     * 
+     */
+    public function setEnableBusyCampOn($enableBusyCampOn = null)
     {
+        $this->enableBusyCampOn = (boolean) $enableBusyCampOn;
     }
 
+    /**
+     * 
+     */
     public function getEnableBusyCampOn()
     {
-        return (!$this->enableBusyCampOn) ?: $this->enableBusyCampOn->value();
+        return (!$this->enableBusyCampOn) ?: $this->enableBusyCampOn->getValue();
     }
 
+    /**
+     * The allotted time for a call to camp on on busy transefer call.
+     */
     public function setBusyCampOnSeconds($busyCampOnSeconds = null)
     {
         $this->busyCampOnSeconds = ($busyCampOnSeconds InstanceOf CallTransferBusyCampOnSeconds)
@@ -114,8 +165,11 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
              : new CallTransferBusyCampOnSeconds($busyCampOnSeconds);
     }
 
+    /**
+     * The allotted time for a call to camp on on busy transefer call.
+     */
     public function getBusyCampOnSeconds()
     {
-        return (!$this->busyCampOnSeconds) ?: $this->busyCampOnSeconds->value();
+        return (!$this->busyCampOnSeconds) ?: $this->busyCampOnSeconds->getValue();
     }
 }

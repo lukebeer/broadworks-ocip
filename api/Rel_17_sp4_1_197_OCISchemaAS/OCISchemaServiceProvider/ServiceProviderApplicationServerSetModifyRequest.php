@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the Application Server set assigned to the service provider or enterprise.
+     * Modify the Application Server set assigned to the service provider or enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $serviceProviderId         = null;
-    protected $applicationServerSetName  = null;
+    public    $name                     = __CLASS__;
+    protected $serviceProviderId        = null;
+    protected $applicationServerSetName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
         $this->setApplicationServerSetName($applicationServerSetName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Application Server set name.
+     */
     public function setApplicationServerSetName($applicationServerSetName = null)
     {
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
@@ -50,8 +61,11 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
              : new ApplicationServerSetName($applicationServerSetName);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function getApplicationServerSetName()
     {
-        return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->value();
+        return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->getValue();
     }
 }

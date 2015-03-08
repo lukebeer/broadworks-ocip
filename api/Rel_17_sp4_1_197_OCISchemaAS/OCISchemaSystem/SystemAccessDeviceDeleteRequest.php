@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a specified system access device.
+     * Request to delete a specified system access device.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemAccessDeviceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
 
     public function __construct(
          $deviceName
@@ -27,6 +27,9 @@ class SystemAccessDeviceDeleteRequest extends ComplexType implements ComplexInte
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -34,8 +37,11 @@ class SystemAccessDeviceDeleteRequest extends ComplexType implements ComplexInte
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

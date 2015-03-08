@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Adds automatic callback release cause to the releaseCause attribute.
+     * Adds automatic callback release cause to the releaseCause attribute.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAutomaticCallbackAddReleaseCauseListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $releaseCause  = null;
+    public    $name         = __CLASS__;
+    protected $releaseCause = null;
 
     public function __construct(
          $releaseCause = null
@@ -27,6 +27,9 @@ class SystemAutomaticCallbackAddReleaseCauseListRequest extends ComplexType impl
         $this->setReleaseCause($releaseCause);
     }
 
+    /**
+     * Callback Release Cause.
+     */
     public function setReleaseCause($releaseCause = null)
     {
         $this->releaseCause = ($releaseCause InstanceOf AutomaticCallbackReleaseCause)
@@ -34,8 +37,11 @@ class SystemAutomaticCallbackAddReleaseCauseListRequest extends ComplexType impl
              : new AutomaticCallbackReleaseCause($releaseCause);
     }
 
+    /**
+     * Callback Release Cause.
+     */
     public function getReleaseCause()
     {
-        return (!$this->releaseCause) ?: $this->releaseCause->value();
+        return (!$this->releaseCause) ?: $this->releaseCause->getValue();
     }
 }

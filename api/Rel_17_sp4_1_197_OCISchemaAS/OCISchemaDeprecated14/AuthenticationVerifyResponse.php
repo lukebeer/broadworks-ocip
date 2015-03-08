@@ -20,24 +20,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to AuthenticationVerifyRequest
+     * Response to AuthenticationVerifyRequest
  *         Replaced By: AuthenticationVerifyResponse14sp8
  */
 class AuthenticationVerifyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $loginType            = null;
-    protected $locale               = null;
-    protected $encoding             = null;
-    protected $groupId              = null;
-    protected $serviceProviderId    = null;
-    protected $isEnterprise         = null;
-    protected $passwordExpiresDays  = null;
-    protected $userDomain           = null;
-    protected $lastName             = null;
-    protected $firstName            = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\AuthenticationVerifyResponse';
+    public    $name                = __CLASS__;
+    protected $loginType           = null;
+    protected $locale              = null;
+    protected $encoding            = null;
+    protected $groupId             = null;
+    protected $serviceProviderId   = null;
+    protected $isEnterprise        = null;
+    protected $passwordExpiresDays = null;
+    protected $userDomain          = null;
+    protected $lastName            = null;
+    protected $firstName           = null;
 
 
+    /**
+     * The login type of the admin/user.
+     */
     public function setLoginType($loginType = null)
     {
         $this->loginType = ($loginType InstanceOf LoginType)
@@ -45,11 +49,17 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new LoginType($loginType);
     }
 
+    /**
+     * The login type of the admin/user.
+     */
     public function getLoginType()
     {
-        return (!$this->loginType) ?: $this->loginType->value();
+        return (!$this->loginType) ?: $this->loginType->getValue();
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function setLocale($locale = null)
     {
         $this->locale = ($locale InstanceOf OCILocale)
@@ -57,11 +67,17 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new OCILocale($locale);
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->value();
+        return (!$this->locale) ?: $this->locale->getValue();
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function setEncoding($encoding = null)
     {
         $this->encoding = ($encoding InstanceOf Encoding)
@@ -69,11 +85,18 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new Encoding($encoding);
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->value();
+        return (!$this->encoding) ?: $this->encoding->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -81,11 +104,19 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -93,29 +124,50 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setIsEnterprise(xs:boolean $isEnterprise = null)
+    /**
+     * 
+     */
+    public function setIsEnterprise($isEnterprise = null)
     {
+        $this->isEnterprise = (boolean) $isEnterprise;
     }
 
+    /**
+     * 
+     */
     public function getIsEnterprise()
     {
-        return (!$this->isEnterprise) ?: $this->isEnterprise->value();
+        return (!$this->isEnterprise) ?: $this->isEnterprise->getValue();
     }
 
-    public function setPasswordExpiresDays(xs:int $passwordExpiresDays = null)
+    /**
+     * 
+     */
+    public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
+        $this->passwordExpiresDays = (int) $passwordExpiresDays;
     }
 
+    /**
+     * 
+     */
     public function getPasswordExpiresDays()
     {
-        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->value();
+        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setUserDomain($userDomain = null)
     {
         $this->userDomain = ($userDomain InstanceOf NetAddress)
@@ -123,11 +175,17 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new NetAddress($userDomain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getUserDomain()
     {
-        return (!$this->userDomain) ?: $this->userDomain->value();
+        return (!$this->userDomain) ?: $this->userDomain->getValue();
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function setLastName($lastName = null)
     {
         $this->lastName = ($lastName InstanceOf LastName)
@@ -135,11 +193,17 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new LastName($lastName);
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->value();
+        return (!$this->lastName) ?: $this->lastName->getValue();
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function setFirstName($firstName = null)
     {
         $this->firstName = ($firstName InstanceOf FirstName)
@@ -147,8 +211,11 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
              : new FirstName($firstName);
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->value();
+        return (!$this->firstName) ?: $this->firstName->getValue();
     }
 }

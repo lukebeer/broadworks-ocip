@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of user creation tasks for a trunk group.
+     * Get the list of user creation tasks for a trunk group.
  *         The response is either GroupTrunkGroupUserCreationTaskGetListResponse14sp4 or ErrorResponse.
  */
 class GroupTrunkGroupUserCreationTaskGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $trunkGroupKey  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetListResponse14sp4';
+    public    $name          = __CLASS__;
+    protected $trunkGroupKey = null;
 
     public function __construct(
          TrunkGroupKey $trunkGroupKey
@@ -27,12 +28,21 @@ class GroupTrunkGroupUserCreationTaskGetListRequest14sp4 extends ComplexType imp
         $this->setTrunkGroupKey($trunkGroupKey);
     }
 
+    /**
+     * Uniquely identifies a Trunk Group system-wide.
+     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
+        $this->trunkGroupKey = TrunkGroupKey $trunkGroupKey;
     }
 
+    /**
+     * Uniquely identifies a Trunk Group system-wide.
+     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     */
     public function getTrunkGroupKey()
     {
-        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->value();
+        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->getValue();
     }
 }

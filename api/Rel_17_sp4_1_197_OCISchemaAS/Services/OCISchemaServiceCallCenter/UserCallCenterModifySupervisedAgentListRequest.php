@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies a list of users to be supervised by a supervisor on a call center.
+     * Modifies a list of users to be supervised by a supervisor on a call center.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallCenterModifySupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $supervisorUserId  = null;
-    protected $serviceUserId     = null;
-    protected $agentUserIdList   = null;
+    public    $name             = __CLASS__;
+    protected $supervisorUserId = null;
+    protected $serviceUserId    = null;
+    protected $agentUserIdList  = null;
 
     public function __construct(
          $supervisorUserId,
@@ -34,6 +34,13 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
         $this->setAgentUserIdList($agentUserIdList);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setSupervisorUserId($supervisorUserId = null)
     {
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
@@ -41,11 +48,25 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
              : new UserId($supervisorUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getSupervisorUserId()
     {
-        return (!$this->supervisorUserId) ?: $this->supervisorUserId->value();
+        return (!$this->supervisorUserId) ?: $this->supervisorUserId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -53,17 +74,33 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
+        $this->agentUserIdList = ReplacementUserIdList $agentUserIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getAgentUserIdList()
     {
-        return (!$this->agentUserIdList) ?: $this->agentUserIdList->value();
+        return (!$this->agentUserIdList) ?: $this->agentUserIdList->getValue();
     }
 }

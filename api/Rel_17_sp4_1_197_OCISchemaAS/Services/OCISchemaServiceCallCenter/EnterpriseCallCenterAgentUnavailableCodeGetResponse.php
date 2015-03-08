@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the EnterpriseCallCenterAgentUnavailableCodeGetRequest
+     * Response to the EnterpriseCallCenterAgentUnavailableCodeGetRequest
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $isActive     = null;
-    protected $description  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeGetResponse';
+    public    $name        = __CLASS__;
+    protected $isActive    = null;
+    protected $description = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Call Center Agent Unavailable Code Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
@@ -38,8 +49,11 @@ class EnterpriseCallCenterAgentUnavailableCodeGetResponse extends ComplexType im
              : new CallCenterAgentUnavailableCodeDescription($description);
     }
 
+    /**
+     * Call Center Agent Unavailable Code Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

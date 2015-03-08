@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCustomContactDirectoryGetListRequest.
+     * Response to the GroupCustomContactDirectoryGetListRequest.
  *         The response contains all the group's custom contact directory names.
  */
 class GroupCustomContactDirectoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetListResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CustomContactDirectoryName)
@@ -29,8 +33,11 @@ class GroupCustomContactDirectoryGetListResponse extends ComplexType implements 
              : new CustomContactDirectoryName($name);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

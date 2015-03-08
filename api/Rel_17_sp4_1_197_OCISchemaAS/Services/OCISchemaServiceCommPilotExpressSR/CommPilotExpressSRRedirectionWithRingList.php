@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * CommPilot Express SR Forward Numbers with number of times to ring.
+     * CommPilot Express SR Forward Numbers with number of times to ring.
  */
 class CommPilotExpressSRRedirectionWithRingList extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRRedirectionWithRingList';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a codec to the ordered list of codecs supported by the system.
+     * Request to add a codec to the ordered list of codecs supported by the system.
  *         The ordered list of codecs is sent to MGCP devices when creating connections.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCodecAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
-    protected $codec  = null;
+    public    $name  = __CLASS__;
+    protected $codec = null;
 
     public function __construct(
          $codec
@@ -28,6 +28,9 @@ class SystemCodecAddRequest extends ComplexType implements ComplexInterface
         $this->setCodec($codec);
     }
 
+    /**
+     * Codec.
+     */
     public function setCodec($codec = null)
     {
         $this->codec = ($codec InstanceOf Codec)
@@ -35,8 +38,11 @@ class SystemCodecAddRequest extends ComplexType implements ComplexInterface
              : new Codec($codec);
     }
 
+    /**
+     * Codec.
+     */
     public function getCodec()
     {
-        return (!$this->codec) ?: $this->codec->value();
+        return (!$this->codec) ?: $this->codec->getValue();
     }
 }

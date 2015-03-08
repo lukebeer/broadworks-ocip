@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCommunicationBarringAuthorizationCodeGetListRequest.
+     * Response to UserCommunicationBarringAuthorizationCodeGetListRequest.
  *         Contains a list of Communication Barring Authorization Codes
  *         assigned to the user.
  */
 class UserCommunicationBarringAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $code  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCommunicationBarringAuthorizationCodeGetListResponse';
+    public    $name = __CLASS__;
+    protected $code = null;
 
 
+    /**
+     * Communication Barring Authorization Code entry.
+     */
     public function setCode(CommunicationBarringAuthorizationCodeEntry $code = null)
     {
+        $this->code = CommunicationBarringAuthorizationCodeEntry $code;
     }
 
+    /**
+     * Communication Barring Authorization Code entry.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 }

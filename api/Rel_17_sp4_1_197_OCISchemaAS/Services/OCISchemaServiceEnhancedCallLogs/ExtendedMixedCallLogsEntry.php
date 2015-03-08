@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Extended Call Log entry describing a placed, received, or missed call.
+     * Extended Call Log entry describing a placed, received, or missed call.
  *         "countryCode" is the user's country code
  *         The following time elements are represented as timestamp, i.e., the number of milliseconds
  *         since January 1, 1970, 00:00:00 GMT.
@@ -29,6 +29,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\ExtendedMixedCallLogsEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

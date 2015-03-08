@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemServiceCodeGetListRequest.
+     * Response to SystemServiceCodeGetListRequest.
  *         Contains a table of defined service codes
  *         The column headings are: "Service Code", and "Description".
  */
 class SystemServiceCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $serviceCodeTable  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse';
+    public    $name             = __CLASS__;
+    protected $serviceCodeTable = null;
 
 
+    /**
+     * 
+     */
     public function setServiceCodeTable(core:OCITable $serviceCodeTable = null)
     {
+        $this->serviceCodeTable = core:OCITable $serviceCodeTable;
     }
 
+    /**
+     * 
+     */
     public function getServiceCodeTable()
     {
-        return (!$this->serviceCodeTable) ?: $this->serviceCodeTable->value();
+        return (!$this->serviceCodeTable) ?: $this->serviceCodeTable->getValue();
     }
 }

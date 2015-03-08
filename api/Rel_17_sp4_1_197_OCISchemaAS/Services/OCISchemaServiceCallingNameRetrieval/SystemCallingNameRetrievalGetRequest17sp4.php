@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system's calling name retrieval attributes.
+     * Request the system's calling name retrieval attributes.
  *         The response is either a SystemCallingNameRetrievalGetResponse17sp4 or an ErrorResponse.
  */
 class SystemCallingNameRetrievalGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameRetrieval\SystemCallingNameRetrievalGetResponse17sp4';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

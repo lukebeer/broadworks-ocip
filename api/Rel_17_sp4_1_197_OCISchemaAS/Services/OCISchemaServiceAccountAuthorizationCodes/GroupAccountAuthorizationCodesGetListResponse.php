@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupAccountAuthorizationCodesGetListRequest.
+     * Response to GroupAccountAuthorizationCodesGetListRequest.
  */
 class GroupAccountAuthorizationCodesGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $codeEntry  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetListResponse';
+    public    $name      = __CLASS__;
+    protected $codeEntry = null;
 
 
+    /**
+     * Account/Authorization Code.
+     */
     public function setCodeEntry(AccountAuthorizationCodeEntry $codeEntry = null)
     {
+        $this->codeEntry = AccountAuthorizationCodeEntry $codeEntry;
     }
 
+    /**
+     * Account/Authorization Code.
+     */
     public function getCodeEntry()
     {
-        return (!$this->codeEntry) ?: $this->codeEntry->value();
+        return (!$this->codeEntry) ?: $this->codeEntry->getValue();
     }
 }

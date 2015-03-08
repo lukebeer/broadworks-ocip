@@ -18,7 +18,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserInstantConferencingGetStandAloneConferenceDocumentListRequest14.
+     * Response to UserInstantConferencingGetStandAloneConferenceDocumentListRequest14.
  *         The documentTable has column headings:
  *         "File Description", "Status", "Error Message", "Slide Name", "Slide List".
  *         The "File Description" column is the description from the LabeledFileResource
@@ -28,18 +28,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $conferenceCallId         = null;
-    protected $documentId               = null;
-    protected $isExpired                = null;
-    protected $participantAccessCode    = null;
-    protected $leaderAccessCode         = null;
-    protected $conferenceServerFQDN     = null;
-    protected $presentationPassword     = null;
-    protected $presentationPasswordHex  = null;
-    protected $documentTable            = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14';
+    public    $name                    = __CLASS__;
+    protected $conferenceCallId        = null;
+    protected $documentId              = null;
+    protected $isExpired               = null;
+    protected $participantAccessCode   = null;
+    protected $leaderAccessCode        = null;
+    protected $conferenceServerFQDN    = null;
+    protected $presentationPassword    = null;
+    protected $presentationPasswordHex = null;
+    protected $documentTable           = null;
 
 
+    /**
+     * Conference call Id.
+     */
     public function setConferenceCallId($conferenceCallId = null)
     {
         $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
@@ -47,11 +51,17 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
              : new InstantConferencingCallId($conferenceCallId);
     }
 
+    /**
+     * Conference call Id.
+     */
     public function getConferenceCallId()
     {
-        return (!$this->conferenceCallId) ?: $this->conferenceCallId->value();
+        return (!$this->conferenceCallId) ?: $this->conferenceCallId->getValue();
     }
 
+    /**
+     * Uniquely identifies an instant conferencing document.
+     */
     public function setDocumentId($documentId = null)
     {
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
@@ -59,20 +69,33 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
              : new InstantConferencingDocumentId($documentId);
     }
 
+    /**
+     * Uniquely identifies an instant conferencing document.
+     */
     public function getDocumentId()
     {
-        return (!$this->documentId) ?: $this->documentId->value();
+        return (!$this->documentId) ?: $this->documentId->getValue();
     }
 
-    public function setIsExpired(xs:boolean $isExpired = null)
+    /**
+     * 
+     */
+    public function setIsExpired($isExpired = null)
     {
+        $this->isExpired = (boolean) $isExpired;
     }
 
+    /**
+     * 
+     */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired->value();
+        return (!$this->isExpired) ?: $this->isExpired->getValue();
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function setParticipantAccessCode($participantAccessCode = null)
     {
         $this->participantAccessCode = ($participantAccessCode InstanceOf InstantConferencingAccessCode)
@@ -80,11 +103,17 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
              : new InstantConferencingAccessCode($participantAccessCode);
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function getParticipantAccessCode()
     {
-        return (!$this->participantAccessCode) ?: $this->participantAccessCode->value();
+        return (!$this->participantAccessCode) ?: $this->participantAccessCode->getValue();
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function setLeaderAccessCode($leaderAccessCode = null)
     {
         $this->leaderAccessCode = ($leaderAccessCode InstanceOf InstantConferencingAccessCode)
@@ -92,11 +121,17 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
              : new InstantConferencingAccessCode($leaderAccessCode);
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function getLeaderAccessCode()
     {
-        return (!$this->leaderAccessCode) ?: $this->leaderAccessCode->value();
+        return (!$this->leaderAccessCode) ?: $this->leaderAccessCode->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setConferenceServerFQDN($conferenceServerFQDN = null)
     {
         $this->conferenceServerFQDN = ($conferenceServerFQDN InstanceOf DomainName)
@@ -104,11 +139,17 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
              : new DomainName($conferenceServerFQDN);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getConferenceServerFQDN()
     {
-        return (!$this->conferenceServerFQDN) ?: $this->conferenceServerFQDN->value();
+        return (!$this->conferenceServerFQDN) ?: $this->conferenceServerFQDN->getValue();
     }
 
+    /**
+     * Conference presentation password.
+     */
     public function setPresentationPassword($presentationPassword = null)
     {
         $this->presentationPassword = ($presentationPassword InstanceOf InstantConferencingPresentationPassword)
@@ -116,11 +157,17 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
              : new InstantConferencingPresentationPassword($presentationPassword);
     }
 
+    /**
+     * Conference presentation password.
+     */
     public function getPresentationPassword()
     {
-        return (!$this->presentationPassword) ?: $this->presentationPassword->value();
+        return (!$this->presentationPassword) ?: $this->presentationPassword->getValue();
     }
 
+    /**
+     * Conference presentation password in hexadecimal format.
+     */
     public function setPresentationPasswordHex($presentationPasswordHex = null)
     {
         $this->presentationPasswordHex = ($presentationPasswordHex InstanceOf InstantConferencingPresentationPasswordHex)
@@ -128,17 +175,27 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
              : new InstantConferencingPresentationPasswordHex($presentationPasswordHex);
     }
 
+    /**
+     * Conference presentation password in hexadecimal format.
+     */
     public function getPresentationPasswordHex()
     {
-        return (!$this->presentationPasswordHex) ?: $this->presentationPasswordHex->value();
+        return (!$this->presentationPasswordHex) ?: $this->presentationPasswordHex->getValue();
     }
 
+    /**
+     * 
+     */
     public function setDocumentTable(core:OCITable $documentTable = null)
     {
+        $this->documentTable = core:OCITable $documentTable;
     }
 
+    /**
+     * 
+     */
     public function getDocumentTable()
     {
-        return (!$this->documentTable) ?: $this->documentTable->value();
+        return (!$this->documentTable) ?: $this->documentTable->getValue();
     }
 }

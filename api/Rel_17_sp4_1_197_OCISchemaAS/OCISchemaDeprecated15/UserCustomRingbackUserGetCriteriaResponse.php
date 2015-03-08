@@ -17,39 +17,57 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCustomRingbackUserGetCriteriaRequest.
+     * Response to the UserCustomRingbackUserGetCriteriaRequest.
  */
 class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $timeSchedule          = null;
-    protected $fromDnCriteria        = null;
-    protected $audioSelection        = null;
-    protected $audioFileDescription  = null;
-    protected $audioFileUrl          = null;
-    protected $videoSelection        = null;
-    protected $videoFileDescription  = null;
-    protected $videoFileUrl          = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserGetCriteriaResponse';
+    public    $name                 = __CLASS__;
+    protected $timeSchedule         = null;
+    protected $fromDnCriteria       = null;
+    protected $audioSelection       = null;
+    protected $audioFileDescription = null;
+    protected $audioFileUrl         = null;
+    protected $videoSelection       = null;
+    protected $videoFileDescription = null;
+    protected $videoFileUrl         = null;
 
 
+    /**
+     * The from dn criteria.
+     */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
+        $this->timeSchedule = TimeSchedule $timeSchedule;
     }
 
+    /**
+     * The from dn criteria.
+     */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->value();
+        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
     }
 
+    /**
+     * The from dn criteria used within an add/get request.
+     */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
+        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
     }
 
+    /**
+     * The from dn criteria used within an add/get request.
+     */
     public function getFromDnCriteria()
     {
-        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->value();
+        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioSelection($audioSelection = null)
     {
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
@@ -57,11 +75,17 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
              : new ExtendedFileResourceSelection($audioSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->value();
+        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
@@ -69,11 +93,17 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
              : new FileDescription($audioFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
+        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setAudioFileUrl($audioFileUrl = null)
     {
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
@@ -81,11 +111,17 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
              : new URL($audioFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->value();
+        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoSelection($videoSelection = null)
     {
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
@@ -93,11 +129,17 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
              : new ExtendedFileResourceSelection($videoSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->value();
+        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
@@ -105,11 +147,17 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
              : new FileDescription($videoFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
+        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setVideoFileUrl($videoFileUrl = null)
     {
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
@@ -117,8 +165,11 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
              : new URL($videoFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->value();
+        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
     }
 }

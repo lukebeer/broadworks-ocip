@@ -13,16 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Service Activation Access Code system parameters.
+     * Request to modify Service Activation Access Code system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceActivationAccessCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $isActive               = null;
-    protected $terminatingAccessCode  = null;
-    protected $redirectingAccessCode  = null;
-    protected $clickToDialAccessCode  = null;
+    public    $name                  = __CLASS__;
+    protected $isActive              = null;
+    protected $terminatingAccessCode = null;
+    protected $redirectingAccessCode = null;
+    protected $clickToDialAccessCode = null;
 
     public function __construct(
          $isActive = null,
@@ -36,15 +36,25 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
         $this->setClickToDialAccessCode($clickToDialAccessCode);
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Access code for Service Activation Access Code System Parameters.
+     */
     public function setTerminatingAccessCode($terminatingAccessCode = null)
     {
         $this->terminatingAccessCode = ($terminatingAccessCode InstanceOf ServiceActivationAccessCode)
@@ -52,11 +62,17 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
              : new ServiceActivationAccessCode($terminatingAccessCode);
     }
 
+    /**
+     * Access code for Service Activation Access Code System Parameters.
+     */
     public function getTerminatingAccessCode()
     {
-        return (!$this->terminatingAccessCode) ?: $this->terminatingAccessCode->value();
+        return (!$this->terminatingAccessCode) ?: $this->terminatingAccessCode->getValue();
     }
 
+    /**
+     * Access code for Service Activation Access Code System Parameters.
+     */
     public function setRedirectingAccessCode($redirectingAccessCode = null)
     {
         $this->redirectingAccessCode = ($redirectingAccessCode InstanceOf ServiceActivationAccessCode)
@@ -64,11 +80,17 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
              : new ServiceActivationAccessCode($redirectingAccessCode);
     }
 
+    /**
+     * Access code for Service Activation Access Code System Parameters.
+     */
     public function getRedirectingAccessCode()
     {
-        return (!$this->redirectingAccessCode) ?: $this->redirectingAccessCode->value();
+        return (!$this->redirectingAccessCode) ?: $this->redirectingAccessCode->getValue();
     }
 
+    /**
+     * Access code for Service Activation Access Code System Parameters.
+     */
     public function setClickToDialAccessCode($clickToDialAccessCode = null)
     {
         $this->clickToDialAccessCode = ($clickToDialAccessCode InstanceOf ServiceActivationAccessCode)
@@ -76,8 +98,11 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
              : new ServiceActivationAccessCode($clickToDialAccessCode);
     }
 
+    /**
+     * Access code for Service Activation Access Code System Parameters.
+     */
     public function getClickToDialAccessCode()
     {
-        return (!$this->clickToDialAccessCode) ?: $this->clickToDialAccessCode->value();
+        return (!$this->clickToDialAccessCode) ?: $this->clickToDialAccessCode->getValue();
     }
 }

@@ -18,19 +18,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the profile for a service provider or enterprise.
+     * Modify the profile for a service provider or enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $serviceProviderId            = null;
-    protected $defaultDomain                = null;
-    protected $serviceProviderName          = null;
-    protected $supportEmail                 = null;
-    protected $contact                      = null;
-    protected $address                      = null;
-    protected $useServiceProviderLanguages  = null;
+    public    $name                        = __CLASS__;
+    protected $serviceProviderId           = null;
+    protected $defaultDomain               = null;
+    protected $serviceProviderName         = null;
+    protected $supportEmail                = null;
+    protected $contact                     = null;
+    protected $address                     = null;
+    protected $useServiceProviderLanguages = null;
 
     public function __construct(
          $serviceProviderId,
@@ -50,6 +50,10 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
         $this->setUseServiceProviderLanguages($useServiceProviderLanguages);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -57,11 +61,18 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setDefaultDomain($defaultDomain = null)
     {
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
@@ -69,11 +80,17 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
              : new NetAddress($defaultDomain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->value();
+        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
     }
 
+    /**
+     * Service Provider display name.
+     */
     public function setServiceProviderName($serviceProviderName = null)
     {
         $this->serviceProviderName = ($serviceProviderName InstanceOf ServiceProviderName)
@@ -81,11 +98,17 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
              : new ServiceProviderName($serviceProviderName);
     }
 
+    /**
+     * Service Provider display name.
+     */
     public function getServiceProviderName()
     {
-        return (!$this->serviceProviderName) ?: $this->serviceProviderName->value();
+        return (!$this->serviceProviderName) ?: $this->serviceProviderName->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setSupportEmail($supportEmail = null)
     {
         $this->supportEmail = ($supportEmail InstanceOf EmailAddress)
@@ -93,35 +116,59 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
              : new EmailAddress($supportEmail);
     }
 
+    /**
+     * Email Address
+     */
     public function getSupportEmail()
     {
-        return (!$this->supportEmail) ?: $this->supportEmail->value();
+        return (!$this->supportEmail) ?: $this->supportEmail->getValue();
     }
 
+    /**
+     * Contact information.
+     */
     public function setContact(Contact $contact = null)
     {
+        $this->contact = Contact $contact;
     }
 
+    /**
+     * Contact information.
+     */
     public function getContact()
     {
-        return (!$this->contact) ?: $this->contact->value();
+        return (!$this->contact) ?: $this->contact->getValue();
     }
 
+    /**
+     * Street address information.
+     */
     public function setAddress(StreetAddress $address = null)
     {
+        $this->address = StreetAddress $address;
     }
 
+    /**
+     * Street address information.
+     */
     public function getAddress()
     {
-        return (!$this->address) ?: $this->address->value();
+        return (!$this->address) ?: $this->address->getValue();
     }
 
-    public function setUseServiceProviderLanguages(xs:boolean $useServiceProviderLanguages = null)
+    /**
+     * 
+     */
+    public function setUseServiceProviderLanguages($useServiceProviderLanguages = null)
     {
+        $this->useServiceProviderLanguages = (boolean) $useServiceProviderLanguages;
     }
 
+    /**
+     * 
+     */
     public function getUseServiceProviderLanguages()
     {
-        return (!$this->useServiceProviderLanguages) ?: $this->useServiceProviderLanguages->value();
+        return (!$this->useServiceProviderLanguages) ?: $this->useServiceProviderLanguages->getValue();
     }
 }

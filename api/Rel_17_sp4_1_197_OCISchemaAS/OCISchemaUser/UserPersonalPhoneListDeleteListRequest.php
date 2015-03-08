@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete one or more entries from a user's personal phone list.
+     * Delete one or more entries from a user's personal phone list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPersonalPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $userId     = null;
-    protected $entryName  = null;
+    public    $name      = __CLASS__;
+    protected $userId    = null;
+    protected $entryName = null;
 
     public function __construct(
          $userId,
@@ -31,6 +31,13 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
         $this->setEntryName($entryName);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -38,11 +45,21 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function setEntryName($entryName = null)
     {
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
@@ -50,8 +67,11 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
              : new PhoneListEntryName($entryName);
     }
 
+    /**
+     * The name in a phone list entry.
+     */
     public function getEntryName()
     {
-        return (!$this->entryName) ?: $this->entryName->value();
+        return (!$this->entryName) ?: $this->entryName->getValue();
     }
 }

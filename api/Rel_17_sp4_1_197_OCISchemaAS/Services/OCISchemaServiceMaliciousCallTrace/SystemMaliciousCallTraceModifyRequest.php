@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a Malicious Call Trace system parameter.
+     * Modify a Malicious Call Trace system parameter.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $playMCTWarningAnnouncement  = null;
+    public    $name                       = __CLASS__;
+    protected $playMCTWarningAnnouncement = null;
 
     public function __construct(
          $playMCTWarningAnnouncement = null
@@ -27,12 +27,19 @@ class SystemMaliciousCallTraceModifyRequest extends ComplexType implements Compl
         $this->setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement);
     }
 
-    public function setPlayMCTWarningAnnouncement(xs:boolean $playMCTWarningAnnouncement = null)
+    /**
+     * 
+     */
+    public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
+        $this->playMCTWarningAnnouncement = (boolean) $playMCTWarningAnnouncement;
     }
 
+    /**
+     * 
+     */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->value();
+        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->getValue();
     }
 }

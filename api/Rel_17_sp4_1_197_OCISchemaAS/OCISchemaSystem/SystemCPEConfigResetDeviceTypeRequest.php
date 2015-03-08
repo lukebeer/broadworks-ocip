@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Reset all the devices of the specified device type in the system.
+     * Reset all the devices of the specified device type in the system.
  *         If the device type is not specified, all device in the system are reset.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCPEConfigResetDeviceTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
 
     public function __construct(
          $deviceType = null
@@ -28,6 +28,9 @@ class SystemCPEConfigResetDeviceTypeRequest extends ComplexType implements Compl
         $this->setDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -35,8 +38,11 @@ class SystemCPEConfigResetDeviceTypeRequest extends ComplexType implements Compl
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 }

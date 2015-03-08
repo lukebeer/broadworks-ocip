@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemFileRepositoryDeviceGetRequest.
+     * Response to SystemFileRepositoryDeviceGetRequest.
  */
 class SystemFileRepositoryDeviceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $rootDirectory  = null;
-    protected $port           = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemFileRepositoryDeviceGetResponse';
+    public    $name          = __CLASS__;
+    protected $rootDirectory = null;
+    protected $port          = null;
 
 
+    /**
+     * CPE Configuration File Directory.
+     */
     public function setRootDirectory($rootDirectory = null)
     {
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
@@ -30,11 +34,17 @@ class SystemFileRepositoryDeviceGetResponse extends ComplexType implements Compl
              : new CPEFileDirectory($rootDirectory);
     }
 
+    /**
+     * CPE Configuration File Directory.
+     */
     public function getRootDirectory()
     {
-        return (!$this->rootDirectory) ?: $this->rootDirectory->value();
+        return (!$this->rootDirectory) ?: $this->rootDirectory->getValue();
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function setPort($port = null)
     {
         $this->port = ($port InstanceOf Port)
@@ -42,8 +52,11 @@ class SystemFileRepositoryDeviceGetResponse extends ComplexType implements Compl
              : new Port($port);
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->value();
+        return (!$this->port) ?: $this->port->getValue();
     }
 }

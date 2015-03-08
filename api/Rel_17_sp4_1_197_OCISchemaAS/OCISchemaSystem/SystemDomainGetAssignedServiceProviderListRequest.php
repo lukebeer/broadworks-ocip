@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a list of service providers that have a given domain assigned.
+     * Request a list of service providers that have a given domain assigned.
  *         The response is either SystemDomainGetAssignedServiceProviderListResponse or ErrorResponse.
  */
 class SystemDomainGetAssignedServiceProviderListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
-    protected $domain  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetAssignedServiceProviderListResponse';
+    public    $name   = __CLASS__;
+    protected $domain = null;
 
     public function __construct(
          $domain
@@ -27,6 +28,9 @@ class SystemDomainGetAssignedServiceProviderListRequest extends ComplexType impl
         $this->setDomain($domain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setDomain($domain = null)
     {
         $this->domain = ($domain InstanceOf NetAddress)
@@ -34,8 +38,11 @@ class SystemDomainGetAssignedServiceProviderListRequest extends ComplexType impl
              : new NetAddress($domain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getDomain()
     {
-        return (!$this->domain) ?: $this->domain->value();
+        return (!$this->domain) ?: $this->domain->getValue();
     }
 }

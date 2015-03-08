@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a table containing the phone directory for a user.  
+     * Request a table containing the phone directory for a user.  
  *         Setting isEnterpriseRequested to true will return enterprise directory
  *         members in the response if the user is in an enterprise. Otherwise,
  *         just the group directory members for a user are returned in the 
@@ -42,22 +42,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $userId                             = null;
-    protected $isEnterpriseInfoRequested          = null;
-    protected $responsePagingControl              = null;
-    protected $searchCriteriaModeOr               = null;
-    protected $searchCriteriaUserLastName         = null;
-    protected $searchCriteriaUserFirstName        = null;
-    protected $searchCriteriaDn                   = null;
-    protected $searchCriteriaGroupLocationCode    = null;
-    protected $searchCriteriaExtension            = null;
-    protected $searchCriteriaMobilePhoneNumber    = null;
-    protected $searchCriteriaEmailAddress         = null;
-    protected $searchCriteriaYahooId              = null;
-    protected $searchCriteriaExactUserGroup       = null;
-    protected $searchCriteriaExactUserDepartment  = null;
-    protected $searchCriteriaUserId               = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
+    public    $name                              = __CLASS__;
+    protected $userId                            = null;
+    protected $isEnterpriseInfoRequested         = null;
+    protected $responsePagingControl             = null;
+    protected $searchCriteriaModeOr              = null;
+    protected $searchCriteriaUserLastName        = null;
+    protected $searchCriteriaUserFirstName       = null;
+    protected $searchCriteriaDn                  = null;
+    protected $searchCriteriaGroupLocationCode   = null;
+    protected $searchCriteriaExtension           = null;
+    protected $searchCriteriaMobilePhoneNumber   = null;
+    protected $searchCriteriaEmailAddress        = null;
+    protected $searchCriteriaYahooId             = null;
+    protected $searchCriteriaExactUserGroup      = null;
+    protected $searchCriteriaExactUserDepartment = null;
+    protected $searchCriteriaUserId              = null;
 
     public function __construct(
          $userId,
@@ -93,6 +94,13 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
         $this->setSearchCriteriaUserId($searchCriteriaUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -100,134 +108,243 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsEnterpriseInfoRequested(xs:boolean $isEnterpriseInfoRequested = null)
+    /**
+     * 
+     */
+    public function setIsEnterpriseInfoRequested($isEnterpriseInfoRequested = null)
     {
+        $this->isEnterpriseInfoRequested = (boolean) $isEnterpriseInfoRequested;
     }
 
+    /**
+     * 
+     */
     public function getIsEnterpriseInfoRequested()
     {
-        return (!$this->isEnterpriseInfoRequested) ?: $this->isEnterpriseInfoRequested->value();
+        return (!$this->isEnterpriseInfoRequested) ?: $this->isEnterpriseInfoRequested->getValue();
     }
 
+    /**
+     * Used in queries to restrict the set of result rows when making a request that can result in
+     *         a large dataset. The client specifies the starting row and the number of rows requested. 
+     *         The server only provides those rows in results, if available.
+     */
     public function setResponsePagingControl(ResponsePagingControl $responsePagingControl = null)
     {
+        $this->responsePagingControl = ResponsePagingControl $responsePagingControl;
     }
 
+    /**
+     * Used in queries to restrict the set of result rows when making a request that can result in
+     *         a large dataset. The client specifies the starting row and the number of rows requested. 
+     *         The server only provides those rows in results, if available.
+     */
     public function getResponsePagingControl()
     {
-        return (!$this->responsePagingControl) ?: $this->responsePagingControl->value();
+        return (!$this->responsePagingControl) ?: $this->responsePagingControl->getValue();
     }
 
-    public function setSearchCriteriaModeOr(xs:boolean $searchCriteriaModeOr = null)
+    /**
+     * 
+     */
+    public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
+        $this->searchCriteriaModeOr = (boolean) $searchCriteriaModeOr;
     }
 
+    /**
+     * 
+     */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->value();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
+        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
+        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
+        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
+        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
     }
 
+    /**
+     * Criteria for searching for a group location dialing code.
+     */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
+        $this->searchCriteriaGroupLocationCode = SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode;
     }
 
+    /**
+     * Criteria for searching for a group location dialing code.
+     */
     public function getSearchCriteriaGroupLocationCode()
     {
-        return (!$this->searchCriteriaGroupLocationCode) ?: $this->searchCriteriaGroupLocationCode->value();
+        return (!$this->searchCriteriaGroupLocationCode) ?: $this->searchCriteriaGroupLocationCode->getValue();
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
+        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function getSearchCriteriaExtension()
     {
-        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->value();
+        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's mobile phone number.
+     */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
+        $this->searchCriteriaMobilePhoneNumber = SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber;
     }
 
+    /**
+     * Criteria for searching for a user's mobile phone number.
+     */
     public function getSearchCriteriaMobilePhoneNumber()
     {
-        return (!$this->searchCriteriaMobilePhoneNumber) ?: $this->searchCriteriaMobilePhoneNumber->value();
+        return (!$this->searchCriteriaMobilePhoneNumber) ?: $this->searchCriteriaMobilePhoneNumber->getValue();
     }
 
+    /**
+     * Criteria for searching for a email address.
+     */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
+        $this->searchCriteriaEmailAddress = SearchCriteriaEmailAddress $searchCriteriaEmailAddress;
     }
 
+    /**
+     * Criteria for searching for a email address.
+     */
     public function getSearchCriteriaEmailAddress()
     {
-        return (!$this->searchCriteriaEmailAddress) ?: $this->searchCriteriaEmailAddress->value();
+        return (!$this->searchCriteriaEmailAddress) ?: $this->searchCriteriaEmailAddress->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's yahoo id.
+     */
     public function setSearchCriteriaYahooId(SearchCriteriaYahooId $searchCriteriaYahooId = null)
     {
+        $this->searchCriteriaYahooId = SearchCriteriaYahooId $searchCriteriaYahooId;
     }
 
+    /**
+     * Criteria for searching for a user's yahoo id.
+     */
     public function getSearchCriteriaYahooId()
     {
-        return (!$this->searchCriteriaYahooId) ?: $this->searchCriteriaYahooId->value();
+        return (!$this->searchCriteriaYahooId) ?: $this->searchCriteriaYahooId->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's group.
+     */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
+        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's group.
+     */
     public function getSearchCriteriaExactUserGroup()
     {
-        return (!$this->searchCriteriaExactUserGroup) ?: $this->searchCriteriaExactUserGroup->value();
+        return (!$this->searchCriteriaExactUserGroup) ?: $this->searchCriteriaExactUserGroup->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
+        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function getSearchCriteriaExactUserDepartment()
     {
-        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->value();
+        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
+        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function getSearchCriteriaUserId()
     {
-        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
+        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->getValue();
     }
 }

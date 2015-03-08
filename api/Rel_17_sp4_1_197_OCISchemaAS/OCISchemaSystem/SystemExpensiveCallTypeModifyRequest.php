@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an existing call indicator in the list of expensive alternate call indicators.
+     * Modify an existing call indicator in the list of expensive alternate call indicators.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExpensiveCallTypeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $alternateCallIndicator  = null;
+    public    $name                   = __CLASS__;
+    protected $alternateCallIndicator = null;
 
     public function __construct(
          $alternateCallIndicator
@@ -27,6 +27,9 @@ class SystemExpensiveCallTypeModifyRequest extends ComplexType implements Comple
         $this->setAlternateCallIndicator($alternateCallIndicator);
     }
 
+    /**
+     * Network Server Alternate Call Indicator.
+     */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
@@ -34,8 +37,11 @@ class SystemExpensiveCallTypeModifyRequest extends ComplexType implements Comple
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
     }
 
+    /**
+     * Network Server Alternate Call Indicator.
+     */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->value();
+        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
     }
 }

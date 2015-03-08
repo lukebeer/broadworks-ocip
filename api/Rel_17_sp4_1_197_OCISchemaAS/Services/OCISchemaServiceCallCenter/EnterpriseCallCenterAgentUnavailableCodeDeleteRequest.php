@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Call Center Agent Unavailable Code.
+     * Delete a Call Center Agent Unavailable Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $code               = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $code              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
         $this->setCode($code);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function setCode($code = null)
     {
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
@@ -50,8 +61,11 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
              : new CallCenterAgentUnavailableCode($code);
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 }

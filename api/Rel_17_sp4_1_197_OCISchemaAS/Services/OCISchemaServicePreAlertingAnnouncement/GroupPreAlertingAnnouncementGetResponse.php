@@ -18,24 +18,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the group level pre-alerting service settings.
+     * Get the group level pre-alerting service settings.
  *         The response is either a GroupPreAlertingAnnouncementGetResponse or an ErrorResponse.
  */
 class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $announcementInterruption   = null;
-    protected $interruptionDigitSequence  = null;
-    protected $audioSelection             = null;
-    protected $audioFileDescription       = null;
-    protected $audioMediaType             = null;
-    protected $audioFileUrl               = null;
-    protected $videoSelection             = null;
-    protected $videoFileDescription       = null;
-    protected $videoMediaType             = null;
-    protected $videoFileUrl               = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement\GroupPreAlertingAnnouncementGetResponse';
+    public    $name                      = __CLASS__;
+    protected $announcementInterruption  = null;
+    protected $interruptionDigitSequence = null;
+    protected $audioSelection            = null;
+    protected $audioFileDescription      = null;
+    protected $audioMediaType            = null;
+    protected $audioFileUrl              = null;
+    protected $videoSelection            = null;
+    protected $videoFileDescription      = null;
+    protected $videoMediaType            = null;
+    protected $videoFileUrl              = null;
 
 
+    /**
+     * Pre-alerting Announcement interrupt type.
+     */
     public function setAnnouncementInterruption($announcementInterruption = null)
     {
         $this->announcementInterruption = ($announcementInterruption InstanceOf PreAlertingAnnouncementInterrupt)
@@ -43,11 +47,18 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new PreAlertingAnnouncementInterrupt($announcementInterruption);
     }
 
+    /**
+     * Pre-alerting Announcement interrupt type.
+     */
     public function getAnnouncementInterruption()
     {
-        return (!$this->announcementInterruption) ?: $this->announcementInterruption->value();
+        return (!$this->announcementInterruption) ?: $this->announcementInterruption->getValue();
     }
 
+    /**
+     * Pre-alerting Announcement Interrupt digit sequence.
+     *         The Interrupt digit sequence may contain digits 0-9, *, and #.
+     */
     public function setInterruptionDigitSequence($interruptionDigitSequence = null)
     {
         $this->interruptionDigitSequence = ($interruptionDigitSequence InstanceOf PreAlertingAnnouncementInterruptDigits)
@@ -55,11 +66,18 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
     }
 
+    /**
+     * Pre-alerting Announcement Interrupt digit sequence.
+     *         The Interrupt digit sequence may contain digits 0-9, *, and #.
+     */
     public function getInterruptionDigitSequence()
     {
-        return (!$this->interruptionDigitSequence) ?: $this->interruptionDigitSequence->value();
+        return (!$this->interruptionDigitSequence) ?: $this->interruptionDigitSequence->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioSelection($audioSelection = null)
     {
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
@@ -67,11 +85,17 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new ExtendedFileResourceSelection($audioSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->value();
+        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
@@ -79,11 +103,21 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new FileDescription($audioFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
+        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setAudioMediaType($audioMediaType = null)
     {
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
@@ -91,11 +125,21 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new MediaFileType($audioMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getAudioMediaType()
     {
-        return (!$this->audioMediaType) ?: $this->audioMediaType->value();
+        return (!$this->audioMediaType) ?: $this->audioMediaType->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setAudioFileUrl($audioFileUrl = null)
     {
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
@@ -103,11 +147,17 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new URL($audioFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->value();
+        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoSelection($videoSelection = null)
     {
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
@@ -115,11 +165,17 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new ExtendedFileResourceSelection($videoSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->value();
+        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
@@ -127,11 +183,21 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new FileDescription($videoFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
+        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setVideoMediaType($videoMediaType = null)
     {
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
@@ -139,11 +205,21 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new MediaFileType($videoMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getVideoMediaType()
     {
-        return (!$this->videoMediaType) ?: $this->videoMediaType->value();
+        return (!$this->videoMediaType) ?: $this->videoMediaType->getValue();
     }
 
+    /**
+     * URL.
+     */
     public function setVideoFileUrl($videoFileUrl = null)
     {
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
@@ -151,8 +227,11 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
              : new URL($videoFileUrl);
     }
 
+    /**
+     * URL.
+     */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->value();
+        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
     }
 }

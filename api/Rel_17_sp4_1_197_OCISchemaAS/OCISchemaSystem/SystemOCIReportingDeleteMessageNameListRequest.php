@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a list of reported messages from a host in the OCI Reporting
+     * Delete a list of reported messages from a host in the OCI Reporting
  *         Access Control List. The response is either a SuccessResponse or an
  *         ErrorResponse.
  */
 class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $netAddress  = null;
+    public    $name       = __CLASS__;
+    protected $netAddress = null;
 
     public function __construct(
          $netAddress
@@ -28,6 +28,9 @@ class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType impleme
         $this->setNetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -35,8 +38,11 @@ class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType impleme
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 }

@@ -18,18 +18,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a department administrator to a group department.
+     * Add a department administrator to a group department.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $departmentKey  = null;
-    protected $userId         = null;
-    protected $firstName      = null;
-    protected $lastName       = null;
-    protected $password       = null;
-    protected $language       = null;
+    public    $name          = __CLASS__;
+    protected $departmentKey = null;
+    protected $userId        = null;
+    protected $firstName     = null;
+    protected $lastName      = null;
+    protected $password      = null;
+    protected $language      = null;
 
     public function __construct(
          GroupDepartmentKey $departmentKey,
@@ -47,15 +47,33 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
         $this->setLanguage($language);
     }
 
+    /**
+     * Uniquely identifies a department defined within a group.
+     *         To uniquely identify a group department, we must know the department name and which
+     *         group contains the department.
+     */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
+        $this->departmentKey = GroupDepartmentKey $departmentKey;
     }
 
+    /**
+     * Uniquely identifies a department defined within a group.
+     *         To uniquely identify a group department, we must know the department name and which
+     *         group contains the department.
+     */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->value();
+        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -63,11 +81,21 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function setFirstName($firstName = null)
     {
         $this->firstName = ($firstName InstanceOf FirstName)
@@ -75,11 +103,17 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
              : new FirstName($firstName);
     }
 
+    /**
+     * First Name is the first name of a user or an administrator.
+     */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->value();
+        return (!$this->firstName) ?: $this->firstName->getValue();
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function setLastName($lastName = null)
     {
         $this->lastName = ($lastName InstanceOf LastName)
@@ -87,11 +121,17 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
              : new LastName($lastName);
     }
 
+    /**
+     * Last Name is the last name of a user or an administrator.
+     */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->value();
+        return (!$this->lastName) ?: $this->lastName->getValue();
     }
 
+    /**
+     * 
+     */
     public function setPassword($password = null)
     {
         $this->password = ($password InstanceOf Password)
@@ -99,11 +139,17 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
              : new Password($password);
     }
 
+    /**
+     * 
+     */
     public function getPassword()
     {
-        return (!$this->password) ?: $this->password->value();
+        return (!$this->password) ?: $this->password->getValue();
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -111,8 +157,11 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 }

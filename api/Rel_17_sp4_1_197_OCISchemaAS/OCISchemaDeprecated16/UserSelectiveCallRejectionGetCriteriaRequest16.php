@@ -14,15 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a criteria for the user's selective call rejection service.
+     * Get a criteria for the user's selective call rejection service.
  *         The response is either a UserSelectiveCallRejectionGetCriteriaResponse16 or an ErrorResponse.
  *         Replaced by: UserSelectiveCallRejectionGetCriteriaRequest16sp1
  */
 class UserSelectiveCallRejectionGetCriteriaRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $userId        = null;
-    protected $criteriaName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSelectiveCallRejectionGetCriteriaResponse16';
+    public    $name         = __CLASS__;
+    protected $userId       = null;
+    protected $criteriaName = null;
 
     public function __construct(
          $userId,
@@ -32,6 +33,13 @@ class UserSelectiveCallRejectionGetCriteriaRequest16 extends ComplexType impleme
         $this->setCriteriaName($criteriaName);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -39,11 +47,21 @@ class UserSelectiveCallRejectionGetCriteriaRequest16 extends ComplexType impleme
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Criteria Name
+     */
     public function setCriteriaName($criteriaName = null)
     {
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
@@ -51,8 +69,11 @@ class UserSelectiveCallRejectionGetCriteriaRequest16 extends ComplexType impleme
              : new CriteriaName($criteriaName);
     }
 
+    /**
+     * Criteria Name
+     */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->value();
+        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
     }
 }

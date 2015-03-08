@@ -14,13 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Weekly recurrence conference schedule used in the context of a conference add.
+     * Weekly recurrence conference schedule used in the context of a conference add.
  */
 class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $recurrenceWeekInterval  = null;
-    protected $dayOfWeek               = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleWeekly';
+    public    $name                   = __CLASS__;
+    protected $recurrenceWeekInterval = null;
+    protected $dayOfWeek              = null;
 
     public function __construct(
          $recurrenceWeekInterval,
@@ -30,6 +31,9 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
         $this->setDayOfWeek($dayOfWeek);
     }
 
+    /**
+     * The recurrence interval for weekly schedule.
+     */
     public function setRecurrenceWeekInterval($recurrenceWeekInterval = null)
     {
         $this->recurrenceWeekInterval = ($recurrenceWeekInterval InstanceOf InstantConferencingRecurrenceWeekInterval)
@@ -37,11 +41,17 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
              : new InstantConferencingRecurrenceWeekInterval($recurrenceWeekInterval);
     }
 
+    /**
+     * The recurrence interval for weekly schedule.
+     */
     public function getRecurrenceWeekInterval()
     {
-        return (!$this->recurrenceWeekInterval) ?: $this->recurrenceWeekInterval->value();
+        return (!$this->recurrenceWeekInterval) ?: $this->recurrenceWeekInterval->getValue();
     }
 
+    /**
+     * Days of the week (Sunday-Saturday).
+     */
     public function setDayOfWeek($dayOfWeek = null)
     {
         $this->dayOfWeek = ($dayOfWeek InstanceOf DayOfWeek)
@@ -49,8 +59,11 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
              : new DayOfWeek($dayOfWeek);
     }
 
+    /**
+     * Days of the week (Sunday-Saturday).
+     */
     public function getDayOfWeek()
     {
-        return (!$this->dayOfWeek) ?: $this->dayOfWeek->value();
+        return (!$this->dayOfWeek) ?: $this->dayOfWeek->getValue();
     }
 }

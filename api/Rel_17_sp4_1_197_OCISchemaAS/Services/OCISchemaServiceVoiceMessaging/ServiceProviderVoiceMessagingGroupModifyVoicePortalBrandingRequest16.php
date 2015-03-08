@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the service provider's voice portal branding settings.
+     * Modify the service provider's voice portal branding settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $serviceProviderId                = null;
-    protected $voicePortalGreetingSelection     = null;
-    protected $voicePortalGreetingFile          = null;
-    protected $voiceMessagingGreetingSelection  = null;
-    protected $voiceMessagingGreetingFile       = null;
+    public    $name                            = __CLASS__;
+    protected $serviceProviderId               = null;
+    protected $voicePortalGreetingSelection    = null;
+    protected $voicePortalGreetingFile         = null;
+    protected $voiceMessagingGreetingSelection = null;
+    protected $voiceMessagingGreetingFile      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +41,10 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
         $this->setVoiceMessagingGreetingFile($voiceMessagingGreetingFile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,11 +52,18 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Branding Selection.
+     */
     public function setVoicePortalGreetingSelection($voicePortalGreetingSelection = null)
     {
         $this->voicePortalGreetingSelection = ($voicePortalGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
@@ -60,20 +71,35 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
              : new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
     }
 
+    /**
+     * Branding Selection.
+     */
     public function getVoicePortalGreetingSelection()
     {
-        return (!$this->voicePortalGreetingSelection) ?: $this->voicePortalGreetingSelection->value();
+        return (!$this->voicePortalGreetingSelection) ?: $this->voicePortalGreetingSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setVoicePortalGreetingFile(LabeledMediaFileResource $voicePortalGreetingFile = null)
     {
+        $this->voicePortalGreetingFile = LabeledMediaFileResource $voicePortalGreetingFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getVoicePortalGreetingFile()
     {
-        return (!$this->voicePortalGreetingFile) ?: $this->voicePortalGreetingFile->value();
+        return (!$this->voicePortalGreetingFile) ?: $this->voicePortalGreetingFile->getValue();
     }
 
+    /**
+     * Branding Selection.
+     */
     public function setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection = null)
     {
         $this->voiceMessagingGreetingSelection = ($voiceMessagingGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
@@ -81,17 +107,29 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
              : new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
     }
 
+    /**
+     * Branding Selection.
+     */
     public function getVoiceMessagingGreetingSelection()
     {
-        return (!$this->voiceMessagingGreetingSelection) ?: $this->voiceMessagingGreetingSelection->value();
+        return (!$this->voiceMessagingGreetingSelection) ?: $this->voiceMessagingGreetingSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function setVoiceMessagingGreetingFile(LabeledMediaFileResource $voiceMessagingGreetingFile = null)
     {
+        $this->voiceMessagingGreetingFile = LabeledMediaFileResource $voiceMessagingGreetingFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer with a description.
+     */
     public function getVoiceMessagingGreetingFile()
     {
-        return (!$this->voiceMessagingGreetingFile) ?: $this->voiceMessagingGreetingFile->value();
+        return (!$this->voiceMessagingGreetingFile) ?: $this->voiceMessagingGreetingFile->getValue();
     }
 }

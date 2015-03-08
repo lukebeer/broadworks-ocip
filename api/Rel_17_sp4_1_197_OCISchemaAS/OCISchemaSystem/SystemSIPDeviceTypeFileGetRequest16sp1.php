@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a sip device type file.
+     * Request to get a sip device type file.
  *           The response is either SystemSIPDeviceTypeFileGetResponse16sp1 or ErrorResponse.
  */
 class SystemSIPDeviceTypeFileGetRequest16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
-    protected $fileFormat  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeFileGetResponse16sp1';
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
+    protected $fileFormat = null;
 
     public function __construct(
          $deviceType,
@@ -31,6 +32,9 @@ class SystemSIPDeviceTypeFileGetRequest16sp1 extends ComplexType implements Comp
         $this->setFileFormat($fileFormat);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -38,11 +42,17 @@ class SystemSIPDeviceTypeFileGetRequest16sp1 extends ComplexType implements Comp
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileFormat($fileFormat = null)
     {
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
@@ -50,8 +60,11 @@ class SystemSIPDeviceTypeFileGetRequest16sp1 extends ComplexType implements Comp
              : new DeviceManagementFileFormat($fileFormat);
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->value();
+        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
     }
 }

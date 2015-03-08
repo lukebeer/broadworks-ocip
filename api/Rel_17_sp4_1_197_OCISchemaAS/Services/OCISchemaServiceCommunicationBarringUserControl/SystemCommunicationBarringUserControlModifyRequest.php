@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies the system's Communication Barring User-Control settings.
+     * Modifies the system's Communication Barring User-Control settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $enableLockout              = null;
-    protected $maxNumberOfFailedAttempts  = null;
-    protected $lockoutMinutes             = null;
+    public    $name                      = __CLASS__;
+    protected $enableLockout             = null;
+    protected $maxNumberOfFailedAttempts = null;
+    protected $lockoutMinutes            = null;
 
     public function __construct(
          $enableLockout = null,
@@ -34,15 +34,25 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
         $this->setLockoutMinutes($lockoutMinutes);
     }
 
-    public function setEnableLockout(xs:boolean $enableLockout = null)
+    /**
+     * 
+     */
+    public function setEnableLockout($enableLockout = null)
     {
+        $this->enableLockout = (boolean) $enableLockout;
     }
 
+    /**
+     * 
+     */
     public function getEnableLockout()
     {
-        return (!$this->enableLockout) ?: $this->enableLockout->value();
+        return (!$this->enableLockout) ?: $this->enableLockout->getValue();
     }
 
+    /**
+     * Communication Barring User-Control number of attempts to get pin code correct.
+     */
     public function setMaxNumberOfFailedAttempts($maxNumberOfFailedAttempts = null)
     {
         $this->maxNumberOfFailedAttempts = ($maxNumberOfFailedAttempts InstanceOf CommunicationBarringUserControlNumberOfAttempts)
@@ -50,11 +60,17 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
              : new CommunicationBarringUserControlNumberOfAttempts($maxNumberOfFailedAttempts);
     }
 
+    /**
+     * Communication Barring User-Control number of attempts to get pin code correct.
+     */
     public function getMaxNumberOfFailedAttempts()
     {
-        return (!$this->maxNumberOfFailedAttempts) ?: $this->maxNumberOfFailedAttempts->value();
+        return (!$this->maxNumberOfFailedAttempts) ?: $this->maxNumberOfFailedAttempts->getValue();
     }
 
+    /**
+     * Communication Barring User-Control lockout time in minutes.
+     */
     public function setLockoutMinutes($lockoutMinutes = null)
     {
         $this->lockoutMinutes = ($lockoutMinutes InstanceOf CommunicationBarringUserControlLockoutMinutes)
@@ -62,8 +78,11 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
              : new CommunicationBarringUserControlLockoutMinutes($lockoutMinutes);
     }
 
+    /**
+     * Communication Barring User-Control lockout time in minutes.
+     */
     public function getLockoutMinutes()
     {
-        return (!$this->lockoutMinutes) ?: $this->lockoutMinutes->value();
+        return (!$this->lockoutMinutes) ?: $this->lockoutMinutes->getValue();
     }
 }

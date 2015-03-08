@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an application controller to Route Point External System.
+     * Add an application controller to Route Point External System.
  *       The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $name                   = null;
-    protected $applicationController  = null;
+    public    $name                  = __CLASS__;
+    protected $name                  = null;
+    protected $applicationController = null;
 
     public function __construct(
          $name,
@@ -31,6 +31,9 @@ class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends 
         $this->setApplicationController($applicationController);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf RoutePointExternalSystem)
@@ -38,11 +41,17 @@ class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends 
              : new RoutePointExternalSystem($name);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * The application controller name.
+     */
     public function setApplicationController($applicationController = null)
     {
         $this->applicationController = ($applicationController InstanceOf ApplicationControllerName)
@@ -50,8 +59,11 @@ class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends 
              : new ApplicationControllerName($applicationController);
     }
 
+    /**
+     * The application controller name.
+     */
     public function getApplicationController()
     {
-        return (!$this->applicationController) ?: $this->applicationController->value();
+        return (!$this->applicationController) ?: $this->applicationController->getValue();
     }
 }

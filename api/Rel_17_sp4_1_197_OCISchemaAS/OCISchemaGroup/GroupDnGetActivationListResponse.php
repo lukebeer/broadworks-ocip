@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupDnGetActivationListRequest.
+     * Response to the GroupDnGetActivationListRequest.
  *         The response contains a table with columns: "Phone Numbers", and "Activated".  ".  Phone Numbers are only returned if assigned to a user.
  *         The "Phone Numbers" column contains either a single DN or a range of DNs.
  *         The "Activated" column indicates if the phone number(s) are activated or not.
  */
 class GroupDnGetActivationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $dnTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetActivationListResponse';
+    public    $name    = __CLASS__;
+    protected $dnTable = null;
 
 
+    /**
+     * 
+     */
     public function setDnTable(core:OCITable $dnTable = null)
     {
+        $this->dnTable = core:OCITable $dnTable;
     }
 
+    /**
+     * 
+     */
     public function getDnTable()
     {
-        return (!$this->dnTable) ?: $this->dnTable->value();
+        return (!$this->dnTable) ?: $this->dnTable->getValue();
     }
 }

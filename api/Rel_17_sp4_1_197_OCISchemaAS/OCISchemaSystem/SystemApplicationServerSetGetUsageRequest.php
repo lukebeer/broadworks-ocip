@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get list of enterprises, service providers, and service provider groups currently associated to the specified Application Server set.
+     * Get list of enterprises, service providers, and service provider groups currently associated to the specified Application Server set.
  *         The response is either SystemApplicationServerSetGetUsageResponse or ErrorResponse.
  */
 class SystemApplicationServerSetGetUsageRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +28,9 @@ class SystemApplicationServerSetGetUsageRequest extends ComplexType implements C
         $this->setName($name);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ApplicationServerSetName)
@@ -34,8 +38,11 @@ class SystemApplicationServerSetGetUsageRequest extends ComplexType implements C
              : new ApplicationServerSetName($name);
     }
 
+    /**
+     * Application Server set name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

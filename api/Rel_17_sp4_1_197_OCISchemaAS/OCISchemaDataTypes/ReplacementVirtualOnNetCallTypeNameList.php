@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * A list of Virtual On-Net Call Types that replaces a previously 
+     * A list of Virtual On-Net Call Types that replaces a previously 
  *         configured list. By convention, an element of this type may be set 
  *         to nill to clear the list.
  */
 class ReplacementVirtualOnNetCallTypeNameList extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementVirtualOnNetCallTypeNameList';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

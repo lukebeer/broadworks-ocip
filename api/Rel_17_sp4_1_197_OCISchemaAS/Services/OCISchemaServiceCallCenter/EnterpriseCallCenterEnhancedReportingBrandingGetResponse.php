@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the EnterpriseCallCenterEnhancedReportingBrandingGetRequest.
+     * Response to the EnterpriseCallCenterEnhancedReportingBrandingGetRequest.
  */
 class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $brandingChoice           = null;
-    protected $brandingFileDescription  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingBrandingGetResponse';
+    public    $name                    = __CLASS__;
+    protected $brandingChoice          = null;
+    protected $brandingFileDescription = null;
 
 
+    /**
+     * The call center enhanced reporting Enterprise or Group level branding choice.
+     */
     public function setBrandingChoice($brandingChoice = null)
     {
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
@@ -30,11 +34,17 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
     }
 
+    /**
+     * The call center enhanced reporting Enterprise or Group level branding choice.
+     */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->value();
+        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setBrandingFileDescription($brandingFileDescription = null)
     {
         $this->brandingFileDescription = ($brandingFileDescription InstanceOf FileDescription)
@@ -42,8 +52,11 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
              : new FileDescription($brandingFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getBrandingFileDescription()
     {
-        return (!$this->brandingFileDescription) ?: $this->brandingFileDescription->value();
+        return (!$this->brandingFileDescription) ?: $this->brandingFileDescription->getValue();
     }
 }

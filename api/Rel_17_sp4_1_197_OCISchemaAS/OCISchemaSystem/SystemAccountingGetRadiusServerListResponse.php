@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemAccountingGetRadiusServerListRequest. The Radius Server table
+     * Response to SystemAccountingGetRadiusServerListRequest. The Radius Server table
  *         column headings are: "Net Address", "Port", "Description"
  */
 class SystemAccountingGetRadiusServerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $radiusServerTable  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingGetRadiusServerListResponse';
+    public    $name              = __CLASS__;
+    protected $radiusServerTable = null;
 
 
+    /**
+     * 
+     */
     public function setRadiusServerTable(core:OCITable $radiusServerTable = null)
     {
+        $this->radiusServerTable = core:OCITable $radiusServerTable;
     }
 
+    /**
+     * 
+     */
     public function getRadiusServerTable()
     {
-        return (!$this->radiusServerTable) ?: $this->radiusServerTable->value();
+        return (!$this->radiusServerTable) ?: $this->radiusServerTable->getValue();
     }
 }

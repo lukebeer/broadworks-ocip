@@ -16,19 +16,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Adds a Custom Contact Directory to a group.
+     * Adds a Custom Contact Directory to a group.
  *         The response is either SuccessResponse or ErrorResponse.
  * 
  *         Replace by: GroupCustomContactDirectoryModifyRequest17
  */
 class GroupCustomContactDirectoryModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $name               = null;
-    protected $newName            = null;
-    protected $userIdList         = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $name              = null;
+    protected $newName           = null;
+    protected $userIdList        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -44,6 +44,10 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
         $this->setUserIdList($userIdList);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -51,11 +55,19 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -63,11 +75,18 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CustomContactDirectoryName)
@@ -75,11 +94,17 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
              : new CustomContactDirectoryName($name);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setNewName($newName = null)
     {
         $this->newName = ($newName InstanceOf CustomContactDirectoryName)
@@ -87,17 +112,29 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
              : new CustomContactDirectoryName($newName);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->value();
+        return (!$this->newName) ?: $this->newName->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
+        $this->userIdList = ReplacementUserIdList $userIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getUserIdList()
     {
-        return (!$this->userIdList) ?: $this->userIdList->value();
+        return (!$this->userIdList) ?: $this->userIdList->getValue();
     }
 }

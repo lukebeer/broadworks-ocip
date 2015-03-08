@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Multimedia Policy.
+     * Modify the system level data associated with Multimedia Policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMultimediaPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $restrictNonAudioVideoMediaTypes  = null;
+    public    $name                            = __CLASS__;
+    protected $restrictNonAudioVideoMediaTypes = null;
 
     public function __construct(
          $restrictNonAudioVideoMediaTypes = null
@@ -27,12 +27,19 @@ class SystemMultimediaPolicyModifyRequest extends ComplexType implements Complex
         $this->setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes);
     }
 
-    public function setRestrictNonAudioVideoMediaTypes(xs:boolean $restrictNonAudioVideoMediaTypes = null)
+    /**
+     * 
+     */
+    public function setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes = null)
     {
+        $this->restrictNonAudioVideoMediaTypes = (boolean) $restrictNonAudioVideoMediaTypes;
     }
 
+    /**
+     * 
+     */
     public function getRestrictNonAudioVideoMediaTypes()
     {
-        return (!$this->restrictNonAudioVideoMediaTypes) ?: $this->restrictNonAudioVideoMediaTypes->value();
+        return (!$this->restrictNonAudioVideoMediaTypes) ?: $this->restrictNonAudioVideoMediaTypes->getValue();
     }
 }

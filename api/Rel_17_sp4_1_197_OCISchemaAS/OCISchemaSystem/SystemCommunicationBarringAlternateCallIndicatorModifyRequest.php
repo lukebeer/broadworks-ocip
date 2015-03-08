@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a Communication Barring Alternate Call Indicator.
+     * Modify a Communication Barring Alternate Call Indicator.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringAlternateCallIndicatorModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
-    protected $alternateCallIndicator               = null;
-    protected $networkServerAlternateCallIndicator  = null;
+    public    $name                                = __CLASS__;
+    protected $alternateCallIndicator              = null;
+    protected $networkServerAlternateCallIndicator = null;
 
     public function __construct(
          $alternateCallIndicator,
@@ -31,6 +31,9 @@ class SystemCommunicationBarringAlternateCallIndicatorModifyRequest extends Comp
         $this->setNetworkServerAlternateCallIndicator($networkServerAlternateCallIndicator);
     }
 
+    /**
+     * Communication Barring Alternate Call Indicator.
+     */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
@@ -38,11 +41,17 @@ class SystemCommunicationBarringAlternateCallIndicatorModifyRequest extends Comp
              : new CommunicationBarringAlternateCallIndicator($alternateCallIndicator);
     }
 
+    /**
+     * Communication Barring Alternate Call Indicator.
+     */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->value();
+        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
     }
 
+    /**
+     * Network Server Alternate Call Indicator.
+     */
     public function setNetworkServerAlternateCallIndicator($networkServerAlternateCallIndicator = null)
     {
         $this->networkServerAlternateCallIndicator = ($networkServerAlternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
@@ -50,8 +59,11 @@ class SystemCommunicationBarringAlternateCallIndicatorModifyRequest extends Comp
              : new NetworkServerAlternateCallIndicator($networkServerAlternateCallIndicator);
     }
 
+    /**
+     * Network Server Alternate Call Indicator.
+     */
     public function getNetworkServerAlternateCallIndicator()
     {
-        return (!$this->networkServerAlternateCallIndicator) ?: $this->networkServerAlternateCallIndicator->value();
+        return (!$this->networkServerAlternateCallIndicator) ?: $this->networkServerAlternateCallIndicator->getValue();
     }
 }

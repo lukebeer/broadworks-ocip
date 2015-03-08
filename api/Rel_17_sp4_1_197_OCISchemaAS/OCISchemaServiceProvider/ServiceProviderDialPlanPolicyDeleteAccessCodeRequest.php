@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a Service Provider level Dial Plan Access Code and its all attribues.
+     * Request to delete a Service Provider level Dial Plan Access Code and its all attribues.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $accessCode         = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $accessCode        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
         $this->setAccessCode($accessCode);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,19 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Dial Plan Access Code.
+     *         The Access Code may contain digits 0-9, *, and #.
+     */
     public function setAccessCode($accessCode = null)
     {
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
@@ -50,8 +62,12 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
              : new DialPlanAccessCode($accessCode);
     }
 
+    /**
+     * Dial Plan Access Code.
+     *         The Access Code may contain digits 0-9, *, and #.
+     */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->value();
+        return (!$this->accessCode) ?: $this->accessCode->getValue();
     }
 }

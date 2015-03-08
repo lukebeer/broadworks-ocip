@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a SMDI Server route to the system.
+     * Request to add a SMDI Server route to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $routeDestination  = null;
-    protected $deviceName        = null;
+    public    $name             = __CLASS__;
+    protected $routeDestination = null;
+    protected $deviceName       = null;
 
     public function __construct(
          $routeDestination,
@@ -31,6 +31,9 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * SMDI server route destination, a 3 to 10 digits number
+     */
     public function setRouteDestination($routeDestination = null)
     {
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
@@ -38,11 +41,17 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
              : new SMDIServerRouteDestination($routeDestination);
     }
 
+    /**
+     * SMDI server route destination, a 3 to 10 digits number
+     */
     public function getRouteDestination()
     {
-        return (!$this->routeDestination) ?: $this->routeDestination->value();
+        return (!$this->routeDestination) ?: $this->routeDestination->getValue();
     }
 
+    /**
+     * SMDI device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
@@ -50,8 +59,11 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
              : new SMDIDeviceName($deviceName);
     }
 
+    /**
+     * SMDI device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

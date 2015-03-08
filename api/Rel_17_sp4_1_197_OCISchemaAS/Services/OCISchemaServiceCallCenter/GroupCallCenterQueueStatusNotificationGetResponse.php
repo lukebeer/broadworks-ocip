@@ -14,46 +14,71 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterQueueStatusNotificationGetRequest.
+     * Response to the GroupCallCenterQueueStatusNotificationGetRequest.
  *         The response contains the call center status configuration information.
  */
 class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $enableQueueStatusNotification  = null;
-    protected $enableQueueDepthThreshold      = null;
-    protected $enableWaitingTimeThreshold     = null;
-    protected $numberOfCallsThreshold         = null;
-    protected $waitingTimeOfCallsThreshold    = null;
+    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueStatusNotificationGetResponse';
+    public    $name                          = __CLASS__;
+    protected $enableQueueStatusNotification = null;
+    protected $enableQueueDepthThreshold     = null;
+    protected $enableWaitingTimeThreshold    = null;
+    protected $numberOfCallsThreshold        = null;
+    protected $waitingTimeOfCallsThreshold   = null;
 
 
-    public function setEnableQueueStatusNotification(xs:boolean $enableQueueStatusNotification = null)
+    /**
+     * 
+     */
+    public function setEnableQueueStatusNotification($enableQueueStatusNotification = null)
     {
+        $this->enableQueueStatusNotification = (boolean) $enableQueueStatusNotification;
     }
 
+    /**
+     * 
+     */
     public function getEnableQueueStatusNotification()
     {
-        return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification->value();
+        return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification->getValue();
     }
 
-    public function setEnableQueueDepthThreshold(xs:boolean $enableQueueDepthThreshold = null)
+    /**
+     * 
+     */
+    public function setEnableQueueDepthThreshold($enableQueueDepthThreshold = null)
     {
+        $this->enableQueueDepthThreshold = (boolean) $enableQueueDepthThreshold;
     }
 
+    /**
+     * 
+     */
     public function getEnableQueueDepthThreshold()
     {
-        return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold->value();
+        return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold->getValue();
     }
 
-    public function setEnableWaitingTimeThreshold(xs:boolean $enableWaitingTimeThreshold = null)
+    /**
+     * 
+     */
+    public function setEnableWaitingTimeThreshold($enableWaitingTimeThreshold = null)
     {
+        $this->enableWaitingTimeThreshold = (boolean) $enableWaitingTimeThreshold;
     }
 
+    /**
+     * 
+     */
     public function getEnableWaitingTimeThreshold()
     {
-        return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold->value();
+        return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold->getValue();
     }
 
+    /**
+     * Number of calls in queue before notification to agents devices.
+     */
     public function setNumberOfCallsThreshold($numberOfCallsThreshold = null)
     {
         $this->numberOfCallsThreshold = ($numberOfCallsThreshold InstanceOf CallCenterQueueDepthNotificationThreshold)
@@ -61,11 +86,17 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
              : new CallCenterQueueDepthNotificationThreshold($numberOfCallsThreshold);
     }
 
+    /**
+     * Number of calls in queue before notification to agents devices.
+     */
     public function getNumberOfCallsThreshold()
     {
-        return (!$this->numberOfCallsThreshold) ?: $this->numberOfCallsThreshold->value();
+        return (!$this->numberOfCallsThreshold) ?: $this->numberOfCallsThreshold->getValue();
     }
 
+    /**
+     * Waiting time for a given call before notification to agents devices.
+     */
     public function setWaitingTimeOfCallsThreshold($waitingTimeOfCallsThreshold = null)
     {
         $this->waitingTimeOfCallsThreshold = ($waitingTimeOfCallsThreshold InstanceOf CallCenterWaitingTimeNotificationThresholdSeconds)
@@ -73,8 +104,11 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
              : new CallCenterWaitingTimeNotificationThresholdSeconds($waitingTimeOfCallsThreshold);
     }
 
+    /**
+     * Waiting time for a given call before notification to agents devices.
+     */
     public function getWaitingTimeOfCallsThreshold()
     {
-        return (!$this->waitingTimeOfCallsThreshold) ?: $this->waitingTimeOfCallsThreshold->value();
+        return (!$this->waitingTimeOfCallsThreshold) ?: $this->waitingTimeOfCallsThreshold->getValue();
     }
 }

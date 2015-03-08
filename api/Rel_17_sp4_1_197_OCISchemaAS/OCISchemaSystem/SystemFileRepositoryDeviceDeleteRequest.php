@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a file repository.
+     * Delete a file repository.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemFileRepositoryDeviceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemFileRepositoryDeviceDeleteRequest extends ComplexType implements Com
         $this->setName($name);
     }
 
+    /**
+     * File repository name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf FileRepositoryName)
@@ -34,8 +37,11 @@ class SystemFileRepositoryDeviceDeleteRequest extends ComplexType implements Com
              : new FileRepositoryName($name);
     }
 
+    /**
+     * File repository name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

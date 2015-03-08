@@ -19,20 +19,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify an existing home zone in the BroadWorks Mobile Manager.
+     * Modify an existing home zone in the BroadWorks Mobile Manager.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $homeZoneId          = null;
-    protected $homeZoneDomainName  = null;
-    protected $mobileCountryCode   = null;
-    protected $mobileNetworkCode   = null;
-    protected $locationAreaCode    = null;
-    protected $cellIdentity        = null;
+    public    $name               = __CLASS__;
+    protected $serviceProviderId  = null;
+    protected $groupId            = null;
+    protected $homeZoneId         = null;
+    protected $homeZoneDomainName = null;
+    protected $mobileCountryCode  = null;
+    protected $mobileNetworkCode  = null;
+    protected $locationAreaCode   = null;
+    protected $cellIdentity       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -54,6 +54,10 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
         $this->setCellIdentity($cellIdentity);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -61,11 +65,19 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -73,20 +85,34 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setHomeZoneId(xs:string $homeZoneId = null)
+    /**
+     * 
+     */
+    public function setHomeZoneId($homeZoneId = null)
     {
+        $this->homeZoneId = (string) $homeZoneId;
     }
 
+    /**
+     * 
+     */
     public function getHomeZoneId()
     {
-        return (!$this->homeZoneId) ?: $this->homeZoneId->value();
+        return (!$this->homeZoneId) ?: $this->homeZoneId->getValue();
     }
 
+    /**
+     * Domain name.
+     */
     public function setHomeZoneDomainName($homeZoneDomainName = null)
     {
         $this->homeZoneDomainName = ($homeZoneDomainName InstanceOf BroadWorksMobileManagerDomainName)
@@ -94,11 +120,18 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
              : new BroadWorksMobileManagerDomainName($homeZoneDomainName);
     }
 
+    /**
+     * Domain name.
+     */
     public function getHomeZoneDomainName()
     {
-        return (!$this->homeZoneDomainName) ?: $this->homeZoneDomainName->value();
+        return (!$this->homeZoneDomainName) ?: $this->homeZoneDomainName->getValue();
     }
 
+    /**
+     * Country dialing code.
+     *         A single asterisk or digit range from 000 to 999.
+     */
     public function setMobileCountryCode($mobileCountryCode = null)
     {
         $this->mobileCountryCode = ($mobileCountryCode InstanceOf BroadWorksMobileManagerHomeZoneMobileCountryCode)
@@ -106,11 +139,19 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
              : new BroadWorksMobileManagerHomeZoneMobileCountryCode($mobileCountryCode);
     }
 
+    /**
+     * Country dialing code.
+     *         A single asterisk or digit range from 000 to 999.
+     */
     public function getMobileCountryCode()
     {
-        return (!$this->mobileCountryCode) ?: $this->mobileCountryCode->value();
+        return (!$this->mobileCountryCode) ?: $this->mobileCountryCode->getValue();
     }
 
+    /**
+     * Network Country Code
+     *         A single asterisk or digit range from 00 to 999.
+     */
     public function setMobileNetworkCode($mobileNetworkCode = null)
     {
         $this->mobileNetworkCode = ($mobileNetworkCode InstanceOf BroadWorksMobileManagerHomeZoneNetworkCountryCode)
@@ -118,11 +159,19 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
              : new BroadWorksMobileManagerHomeZoneNetworkCountryCode($mobileNetworkCode);
     }
 
+    /**
+     * Network Country Code
+     *         A single asterisk or digit range from 00 to 999.
+     */
     public function getMobileNetworkCode()
     {
-        return (!$this->mobileNetworkCode) ?: $this->mobileNetworkCode->value();
+        return (!$this->mobileNetworkCode) ?: $this->mobileNetworkCode->getValue();
     }
 
+    /**
+     * Location area code.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function setLocationAreaCode($locationAreaCode = null)
     {
         $this->locationAreaCode = ($locationAreaCode InstanceOf BroadWorksMobileManagerHomeZoneLocationAreaCode)
@@ -130,11 +179,19 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
              : new BroadWorksMobileManagerHomeZoneLocationAreaCode($locationAreaCode);
     }
 
+    /**
+     * Location area code.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function getLocationAreaCode()
     {
-        return (!$this->locationAreaCode) ?: $this->locationAreaCode->value();
+        return (!$this->locationAreaCode) ?: $this->locationAreaCode->getValue();
     }
 
+    /**
+     * Cell ID.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function setCellIdentity($cellIdentity = null)
     {
         $this->cellIdentity = ($cellIdentity InstanceOf BroadWorksMobileManagerHomeZoneCellId)
@@ -142,8 +199,12 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
              : new BroadWorksMobileManagerHomeZoneCellId($cellIdentity);
     }
 
+    /**
+     * Cell ID.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function getCellIdentity()
     {
-        return (!$this->cellIdentity) ?: $this->cellIdentity->value();
+        return (!$this->cellIdentity) ?: $this->cellIdentity->getValue();
     }
 }

@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Unassign a list of OfficeZones from a group.  Note: a new default must be provided if unassigning the current default.
+     * Unassign a list of OfficeZones from a group.  Note: a new default must be provided if unassigning the current default.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $officeZoneName         = null;
-    protected $defaultOfficeZoneName  = null;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $groupId               = null;
+    protected $officeZoneName        = null;
+    protected $defaultOfficeZoneName = null;
 
     public function __construct(
          $serviceProviderId,
@@ -38,6 +38,10 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
         $this->setDefaultOfficeZoneName($defaultOfficeZoneName);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -45,11 +49,19 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -57,11 +69,18 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Office Zone name.
+     */
     public function setOfficeZoneName($officeZoneName = null)
     {
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
@@ -69,11 +88,17 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
              : new OfficeZoneName($officeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->value();
+        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
     }
 
+    /**
+     * Office Zone name.
+     */
     public function setDefaultOfficeZoneName($defaultOfficeZoneName = null)
     {
         $this->defaultOfficeZoneName = ($defaultOfficeZoneName InstanceOf OfficeZoneName)
@@ -81,8 +106,11 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
              : new OfficeZoneName($defaultOfficeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function getDefaultOfficeZoneName()
     {
-        return (!$this->defaultOfficeZoneName) ?: $this->defaultOfficeZoneName->value();
+        return (!$this->defaultOfficeZoneName) ?: $this->defaultOfficeZoneName->getValue();
     }
 }

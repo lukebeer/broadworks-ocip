@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to export Application Server addressing data, such as DNs, extensions, alias and user ids
+     * Request to export Application Server addressing data, such as DNs, extensions, alias and user ids
  *         to a file so they can be uploaded to a Network Server.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemExportAddressingDataRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $fileName  = null;
+    public    $name     = __CLASS__;
+    protected $fileName = null;
 
     public function __construct(
          $fileName
@@ -28,6 +28,9 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
         $this->setFileName($fileName);
     }
 
+    /**
+     * Name of a file on the filesystem.
+     */
     public function setFileName($fileName = null)
     {
         $this->fileName = ($fileName InstanceOf FileName)
@@ -35,8 +38,11 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
              : new FileName($fileName);
     }
 
+    /**
+     * Name of a file on the filesystem.
+     */
     public function getFileName()
     {
-        return (!$this->fileName) ?: $this->fileName->value();
+        return (!$this->fileName) ?: $this->fileName->getValue();
     }
 }

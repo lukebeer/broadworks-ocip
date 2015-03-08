@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the calling line id settings for a group.
+     * Modify the calling line id settings for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $serviceProviderId         = null;
-    protected $groupId                   = null;
-    protected $useGroupNumber            = null;
-    protected $useGroupName              = null;
-    protected $callingLineIdPhoneNumber  = null;
+    public    $name                     = __CLASS__;
+    protected $serviceProviderId        = null;
+    protected $groupId                  = null;
+    protected $useGroupNumber           = null;
+    protected $useGroupName             = null;
+    protected $callingLineIdPhoneNumber = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +41,10 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
         $this->setCallingLineIdPhoneNumber($callingLineIdPhoneNumber);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,11 +52,19 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -60,29 +72,50 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setUseGroupNumber(xs:boolean $useGroupNumber = null)
+    /**
+     * 
+     */
+    public function setUseGroupNumber($useGroupNumber = null)
     {
+        $this->useGroupNumber = (boolean) $useGroupNumber;
     }
 
+    /**
+     * 
+     */
     public function getUseGroupNumber()
     {
-        return (!$this->useGroupNumber) ?: $this->useGroupNumber->value();
+        return (!$this->useGroupNumber) ?: $this->useGroupNumber->getValue();
     }
 
-    public function setUseGroupName(xs:boolean $useGroupName = null)
+    /**
+     * 
+     */
+    public function setUseGroupName($useGroupName = null)
     {
+        $this->useGroupName = (boolean) $useGroupName;
     }
 
+    /**
+     * 
+     */
     public function getUseGroupName()
     {
-        return (!$this->useGroupName) ?: $this->useGroupName->value();
+        return (!$this->useGroupName) ?: $this->useGroupName->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
@@ -90,8 +123,11 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
              : new DN($callingLineIdPhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getCallingLineIdPhoneNumber()
     {
-        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->value();
+        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->getValue();
     }
 }

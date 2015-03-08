@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the user level IN Integration service attributes
+     * Request to modify the user level IN Integration service attributes
  *         Response is either SuccessResponse or ErrorResponse
  */
 class UserINIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $userId                 = null;
-    protected $originatingServiceKey  = null;
-    protected $terminatingServiceKey  = null;
+    public    $name                  = __CLASS__;
+    protected $userId                = null;
+    protected $originatingServiceKey = null;
+    protected $terminatingServiceKey = null;
 
     public function __construct(
          $userId,
@@ -34,6 +34,13 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
         $this->setTerminatingServiceKey($terminatingServiceKey);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -41,11 +48,21 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Mobility Manager service key
+     */
     public function setOriginatingServiceKey($originatingServiceKey = null)
     {
         $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
@@ -53,11 +70,17 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
              : new MobilityManagerServiceKey($originatingServiceKey);
     }
 
+    /**
+     * Mobility Manager service key
+     */
     public function getOriginatingServiceKey()
     {
-        return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->value();
+        return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->getValue();
     }
 
+    /**
+     * Mobility Manager service key
+     */
     public function setTerminatingServiceKey($terminatingServiceKey = null)
     {
         $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
@@ -65,8 +88,11 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
              : new MobilityManagerServiceKey($terminatingServiceKey);
     }
 
+    /**
+     * Mobility Manager service key
+     */
     public function getTerminatingServiceKey()
     {
-        return (!$this->terminatingServiceKey) ?: $this->terminatingServiceKey->value();
+        return (!$this->terminatingServiceKey) ?: $this->terminatingServiceKey->getValue();
     }
 }

@@ -13,41 +13,63 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupScheduleGetEventRequest.
+     * Response to GroupScheduleGetEventRequest.
  *         The response contains the event of the group schedule.
  */
 class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $startDate   = null;
-    protected $endDate     = null;
-    protected $recurrence  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetEventResponse';
+    public    $name       = __CLASS__;
+    protected $startDate  = null;
+    protected $endDate    = null;
+    protected $recurrence = null;
 
 
+    /**
+     * 
+     */
     public function setStartDate(xs:date $startDate = null)
     {
+        $this->startDate = xs:date $startDate;
     }
 
+    /**
+     * 
+     */
     public function getStartDate()
     {
-        return (!$this->startDate) ?: $this->startDate->value();
+        return (!$this->startDate) ?: $this->startDate->getValue();
     }
 
+    /**
+     * 
+     */
     public function setEndDate(xs:date $endDate = null)
     {
+        $this->endDate = xs:date $endDate;
     }
 
+    /**
+     * 
+     */
     public function getEndDate()
     {
-        return (!$this->endDate) ?: $this->endDate->value();
+        return (!$this->endDate) ?: $this->endDate->getValue();
     }
 
+    /**
+     * Defines recurrence.
+     */
     public function setRecurrence(Recurrence $recurrence = null)
     {
+        $this->recurrence = Recurrence $recurrence;
     }
 
+    /**
+     * Defines recurrence.
+     */
     public function getRecurrence()
     {
-        return (!$this->recurrence) ?: $this->recurrence->value();
+        return (!$this->recurrence) ?: $this->recurrence->getValue();
     }
 }

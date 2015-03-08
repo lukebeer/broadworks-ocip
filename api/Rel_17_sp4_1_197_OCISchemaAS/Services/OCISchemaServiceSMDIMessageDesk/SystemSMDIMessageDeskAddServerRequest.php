@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a SMDI Server to the system.
+     * Request to add a SMDI Server to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskAddServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $deviceName   = null;
-    protected $netAddress   = null;
-    protected $port         = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $deviceName  = null;
+    protected $netAddress  = null;
+    protected $port        = null;
+    protected $description = null;
 
     public function __construct(
          $deviceName,
@@ -39,6 +39,9 @@ class SystemSMDIMessageDeskAddServerRequest extends ComplexType implements Compl
         $this->setDescription($description);
     }
 
+    /**
+     * SMDI device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
@@ -46,11 +49,17 @@ class SystemSMDIMessageDeskAddServerRequest extends ComplexType implements Compl
              : new SMDIDeviceName($deviceName);
     }
 
+    /**
+     * SMDI device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -58,11 +67,17 @@ class SystemSMDIMessageDeskAddServerRequest extends ComplexType implements Compl
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function setPort($port = null)
     {
         $this->port = ($port InstanceOf Port)
@@ -70,11 +85,17 @@ class SystemSMDIMessageDeskAddServerRequest extends ComplexType implements Compl
              : new Port($port);
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->value();
+        return (!$this->port) ?: $this->port->getValue();
     }
 
+    /**
+     * SMDI server description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf SMDIServerDescription)
@@ -82,8 +103,11 @@ class SystemSMDIMessageDeskAddServerRequest extends ComplexType implements Compl
              : new SMDIServerDescription($description);
     }
 
+    /**
+     * SMDI server description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

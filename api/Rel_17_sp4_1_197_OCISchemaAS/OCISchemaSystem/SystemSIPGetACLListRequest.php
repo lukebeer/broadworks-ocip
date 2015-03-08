@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the SIP access control list.
+     * Get the SIP access control list.
  *         The response is either SystemSIPGetACLListResponse or ErrorResponse.
  */
 class SystemSIPGetACLListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetACLListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

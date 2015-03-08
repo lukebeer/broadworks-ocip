@@ -17,18 +17,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a criteria to the user's simultaneous ring family service.
+     * Add a criteria to the user's simultaneous ring family service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSimultaneousRingFamilyAddCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $userId           = null;
-    protected $criteriaName     = null;
-    protected $timeSchedule     = null;
-    protected $holidaySchedule  = null;
-    protected $blacklisted      = null;
-    protected $fromDnCriteria   = null;
+    public    $name            = __CLASS__;
+    protected $userId          = null;
+    protected $criteriaName    = null;
+    protected $timeSchedule    = null;
+    protected $holidaySchedule = null;
+    protected $blacklisted     = null;
+    protected $fromDnCriteria  = null;
 
     public function __construct(
          $userId,
@@ -46,6 +46,13 @@ class UserSimultaneousRingFamilyAddCriteriaRequest extends ComplexType implement
         $this->setFromDnCriteria($fromDnCriteria);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -53,11 +60,21 @@ class UserSimultaneousRingFamilyAddCriteriaRequest extends ComplexType implement
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Criteria Name
+     */
     public function setCriteriaName($criteriaName = null)
     {
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
@@ -65,44 +82,75 @@ class UserSimultaneousRingFamilyAddCriteriaRequest extends ComplexType implement
              : new CriteriaName($criteriaName);
     }
 
+    /**
+     * Criteria Name
+     */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->value();
+        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
     }
 
+    /**
+     * The from dn criteria.
+     */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
+        $this->timeSchedule = TimeSchedule $timeSchedule;
     }
 
+    /**
+     * The from dn criteria.
+     */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->value();
+        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
     }
 
+    /**
+     * Holiday Schedule.
+     */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
+        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
     }
 
+    /**
+     * Holiday Schedule.
+     */
     public function getHolidaySchedule()
     {
-        return (!$this->holidaySchedule) ?: $this->holidaySchedule->value();
+        return (!$this->holidaySchedule) ?: $this->holidaySchedule->getValue();
     }
 
-    public function setBlacklisted(xs:boolean $blacklisted = null)
+    /**
+     * 
+     */
+    public function setBlacklisted($blacklisted = null)
     {
+        $this->blacklisted = (boolean) $blacklisted;
     }
 
+    /**
+     * 
+     */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->value();
+        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
     }
 
+    /**
+     * The from dn criteria used within an add/get request.
+     */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
+        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
     }
 
+    /**
+     * The from dn criteria used within an add/get request.
+     */
     public function getFromDnCriteria()
     {
-        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->value();
+        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->getValue();
     }
 }

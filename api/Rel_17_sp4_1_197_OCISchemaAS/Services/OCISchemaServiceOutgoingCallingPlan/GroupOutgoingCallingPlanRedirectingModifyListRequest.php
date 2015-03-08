@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the initiating call forwards/transfer permissions for a group default and it's departments.
+     * Modify the initiating call forwards/transfer permissions for a group default and it's departments.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $groupPermissions       = null;
-    protected $departmentPermissions  = null;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $groupId               = null;
+    protected $groupPermissions      = null;
+    protected $departmentPermissions = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
         $this->setDepartmentPermissions($departmentPermissions);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,26 +70,44 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Outgoing Calling Plan initiating call forwards/transfer permissions.
+     */
     public function setGroupPermissions(OutgoingCallingPlanRedirectingPermissionsModify $groupPermissions = null)
     {
+        $this->groupPermissions = OutgoingCallingPlanRedirectingPermissionsModify $groupPermissions;
     }
 
+    /**
+     * Outgoing Calling Plan initiating call forwards/transfer permissions.
+     */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->value();
+        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
     }
 
+    /**
+     * Outgoing Calling Plan initiating call forwards/transfer permissions for a department.
+     */
     public function setDepartmentPermissions(OutgoingCallingPlanRedirectingDepartmentPermissionsModify $departmentPermissions = null)
     {
+        $this->departmentPermissions = OutgoingCallingPlanRedirectingDepartmentPermissionsModify $departmentPermissions;
     }
 
+    /**
+     * Outgoing Calling Plan initiating call forwards/transfer permissions for a department.
+     */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->value();
+        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
     }
 }

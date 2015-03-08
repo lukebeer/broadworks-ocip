@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the system-level intercept user service settings.
+     * Get the system-level intercept user service settings.
  *         The response is either a SystemInterceptUserGetResponse or an ErrorResponse.
  */
 class SystemInterceptUserGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

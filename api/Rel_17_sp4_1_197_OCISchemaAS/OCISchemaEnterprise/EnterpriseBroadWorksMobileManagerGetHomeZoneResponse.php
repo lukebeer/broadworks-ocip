@@ -17,18 +17,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the EnterpriseBroadWorksMobileManagerGetHomeZoneRequest
+     * Response to the EnterpriseBroadWorksMobileManagerGetHomeZoneRequest
  */
 class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $homeZoneDomainName  = null;
-    protected $mobileCountryCode   = null;
-    protected $mobileNetworkCode   = null;
-    protected $locationAreaCode    = null;
-    protected $cellIdentity        = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneResponse';
+    public    $name               = __CLASS__;
+    protected $homeZoneDomainName = null;
+    protected $mobileCountryCode  = null;
+    protected $mobileNetworkCode  = null;
+    protected $locationAreaCode   = null;
+    protected $cellIdentity       = null;
 
 
+    /**
+     * Domain name.
+     */
     public function setHomeZoneDomainName($homeZoneDomainName = null)
     {
         $this->homeZoneDomainName = ($homeZoneDomainName InstanceOf BroadWorksMobileManagerDomainName)
@@ -36,11 +40,18 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
              : new BroadWorksMobileManagerDomainName($homeZoneDomainName);
     }
 
+    /**
+     * Domain name.
+     */
     public function getHomeZoneDomainName()
     {
-        return (!$this->homeZoneDomainName) ?: $this->homeZoneDomainName->value();
+        return (!$this->homeZoneDomainName) ?: $this->homeZoneDomainName->getValue();
     }
 
+    /**
+     * Country dialing code.
+     *         A single asterisk or digit range from 000 to 999.
+     */
     public function setMobileCountryCode($mobileCountryCode = null)
     {
         $this->mobileCountryCode = ($mobileCountryCode InstanceOf BroadWorksMobileManagerHomeZoneMobileCountryCode)
@@ -48,11 +59,19 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
              : new BroadWorksMobileManagerHomeZoneMobileCountryCode($mobileCountryCode);
     }
 
+    /**
+     * Country dialing code.
+     *         A single asterisk or digit range from 000 to 999.
+     */
     public function getMobileCountryCode()
     {
-        return (!$this->mobileCountryCode) ?: $this->mobileCountryCode->value();
+        return (!$this->mobileCountryCode) ?: $this->mobileCountryCode->getValue();
     }
 
+    /**
+     * Network Country Code
+     *         A single asterisk or digit range from 00 to 999.
+     */
     public function setMobileNetworkCode($mobileNetworkCode = null)
     {
         $this->mobileNetworkCode = ($mobileNetworkCode InstanceOf BroadWorksMobileManagerHomeZoneNetworkCountryCode)
@@ -60,11 +79,19 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
              : new BroadWorksMobileManagerHomeZoneNetworkCountryCode($mobileNetworkCode);
     }
 
+    /**
+     * Network Country Code
+     *         A single asterisk or digit range from 00 to 999.
+     */
     public function getMobileNetworkCode()
     {
-        return (!$this->mobileNetworkCode) ?: $this->mobileNetworkCode->value();
+        return (!$this->mobileNetworkCode) ?: $this->mobileNetworkCode->getValue();
     }
 
+    /**
+     * Location area code.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function setLocationAreaCode($locationAreaCode = null)
     {
         $this->locationAreaCode = ($locationAreaCode InstanceOf BroadWorksMobileManagerHomeZoneLocationAreaCode)
@@ -72,11 +99,19 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
              : new BroadWorksMobileManagerHomeZoneLocationAreaCode($locationAreaCode);
     }
 
+    /**
+     * Location area code.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function getLocationAreaCode()
     {
-        return (!$this->locationAreaCode) ?: $this->locationAreaCode->value();
+        return (!$this->locationAreaCode) ?: $this->locationAreaCode->getValue();
     }
 
+    /**
+     * Cell ID.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function setCellIdentity($cellIdentity = null)
     {
         $this->cellIdentity = ($cellIdentity InstanceOf BroadWorksMobileManagerHomeZoneCellId)
@@ -84,8 +119,12 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
              : new BroadWorksMobileManagerHomeZoneCellId($cellIdentity);
     }
 
+    /**
+     * Cell ID.
+     *         A single asterisk or digit range from 0 to 65535.
+     */
     public function getCellIdentity()
     {
-        return (!$this->cellIdentity) ?: $this->cellIdentity->value();
+        return (!$this->cellIdentity) ?: $this->cellIdentity->getValue();
     }
 }

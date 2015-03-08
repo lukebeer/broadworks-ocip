@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallCenterGetInstanceListRequest.
+     * Response to the GroupCallCenterGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department", "Is Active", "Policy", "Type".
  *         The column values for "Video" and "Is Active" can either be true, or false.
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $callCenterTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceListResponse';
+    public    $name            = __CLASS__;
+    protected $callCenterTable = null;
 
 
+    /**
+     * 
+     */
     public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
+        $this->callCenterTable = core:OCITable $callCenterTable;
     }
 
+    /**
+     * 
+     */
     public function getCallCenterTable()
     {
-        return (!$this->callCenterTable) ?: $this->callCenterTable->value();
+        return (!$this->callCenterTable) ?: $this->callCenterTable->getValue();
     }
 }

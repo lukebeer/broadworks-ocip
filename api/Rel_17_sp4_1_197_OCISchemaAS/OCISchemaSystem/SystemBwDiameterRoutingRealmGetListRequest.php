@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of Diameter routing realms.
+     * Requests the list of Diameter routing realms.
  *         The response is either SystemBwDiameterRoutingRealmGetListResponse or  ErrorResponse.
  */
 class SystemBwDiameterRoutingRealmGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingRealmGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

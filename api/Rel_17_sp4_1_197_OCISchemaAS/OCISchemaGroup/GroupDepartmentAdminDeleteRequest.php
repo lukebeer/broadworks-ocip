@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a group department administrator.
+     * Delete a group department administrator.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDepartmentAdminDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
-    protected $userId  = null;
+    public    $name   = __CLASS__;
+    protected $userId = null;
 
     public function __construct(
          $userId
@@ -27,6 +27,13 @@ class GroupDepartmentAdminDeleteRequest extends ComplexType implements ComplexIn
         $this->setUserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -34,8 +41,15 @@ class GroupDepartmentAdminDeleteRequest extends ComplexType implements ComplexIn
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 }

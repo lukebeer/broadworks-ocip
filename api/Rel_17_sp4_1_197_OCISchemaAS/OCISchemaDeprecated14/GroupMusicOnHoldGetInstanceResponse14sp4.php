@@ -16,22 +16,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupMusicOnHoldGetInstanceRequest14sp4.
+     * Response to the GroupMusicOnHoldGetInstanceRequest14sp4.
  */
 class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $serviceUserId             = null;
-    protected $isActiveDuringCallHold    = null;
-    protected $isActiveDuringCallPark    = null;
-    protected $isActiveDuringBusyCampOn  = null;
-    protected $messageSelection          = null;
-    protected $accessDeviceEndpoint      = null;
-    protected $enableVideo               = null;
-    protected $audioFileDescription      = null;
-    protected $videoFileDescription      = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldGetInstanceResponse14sp4';
+    public    $name                     = __CLASS__;
+    protected $serviceUserId            = null;
+    protected $isActiveDuringCallHold   = null;
+    protected $isActiveDuringCallPark   = null;
+    protected $isActiveDuringBusyCampOn = null;
+    protected $messageSelection         = null;
+    protected $accessDeviceEndpoint     = null;
+    protected $enableVideo              = null;
+    protected $audioFileDescription     = null;
+    protected $videoFileDescription     = null;
 
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -39,38 +47,69 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
-    public function setIsActiveDuringCallHold(xs:boolean $isActiveDuringCallHold = null)
+    /**
+     * 
+     */
+    public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
+        $this->isActiveDuringCallHold = (boolean) $isActiveDuringCallHold;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->value();
+        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->getValue();
     }
 
-    public function setIsActiveDuringCallPark(xs:boolean $isActiveDuringCallPark = null)
+    /**
+     * 
+     */
+    public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
+        $this->isActiveDuringCallPark = (boolean) $isActiveDuringCallPark;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->value();
+        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->getValue();
     }
 
-    public function setIsActiveDuringBusyCampOn(xs:boolean $isActiveDuringBusyCampOn = null)
+    /**
+     * 
+     */
+    public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
+        $this->isActiveDuringBusyCampOn = (boolean) $isActiveDuringBusyCampOn;
     }
 
+    /**
+     * 
+     */
     public function getIsActiveDuringBusyCampOn()
     {
-        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->value();
+        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->getValue();
     }
 
+    /**
+     * Music On Hold Message Selection.
+     */
     public function setMessageSelection($messageSelection = null)
     {
         $this->messageSelection = ($messageSelection InstanceOf MusicOnHoldMessageSelection)
@@ -78,29 +117,49 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
              : new MusicOnHoldMessageSelection($messageSelection);
     }
 
+    /**
+     * Music On Hold Message Selection.
+     */
     public function getMessageSelection()
     {
-        return (!$this->messageSelection) ?: $this->messageSelection->value();
+        return (!$this->messageSelection) ?: $this->messageSelection->getValue();
     }
 
+    /**
+     * Access device end point.
+     */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
+        $this->accessDeviceEndpoint = AccessDeviceEndpointRead14 $accessDeviceEndpoint;
     }
 
+    /**
+     * Access device end point.
+     */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->value();
+        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
     }
 
-    public function setEnableVideo(xs:boolean $enableVideo = null)
+    /**
+     * 
+     */
+    public function setEnableVideo($enableVideo = null)
     {
+        $this->enableVideo = (boolean) $enableVideo;
     }
 
+    /**
+     * 
+     */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->value();
+        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
@@ -108,11 +167,17 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
              : new FileDescription($audioFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->value();
+        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
@@ -120,8 +185,11 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
              : new FileDescription($videoFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->value();
+        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
     }
 }

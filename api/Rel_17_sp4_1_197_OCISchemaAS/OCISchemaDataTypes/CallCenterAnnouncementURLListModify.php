@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains a list of URLs for modify.
+     * Contains a list of URLs for modify.
  */
 class CallCenterAnnouncementURLListModify extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLListModify';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

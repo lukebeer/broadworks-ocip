@@ -13,44 +13,69 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPolycomPhoneServicesGetRequest.
+     * Response to UserPolycomPhoneServicesGetRequest.
  */
 class UserPolycomPhoneServicesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                           = __CLASS__;
-    protected $integratePhoneDirectoryWithBroadWorks          = null;
-    protected $includeUserPersonalPhoneListInDirectory        = null;
-    protected $includeGroupCustomContactDirectoryInDirectory  = null;
-    protected $groupCustomContactDirectory                    = null;
+    const     RESPONSE_TYPE                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetResponse';
+    public    $name                                          = __CLASS__;
+    protected $integratePhoneDirectoryWithBroadWorks         = null;
+    protected $includeUserPersonalPhoneListInDirectory       = null;
+    protected $includeGroupCustomContactDirectoryInDirectory = null;
+    protected $groupCustomContactDirectory                   = null;
 
 
-    public function setIntegratePhoneDirectoryWithBroadWorks(xs:boolean $integratePhoneDirectoryWithBroadWorks = null)
+    /**
+     * 
+     */
+    public function setIntegratePhoneDirectoryWithBroadWorks($integratePhoneDirectoryWithBroadWorks = null)
     {
+        $this->integratePhoneDirectoryWithBroadWorks = (boolean) $integratePhoneDirectoryWithBroadWorks;
     }
 
+    /**
+     * 
+     */
     public function getIntegratePhoneDirectoryWithBroadWorks()
     {
-        return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks->value();
+        return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks->getValue();
     }
 
-    public function setIncludeUserPersonalPhoneListInDirectory(xs:boolean $includeUserPersonalPhoneListInDirectory = null)
+    /**
+     * 
+     */
+    public function setIncludeUserPersonalPhoneListInDirectory($includeUserPersonalPhoneListInDirectory = null)
     {
+        $this->includeUserPersonalPhoneListInDirectory = (boolean) $includeUserPersonalPhoneListInDirectory;
     }
 
+    /**
+     * 
+     */
     public function getIncludeUserPersonalPhoneListInDirectory()
     {
-        return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory->value();
+        return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory->getValue();
     }
 
-    public function setIncludeGroupCustomContactDirectoryInDirectory(xs:boolean $includeGroupCustomContactDirectoryInDirectory = null)
+    /**
+     * 
+     */
+    public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory = null)
     {
+        $this->includeGroupCustomContactDirectoryInDirectory = (boolean) $includeGroupCustomContactDirectoryInDirectory;
     }
 
+    /**
+     * 
+     */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
-        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->value();
+        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->getValue();
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setGroupCustomContactDirectory($groupCustomContactDirectory = null)
     {
         $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
@@ -58,8 +83,11 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
              : new CustomContactDirectoryName($groupCustomContactDirectory);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getGroupCustomContactDirectory()
     {
-        return (!$this->groupCustomContactDirectory) ?: $this->groupCustomContactDirectory->value();
+        return (!$this->groupCustomContactDirectory) ?: $this->groupCustomContactDirectory->getValue();
     }
 }

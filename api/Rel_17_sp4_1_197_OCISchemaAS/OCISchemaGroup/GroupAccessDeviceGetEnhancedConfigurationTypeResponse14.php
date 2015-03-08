@@ -14,35 +14,55 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupAccessDeviceGetEnhancedConfigurationTypeRequest14.
+     * Response to GroupAccessDeviceGetEnhancedConfigurationTypeRequest14.
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $supportsEnhancedConfiguration  = null;
-    protected $supportsReset                  = null;
-    protected $configurationType              = null;
-    protected $configurationFileName          = null;
+    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14';
+    public    $name                          = __CLASS__;
+    protected $supportsEnhancedConfiguration = null;
+    protected $supportsReset                 = null;
+    protected $configurationType             = null;
+    protected $configurationFileName         = null;
 
 
-    public function setSupportsEnhancedConfiguration(xs:boolean $supportsEnhancedConfiguration = null)
+    /**
+     * 
+     */
+    public function setSupportsEnhancedConfiguration($supportsEnhancedConfiguration = null)
     {
+        $this->supportsEnhancedConfiguration = (boolean) $supportsEnhancedConfiguration;
     }
 
+    /**
+     * 
+     */
     public function getSupportsEnhancedConfiguration()
     {
-        return (!$this->supportsEnhancedConfiguration) ?: $this->supportsEnhancedConfiguration->value();
+        return (!$this->supportsEnhancedConfiguration) ?: $this->supportsEnhancedConfiguration->getValue();
     }
 
-    public function setSupportsReset(xs:boolean $supportsReset = null)
+    /**
+     * 
+     */
+    public function setSupportsReset($supportsReset = null)
     {
+        $this->supportsReset = (boolean) $supportsReset;
     }
 
+    /**
+     * 
+     */
     public function getSupportsReset()
     {
-        return (!$this->supportsReset) ?: $this->supportsReset->value();
+        return (!$this->supportsReset) ?: $this->supportsReset->getValue();
     }
 
+    /**
+     * Type of enhanced configuration supported by an access device.
+     *         "2 File Configuration" was formerly called "CPE Type 1"
+     *         "3 File Configuration" was formerly called "CPE Type 2"
+     */
     public function setConfigurationType($configurationType = null)
     {
         $this->configurationType = ($configurationType InstanceOf AccessDeviceEnhancedConfigurationType14)
@@ -50,11 +70,19 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
              : new AccessDeviceEnhancedConfigurationType14($configurationType);
     }
 
+    /**
+     * Type of enhanced configuration supported by an access device.
+     *         "2 File Configuration" was formerly called "CPE Type 1"
+     *         "3 File Configuration" was formerly called "CPE Type 2"
+     */
     public function getConfigurationType()
     {
-        return (!$this->configurationType) ?: $this->configurationType->value();
+        return (!$this->configurationType) ?: $this->configurationType->getValue();
     }
 
+    /**
+     * Access device enhanced configuration file name.
+     */
     public function setConfigurationFileName($configurationFileName = null)
     {
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
@@ -62,8 +90,11 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
     }
 
+    /**
+     * Access device enhanced configuration file name.
+     */
     public function getConfigurationFileName()
     {
-        return (!$this->configurationFileName) ?: $this->configurationFileName->value();
+        return (!$this->configurationFileName) ?: $this->configurationFileName->getValue();
     }
 }

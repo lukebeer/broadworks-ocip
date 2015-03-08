@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderInCallServiceActivationGetRequest17.
+     * Response to ServiceProviderInCallServiceActivationGetRequest17.
  */
 class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $flashActivationDigits         = null;
-    protected $callTransferActivationDigits  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation\ServiceProviderInCallServiceActivationGetResponse17';
+    public    $name                         = __CLASS__;
+    protected $flashActivationDigits        = null;
+    protected $callTransferActivationDigits = null;
 
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setFlashActivationDigits($flashActivationDigits = null)
     {
         $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
@@ -29,11 +33,17 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
              : new InCallServiceActivationDigits($flashActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getFlashActivationDigits()
     {
-        return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->value();
+        return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->getValue();
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setCallTransferActivationDigits($callTransferActivationDigits = null)
     {
         $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
@@ -41,8 +51,11 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
              : new InCallServiceActivationDigits($callTransferActivationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getCallTransferActivationDigits()
     {
-        return (!$this->callTransferActivationDigits) ?: $this->callTransferActivationDigits->value();
+        return (!$this->callTransferActivationDigits) ?: $this->callTransferActivationDigits->getValue();
     }
 }

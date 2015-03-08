@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Retrieves the Sh Interface system parameters.
+     * Retrieves the Sh Interface system parameters.
  *         The response is either a SystemShInterfaceParametersGetResponse or an ErrorResponse.
  */
 class SystemShInterfaceParametersGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemShInterfaceParametersGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

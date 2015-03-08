@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Identifier for conference.
+     * Identifier for conference.
  */
 class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceKey';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Service Control system parameters.
+     * Request to modify Service Control system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceControlParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $serverPort            = null;
-    protected $maxClientConnections  = null;
+    public    $name                 = __CLASS__;
+    protected $serverPort           = null;
+    protected $maxClientConnections = null;
 
     public function __construct(
          $serverPort = null,
@@ -31,6 +31,9 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
         $this->setMaxClientConnections($maxClientConnections);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServerPort($serverPort = null)
     {
         $this->serverPort = ($serverPort InstanceOf Port1025)
@@ -38,11 +41,17 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
              : new Port1025($serverPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->value();
+        return (!$this->serverPort) ?: $this->serverPort->getValue();
     }
 
+    /**
+     * Maximum allowed number of service control client connections.
+     */
     public function setMaxClientConnections($maxClientConnections = null)
     {
         $this->maxClientConnections = ($maxClientConnections InstanceOf ServiceControlMaxClientConnections)
@@ -50,8 +59,11 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
              : new ServiceControlMaxClientConnections($maxClientConnections);
     }
 
+    /**
+     * Maximum allowed number of service control client connections.
+     */
     public function getMaxClientConnections()
     {
-        return (!$this->maxClientConnections) ?: $this->maxClientConnections->value();
+        return (!$this->maxClientConnections) ?: $this->maxClientConnections->getValue();
     }
 }

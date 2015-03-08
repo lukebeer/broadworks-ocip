@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Time range used to filter call logs.
+     * Time range used to filter call logs.
  */
 class EnhancedCallLogsTimeRange extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsTimeRange';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

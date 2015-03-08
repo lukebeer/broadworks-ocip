@@ -15,16 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of sip device types in the system.
+     * Request to get the list of sip device types in the system.
  *         See Also: SystemDeviceTypeGetAvailableListRequest.
  *         The response is either SystemSIPDeviceTypeGetListResponse or ErrorResponse.
  */
 class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = __CLASS__;
-    protected $responseSizeLimit                        = null;
-    protected $searchCriteriaDeviceType                 = null;
-    protected $searchCriteriaExactSignalingAddressType  = null;
+    const     RESPONSE_TYPE                            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetListResponse';
+    public    $name                                    = __CLASS__;
+    protected $responseSizeLimit                       = null;
+    protected $searchCriteriaDeviceType                = null;
+    protected $searchCriteriaExactSignalingAddressType = null;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -36,6 +37,11 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
         $this->setSearchCriteriaExactSignalingAddressType($searchCriteriaExactSignalingAddressType);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -43,26 +49,45 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for device type.
+     */
     public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
+        $this->searchCriteriaDeviceType = SearchCriteriaDeviceType $searchCriteriaDeviceType;
     }
 
+    /**
+     * Criteria for searching for device type.
+     */
     public function getSearchCriteriaDeviceType()
     {
-        return (!$this->searchCriteriaDeviceType) ?: $this->searchCriteriaDeviceType->value();
+        return (!$this->searchCriteriaDeviceType) ?: $this->searchCriteriaDeviceType->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified SignalingAddressType.
+     */
     public function setSearchCriteriaExactSignalingAddressType(SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null)
     {
+        $this->searchCriteriaExactSignalingAddressType = SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified SignalingAddressType.
+     */
     public function getSearchCriteriaExactSignalingAddressType()
     {
-        return (!$this->searchCriteriaExactSignalingAddressType) ?: $this->searchCriteriaExactSignalingAddressType->value();
+        return (!$this->searchCriteriaExactSignalingAddressType) ?: $this->searchCriteriaExactSignalingAddressType->getValue();
     }
 }

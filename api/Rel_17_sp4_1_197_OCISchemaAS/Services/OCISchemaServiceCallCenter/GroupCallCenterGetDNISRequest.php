@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a call center's DNIS.
+     * Get a call center's DNIS.
  *         The response is either a GroupCallCenterGetDNISRequest or an ErrorResponse.
  */
 class GroupCallCenterGetDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $dnisKey  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISResponse';
+    public    $name    = __CLASS__;
+    protected $dnisKey = null;
 
     public function __construct(
          DNISKey $dnisKey
@@ -27,12 +28,19 @@ class GroupCallCenterGetDNISRequest extends ComplexType implements ComplexInterf
         $this->setDnisKey($dnisKey);
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
+        $this->dnisKey = DNISKey $dnisKey;
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->value();
+        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
     }
 }

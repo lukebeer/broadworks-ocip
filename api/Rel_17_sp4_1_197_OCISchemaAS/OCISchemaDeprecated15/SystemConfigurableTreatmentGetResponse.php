@@ -21,32 +21,36 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemConfigurableTreatmentGetRequest.
+     * Response to the SystemConfigurableTreatmentGetRequest.
  *             The response contains the treatment configurable information.
  *             Replaced By: SystemConfigurableTreatmentGetResponse16
  */
 class SystemConfigurableTreatmentGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $description                = null;
-    protected $chargeIndicator            = null;
-    protected $accessSIPStatusCode        = null;
-    protected $accessSIPStatusMessage     = null;
-    protected $networkSIPStatusCode       = null;
-    protected $networkSIPStatusMessage    = null;
-    protected $q850CauseValue             = null;
-    protected $q850Text                   = null;
-    protected $accessTreatmentAudioFile   = null;
-    protected $accessTreatmentVideoFile   = null;
-    protected $networkTreatmentAudioFile  = null;
-    protected $networkTreatmentVideoFile  = null;
-    protected $cdrTerminationCause        = null;
-    protected $routeAdvance               = null;
-    protected $internalReleaseCause       = null;
-    protected $accessSendReasonHeader     = null;
-    protected $networkSendReasonHeader    = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemConfigurableTreatmentGetResponse';
+    public    $name                      = __CLASS__;
+    protected $description               = null;
+    protected $chargeIndicator           = null;
+    protected $accessSIPStatusCode       = null;
+    protected $accessSIPStatusMessage    = null;
+    protected $networkSIPStatusCode      = null;
+    protected $networkSIPStatusMessage   = null;
+    protected $q850CauseValue            = null;
+    protected $q850Text                  = null;
+    protected $accessTreatmentAudioFile  = null;
+    protected $accessTreatmentVideoFile  = null;
+    protected $networkTreatmentAudioFile = null;
+    protected $networkTreatmentVideoFile = null;
+    protected $cdrTerminationCause       = null;
+    protected $routeAdvance              = null;
+    protected $internalReleaseCause      = null;
+    protected $accessSendReasonHeader    = null;
+    protected $networkSendReasonHeader   = null;
 
 
+    /**
+     * Configurable Treatment Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf ConfigurableTreatmentDescription)
@@ -54,11 +58,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new ConfigurableTreatmentDescription($description);
     }
 
+    /**
+     * Configurable Treatment Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 
+    /**
+     * Possible values for Charge Indicator.
+     */
     public function setChargeIndicator($chargeIndicator = null)
     {
         $this->chargeIndicator = ($chargeIndicator InstanceOf ChargeIndicator)
@@ -66,11 +76,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new ChargeIndicator($chargeIndicator);
     }
 
+    /**
+     * Possible values for Charge Indicator.
+     */
     public function getChargeIndicator()
     {
-        return (!$this->chargeIndicator) ?: $this->chargeIndicator->value();
+        return (!$this->chargeIndicator) ?: $this->chargeIndicator->getValue();
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function setAccessSIPStatusCode($accessSIPStatusCode = null)
     {
         $this->accessSIPStatusCode = ($accessSIPStatusCode InstanceOf SIPFailureStatusCode)
@@ -78,11 +94,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new SIPFailureStatusCode($accessSIPStatusCode);
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function getAccessSIPStatusCode()
     {
-        return (!$this->accessSIPStatusCode) ?: $this->accessSIPStatusCode->value();
+        return (!$this->accessSIPStatusCode) ?: $this->accessSIPStatusCode->getValue();
     }
 
+    /**
+     * A text parameter appended to the SIP status line.
+     */
     public function setAccessSIPStatusMessage($accessSIPStatusMessage = null)
     {
         $this->accessSIPStatusMessage = ($accessSIPStatusMessage InstanceOf SIPStatusMessage)
@@ -90,11 +112,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new SIPStatusMessage($accessSIPStatusMessage);
     }
 
+    /**
+     * A text parameter appended to the SIP status line.
+     */
     public function getAccessSIPStatusMessage()
     {
-        return (!$this->accessSIPStatusMessage) ?: $this->accessSIPStatusMessage->value();
+        return (!$this->accessSIPStatusMessage) ?: $this->accessSIPStatusMessage->getValue();
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function setNetworkSIPStatusCode($networkSIPStatusCode = null)
     {
         $this->networkSIPStatusCode = ($networkSIPStatusCode InstanceOf SIPFailureStatusCode)
@@ -102,11 +130,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new SIPFailureStatusCode($networkSIPStatusCode);
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function getNetworkSIPStatusCode()
     {
-        return (!$this->networkSIPStatusCode) ?: $this->networkSIPStatusCode->value();
+        return (!$this->networkSIPStatusCode) ?: $this->networkSIPStatusCode->getValue();
     }
 
+    /**
+     * A text parameter appended to the SIP status line.
+     */
     public function setNetworkSIPStatusMessage($networkSIPStatusMessage = null)
     {
         $this->networkSIPStatusMessage = ($networkSIPStatusMessage InstanceOf SIPStatusMessage)
@@ -114,11 +148,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new SIPStatusMessage($networkSIPStatusMessage);
     }
 
+    /**
+     * A text parameter appended to the SIP status line.
+     */
     public function getNetworkSIPStatusMessage()
     {
-        return (!$this->networkSIPStatusMessage) ?: $this->networkSIPStatusMessage->value();
+        return (!$this->networkSIPStatusMessage) ?: $this->networkSIPStatusMessage->getValue();
     }
 
+    /**
+     * The possible range values for Q850 Cause Value.
+     */
     public function setQ850CauseValue($q850CauseValue = null)
     {
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
@@ -126,11 +166,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new Q850CauseValue($q850CauseValue);
     }
 
+    /**
+     * The possible range values for Q850 Cause Value.
+     */
     public function getQ850CauseValue()
     {
-        return (!$this->q850CauseValue) ?: $this->q850CauseValue->value();
+        return (!$this->q850CauseValue) ?: $this->q850CauseValue->getValue();
     }
 
+    /**
+     * A text parameter appended to the Reason header to explain the Q850 cause value
+     */
     public function setQ850Text($q850Text = null)
     {
         $this->q850Text = ($q850Text InstanceOf Q850Text)
@@ -138,11 +184,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new Q850Text($q850Text);
     }
 
+    /**
+     * A text parameter appended to the Reason header to explain the Q850 cause value
+     */
     public function getQ850Text()
     {
-        return (!$this->q850Text) ?: $this->q850Text->value();
+        return (!$this->q850Text) ?: $this->q850Text->getValue();
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function setAccessTreatmentAudioFile($accessTreatmentAudioFile = null)
     {
         $this->accessTreatmentAudioFile = ($accessTreatmentAudioFile InstanceOf MediaTreatmentFileName)
@@ -150,11 +202,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new MediaTreatmentFileName($accessTreatmentAudioFile);
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function getAccessTreatmentAudioFile()
     {
-        return (!$this->accessTreatmentAudioFile) ?: $this->accessTreatmentAudioFile->value();
+        return (!$this->accessTreatmentAudioFile) ?: $this->accessTreatmentAudioFile->getValue();
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function setAccessTreatmentVideoFile($accessTreatmentVideoFile = null)
     {
         $this->accessTreatmentVideoFile = ($accessTreatmentVideoFile InstanceOf MediaTreatmentFileName)
@@ -162,11 +220,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new MediaTreatmentFileName($accessTreatmentVideoFile);
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function getAccessTreatmentVideoFile()
     {
-        return (!$this->accessTreatmentVideoFile) ?: $this->accessTreatmentVideoFile->value();
+        return (!$this->accessTreatmentVideoFile) ?: $this->accessTreatmentVideoFile->getValue();
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function setNetworkTreatmentAudioFile($networkTreatmentAudioFile = null)
     {
         $this->networkTreatmentAudioFile = ($networkTreatmentAudioFile InstanceOf MediaTreatmentFileName)
@@ -174,11 +238,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new MediaTreatmentFileName($networkTreatmentAudioFile);
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function getNetworkTreatmentAudioFile()
     {
-        return (!$this->networkTreatmentAudioFile) ?: $this->networkTreatmentAudioFile->value();
+        return (!$this->networkTreatmentAudioFile) ?: $this->networkTreatmentAudioFile->getValue();
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function setNetworkTreatmentVideoFile($networkTreatmentVideoFile = null)
     {
         $this->networkTreatmentVideoFile = ($networkTreatmentVideoFile InstanceOf MediaTreatmentFileName)
@@ -186,11 +256,17 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new MediaTreatmentFileName($networkTreatmentVideoFile);
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function getNetworkTreatmentVideoFile()
     {
-        return (!$this->networkTreatmentVideoFile) ?: $this->networkTreatmentVideoFile->value();
+        return (!$this->networkTreatmentVideoFile) ?: $this->networkTreatmentVideoFile->getValue();
     }
 
+    /**
+     * The string value for termination cause
+     */
     public function setCdrTerminationCause($cdrTerminationCause = null)
     {
         $this->cdrTerminationCause = ($cdrTerminationCause InstanceOf CDRTerminationCause)
@@ -198,20 +274,34 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new CDRTerminationCause($cdrTerminationCause);
     }
 
+    /**
+     * The string value for termination cause
+     */
     public function getCdrTerminationCause()
     {
-        return (!$this->cdrTerminationCause) ?: $this->cdrTerminationCause->value();
+        return (!$this->cdrTerminationCause) ?: $this->cdrTerminationCause->getValue();
     }
 
-    public function setRouteAdvance(xs:boolean $routeAdvance = null)
+    /**
+     * 
+     */
+    public function setRouteAdvance($routeAdvance = null)
     {
+        $this->routeAdvance = (boolean) $routeAdvance;
     }
 
+    /**
+     * 
+     */
     public function getRouteAdvance()
     {
-        return (!$this->routeAdvance) ?: $this->routeAdvance->value();
+        return (!$this->routeAdvance) ?: $this->routeAdvance->getValue();
     }
 
+    /**
+     * Possible values for the protocol-neutral internal release cause.
+     *             Replaced By: InternalReleaseCause16
+     */
     public function setInternalReleaseCause($internalReleaseCause = null)
     {
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause)
@@ -219,26 +309,44 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
              : new InternalReleaseCause($internalReleaseCause);
     }
 
+    /**
+     * Possible values for the protocol-neutral internal release cause.
+     *             Replaced By: InternalReleaseCause16
+     */
     public function getInternalReleaseCause()
     {
-        return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->value();
+        return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->getValue();
     }
 
-    public function setAccessSendReasonHeader(xs:boolean $accessSendReasonHeader = null)
+    /**
+     * 
+     */
+    public function setAccessSendReasonHeader($accessSendReasonHeader = null)
     {
+        $this->accessSendReasonHeader = (boolean) $accessSendReasonHeader;
     }
 
+    /**
+     * 
+     */
     public function getAccessSendReasonHeader()
     {
-        return (!$this->accessSendReasonHeader) ?: $this->accessSendReasonHeader->value();
+        return (!$this->accessSendReasonHeader) ?: $this->accessSendReasonHeader->getValue();
     }
 
-    public function setNetworkSendReasonHeader(xs:boolean $networkSendReasonHeader = null)
+    /**
+     * 
+     */
+    public function setNetworkSendReasonHeader($networkSendReasonHeader = null)
     {
+        $this->networkSendReasonHeader = (boolean) $networkSendReasonHeader;
     }
 
+    /**
+     * 
+     */
     public function getNetworkSendReasonHeader()
     {
-        return (!$this->networkSendReasonHeader) ?: $this->networkSendReasonHeader->value();
+        return (!$this->networkSendReasonHeader) ?: $this->networkSendReasonHeader->getValue();
     }
 }

@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupSeriesCompletionGetInstanceListRequest.
+     * Response to the GroupSeriesCompletionGetInstanceListRequest.
  */
 class GroupSeriesCompletionGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetInstanceListResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -28,8 +32,11 @@ class GroupSeriesCompletionGetInstanceListResponse extends ComplexType implement
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

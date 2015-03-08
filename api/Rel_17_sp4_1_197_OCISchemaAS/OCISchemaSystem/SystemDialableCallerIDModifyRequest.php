@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level Dialable Caller ID criteria list.
+     * Modify the system level Dialable Caller ID criteria list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $criteriaPriorityOrder  = null;
+    public    $name                  = __CLASS__;
+    protected $criteriaPriorityOrder = null;
 
     public function __construct(
          DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
@@ -27,12 +27,19 @@ class SystemDialableCallerIDModifyRequest extends ComplexType implements Complex
         $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
+    /**
+     * Dialable Caller ID routing order
+     */
     public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
+        $this->criteriaPriorityOrder = DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder;
     }
 
+    /**
+     * Dialable Caller ID routing order
+     */
     public function getCriteriaPriorityOrder()
     {
-        return (!$this->criteriaPriorityOrder) ?: $this->criteriaPriorityOrder->value();
+        return (!$this->criteriaPriorityOrder) ?: $this->criteriaPriorityOrder->getValue();
     }
 }

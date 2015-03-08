@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a list of home zones and/or home zone ranges to the the group.
+     * Delete a list of home zones and/or home zone ranges to the the group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceProviderId       = null;
-    protected $groupId                 = null;
-    protected $homeZoneIpAddress       = null;
-    protected $homeZoneIpAddressRange  = null;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $groupId                = null;
+    protected $homeZoneIpAddress      = null;
+    protected $homeZoneIpAddressRange = null;
 
     public function __construct(
          $serviceProviderId,
@@ -39,6 +39,10 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
         $this->setHomeZoneIpAddressRange($homeZoneIpAddressRange);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -46,11 +50,19 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -58,11 +70,18 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setHomeZoneIpAddress($homeZoneIpAddress = null)
     {
         $this->homeZoneIpAddress = ($homeZoneIpAddress InstanceOf IPAddress)
@@ -70,17 +89,27 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
              : new IPAddress($homeZoneIpAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getHomeZoneIpAddress()
     {
-        return (!$this->homeZoneIpAddress) ?: $this->homeZoneIpAddress->value();
+        return (!$this->homeZoneIpAddress) ?: $this->homeZoneIpAddress->getValue();
     }
 
+    /**
+     * IP Address Range.
+     */
     public function setHomeZoneIpAddressRange(IPAddressRange $homeZoneIpAddressRange = null)
     {
+        $this->homeZoneIpAddressRange = IPAddressRange $homeZoneIpAddressRange;
     }
 
+    /**
+     * IP Address Range.
+     */
     public function getHomeZoneIpAddressRange()
     {
-        return (!$this->homeZoneIpAddressRange) ?: $this->homeZoneIpAddressRange->value();
+        return (!$this->homeZoneIpAddressRange) ?: $this->homeZoneIpAddressRange->getValue();
     }
 }

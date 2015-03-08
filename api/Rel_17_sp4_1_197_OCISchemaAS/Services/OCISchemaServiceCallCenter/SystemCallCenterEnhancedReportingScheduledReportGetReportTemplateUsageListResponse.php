@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListRequest.
+     * Response to SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListRequest.
  *         Contains a table with column headings: "Schedule Name", "Organization Type", "Service Provider Id", 
  *         "Group Id", "Created By", "Created By Supervisor", and "Is Active".
  *          The "Organization Type" is either "Service Provider" or "Enterprise".
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $scheduleReportTable  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse';
+    public    $name                = __CLASS__;
+    protected $scheduleReportTable = null;
 
 
+    /**
+     * 
+     */
     public function setScheduleReportTable(core:OCITable $scheduleReportTable = null)
     {
+        $this->scheduleReportTable = core:OCITable $scheduleReportTable;
     }
 
+    /**
+     * 
+     */
     public function getScheduleReportTable()
     {
-        return (!$this->scheduleReportTable) ?: $this->scheduleReportTable->value();
+        return (!$this->scheduleReportTable) ?: $this->scheduleReportTable->getValue();
     }
 }

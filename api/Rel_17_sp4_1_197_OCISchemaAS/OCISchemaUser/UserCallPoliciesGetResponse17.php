@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallPoliciesGetRequest17.
+     * Response to UserCallPoliciesGetRequest17.
  */
 class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $redirectedCallsCOLPPrivacy          = null;
-    protected $callBeingForwardedResponseCallType  = null;
+    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCallPoliciesGetResponse17';
+    public    $name                               = __CLASS__;
+    protected $redirectedCallsCOLPPrivacy         = null;
+    protected $callBeingForwardedResponseCallType = null;
 
 
+    /**
+     * Choices for Connected Line Identification Privacy on Redirected Calls
+     */
     public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
@@ -30,11 +34,17 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
     }
 
+    /**
+     * Choices for Connected Line Identification Privacy on Redirected Calls
+     */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->value();
+        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->getValue();
     }
 
+    /**
+     * Call type choices for sending call being forward response on Redirected Calls
+     */
     public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType = null)
     {
         $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
@@ -42,8 +52,11 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
              : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
     }
 
+    /**
+     * Call type choices for sending call being forward response on Redirected Calls
+     */
     public function getCallBeingForwardedResponseCallType()
     {
-        return (!$this->callBeingForwardedResponseCallType) ?: $this->callBeingForwardedResponseCallType->value();
+        return (!$this->callBeingForwardedResponseCallType) ?: $this->callBeingForwardedResponseCallType->getValue();
     }
 }

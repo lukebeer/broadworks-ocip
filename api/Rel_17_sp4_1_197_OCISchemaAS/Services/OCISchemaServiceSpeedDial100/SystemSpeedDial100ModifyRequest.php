@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the speed dial 100 system-wide default prefix setting.
+     * Modify the speed dial 100 system-wide default prefix setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
-    protected $prefix  = null;
+    public    $name   = __CLASS__;
+    protected $prefix = null;
 
     public function __construct(
          $prefix = null
@@ -27,6 +27,9 @@ class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInte
         $this->setPrefix($prefix);
     }
 
+    /**
+     * Speed dial prefix.
+     */
     public function setPrefix($prefix = null)
     {
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
@@ -34,8 +37,11 @@ class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInte
              : new SpeedDialPrefix($prefix);
     }
 
+    /**
+     * Speed dial prefix.
+     */
     public function getPrefix()
     {
-        return (!$this->prefix) ?: $this->prefix->value();
+        return (!$this->prefix) ?: $this->prefix->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Network SIP Status Code mapping.
+     * Delete a Network SIP Status Code mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingNetworkSIPStatusDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $sipStatusCode  = null;
+    public    $name          = __CLASS__;
+    protected $sipStatusCode = null;
 
     public function __construct(
          $sipStatusCode
@@ -27,6 +27,9 @@ class SystemTreatmentMappingNetworkSIPStatusDeleteRequest extends ComplexType im
         $this->setSipStatusCode($sipStatusCode);
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function setSipStatusCode($sipStatusCode = null)
     {
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
@@ -34,8 +37,11 @@ class SystemTreatmentMappingNetworkSIPStatusDeleteRequest extends ComplexType im
              : new SIPFailureStatusCode($sipStatusCode);
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function getSipStatusCode()
     {
-        return (!$this->sipStatusCode) ?: $this->sipStatusCode->value();
+        return (!$this->sipStatusCode) ?: $this->sipStatusCode->getValue();
     }
 }

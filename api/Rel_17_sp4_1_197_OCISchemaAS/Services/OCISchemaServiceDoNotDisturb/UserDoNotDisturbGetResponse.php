@@ -13,30 +13,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserDoNotDisturbGetRequest.
+     * Response to UserDoNotDisturbGetRequest.
  */
 class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $isActive    = null;
-    protected $ringSplash  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDoNotDisturb\UserDoNotDisturbGetResponse';
+    public    $name       = __CLASS__;
+    protected $isActive   = null;
+    protected $ringSplash = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setRingSplash(xs:boolean $ringSplash = null)
+    /**
+     * 
+     */
+    public function setRingSplash($ringSplash = null)
     {
+        $this->ringSplash = (boolean) $ringSplash;
     }
 
+    /**
+     * 
+     */
     public function getRingSplash()
     {
-        return (!$this->ringSplash) ?: $this->ringSplash->value();
+        return (!$this->ringSplash) ?: $this->ringSplash->getValue();
     }
 }

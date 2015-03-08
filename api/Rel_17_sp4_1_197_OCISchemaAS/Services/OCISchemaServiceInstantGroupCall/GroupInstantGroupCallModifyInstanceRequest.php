@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify an Instant Group Call service instance.
+     * Request to modify an Instant Group Call service instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $serviceUserId               = null;
-    protected $serviceInstanceProfile      = null;
-    protected $destinationPhoneNumberList  = null;
-    protected $isAnswerTimeoutEnabled      = null;
-    protected $answerTimeoutMinutes        = null;
+    public    $name                       = __CLASS__;
+    protected $serviceUserId              = null;
+    protected $serviceInstanceProfile     = null;
+    protected $destinationPhoneNumberList = null;
+    protected $isAnswerTimeoutEnabled     = null;
+    protected $answerTimeoutMinutes       = null;
 
     public function __construct(
          $serviceUserId,
@@ -42,6 +42,13 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
         $this->setAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -49,38 +56,71 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service used when modifying an existing service instance.
+     */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service used when modifying an existing service instance.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * A list of phone numbers or sipuris that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setDestinationPhoneNumberList(ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList = null)
     {
+        $this->destinationPhoneNumberList = ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList;
     }
 
+    /**
+     * A list of phone numbers or sipuris that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getDestinationPhoneNumberList()
     {
-        return (!$this->destinationPhoneNumberList) ?: $this->destinationPhoneNumberList->value();
+        return (!$this->destinationPhoneNumberList) ?: $this->destinationPhoneNumberList->getValue();
     }
 
-    public function setIsAnswerTimeoutEnabled(xs:boolean $isAnswerTimeoutEnabled = null)
+    /**
+     * 
+     */
+    public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled = null)
     {
+        $this->isAnswerTimeoutEnabled = (boolean) $isAnswerTimeoutEnabled;
     }
 
+    /**
+     * 
+     */
     public function getIsAnswerTimeoutEnabled()
     {
-        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->value();
+        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->getValue();
     }
 
+    /**
+     * The maximum duration for unanswered call.
+     */
     public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
         $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
@@ -88,8 +128,11 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
              : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
     }
 
+    /**
+     * The maximum duration for unanswered call.
+     */
     public function getAnswerTimeoutMinutes()
     {
-        return (!$this->answerTimeoutMinutes) ?: $this->answerTimeoutMinutes->value();
+        return (!$this->answerTimeoutMinutes) ?: $this->answerTimeoutMinutes->getValue();
     }
 }

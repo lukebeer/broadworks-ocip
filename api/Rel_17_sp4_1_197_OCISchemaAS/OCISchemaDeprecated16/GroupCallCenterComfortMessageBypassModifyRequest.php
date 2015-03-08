@@ -17,21 +17,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a call center's comfort message bypass settings.
+     * Modify a call center's comfort message bypass settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
-    protected $serviceUserId                             = null;
-    protected $isActive                                  = null;
-    protected $callWaitingAgeThresholdSeconds            = null;
-    protected $playAnnouncementAfterRinging              = null;
-    protected $ringTimeBeforePlayingAnnouncementSeconds  = null;
-    protected $audioMessageSelection                     = null;
-    protected $audioFile                                 = null;
-    protected $videoMessageSelection                     = null;
-    protected $videoFile                                 = null;
+    public    $name                                     = __CLASS__;
+    protected $serviceUserId                            = null;
+    protected $isActive                                 = null;
+    protected $callWaitingAgeThresholdSeconds           = null;
+    protected $playAnnouncementAfterRinging             = null;
+    protected $ringTimeBeforePlayingAnnouncementSeconds = null;
+    protected $audioMessageSelection                    = null;
+    protected $audioFile                                = null;
+    protected $videoMessageSelection                    = null;
+    protected $videoFile                                = null;
 
     public function __construct(
          $serviceUserId,
@@ -55,6 +55,13 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
         $this->setVideoFile($videoFile);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -62,20 +69,38 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Call center comfort message bypass threshold. This is the maximum estimated wait time to allow 
+     *         bypassing the comfort message.
+     */
     public function setCallWaitingAgeThresholdSeconds($callWaitingAgeThresholdSeconds = null)
     {
         $this->callWaitingAgeThresholdSeconds = ($callWaitingAgeThresholdSeconds InstanceOf CallCenterComfortMessageBypassThresholdSeconds)
@@ -83,20 +108,34 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
              : new CallCenterComfortMessageBypassThresholdSeconds($callWaitingAgeThresholdSeconds);
     }
 
+    /**
+     * Call center comfort message bypass threshold. This is the maximum estimated wait time to allow 
+     *         bypassing the comfort message.
+     */
     public function getCallWaitingAgeThresholdSeconds()
     {
-        return (!$this->callWaitingAgeThresholdSeconds) ?: $this->callWaitingAgeThresholdSeconds->value();
+        return (!$this->callWaitingAgeThresholdSeconds) ?: $this->callWaitingAgeThresholdSeconds->getValue();
     }
 
-    public function setPlayAnnouncementAfterRinging(xs:boolean $playAnnouncementAfterRinging = null)
+    /**
+     * 
+     */
+    public function setPlayAnnouncementAfterRinging($playAnnouncementAfterRinging = null)
     {
+        $this->playAnnouncementAfterRinging = (boolean) $playAnnouncementAfterRinging;
     }
 
+    /**
+     * 
+     */
     public function getPlayAnnouncementAfterRinging()
     {
-        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging->value();
+        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging->getValue();
     }
 
+    /**
+     * Call center ring time before playing comfort message bypass announcement.
+     */
     public function setRingTimeBeforePlayingAnnouncementSeconds($ringTimeBeforePlayingAnnouncementSeconds = null)
     {
         $this->ringTimeBeforePlayingAnnouncementSeconds = ($ringTimeBeforePlayingAnnouncementSeconds InstanceOf CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds)
@@ -104,11 +143,17 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
              : new CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds($ringTimeBeforePlayingAnnouncementSeconds);
     }
 
+    /**
+     * Call center ring time before playing comfort message bypass announcement.
+     */
     public function getRingTimeBeforePlayingAnnouncementSeconds()
     {
-        return (!$this->ringTimeBeforePlayingAnnouncementSeconds) ?: $this->ringTimeBeforePlayingAnnouncementSeconds->value();
+        return (!$this->ringTimeBeforePlayingAnnouncementSeconds) ?: $this->ringTimeBeforePlayingAnnouncementSeconds->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -116,20 +161,35 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
              : new ExtendedFileResourceSelection($audioMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->value();
+        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
+        $this->audioFile = ExtendedMediaFileResource $audioFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->value();
+        return (!$this->audioFile) ?: $this->audioFile->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
@@ -137,17 +197,29 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
              : new ExtendedFileResourceSelection($videoMessageSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->value();
+        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
+        $this->videoFile = ExtendedMediaFileResource $videoFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->value();
+        return (!$this->videoFile) ?: $this->videoFile->getValue();
     }
 }

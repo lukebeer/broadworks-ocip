@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Remove a Diameter routing peer.
+     * Remove a Diameter routing peer.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $instance       = null;
-    protected $realm          = null;
-    protected $applicationId  = null;
-    protected $identity       = null;
+    public    $name          = __CLASS__;
+    protected $instance      = null;
+    protected $realm         = null;
+    protected $applicationId = null;
+    protected $identity      = null;
 
     public function __construct(
          $instance,
@@ -38,6 +38,9 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
         $this->setIdentity($identity);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function setInstance($instance = null)
     {
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
@@ -45,11 +48,17 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
              : new BwDiameterPeerInstance($instance);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->value();
+        return (!$this->instance) ?: $this->instance->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setRealm($realm = null)
     {
         $this->realm = ($realm InstanceOf DomainName)
@@ -57,11 +66,17 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
              : new DomainName($realm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getRealm()
     {
-        return (!$this->realm) ?: $this->realm->value();
+        return (!$this->realm) ?: $this->realm->getValue();
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
@@ -69,11 +84,17 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
              : new BwDiameterApplicationId($applicationId);
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setIdentity($identity = null)
     {
         $this->identity = ($identity InstanceOf DomainName)
@@ -81,8 +102,11 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
              : new DomainName($identity);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getIdentity()
     {
-        return (!$this->identity) ?: $this->identity->value();
+        return (!$this->identity) ?: $this->identity->getValue();
     }
 }

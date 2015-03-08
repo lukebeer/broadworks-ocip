@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Network SIP Status Code mapping.
+     * Add a Network SIP Status Code mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $sipStatusCode  = null;
-    protected $treatmentId    = null;
+    public    $name          = __CLASS__;
+    protected $sipStatusCode = null;
+    protected $treatmentId   = null;
 
     public function __construct(
          $sipStatusCode,
@@ -31,6 +31,9 @@ class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType imple
         $this->setTreatmentId($treatmentId);
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function setSipStatusCode($sipStatusCode = null)
     {
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
@@ -38,11 +41,17 @@ class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType imple
              : new SIPFailureStatusCode($sipStatusCode);
     }
 
+    /**
+     * The possible range values for SIP failure status codes.
+     */
     public function getSipStatusCode()
     {
-        return (!$this->sipStatusCode) ?: $this->sipStatusCode->value();
+        return (!$this->sipStatusCode) ?: $this->sipStatusCode->getValue();
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
@@ -50,8 +59,11 @@ class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType imple
              : new TreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->value();
+        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
     }
 }

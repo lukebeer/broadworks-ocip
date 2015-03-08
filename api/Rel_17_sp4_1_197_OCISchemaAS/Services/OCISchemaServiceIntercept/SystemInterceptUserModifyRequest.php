@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system-level intercept user service settings.
+     * Modify the system-level intercept user service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $emergencyAndRepairIntercept  = null;
+    public    $name                        = __CLASS__;
+    protected $emergencyAndRepairIntercept = null;
 
     public function __construct(
          $emergencyAndRepairIntercept = null
@@ -27,12 +27,19 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
         $this->setEmergencyAndRepairIntercept($emergencyAndRepairIntercept);
     }
 
-    public function setEmergencyAndRepairIntercept(xs:boolean $emergencyAndRepairIntercept = null)
+    /**
+     * 
+     */
+    public function setEmergencyAndRepairIntercept($emergencyAndRepairIntercept = null)
     {
+        $this->emergencyAndRepairIntercept = (boolean) $emergencyAndRepairIntercept;
     }
 
+    /**
+     * 
+     */
     public function getEmergencyAndRepairIntercept()
     {
-        return (!$this->emergencyAndRepairIntercept) ?: $this->emergencyAndRepairIntercept->value();
+        return (!$this->emergencyAndRepairIntercept) ?: $this->emergencyAndRepairIntercept->getValue();
     }
 }

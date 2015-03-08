@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Identifier for conference recording. startTime is the recording start timestamp.
+     * Identifier for conference recording. startTime is the recording start timestamp.
  */
 class MeetMeConferencingConferenceRecordingKey extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceRecordingKey';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -15,16 +15,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupEnterpriseTrunkGetRequest.
+     * Response to GroupEnterpriseTrunkGetRequest.
  */
 class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $maximumRerouteAttempts         = null;
-    protected $routeExhaustionAction          = null;
-    protected $routeExhaustionForwardAddress  = null;
+    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse';
+    public    $name                          = __CLASS__;
+    protected $maximumRerouteAttempts        = null;
+    protected $routeExhaustionAction         = null;
+    protected $routeExhaustionForwardAddress = null;
 
 
+    /**
+     * Determines the maximum number of reroute attempts within an enterprise trunk.
+     */
     public function setMaximumRerouteAttempts($maximumRerouteAttempts = null)
     {
         $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
@@ -32,11 +36,17 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
              : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
     }
 
+    /**
+     * Determines the maximum number of reroute attempts within an enterprise trunk.
+     */
     public function getMaximumRerouteAttempts()
     {
-        return (!$this->maximumRerouteAttempts) ?: $this->maximumRerouteAttempts->value();
+        return (!$this->maximumRerouteAttempts) ?: $this->maximumRerouteAttempts->getValue();
     }
 
+    /**
+     * Enterprise Trunk Route Exhaustion Action
+     */
     public function setRouteExhaustionAction($routeExhaustionAction = null)
     {
         $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
@@ -44,11 +54,24 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
              : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
     }
 
+    /**
+     * Enterprise Trunk Route Exhaustion Action
+     */
     public function getRouteExhaustionAction()
     {
-        return (!$this->routeExhaustionAction) ?: $this->routeExhaustionAction->value();
+        return (!$this->routeExhaustionAction) ?: $this->routeExhaustionAction->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress = null)
     {
         $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
@@ -56,8 +79,18 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
              : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getRouteExhaustionForwardAddress()
     {
-        return (!$this->routeExhaustionForwardAddress) ?: $this->routeExhaustionForwardAddress->value();
+        return (!$this->routeExhaustionForwardAddress) ?: $this->routeExhaustionForwardAddress->getValue();
     }
 }

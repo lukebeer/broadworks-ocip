@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Access device end point that can have multiple contacts.
+     * Access device end point that can have multiple contacts.
  */
 class AccessDeviceMultipleContactEndpointRead extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\AccessDeviceMultipleContactEndpointRead';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

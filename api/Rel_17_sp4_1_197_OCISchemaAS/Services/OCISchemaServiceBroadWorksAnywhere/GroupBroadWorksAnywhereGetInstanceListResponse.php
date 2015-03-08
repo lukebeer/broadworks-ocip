@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupBroadWorksAnywhereGetInstanceListRequest.
+     * Response to the GroupBroadWorksAnywhereGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Phone Number", "Extension", "Department", "Is Active".
  *         The column value for "Is Active" can either be true, or false.
  */
 class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $broadWorksAnywhereTable  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereGetInstanceListResponse';
+    public    $name                    = __CLASS__;
+    protected $broadWorksAnywhereTable = null;
 
 
+    /**
+     * 
+     */
     public function setBroadWorksAnywhereTable(core:OCITable $broadWorksAnywhereTable = null)
     {
+        $this->broadWorksAnywhereTable = core:OCITable $broadWorksAnywhereTable;
     }
 
+    /**
+     * 
+     */
     public function getBroadWorksAnywhereTable()
     {
-        return (!$this->broadWorksAnywhereTable) ?: $this->broadWorksAnywhereTable->value();
+        return (!$this->broadWorksAnywhereTable) ?: $this->broadWorksAnywhereTable->getValue();
     }
 }

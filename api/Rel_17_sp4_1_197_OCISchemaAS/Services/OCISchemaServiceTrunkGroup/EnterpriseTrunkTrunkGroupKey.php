@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Identifies a trunk group within an Enterprise Trunk where the service provider id is already known.
+     * Identifies a trunk group within an Enterprise Trunk where the service provider id is already known.
  */
 class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

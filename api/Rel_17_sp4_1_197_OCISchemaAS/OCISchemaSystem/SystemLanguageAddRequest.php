@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a language to the system.
+     * Request to add a language to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $language  = null;
-    protected $locale    = null;
-    protected $encoding  = null;
+    public    $name     = __CLASS__;
+    protected $language = null;
+    protected $locale   = null;
+    protected $encoding = null;
 
     public function __construct(
          $language,
@@ -35,6 +35,9 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
         $this->setEncoding($encoding);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setLanguage($language = null)
     {
         $this->language = ($language InstanceOf Language)
@@ -42,11 +45,17 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
              : new Language($language);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->value();
+        return (!$this->language) ?: $this->language->getValue();
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function setLocale($locale = null)
     {
         $this->locale = ($locale InstanceOf OCILocale)
@@ -54,11 +63,17 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
              : new OCILocale($locale);
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->value();
+        return (!$this->locale) ?: $this->locale->getValue();
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function setEncoding($encoding = null)
     {
         $this->encoding = ($encoding InstanceOf Encoding)
@@ -66,8 +81,11 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
              : new Encoding($encoding);
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->value();
+        return (!$this->encoding) ?: $this->encoding->getValue();
     }
 }

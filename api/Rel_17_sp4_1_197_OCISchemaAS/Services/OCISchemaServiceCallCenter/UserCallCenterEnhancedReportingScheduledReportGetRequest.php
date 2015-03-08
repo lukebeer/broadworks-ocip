@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a call center reporting scheduled report created by supervisor.
+     * Request to get a call center reporting scheduled report created by supervisor.
  *         The response is either a UserCallCenterEnhancedReportingScheduledReportGetResponse or an ErrorResponse.
  */
 class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $supervisorUserId  = null;
-    protected $name              = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportGetResponse';
+    public    $name             = __CLASS__;
+    protected $supervisorUserId = null;
+    protected $name             = null;
 
     public function __construct(
          $supervisorUserId,
@@ -31,6 +32,13 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
         $this->setName($name);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setSupervisorUserId($supervisorUserId = null)
     {
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
@@ -38,11 +46,21 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
              : new UserId($supervisorUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getSupervisorUserId()
     {
-        return (!$this->supervisorUserId) ?: $this->supervisorUserId->value();
+        return (!$this->supervisorUserId) ?: $this->supervisorUserId->getValue();
     }
 
+    /**
+     * The call center enhanced reporting scheduled report name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
@@ -50,8 +68,11 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
              : new CallCenterScheduledReportName($name);
     }
 
+    /**
+     * The call center enhanced reporting scheduled report name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

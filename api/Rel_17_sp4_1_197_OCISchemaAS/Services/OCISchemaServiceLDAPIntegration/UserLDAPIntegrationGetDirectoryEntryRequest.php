@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request one LDAP entry for a user.
+     * Request one LDAP entry for a user.
  *         The response is either a UserLDAPIntegrationGetDirectoryEntryResponse or an ErrorResponse.
  */
 class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $userId     = null;
-    protected $entryName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryEntryResponse';
+    public    $name      = __CLASS__;
+    protected $userId    = null;
+    protected $entryName = null;
 
     public function __construct(
          $userId,
@@ -31,6 +32,13 @@ class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements
         $this->setEntryName($entryName);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -38,11 +46,21 @@ class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * LDAP Entry Name.
+     */
     public function setEntryName($entryName = null)
     {
         $this->entryName = ($entryName InstanceOf LDAPEntryName)
@@ -50,8 +68,11 @@ class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements
              : new LDAPEntryName($entryName);
     }
 
+    /**
+     * LDAP Entry Name.
+     */
     public function getEntryName()
     {
-        return (!$this->entryName) ?: $this->entryName->value();
+        return (!$this->entryName) ?: $this->entryName->getValue();
     }
 }

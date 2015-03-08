@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of a service provider schedules. The list can be filtered by schedule type.
+     * Get the list of a service provider schedules. The list can be filtered by schedule type.
  *         The response is either a ServiceProviderScheduleGetListResponse or an ErrorResponse.
  */
 class ServiceProviderScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $scheduleType       = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetListResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $scheduleType      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class ServiceProviderScheduleGetListRequest extends ComplexType implements Compl
         $this->setScheduleType($scheduleType);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,18 @@ class ServiceProviderScheduleGetListRequest extends ComplexType implements Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Schedule type.
+     */
     public function setScheduleType($scheduleType = null)
     {
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
@@ -50,8 +62,11 @@ class ServiceProviderScheduleGetListRequest extends ComplexType implements Compl
              : new ScheduleType($scheduleType);
     }
 
+    /**
+     * Schedule type.
+     */
     public function getScheduleType()
     {
-        return (!$this->scheduleType) ?: $this->scheduleType->value();
+        return (!$this->scheduleType) ?: $this->scheduleType->getValue();
     }
 }

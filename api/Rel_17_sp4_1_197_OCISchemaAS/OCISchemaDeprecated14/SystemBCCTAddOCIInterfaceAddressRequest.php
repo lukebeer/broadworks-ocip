@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an OCI entry to the Broadworks Common Communication Transport (BCCT) protocol to interface mapping table.
+     * Add an OCI entry to the Broadworks Common Communication Transport (BCCT) protocol to interface mapping table.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemBCCTAddOCIInterfaceAddressRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $interfaceNetAddress  = null;
+    public    $name                = __CLASS__;
+    protected $interfaceNetAddress = null;
 
     public function __construct(
          $interfaceNetAddress
@@ -27,6 +27,9 @@ class SystemBCCTAddOCIInterfaceAddressRequest extends ComplexType implements Com
         $this->setInterfaceNetAddress($interfaceNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setInterfaceNetAddress($interfaceNetAddress = null)
     {
         $this->interfaceNetAddress = ($interfaceNetAddress InstanceOf NetAddress)
@@ -34,8 +37,11 @@ class SystemBCCTAddOCIInterfaceAddressRequest extends ComplexType implements Com
              : new NetAddress($interfaceNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getInterfaceNetAddress()
     {
-        return (!$this->interfaceNetAddress) ?: $this->interfaceNetAddress->value();
+        return (!$this->interfaceNetAddress) ?: $this->interfaceNetAddress->getValue();
     }
 }

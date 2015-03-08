@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a ChargingFunctionElementServer from the system.
+     * Request to delete a ChargingFunctionElementServer from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingDeleteChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $address  = null;
+    public    $name    = __CLASS__;
+    protected $address = null;
 
     public function __construct(
          $address
@@ -27,6 +27,10 @@ class SystemAccountingDeleteChargingFunctionElementServerRequest extends Complex
         $this->setAddress($address);
     }
 
+    /**
+     * This is a net address or can contain a string that includes additional items
+     *         such as protocols and transports.
+     */
     public function setAddress($address = null)
     {
         $this->address = ($address InstanceOf NetAddressExtended)
@@ -34,8 +38,12 @@ class SystemAccountingDeleteChargingFunctionElementServerRequest extends Complex
              : new NetAddressExtended($address);
     }
 
+    /**
+     * This is a net address or can contain a string that includes additional items
+     *         such as protocols and transports.
+     */
     public function getAddress()
     {
-        return (!$this->address) ?: $this->address->value();
+        return (!$this->address) ?: $this->address->getValue();
     }
 }

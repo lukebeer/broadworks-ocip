@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests to modify the routing profile for a group.
+     * Requests to modify the routing profile for a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $routingProfile     = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $routingProfile    = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
         $this->setRoutingProfile($routingProfile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +66,18 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Routing Profile.
+     */
     public function setRoutingProfile($routingProfile = null)
     {
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
@@ -66,8 +85,11 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
              : new RoutingProfile($routingProfile);
     }
 
+    /**
+     * Routing Profile.
+     */
     public function getRoutingProfile()
     {
-        return (!$this->routingProfile) ?: $this->routingProfile->value();
+        return (!$this->routingProfile) ?: $this->routingProfile->getValue();
     }
 }

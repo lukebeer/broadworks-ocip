@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderOfficeZoneGetAssignedGroupListRequest.  Contains a table of groups that have the Office Zone assigned. The column headings are: "Group Id" and "Group Name".
+     * Response to ServiceProviderOfficeZoneGetAssignedGroupListRequest.  Contains a table of groups that have the Office Zone assigned. The column headings are: "Group Id" and "Group Name".
  */
 class ServiceProviderOfficeZoneGetAssignedGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $groupTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneGetAssignedGroupListResponse';
+    public    $name       = __CLASS__;
+    protected $groupTable = null;
 
 
+    /**
+     * 
+     */
     public function setGroupTable(core:OCITable $groupTable = null)
     {
+        $this->groupTable = core:OCITable $groupTable;
     }
 
+    /**
+     * 
+     */
     public function getGroupTable()
     {
-        return (!$this->groupTable) ?: $this->groupTable->value();
+        return (!$this->groupTable) ?: $this->groupTable->getValue();
     }
 }

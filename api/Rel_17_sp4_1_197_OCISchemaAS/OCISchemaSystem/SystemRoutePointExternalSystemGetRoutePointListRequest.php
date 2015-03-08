@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of Route Points that are using the specified Route Point External System.  
+     * Get a list of Route Points that are using the specified Route Point External System.  
  *       The response is either a SystemRoutePointExternalSystemGetRoutePointListResponse or an
  *       ErrorResponse.
  */
 class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $routePointExternalSystem  = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse';
+    public    $name                     = __CLASS__;
+    protected $routePointExternalSystem = null;
 
     public function __construct(
          $routePointExternalSystem
@@ -28,6 +29,9 @@ class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType
         $this->setRoutePointExternalSystem($routePointExternalSystem);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setRoutePointExternalSystem($routePointExternalSystem = null)
     {
         $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
@@ -35,8 +39,11 @@ class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType
              : new RoutePointExternalSystem($routePointExternalSystem);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getRoutePointExternalSystem()
     {
-        return (!$this->routePointExternalSystem) ?: $this->routePointExternalSystem->value();
+        return (!$this->routePointExternalSystem) ?: $this->routePointExternalSystem->getValue();
     }
 }

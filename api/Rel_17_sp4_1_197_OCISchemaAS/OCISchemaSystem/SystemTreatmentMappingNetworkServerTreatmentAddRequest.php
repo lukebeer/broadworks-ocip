@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Network Server Treatment mapping.
+     * Add a Network Server Treatment mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingNetworkServerTreatmentAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $nsTreatment  = null;
-    protected $treatmentId  = null;
+    public    $name        = __CLASS__;
+    protected $nsTreatment = null;
+    protected $treatmentId = null;
 
     public function __construct(
          $nsTreatment,
@@ -31,6 +31,9 @@ class SystemTreatmentMappingNetworkServerTreatmentAddRequest extends ComplexType
         $this->setTreatmentId($treatmentId);
     }
 
+    /**
+     * Possible string value for Network Server Treatment.
+     */
     public function setNsTreatment($nsTreatment = null)
     {
         $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
@@ -38,11 +41,17 @@ class SystemTreatmentMappingNetworkServerTreatmentAddRequest extends ComplexType
              : new NetworkServerTreatment($nsTreatment);
     }
 
+    /**
+     * Possible string value for Network Server Treatment.
+     */
     public function getNsTreatment()
     {
-        return (!$this->nsTreatment) ?: $this->nsTreatment->value();
+        return (!$this->nsTreatment) ?: $this->nsTreatment->getValue();
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
@@ -50,8 +59,11 @@ class SystemTreatmentMappingNetworkServerTreatmentAddRequest extends ComplexType
              : new TreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->value();
+        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
     }
 }

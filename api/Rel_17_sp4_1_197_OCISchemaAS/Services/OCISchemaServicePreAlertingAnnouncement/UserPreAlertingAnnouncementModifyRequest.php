@@ -16,19 +16,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's pre-alerting service setting.
+     * Modify the user's pre-alerting service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $userId              = null;
-    protected $isActive            = null;
-    protected $audioSelection      = null;
-    protected $audioFile           = null;
-    protected $videoSelection      = null;
-    protected $videoFile           = null;
-    protected $criteriaActivation  = null;
+    public    $name               = __CLASS__;
+    protected $userId             = null;
+    protected $isActive           = null;
+    protected $audioSelection     = null;
+    protected $audioFile          = null;
+    protected $videoSelection     = null;
+    protected $videoFile          = null;
+    protected $criteriaActivation = null;
 
     public function __construct(
          $userId,
@@ -48,6 +48,13 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         $this->setCriteriaActivation($criteriaActivation);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -55,20 +62,37 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setAudioSelection($audioSelection = null)
     {
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
@@ -76,20 +100,35 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
              : new ExtendedFileResourceSelection($audioSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->value();
+        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
+        $this->audioFile = ExtendedMediaFileResource $audioFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->value();
+        return (!$this->audioFile) ?: $this->audioFile->getValue();
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function setVideoSelection($videoSelection = null)
     {
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
@@ -97,26 +136,45 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
              : new ExtendedFileResourceSelection($videoSelection);
     }
 
+    /**
+     * Choices for extended file resource usage.
+     */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->value();
+        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
+        $this->videoFile = ExtendedMediaFileResource $videoFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *           the contents of a file to transfer and an URL.
+     */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->value();
+        return (!$this->videoFile) ?: $this->videoFile->getValue();
     }
 
+    /**
+     * Criteria active status indicator
+     */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
+        $this->criteriaActivation = CriteriaActivation $criteriaActivation;
     }
 
+    /**
+     * Criteria active status indicator
+     */
     public function getCriteriaActivation()
     {
-        return (!$this->criteriaActivation) ?: $this->criteriaActivation->value();
+        return (!$this->criteriaActivation) ?: $this->criteriaActivation->getValue();
     }
 }

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a user creation task for a trunk group.
+     * Delete a user creation task for a trunk group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $trunkGroupKey  = null;
-    protected $taskName       = null;
+    public    $name          = __CLASS__;
+    protected $trunkGroupKey = null;
+    protected $taskName      = null;
 
     public function __construct(
          TrunkGroupKey $trunkGroupKey,
@@ -31,15 +31,27 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
         $this->setTaskName($taskName);
     }
 
+    /**
+     * Uniquely identifies a Trunk Group system-wide.
+     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
+        $this->trunkGroupKey = TrunkGroupKey $trunkGroupKey;
     }
 
+    /**
+     * Uniquely identifies a Trunk Group system-wide.
+     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     */
     public function getTrunkGroupKey()
     {
-        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->value();
+        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->getValue();
     }
 
+    /**
+     * The name of a Trunk Group User Creation Task.
+     */
     public function setTaskName($taskName = null)
     {
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
@@ -47,8 +59,11 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
              : new TrunkGroupUserCreationTaskName($taskName);
     }
 
+    /**
+     * The name of a Trunk Group User Creation Task.
+     */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->value();
+        return (!$this->taskName) ?: $this->taskName->getValue();
     }
 }

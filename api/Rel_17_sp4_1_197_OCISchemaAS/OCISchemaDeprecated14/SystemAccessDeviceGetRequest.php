@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the configuration of a specified system access device.
+     * Requests the configuration of a specified system access device.
  *         The response is either SystemAccessDeviceGetResponse or ErrorResponse.
  *         Replaced By: SystemAccessDeviceGetRequest14sp3
  */
 class SystemAccessDeviceGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceGetResponse';
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
 
     public function __construct(
          $deviceName
@@ -28,6 +29,9 @@ class SystemAccessDeviceGetRequest extends ComplexType implements ComplexInterfa
         $this->setDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -35,8 +39,11 @@ class SystemAccessDeviceGetRequest extends ComplexType implements ComplexInterfa
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 }

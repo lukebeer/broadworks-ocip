@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a ChargingFunctionElementServer in the system.
+     * Request to modify a ChargingFunctionElementServer in the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingModifyChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $address      = null;
-    protected $type         = null;
-    protected $description  = null;
+    public    $name        = __CLASS__;
+    protected $address     = null;
+    protected $type        = null;
+    protected $description = null;
 
     public function __construct(
          $address,
@@ -35,6 +35,10 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
         $this->setDescription($description);
     }
 
+    /**
+     * This is a net address or can contain a string that includes additional items
+     *         such as protocols and transports.
+     */
     public function setAddress($address = null)
     {
         $this->address = ($address InstanceOf NetAddressExtended)
@@ -42,11 +46,18 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
              : new NetAddressExtended($address);
     }
 
+    /**
+     * This is a net address or can contain a string that includes additional items
+     *         such as protocols and transports.
+     */
     public function getAddress()
     {
-        return (!$this->address) ?: $this->address->value();
+        return (!$this->address) ?: $this->address->getValue();
     }
 
+    /**
+     * ChargingFunctionElement Server types.
+     */
     public function setType($type = null)
     {
         $this->type = ($type InstanceOf ChargingFunctionElementServerType)
@@ -54,11 +65,17 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
              : new ChargingFunctionElementServerType($type);
     }
 
+    /**
+     * ChargingFunctionElement Server types.
+     */
     public function getType()
     {
-        return (!$this->type) ?: $this->type->value();
+        return (!$this->type) ?: $this->type->getValue();
     }
 
+    /**
+     * ChargingFunctionElementServer description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf ChargingFunctionElementServerDescription)
@@ -66,8 +83,11 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
              : new ChargingFunctionElementServerDescription($description);
     }
 
+    /**
+     * ChargingFunctionElementServer description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

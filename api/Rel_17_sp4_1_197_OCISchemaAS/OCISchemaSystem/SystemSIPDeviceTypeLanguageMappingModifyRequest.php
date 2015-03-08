@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the device language name that is mapped to a BroadWorks language name. The request can be used to map many languages.
+     * Request to modify the device language name that is mapped to a BroadWorks language name. The request can be used to map many languages.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $deviceType       = null;
-    protected $languageMapping  = null;
+    public    $name            = __CLASS__;
+    protected $deviceType      = null;
+    protected $languageMapping = null;
 
     public function __construct(
          $deviceType,
@@ -31,6 +31,9 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
         $this->setLanguageMapping($languageMapping);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -38,17 +41,27 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * Maps a BroadWorks language to a device-equivalent language.
+     */
     public function setLanguageMapping(DeviceManagementLanguageMapping $languageMapping = null)
     {
+        $this->languageMapping = DeviceManagementLanguageMapping $languageMapping;
     }
 
+    /**
+     * Maps a BroadWorks language to a device-equivalent language.
+     */
     public function getLanguageMapping()
     {
-        return (!$this->languageMapping) ?: $this->languageMapping->value();
+        return (!$this->languageMapping) ?: $this->languageMapping->getValue();
     }
 }

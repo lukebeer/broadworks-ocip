@@ -15,19 +15,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16.
+     * Response to the GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16.
  */
 class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
-    protected $voicePortalGreetingSelection           = null;
-    protected $voicePortalGreetingFileDescription     = null;
-    protected $voicePortalGreetingMediaType           = null;
-    protected $voiceMessagingGreetingSelection        = null;
-    protected $voiceMessagingGreetingFileDescription  = null;
-    protected $voiceMessagingGreetingMediaType        = null;
+    const     RESPONSE_TYPE                          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16';
+    public    $name                                  = __CLASS__;
+    protected $voicePortalGreetingSelection          = null;
+    protected $voicePortalGreetingFileDescription    = null;
+    protected $voicePortalGreetingMediaType          = null;
+    protected $voiceMessagingGreetingSelection       = null;
+    protected $voiceMessagingGreetingFileDescription = null;
+    protected $voiceMessagingGreetingMediaType       = null;
 
 
+    /**
+     * Branding Selection.
+     */
     public function setVoicePortalGreetingSelection($voicePortalGreetingSelection = null)
     {
         $this->voicePortalGreetingSelection = ($voicePortalGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
@@ -35,11 +39,17 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
              : new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
     }
 
+    /**
+     * Branding Selection.
+     */
     public function getVoicePortalGreetingSelection()
     {
-        return (!$this->voicePortalGreetingSelection) ?: $this->voicePortalGreetingSelection->value();
+        return (!$this->voicePortalGreetingSelection) ?: $this->voicePortalGreetingSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVoicePortalGreetingFileDescription($voicePortalGreetingFileDescription = null)
     {
         $this->voicePortalGreetingFileDescription = ($voicePortalGreetingFileDescription InstanceOf FileDescription)
@@ -47,11 +57,21 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
              : new FileDescription($voicePortalGreetingFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVoicePortalGreetingFileDescription()
     {
-        return (!$this->voicePortalGreetingFileDescription) ?: $this->voicePortalGreetingFileDescription->value();
+        return (!$this->voicePortalGreetingFileDescription) ?: $this->voicePortalGreetingFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setVoicePortalGreetingMediaType($voicePortalGreetingMediaType = null)
     {
         $this->voicePortalGreetingMediaType = ($voicePortalGreetingMediaType InstanceOf MediaFileType)
@@ -59,11 +79,21 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
              : new MediaFileType($voicePortalGreetingMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getVoicePortalGreetingMediaType()
     {
-        return (!$this->voicePortalGreetingMediaType) ?: $this->voicePortalGreetingMediaType->value();
+        return (!$this->voicePortalGreetingMediaType) ?: $this->voicePortalGreetingMediaType->getValue();
     }
 
+    /**
+     * Branding Selection.
+     */
     public function setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection = null)
     {
         $this->voiceMessagingGreetingSelection = ($voiceMessagingGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
@@ -71,11 +101,17 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
              : new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
     }
 
+    /**
+     * Branding Selection.
+     */
     public function getVoiceMessagingGreetingSelection()
     {
-        return (!$this->voiceMessagingGreetingSelection) ?: $this->voiceMessagingGreetingSelection->value();
+        return (!$this->voiceMessagingGreetingSelection) ?: $this->voiceMessagingGreetingSelection->getValue();
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function setVoiceMessagingGreetingFileDescription($voiceMessagingGreetingFileDescription = null)
     {
         $this->voiceMessagingGreetingFileDescription = ($voiceMessagingGreetingFileDescription InstanceOf FileDescription)
@@ -83,11 +119,21 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
              : new FileDescription($voiceMessagingGreetingFileDescription);
     }
 
+    /**
+     * Description of a file resource.
+     */
     public function getVoiceMessagingGreetingFileDescription()
     {
-        return (!$this->voiceMessagingGreetingFileDescription) ?: $this->voiceMessagingGreetingFileDescription->value();
+        return (!$this->voiceMessagingGreetingFileDescription) ?: $this->voiceMessagingGreetingFileDescription->getValue();
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function setVoiceMessagingGreetingMediaType($voiceMessagingGreetingMediaType = null)
     {
         $this->voiceMessagingGreetingMediaType = ($voiceMessagingGreetingMediaType InstanceOf MediaFileType)
@@ -95,8 +141,15 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
              : new MediaFileType($voiceMessagingGreetingMediaType);
     }
 
+    /**
+     * The media type of media data.
+     *         WMA - Windows Media Audio file
+     *         WAV - A WAV file
+     *         3GP - A 3GP file
+     *         MOV - A MOV file using a H.263 or H.264 codec.
+     */
     public function getVoiceMessagingGreetingMediaType()
     {
-        return (!$this->voiceMessagingGreetingMediaType) ?: $this->voiceMessagingGreetingMediaType->value();
+        return (!$this->voiceMessagingGreetingMediaType) ?: $this->voiceMessagingGreetingMediaType->getValue();
     }
 }

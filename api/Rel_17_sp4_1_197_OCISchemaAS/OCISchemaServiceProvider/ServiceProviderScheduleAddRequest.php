@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a service provider schedule.
+     * Add a service provider schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $scheduleName       = null;
-    protected $scheduleType       = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $scheduleName      = null;
+    protected $scheduleType      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
         $this->setScheduleType($scheduleType);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,18 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Schedule name.
+     */
     public function setScheduleName($scheduleName = null)
     {
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
@@ -54,11 +65,17 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
              : new ScheduleName($scheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getScheduleName()
     {
-        return (!$this->scheduleName) ?: $this->scheduleName->value();
+        return (!$this->scheduleName) ?: $this->scheduleName->getValue();
     }
 
+    /**
+     * Schedule type.
+     */
     public function setScheduleType($scheduleType = null)
     {
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
@@ -66,8 +83,11 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
              : new ScheduleType($scheduleType);
     }
 
+    /**
+     * Schedule type.
+     */
     public function getScheduleType()
     {
-        return (!$this->scheduleType) ?: $this->scheduleType->value();
+        return (!$this->scheduleType) ?: $this->scheduleType->getValue();
     }
 }

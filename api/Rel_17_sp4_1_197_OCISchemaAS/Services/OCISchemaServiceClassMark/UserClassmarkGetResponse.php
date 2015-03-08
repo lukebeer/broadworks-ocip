@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserClassmarkGetRequest.
+     * Response to UserClassmarkGetRequest.
  *         Contains the Class Mark data
  */
 class UserClassmarkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $classmark  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\UserClassmarkGetResponse';
+    public    $name      = __CLASS__;
+    protected $classmark = null;
 
 
+    /**
+     * Name for the Class Mark.
+     */
     public function setClassmark($classmark = null)
     {
         $this->classmark = ($classmark InstanceOf Classmark)
@@ -29,8 +33,11 @@ class UserClassmarkGetResponse extends ComplexType implements ComplexInterface
              : new Classmark($classmark);
     }
 
+    /**
+     * Name for the Class Mark.
+     */
     public function getClassmark()
     {
-        return (!$this->classmark) ?: $this->classmark->value();
+        return (!$this->classmark) ?: $this->classmark->getValue();
     }
 }

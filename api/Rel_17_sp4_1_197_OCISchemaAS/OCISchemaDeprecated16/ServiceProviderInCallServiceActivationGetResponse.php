@@ -13,16 +13,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderInCallServiceActivationGetRequest.
+     * Response to ServiceProviderInCallServiceActivationGetRequest.
  *           
  *           Replaced by: ServiceProviderInCallServiceActivationGetResponse17
  */
 class ServiceProviderInCallServiceActivationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $activationDigits  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderInCallServiceActivationGetResponse';
+    public    $name             = __CLASS__;
+    protected $activationDigits = null;
 
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function setActivationDigits($activationDigits = null)
     {
         $this->activationDigits = ($activationDigits InstanceOf InCallServiceActivationDigits)
@@ -30,8 +34,11 @@ class ServiceProviderInCallServiceActivationGetResponse extends ComplexType impl
              : new InCallServiceActivationDigits($activationDigits);
     }
 
+    /**
+     * In Call Service Activation DigitMap.
+     */
     public function getActivationDigits()
     {
-        return (!$this->activationDigits) ?: $this->activationDigits->value();
+        return (!$this->activationDigits) ?: $this->activationDigits->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the list of file repositories in the system.
+     * Request the list of file repositories in the system.
  *         The response is either a SystemFileRepositoryDeviceGetListResponse or an ErrorResponse.
  */
 class SystemFileRepositoryDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

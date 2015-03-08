@@ -17,34 +17,49 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupHuntGroupGetInstanceRequest14.
+     * Response to GroupHuntGroupGetInstanceRequest14.
  *         Contains the service profile information and a table of assigned users.
  *         The table has column headings: "User Id", "Last Name", "First Name",
  *         "Hiragana Last Name", "Hiragana First Name", "Weight".
  */
 class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $serviceInstanceProfile     = null;
-    protected $policy                     = null;
-    protected $huntAfterNoAnswer          = null;
-    protected $noAnswerNumberOfRings      = null;
-    protected $forwardAfterTimeout        = null;
-    protected $forwardTimeoutSeconds      = null;
-    protected $forwardToPhoneNumber       = null;
-    protected $agentUserTable             = null;
-    protected $allowCallWaitingForAgents  = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHuntGroupGetInstanceResponse14';
+    public    $name                      = __CLASS__;
+    protected $serviceInstanceProfile    = null;
+    protected $policy                    = null;
+    protected $huntAfterNoAnswer         = null;
+    protected $noAnswerNumberOfRings     = null;
+    protected $forwardAfterTimeout       = null;
+    protected $forwardTimeoutSeconds     = null;
+    protected $forwardToPhoneNumber      = null;
+    protected $agentUserTable            = null;
+    protected $allowCallWaitingForAgents = null;
 
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service.
+     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     *         Prior to release 14 this was called ServiceInstanceProfile.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function setPolicy($policy = null)
     {
         $this->policy = ($policy InstanceOf HuntPolicy)
@@ -52,20 +67,34 @@ class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements Complex
              : new HuntPolicy($policy);
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function getPolicy()
     {
-        return (!$this->policy) ?: $this->policy->value();
+        return (!$this->policy) ?: $this->policy->getValue();
     }
 
-    public function setHuntAfterNoAnswer(xs:boolean $huntAfterNoAnswer = null)
+    /**
+     * 
+     */
+    public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
+        $this->huntAfterNoAnswer = (boolean) $huntAfterNoAnswer;
     }
 
+    /**
+     * 
+     */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->value();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
     }
 
+    /**
+     * Number of rings to wait for the currently hunted agent to answer before
+     *         hunting to the next available agent.
+     */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
@@ -73,20 +102,34 @@ class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements Complex
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
     }
 
+    /**
+     * Number of rings to wait for the currently hunted agent to answer before
+     *         hunting to the next available agent.
+     */
     public function getNoAnswerNumberOfRings()
     {
-        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->value();
+        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->getValue();
     }
 
-    public function setForwardAfterTimeout(xs:boolean $forwardAfterTimeout = null)
+    /**
+     * 
+     */
+    public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
+        $this->forwardAfterTimeout = (boolean) $forwardAfterTimeout;
     }
 
+    /**
+     * 
+     */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->value();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
@@ -94,11 +137,19 @@ class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements Complex
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
     }
 
+    /**
+     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     */
     public function getForwardTimeoutSeconds()
     {
-        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->value();
+        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->getValue();
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
@@ -106,26 +157,45 @@ class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements Complex
              : new OutgoingDN($forwardToPhoneNumber);
     }
 
+    /**
+     * An outgoing phone number or a number meant to be dialed. It is longer
+     *         than a DN so that equal access digits or access code digits may be
+     *         be included.  It cannot be a SIP URL.
+     */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
+        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
     }
 
+    /**
+     * 
+     */
     public function setAgentUserTable(core:OCITable $agentUserTable = null)
     {
+        $this->agentUserTable = core:OCITable $agentUserTable;
     }
 
+    /**
+     * 
+     */
     public function getAgentUserTable()
     {
-        return (!$this->agentUserTable) ?: $this->agentUserTable->value();
+        return (!$this->agentUserTable) ?: $this->agentUserTable->getValue();
     }
 
-    public function setAllowCallWaitingForAgents(xs:boolean $allowCallWaitingForAgents = null)
+    /**
+     * 
+     */
+    public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
+        $this->allowCallWaitingForAgents = (boolean) $allowCallWaitingForAgents;
     }
 
+    /**
+     * 
+     */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->value();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
     }
 }

@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Deletes a zone from the system
+     * Deletes a zone from the system
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced by: SystemZoneDeleteRequest
  */
 class SystemZoneCallingRestrictionsZoneDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $zoneName  = null;
+    public    $name     = __CLASS__;
+    protected $zoneName = null;
 
     public function __construct(
          $zoneName
@@ -28,6 +28,9 @@ class SystemZoneCallingRestrictionsZoneDeleteRequest extends ComplexType impleme
         $this->setZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -35,8 +38,11 @@ class SystemZoneCallingRestrictionsZoneDeleteRequest extends ComplexType impleme
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 }

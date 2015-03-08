@@ -13,34 +13,52 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemProvisioningValidationGetRequest14sp2.
+     * Response to the SystemProvisioningValidationGetRequest14sp2.
  */
 class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $isActive                    = null;
-    protected $isNetworkServerQueryActive  = null;
-    protected $timeoutSeconds              = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemProvisioningValidationGetResponse14sp2';
+    public    $name                       = __CLASS__;
+    protected $isActive                   = null;
+    protected $isNetworkServerQueryActive = null;
+    protected $timeoutSeconds             = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
-    public function setIsNetworkServerQueryActive(xs:boolean $isNetworkServerQueryActive = null)
+    /**
+     * 
+     */
+    public function setIsNetworkServerQueryActive($isNetworkServerQueryActive = null)
     {
+        $this->isNetworkServerQueryActive = (boolean) $isNetworkServerQueryActive;
     }
 
+    /**
+     * 
+     */
     public function getIsNetworkServerQueryActive()
     {
-        return (!$this->isNetworkServerQueryActive) ?: $this->isNetworkServerQueryActive->value();
+        return (!$this->isNetworkServerQueryActive) ?: $this->isNetworkServerQueryActive->getValue();
     }
 
+    /**
+     * The timeout value in seconds for provisioning validation.
+     */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ProvisioningValidationTimeoutSeconds)
@@ -48,8 +66,11 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
              : new ProvisioningValidationTimeoutSeconds($timeoutSeconds);
     }
 
+    /**
+     * The timeout value in seconds for provisioning validation.
+     */
     public function getTimeoutSeconds()
     {
-        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->value();
+        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->getValue();
     }
 }

@@ -17,19 +17,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserInstantConferencingLoginStandAloneRequest.
+     * Response to UserInstantConferencingLoginStandAloneRequest.
  *         Contains the information of the conference owner.
  */
 class UserInstantConferencingLoginStandAloneResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $locale               = null;
-    protected $encoding             = null;
-    protected $timeZone             = null;
-    protected $timeZoneDisplayName  = null;
-    protected $phoneNumber          = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
+    public    $name                = __CLASS__;
+    protected $locale              = null;
+    protected $encoding            = null;
+    protected $timeZone            = null;
+    protected $timeZoneDisplayName = null;
+    protected $phoneNumber         = null;
 
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function setLocale($locale = null)
     {
         $this->locale = ($locale InstanceOf OCILocale)
@@ -37,11 +41,17 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
              : new OCILocale($locale);
     }
 
+    /**
+     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->value();
+        return (!$this->locale) ?: $this->locale->getValue();
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function setEncoding($encoding = null)
     {
         $this->encoding = ($encoding InstanceOf Encoding)
@@ -49,11 +59,17 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
              : new Encoding($encoding);
     }
 
+    /**
+     * Character-encoding scheme.
+     */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->value();
+        return (!$this->encoding) ?: $this->encoding->getValue();
     }
 
+    /**
+     * Time zone key.
+     */
     public function setTimeZone($timeZone = null)
     {
         $this->timeZone = ($timeZone InstanceOf TimeZone)
@@ -61,11 +77,17 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
              : new TimeZone($timeZone);
     }
 
+    /**
+     * Time zone key.
+     */
     public function getTimeZone()
     {
-        return (!$this->timeZone) ?: $this->timeZone->value();
+        return (!$this->timeZone) ?: $this->timeZone->getValue();
     }
 
+    /**
+     * Localized Time Zone Display Name
+     */
     public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
@@ -73,11 +95,17 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
              : new TimeZoneDisplayName($timeZoneDisplayName);
     }
 
+    /**
+     * Localized Time Zone Display Name
+     */
     public function getTimeZoneDisplayName()
     {
-        return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->value();
+        return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
@@ -85,8 +113,11 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
              : new DN($phoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->value();
+        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
     }
 }

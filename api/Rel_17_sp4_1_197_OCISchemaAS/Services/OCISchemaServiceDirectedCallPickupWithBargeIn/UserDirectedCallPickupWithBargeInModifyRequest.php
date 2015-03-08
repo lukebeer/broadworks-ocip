@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Directed Call Pickup With Barge In.
+     * Modify the user level data associated with Directed Call Pickup With Barge In.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $userId                          = null;
-    protected $enableBargeInWarningTone        = null;
-    protected $enableAutomaticTargetSelection  = null;
+    public    $name                           = __CLASS__;
+    protected $userId                         = null;
+    protected $enableBargeInWarningTone       = null;
+    protected $enableAutomaticTargetSelection = null;
 
     public function __construct(
          $userId,
@@ -33,6 +33,13 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
         $this->setEnableAutomaticTargetSelection($enableAutomaticTargetSelection);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -40,26 +47,47 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setEnableBargeInWarningTone(xs:boolean $enableBargeInWarningTone = null)
+    /**
+     * 
+     */
+    public function setEnableBargeInWarningTone($enableBargeInWarningTone = null)
     {
+        $this->enableBargeInWarningTone = (boolean) $enableBargeInWarningTone;
     }
 
+    /**
+     * 
+     */
     public function getEnableBargeInWarningTone()
     {
-        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone->value();
+        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone->getValue();
     }
 
-    public function setEnableAutomaticTargetSelection(xs:boolean $enableAutomaticTargetSelection = null)
+    /**
+     * 
+     */
+    public function setEnableAutomaticTargetSelection($enableAutomaticTargetSelection = null)
     {
+        $this->enableAutomaticTargetSelection = (boolean) $enableAutomaticTargetSelection;
     }
 
+    /**
+     * 
+     */
     public function getEnableAutomaticTargetSelection()
     {
-        return (!$this->enableAutomaticTargetSelection) ?: $this->enableAutomaticTargetSelection->value();
+        return (!$this->enableAutomaticTargetSelection) ?: $this->enableAutomaticTargetSelection->getValue();
     }
 }

@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderAccessDeviceGetListRequest.
+     * Response to ServiceProviderAccessDeviceGetListRequest.
  *         Contains a table of devices configured in the service provider.
  *         The column headings are: "Device Name", "Device Type", "Available Ports",
  *         "Net Address", "MAC Address", and "Status".
  */
 class ServiceProviderAccessDeviceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $accessDeviceTable  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse';
+    public    $name              = __CLASS__;
+    protected $accessDeviceTable = null;
 
 
+    /**
+     * 
+     */
     public function setAccessDeviceTable(core:OCITable $accessDeviceTable = null)
     {
+        $this->accessDeviceTable = core:OCITable $accessDeviceTable;
     }
 
+    /**
+     * 
+     */
     public function getAccessDeviceTable()
     {
-        return (!$this->accessDeviceTable) ?: $this->accessDeviceTable->value();
+        return (!$this->accessDeviceTable) ?: $this->accessDeviceTable->getValue();
     }
 }

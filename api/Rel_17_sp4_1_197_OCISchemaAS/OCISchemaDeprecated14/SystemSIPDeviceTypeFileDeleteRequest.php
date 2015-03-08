@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a sip device type file.
+     * Request to delete a sip device type file.
  *             The response is either SuccessResponse or ErrorResponse.
  *             Replaced By: SystemSIPDeviceTypeFileDeleteRequest14sp8
  */
 class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceType  = null;
-    protected $fileType    = null;
+    public    $name       = __CLASS__;
+    protected $deviceType = null;
+    protected $fileType   = null;
 
     public function __construct(
          $deviceType,
@@ -32,6 +32,9 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
         $this->setFileType($fileType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -39,11 +42,17 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileType($fileType = null)
     {
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
@@ -51,8 +60,11 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
              : new DeviceManagementFileType($fileType);
     }
 
+    /**
+     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileType()
     {
-        return (!$this->fileType) ?: $this->fileType->value();
+        return (!$this->fileType) ?: $this->fileType->getValue();
     }
 }

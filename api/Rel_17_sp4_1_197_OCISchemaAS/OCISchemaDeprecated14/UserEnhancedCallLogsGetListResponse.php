@@ -13,41 +13,69 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserEnhancedCallLogsGetListRequest.
+     * Response to UserEnhancedCallLogsGetListRequest.
  *         Replaced By: UserEnhancedCallLogsGetListResponse14sp4
  */
 class UserEnhancedCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $placed    = null;
-    protected $received  = null;
-    protected $missed    = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserEnhancedCallLogsGetListResponse';
+    public    $name     = __CLASS__;
+    protected $placed   = null;
+    protected $received = null;
+    protected $missed   = null;
 
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     *        Replaced By: CallLogsEntry
+     */
     public function setPlaced(EnhancedCallLogsEntry $placed = null)
     {
+        $this->placed = EnhancedCallLogsEntry $placed;
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     *        Replaced By: CallLogsEntry
+     */
     public function getPlaced()
     {
-        return (!$this->placed) ?: $this->placed->value();
+        return (!$this->placed) ?: $this->placed->getValue();
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     *        Replaced By: CallLogsEntry
+     */
     public function setReceived(EnhancedCallLogsEntry $received = null)
     {
+        $this->received = EnhancedCallLogsEntry $received;
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     *        Replaced By: CallLogsEntry
+     */
     public function getReceived()
     {
-        return (!$this->received) ?: $this->received->value();
+        return (!$this->received) ?: $this->received->getValue();
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     *        Replaced By: CallLogsEntry
+     */
     public function setMissed(EnhancedCallLogsEntry $missed = null)
     {
+        $this->missed = EnhancedCallLogsEntry $missed;
     }
 
+    /**
+     * Call Log entry describing a placed, received, or missed call.
+     *        Replaced By: CallLogsEntry
+     */
     public function getMissed()
     {
-        return (!$this->missed) ?: $this->missed->value();
+        return (!$this->missed) ?: $this->missed->getValue();
     }
 }

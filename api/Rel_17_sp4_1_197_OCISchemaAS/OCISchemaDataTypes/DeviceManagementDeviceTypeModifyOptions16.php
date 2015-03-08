@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Device Management System device type options during a modify request.
+     * Device Management System device type options during a modify request.
  */
 class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementDeviceTypeModifyOptions16';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

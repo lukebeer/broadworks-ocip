@@ -14,13 +14,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Informs BroadWorks that a file was uploaded to the repository. The response is always a SuccessResponse.
+     * Informs BroadWorks that a file was uploaded to the repository. The response is always a SuccessResponse.
  */
 class DeviceManagementPutFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $deviceAccessURI  = null;
-    protected $ipAddress        = null;
+    public    $name            = __CLASS__;
+    protected $deviceAccessURI = null;
+    protected $ipAddress       = null;
 
     public function __construct(
          $deviceAccessURI,
@@ -30,6 +30,9 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
         $this->setIpAddress($ipAddress);
     }
 
+    /**
+     * The access URI that a device uses to access files on BroadWorks.
+     */
     public function setDeviceAccessURI($deviceAccessURI = null)
     {
         $this->deviceAccessURI = ($deviceAccessURI InstanceOf DeviceManagementAccessURI)
@@ -37,11 +40,17 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
              : new DeviceManagementAccessURI($deviceAccessURI);
     }
 
+    /**
+     * The access URI that a device uses to access files on BroadWorks.
+     */
     public function getDeviceAccessURI()
     {
-        return (!$this->deviceAccessURI) ?: $this->deviceAccessURI->value();
+        return (!$this->deviceAccessURI) ?: $this->deviceAccessURI->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setIpAddress($ipAddress = null)
     {
         $this->ipAddress = ($ipAddress InstanceOf NetAddress)
@@ -49,8 +58,11 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
              : new NetAddress($ipAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getIpAddress()
     {
-        return (!$this->ipAddress) ?: $this->ipAddress->value();
+        return (!$this->ipAddress) ?: $this->ipAddress->getValue();
     }
 }

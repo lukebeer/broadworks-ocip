@@ -13,14 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest.
+     * Response to GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest.
  */
 class GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $trunkGroupName  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse';
+    public    $name           = __CLASS__;
+    protected $trunkGroupName = null;
 
 
+    /**
+     * Trunk Group name.
+     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     */
     public function setTrunkGroupName($trunkGroupName = null)
     {
         $this->trunkGroupName = ($trunkGroupName InstanceOf TrunkGroupName)
@@ -28,8 +33,12 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType
              : new TrunkGroupName($trunkGroupName);
     }
 
+    /**
+     * Trunk Group name.
+     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     */
     public function getTrunkGroupName()
     {
-        return (!$this->trunkGroupName) ?: $this->trunkGroupName->value();
+        return (!$this->trunkGroupName) ?: $this->trunkGroupName->getValue();
     }
 }

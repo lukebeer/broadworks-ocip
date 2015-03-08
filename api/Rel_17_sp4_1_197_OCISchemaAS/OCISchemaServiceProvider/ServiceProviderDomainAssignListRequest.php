@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Assign a list of domains to a service provider.
+     * Assign a list of domains to a service provider.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderDomainAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $domain             = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $domain            = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
         $this->setDomain($domain);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setDomain($domain = null)
     {
         $this->domain = ($domain InstanceOf NetAddress)
@@ -50,8 +61,11 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
              : new NetAddress($domain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getDomain()
     {
-        return (!$this->domain) ?: $this->domain->value();
+        return (!$this->domain) ?: $this->domain->getValue();
     }
 }

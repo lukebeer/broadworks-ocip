@@ -14,30 +14,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupOutgoingCallingPlanDigitPlanRedirectingGetListRequest.
+     * Response to GroupOutgoingCallingPlanDigitPlanRedirectingGetListRequest.
  */
 class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $groupPermissions       = null;
-    protected $departmentPermissions  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $groupPermissions      = null;
+    protected $departmentPermissions = null;
 
 
+    /**
+     * Outgoing Calling Plan redirecting call permissions for specified digit patterns.
+     */
     public function setGroupPermissions(OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions = null)
     {
+        $this->groupPermissions = OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions;
     }
 
+    /**
+     * Outgoing Calling Plan redirecting call permissions for specified digit patterns.
+     */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->value();
+        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
     }
 
+    /**
+     * Outgoing Calling Plan redirecting call permissions for specified digit patterns.
+     */
     public function setDepartmentPermissions(OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions = null)
     {
+        $this->departmentPermissions = OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions;
     }
 
+    /**
+     * Outgoing Calling Plan redirecting call permissions for specified digit patterns.
+     */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->value();
+        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
     }
 }

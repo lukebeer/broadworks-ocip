@@ -22,33 +22,37 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserInstantConferencingGetConferenceRequest.
+     * Response to UserInstantConferencingGetConferenceRequest.
  *         Contains the information of a conference.
  */
 class UserInstantConferencingGetConferenceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $conferenceCallId                = null;
-    protected $conferenceOwnerUserId           = null;
-    protected $conferenceOwnerDisplayNames     = null;
-    protected $title                           = null;
-    protected $leaderRequired                  = null;
-    protected $leaderReleaseDropsParticipants  = null;
-    protected $announceCallers                 = null;
-    protected $conferenceType                  = null;
-    protected $conferenceSchedule              = null;
-    protected $billingCode                     = null;
-    protected $leaderAccessCode                = null;
-    protected $participantAccessCode           = null;
-    protected $isCallActive                    = null;
-    protected $isExpired                       = null;
-    protected $isFuture                        = null;
-    protected $hasPresentation                 = null;
-    protected $presentationPassword            = null;
-    protected $allowOutdialInInvitation        = null;
-    protected $bridgePhoneNumber               = null;
+    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceResponse';
+    public    $name                           = __CLASS__;
+    protected $conferenceCallId               = null;
+    protected $conferenceOwnerUserId          = null;
+    protected $conferenceOwnerDisplayNames    = null;
+    protected $title                          = null;
+    protected $leaderRequired                 = null;
+    protected $leaderReleaseDropsParticipants = null;
+    protected $announceCallers                = null;
+    protected $conferenceType                 = null;
+    protected $conferenceSchedule             = null;
+    protected $billingCode                    = null;
+    protected $leaderAccessCode               = null;
+    protected $participantAccessCode          = null;
+    protected $isCallActive                   = null;
+    protected $isExpired                      = null;
+    protected $isFuture                       = null;
+    protected $hasPresentation                = null;
+    protected $presentationPassword           = null;
+    protected $allowOutdialInInvitation       = null;
+    protected $bridgePhoneNumber              = null;
 
 
+    /**
+     * Conference call Id.
+     */
     public function setConferenceCallId($conferenceCallId = null)
     {
         $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
@@ -56,11 +60,21 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new InstantConferencingCallId($conferenceCallId);
     }
 
+    /**
+     * Conference call Id.
+     */
     public function getConferenceCallId()
     {
-        return (!$this->conferenceCallId) ?: $this->conferenceCallId->value();
+        return (!$this->conferenceCallId) ?: $this->conferenceCallId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
@@ -68,20 +82,39 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new UserId($conferenceOwnerUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getConferenceOwnerUserId()
     {
-        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->value();
+        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->getValue();
     }
 
+    /**
+     * The parts of a user's display name that a client can display in whatever way is appropriate
+     *         for the client application.
+     */
     public function setConferenceOwnerDisplayNames(UserDisplayNames $conferenceOwnerDisplayNames = null)
     {
+        $this->conferenceOwnerDisplayNames = UserDisplayNames $conferenceOwnerDisplayNames;
     }
 
+    /**
+     * The parts of a user's display name that a client can display in whatever way is appropriate
+     *         for the client application.
+     */
     public function getConferenceOwnerDisplayNames()
     {
-        return (!$this->conferenceOwnerDisplayNames) ?: $this->conferenceOwnerDisplayNames->value();
+        return (!$this->conferenceOwnerDisplayNames) ?: $this->conferenceOwnerDisplayNames->getValue();
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function setTitle($title = null)
     {
         $this->title = ($title InstanceOf InstantConferencingTitle)
@@ -89,38 +122,65 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new InstantConferencingTitle($title);
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->value();
+        return (!$this->title) ?: $this->title->getValue();
     }
 
-    public function setLeaderRequired(xs:boolean $leaderRequired = null)
+    /**
+     * 
+     */
+    public function setLeaderRequired($leaderRequired = null)
     {
+        $this->leaderRequired = (boolean) $leaderRequired;
     }
 
+    /**
+     * 
+     */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->value();
+        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
     }
 
-    public function setLeaderReleaseDropsParticipants(xs:boolean $leaderReleaseDropsParticipants = null)
+    /**
+     * 
+     */
+    public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants = null)
     {
+        $this->leaderReleaseDropsParticipants = (boolean) $leaderReleaseDropsParticipants;
     }
 
+    /**
+     * 
+     */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->value();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
     }
 
-    public function setAnnounceCallers(xs:boolean $announceCallers = null)
+    /**
+     * 
+     */
+    public function setAnnounceCallers($announceCallers = null)
     {
+        $this->announceCallers = (boolean) $announceCallers;
     }
 
+    /**
+     * 
+     */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->value();
+        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
     }
 
+    /**
+     * The type of conference.
+     */
     public function setConferenceType($conferenceType = null)
     {
         $this->conferenceType = ($conferenceType InstanceOf InstantConferencingConferenceType)
@@ -128,20 +188,33 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new InstantConferencingConferenceType($conferenceType);
     }
 
+    /**
+     * The type of conference.
+     */
     public function getConferenceType()
     {
-        return (!$this->conferenceType) ?: $this->conferenceType->value();
+        return (!$this->conferenceType) ?: $this->conferenceType->getValue();
     }
 
+    /**
+     * Conference schedule used in the context of a conference add.
+     */
     public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
+        $this->conferenceSchedule = InstantConferencingSchedule $conferenceSchedule;
     }
 
+    /**
+     * Conference schedule used in the context of a conference add.
+     */
     public function getConferenceSchedule()
     {
-        return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->value();
+        return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->getValue();
     }
 
+    /**
+     * Instant conferencing project billing code.
+     */
     public function setBillingCode($billingCode = null)
     {
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
@@ -149,11 +222,17 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new InstantConferencingBillingCode($billingCode);
     }
 
+    /**
+     * Instant conferencing project billing code.
+     */
     public function getBillingCode()
     {
-        return (!$this->billingCode) ?: $this->billingCode->value();
+        return (!$this->billingCode) ?: $this->billingCode->getValue();
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function setLeaderAccessCode($leaderAccessCode = null)
     {
         $this->leaderAccessCode = ($leaderAccessCode InstanceOf InstantConferencingAccessCode)
@@ -161,11 +240,17 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new InstantConferencingAccessCode($leaderAccessCode);
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function getLeaderAccessCode()
     {
-        return (!$this->leaderAccessCode) ?: $this->leaderAccessCode->value();
+        return (!$this->leaderAccessCode) ?: $this->leaderAccessCode->getValue();
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function setParticipantAccessCode($participantAccessCode = null)
     {
         $this->participantAccessCode = ($participantAccessCode InstanceOf InstantConferencingAccessCode)
@@ -173,47 +258,81 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new InstantConferencingAccessCode($participantAccessCode);
     }
 
+    /**
+     * Conference access code for a conference.
+     */
     public function getParticipantAccessCode()
     {
-        return (!$this->participantAccessCode) ?: $this->participantAccessCode->value();
+        return (!$this->participantAccessCode) ?: $this->participantAccessCode->getValue();
     }
 
-    public function setIsCallActive(xs:boolean $isCallActive = null)
+    /**
+     * 
+     */
+    public function setIsCallActive($isCallActive = null)
     {
+        $this->isCallActive = (boolean) $isCallActive;
     }
 
+    /**
+     * 
+     */
     public function getIsCallActive()
     {
-        return (!$this->isCallActive) ?: $this->isCallActive->value();
+        return (!$this->isCallActive) ?: $this->isCallActive->getValue();
     }
 
-    public function setIsExpired(xs:boolean $isExpired = null)
+    /**
+     * 
+     */
+    public function setIsExpired($isExpired = null)
     {
+        $this->isExpired = (boolean) $isExpired;
     }
 
+    /**
+     * 
+     */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired->value();
+        return (!$this->isExpired) ?: $this->isExpired->getValue();
     }
 
-    public function setIsFuture(xs:boolean $isFuture = null)
+    /**
+     * 
+     */
+    public function setIsFuture($isFuture = null)
     {
+        $this->isFuture = (boolean) $isFuture;
     }
 
+    /**
+     * 
+     */
     public function getIsFuture()
     {
-        return (!$this->isFuture) ?: $this->isFuture->value();
+        return (!$this->isFuture) ?: $this->isFuture->getValue();
     }
 
-    public function setHasPresentation(xs:boolean $hasPresentation = null)
+    /**
+     * 
+     */
+    public function setHasPresentation($hasPresentation = null)
     {
+        $this->hasPresentation = (boolean) $hasPresentation;
     }
 
+    /**
+     * 
+     */
     public function getHasPresentation()
     {
-        return (!$this->hasPresentation) ?: $this->hasPresentation->value();
+        return (!$this->hasPresentation) ?: $this->hasPresentation->getValue();
     }
 
+    /**
+     * Conference presentation password.
+     */
     public function setPresentationPassword($presentationPassword = null)
     {
         $this->presentationPassword = ($presentationPassword InstanceOf InstantConferencingPresentationPassword)
@@ -221,20 +340,33 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new InstantConferencingPresentationPassword($presentationPassword);
     }
 
+    /**
+     * Conference presentation password.
+     */
     public function getPresentationPassword()
     {
-        return (!$this->presentationPassword) ?: $this->presentationPassword->value();
+        return (!$this->presentationPassword) ?: $this->presentationPassword->getValue();
     }
 
-    public function setAllowOutdialInInvitation(xs:boolean $allowOutdialInInvitation = null)
+    /**
+     * 
+     */
+    public function setAllowOutdialInInvitation($allowOutdialInInvitation = null)
     {
+        $this->allowOutdialInInvitation = (boolean) $allowOutdialInInvitation;
     }
 
+    /**
+     * 
+     */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->value();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setBridgePhoneNumber($bridgePhoneNumber = null)
     {
         $this->bridgePhoneNumber = ($bridgePhoneNumber InstanceOf DN)
@@ -242,8 +374,11 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
              : new DN($bridgePhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getBridgePhoneNumber()
     {
-        return (!$this->bridgePhoneNumber) ?: $this->bridgePhoneNumber->value();
+        return (!$this->bridgePhoneNumber) ?: $this->bridgePhoneNumber->getValue();
     }
 }

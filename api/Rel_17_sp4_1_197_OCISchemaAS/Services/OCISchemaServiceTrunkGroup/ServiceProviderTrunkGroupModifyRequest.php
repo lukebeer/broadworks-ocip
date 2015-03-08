@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the maximum and bursting maximum permissible active Trunk Group calls for the service provider.
+     * Modify the maximum and bursting maximum permissible active Trunk Group calls for the service provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceProviderId       = null;
-    protected $maxActiveCalls          = null;
-    protected $burstingMaxActiveCalls  = null;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $maxActiveCalls         = null;
+    protected $burstingMaxActiveCalls = null;
 
     public function __construct(
          $serviceProviderId,
@@ -34,6 +34,10 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
         $this->setBurstingMaxActiveCalls($burstingMaxActiveCalls);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -41,26 +45,44 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
+        $this->maxActiveCalls = UnboundedNonNegativeInt $maxActiveCalls;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->value();
+        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
+        $this->burstingMaxActiveCalls = UnboundedNonNegativeInt $burstingMaxActiveCalls;
     }
 
+    /**
+     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     */
     public function getBurstingMaxActiveCalls()
     {
-        return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->value();
+        return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->getValue();
     }
 }

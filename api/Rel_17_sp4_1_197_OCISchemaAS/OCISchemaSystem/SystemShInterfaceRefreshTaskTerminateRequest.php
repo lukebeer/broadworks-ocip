@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Terminates the system refresh task in progress on the local Application Server node.
+     * Terminates the system refresh task in progress on the local Application Server node.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemShInterfaceRefreshTaskTerminateRequest extends ComplexType implements ComplexInterface

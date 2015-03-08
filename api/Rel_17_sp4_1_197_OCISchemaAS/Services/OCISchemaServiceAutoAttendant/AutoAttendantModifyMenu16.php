@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The configuration of the automated receptionist greeting
+     * The configuration of the automated receptionist greeting
  *         prompt and dialing menu to be used during business hours.
  *         It is used when modifying an Auto Attendant group.
  */
 class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\AutoAttendantModifyMenu16';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

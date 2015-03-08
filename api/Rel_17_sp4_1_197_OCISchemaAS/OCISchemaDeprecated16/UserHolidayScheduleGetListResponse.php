@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserHolidayScheduleGetListRequest.
+     * Response to the UserHolidayScheduleGetListRequest.
  *         The response contains all the user's personal and user's group holiday schedule names.
  */
 class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $holidayScheduleTable  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetListResponse';
+    public    $name                 = __CLASS__;
+    protected $holidayScheduleTable = null;
 
 
+    /**
+     * 
+     */
     public function setHolidayScheduleTable(core:OCITable $holidayScheduleTable = null)
     {
+        $this->holidayScheduleTable = core:OCITable $holidayScheduleTable;
     }
 
+    /**
+     * 
+     */
     public function getHolidayScheduleTable()
     {
-        return (!$this->holidayScheduleTable) ?: $this->holidayScheduleTable->value();
+        return (!$this->holidayScheduleTable) ?: $this->holidayScheduleTable->getValue();
     }
 }

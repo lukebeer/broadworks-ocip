@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with the COLP Service.
+     * Modify the system level data associated with the COLP Service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemConnectedLineIdentificationPresentationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $enforceUserServiceAssignment  = null;
+    public    $name                         = __CLASS__;
+    protected $enforceUserServiceAssignment = null;
 
     public function __construct(
          $enforceUserServiceAssignment = null
@@ -27,12 +27,19 @@ class SystemConnectedLineIdentificationPresentationModifyRequest extends Complex
         $this->setEnforceUserServiceAssignment($enforceUserServiceAssignment);
     }
 
-    public function setEnforceUserServiceAssignment(xs:boolean $enforceUserServiceAssignment = null)
+    /**
+     * 
+     */
+    public function setEnforceUserServiceAssignment($enforceUserServiceAssignment = null)
     {
+        $this->enforceUserServiceAssignment = (boolean) $enforceUserServiceAssignment;
     }
 
+    /**
+     * 
+     */
     public function getEnforceUserServiceAssignment()
     {
-        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment->value();
+        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment->getValue();
     }
 }

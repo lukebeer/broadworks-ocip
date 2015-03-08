@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemGetRegistrationContactListRequest. The table columns are: Service Provider Id, Group Id, User Id, Line/Port, Endpoint Type, Order, URI, Expiration, Contact, Device Level, Device Name.
+     * Response to SystemGetRegistrationContactListRequest. The table columns are: Service Provider Id, Group Id, User Id, Line/Port, Endpoint Type, Order, URI, Expiration, Contact, Device Level, Device Name.
  */
 class SystemGetRegistrationContactListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $registrationTable  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse';
+    public    $name              = __CLASS__;
+    protected $registrationTable = null;
 
 
+    /**
+     * 
+     */
     public function setRegistrationTable(core:OCITable $registrationTable = null)
     {
+        $this->registrationTable = core:OCITable $registrationTable;
     }
 
+    /**
+     * 
+     */
     public function getRegistrationTable()
     {
-        return (!$this->registrationTable) ?: $this->registrationTable->value();
+        return (!$this->registrationTable) ?: $this->registrationTable->getValue();
     }
 }

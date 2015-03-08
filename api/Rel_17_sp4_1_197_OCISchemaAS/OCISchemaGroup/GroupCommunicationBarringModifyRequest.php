@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Gets Communication Barring setting for a group.  
+     * Gets Communication Barring setting for a group.  
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
-    protected $serviceProviderId                 = null;
-    protected $groupId                           = null;
-    protected $useDefaultServiceProviderProfile  = null;
-    protected $profile                           = null;
+    public    $name                             = __CLASS__;
+    protected $serviceProviderId                = null;
+    protected $groupId                          = null;
+    protected $useDefaultServiceProviderProfile = null;
+    protected $profile                          = null;
 
     public function __construct(
          $serviceProviderId,
@@ -38,6 +38,10 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
         $this->setProfile($profile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -45,11 +49,19 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -57,20 +69,34 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
-    public function setUseDefaultServiceProviderProfile(xs:boolean $useDefaultServiceProviderProfile = null)
+    /**
+     * 
+     */
+    public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile = null)
     {
+        $this->useDefaultServiceProviderProfile = (boolean) $useDefaultServiceProviderProfile;
     }
 
+    /**
+     * 
+     */
     public function getUseDefaultServiceProviderProfile()
     {
-        return (!$this->useDefaultServiceProviderProfile) ?: $this->useDefaultServiceProviderProfile->value();
+        return (!$this->useDefaultServiceProviderProfile) ?: $this->useDefaultServiceProviderProfile->getValue();
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function setProfile($profile = null)
     {
         $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
@@ -78,8 +104,11 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
              : new CommunicationBarringProfileName($profile);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->value();
+        return (!$this->profile) ?: $this->profile->getValue();
     }
 }

@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a department of an enterprise.
+     * Modify a department of an enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $enterpriseId            = null;
-    protected $departmentName          = null;
-    protected $newDepartmentName       = null;
-    protected $newParentDepartmentKey  = null;
+    public    $name                   = __CLASS__;
+    protected $enterpriseId           = null;
+    protected $departmentName         = null;
+    protected $newDepartmentName      = null;
+    protected $newParentDepartmentKey = null;
 
     public function __construct(
          $enterpriseId,
@@ -38,6 +38,10 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
         $this->setNewParentDepartmentKey($newParentDepartmentKey);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setEnterpriseId($enterpriseId = null)
     {
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
@@ -45,11 +49,19 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
              : new ServiceProviderId($enterpriseId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getEnterpriseId()
     {
-        return (!$this->enterpriseId) ?: $this->enterpriseId->value();
+        return (!$this->enterpriseId) ?: $this->enterpriseId->getValue();
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function setDepartmentName($departmentName = null)
     {
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
@@ -57,11 +69,19 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
              : new DepartmentName($departmentName);
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function getDepartmentName()
     {
-        return (!$this->departmentName) ?: $this->departmentName->value();
+        return (!$this->departmentName) ?: $this->departmentName->getValue();
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function setNewDepartmentName($newDepartmentName = null)
     {
         $this->newDepartmentName = ($newDepartmentName InstanceOf DepartmentName)
@@ -69,17 +89,32 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
              : new DepartmentName($newDepartmentName);
     }
 
+    /**
+     * Department name. This is only the name of the department itself, not the full path name
+     *         of the department and all its parents.
+     */
     public function getNewDepartmentName()
     {
-        return (!$this->newDepartmentName) ?: $this->newDepartmentName->value();
+        return (!$this->newDepartmentName) ?: $this->newDepartmentName->getValue();
     }
 
+    /**
+     * Uniquely identifies a department defined within an enterprise.
+     *         To uniquely identify an enterprise department, we must know the department name and which
+     *         enterprise contains the department.
+     */
     public function setNewParentDepartmentKey(EnterpriseDepartmentKey $newParentDepartmentKey = null)
     {
+        $this->newParentDepartmentKey = EnterpriseDepartmentKey $newParentDepartmentKey;
     }
 
+    /**
+     * Uniquely identifies a department defined within an enterprise.
+     *         To uniquely identify an enterprise department, we must know the department name and which
+     *         enterprise contains the department.
+     */
     public function getNewParentDepartmentKey()
     {
-        return (!$this->newParentDepartmentKey) ?: $this->newParentDepartmentKey->value();
+        return (!$this->newParentDepartmentKey) ?: $this->newParentDepartmentKey->getValue();
     }
 }

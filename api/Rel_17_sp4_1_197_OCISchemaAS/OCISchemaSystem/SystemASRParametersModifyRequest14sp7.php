@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify Application Server Registration system parameters.
+     * Request to modify Application Server Registration system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemASRParametersModifyRequest14sp7 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $maxTransmissions                 = null;
-    protected $retransmissionDelayMilliSeconds  = null;
-    protected $listeningPort                    = null;
+    public    $name                            = __CLASS__;
+    protected $maxTransmissions                = null;
+    protected $retransmissionDelayMilliSeconds = null;
+    protected $listeningPort                   = null;
 
     public function __construct(
          $maxTransmissions = null,
@@ -35,6 +35,9 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
         $this->setListeningPort($listeningPort);
     }
 
+    /**
+     * Maximum number of transmissions.
+     */
     public function setMaxTransmissions($maxTransmissions = null)
     {
         $this->maxTransmissions = ($maxTransmissions InstanceOf ASRMaxTransmissions)
@@ -42,11 +45,17 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
              : new ASRMaxTransmissions($maxTransmissions);
     }
 
+    /**
+     * Maximum number of transmissions.
+     */
     public function getMaxTransmissions()
     {
-        return (!$this->maxTransmissions) ?: $this->maxTransmissions->value();
+        return (!$this->maxTransmissions) ?: $this->maxTransmissions->getValue();
     }
 
+    /**
+     * Retransmission timer
+     */
     public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
         $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf ASRRetransmissionDelayMilliSeconds)
@@ -54,11 +63,17 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
              : new ASRRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
     }
 
+    /**
+     * Retransmission timer
+     */
     public function getRetransmissionDelayMilliSeconds()
     {
-        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->value();
+        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setListeningPort($listeningPort = null)
     {
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
@@ -66,8 +81,11 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
              : new Port1025($listeningPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getListeningPort()
     {
-        return (!$this->listeningPort) ?: $this->listeningPort->value();
+        return (!$this->listeningPort) ?: $this->listeningPort->getValue();
     }
 }

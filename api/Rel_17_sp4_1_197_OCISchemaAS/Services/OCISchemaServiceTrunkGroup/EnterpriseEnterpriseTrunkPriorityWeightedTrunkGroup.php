@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Trunk group details (order and weight) for each trunk group
+     * Trunk group details (order and weight) for each trunk group
  */
 class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

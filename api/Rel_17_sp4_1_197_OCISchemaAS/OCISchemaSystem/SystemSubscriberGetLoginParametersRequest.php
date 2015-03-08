@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the system login configuration for all subscribers.
+     * Get the system login configuration for all subscribers.
  *         The response is either a SystemSubscriberGetLoginParametersResponse or an ErrorResponse.
  */
 class SystemSubscriberGetLoginParametersRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSubscriberGetLoginParametersResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

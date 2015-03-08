@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Returns a zone calling physical location for a given zone.
+     * Returns a zone calling physical location for a given zone.
  * 	     Response is SystemZoneCallingZonePhysicalLocationGetResponse or an ErrorResponse.
  */
 class SystemZoneCallingZonePhysicalLocationGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
-    protected $zoneName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneCallingZonePhysicalLocationGetResponse';
+    public    $name     = __CLASS__;
+    protected $zoneName = null;
 
     public function __construct(
          $zoneName
@@ -27,6 +28,9 @@ class SystemZoneCallingZonePhysicalLocationGetRequest extends ComplexType implem
         $this->setZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -34,8 +38,11 @@ class SystemZoneCallingZonePhysicalLocationGetRequest extends ComplexType implem
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 }

@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the
+     * Response to the
  *         SystemNetworkClassOfServiceGetAssignedServiceProviderListRequest.
  *         The response contains a table of all Service Providers that have
  *         the given Network Class of Service assigned. The column headings are
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $serviceProviderTable  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse';
+    public    $name                 = __CLASS__;
+    protected $serviceProviderTable = null;
 
 
+    /**
+     * 
+     */
     public function setServiceProviderTable(core:OCITable $serviceProviderTable = null)
     {
+        $this->serviceProviderTable = core:OCITable $serviceProviderTable;
     }
 
+    /**
+     * 
+     */
     public function getServiceProviderTable()
     {
-        return (!$this->serviceProviderTable) ?: $this->serviceProviderTable->value();
+        return (!$this->serviceProviderTable) ?: $this->serviceProviderTable->getValue();
     }
 }

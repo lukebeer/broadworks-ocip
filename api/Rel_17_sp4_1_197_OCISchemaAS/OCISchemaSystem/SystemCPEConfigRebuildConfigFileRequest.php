@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Rebuild the system default config file for the specified device type.
+     * Rebuild the system default config file for the specified device type.
  *         If the device type is not specified, all files for all device types in the system are rebuilt.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $deviceType   = null;
-    protected $rebuildType  = null;
+    public    $name        = __CLASS__;
+    protected $deviceType  = null;
+    protected $rebuildType = null;
 
     public function __construct(
          $deviceType = null,
@@ -32,6 +32,9 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
         $this->setRebuildType($rebuildType);
     }
 
+    /**
+     * Access device type.
+     */
     public function setDeviceType($deviceType = null)
     {
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
@@ -39,11 +42,17 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
              : new AccessDeviceType($deviceType);
     }
 
+    /**
+     * Access device type.
+     */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->value();
+        return (!$this->deviceType) ?: $this->deviceType->getValue();
     }
 
+    /**
+     * Choices for the type of rebuild requested.
+     */
     public function setRebuildType($rebuildType = null)
     {
         $this->rebuildType = ($rebuildType InstanceOf CPEDeviceConfigRebuildType)
@@ -51,8 +60,11 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
              : new CPEDeviceConfigRebuildType($rebuildType);
     }
 
+    /**
+     * Choices for the type of rebuild requested.
+     */
     public function getRebuildType()
     {
-        return (!$this->rebuildType) ?: $this->rebuildType->value();
+        return (!$this->rebuildType) ?: $this->rebuildType->getValue();
     }
 }

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Represents either a random port number, or a specific port number.
+     * Represents either a random port number, or a specific port number.
  */
 class RandomPort extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RandomPort';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

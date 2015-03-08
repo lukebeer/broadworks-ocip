@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * AvailabilityTestRequest is for high-availability support. Response is either SuccessResponse
+     * AvailabilityTestRequest is for high-availability support. Response is either SuccessResponse
  *         or ErrorResponse.
  */
 class AvailabilityTestRequest extends ComplexType implements ComplexInterface

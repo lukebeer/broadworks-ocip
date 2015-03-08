@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Authorize (with quantity) or unauthorize a user service.
+     * Authorize (with quantity) or unauthorize a user service.
  */
 class UserServiceAuthorization extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserServiceAuthorization';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

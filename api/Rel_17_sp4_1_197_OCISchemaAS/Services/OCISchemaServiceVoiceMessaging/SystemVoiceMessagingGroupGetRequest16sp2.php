@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Voice Messaging.
+     * Request the system level data associated with Voice Messaging.
  *         The response is either a SystemVoiceMessagingGroupGetResponse16sp2 or an ErrorResponse.
  */
 class SystemVoiceMessagingGroupGetRequest16sp2 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetResponse16sp2';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

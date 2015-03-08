@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Unassign a list of route point external systems from a group.
+     * Unassign a list of route point external systems from a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $serviceProviderId         = null;
-    protected $groupId                   = null;
-    protected $routePointExternalSystem  = null;
+    public    $name                     = __CLASS__;
+    protected $serviceProviderId        = null;
+    protected $groupId                  = null;
+    protected $routePointExternalSystem = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
         $this->setRoutePointExternalSystem($routePointExternalSystem);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,11 +66,18 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setRoutePointExternalSystem($routePointExternalSystem = null)
     {
         $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
@@ -66,8 +85,11 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
              : new RoutePointExternalSystem($routePointExternalSystem);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getRoutePointExternalSystem()
     {
-        return (!$this->routePointExternalSystem) ?: $this->routePointExternalSystem->value();
+        return (!$this->routePointExternalSystem) ?: $this->routePointExternalSystem->getValue();
     }
 }

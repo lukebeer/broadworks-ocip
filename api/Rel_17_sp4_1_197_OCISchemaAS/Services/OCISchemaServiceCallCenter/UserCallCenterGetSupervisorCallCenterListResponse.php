@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCallCenterGetSupervisorCallCenterListRequest.
+     * Response to the UserCallCenterGetSupervisorCallCenterListRequest.
  *         Contains a table with column headings: "Service User Id", "Phone Number", 
  *         "Extension", "Type" and "Priority".
  */
 class UserCallCenterGetSupervisorCallCenterListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $callCenterTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse';
+    public    $name            = __CLASS__;
+    protected $callCenterTable = null;
 
 
+    /**
+     * 
+     */
     public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
+        $this->callCenterTable = core:OCITable $callCenterTable;
     }
 
+    /**
+     * 
+     */
     public function getCallCenterTable()
     {
-        return (!$this->callCenterTable) ?: $this->callCenterTable->value();
+        return (!$this->callCenterTable) ?: $this->callCenterTable->getValue();
     }
 }

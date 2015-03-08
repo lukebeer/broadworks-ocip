@@ -13,50 +13,79 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupRoutePointQueueCallDispositionCodeSettingsGetRequest.
+     * Response to GroupRoutePointQueueCallDispositionCodeSettingsGetRequest.
  */
 class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $enableCallDispositionCodes      = null;
-    protected $includeOrganizationCodes        = null;
-    protected $forceUseOfCallDispositionCodes  = null;
-    protected $defaultCallDispositionCode      = null;
+    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeSettingsGetResponse';
+    public    $name                           = __CLASS__;
+    protected $enableCallDispositionCodes     = null;
+    protected $includeOrganizationCodes       = null;
+    protected $forceUseOfCallDispositionCodes = null;
+    protected $defaultCallDispositionCode     = null;
 
 
-    public function setEnableCallDispositionCodes(xs:boolean $enableCallDispositionCodes = null)
+    /**
+     * 
+     */
+    public function setEnableCallDispositionCodes($enableCallDispositionCodes = null)
     {
+        $this->enableCallDispositionCodes = (boolean) $enableCallDispositionCodes;
     }
 
+    /**
+     * 
+     */
     public function getEnableCallDispositionCodes()
     {
-        return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes->value();
+        return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes->getValue();
     }
 
-    public function setIncludeOrganizationCodes(xs:boolean $includeOrganizationCodes = null)
+    /**
+     * 
+     */
+    public function setIncludeOrganizationCodes($includeOrganizationCodes = null)
     {
+        $this->includeOrganizationCodes = (boolean) $includeOrganizationCodes;
     }
 
+    /**
+     * 
+     */
     public function getIncludeOrganizationCodes()
     {
-        return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes->value();
+        return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes->getValue();
     }
 
-    public function setForceUseOfCallDispositionCodes(xs:boolean $forceUseOfCallDispositionCodes = null)
+    /**
+     * 
+     */
+    public function setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes = null)
     {
+        $this->forceUseOfCallDispositionCodes = (boolean) $forceUseOfCallDispositionCodes;
     }
 
+    /**
+     * 
+     */
     public function getForceUseOfCallDispositionCodes()
     {
-        return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes->value();
+        return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes->getValue();
     }
 
+    /**
+     * Contains a Call Center Call Disposition Code and its Level
+     */
     public function setDefaultCallDispositionCode(CallDispositionCodeWithLevel $defaultCallDispositionCode = null)
     {
+        $this->defaultCallDispositionCode = CallDispositionCodeWithLevel $defaultCallDispositionCode;
     }
 
+    /**
+     * Contains a Call Center Call Disposition Code and its Level
+     */
     public function getDefaultCallDispositionCode()
     {
-        return (!$this->defaultCallDispositionCode) ?: $this->defaultCallDispositionCode->value();
+        return (!$this->defaultCallDispositionCode) ?: $this->defaultCallDispositionCode->getValue();
     }
 }

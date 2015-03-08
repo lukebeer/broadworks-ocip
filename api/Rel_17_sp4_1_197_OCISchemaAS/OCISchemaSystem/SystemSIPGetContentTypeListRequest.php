@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the content type list for the SIP interface.
+     * Get the content type list for the SIP interface.
  *         The response is either SystemSIPGetContentTypeListResponse or ErrorResponse.
  */
 class SystemSIPGetContentTypeListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetContentTypeListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

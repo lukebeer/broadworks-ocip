@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemCommunicationBarringCriteriaGetListRequest.
+     * Response to the SystemCommunicationBarringCriteriaGetListRequest.
  *         The response contains a table of all Communication Barring Criteria
  *         in the system. The column headings are "Name" and "Description".
  */
 class SystemCommunicationBarringCriteriaGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $criteriaTable  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCriteriaGetListResponse';
+    public    $name          = __CLASS__;
+    protected $criteriaTable = null;
 
 
+    /**
+     * 
+     */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
+        $this->criteriaTable = core:OCITable $criteriaTable;
     }
 
+    /**
+     * 
+     */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->value();
+        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
     }
 }

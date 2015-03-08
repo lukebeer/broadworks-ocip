@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a ServiceProviderPreferredCarrierGetListRequest. Contains a table with one row per carrier.
+     * Response to a ServiceProviderPreferredCarrierGetListRequest. Contains a table with one row per carrier.
  *         The table columns are: "Country Code", "Intra-Lata PIC", "Inter-Lata PIC", "International PIC".
  */
 class ServiceProviderPreferredCarrierGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
-    protected $serviceProviderCarrierTable  = null;
+    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetListResponse';
+    public    $name                        = __CLASS__;
+    protected $serviceProviderCarrierTable = null;
 
 
+    /**
+     * 
+     */
     public function setServiceProviderCarrierTable(core:OCITable $serviceProviderCarrierTable = null)
     {
+        $this->serviceProviderCarrierTable = core:OCITable $serviceProviderCarrierTable;
     }
 
+    /**
+     * 
+     */
     public function getServiceProviderCarrierTable()
     {
-        return (!$this->serviceProviderCarrierTable) ?: $this->serviceProviderCarrierTable->value();
+        return (!$this->serviceProviderCarrierTable) ?: $this->serviceProviderCarrierTable->getValue();
     }
 }

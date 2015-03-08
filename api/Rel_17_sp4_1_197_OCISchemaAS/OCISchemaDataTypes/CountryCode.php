@@ -22,7 +22,7 @@ class CountryCode extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new MaxLength("3"));
         $this->addRestriction(new Pattern("[0-9]|[1-9][0-9]{1,2}"));
     }

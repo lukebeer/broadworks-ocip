@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderGroupPagingTargetsCapacityGetRequest.
+     * Response to ServiceProviderGroupPagingTargetsCapacityGetRequest.
  */
 class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $maximumTargetUsers  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\ServiceProviderGroupPagingTargetsCapacityGetResponse';
+    public    $name               = __CLASS__;
+    protected $maximumTargetUsers = null;
 
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
@@ -28,8 +32,11 @@ class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType i
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function getMaximumTargetUsers()
     {
-        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->value();
+        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->getValue();
     }
 }

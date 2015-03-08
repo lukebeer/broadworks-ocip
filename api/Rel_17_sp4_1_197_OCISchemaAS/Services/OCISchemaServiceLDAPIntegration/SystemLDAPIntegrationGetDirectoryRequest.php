@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with LDAP Integration.
+     * Request the system level data associated with LDAP Integration.
  *         The response is either a SystemLDAPIntegrationGetDirectoryResponse or an
  *         ErrorResponse.
  */
 class SystemLDAPIntegrationGetDirectoryRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\SystemLDAPIntegrationGetDirectoryResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

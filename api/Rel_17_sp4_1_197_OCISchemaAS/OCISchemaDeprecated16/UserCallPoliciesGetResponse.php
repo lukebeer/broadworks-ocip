@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserCallPoliciesGetRequest.
+     * Response to UserCallPoliciesGetRequest.
  */
 class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $redirectedCallsCOLPPrivacy  = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserCallPoliciesGetResponse';
+    public    $name                       = __CLASS__;
+    protected $redirectedCallsCOLPPrivacy = null;
 
 
+    /**
+     * Choices for Connected Line Identification Privacy on Redirected Calls
+     */
     public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
@@ -28,8 +32,11 @@ class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterfac
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
     }
 
+    /**
+     * Choices for Connected Line Identification Privacy on Redirected Calls
+     */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->value();
+        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->getValue();
     }
 }

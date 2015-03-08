@@ -24,35 +24,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a Call Center instance.
+     * Request to modify a Call Center instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
-    protected $serviceUserId                        = null;
-    protected $serviceInstanceProfile               = null;
-    protected $type                                 = null;
-    protected $policy                               = null;
-    protected $enableVideo                          = null;
-    protected $queueLength                          = null;
-    protected $reportingServerName                  = null;
-    protected $allowCallerToDialEscapeDigit         = null;
-    protected $escapeDigit                          = null;
-    protected $resetCallStatisticsUponEntryInQueue  = null;
-    protected $allowAgentLogoff                     = null;
-    protected $allowCallWaitingForAgents            = null;
-    protected $allowCallsToAgentsInWrapUp           = null;
-    protected $overrideAgentWrapUpTime              = null;
-    protected $wrapUpSeconds                        = null;
-    protected $forceDeliveryOfCalls                 = null;
-    protected $forceDeliveryWaitTimeSeconds         = null;
-    protected $enableAutomaticStateChangeForAgents  = null;
-    protected $agentStateAfterCall                  = null;
-    protected $agentUnavailableCode                 = null;
-    protected $externalPreferredAudioCodec          = null;
-    protected $internalPreferredAudioCodec          = null;
-    protected $playRingingWhenOfferingCall          = null;
+    public    $name                                = __CLASS__;
+    protected $serviceUserId                       = null;
+    protected $serviceInstanceProfile              = null;
+    protected $type                                = null;
+    protected $policy                              = null;
+    protected $enableVideo                         = null;
+    protected $queueLength                         = null;
+    protected $reportingServerName                 = null;
+    protected $allowCallerToDialEscapeDigit        = null;
+    protected $escapeDigit                         = null;
+    protected $resetCallStatisticsUponEntryInQueue = null;
+    protected $allowAgentLogoff                    = null;
+    protected $allowCallWaitingForAgents           = null;
+    protected $allowCallsToAgentsInWrapUp          = null;
+    protected $overrideAgentWrapUpTime             = null;
+    protected $wrapUpSeconds                       = null;
+    protected $forceDeliveryOfCalls                = null;
+    protected $forceDeliveryWaitTimeSeconds        = null;
+    protected $enableAutomaticStateChangeForAgents = null;
+    protected $agentStateAfterCall                 = null;
+    protected $agentUnavailableCode                = null;
+    protected $externalPreferredAudioCodec         = null;
+    protected $internalPreferredAudioCodec         = null;
+    protected $playRingingWhenOfferingCall         = null;
 
     public function __construct(
          $serviceUserId,
@@ -104,6 +104,13 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
         $this->setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
@@ -111,20 +118,37 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new UserId($serviceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->value();
+        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
     }
 
+    /**
+     * Service Profile Information for group service used when modifying an existing service instance.
+     */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
+        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
     }
 
+    /**
+     * Service Profile Information for group service used when modifying an existing service instance.
+     */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->value();
+        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
     }
 
+    /**
+     * Call center type.
+     */
     public function setType($type = null)
     {
         $this->type = ($type InstanceOf CallCenterType)
@@ -132,11 +156,17 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new CallCenterType($type);
     }
 
+    /**
+     * Call center type.
+     */
     public function getType()
     {
-        return (!$this->type) ?: $this->type->value();
+        return (!$this->type) ?: $this->type->getValue();
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function setPolicy($policy = null)
     {
         $this->policy = ($policy InstanceOf HuntPolicy)
@@ -144,20 +174,33 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new HuntPolicy($policy);
     }
 
+    /**
+     * Policy for distributing calls within a hunt group or call center.
+     */
     public function getPolicy()
     {
-        return (!$this->policy) ?: $this->policy->value();
+        return (!$this->policy) ?: $this->policy->getValue();
     }
 
-    public function setEnableVideo(xs:boolean $enableVideo = null)
+    /**
+     * 
+     */
+    public function setEnableVideo($enableVideo = null)
     {
+        $this->enableVideo = (boolean) $enableVideo;
     }
 
+    /**
+     * 
+     */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->value();
+        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
     }
 
+    /**
+     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     */
     public function setQueueLength($queueLength = null)
     {
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
@@ -165,11 +208,17 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new CallCenterQueueLength16($queueLength);
     }
 
+    /**
+     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     */
     public function getQueueLength()
     {
-        return (!$this->queueLength) ?: $this->queueLength->value();
+        return (!$this->queueLength) ?: $this->queueLength->getValue();
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function setReportingServerName($reportingServerName = null)
     {
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
@@ -177,20 +226,33 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new CallCenterReportingServerName($reportingServerName);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function getReportingServerName()
     {
-        return (!$this->reportingServerName) ?: $this->reportingServerName->value();
+        return (!$this->reportingServerName) ?: $this->reportingServerName->getValue();
     }
 
-    public function setAllowCallerToDialEscapeDigit(xs:boolean $allowCallerToDialEscapeDigit = null)
+    /**
+     * 
+     */
+    public function setAllowCallerToDialEscapeDigit($allowCallerToDialEscapeDigit = null)
     {
+        $this->allowCallerToDialEscapeDigit = (boolean) $allowCallerToDialEscapeDigit;
     }
 
+    /**
+     * 
+     */
     public function getAllowCallerToDialEscapeDigit()
     {
-        return (!$this->allowCallerToDialEscapeDigit) ?: $this->allowCallerToDialEscapeDigit->value();
+        return (!$this->allowCallerToDialEscapeDigit) ?: $this->allowCallerToDialEscapeDigit->getValue();
     }
 
+    /**
+     * A single DTMF dialing digit. Valid values are 0-9,*,#.
+     */
     public function setEscapeDigit($escapeDigit = null)
     {
         $this->escapeDigit = ($escapeDigit InstanceOf DtmfDigit)
@@ -198,56 +260,97 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new DtmfDigit($escapeDigit);
     }
 
+    /**
+     * A single DTMF dialing digit. Valid values are 0-9,*,#.
+     */
     public function getEscapeDigit()
     {
-        return (!$this->escapeDigit) ?: $this->escapeDigit->value();
+        return (!$this->escapeDigit) ?: $this->escapeDigit->getValue();
     }
 
-    public function setResetCallStatisticsUponEntryInQueue(xs:boolean $resetCallStatisticsUponEntryInQueue = null)
+    /**
+     * 
+     */
+    public function setResetCallStatisticsUponEntryInQueue($resetCallStatisticsUponEntryInQueue = null)
     {
+        $this->resetCallStatisticsUponEntryInQueue = (boolean) $resetCallStatisticsUponEntryInQueue;
     }
 
+    /**
+     * 
+     */
     public function getResetCallStatisticsUponEntryInQueue()
     {
-        return (!$this->resetCallStatisticsUponEntryInQueue) ?: $this->resetCallStatisticsUponEntryInQueue->value();
+        return (!$this->resetCallStatisticsUponEntryInQueue) ?: $this->resetCallStatisticsUponEntryInQueue->getValue();
     }
 
-    public function setAllowAgentLogoff(xs:boolean $allowAgentLogoff = null)
+    /**
+     * 
+     */
+    public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
+        $this->allowAgentLogoff = (boolean) $allowAgentLogoff;
     }
 
+    /**
+     * 
+     */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->value();
+        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->getValue();
     }
 
-    public function setAllowCallWaitingForAgents(xs:boolean $allowCallWaitingForAgents = null)
+    /**
+     * 
+     */
+    public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
+        $this->allowCallWaitingForAgents = (boolean) $allowCallWaitingForAgents;
     }
 
+    /**
+     * 
+     */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->value();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
     }
 
-    public function setAllowCallsToAgentsInWrapUp(xs:boolean $allowCallsToAgentsInWrapUp = null)
+    /**
+     * 
+     */
+    public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp = null)
     {
+        $this->allowCallsToAgentsInWrapUp = (boolean) $allowCallsToAgentsInWrapUp;
     }
 
+    /**
+     * 
+     */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->value();
+        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->getValue();
     }
 
-    public function setOverrideAgentWrapUpTime(xs:boolean $overrideAgentWrapUpTime = null)
+    /**
+     * 
+     */
+    public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
+        $this->overrideAgentWrapUpTime = (boolean) $overrideAgentWrapUpTime;
     }
 
+    /**
+     * 
+     */
     public function getOverrideAgentWrapUpTime()
     {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->value();
+        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->getValue();
     }
 
+    /**
+     * The ACD wrap up time in seconds.
+     */
     public function setWrapUpSeconds($wrapUpSeconds = null)
     {
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
@@ -255,20 +358,33 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
     }
 
+    /**
+     * The ACD wrap up time in seconds.
+     */
     public function getWrapUpSeconds()
     {
-        return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->value();
+        return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->getValue();
     }
 
-    public function setForceDeliveryOfCalls(xs:boolean $forceDeliveryOfCalls = null)
+    /**
+     * 
+     */
+    public function setForceDeliveryOfCalls($forceDeliveryOfCalls = null)
     {
+        $this->forceDeliveryOfCalls = (boolean) $forceDeliveryOfCalls;
     }
 
+    /**
+     * 
+     */
     public function getForceDeliveryOfCalls()
     {
-        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->value();
+        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->getValue();
     }
 
+    /**
+     * Call center force delivery wait time in seconds.
+     */
     public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds = null)
     {
         $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
@@ -276,20 +392,34 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
     }
 
+    /**
+     * Call center force delivery wait time in seconds.
+     */
     public function getForceDeliveryWaitTimeSeconds()
     {
-        return (!$this->forceDeliveryWaitTimeSeconds) ?: $this->forceDeliveryWaitTimeSeconds->value();
+        return (!$this->forceDeliveryWaitTimeSeconds) ?: $this->forceDeliveryWaitTimeSeconds->getValue();
     }
 
-    public function setEnableAutomaticStateChangeForAgents(xs:boolean $enableAutomaticStateChangeForAgents = null)
+    /**
+     * 
+     */
+    public function setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents = null)
     {
+        $this->enableAutomaticStateChangeForAgents = (boolean) $enableAutomaticStateChangeForAgents;
     }
 
+    /**
+     * 
+     */
     public function getEnableAutomaticStateChangeForAgents()
     {
-        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->value();
+        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->getValue();
     }
 
+    /**
+     * Agent Automatic Call Distribution (ACD) State.
+     *         States available for Wrap-Up agent state management.
+     */
     public function setAgentStateAfterCall($agentStateAfterCall = null)
     {
         $this->agentStateAfterCall = ($agentStateAfterCall InstanceOf AgentACDAutomaticState)
@@ -297,11 +427,18 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new AgentACDAutomaticState($agentStateAfterCall);
     }
 
+    /**
+     * Agent Automatic Call Distribution (ACD) State.
+     *         States available for Wrap-Up agent state management.
+     */
     public function getAgentStateAfterCall()
     {
-        return (!$this->agentStateAfterCall) ?: $this->agentStateAfterCall->value();
+        return (!$this->agentStateAfterCall) ?: $this->agentStateAfterCall->getValue();
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function setAgentUnavailableCode($agentUnavailableCode = null)
     {
         $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
@@ -309,11 +446,17 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new CallCenterAgentUnavailableCode($agentUnavailableCode);
     }
 
+    /**
+     * Call Center Agent Unavailable Code Value.
+     */
     public function getAgentUnavailableCode()
     {
-        return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->value();
+        return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->getValue();
     }
 
+    /**
+     * Audio file codec.
+     */
     public function setExternalPreferredAudioCodec($externalPreferredAudioCodec = null)
     {
         $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
@@ -321,11 +464,17 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new AudioFileCodec($externalPreferredAudioCodec);
     }
 
+    /**
+     * Audio file codec.
+     */
     public function getExternalPreferredAudioCodec()
     {
-        return (!$this->externalPreferredAudioCodec) ?: $this->externalPreferredAudioCodec->value();
+        return (!$this->externalPreferredAudioCodec) ?: $this->externalPreferredAudioCodec->getValue();
     }
 
+    /**
+     * Audio file codec.
+     */
     public function setInternalPreferredAudioCodec($internalPreferredAudioCodec = null)
     {
         $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
@@ -333,17 +482,27 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
              : new AudioFileCodec($internalPreferredAudioCodec);
     }
 
+    /**
+     * Audio file codec.
+     */
     public function getInternalPreferredAudioCodec()
     {
-        return (!$this->internalPreferredAudioCodec) ?: $this->internalPreferredAudioCodec->value();
+        return (!$this->internalPreferredAudioCodec) ?: $this->internalPreferredAudioCodec->getValue();
     }
 
-    public function setPlayRingingWhenOfferingCall(xs:boolean $playRingingWhenOfferingCall = null)
+    /**
+     * 
+     */
+    public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall = null)
     {
+        $this->playRingingWhenOfferingCall = (boolean) $playRingingWhenOfferingCall;
     }
 
+    /**
+     * 
+     */
     public function getPlayRingingWhenOfferingCall()
     {
-        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->value();
+        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->getValue();
     }
 }

@@ -17,17 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the service provider level data associated with External Custom Ringback.
+     * Modify the service provider level data associated with External Custom Ringback.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $prefixDigits       = null;
-    protected $serverNetAddress   = null;
-    protected $serverPort         = null;
-    protected $timeoutSeconds     = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $prefixDigits      = null;
+    protected $serverNetAddress  = null;
+    protected $serverPort        = null;
+    protected $timeoutSeconds    = null;
 
     public function __construct(
          $serviceProviderId,
@@ -43,6 +43,10 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
         $this->setTimeoutSeconds($timeoutSeconds);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -50,11 +54,18 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Prefix digits prepended to the address to reach the external ringback server.
+     */
     public function setPrefixDigits($prefixDigits = null)
     {
         $this->prefixDigits = ($prefixDigits InstanceOf ExternalCustomRingbackPrefixDigits)
@@ -62,11 +73,17 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
              : new ExternalCustomRingbackPrefixDigits($prefixDigits);
     }
 
+    /**
+     * Prefix digits prepended to the address to reach the external ringback server.
+     */
     public function getPrefixDigits()
     {
-        return (!$this->prefixDigits) ?: $this->prefixDigits->value();
+        return (!$this->prefixDigits) ?: $this->prefixDigits->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setServerNetAddress($serverNetAddress = null)
     {
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
@@ -74,11 +91,17 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
              : new NetAddress($serverNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getServerNetAddress()
     {
-        return (!$this->serverNetAddress) ?: $this->serverNetAddress->value();
+        return (!$this->serverNetAddress) ?: $this->serverNetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServerPort($serverPort = null)
     {
         $this->serverPort = ($serverPort InstanceOf Port1025)
@@ -86,11 +109,17 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
              : new Port1025($serverPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->value();
+        return (!$this->serverPort) ?: $this->serverPort->getValue();
     }
 
+    /**
+     * Time to wait for any External Media Server to reply with custom ringback.
+     */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ExternalCustomRingbackTimeoutSeconds)
@@ -98,8 +127,11 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
              : new ExternalCustomRingbackTimeoutSeconds($timeoutSeconds);
     }
 
+    /**
+     * Time to wait for any External Media Server to reply with custom ringback.
+     */
     public function getTimeoutSeconds()
     {
-        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->value();
+        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->getValue();
     }
 }

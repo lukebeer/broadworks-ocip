@@ -16,18 +16,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Unassign a list of service provider DNs from a group. The DNs then become available for
+     * Unassign a list of service provider DNs from a group. The DNs then become available for
  *         assignment to other groups. It is possible to unassign either: a single DN,
  *         or a list of DNs, or a range of DNs, or any combination thereof.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $phoneNumber        = null;
-    protected $dnRange            = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $phoneNumber       = null;
+    protected $dnRange           = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +41,10 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
         $this->setDnRange($dnRange);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,11 +52,19 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -60,11 +72,18 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
@@ -72,17 +91,27 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
              : new DN($phoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->value();
+        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
     }
 
+    /**
+     * Directory number range. The minimum and maximum values are inclusive.
+     */
     public function setDnRange(DNRange $dnRange = null)
     {
+        $this->dnRange = DNRange $dnRange;
     }
 
+    /**
+     * Directory number range. The minimum and maximum values are inclusive.
+     */
     public function getDnRange()
     {
-        return (!$this->dnRange) ?: $this->dnRange->value();
+        return (!$this->dnRange) ?: $this->dnRange->getValue();
     }
 }

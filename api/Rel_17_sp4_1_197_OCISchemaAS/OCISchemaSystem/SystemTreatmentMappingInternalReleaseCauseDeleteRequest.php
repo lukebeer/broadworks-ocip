@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an Internal Release Cause mapping.
+     * Delete an Internal Release Cause mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $internalReleaseCause  = null;
+    public    $name                 = __CLASS__;
+    protected $internalReleaseCause = null;
 
     public function __construct(
          $internalReleaseCause
@@ -27,6 +27,9 @@ class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexTyp
         $this->setInternalReleaseCause($internalReleaseCause);
     }
 
+    /**
+     * Possible values for the protocol-neutral internal release cause.
+     */
     public function setInternalReleaseCause($internalReleaseCause = null)
     {
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
@@ -34,8 +37,11 @@ class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexTyp
              : new InternalReleaseCause16($internalReleaseCause);
     }
 
+    /**
+     * Possible values for the protocol-neutral internal release cause.
+     */
     public function getInternalReleaseCause()
     {
-        return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->value();
+        return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->getValue();
     }
 }

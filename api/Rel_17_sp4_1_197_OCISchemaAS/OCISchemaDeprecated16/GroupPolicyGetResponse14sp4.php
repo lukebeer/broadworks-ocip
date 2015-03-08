@@ -22,24 +22,33 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupPolicyGetRequest14sp4.
+     * Response to GroupPolicyGetRequest14sp4.
  *         Contains the policy settings for the group.
  */
 class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $callingPlanAccess                = null;
-    protected $extensionAccess                  = null;
-    protected $ldapIntegrationAccess            = null;
-    protected $voiceMessagingAccess             = null;
-    protected $departmentAdminUserAccess        = null;
-    protected $departmentAdminTrunkGroupAccess  = null;
-    protected $userAuthenticationAccess         = null;
-    protected $userGroupDirectoryAccess         = null;
-    protected $userProfileAccess                = null;
-    protected $userEnhancedCallLogAccess        = null;
+    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupPolicyGetResponse14sp4';
+    public    $name                            = __CLASS__;
+    protected $callingPlanAccess               = null;
+    protected $extensionAccess                 = null;
+    protected $ldapIntegrationAccess           = null;
+    protected $voiceMessagingAccess            = null;
+    protected $departmentAdminUserAccess       = null;
+    protected $departmentAdminTrunkGroupAccess = null;
+    protected $userAuthenticationAccess        = null;
+    protected $userGroupDirectoryAccess        = null;
+    protected $userProfileAccess               = null;
+    protected $userEnhancedCallLogAccess       = null;
 
 
+    /**
+     * Group's policy for accessing group level and user level calling plan configuration.
+     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
+     *         "Restricted" indicates
+     *         1) not to provide access to group-level calling plan configuration,
+     *         2) to provide access to only collect calls for user level incoming calling plan,
+     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     */
     public function setCallingPlanAccess($callingPlanAccess = null)
     {
         $this->callingPlanAccess = ($callingPlanAccess InstanceOf GroupCallingPlanAccess)
@@ -47,11 +56,22 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupCallingPlanAccess($callingPlanAccess);
     }
 
+    /**
+     * Group's policy for accessing group level and user level calling plan configuration.
+     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
+     *         "Restricted" indicates
+     *         1) not to provide access to group-level calling plan configuration,
+     *         2) to provide access to only collect calls for user level incoming calling plan,
+     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     */
     public function getCallingPlanAccess()
     {
-        return (!$this->callingPlanAccess) ?: $this->callingPlanAccess->value();
+        return (!$this->callingPlanAccess) ?: $this->callingPlanAccess->getValue();
     }
 
+    /**
+     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     */
     public function setExtensionAccess($extensionAccess = null)
     {
         $this->extensionAccess = ($extensionAccess InstanceOf GroupExtensionAccess)
@@ -59,11 +79,17 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupExtensionAccess($extensionAccess);
     }
 
+    /**
+     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     */
     public function getExtensionAccess()
     {
-        return (!$this->extensionAccess) ?: $this->extensionAccess->value();
+        return (!$this->extensionAccess) ?: $this->extensionAccess->getValue();
     }
 
+    /**
+     * Group's policy for accessing LDAP Integration configuration.
+     */
     public function setLdapIntegrationAccess($ldapIntegrationAccess = null)
     {
         $this->ldapIntegrationAccess = ($ldapIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
@@ -71,11 +97,20 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupLDAPIntegrationAccess($ldapIntegrationAccess);
     }
 
+    /**
+     * Group's policy for accessing LDAP Integration configuration.
+     */
     public function getLdapIntegrationAccess()
     {
-        return (!$this->ldapIntegrationAccess) ?: $this->ldapIntegrationAccess->value();
+        return (!$this->ldapIntegrationAccess) ?: $this->ldapIntegrationAccess->getValue();
     }
 
+    /**
+     * Group's policy for user access to his voice messaging configuration.
+     *         "Full" indicates full control over the voice messaging configuration.
+     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
+     *         or to forward the voice message to a designated email address is not available.
+     */
     public function setVoiceMessagingAccess($voiceMessagingAccess = null)
     {
         $this->voiceMessagingAccess = ($voiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
@@ -83,11 +118,28 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupVoiceMessagingAccess($voiceMessagingAccess);
     }
 
+    /**
+     * Group's policy for user access to his voice messaging configuration.
+     *         "Full" indicates full control over the voice messaging configuration.
+     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
+     *         or to forward the voice message to a designated email address is not available.
+     */
     public function getVoiceMessagingAccess()
     {
-        return (!$this->voiceMessagingAccess) ?: $this->voiceMessagingAccess->value();
+        return (!$this->voiceMessagingAccess) ?: $this->voiceMessagingAccess->getValue();
     }
 
+    /**
+     * Group's policy for department administrator's access to user configuration.
+     *         "Full" indicates full access to users in the department.
+     *         "Read-Only Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the department.
+     */
     public function setDepartmentAdminUserAccess($departmentAdminUserAccess = null)
     {
         $this->departmentAdminUserAccess = ($departmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
@@ -95,11 +147,27 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupDepartmentAdminUserAccess($departmentAdminUserAccess);
     }
 
+    /**
+     * Group's policy for department administrator's access to user configuration.
+     *         "Full" indicates full access to users in the department.
+     *         "Read-Only Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the department.
+     */
     public function getDepartmentAdminUserAccess()
     {
-        return (!$this->departmentAdminUserAccess) ?: $this->departmentAdminUserAccess->value();
+        return (!$this->departmentAdminUserAccess) ?: $this->departmentAdminUserAccess->getValue();
     }
 
+    /**
+     * Group's policy for department administrator's access to trunk group configuration.
+     *         "Full" indicates full access to trunk groups in the department.
+     *         "None" indicates no access to trunk groups in the department.
+     */
     public function setDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess = null)
     {
         $this->departmentAdminTrunkGroupAccess = ($departmentAdminTrunkGroupAccess InstanceOf GroupDepartmentAdminTrunkGroupAccess)
@@ -107,11 +175,19 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
     }
 
+    /**
+     * Group's policy for department administrator's access to trunk group configuration.
+     *         "Full" indicates full access to trunk groups in the department.
+     *         "None" indicates no access to trunk groups in the department.
+     */
     public function getDepartmentAdminTrunkGroupAccess()
     {
-        return (!$this->departmentAdminTrunkGroupAccess) ?: $this->departmentAdminTrunkGroupAccess->value();
+        return (!$this->departmentAdminTrunkGroupAccess) ?: $this->departmentAdminTrunkGroupAccess->getValue();
     }
 
+    /**
+     * Group's policy for a user's access to their Authentication service configuration.
+     */
     public function setUserAuthenticationAccess($userAuthenticationAccess = null)
     {
         $this->userAuthenticationAccess = ($userAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
@@ -119,11 +195,17 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupUserAuthenticationAccess($userAuthenticationAccess);
     }
 
+    /**
+     * Group's policy for a user's access to their Authentication service configuration.
+     */
     public function getUserAuthenticationAccess()
     {
-        return (!$this->userAuthenticationAccess) ?: $this->userAuthenticationAccess->value();
+        return (!$this->userAuthenticationAccess) ?: $this->userAuthenticationAccess->getValue();
     }
 
+    /**
+     * Group's policy for a user's access to the group or enterprise directory.
+     */
     public function setUserGroupDirectoryAccess($userGroupDirectoryAccess = null)
     {
         $this->userGroupDirectoryAccess = ($userGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
@@ -131,11 +213,17 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupUserGroupDirectoryAccess($userGroupDirectoryAccess);
     }
 
+    /**
+     * Group's policy for a user's access to the group or enterprise directory.
+     */
     public function getUserGroupDirectoryAccess()
     {
-        return (!$this->userGroupDirectoryAccess) ?: $this->userGroupDirectoryAccess->value();
+        return (!$this->userGroupDirectoryAccess) ?: $this->userGroupDirectoryAccess->getValue();
     }
 
+    /**
+     * Group's policy for a user's access to his profile.
+     */
     public function setUserProfileAccess($userProfileAccess = null)
     {
         $this->userProfileAccess = ($userProfileAccess InstanceOf GroupUserProfileAccess)
@@ -143,11 +231,17 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupUserProfileAccess($userProfileAccess);
     }
 
+    /**
+     * Group's policy for a user's access to his profile.
+     */
     public function getUserProfileAccess()
     {
-        return (!$this->userProfileAccess) ?: $this->userProfileAccess->value();
+        return (!$this->userProfileAccess) ?: $this->userProfileAccess->getValue();
     }
 
+    /**
+     * Policy for user to delete call logs
+     */
     public function setUserEnhancedCallLogAccess($userEnhancedCallLogAccess = null)
     {
         $this->userEnhancedCallLogAccess = ($userEnhancedCallLogAccess InstanceOf GroupUserCallLogAccess)
@@ -155,8 +249,11 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
              : new GroupUserCallLogAccess($userEnhancedCallLogAccess);
     }
 
+    /**
+     * Policy for user to delete call logs
+     */
     public function getUserEnhancedCallLogAccess()
     {
-        return (!$this->userEnhancedCallLogAccess) ?: $this->userEnhancedCallLogAccess->value();
+        return (!$this->userEnhancedCallLogAccess) ?: $this->userEnhancedCallLogAccess->getValue();
     }
 }

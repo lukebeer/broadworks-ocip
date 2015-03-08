@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupGetListInServiceProviderRequest.
+     * Response to GroupGetListInServiceProviderRequest.
  *         Contains a 3 column table with column headings: "Group Id", "Group Name", "User Limit"
  *         and a row for each group.
  */
 class GroupGetListInServiceProviderResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $groupTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInServiceProviderResponse';
+    public    $name       = __CLASS__;
+    protected $groupTable = null;
 
 
+    /**
+     * 
+     */
     public function setGroupTable(core:OCITable $groupTable = null)
     {
+        $this->groupTable = core:OCITable $groupTable;
     }
 
+    /**
+     * 
+     */
     public function getGroupTable()
     {
-        return (!$this->groupTable) ?: $this->groupTable->value();
+        return (!$this->groupTable) ?: $this->groupTable->getValue();
     }
 }

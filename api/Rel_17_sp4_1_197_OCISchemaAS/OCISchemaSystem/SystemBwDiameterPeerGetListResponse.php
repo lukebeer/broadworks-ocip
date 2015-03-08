@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains a 5 column table with column headings 'Instance', 'Identity', 'IP Address', 'Port', and 'Enabled'. One row is present for each peer.
+     * Contains a 5 column table with column headings 'Instance', 'Identity', 'IP Address', 'Port', and 'Enabled'. One row is present for each peer.
  */
 class SystemBwDiameterPeerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $peerTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterPeerGetListResponse';
+    public    $name      = __CLASS__;
+    protected $peerTable = null;
 
 
+    /**
+     * 
+     */
     public function setPeerTable(core:OCITable $peerTable = null)
     {
+        $this->peerTable = core:OCITable $peerTable;
     }
 
+    /**
+     * 
+     */
     public function getPeerTable()
     {
-        return (!$this->peerTable) ?: $this->peerTable->value();
+        return (!$this->peerTable) ?: $this->peerTable->getValue();
     }
 }

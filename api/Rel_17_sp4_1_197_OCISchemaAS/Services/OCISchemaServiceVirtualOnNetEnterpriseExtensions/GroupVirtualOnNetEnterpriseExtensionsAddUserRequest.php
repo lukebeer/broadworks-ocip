@@ -16,18 +16,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Adds Virtual On-Net users to a Group. It is possible to add 
+     * Adds Virtual On-Net users to a Group. It is possible to add 
  *         either: a single user,  or a list of users, or a range of users, 
  *         or any combination thereof.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $virtualOnNetUser       = null;
-    protected $virtualOnNetUserRange  = null;
+    public    $name                  = __CLASS__;
+    protected $serviceProviderId     = null;
+    protected $groupId               = null;
+    protected $virtualOnNetUser      = null;
+    protected $virtualOnNetUserRange = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +41,10 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         $this->setVirtualOnNetUserRange($virtualOnNetUserRange);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,11 +52,19 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -60,26 +72,44 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Virtual On-Net User.
+     */
     public function setVirtualOnNetUser(VirtualOnNetUser $virtualOnNetUser = null)
     {
+        $this->virtualOnNetUser = VirtualOnNetUser $virtualOnNetUser;
     }
 
+    /**
+     * Virtual On-Net User.
+     */
     public function getVirtualOnNetUser()
     {
-        return (!$this->virtualOnNetUser) ?: $this->virtualOnNetUser->value();
+        return (!$this->virtualOnNetUser) ?: $this->virtualOnNetUser->getValue();
     }
 
+    /**
+     * Virtual On-Net User Range.
+     */
     public function setVirtualOnNetUserRange(VirtualOnNetUserRange $virtualOnNetUserRange = null)
     {
+        $this->virtualOnNetUserRange = VirtualOnNetUserRange $virtualOnNetUserRange;
     }
 
+    /**
+     * Virtual On-Net User Range.
+     */
     public function getVirtualOnNetUserRange()
     {
-        return (!$this->virtualOnNetUserRange) ?: $this->virtualOnNetUserRange->value();
+        return (!$this->virtualOnNetUserRange) ?: $this->virtualOnNetUserRange->getValue();
     }
 }

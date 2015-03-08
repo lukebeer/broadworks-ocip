@@ -14,15 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a device profile file.
+     * Request to get a device profile file.
  *         The response is either SystemAccessDeviceFileGetResponse14sp8 or ErrorResponse.
  *         Replaced by: SystemAccessDeviceFileGetRequest16sp1
  */
 class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $deviceName  = null;
-    protected $fileFormat  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAccessDeviceFileGetResponse14sp8';
+    public    $name       = __CLASS__;
+    protected $deviceName = null;
+    protected $fileFormat = null;
 
     public function __construct(
          $deviceName,
@@ -32,6 +33,9 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
         $this->setFileFormat($fileFormat);
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -39,11 +43,17 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileFormat($fileFormat = null)
     {
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
@@ -51,8 +61,11 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
              : new DeviceManagementFileFormat($fileFormat);
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->value();
+        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
     }
 }

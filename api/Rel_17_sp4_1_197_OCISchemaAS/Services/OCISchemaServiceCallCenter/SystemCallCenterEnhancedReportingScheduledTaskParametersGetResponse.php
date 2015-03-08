@@ -15,16 +15,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallCenterEnhancedReportingScheduledTaskParametersGetRequest
+     * Response to SystemCallCenterEnhancedReportingScheduledTaskParametersGetRequest
  */
 class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
-    protected $scheduledReportSearchIntervalMinutes      = null;
-    protected $maximumScheduledReportsPerInterval        = null;
-    protected $deleteScheduledReportDaysAfterCompletion  = null;
+    const     RESPONSE_TYPE                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse';
+    public    $name                                     = __CLASS__;
+    protected $scheduledReportSearchIntervalMinutes     = null;
+    protected $maximumScheduledReportsPerInterval       = null;
+    protected $deleteScheduledReportDaysAfterCompletion = null;
 
 
+    /**
+     * Indicates how often we search for a scheduled report to process.
+     */
     public function setScheduledReportSearchIntervalMinutes($scheduledReportSearchIntervalMinutes = null)
     {
         $this->scheduledReportSearchIntervalMinutes = ($scheduledReportSearchIntervalMinutes InstanceOf CallCenterScheduledReportSearchIntervalMinutes)
@@ -32,11 +36,17 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extend
              : new CallCenterScheduledReportSearchIntervalMinutes($scheduledReportSearchIntervalMinutes);
     }
 
+    /**
+     * Indicates how often we search for a scheduled report to process.
+     */
     public function getScheduledReportSearchIntervalMinutes()
     {
-        return (!$this->scheduledReportSearchIntervalMinutes) ?: $this->scheduledReportSearchIntervalMinutes->value();
+        return (!$this->scheduledReportSearchIntervalMinutes) ?: $this->scheduledReportSearchIntervalMinutes->getValue();
     }
 
+    /**
+     * Maximum number of call center scheduled report can be processed per report search interval.
+     */
     public function setMaximumScheduledReportsPerInterval($maximumScheduledReportsPerInterval = null)
     {
         $this->maximumScheduledReportsPerInterval = ($maximumScheduledReportsPerInterval InstanceOf CallCenterMaximumScheduledReportsPerInterval)
@@ -44,11 +54,17 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extend
              : new CallCenterMaximumScheduledReportsPerInterval($maximumScheduledReportsPerInterval);
     }
 
+    /**
+     * Maximum number of call center scheduled report can be processed per report search interval.
+     */
     public function getMaximumScheduledReportsPerInterval()
     {
-        return (!$this->maximumScheduledReportsPerInterval) ?: $this->maximumScheduledReportsPerInterval->value();
+        return (!$this->maximumScheduledReportsPerInterval) ?: $this->maximumScheduledReportsPerInterval->getValue();
     }
 
+    /**
+     * The number of days after a scheduled report is completed.
+     */
     public function setDeleteScheduledReportDaysAfterCompletion($deleteScheduledReportDaysAfterCompletion = null)
     {
         $this->deleteScheduledReportDaysAfterCompletion = ($deleteScheduledReportDaysAfterCompletion InstanceOf CallCenterDaysAfterScheduledReportCompletion)
@@ -56,8 +72,11 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extend
              : new CallCenterDaysAfterScheduledReportCompletion($deleteScheduledReportDaysAfterCompletion);
     }
 
+    /**
+     * The number of days after a scheduled report is completed.
+     */
     public function getDeleteScheduledReportDaysAfterCompletion()
     {
-        return (!$this->deleteScheduledReportDaysAfterCompletion) ?: $this->deleteScheduledReportDaysAfterCompletion->value();
+        return (!$this->deleteScheduledReportDaysAfterCompletion) ?: $this->deleteScheduledReportDaysAfterCompletion->getValue();
     }
 }

@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * One time conference schedule used in the context of a conference add.
+     * One time conference schedule used in the context of a conference add.
  */
 class InstantConferencingScheduleOneTime extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $startTime  = null;
-    protected $duration   = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime';
+    public    $name      = __CLASS__;
+    protected $startTime = null;
+    protected $duration  = null;
 
     public function __construct(
          $startTime,
@@ -29,21 +30,35 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
         $this->setDuration($duration);
     }
 
+    /**
+     * 
+     */
     public function setStartTime(xs:time $startTime = null)
     {
+        $this->startTime = xs:time $startTime;
     }
 
+    /**
+     * 
+     */
     public function getStartTime()
     {
-        return (!$this->startTime) ?: $this->startTime->value();
+        return (!$this->startTime) ?: $this->startTime->getValue();
     }
 
+    /**
+     * 
+     */
     public function setDuration(xs:duration $duration = null)
     {
+        $this->duration = xs:duration $duration;
     }
 
+    /**
+     * 
+     */
     public function getDuration()
     {
-        return (!$this->duration) ?: $this->duration->value();
+        return (!$this->duration) ?: $this->duration->getValue();
     }
 }

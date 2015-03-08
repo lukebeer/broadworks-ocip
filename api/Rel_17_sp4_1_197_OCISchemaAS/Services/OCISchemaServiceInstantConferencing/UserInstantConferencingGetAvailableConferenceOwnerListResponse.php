@@ -13,20 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserInstantConferencingGetAvailableConferenceOwnerListRequest.
+     * Response to the UserInstantConferencingGetAvailableConferenceOwnerListRequest.
  */
 class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
-    protected $bridge  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableConferenceOwnerListResponse';
+    public    $name   = __CLASS__;
+    protected $bridge = null;
 
 
+    /**
+     * The bridge Id and the administrators/delegator of the bridge.
+     *         The ownerTable has column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+     */
     public function setBridge(InstantConferencingBridgeOwnerList $bridge = null)
     {
+        $this->bridge = InstantConferencingBridgeOwnerList $bridge;
     }
 
+    /**
+     * The bridge Id and the administrators/delegator of the bridge.
+     *         The ownerTable has column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+     */
     public function getBridge()
     {
-        return (!$this->bridge) ?: $this->bridge->value();
+        return (!$this->bridge) ?: $this->bridge->getValue();
     }
 }

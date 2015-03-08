@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Communication Barring Alternate Call Indicator.
+     * Delete a Communication Barring Alternate Call Indicator.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $alternateCallIndicator  = null;
+    public    $name                   = __CLASS__;
+    protected $alternateCallIndicator = null;
 
     public function __construct(
          $alternateCallIndicator
@@ -27,6 +27,9 @@ class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends Comp
         $this->setAlternateCallIndicator($alternateCallIndicator);
     }
 
+    /**
+     * Communication Barring Alternate Call Indicator.
+     */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
@@ -34,8 +37,11 @@ class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends Comp
              : new CommunicationBarringAlternateCallIndicator($alternateCallIndicator);
     }
 
+    /**
+     * Communication Barring Alternate Call Indicator.
+     */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->value();
+        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
     }
 }

@@ -14,7 +14,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete the country code preferred carriers for a service provider or enterprise.
+     * Delete the country code preferred carriers for a service provider or enterprise.
  *         Note that this is different from unassigning all 3 types of carriers with
  *         the ServiceProviderPreferredCarrierModifyRequest.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -23,9 +23,9 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $countryCode        = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $countryCode       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
         $this->setCountryCode($countryCode);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,18 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -54,8 +65,11 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 }

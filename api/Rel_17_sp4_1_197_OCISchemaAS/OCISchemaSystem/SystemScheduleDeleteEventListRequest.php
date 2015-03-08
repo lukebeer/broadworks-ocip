@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a list of events from a system schedule.
+     * Delete a list of events from a system schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $scheduleKey  = null;
-    protected $eventName    = null;
+    public    $name        = __CLASS__;
+    protected $scheduleKey = null;
+    protected $eventName   = null;
 
     public function __construct(
          ScheduleKey $scheduleKey,
@@ -31,15 +31,25 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
         $this->setEventName($eventName);
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 
+    /**
+     * Event name.
+     */
     public function setEventName($eventName = null)
     {
         $this->eventName = ($eventName InstanceOf EventName)
@@ -47,8 +57,11 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
              : new EventName($eventName);
     }
 
+    /**
+     * Event name.
+     */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->value();
+        return (!$this->eventName) ?: $this->eventName->getValue();
     }
 }

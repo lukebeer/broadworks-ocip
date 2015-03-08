@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a static entry in the Realm Routing Table.
+     * Delete a static entry in the Realm Routing Table.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $instance       = null;
-    protected $realm          = null;
-    protected $applicationId  = null;
+    public    $name          = __CLASS__;
+    protected $instance      = null;
+    protected $realm         = null;
+    protected $applicationId = null;
 
     public function __construct(
          $instance,
@@ -35,6 +35,9 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
         $this->setApplicationId($applicationId);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function setInstance($instance = null)
     {
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
@@ -42,11 +45,17 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
              : new BwDiameterPeerInstance($instance);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->value();
+        return (!$this->instance) ?: $this->instance->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setRealm($realm = null)
     {
         $this->realm = ($realm InstanceOf DomainName)
@@ -54,11 +63,17 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
              : new DomainName($realm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getRealm()
     {
-        return (!$this->realm) ?: $this->realm->value();
+        return (!$this->realm) ?: $this->realm->getValue();
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
@@ -66,8 +81,11 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
              : new BwDiameterApplicationId($applicationId);
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 }

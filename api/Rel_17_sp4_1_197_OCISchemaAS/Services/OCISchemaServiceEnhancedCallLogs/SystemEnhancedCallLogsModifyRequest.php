@@ -20,25 +20,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Enhanced Call Logs.
+     * Modify the system level data associated with Enhanced Call Logs.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemEnhancedCallLogsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $isSendEnabled                    = null;
-    protected $server1NetAddress                = null;
-    protected $server1SendPort                  = null;
-    protected $server1RetrievePort              = null;
-    protected $server2NetAddress                = null;
-    protected $server2SendPort                  = null;
-    protected $server2RetrievePort              = null;
-    protected $sharedSecret                     = null;
-    protected $retransmissionDelayMilliSeconds  = null;
-    protected $maxTransmissions                 = null;
-    protected $soapTimeoutSeconds               = null;
-    protected $useDBS                           = null;
-    protected $maxNonPagedResponseSize          = null;
+    public    $name                            = __CLASS__;
+    protected $isSendEnabled                   = null;
+    protected $server1NetAddress               = null;
+    protected $server1SendPort                 = null;
+    protected $server1RetrievePort             = null;
+    protected $server2NetAddress               = null;
+    protected $server2SendPort                 = null;
+    protected $server2RetrievePort             = null;
+    protected $sharedSecret                    = null;
+    protected $retransmissionDelayMilliSeconds = null;
+    protected $maxTransmissions                = null;
+    protected $soapTimeoutSeconds              = null;
+    protected $useDBS                          = null;
+    protected $maxNonPagedResponseSize         = null;
 
     public function __construct(
          $isSendEnabled = null,
@@ -70,15 +70,25 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
         $this->setMaxNonPagedResponseSize($maxNonPagedResponseSize);
     }
 
-    public function setIsSendEnabled(xs:boolean $isSendEnabled = null)
+    /**
+     * 
+     */
+    public function setIsSendEnabled($isSendEnabled = null)
     {
+        $this->isSendEnabled = (boolean) $isSendEnabled;
     }
 
+    /**
+     * 
+     */
     public function getIsSendEnabled()
     {
-        return (!$this->isSendEnabled) ?: $this->isSendEnabled->value();
+        return (!$this->isSendEnabled) ?: $this->isSendEnabled->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setServer1NetAddress($server1NetAddress = null)
     {
         $this->server1NetAddress = ($server1NetAddress InstanceOf NetAddress)
@@ -86,11 +96,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new NetAddress($server1NetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getServer1NetAddress()
     {
-        return (!$this->server1NetAddress) ?: $this->server1NetAddress->value();
+        return (!$this->server1NetAddress) ?: $this->server1NetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServer1SendPort($server1SendPort = null)
     {
         $this->server1SendPort = ($server1SendPort InstanceOf Port1025)
@@ -98,11 +114,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new Port1025($server1SendPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServer1SendPort()
     {
-        return (!$this->server1SendPort) ?: $this->server1SendPort->value();
+        return (!$this->server1SendPort) ?: $this->server1SendPort->getValue();
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function setServer1RetrievePort($server1RetrievePort = null)
     {
         $this->server1RetrievePort = ($server1RetrievePort InstanceOf Port)
@@ -110,11 +132,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new Port($server1RetrievePort);
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function getServer1RetrievePort()
     {
-        return (!$this->server1RetrievePort) ?: $this->server1RetrievePort->value();
+        return (!$this->server1RetrievePort) ?: $this->server1RetrievePort->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setServer2NetAddress($server2NetAddress = null)
     {
         $this->server2NetAddress = ($server2NetAddress InstanceOf NetAddress)
@@ -122,11 +150,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new NetAddress($server2NetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getServer2NetAddress()
     {
-        return (!$this->server2NetAddress) ?: $this->server2NetAddress->value();
+        return (!$this->server2NetAddress) ?: $this->server2NetAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setServer2SendPort($server2SendPort = null)
     {
         $this->server2SendPort = ($server2SendPort InstanceOf Port1025)
@@ -134,11 +168,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new Port1025($server2SendPort);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getServer2SendPort()
     {
-        return (!$this->server2SendPort) ?: $this->server2SendPort->value();
+        return (!$this->server2SendPort) ?: $this->server2SendPort->getValue();
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function setServer2RetrievePort($server2RetrievePort = null)
     {
         $this->server2RetrievePort = ($server2RetrievePort InstanceOf Port)
@@ -146,11 +186,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new Port($server2RetrievePort);
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function getServer2RetrievePort()
     {
-        return (!$this->server2RetrievePort) ?: $this->server2RetrievePort->value();
+        return (!$this->server2RetrievePort) ?: $this->server2RetrievePort->getValue();
     }
 
+    /**
+     * Shared Secret.
+     */
     public function setSharedSecret($sharedSecret = null)
     {
         $this->sharedSecret = ($sharedSecret InstanceOf EnhancedCallLogsSharedSecret)
@@ -158,11 +204,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new EnhancedCallLogsSharedSecret($sharedSecret);
     }
 
+    /**
+     * Shared Secret.
+     */
     public function getSharedSecret()
     {
-        return (!$this->sharedSecret) ?: $this->sharedSecret->value();
+        return (!$this->sharedSecret) ?: $this->sharedSecret->getValue();
     }
 
+    /**
+     * Retransmission delay in milli-seconds.
+     */
     public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
         $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf EnhancedCallLogsRetransmissionDelayMilliSeconds)
@@ -170,11 +222,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new EnhancedCallLogsRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
     }
 
+    /**
+     * Retransmission delay in milli-seconds.
+     */
     public function getRetransmissionDelayMilliSeconds()
     {
-        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->value();
+        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->getValue();
     }
 
+    /**
+     * Maximum transmissions.
+     */
     public function setMaxTransmissions($maxTransmissions = null)
     {
         $this->maxTransmissions = ($maxTransmissions InstanceOf EnhancedCallLogsMaxTransmissions)
@@ -182,11 +240,17 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new EnhancedCallLogsMaxTransmissions($maxTransmissions);
     }
 
+    /**
+     * Maximum transmissions.
+     */
     public function getMaxTransmissions()
     {
-        return (!$this->maxTransmissions) ?: $this->maxTransmissions->value();
+        return (!$this->maxTransmissions) ?: $this->maxTransmissions->getValue();
     }
 
+    /**
+     * Timeout when retrieving enhanced call logs through the SOAP interface.
+     */
     public function setSoapTimeoutSeconds($soapTimeoutSeconds = null)
     {
         $this->soapTimeoutSeconds = ($soapTimeoutSeconds InstanceOf EnhancedCallLogsSoapTimeoutSeconds)
@@ -194,20 +258,34 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new EnhancedCallLogsSoapTimeoutSeconds($soapTimeoutSeconds);
     }
 
+    /**
+     * Timeout when retrieving enhanced call logs through the SOAP interface.
+     */
     public function getSoapTimeoutSeconds()
     {
-        return (!$this->soapTimeoutSeconds) ?: $this->soapTimeoutSeconds->value();
+        return (!$this->soapTimeoutSeconds) ?: $this->soapTimeoutSeconds->getValue();
     }
 
-    public function setUseDBS(xs:boolean $useDBS = null)
+    /**
+     * 
+     */
+    public function setUseDBS($useDBS = null)
     {
+        $this->useDBS = (boolean) $useDBS;
     }
 
+    /**
+     * 
+     */
     public function getUseDBS()
     {
-        return (!$this->useDBS) ?: $this->useDBS->value();
+        return (!$this->useDBS) ?: $this->useDBS->getValue();
     }
 
+    /**
+     * The maximum number of call log entries to return when paging information is
+     *         not specified in the request.
+     */
     public function setMaxNonPagedResponseSize($maxNonPagedResponseSize = null)
     {
         $this->maxNonPagedResponseSize = ($maxNonPagedResponseSize InstanceOf EnhancedCallLogsNonPagedResponseSize)
@@ -215,8 +293,12 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
              : new EnhancedCallLogsNonPagedResponseSize($maxNonPagedResponseSize);
     }
 
+    /**
+     * The maximum number of call log entries to return when paging information is
+     *         not specified in the request.
+     */
     public function getMaxNonPagedResponseSize()
     {
-        return (!$this->maxNonPagedResponseSize) ?: $this->maxNonPagedResponseSize->value();
+        return (!$this->maxNonPagedResponseSize) ?: $this->maxNonPagedResponseSize->getValue();
     }
 }

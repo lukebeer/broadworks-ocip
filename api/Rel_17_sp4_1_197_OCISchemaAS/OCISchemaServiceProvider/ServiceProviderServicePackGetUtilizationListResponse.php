@@ -13,17 +13,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderServicePackGetUtilizationListRequest.
+     * Response to ServiceProviderServicePackGetUtilizationListRequest.
  *         For each service pack, a table of groups utilizing the pack is returned.
  *         The utilization table column headings are "Group", "Total Packs" and "Assigned".
  */
 class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $servicePackName          = null;
-    protected $serviceUtilizationTable  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetUtilizationListResponse';
+    public    $name                    = __CLASS__;
+    protected $servicePackName         = null;
+    protected $serviceUtilizationTable = null;
 
 
+    /**
+     * Service Pack name.
+     */
     public function setServicePackName($servicePackName = null)
     {
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
@@ -31,17 +35,27 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
              : new ServicePackName($servicePackName);
     }
 
+    /**
+     * Service Pack name.
+     */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->value();
+        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
     }
 
+    /**
+     * 
+     */
     public function setServiceUtilizationTable(core:OCITable $serviceUtilizationTable = null)
     {
+        $this->serviceUtilizationTable = core:OCITable $serviceUtilizationTable;
     }
 
+    /**
+     * 
+     */
     public function getServiceUtilizationTable()
     {
-        return (!$this->serviceUtilizationTable) ?: $this->serviceUtilizationTable->value();
+        return (!$this->serviceUtilizationTable) ?: $this->serviceUtilizationTable->getValue();
     }
 }

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the fields for an Internal Release Cause mapping.
+     * Modify the fields for an Internal Release Cause mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $internalReleaseCause  = null;
-    protected $treatmentId           = null;
+    public    $name                 = __CLASS__;
+    protected $internalReleaseCause = null;
+    protected $treatmentId          = null;
 
     public function __construct(
          $internalReleaseCause,
@@ -31,6 +31,9 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
         $this->setTreatmentId($treatmentId);
     }
 
+    /**
+     * Possible values for the protocol-neutral internal release cause.
+     */
     public function setInternalReleaseCause($internalReleaseCause = null)
     {
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
@@ -38,11 +41,17 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
              : new InternalReleaseCause16($internalReleaseCause);
     }
 
+    /**
+     * Possible values for the protocol-neutral internal release cause.
+     */
     public function getInternalReleaseCause()
     {
-        return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->value();
+        return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->getValue();
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
@@ -50,8 +59,11 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
              : new TreatmentId($treatmentId);
     }
 
+    /**
+     * Configurable Treatment Name
+     */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->value();
+        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
     }
 }

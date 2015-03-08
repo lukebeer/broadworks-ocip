@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the speed dial 100 prefix setting for a group.
+     * Modify the speed dial 100 prefix setting for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\SpeedDial100EntryModify';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

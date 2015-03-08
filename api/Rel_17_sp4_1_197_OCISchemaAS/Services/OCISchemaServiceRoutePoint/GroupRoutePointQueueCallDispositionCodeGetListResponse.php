@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupRoutePointQueueCallDispositionCodeGetListRequest.
+     * Response to the GroupRoutePointQueueCallDispositionCodeGetListRequest.
  *         Contains a table with column headings: "Is Active", "Code", "Description" and "Level".
  *         Level column can be any of the values in the data type CallDispositionCodeLevel.
  */
 class GroupRoutePointQueueCallDispositionCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $dispositionCodesTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $dispositionCodesTable = null;
 
 
+    /**
+     * 
+     */
     public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
     {
+        $this->dispositionCodesTable = core:OCITable $dispositionCodesTable;
     }
 
+    /**
+     * 
+     */
     public function getDispositionCodesTable()
     {
-        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->value();
+        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->getValue();
     }
 }

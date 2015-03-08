@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemSystemLicenseGetListRequest.
+     * Response to SystemSystemLicenseGetListRequest.
  */
 class SystemLicensingGetSystemLicenseListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $license  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicensingGetSystemLicenseListResponse';
+    public    $name    = __CLASS__;
+    protected $license = null;
 
 
+    /**
+     * System License type.
+     */
     public function setLicense($license = null)
     {
         $this->license = ($license InstanceOf SystemLicenseType)
@@ -28,8 +32,11 @@ class SystemLicensingGetSystemLicenseListResponse extends ComplexType implements
              : new SystemLicenseType($license);
     }
 
+    /**
+     * System License type.
+     */
     public function getLicense()
     {
-        return (!$this->license) ?: $this->license->value();
+        return (!$this->license) ?: $this->license->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the OCI call control application list.
+     * Get the OCI call control application list.
  *         The response is either SystemOCICallControlApplicationGetListResponse or ErrorResponse.
  */
 class SystemOCICallControlApplicationGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlApplicationGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

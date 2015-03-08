@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an existing Communication Barring Profile.
+     * Delete an existing Communication Barring Profile.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringProfileDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemCommunicationBarringProfileDeleteRequest extends ComplexType impleme
         $this->setName($name);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
@@ -34,8 +37,11 @@ class SystemCommunicationBarringProfileDeleteRequest extends ComplexType impleme
              : new CommunicationBarringProfileName($name);
     }
 
+    /**
+     * Communication Barring Profile Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

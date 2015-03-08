@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemMediaGetListRequest. The column headings are
+     * Response to SystemMediaGetListRequest. The column headings are
  *         "Media Name", "Codec", "Media Type", "Bandwidth Enforcement Type" and "Bandwidth".
  */
 class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $mediaTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaGetListResponse';
+    public    $name       = __CLASS__;
+    protected $mediaTable = null;
 
 
+    /**
+     * 
+     */
     public function setMediaTable(core:OCITable $mediaTable = null)
     {
+        $this->mediaTable = core:OCITable $mediaTable;
     }
 
+    /**
+     * 
+     */
     public function getMediaTable()
     {
-        return (!$this->mediaTable) ?: $this->mediaTable->value();
+        return (!$this->mediaTable) ?: $this->mediaTable->getValue();
     }
 }

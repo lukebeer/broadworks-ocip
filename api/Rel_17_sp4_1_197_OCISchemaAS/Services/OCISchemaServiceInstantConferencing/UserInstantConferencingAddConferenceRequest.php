@@ -17,22 +17,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a conference.
+     * Add a conference.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingAddConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
-    protected $userId                          = null;
-    protected $bridgeServiceUserId             = null;
-    protected $conferenceOwnerUserId           = null;
-    protected $title                           = null;
-    protected $leaderRequired                  = null;
-    protected $leaderReleaseDropsParticipants  = null;
-    protected $announceCallers                 = null;
-    protected $conferenceType                  = null;
-    protected $conferenceSchedule              = null;
-    protected $billingCode                     = null;
+    public    $name                           = __CLASS__;
+    protected $userId                         = null;
+    protected $bridgeServiceUserId            = null;
+    protected $conferenceOwnerUserId          = null;
+    protected $title                          = null;
+    protected $leaderRequired                 = null;
+    protected $leaderReleaseDropsParticipants = null;
+    protected $announceCallers                = null;
+    protected $conferenceType                 = null;
+    protected $conferenceSchedule             = null;
+    protected $billingCode                    = null;
 
     public function __construct(
          $userId,
@@ -58,6 +58,13 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->setBillingCode($billingCode);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -65,11 +72,25 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
@@ -77,11 +98,25 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
              : new UserId($bridgeServiceUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getBridgeServiceUserId()
     {
-        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->value();
+        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->getValue();
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
@@ -89,11 +124,21 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
              : new UserId($conferenceOwnerUserId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getConferenceOwnerUserId()
     {
-        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->value();
+        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->getValue();
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function setTitle($title = null)
     {
         $this->title = ($title InstanceOf InstantConferencingTitle)
@@ -101,38 +146,65 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
              : new InstantConferencingTitle($title);
     }
 
+    /**
+     * Title of instant conference.
+     */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->value();
+        return (!$this->title) ?: $this->title->getValue();
     }
 
-    public function setLeaderRequired(xs:boolean $leaderRequired = null)
+    /**
+     * 
+     */
+    public function setLeaderRequired($leaderRequired = null)
     {
+        $this->leaderRequired = (boolean) $leaderRequired;
     }
 
+    /**
+     * 
+     */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->value();
+        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
     }
 
-    public function setLeaderReleaseDropsParticipants(xs:boolean $leaderReleaseDropsParticipants = null)
+    /**
+     * 
+     */
+    public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants = null)
     {
+        $this->leaderReleaseDropsParticipants = (boolean) $leaderReleaseDropsParticipants;
     }
 
+    /**
+     * 
+     */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->value();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
     }
 
-    public function setAnnounceCallers(xs:boolean $announceCallers = null)
+    /**
+     * 
+     */
+    public function setAnnounceCallers($announceCallers = null)
     {
+        $this->announceCallers = (boolean) $announceCallers;
     }
 
+    /**
+     * 
+     */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->value();
+        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
     }
 
+    /**
+     * The type of conference.
+     */
     public function setConferenceType($conferenceType = null)
     {
         $this->conferenceType = ($conferenceType InstanceOf InstantConferencingConferenceType)
@@ -140,20 +212,33 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
              : new InstantConferencingConferenceType($conferenceType);
     }
 
+    /**
+     * The type of conference.
+     */
     public function getConferenceType()
     {
-        return (!$this->conferenceType) ?: $this->conferenceType->value();
+        return (!$this->conferenceType) ?: $this->conferenceType->getValue();
     }
 
+    /**
+     * Conference schedule used in the context of a conference add.
+     */
     public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
+        $this->conferenceSchedule = InstantConferencingSchedule $conferenceSchedule;
     }
 
+    /**
+     * Conference schedule used in the context of a conference add.
+     */
     public function getConferenceSchedule()
     {
-        return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->value();
+        return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->getValue();
     }
 
+    /**
+     * Instant conferencing project billing code.
+     */
     public function setBillingCode($billingCode = null)
     {
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
@@ -161,8 +246,11 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
              : new InstantConferencingBillingCode($billingCode);
     }
 
+    /**
+     * Instant conferencing project billing code.
+     */
     public function getBillingCode()
     {
-        return (!$this->billingCode) ?: $this->billingCode->value();
+        return (!$this->billingCode) ?: $this->billingCode->getValue();
     }
 }

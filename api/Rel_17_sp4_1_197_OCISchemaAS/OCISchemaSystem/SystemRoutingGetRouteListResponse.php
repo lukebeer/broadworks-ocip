@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemRoutingGetRouteListRequest.
+     * Response to SystemRoutingGetRouteListRequest.
  */
 class SystemRoutingGetRouteListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $routeName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetRouteListResponse';
+    public    $name      = __CLASS__;
+    protected $routeName = null;
 
 
+    /**
+     * Route name.
+     */
     public function setRouteName($routeName = null)
     {
         $this->routeName = ($routeName InstanceOf RouteName)
@@ -28,8 +32,11 @@ class SystemRoutingGetRouteListResponse extends ComplexType implements ComplexIn
              : new RouteName($routeName);
     }
 
+    /**
+     * Route name.
+     */
     public function getRouteName()
     {
-        return (!$this->routeName) ?: $this->routeName->value();
+        return (!$this->routeName) ?: $this->routeName->getValue();
     }
 }

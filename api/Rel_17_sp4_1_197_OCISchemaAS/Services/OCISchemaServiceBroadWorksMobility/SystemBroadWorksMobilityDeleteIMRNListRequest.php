@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Removes a BroadWorks Mobility IMRN number from the system. 
+     * Removes a BroadWorks Mobility IMRN number from the system. 
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $imrnNumber  = null;
+    public    $name       = __CLASS__;
+    protected $imrnNumber = null;
 
     public function __construct(
          $imrnNumber = null
@@ -27,6 +27,9 @@ class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implemen
         $this->setImrnNumber($imrnNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setImrnNumber($imrnNumber = null)
     {
         $this->imrnNumber = ($imrnNumber InstanceOf DN)
@@ -34,8 +37,11 @@ class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implemen
              : new DN($imrnNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getImrnNumber()
     {
-        return (!$this->imrnNumber) ?: $this->imrnNumber->value();
+        return (!$this->imrnNumber) ?: $this->imrnNumber->getValue();
     }
 }

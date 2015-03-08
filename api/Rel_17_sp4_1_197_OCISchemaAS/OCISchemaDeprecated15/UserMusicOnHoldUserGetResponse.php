@@ -13,51 +13,80 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserMusicOnHoldUserGetRequest.
+     * Response to UserMusicOnHoldUserGetRequest.
  *         Replaced By: UserMusicOnHoldUserGetResponse16
  */
 class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
-    protected $enableVideo                         = null;
-    protected $source                              = null;
-    protected $useAlternateSourceForInternalCalls  = null;
-    protected $internalSource                      = null;
+    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserGetResponse';
+    public    $name                               = __CLASS__;
+    protected $enableVideo                        = null;
+    protected $source                             = null;
+    protected $useAlternateSourceForInternalCalls = null;
+    protected $internalSource                     = null;
 
 
-    public function setEnableVideo(xs:boolean $enableVideo = null)
+    /**
+     * 
+     */
+    public function setEnableVideo($enableVideo = null)
     {
+        $this->enableVideo = (boolean) $enableVideo;
     }
 
+    /**
+     * 
+     */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->value();
+        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
     }
 
+    /**
+     * Contains the music on hold user source configuration.
+     */
     public function setSource(MusicOnHoldUserSourceRead $source = null)
     {
+        $this->source = MusicOnHoldUserSourceRead $source;
     }
 
+    /**
+     * Contains the music on hold user source configuration.
+     */
     public function getSource()
     {
-        return (!$this->source) ?: $this->source->value();
+        return (!$this->source) ?: $this->source->getValue();
     }
 
-    public function setUseAlternateSourceForInternalCalls(xs:boolean $useAlternateSourceForInternalCalls = null)
+    /**
+     * 
+     */
+    public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
+        $this->useAlternateSourceForInternalCalls = (boolean) $useAlternateSourceForInternalCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->value();
+        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->getValue();
     }
 
+    /**
+     * Contains the music on hold user source configuration.
+     */
     public function setInternalSource(MusicOnHoldUserSourceRead $internalSource = null)
     {
+        $this->internalSource = MusicOnHoldUserSourceRead $internalSource;
     }
 
+    /**
+     * Contains the music on hold user source configuration.
+     */
     public function getInternalSource()
     {
-        return (!$this->internalSource) ?: $this->internalSource->value();
+        return (!$this->internalSource) ?: $this->internalSource->getValue();
     }
 }

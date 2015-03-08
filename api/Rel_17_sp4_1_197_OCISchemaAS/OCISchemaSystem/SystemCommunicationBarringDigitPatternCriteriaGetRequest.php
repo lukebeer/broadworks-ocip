@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Communication Barring Digit Pattern Criteria.
+     * Get an existing Communication Barring Digit Pattern Criteria.
  *         The response is either a SystemCommunicationBarringDigitPatternCriteriaGetResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +28,9 @@ class SystemCommunicationBarringDigitPatternCriteriaGetRequest extends ComplexTy
         $this->setName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
@@ -34,8 +38,11 @@ class SystemCommunicationBarringDigitPatternCriteriaGetRequest extends ComplexTy
              : new DigitPatternCriteriaName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

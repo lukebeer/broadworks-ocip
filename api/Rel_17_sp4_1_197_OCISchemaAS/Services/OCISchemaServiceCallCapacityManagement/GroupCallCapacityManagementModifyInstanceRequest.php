@@ -17,21 +17,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies a Call Capacity Management group. Replaces the entire list of users in the group.
+     * Modifies a Call Capacity Management group. Replaces the entire list of users in the group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $serviceProviderId              = null;
-    protected $groupId                        = null;
-    protected $name                           = null;
-    protected $newName                        = null;
-    protected $maxActiveCallsAllowed          = null;
-    protected $maxIncomingActiveCallsAllowed  = null;
-    protected $maxOutgoingActiveCallsAllowed  = null;
-    protected $becomeDefaultGroupForNewUsers  = null;
-    protected $userIdList                     = null;
+    public    $name                          = __CLASS__;
+    protected $serviceProviderId             = null;
+    protected $groupId                       = null;
+    protected $name                          = null;
+    protected $newName                       = null;
+    protected $maxActiveCallsAllowed         = null;
+    protected $maxIncomingActiveCallsAllowed = null;
+    protected $maxOutgoingActiveCallsAllowed = null;
+    protected $becomeDefaultGroupForNewUsers = null;
+    protected $userIdList                    = null;
 
     public function __construct(
          $serviceProviderId,
@@ -55,6 +55,10 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
         $this->setUserIdList($userIdList);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -62,11 +66,19 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -74,11 +86,18 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ServiceInstanceName)
@@ -86,11 +105,17 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
              : new ServiceInstanceName($name);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function setNewName($newName = null)
     {
         $this->newName = ($newName InstanceOf ServiceInstanceName)
@@ -98,11 +123,17 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
              : new ServiceInstanceName($newName);
     }
 
+    /**
+     * Service Instance Name for a service without a user id.
+     */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->value();
+        return (!$this->newName) ?: $this->newName->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxActiveCallsAllowed($maxActiveCallsAllowed = null)
     {
         $this->maxActiveCallsAllowed = ($maxActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -110,11 +141,17 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
              : new CallCapacityCallLimit($maxActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxActiveCallsAllowed()
     {
-        return (!$this->maxActiveCallsAllowed) ?: $this->maxActiveCallsAllowed->value();
+        return (!$this->maxActiveCallsAllowed) ?: $this->maxActiveCallsAllowed->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxIncomingActiveCallsAllowed($maxIncomingActiveCallsAllowed = null)
     {
         $this->maxIncomingActiveCallsAllowed = ($maxIncomingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -122,11 +159,17 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
              : new CallCapacityCallLimit($maxIncomingActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxIncomingActiveCallsAllowed()
     {
-        return (!$this->maxIncomingActiveCallsAllowed) ?: $this->maxIncomingActiveCallsAllowed->value();
+        return (!$this->maxIncomingActiveCallsAllowed) ?: $this->maxIncomingActiveCallsAllowed->getValue();
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function setMaxOutgoingActiveCallsAllowed($maxOutgoingActiveCallsAllowed = null)
     {
         $this->maxOutgoingActiveCallsAllowed = ($maxOutgoingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
@@ -134,26 +177,45 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
              : new CallCapacityCallLimit($maxOutgoingActiveCallsAllowed);
     }
 
+    /**
+     * Range of values for the call capacity of a capacity group.
+     */
     public function getMaxOutgoingActiveCallsAllowed()
     {
-        return (!$this->maxOutgoingActiveCallsAllowed) ?: $this->maxOutgoingActiveCallsAllowed->value();
+        return (!$this->maxOutgoingActiveCallsAllowed) ?: $this->maxOutgoingActiveCallsAllowed->getValue();
     }
 
-    public function setBecomeDefaultGroupForNewUsers(xs:boolean $becomeDefaultGroupForNewUsers = null)
+    /**
+     * 
+     */
+    public function setBecomeDefaultGroupForNewUsers($becomeDefaultGroupForNewUsers = null)
     {
+        $this->becomeDefaultGroupForNewUsers = (boolean) $becomeDefaultGroupForNewUsers;
     }
 
+    /**
+     * 
+     */
     public function getBecomeDefaultGroupForNewUsers()
     {
-        return (!$this->becomeDefaultGroupForNewUsers) ?: $this->becomeDefaultGroupForNewUsers->value();
+        return (!$this->becomeDefaultGroupForNewUsers) ?: $this->becomeDefaultGroupForNewUsers->getValue();
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
+        $this->userIdList = ReplacementUserIdList $userIdList;
     }
 
+    /**
+     * A list of userIds that replaces a previously configured list.
+     *         By convention, an element of this type may be set nill to clear the list.
+     */
     public function getUserIdList()
     {
-        return (!$this->userIdList) ?: $this->userIdList->value();
+        return (!$this->userIdList) ?: $this->userIdList->getValue();
     }
 }

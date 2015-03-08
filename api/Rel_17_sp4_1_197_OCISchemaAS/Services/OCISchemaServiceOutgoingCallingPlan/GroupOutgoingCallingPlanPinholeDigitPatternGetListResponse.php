@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest.
+     * Response to GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest.
  *         Contains a table with column headings: "Name", "Digit Pattern".
  */
 class GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $digitPatternTable  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse';
+    public    $name              = __CLASS__;
+    protected $digitPatternTable = null;
 
 
+    /**
+     * 
+     */
     public function setDigitPatternTable(core:OCITable $digitPatternTable = null)
     {
+        $this->digitPatternTable = core:OCITable $digitPatternTable;
     }
 
+    /**
+     * 
+     */
     public function getDigitPatternTable()
     {
-        return (!$this->digitPatternTable) ?: $this->digitPatternTable->value();
+        return (!$this->digitPatternTable) ?: $this->digitPatternTable->getValue();
     }
 }

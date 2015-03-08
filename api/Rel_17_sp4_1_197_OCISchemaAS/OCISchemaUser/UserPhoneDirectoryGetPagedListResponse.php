@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserPhoneDirectoryGetPagedListRequest.
+     * Response to UserPhoneDirectoryGetPagedListRequest.
  *         Returns the number of entries that would be returned if the response 
  *         Was not page size restricted.
  *         Contains a table with a row for each user and column headings:
@@ -27,26 +27,41 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $totalNumberOfRows  = null;
-    protected $directoryTable     = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
+    public    $name              = __CLASS__;
+    protected $totalNumberOfRows = null;
+    protected $directoryTable    = null;
 
 
-    public function setTotalNumberOfRows(xs:int $totalNumberOfRows = null)
+    /**
+     * 
+     */
+    public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
+        $this->totalNumberOfRows = (int) $totalNumberOfRows;
     }
 
+    /**
+     * 
+     */
     public function getTotalNumberOfRows()
     {
-        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->value();
+        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->getValue();
     }
 
+    /**
+     * 
+     */
     public function setDirectoryTable(core:OCITable $directoryTable = null)
     {
+        $this->directoryTable = core:OCITable $directoryTable;
     }
 
+    /**
+     * 
+     */
     public function getDirectoryTable()
     {
-        return (!$this->directoryTable) ?: $this->directoryTable->value();
+        return (!$this->directoryTable) ?: $this->directoryTable->getValue();
     }
 }

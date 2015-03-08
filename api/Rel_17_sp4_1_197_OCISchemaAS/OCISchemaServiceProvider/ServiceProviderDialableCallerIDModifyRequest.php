@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the service provider?s Dialable Caller ID settings and criteria list.
+     * Modify the service provider?s Dialable Caller ID settings and criteria list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $serviceProviderId           = null;
-    protected $useServiceProviderCriteria  = null;
-    protected $nsScreeningFailurePolicy    = null;
-    protected $criteriaPriorityOrder       = null;
+    public    $name                       = __CLASS__;
+    protected $serviceProviderId          = null;
+    protected $useServiceProviderCriteria = null;
+    protected $nsScreeningFailurePolicy   = null;
+    protected $criteriaPriorityOrder      = null;
 
     public function __construct(
          $serviceProviderId,
@@ -38,6 +38,10 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -45,20 +49,34 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
-    public function setUseServiceProviderCriteria(xs:boolean $useServiceProviderCriteria = null)
+    /**
+     * 
+     */
+    public function setUseServiceProviderCriteria($useServiceProviderCriteria = null)
     {
+        $this->useServiceProviderCriteria = (boolean) $useServiceProviderCriteria;
     }
 
+    /**
+     * 
+     */
     public function getUseServiceProviderCriteria()
     {
-        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria->value();
+        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria->getValue();
     }
 
+    /**
+     * How the incomming caller ID should be displayed in the case of an NS screening failure
+     */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
@@ -66,17 +84,27 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
     }
 
+    /**
+     * How the incomming caller ID should be displayed in the case of an NS screening failure
+     */
     public function getNsScreeningFailurePolicy()
     {
-        return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->value();
+        return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->getValue();
     }
 
+    /**
+     * Dialable Caller ID routing order
+     */
     public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
+        $this->criteriaPriorityOrder = DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder;
     }
 
+    /**
+     * Dialable Caller ID routing order
+     */
     public function getCriteriaPriorityOrder()
     {
-        return (!$this->criteriaPriorityOrder) ?: $this->criteriaPriorityOrder->value();
+        return (!$this->criteriaPriorityOrder) ?: $this->criteriaPriorityOrder->getValue();
     }
 }

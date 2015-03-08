@@ -13,16 +13,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderLanguageGetAvailableListRequest.
+     * Response to ServiceProviderLanguageGetAvailableListRequest.
  *         The language table column headings are: "Language", "Locale" and "Encoding".
  */
 class ServiceProviderLanguageGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $defaultLanguage  = null;
-    protected $languageTable    = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageGetAvailableListResponse';
+    public    $name            = __CLASS__;
+    protected $defaultLanguage = null;
+    protected $languageTable   = null;
 
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function setDefaultLanguage($defaultLanguage = null)
     {
         $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
@@ -30,17 +34,27 @@ class ServiceProviderLanguageGetAvailableListResponse extends ComplexType implem
              : new Language($defaultLanguage);
     }
 
+    /**
+     * Language identifies the language of a user or an administrator.
+     */
     public function getDefaultLanguage()
     {
-        return (!$this->defaultLanguage) ?: $this->defaultLanguage->value();
+        return (!$this->defaultLanguage) ?: $this->defaultLanguage->getValue();
     }
 
+    /**
+     * 
+     */
     public function setLanguageTable(core:OCITable $languageTable = null)
     {
+        $this->languageTable = core:OCITable $languageTable;
     }
 
+    /**
+     * 
+     */
     public function getLanguageTable()
     {
-        return (!$this->languageTable) ?: $this->languageTable->value();
+        return (!$this->languageTable) ?: $this->languageTable->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Access device end point used in the context of add that can have more than one contact defined.
+     * Access device end point used in the context of add that can have more than one contact defined.
  *         Only Static Registration capabable devices may have more than one contact defined.
  */
 class AccessDeviceMultipleContactEndpointAdd extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\AccessDeviceMultipleContactEndpointAdd';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

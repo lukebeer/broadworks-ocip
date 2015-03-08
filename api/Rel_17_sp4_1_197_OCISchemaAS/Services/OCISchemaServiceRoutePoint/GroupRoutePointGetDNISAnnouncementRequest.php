@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a route point's DNIS Announcements
+     * Get a route point's DNIS Announcements
  *         The response is either a GroupRoutePointGetDNISAnnouncementResponse or an ErrorResponse.
  */
 class GroupRoutePointGetDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $dnisKey  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAnnouncementResponse';
+    public    $name    = __CLASS__;
+    protected $dnisKey = null;
 
     public function __construct(
          DNISKey $dnisKey
@@ -27,12 +28,19 @@ class GroupRoutePointGetDNISAnnouncementRequest extends ComplexType implements C
         $this->setDnisKey($dnisKey);
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
+        $this->dnisKey = DNISKey $dnisKey;
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->value();
+        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
     }
 }

@@ -14,36 +14,54 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallingLineIdGetRequest.
+     * Response to the GroupCallingLineIdGetRequest.
  *         The response contains the group's calling line id settings.
  */
 class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $useGroupNumber            = null;
-    protected $useGroupName              = null;
-    protected $callingLineIdPhoneNumber  = null;
-    protected $callingLineIdName         = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallingLineIdGetResponse';
+    public    $name                     = __CLASS__;
+    protected $useGroupNumber           = null;
+    protected $useGroupName             = null;
+    protected $callingLineIdPhoneNumber = null;
+    protected $callingLineIdName        = null;
 
 
-    public function setUseGroupNumber(xs:boolean $useGroupNumber = null)
+    /**
+     * 
+     */
+    public function setUseGroupNumber($useGroupNumber = null)
     {
+        $this->useGroupNumber = (boolean) $useGroupNumber;
     }
 
+    /**
+     * 
+     */
     public function getUseGroupNumber()
     {
-        return (!$this->useGroupNumber) ?: $this->useGroupNumber->value();
+        return (!$this->useGroupNumber) ?: $this->useGroupNumber->getValue();
     }
 
-    public function setUseGroupName(xs:boolean $useGroupName = null)
+    /**
+     * 
+     */
+    public function setUseGroupName($useGroupName = null)
     {
+        $this->useGroupName = (boolean) $useGroupName;
     }
 
+    /**
+     * 
+     */
     public function getUseGroupName()
     {
-        return (!$this->useGroupName) ?: $this->useGroupName->value();
+        return (!$this->useGroupName) ?: $this->useGroupName->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
@@ -51,11 +69,17 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
              : new DN($callingLineIdPhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getCallingLineIdPhoneNumber()
     {
-        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->value();
+        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->getValue();
     }
 
+    /**
+     * Group calling line ID name.
+     */
     public function setCallingLineIdName($callingLineIdName = null)
     {
         $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
@@ -63,8 +87,11 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
              : new GroupCallingLineIdName($callingLineIdName);
     }
 
+    /**
+     * Group calling line ID name.
+     */
     public function getCallingLineIdName()
     {
-        return (!$this->callingLineIdName) ?: $this->callingLineIdName->value();
+        return (!$this->callingLineIdName) ?: $this->callingLineIdName->getValue();
     }
 }

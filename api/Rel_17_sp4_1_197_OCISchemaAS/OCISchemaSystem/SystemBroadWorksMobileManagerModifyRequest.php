@@ -18,20 +18,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the BroadWorks Mobile Manager service system settings.
+     * Modify the BroadWorks Mobile Manager service system settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $scfApiNetAddress1   = null;
-    protected $scfApiNetAddress2   = null;
-    protected $userName            = null;
-    protected $password            = null;
-    protected $emailFromAddress    = null;
-    protected $scfIMSOnly          = null;
-    protected $signalingIPAddress  = null;
-    protected $signalingPort       = null;
+    public    $name               = __CLASS__;
+    protected $scfApiNetAddress1  = null;
+    protected $scfApiNetAddress2  = null;
+    protected $userName           = null;
+    protected $password           = null;
+    protected $emailFromAddress   = null;
+    protected $scfIMSOnly         = null;
+    protected $signalingIPAddress = null;
+    protected $signalingPort      = null;
 
     public function __construct(
          $scfApiNetAddress1 = null,
@@ -53,6 +53,9 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
         $this->setSignalingPort($signalingPort);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setScfApiNetAddress1($scfApiNetAddress1 = null)
     {
         $this->scfApiNetAddress1 = ($scfApiNetAddress1 InstanceOf NetAddress)
@@ -60,11 +63,17 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
              : new NetAddress($scfApiNetAddress1);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getScfApiNetAddress1()
     {
-        return (!$this->scfApiNetAddress1) ?: $this->scfApiNetAddress1->value();
+        return (!$this->scfApiNetAddress1) ?: $this->scfApiNetAddress1->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setScfApiNetAddress2($scfApiNetAddress2 = null)
     {
         $this->scfApiNetAddress2 = ($scfApiNetAddress2 InstanceOf NetAddress)
@@ -72,11 +81,17 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
              : new NetAddress($scfApiNetAddress2);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getScfApiNetAddress2()
     {
-        return (!$this->scfApiNetAddress2) ?: $this->scfApiNetAddress2->value();
+        return (!$this->scfApiNetAddress2) ?: $this->scfApiNetAddress2->getValue();
     }
 
+    /**
+     * BroadWorks Mobile Manger API user name
+     */
     public function setUserName($userName = null)
     {
         $this->userName = ($userName InstanceOf BroadWorksMobileManagerUserName)
@@ -84,11 +99,17 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
              : new BroadWorksMobileManagerUserName($userName);
     }
 
+    /**
+     * BroadWorks Mobile Manger API user name
+     */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->value();
+        return (!$this->userName) ?: $this->userName->getValue();
     }
 
+    /**
+     * BroadWorks Mobile Manger API password
+     */
     public function setPassword($password = null)
     {
         $this->password = ($password InstanceOf BroadWorksMobileManagerPassword)
@@ -96,11 +117,17 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
              : new BroadWorksMobileManagerPassword($password);
     }
 
+    /**
+     * BroadWorks Mobile Manger API password
+     */
     public function getPassword()
     {
-        return (!$this->password) ?: $this->password->value();
+        return (!$this->password) ?: $this->password->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setEmailFromAddress($emailFromAddress = null)
     {
         $this->emailFromAddress = ($emailFromAddress InstanceOf EmailAddress)
@@ -108,20 +135,33 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
              : new EmailAddress($emailFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getEmailFromAddress()
     {
-        return (!$this->emailFromAddress) ?: $this->emailFromAddress->value();
+        return (!$this->emailFromAddress) ?: $this->emailFromAddress->getValue();
     }
 
-    public function setScfIMSOnly(xs:boolean $scfIMSOnly = null)
+    /**
+     * 
+     */
+    public function setScfIMSOnly($scfIMSOnly = null)
     {
+        $this->scfIMSOnly = (boolean) $scfIMSOnly;
     }
 
+    /**
+     * 
+     */
     public function getScfIMSOnly()
     {
-        return (!$this->scfIMSOnly) ?: $this->scfIMSOnly->value();
+        return (!$this->scfIMSOnly) ?: $this->scfIMSOnly->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setSignalingIPAddress($signalingIPAddress = null)
     {
         $this->signalingIPAddress = ($signalingIPAddress InstanceOf IPAddress)
@@ -129,11 +169,17 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
              : new IPAddress($signalingIPAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getSignalingIPAddress()
     {
-        return (!$this->signalingIPAddress) ?: $this->signalingIPAddress->value();
+        return (!$this->signalingIPAddress) ?: $this->signalingIPAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function setSignalingPort($signalingPort = null)
     {
         $this->signalingPort = ($signalingPort InstanceOf Port)
@@ -141,8 +187,11 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
              : new Port($signalingPort);
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function getSignalingPort()
     {
-        return (!$this->signalingPort) ?: $this->signalingPort->value();
+        return (!$this->signalingPort) ?: $this->signalingPort->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify system number activation setting.
+     * Request to modify system number activation setting.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemNumberActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $useNumberActivation  = null;
+    public    $name                = __CLASS__;
+    protected $useNumberActivation = null;
 
     public function __construct(
          $useNumberActivation = null
@@ -27,12 +27,19 @@ class SystemNumberActivationModifyRequest extends ComplexType implements Complex
         $this->setUseNumberActivation($useNumberActivation);
     }
 
-    public function setUseNumberActivation(xs:boolean $useNumberActivation = null)
+    /**
+     * 
+     */
+    public function setUseNumberActivation($useNumberActivation = null)
     {
+        $this->useNumberActivation = (boolean) $useNumberActivation;
     }
 
+    /**
+     * 
+     */
     public function getUseNumberActivation()
     {
-        return (!$this->useNumberActivation) ?: $this->useNumberActivation->value();
+        return (!$this->useNumberActivation) ?: $this->useNumberActivation->getValue();
     }
 }

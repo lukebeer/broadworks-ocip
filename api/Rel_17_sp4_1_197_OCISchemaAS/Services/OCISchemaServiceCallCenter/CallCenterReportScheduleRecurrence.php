@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * A recurring schedule for call center enhanced reporting scheduled report.
+     * A recurring schedule for call center enhanced reporting scheduled report.
  */
 class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportScheduleRecurrence';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

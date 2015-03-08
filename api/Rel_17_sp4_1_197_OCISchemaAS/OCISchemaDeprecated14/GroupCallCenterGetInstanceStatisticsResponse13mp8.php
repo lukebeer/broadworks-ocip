@@ -16,40 +16,58 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Contains Call Center statistics.
+     * Contains Call Center statistics.
  *         Replaced By: GroupCallCenterGetInstanceStatisticsResponse14sp9
  */
 class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $numberOfCallsQueuedNow    = null;
-    protected $generateDailyReport       = null;
-    protected $collectionPeriodMinutes   = null;
-    protected $reportingEmailAddress1    = null;
-    protected $reportingEmailAddress2    = null;
-    protected $queueStatisticsYesterday  = null;
-    protected $queueStatisticsToday      = null;
-    protected $agentStatistics           = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceStatisticsResponse13mp8';
+    public    $name                     = __CLASS__;
+    protected $numberOfCallsQueuedNow   = null;
+    protected $generateDailyReport      = null;
+    protected $collectionPeriodMinutes  = null;
+    protected $reportingEmailAddress1   = null;
+    protected $reportingEmailAddress2   = null;
+    protected $queueStatisticsYesterday = null;
+    protected $queueStatisticsToday     = null;
+    protected $agentStatistics          = null;
 
 
-    public function setNumberOfCallsQueuedNow(xs:int $numberOfCallsQueuedNow = null)
+    /**
+     * 
+     */
+    public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow = null)
     {
+        $this->numberOfCallsQueuedNow = (int) $numberOfCallsQueuedNow;
     }
 
+    /**
+     * 
+     */
     public function getNumberOfCallsQueuedNow()
     {
-        return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow->value();
+        return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow->getValue();
     }
 
-    public function setGenerateDailyReport(xs:boolean $generateDailyReport = null)
+    /**
+     * 
+     */
+    public function setGenerateDailyReport($generateDailyReport = null)
     {
+        $this->generateDailyReport = (boolean) $generateDailyReport;
     }
 
+    /**
+     * 
+     */
     public function getGenerateDailyReport()
     {
-        return (!$this->generateDailyReport) ?: $this->generateDailyReport->value();
+        return (!$this->generateDailyReport) ?: $this->generateDailyReport->getValue();
     }
 
+    /**
+     * Statistics reporting interval in minutes.
+     */
     public function setCollectionPeriodMinutes($collectionPeriodMinutes = null)
     {
         $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
@@ -57,11 +75,17 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
              : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
     }
 
+    /**
+     * Statistics reporting interval in minutes.
+     */
     public function getCollectionPeriodMinutes()
     {
-        return (!$this->collectionPeriodMinutes) ?: $this->collectionPeriodMinutes->value();
+        return (!$this->collectionPeriodMinutes) ?: $this->collectionPeriodMinutes->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setReportingEmailAddress1($reportingEmailAddress1 = null)
     {
         $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
@@ -69,11 +93,17 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
              : new EmailAddress($reportingEmailAddress1);
     }
 
+    /**
+     * Email Address
+     */
     public function getReportingEmailAddress1()
     {
-        return (!$this->reportingEmailAddress1) ?: $this->reportingEmailAddress1->value();
+        return (!$this->reportingEmailAddress1) ?: $this->reportingEmailAddress1->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setReportingEmailAddress2($reportingEmailAddress2 = null)
     {
         $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
@@ -81,35 +111,59 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
              : new EmailAddress($reportingEmailAddress2);
     }
 
+    /**
+     * Email Address
+     */
     public function getReportingEmailAddress2()
     {
-        return (!$this->reportingEmailAddress2) ?: $this->reportingEmailAddress2->value();
+        return (!$this->reportingEmailAddress2) ?: $this->reportingEmailAddress2->getValue();
     }
 
+    /**
+     * Contains Call Center Queue statistics.
+     */
     public function setQueueStatisticsYesterday(CallCenterQueueStatistics13mp8 $queueStatisticsYesterday = null)
     {
+        $this->queueStatisticsYesterday = CallCenterQueueStatistics13mp8 $queueStatisticsYesterday;
     }
 
+    /**
+     * Contains Call Center Queue statistics.
+     */
     public function getQueueStatisticsYesterday()
     {
-        return (!$this->queueStatisticsYesterday) ?: $this->queueStatisticsYesterday->value();
+        return (!$this->queueStatisticsYesterday) ?: $this->queueStatisticsYesterday->getValue();
     }
 
+    /**
+     * Contains Call Center Queue statistics.
+     */
     public function setQueueStatisticsToday(CallCenterQueueStatistics13mp8 $queueStatisticsToday = null)
     {
+        $this->queueStatisticsToday = CallCenterQueueStatistics13mp8 $queueStatisticsToday;
     }
 
+    /**
+     * Contains Call Center Queue statistics.
+     */
     public function getQueueStatisticsToday()
     {
-        return (!$this->queueStatisticsToday) ?: $this->queueStatisticsToday->value();
+        return (!$this->queueStatisticsToday) ?: $this->queueStatisticsToday->getValue();
     }
 
+    /**
+     * Contains Call Center statistics for a specified agent.
+     */
     public function setAgentStatistics(CallCenterAgentStatistics13mp8 $agentStatistics = null)
     {
+        $this->agentStatistics = CallCenterAgentStatistics13mp8 $agentStatistics;
     }
 
+    /**
+     * Contains Call Center statistics for a specified agent.
+     */
     public function getAgentStatistics()
     {
-        return (!$this->agentStatistics) ?: $this->agentStatistics->value();
+        return (!$this->agentStatistics) ?: $this->agentStatistics->getValue();
     }
 }

@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterpriseVoiceVPNGetListResponse.
+     * Response to EnterpriseVoiceVPNGetListResponse.
  *         Returns a 4 column table with column headings:
  *           "Location Code", "Min Extension Length", "Max Extension Length", "Location Selection".
  */
 class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $locationList  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse';
+    public    $name         = __CLASS__;
+    protected $locationList = null;
 
 
+    /**
+     * 
+     */
     public function setLocationList(core:OCITable $locationList = null)
     {
+        $this->locationList = core:OCITable $locationList;
     }
 
+    /**
+     * 
+     */
     public function getLocationList()
     {
-        return (!$this->locationList) ?: $this->locationList->value();
+        return (!$this->locationList) ?: $this->locationList->getValue();
     }
 }

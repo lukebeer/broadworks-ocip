@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to a SystemPreferredCarrierGetGroupListRequest.
+     * Response to a SystemPreferredCarrierGetGroupListRequest.
  *         Contains a table with one row per group.
  *         The table columns are: "Group Id", "Group Name", "Organization Id", "Organization Type".
  *         The "Organization Id" column is populated with either a service provider Id or an enterprise Id.
@@ -22,16 +22,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $groupsUsingCarrierTable  = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse';
+    public    $name                    = __CLASS__;
+    protected $groupsUsingCarrierTable = null;
 
 
+    /**
+     * 
+     */
     public function setGroupsUsingCarrierTable(core:OCITable $groupsUsingCarrierTable = null)
     {
+        $this->groupsUsingCarrierTable = core:OCITable $groupsUsingCarrierTable;
     }
 
+    /**
+     * 
+     */
     public function getGroupsUsingCarrierTable()
     {
-        return (!$this->groupsUsingCarrierTable) ?: $this->groupsUsingCarrierTable->value();
+        return (!$this->groupsUsingCarrierTable) ?: $this->groupsUsingCarrierTable->getValue();
     }
 }

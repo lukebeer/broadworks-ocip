@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Generate a performance measurements report.
+     * Generate a performance measurements report.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementGenerateReportRequest extends ComplexType implements ComplexInterface

@@ -13,32 +13,47 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemNetworkServerSyncParametersGetRequest14sp2.
+     * Response to SystemNetworkServerSyncParametersGetRequest14sp2.
  *          Contains a list of system Network Server Sync parameters.
  *          Replaced By: SystemNetworkServerSyncParametersGetResponse16
  */
 class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $enableSync     = null;
-    protected $syncLinePorts  = null;
+    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemNetworkServerSyncParametersGetResponse14sp2';
+    public    $name          = __CLASS__;
+    protected $enableSync    = null;
+    protected $syncLinePorts = null;
 
 
-    public function setEnableSync(xs:boolean $enableSync = null)
+    /**
+     * 
+     */
+    public function setEnableSync($enableSync = null)
     {
+        $this->enableSync = (boolean) $enableSync;
     }
 
+    /**
+     * 
+     */
     public function getEnableSync()
     {
-        return (!$this->enableSync) ?: $this->enableSync->value();
+        return (!$this->enableSync) ?: $this->enableSync->getValue();
     }
 
-    public function setSyncLinePorts(xs:boolean $syncLinePorts = null)
+    /**
+     * 
+     */
+    public function setSyncLinePorts($syncLinePorts = null)
     {
+        $this->syncLinePorts = (boolean) $syncLinePorts;
     }
 
+    /**
+     * 
+     */
     public function getSyncLinePorts()
     {
-        return (!$this->syncLinePorts) ?: $this->syncLinePorts->value();
+        return (!$this->syncLinePorts) ?: $this->syncLinePorts->getValue();
     }
 }

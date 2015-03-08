@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to delete a route from the system.
+     * Request to delete a route from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutingDeleteRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $routeName  = null;
+    public    $name      = __CLASS__;
+    protected $routeName = null;
 
     public function __construct(
          $routeName
@@ -27,6 +27,9 @@ class SystemRoutingDeleteRouteRequest extends ComplexType implements ComplexInte
         $this->setRouteName($routeName);
     }
 
+    /**
+     * Route name.
+     */
     public function setRouteName($routeName = null)
     {
         $this->routeName = ($routeName InstanceOf RouteName)
@@ -34,8 +37,11 @@ class SystemRoutingDeleteRouteRequest extends ComplexType implements ComplexInte
              : new RouteName($routeName);
     }
 
+    /**
+     * Route name.
+     */
     public function getRouteName()
     {
-        return (!$this->routeName) ?: $this->routeName->value();
+        return (!$this->routeName) ?: $this->routeName->getValue();
     }
 }

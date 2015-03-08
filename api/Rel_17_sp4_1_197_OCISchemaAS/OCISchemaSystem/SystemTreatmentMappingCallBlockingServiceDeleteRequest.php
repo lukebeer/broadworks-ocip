@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Call Blocking Service mapping.
+     * Delete a Call Blocking Service mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $callBlockingService  = null;
+    public    $name                = __CLASS__;
+    protected $callBlockingService = null;
 
     public function __construct(
          $callBlockingService
@@ -27,6 +27,18 @@ class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType
         $this->setCallBlockingService($callBlockingService);
     }
 
+    /**
+     * Possible types of Call Blocking Services.
+     *         The following enumeration values are only used in AS Data mode:
+     *            PTT
+     *            SAC
+     *            BroadWorks Mobility Deny Originations
+     *            BroadWorks Mobility Deny Terminations
+     *          The following types are only used in HSS data mode:
+     * 	    Incoming Communication Barring
+     * 	    Hierarchical Communication Barring
+     * 	    Incoming Hierarchical Communication Barring
+     */
     public function setCallBlockingService($callBlockingService = null)
     {
         $this->callBlockingService = ($callBlockingService InstanceOf CallBlockingService)
@@ -34,8 +46,20 @@ class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType
              : new CallBlockingService($callBlockingService);
     }
 
+    /**
+     * Possible types of Call Blocking Services.
+     *         The following enumeration values are only used in AS Data mode:
+     *            PTT
+     *            SAC
+     *            BroadWorks Mobility Deny Originations
+     *            BroadWorks Mobility Deny Terminations
+     *          The following types are only used in HSS data mode:
+     * 	    Incoming Communication Barring
+     * 	    Hierarchical Communication Barring
+     * 	    Incoming Hierarchical Communication Barring
+     */
     public function getCallBlockingService()
     {
-        return (!$this->callBlockingService) ?: $this->callBlockingService->value();
+        return (!$this->callBlockingService) ?: $this->callBlockingService->getValue();
     }
 }

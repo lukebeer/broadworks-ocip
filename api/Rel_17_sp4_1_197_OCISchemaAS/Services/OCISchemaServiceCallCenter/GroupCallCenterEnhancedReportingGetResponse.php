@@ -14,15 +14,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupCallCenterEnhancedReportingGetRequest.
+     * Response to GroupCallCenterEnhancedReportingGetRequest.
  */
 class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $reportingServer     = null;
-    protected $webStatisticSource  = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingGetResponse';
+    public    $name               = __CLASS__;
+    protected $reportingServer    = null;
+    protected $webStatisticSource = null;
 
 
+    /**
+     * Call center report server choice.
+     */
     public function setReportingServer($reportingServer = null)
     {
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
@@ -30,11 +34,17 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
              : new CallCenterReportServerChoice($reportingServer);
     }
 
+    /**
+     * Call center report server choice.
+     */
     public function getReportingServer()
     {
-        return (!$this->reportingServer) ?: $this->reportingServer->value();
+        return (!$this->reportingServer) ?: $this->reportingServer->getValue();
     }
 
+    /**
+     * Call center report web statistics source.
+     */
     public function setWebStatisticSource($webStatisticSource = null)
     {
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
@@ -42,8 +52,11 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
     }
 
+    /**
+     * Call center report web statistics source.
+     */
     public function getWebStatisticSource()
     {
-        return (!$this->webStatisticSource) ?: $this->webStatisticSource->value();
+        return (!$this->webStatisticSource) ?: $this->webStatisticSource->getValue();
     }
 }

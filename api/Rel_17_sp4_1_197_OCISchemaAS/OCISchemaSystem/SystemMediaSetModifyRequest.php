@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a Media Set.
+     * Request to modify a Media Set.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $setName        = null;
-    protected $mediaNameList  = null;
+    public    $name          = __CLASS__;
+    protected $setName       = null;
+    protected $mediaNameList = null;
 
     public function __construct(
          $setName,
@@ -31,6 +31,9 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
         $this->setMediaNameList($mediaNameList);
     }
 
+    /**
+     * Media Set name
+     */
     public function setSetName($setName = null)
     {
         $this->setName = ($setName InstanceOf MediaSetName)
@@ -38,17 +41,27 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
              : new MediaSetName($setName);
     }
 
+    /**
+     * Media Set name
+     */
     public function getSetName()
     {
-        return (!$this->setName) ?: $this->setName->value();
+        return (!$this->setName) ?: $this->setName->getValue();
     }
 
+    /**
+     * A list of media that replaces a previously configured list.
+     */
     public function setMediaNameList(ReplacementMediaNameList $mediaNameList = null)
     {
+        $this->mediaNameList = ReplacementMediaNameList $mediaNameList;
     }
 
+    /**
+     * A list of media that replaces a previously configured list.
+     */
     public function getMediaNameList()
     {
-        return (!$this->mediaNameList) ?: $this->mediaNameList->value();
+        return (!$this->mediaNameList) ?: $this->mediaNameList->getValue();
     }
 }

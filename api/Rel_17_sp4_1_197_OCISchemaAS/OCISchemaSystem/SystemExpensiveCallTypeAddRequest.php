@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an alternate call indicator to the list of expensive alternate call indicators.
+     * Add an alternate call indicator to the list of expensive alternate call indicators.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $alternateCallIndicator  = null;
-    protected $treatmentAudioFile      = null;
+    public    $name                   = __CLASS__;
+    protected $alternateCallIndicator = null;
+    protected $treatmentAudioFile     = null;
 
     public function __construct(
          $alternateCallIndicator,
@@ -31,6 +31,9 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
         $this->setTreatmentAudioFile($treatmentAudioFile);
     }
 
+    /**
+     * Network Server Alternate Call Indicator.
+     */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
@@ -38,11 +41,17 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
     }
 
+    /**
+     * Network Server Alternate Call Indicator.
+     */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->value();
+        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function setTreatmentAudioFile($treatmentAudioFile = null)
     {
         $this->treatmentAudioFile = ($treatmentAudioFile InstanceOf MediaTreatmentFileName)
@@ -50,8 +59,11 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
              : new MediaTreatmentFileName($treatmentAudioFile);
     }
 
+    /**
+     * Audio or video treatment file name.
+     */
     public function getTreatmentAudioFile()
     {
-        return (!$this->treatmentAudioFile) ?: $this->treatmentAudioFile->value();
+        return (!$this->treatmentAudioFile) ?: $this->treatmentAudioFile->getValue();
     }
 }

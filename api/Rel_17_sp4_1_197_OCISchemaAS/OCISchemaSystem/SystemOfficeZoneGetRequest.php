@@ -13,14 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Office Zone.
+     * Get an existing Office Zone.
  *         The response is either a SystemOfficeZoneGetResponse
  *         or an ErrorResponse.
  */
 class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $officeZoneName  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetResponse';
+    public    $name           = __CLASS__;
+    protected $officeZoneName = null;
 
     public function __construct(
          $officeZoneName
@@ -28,6 +29,9 @@ class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
         $this->setOfficeZoneName($officeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function setOfficeZoneName($officeZoneName = null)
     {
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
@@ -35,8 +39,11 @@ class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
              : new OfficeZoneName($officeZoneName);
     }
 
+    /**
+     * Office Zone name.
+     */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->value();
+        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
     }
 }

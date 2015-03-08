@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupScheduleGetListRequest17sp1.
+     * Response to GroupScheduleGetListRequest17sp1.
  *         The response contains a list of group schedules. If the group belongs to an enterprise, 
  *         it also contains the schedules for the enterprise.
  */
 class GroupScheduleGetListResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $scheduleGlobalKey  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetListResponse17sp1';
+    public    $name              = __CLASS__;
+    protected $scheduleGlobalKey = null;
 
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules throughout all System, Service Provider, Group and User level.
+     */
     public function setScheduleGlobalKey(ScheduleGlobalKey $scheduleGlobalKey = null)
     {
+        $this->scheduleGlobalKey = ScheduleGlobalKey $scheduleGlobalKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules throughout all System, Service Provider, Group and User level.
+     */
     public function getScheduleGlobalKey()
     {
-        return (!$this->scheduleGlobalKey) ?: $this->scheduleGlobalKey->value();
+        return (!$this->scheduleGlobalKey) ?: $this->scheduleGlobalKey->getValue();
     }
 }

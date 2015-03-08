@@ -19,24 +19,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the group's voice messaging settings.
+     * Request to modify the group's voice messaging settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
-    protected $serviceProviderId                          = null;
-    protected $groupId                                    = null;
-    protected $useMailServerSetting                       = null;
-    protected $warnCallerBeforeRecordingVoiceMessage      = null;
-    protected $allowUsersConfiguringAdvancedSettings      = null;
-    protected $allowComposeOrForwardMessageToEntireGroup  = null;
-    protected $mailServerNetAddress                       = null;
-    protected $mailServerProtocol                         = null;
-    protected $realDeleteForImap                          = null;
-    protected $maxMailboxLengthMinutes                    = null;
-    protected $doesMessageAge                             = null;
-    protected $holdPeriodDays                             = null;
+    public    $name                                      = __CLASS__;
+    protected $serviceProviderId                         = null;
+    protected $groupId                                   = null;
+    protected $useMailServerSetting                      = null;
+    protected $warnCallerBeforeRecordingVoiceMessage     = null;
+    protected $allowUsersConfiguringAdvancedSettings     = null;
+    protected $allowComposeOrForwardMessageToEntireGroup = null;
+    protected $mailServerNetAddress                      = null;
+    protected $mailServerProtocol                        = null;
+    protected $realDeleteForImap                         = null;
+    protected $maxMailboxLengthMinutes                   = null;
+    protected $doesMessageAge                            = null;
+    protected $holdPeriodDays                            = null;
 
     public function __construct(
          $serviceProviderId,
@@ -66,6 +66,10 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->setHoldPeriodDays($holdPeriodDays);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -73,11 +77,19 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -85,11 +97,18 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Voice Messaging group-level mail server choices.
+     */
     public function setUseMailServerSetting($useMailServerSetting = null)
     {
         $this->useMailServerSetting = ($useMailServerSetting InstanceOf VoiceMessagingGroupMailServerChoices)
@@ -97,38 +116,65 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
              : new VoiceMessagingGroupMailServerChoices($useMailServerSetting);
     }
 
+    /**
+     * Voice Messaging group-level mail server choices.
+     */
     public function getUseMailServerSetting()
     {
-        return (!$this->useMailServerSetting) ?: $this->useMailServerSetting->value();
+        return (!$this->useMailServerSetting) ?: $this->useMailServerSetting->getValue();
     }
 
-    public function setWarnCallerBeforeRecordingVoiceMessage(xs:boolean $warnCallerBeforeRecordingVoiceMessage = null)
+    /**
+     * 
+     */
+    public function setWarnCallerBeforeRecordingVoiceMessage($warnCallerBeforeRecordingVoiceMessage = null)
     {
+        $this->warnCallerBeforeRecordingVoiceMessage = (boolean) $warnCallerBeforeRecordingVoiceMessage;
     }
 
+    /**
+     * 
+     */
     public function getWarnCallerBeforeRecordingVoiceMessage()
     {
-        return (!$this->warnCallerBeforeRecordingVoiceMessage) ?: $this->warnCallerBeforeRecordingVoiceMessage->value();
+        return (!$this->warnCallerBeforeRecordingVoiceMessage) ?: $this->warnCallerBeforeRecordingVoiceMessage->getValue();
     }
 
-    public function setAllowUsersConfiguringAdvancedSettings(xs:boolean $allowUsersConfiguringAdvancedSettings = null)
+    /**
+     * 
+     */
+    public function setAllowUsersConfiguringAdvancedSettings($allowUsersConfiguringAdvancedSettings = null)
     {
+        $this->allowUsersConfiguringAdvancedSettings = (boolean) $allowUsersConfiguringAdvancedSettings;
     }
 
+    /**
+     * 
+     */
     public function getAllowUsersConfiguringAdvancedSettings()
     {
-        return (!$this->allowUsersConfiguringAdvancedSettings) ?: $this->allowUsersConfiguringAdvancedSettings->value();
+        return (!$this->allowUsersConfiguringAdvancedSettings) ?: $this->allowUsersConfiguringAdvancedSettings->getValue();
     }
 
-    public function setAllowComposeOrForwardMessageToEntireGroup(xs:boolean $allowComposeOrForwardMessageToEntireGroup = null)
+    /**
+     * 
+     */
+    public function setAllowComposeOrForwardMessageToEntireGroup($allowComposeOrForwardMessageToEntireGroup = null)
     {
+        $this->allowComposeOrForwardMessageToEntireGroup = (boolean) $allowComposeOrForwardMessageToEntireGroup;
     }
 
+    /**
+     * 
+     */
     public function getAllowComposeOrForwardMessageToEntireGroup()
     {
-        return (!$this->allowComposeOrForwardMessageToEntireGroup) ?: $this->allowComposeOrForwardMessageToEntireGroup->value();
+        return (!$this->allowComposeOrForwardMessageToEntireGroup) ?: $this->allowComposeOrForwardMessageToEntireGroup->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setMailServerNetAddress($mailServerNetAddress = null)
     {
         $this->mailServerNetAddress = ($mailServerNetAddress InstanceOf NetAddress)
@@ -136,11 +182,17 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
              : new NetAddress($mailServerNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getMailServerNetAddress()
     {
-        return (!$this->mailServerNetAddress) ?: $this->mailServerNetAddress->value();
+        return (!$this->mailServerNetAddress) ?: $this->mailServerNetAddress->getValue();
     }
 
+    /**
+     * Protocol used by mail server holding voice messages
+     */
     public function setMailServerProtocol($mailServerProtocol = null)
     {
         $this->mailServerProtocol = ($mailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
@@ -148,20 +200,33 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
              : new VoiceMessagingMailServerProtocol($mailServerProtocol);
     }
 
+    /**
+     * Protocol used by mail server holding voice messages
+     */
     public function getMailServerProtocol()
     {
-        return (!$this->mailServerProtocol) ?: $this->mailServerProtocol->value();
+        return (!$this->mailServerProtocol) ?: $this->mailServerProtocol->getValue();
     }
 
-    public function setRealDeleteForImap(xs:boolean $realDeleteForImap = null)
+    /**
+     * 
+     */
+    public function setRealDeleteForImap($realDeleteForImap = null)
     {
+        $this->realDeleteForImap = (boolean) $realDeleteForImap;
     }
 
+    /**
+     * 
+     */
     public function getRealDeleteForImap()
     {
-        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap->value();
+        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap->getValue();
     }
 
+    /**
+     * Mailbox length for voice messages
+     */
     public function setMaxMailboxLengthMinutes($maxMailboxLengthMinutes = null)
     {
         $this->maxMailboxLengthMinutes = ($maxMailboxLengthMinutes InstanceOf VoiceMessagingMailboxLengthMinutes)
@@ -169,20 +234,33 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
              : new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
     }
 
+    /**
+     * Mailbox length for voice messages
+     */
     public function getMaxMailboxLengthMinutes()
     {
-        return (!$this->maxMailboxLengthMinutes) ?: $this->maxMailboxLengthMinutes->value();
+        return (!$this->maxMailboxLengthMinutes) ?: $this->maxMailboxLengthMinutes->getValue();
     }
 
-    public function setDoesMessageAge(xs:boolean $doesMessageAge = null)
+    /**
+     * 
+     */
+    public function setDoesMessageAge($doesMessageAge = null)
     {
+        $this->doesMessageAge = (boolean) $doesMessageAge;
     }
 
+    /**
+     * 
+     */
     public function getDoesMessageAge()
     {
-        return (!$this->doesMessageAge) ?: $this->doesMessageAge->value();
+        return (!$this->doesMessageAge) ?: $this->doesMessageAge->getValue();
     }
 
+    /**
+     * Hold period for voice messages
+     */
     public function setHoldPeriodDays($holdPeriodDays = null)
     {
         $this->holdPeriodDays = ($holdPeriodDays InstanceOf VoiceMessagingHoldPeriodDays)
@@ -190,8 +268,11 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
              : new VoiceMessagingHoldPeriodDays($holdPeriodDays);
     }
 
+    /**
+     * Hold period for voice messages
+     */
     public function getHoldPeriodDays()
     {
-        return (!$this->holdPeriodDays) ?: $this->holdPeriodDays->value();
+        return (!$this->holdPeriodDays) ?: $this->holdPeriodDays->getValue();
     }
 }

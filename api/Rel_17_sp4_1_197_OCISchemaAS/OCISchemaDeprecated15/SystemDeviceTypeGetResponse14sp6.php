@@ -16,32 +16,43 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemDeviceTypeGetRequest14sp6.
+     * Response to SystemDeviceTypeGetRequest14sp6.
  *         Replaced by: SystemDeviceTypeGetResponse16
  */
 class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $isObsolete                 = null;
-    protected $profile                    = null;
-    protected $webBasedConfigURL          = null;
-    protected $staticRegistrationCapable  = null;
-    protected $cpeDeviceOptions           = null;
-    protected $protocolChoice             = null;
-    protected $isIpAddressOptional        = null;
-    protected $useDomain                  = null;
-    protected $isMobilityManagerDevice    = null;
+    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemDeviceTypeGetResponse14sp6';
+    public    $name                      = __CLASS__;
+    protected $isObsolete                = null;
+    protected $profile                   = null;
+    protected $webBasedConfigURL         = null;
+    protected $staticRegistrationCapable = null;
+    protected $cpeDeviceOptions          = null;
+    protected $protocolChoice            = null;
+    protected $isIpAddressOptional       = null;
+    protected $useDomain                 = null;
+    protected $isMobilityManagerDevice   = null;
 
 
-    public function setIsObsolete(xs:boolean $isObsolete = null)
+    /**
+     * 
+     */
+    public function setIsObsolete($isObsolete = null)
     {
+        $this->isObsolete = (boolean) $isObsolete;
     }
 
+    /**
+     * 
+     */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->value();
+        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
     }
 
+    /**
+     * Device type signaling address types.
+     */
     public function setProfile($profile = null)
     {
         $this->profile = ($profile InstanceOf SignalingAddressType)
@@ -49,11 +60,17 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
              : new SignalingAddressType($profile);
     }
 
+    /**
+     * Device type signaling address types.
+     */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->value();
+        return (!$this->profile) ?: $this->profile->getValue();
     }
 
+    /**
+     * Web based configuration URL.
+     */
     public function setWebBasedConfigURL($webBasedConfigURL = null)
     {
         $this->webBasedConfigURL = ($webBasedConfigURL InstanceOf WebBasedConfigURL)
@@ -61,29 +78,49 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
              : new WebBasedConfigURL($webBasedConfigURL);
     }
 
+    /**
+     * Web based configuration URL.
+     */
     public function getWebBasedConfigURL()
     {
-        return (!$this->webBasedConfigURL) ?: $this->webBasedConfigURL->value();
+        return (!$this->webBasedConfigURL) ?: $this->webBasedConfigURL->getValue();
     }
 
-    public function setStaticRegistrationCapable(xs:boolean $staticRegistrationCapable = null)
+    /**
+     * 
+     */
+    public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
+        $this->staticRegistrationCapable = (boolean) $staticRegistrationCapable;
     }
 
+    /**
+     * 
+     */
     public function getStaticRegistrationCapable()
     {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->value();
+        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->getValue();
     }
 
+    /**
+     * CPE device's options.
+     */
     public function setCpeDeviceOptions(CPEDeviceOptionsRead $cpeDeviceOptions = null)
     {
+        $this->cpeDeviceOptions = CPEDeviceOptionsRead $cpeDeviceOptions;
     }
 
+    /**
+     * CPE device's options.
+     */
     public function getCpeDeviceOptions()
     {
-        return (!$this->cpeDeviceOptions) ?: $this->cpeDeviceOptions->value();
+        return (!$this->cpeDeviceOptions) ?: $this->cpeDeviceOptions->getValue();
     }
 
+    /**
+     * Access device protocol.
+     */
     public function setProtocolChoice($protocolChoice = null)
     {
         $this->protocolChoice = ($protocolChoice InstanceOf AccessDeviceProtocol)
@@ -91,35 +128,59 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
              : new AccessDeviceProtocol($protocolChoice);
     }
 
+    /**
+     * Access device protocol.
+     */
     public function getProtocolChoice()
     {
-        return (!$this->protocolChoice) ?: $this->protocolChoice->value();
+        return (!$this->protocolChoice) ?: $this->protocolChoice->getValue();
     }
 
-    public function setIsIpAddressOptional(xs:boolean $isIpAddressOptional = null)
+    /**
+     * 
+     */
+    public function setIsIpAddressOptional($isIpAddressOptional = null)
     {
+        $this->isIpAddressOptional = (boolean) $isIpAddressOptional;
     }
 
+    /**
+     * 
+     */
     public function getIsIpAddressOptional()
     {
-        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional->value();
+        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional->getValue();
     }
 
-    public function setUseDomain(xs:boolean $useDomain = null)
+    /**
+     * 
+     */
+    public function setUseDomain($useDomain = null)
     {
+        $this->useDomain = (boolean) $useDomain;
     }
 
+    /**
+     * 
+     */
     public function getUseDomain()
     {
-        return (!$this->useDomain) ?: $this->useDomain->value();
+        return (!$this->useDomain) ?: $this->useDomain->getValue();
     }
 
-    public function setIsMobilityManagerDevice(xs:boolean $isMobilityManagerDevice = null)
+    /**
+     * 
+     */
+    public function setIsMobilityManagerDevice($isMobilityManagerDevice = null)
     {
+        $this->isMobilityManagerDevice = (boolean) $isMobilityManagerDevice;
     }
 
+    /**
+     * 
+     */
     public function getIsMobilityManagerDevice()
     {
-        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice->value();
+        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice->getValue();
     }
 }

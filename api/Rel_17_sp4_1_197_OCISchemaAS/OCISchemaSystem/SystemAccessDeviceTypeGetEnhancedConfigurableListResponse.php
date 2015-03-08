@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemAccessDeviceTypeGetEnhancedConfigurableListRequest.
+     * Response to SystemAccessDeviceTypeGetEnhancedConfigurableListRequest.
  *         Contains a table with columns: "Access Device Type", "Enhanced Configuration Type", "Supports Reset".
  *         The "Enhanced Configuration Type" column contains one of the AccessDeviceEnhancedConfigurationType14
  *         enumerated values.
@@ -21,16 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccessDeviceTypeGetEnhancedConfigurableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $deviceTypeTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceTypeGetEnhancedConfigurableListResponse';
+    public    $name            = __CLASS__;
+    protected $deviceTypeTable = null;
 
 
+    /**
+     * 
+     */
     public function setDeviceTypeTable(core:OCITable $deviceTypeTable = null)
     {
+        $this->deviceTypeTable = core:OCITable $deviceTypeTable;
     }
 
+    /**
+     * 
+     */
     public function getDeviceTypeTable()
     {
-        return (!$this->deviceTypeTable) ?: $this->deviceTypeTable->value();
+        return (!$this->deviceTypeTable) ?: $this->deviceTypeTable->getValue();
     }
 }

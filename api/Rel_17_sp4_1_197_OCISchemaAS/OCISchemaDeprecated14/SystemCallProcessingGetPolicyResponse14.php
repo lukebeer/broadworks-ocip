@@ -20,37 +20,48 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallProcessingGetPolicyRequest14.
+     * Response to SystemCallProcessingGetPolicyRequest14.
  */
 class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                                             = __CLASS__;
-    protected $useMaxSimultaneousCalls                          = null;
-    protected $maxSimultaneousCalls                             = null;
-    protected $useMaxSimultaneousVideoCalls                     = null;
-    protected $maxSimultaneousVideoCalls                        = null;
-    protected $useMaxCallTimeForAnsweredCalls                   = null;
-    protected $maxCallTimeForAnsweredCallsMinutes               = null;
-    protected $useMaxCallTimeForUnansweredCalls                 = null;
-    protected $maxCallTimeForUnansweredCallsMinutes             = null;
-    protected $mediaPolicySelection                             = null;
-    protected $supportedMediaSetName                            = null;
-    protected $networkUsageSelection                            = null;
-    protected $enforceGroupCallingLineIdentityRestriction       = null;
-    protected $enforceEnterpriseCallingLineIdentityRestriction  = null;
-    protected $conferenceURI                                    = null;
-    protected $maxConferenceParties                             = null;
+    const     RESPONSE_TYPE                                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCallProcessingGetPolicyResponse14';
+    public    $name                                            = __CLASS__;
+    protected $useMaxSimultaneousCalls                         = null;
+    protected $maxSimultaneousCalls                            = null;
+    protected $useMaxSimultaneousVideoCalls                    = null;
+    protected $maxSimultaneousVideoCalls                       = null;
+    protected $useMaxCallTimeForAnsweredCalls                  = null;
+    protected $maxCallTimeForAnsweredCallsMinutes              = null;
+    protected $useMaxCallTimeForUnansweredCalls                = null;
+    protected $maxCallTimeForUnansweredCallsMinutes            = null;
+    protected $mediaPolicySelection                            = null;
+    protected $supportedMediaSetName                           = null;
+    protected $networkUsageSelection                           = null;
+    protected $enforceGroupCallingLineIdentityRestriction      = null;
+    protected $enforceEnterpriseCallingLineIdentityRestriction = null;
+    protected $conferenceURI                                   = null;
+    protected $maxConferenceParties                            = null;
 
 
-    public function setUseMaxSimultaneousCalls(xs:boolean $useMaxSimultaneousCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxSimultaneousCalls($useMaxSimultaneousCalls = null)
     {
+        $this->useMaxSimultaneousCalls = (boolean) $useMaxSimultaneousCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxSimultaneousCalls()
     {
-        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->value();
+        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->getValue();
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function setMaxSimultaneousCalls($maxSimultaneousCalls = null)
     {
         $this->maxSimultaneousCalls = ($maxSimultaneousCalls InstanceOf CallProcessingMaxSimultaneousCalls)
@@ -58,20 +69,33 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new CallProcessingMaxSimultaneousCalls($maxSimultaneousCalls);
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function getMaxSimultaneousCalls()
     {
-        return (!$this->maxSimultaneousCalls) ?: $this->maxSimultaneousCalls->value();
+        return (!$this->maxSimultaneousCalls) ?: $this->maxSimultaneousCalls->getValue();
     }
 
-    public function setUseMaxSimultaneousVideoCalls(xs:boolean $useMaxSimultaneousVideoCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxSimultaneousVideoCalls($useMaxSimultaneousVideoCalls = null)
     {
+        $this->useMaxSimultaneousVideoCalls = (boolean) $useMaxSimultaneousVideoCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxSimultaneousVideoCalls()
     {
-        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->value();
+        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->getValue();
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function setMaxSimultaneousVideoCalls($maxSimultaneousVideoCalls = null)
     {
         $this->maxSimultaneousVideoCalls = ($maxSimultaneousVideoCalls InstanceOf CallProcessingMaxSimultaneousCalls)
@@ -79,20 +103,33 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new CallProcessingMaxSimultaneousCalls($maxSimultaneousVideoCalls);
     }
 
+    /**
+     * Maximum Number of Simultaneous Calls
+     */
     public function getMaxSimultaneousVideoCalls()
     {
-        return (!$this->maxSimultaneousVideoCalls) ?: $this->maxSimultaneousVideoCalls->value();
+        return (!$this->maxSimultaneousVideoCalls) ?: $this->maxSimultaneousVideoCalls->getValue();
     }
 
-    public function setUseMaxCallTimeForAnsweredCalls(xs:boolean $useMaxCallTimeForAnsweredCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxCallTimeForAnsweredCalls($useMaxCallTimeForAnsweredCalls = null)
     {
+        $this->useMaxCallTimeForAnsweredCalls = (boolean) $useMaxCallTimeForAnsweredCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
-        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->value();
+        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->getValue();
     }
 
+    /**
+     * Maximum Call Time for Answered Calls
+     */
     public function setMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes = null)
     {
         $this->maxCallTimeForAnsweredCallsMinutes = ($maxCallTimeForAnsweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForAnsweredCallsMinutes)
@@ -100,20 +137,33 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new CallProcessingMaxCallTimeForAnsweredCallsMinutes($maxCallTimeForAnsweredCallsMinutes);
     }
 
+    /**
+     * Maximum Call Time for Answered Calls
+     */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
-        return (!$this->maxCallTimeForAnsweredCallsMinutes) ?: $this->maxCallTimeForAnsweredCallsMinutes->value();
+        return (!$this->maxCallTimeForAnsweredCallsMinutes) ?: $this->maxCallTimeForAnsweredCallsMinutes->getValue();
     }
 
-    public function setUseMaxCallTimeForUnansweredCalls(xs:boolean $useMaxCallTimeForUnansweredCalls = null)
+    /**
+     * 
+     */
+    public function setUseMaxCallTimeForUnansweredCalls($useMaxCallTimeForUnansweredCalls = null)
     {
+        $this->useMaxCallTimeForUnansweredCalls = (boolean) $useMaxCallTimeForUnansweredCalls;
     }
 
+    /**
+     * 
+     */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
-        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->value();
+        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->getValue();
     }
 
+    /**
+     * Maximum Call Time for Unanswered Calls
+     */
     public function setMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes = null)
     {
         $this->maxCallTimeForUnansweredCallsMinutes = ($maxCallTimeForUnansweredCallsMinutes InstanceOf CallProcessingMaxCallTimeForUnansweredCallsMinutes)
@@ -121,11 +171,17 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new CallProcessingMaxCallTimeForUnansweredCallsMinutes($maxCallTimeForUnansweredCallsMinutes);
     }
 
+    /**
+     * Maximum Call Time for Unanswered Calls
+     */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
-        return (!$this->maxCallTimeForUnansweredCallsMinutes) ?: $this->maxCallTimeForUnansweredCallsMinutes->value();
+        return (!$this->maxCallTimeForUnansweredCallsMinutes) ?: $this->maxCallTimeForUnansweredCallsMinutes->getValue();
     }
 
+    /**
+     * Media Policy Selections.
+     */
     public function setMediaPolicySelection($mediaPolicySelection = null)
     {
         $this->mediaPolicySelection = ($mediaPolicySelection InstanceOf MediaPolicySelection)
@@ -133,11 +189,17 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new MediaPolicySelection($mediaPolicySelection);
     }
 
+    /**
+     * Media Policy Selections.
+     */
     public function getMediaPolicySelection()
     {
-        return (!$this->mediaPolicySelection) ?: $this->mediaPolicySelection->value();
+        return (!$this->mediaPolicySelection) ?: $this->mediaPolicySelection->getValue();
     }
 
+    /**
+     * Media Set name
+     */
     public function setSupportedMediaSetName($supportedMediaSetName = null)
     {
         $this->supportedMediaSetName = ($supportedMediaSetName InstanceOf MediaSetName)
@@ -145,11 +207,17 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new MediaSetName($supportedMediaSetName);
     }
 
+    /**
+     * Media Set name
+     */
     public function getSupportedMediaSetName()
     {
-        return (!$this->supportedMediaSetName) ?: $this->supportedMediaSetName->value();
+        return (!$this->supportedMediaSetName) ?: $this->supportedMediaSetName->getValue();
     }
 
+    /**
+     * Network Usage types.
+     */
     public function setNetworkUsageSelection($networkUsageSelection = null)
     {
         $this->networkUsageSelection = ($networkUsageSelection InstanceOf NetworkUsageSelection)
@@ -157,29 +225,56 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new NetworkUsageSelection($networkUsageSelection);
     }
 
+    /**
+     * Network Usage types.
+     */
     public function getNetworkUsageSelection()
     {
-        return (!$this->networkUsageSelection) ?: $this->networkUsageSelection->value();
+        return (!$this->networkUsageSelection) ?: $this->networkUsageSelection->getValue();
     }
 
-    public function setEnforceGroupCallingLineIdentityRestriction(xs:boolean $enforceGroupCallingLineIdentityRestriction = null)
+    /**
+     * 
+     */
+    public function setEnforceGroupCallingLineIdentityRestriction($enforceGroupCallingLineIdentityRestriction = null)
     {
+        $this->enforceGroupCallingLineIdentityRestriction = (boolean) $enforceGroupCallingLineIdentityRestriction;
     }
 
+    /**
+     * 
+     */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {
-        return (!$this->enforceGroupCallingLineIdentityRestriction) ?: $this->enforceGroupCallingLineIdentityRestriction->value();
+        return (!$this->enforceGroupCallingLineIdentityRestriction) ?: $this->enforceGroupCallingLineIdentityRestriction->getValue();
     }
 
-    public function setEnforceEnterpriseCallingLineIdentityRestriction(xs:boolean $enforceEnterpriseCallingLineIdentityRestriction = null)
+    /**
+     * 
+     */
+    public function setEnforceEnterpriseCallingLineIdentityRestriction($enforceEnterpriseCallingLineIdentityRestriction = null)
     {
+        $this->enforceEnterpriseCallingLineIdentityRestriction = (boolean) $enforceEnterpriseCallingLineIdentityRestriction;
     }
 
+    /**
+     * 
+     */
     public function getEnforceEnterpriseCallingLineIdentityRestriction()
     {
-        return (!$this->enforceEnterpriseCallingLineIdentityRestriction) ?: $this->enforceEnterpriseCallingLineIdentityRestriction->value();
+        return (!$this->enforceEnterpriseCallingLineIdentityRestriction) ?: $this->enforceEnterpriseCallingLineIdentityRestriction->getValue();
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function setConferenceURI($conferenceURI = null)
     {
         $this->conferenceURI = ($conferenceURI InstanceOf SIPURI)
@@ -187,11 +282,24 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new SIPURI($conferenceURI);
     }
 
+    /**
+     * SIP URI.
+     *         The SIP URI is used in many different places in the schema.
+     *         If the SIPURI is an alias, the Validation rules are:
+     *         - don't allow sip:
+     *         - allow the following characters:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
+     *         - exactly one @ symbol
+     *         - user portion and host portion are both required
+     */
     public function getConferenceURI()
     {
-        return (!$this->conferenceURI) ?: $this->conferenceURI->value();
+        return (!$this->conferenceURI) ?: $this->conferenceURI->getValue();
     }
 
+    /**
+     * Maximum number of Parties allowed in a conference call.
+     */
     public function setMaxConferenceParties($maxConferenceParties = null)
     {
         $this->maxConferenceParties = ($maxConferenceParties InstanceOf CallProcessingMaxConferenceParties)
@@ -199,8 +307,11 @@ class SystemCallProcessingGetPolicyResponse14 extends ComplexType implements Com
              : new CallProcessingMaxConferenceParties($maxConferenceParties);
     }
 
+    /**
+     * Maximum number of Parties allowed in a conference call.
+     */
     public function getMaxConferenceParties()
     {
-        return (!$this->maxConferenceParties) ?: $this->maxConferenceParties->value();
+        return (!$this->maxConferenceParties) ?: $this->maxConferenceParties->getValue();
     }
 }

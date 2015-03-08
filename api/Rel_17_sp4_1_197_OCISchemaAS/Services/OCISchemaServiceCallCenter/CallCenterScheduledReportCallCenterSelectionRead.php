@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * User for admin read. Either all call centers or 2 lists of call centers: one for current and one for deleted call centers.
+     * User for admin read. Either all call centers or 2 lists of call centers: one for current and one for deleted call centers.
  */
 class CallCenterScheduledReportCallCenterSelectionRead extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterScheduledReportCallCenterSelectionRead';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

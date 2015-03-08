@@ -22,7 +22,7 @@ class DigitStarPound extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new Length("1"));
         $this->addRestriction(new Pattern("\*|#"));
     }

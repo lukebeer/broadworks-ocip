@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallRecordingGetRequest.
+     * Response to the GroupCallRecordingGetRequest.
  *          The response contains the group's Call Recording platform information.
  */
 class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\GroupCallRecordingGetResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
 
+    /**
+     * Call Recording Platform Name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallRecordingPlatformName)
@@ -29,8 +33,11 @@ class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterf
              : new CallRecordingPlatformName($name);
     }
 
+    /**
+     * Call Recording Platform Name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

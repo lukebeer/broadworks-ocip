@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemConnectedLineIdentificationPresentationGetRequest.
+     * Response to SystemConnectedLineIdentificationPresentationGetRequest.
  */
 class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $enforceUserServiceAssignment  = null;
+    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation\SystemConnectedLineIdentificationPresentationGetResponse';
+    public    $name                         = __CLASS__;
+    protected $enforceUserServiceAssignment = null;
 
 
-    public function setEnforceUserServiceAssignment(xs:boolean $enforceUserServiceAssignment = null)
+    /**
+     * 
+     */
+    public function setEnforceUserServiceAssignment($enforceUserServiceAssignment = null)
     {
+        $this->enforceUserServiceAssignment = (boolean) $enforceUserServiceAssignment;
     }
 
+    /**
+     * 
+     */
     public function getEnforceUserServiceAssignment()
     {
-        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment->value();
+        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment->getValue();
     }
 }

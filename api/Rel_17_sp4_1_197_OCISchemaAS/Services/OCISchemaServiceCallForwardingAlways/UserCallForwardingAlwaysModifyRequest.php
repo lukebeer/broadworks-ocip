@@ -14,17 +14,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Call Forwarding Always.
+     * Modify the user level data associated with Call Forwarding Always.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  */
 class UserCallForwardingAlwaysModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $userId                = null;
-    protected $isActive              = null;
-    protected $forwardToPhoneNumber  = null;
-    protected $isRingSplashActive    = null;
+    public    $name                 = __CLASS__;
+    protected $userId               = null;
+    protected $isActive             = null;
+    protected $forwardToPhoneNumber = null;
+    protected $isRingSplashActive   = null;
 
     public function __construct(
          $userId,
@@ -38,6 +38,13 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
         $this->setIsRingSplashActive($isRingSplashActive);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -45,20 +52,44 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
@@ -66,17 +97,34 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
     }
 
+    /**
+     * Phone Number or SIP URI that can be used to dial.
+     *         URI Validation:
+     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
+     *         - don't allow sip:
+     *         - allow the following characters in the user portions:
+     *           alphanumeric   -   _   .   !   ~   *   '   (   )
+     *         - allow the following characters in the host portion:
+     *           alphanumeric   -   .
+     */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->value();
+        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
     }
 
-    public function setIsRingSplashActive(xs:boolean $isRingSplashActive = null)
+    /**
+     * 
+     */
+    public function setIsRingSplashActive($isRingSplashActive = null)
     {
+        $this->isRingSplashActive = (boolean) $isRingSplashActive;
     }
 
+    /**
+     * 
+     */
     public function getIsRingSplashActive()
     {
-        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive->value();
+        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive->getValue();
     }
 }

@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a particular call center enhanced reporting report template.
+     * Criteria for searching for a particular call center enhanced reporting report template.
  */
 class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $reportTemplate  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterReportTemplateKey';
+    public    $name           = __CLASS__;
+    protected $reportTemplate = null;
 
     public function __construct(
          CallCenterReportTemplateKey $reportTemplate
@@ -26,12 +27,19 @@ class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType impleme
         $this->setReportTemplate($reportTemplate);
     }
 
+    /**
+     * Uniquely identifies a call center report template created in the system.
+     */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
+        $this->reportTemplate = CallCenterReportTemplateKey $reportTemplate;
     }
 
+    /**
+     * Uniquely identifies a call center report template created in the system.
+     */
     public function getReportTemplate()
     {
-        return (!$this->reportTemplate) ?: $this->reportTemplate->value();
+        return (!$this->reportTemplate) ?: $this->reportTemplate->getValue();
     }
 }

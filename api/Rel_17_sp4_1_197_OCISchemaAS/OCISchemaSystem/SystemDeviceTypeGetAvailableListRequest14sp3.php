@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests a list of non-obsolete Identity/device profile types defined in the system. It is possible
+     * Requests a list of non-obsolete Identity/device profile types defined in the system. It is possible
  *         to get either all conference device types or all non-conferernce types. This command is similar
  *         to the SystemSIPDeviceTypeGetListRequest and SystemMGCPDeviceTypeGetListRequest
  *         but gets both SIP and MGCP types.
@@ -21,12 +21,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $allowConference        = null;
-    protected $allowMusicOnHold       = null;
-    protected $onlyConference         = null;
-    protected $onlyVideoCapable       = null;
-    protected $onlyOptionalIpAddress  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3';
+    public    $name                  = __CLASS__;
+    protected $allowConference       = null;
+    protected $allowMusicOnHold      = null;
+    protected $onlyConference        = null;
+    protected $onlyVideoCapable      = null;
+    protected $onlyOptionalIpAddress = null;
 
     public function __construct(
          $allowConference,
@@ -42,48 +43,83 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
         $this->setOnlyOptionalIpAddress($onlyOptionalIpAddress);
     }
 
-    public function setAllowConference(xs:boolean $allowConference = null)
+    /**
+     * 
+     */
+    public function setAllowConference($allowConference = null)
     {
+        $this->allowConference = (boolean) $allowConference;
     }
 
+    /**
+     * 
+     */
     public function getAllowConference()
     {
-        return (!$this->allowConference) ?: $this->allowConference->value();
+        return (!$this->allowConference) ?: $this->allowConference->getValue();
     }
 
-    public function setAllowMusicOnHold(xs:boolean $allowMusicOnHold = null)
+    /**
+     * 
+     */
+    public function setAllowMusicOnHold($allowMusicOnHold = null)
     {
+        $this->allowMusicOnHold = (boolean) $allowMusicOnHold;
     }
 
+    /**
+     * 
+     */
     public function getAllowMusicOnHold()
     {
-        return (!$this->allowMusicOnHold) ?: $this->allowMusicOnHold->value();
+        return (!$this->allowMusicOnHold) ?: $this->allowMusicOnHold->getValue();
     }
 
-    public function setOnlyConference(xs:boolean $onlyConference = null)
+    /**
+     * 
+     */
+    public function setOnlyConference($onlyConference = null)
     {
+        $this->onlyConference = (boolean) $onlyConference;
     }
 
+    /**
+     * 
+     */
     public function getOnlyConference()
     {
-        return (!$this->onlyConference) ?: $this->onlyConference->value();
+        return (!$this->onlyConference) ?: $this->onlyConference->getValue();
     }
 
-    public function setOnlyVideoCapable(xs:boolean $onlyVideoCapable = null)
+    /**
+     * 
+     */
+    public function setOnlyVideoCapable($onlyVideoCapable = null)
     {
+        $this->onlyVideoCapable = (boolean) $onlyVideoCapable;
     }
 
+    /**
+     * 
+     */
     public function getOnlyVideoCapable()
     {
-        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable->value();
+        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable->getValue();
     }
 
-    public function setOnlyOptionalIpAddress(xs:boolean $onlyOptionalIpAddress = null)
+    /**
+     * 
+     */
+    public function setOnlyOptionalIpAddress($onlyOptionalIpAddress = null)
     {
+        $this->onlyOptionalIpAddress = (boolean) $onlyOptionalIpAddress;
     }
 
+    /**
+     * 
+     */
     public function getOnlyOptionalIpAddress()
     {
-        return (!$this->onlyOptionalIpAddress) ?: $this->onlyOptionalIpAddress->value();
+        return (!$this->onlyOptionalIpAddress) ?: $this->onlyOptionalIpAddress->getValue();
     }
 }

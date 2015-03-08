@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The OCIDataResponse is an abstract base type for all responses containing some sort of data other than
+     * The OCIDataResponse is an abstract base type for all responses containing some sort of data other than
  *         merely a success or failure indication.
  */
 class OCIDataResponse extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCIDataResponse';
     public    $name = __CLASS__;
 
 }

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Outgoing Pinhole Digit Plan department originating call permissions for specified digit patterns.
+     * Outgoing Pinhole Digit Plan department originating call permissions for specified digit patterns.
  */
 class OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

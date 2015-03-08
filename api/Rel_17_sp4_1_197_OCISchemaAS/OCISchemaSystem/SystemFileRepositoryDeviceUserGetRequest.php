@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a user of a file repository in the system.
+     * Request a user of a file repository in the system.
  *         The response is either a SystemFileRepositoryDeviceUserGetResponse or an ErrorResponse.
  */
 class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
-    protected $fileRepositoryName  = null;
-    protected $userName            = null;
+    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetResponse';
+    public    $name               = __CLASS__;
+    protected $fileRepositoryName = null;
+    protected $userName           = null;
 
     public function __construct(
          $fileRepositoryName,
@@ -31,6 +32,9 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
         $this->setUserName($userName);
     }
 
+    /**
+     * File repository name.
+     */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
@@ -38,11 +42,17 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
              : new FileRepositoryName($fileRepositoryName);
     }
 
+    /**
+     * File repository name.
+     */
     public function getFileRepositoryName()
     {
-        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->value();
+        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->getValue();
     }
 
+    /**
+     * A user id for a File Repository.
+     */
     public function setUserName($userName = null)
     {
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
@@ -50,8 +60,11 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
              : new FileRepositoryUserName($userName);
     }
 
+    /**
+     * A user id for a File Repository.
+     */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->value();
+        return (!$this->userName) ?: $this->userName->getValue();
     }
 }

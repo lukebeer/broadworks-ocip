@@ -15,15 +15,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Music On Hold department instance.
+     * Delete a Music On Hold department instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $department         = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $department        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -35,6 +35,10 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
         $this->setDepartment($department);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -42,11 +46,19 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -54,17 +66,40 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Uniquely identifies a department system-wide.
+     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
+     *         used by any or all groups within the enterprise. Department names are unique within a group and
+     *         within an enterprise, but the same department name can exist in 2 different groups or in both
+     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
+     *         the department name and which enterprise or group contains the department.
+     *         This type is extended by group and enterprise department keys.
+     */
     public function setDepartment(DepartmentKey $department = null)
     {
+        $this->department = DepartmentKey $department;
     }
 
+    /**
+     * Uniquely identifies a department system-wide.
+     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
+     *         used by any or all groups within the enterprise. Department names are unique within a group and
+     *         within an enterprise, but the same department name can exist in 2 different groups or in both
+     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
+     *         the department name and which enterprise or group contains the department.
+     *         This type is extended by group and enterprise department keys.
+     */
     public function getDepartment()
     {
-        return (!$this->department) ?: $this->department->value();
+        return (!$this->department) ?: $this->department->getValue();
     }
 }

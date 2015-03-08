@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Recurrence schedule used in the context of a conference add.
+     * Recurrence schedule used in the context of a conference add.
  *         This type is extended by:
  *           InstantConferencingRecurrenceScheduleDaily,
  *           InstantConferencingRecurrenceScheduleWeekly,
@@ -21,6 +21,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class InstantConferencingRecurrenceSchedule extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceSchedule';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

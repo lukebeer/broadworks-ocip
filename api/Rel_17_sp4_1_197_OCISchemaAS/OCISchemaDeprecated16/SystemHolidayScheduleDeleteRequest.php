@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a system holiday schedule.
+     * Delete a system holiday schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemHolidayScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $holidayScheduleName  = null;
+    public    $name                = __CLASS__;
+    protected $holidayScheduleName = null;
 
     public function __construct(
          $holidayScheduleName
@@ -27,6 +27,9 @@ class SystemHolidayScheduleDeleteRequest extends ComplexType implements ComplexI
         $this->setHolidayScheduleName($holidayScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
@@ -34,8 +37,11 @@ class SystemHolidayScheduleDeleteRequest extends ComplexType implements ComplexI
              : new ScheduleName($holidayScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getHolidayScheduleName()
     {
-        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->value();
+        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Third-party Voice Mail Support.
+     * Modify the system level data associated with Third-party Voice Mail Support.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $overrideAltCallerIdForVMRetrieval  = null;
+    public    $name                              = __CLASS__;
+    protected $overrideAltCallerIdForVMRetrieval = null;
 
     public function __construct(
          $overrideAltCallerIdForVMRetrieval = null
@@ -27,12 +27,19 @@ class SystemThirdPartyVoiceMailSupportModifyRequest extends ComplexType implemen
         $this->setOverrideAltCallerIdForVMRetrieval($overrideAltCallerIdForVMRetrieval);
     }
 
-    public function setOverrideAltCallerIdForVMRetrieval(xs:boolean $overrideAltCallerIdForVMRetrieval = null)
+    /**
+     * 
+     */
+    public function setOverrideAltCallerIdForVMRetrieval($overrideAltCallerIdForVMRetrieval = null)
     {
+        $this->overrideAltCallerIdForVMRetrieval = (boolean) $overrideAltCallerIdForVMRetrieval;
     }
 
+    /**
+     * 
+     */
     public function getOverrideAltCallerIdForVMRetrieval()
     {
-        return (!$this->overrideAltCallerIdForVMRetrieval) ?: $this->overrideAltCallerIdForVMRetrieval->value();
+        return (!$this->overrideAltCallerIdForVMRetrieval) ?: $this->overrideAltCallerIdForVMRetrieval->getValue();
     }
 }

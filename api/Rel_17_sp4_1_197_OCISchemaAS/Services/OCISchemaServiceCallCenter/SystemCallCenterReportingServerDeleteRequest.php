@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Call Center Reporting Server.
+     * Delete a Call Center Reporting Server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCallCenterReportingServerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemCallCenterReportingServerDeleteRequest extends ComplexType implement
         $this->setName($name);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallCenterReportingServerName)
@@ -34,8 +37,11 @@ class SystemCallCenterReportingServerDeleteRequest extends ComplexType implement
              : new CallCenterReportingServerName($name);
     }
 
+    /**
+     * Call Center Reporting Server Name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

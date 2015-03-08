@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Customer Originated Trace.
+     * Request the system level data associated with Customer Originated Trace.
  *         The response is either a SystemCustomerOriginatedTraceGetResponse or an
  *         ErrorResponse.
  */
 class SystemCustomerOriginatedTraceGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace\SystemCustomerOriginatedTraceGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

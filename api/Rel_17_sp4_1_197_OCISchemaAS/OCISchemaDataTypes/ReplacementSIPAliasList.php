@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * A list of SIP aliases that replaces a previously configured list.
+     * A list of SIP aliases that replaces a previously configured list.
  *         By convention, an element of this type may be set nill to clear the list.
  */
 class ReplacementSIPAliasList extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementSIPAliasList';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

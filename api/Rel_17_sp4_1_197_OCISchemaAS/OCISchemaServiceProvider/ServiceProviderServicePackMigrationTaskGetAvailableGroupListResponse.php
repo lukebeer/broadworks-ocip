@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest.
+     * Response to ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest.
  *         The groupTable column headings are: "Group Id", "Group Name", "User Count".
  */
 class ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $groupTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse';
+    public    $name       = __CLASS__;
+    protected $groupTable = null;
 
 
+    /**
+     * 
+     */
     public function setGroupTable(core:OCITable $groupTable = null)
     {
+        $this->groupTable = core:OCITable $groupTable;
     }
 
+    /**
+     * 
+     */
     public function getGroupTable()
     {
-        return (!$this->groupTable) ?: $this->groupTable->value();
+        return (!$this->groupTable) ?: $this->groupTable->getValue();
     }
 }

@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemFileRepositoryDeviceGetListRequest.
+     * Response to SystemFileRepositoryDeviceGetListRequest.
  *         Contains a table with column headings : "Name","Protocol", "Root Directory" in a row for each file repository.
  */
 class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $fileRepositoryTable  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceGetListResponse';
+    public    $name                = __CLASS__;
+    protected $fileRepositoryTable = null;
 
 
+    /**
+     * 
+     */
     public function setFileRepositoryTable(core:OCITable $fileRepositoryTable = null)
     {
+        $this->fileRepositoryTable = core:OCITable $fileRepositoryTable;
     }
 
+    /**
+     * 
+     */
     public function getFileRepositoryTable()
     {
-        return (!$this->fileRepositoryTable) ?: $this->fileRepositoryTable->value();
+        return (!$this->fileRepositoryTable) ?: $this->fileRepositoryTable->getValue();
     }
 }

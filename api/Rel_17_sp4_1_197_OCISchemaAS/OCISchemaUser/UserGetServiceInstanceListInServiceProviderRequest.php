@@ -21,23 +21,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the list of Service Instances in a service provider or an enterprise.
+     * Request the list of Service Instances in a service provider or an enterprise.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together. searchCriteriaExactUserDepartment criteria is only applicable for an enterprise and is ignored if set for a service provider. 
  *         The response is either a UserGetServiceInstanceListInServiceProviderResponse or an ErrorResponse.
  */
 class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $serviceProviderId                  = null;
-    protected $responseSizeLimit                  = null;
-    protected $SearchCriteriaGroupId              = null;
-    protected $SearchCriteriaExactServiceType     = null;
-    protected $searchCriteriaUserId               = null;
-    protected $searchCriteriaUserLastName         = null;
-    protected $searchCriteriaDn                   = null;
-    protected $searchCriteriaExtension            = null;
-    protected $searchCriteriaExactUserDepartment  = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse';
+    public    $name                              = __CLASS__;
+    protected $serviceProviderId                 = null;
+    protected $responseSizeLimit                 = null;
+    protected $SearchCriteriaGroupId             = null;
+    protected $SearchCriteriaExactServiceType    = null;
+    protected $searchCriteriaUserId              = null;
+    protected $searchCriteriaUserLastName        = null;
+    protected $searchCriteriaDn                  = null;
+    protected $searchCriteriaExtension           = null;
+    protected $searchCriteriaExactUserDepartment = null;
 
     public function __construct(
          $serviceProviderId,
@@ -61,6 +62,10 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -68,11 +73,20 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -80,71 +94,125 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $SearchCriteriaGroupId = null)
     {
+        $this->SearchCriteriaGroupId = SearchCriteriaGroupId $SearchCriteriaGroupId;
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->SearchCriteriaGroupId) ?: $this->SearchCriteriaGroupId->value();
+        return (!$this->SearchCriteriaGroupId) ?: $this->SearchCriteriaGroupId->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service type.
+     */
     public function setSearchCriteriaExactServiceType(SearchCriteriaExactServiceType $SearchCriteriaExactServiceType = null)
     {
+        $this->SearchCriteriaExactServiceType = SearchCriteriaExactServiceType $SearchCriteriaExactServiceType;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified service type.
+     */
     public function getSearchCriteriaExactServiceType()
     {
-        return (!$this->SearchCriteriaExactServiceType) ?: $this->SearchCriteriaExactServiceType->value();
+        return (!$this->SearchCriteriaExactServiceType) ?: $this->SearchCriteriaExactServiceType->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
+        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function getSearchCriteriaUserId()
     {
-        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
+        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
+        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
+        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
+        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
     }
 
+    /**
+     * Criteria for searching for an extension.
+     */
     public function getSearchCriteriaExtension()
     {
-        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->value();
+        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
+        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
     }
 
+    /**
+     * Criteria for searching for a particular fully specified user's department.
+     */
     public function getSearchCriteriaExactUserDepartment()
     {
-        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->value();
+        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->getValue();
     }
 }

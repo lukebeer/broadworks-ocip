@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserGetRegistrationListRequest.
+     * Response to UserGetRegistrationListRequest.
  *         The table column headings are:
  *           "Device Level", "Device Name", "Order", "URI", "Expiration", "Line/Port", "Endpoint Type".
  *         The "Device Level" column contains one of the AccessDeviceLevel enumerated constants.
@@ -26,16 +26,24 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetRegistrationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $registrationTable  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetRegistrationListResponse';
+    public    $name              = __CLASS__;
+    protected $registrationTable = null;
 
 
+    /**
+     * 
+     */
     public function setRegistrationTable(core:OCITable $registrationTable = null)
     {
+        $this->registrationTable = core:OCITable $registrationTable;
     }
 
+    /**
+     * 
+     */
     public function getRegistrationTable()
     {
-        return (!$this->registrationTable) ?: $this->registrationTable->value();
+        return (!$this->registrationTable) ?: $this->registrationTable->getValue();
     }
 }

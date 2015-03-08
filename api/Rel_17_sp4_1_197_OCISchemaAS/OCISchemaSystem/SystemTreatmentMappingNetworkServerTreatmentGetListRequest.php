@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests a table of all the existing NS Treatment Mappings in the system.
+     * Requests a table of all the existing NS Treatment Mappings in the system.
  *         The response is either a   SystemTreatmentMappingNetworkServerTreatmentGetListResponse
  *         or an ErrorResponse.
  */
 class SystemTreatmentMappingNetworkServerTreatmentGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingNetworkServerTreatmentGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -13,30 +13,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetRequest.
+     * Response to UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetRequest.
  */
 class UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $useCustomSettings  = null;
-    protected $userPermissions    = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanPinholeDigitPlanOriginatingGetResponse';
+    public    $name              = __CLASS__;
+    protected $useCustomSettings = null;
+    protected $userPermissions   = null;
 
 
-    public function setUseCustomSettings(xs:boolean $useCustomSettings = null)
+    /**
+     * 
+     */
+    public function setUseCustomSettings($useCustomSettings = null)
     {
+        $this->useCustomSettings = (boolean) $useCustomSettings;
     }
 
+    /**
+     * 
+     */
     public function getUseCustomSettings()
     {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings->value();
+        return (!$this->useCustomSettings) ?: $this->useCustomSettings->getValue();
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+     */
     public function setUserPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $userPermissions = null)
     {
+        $this->userPermissions = OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $userPermissions;
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+     */
     public function getUserPermissions()
     {
-        return (!$this->userPermissions) ?: $this->userPermissions->value();
+        return (!$this->userPermissions) ?: $this->userPermissions->getValue();
     }
 }

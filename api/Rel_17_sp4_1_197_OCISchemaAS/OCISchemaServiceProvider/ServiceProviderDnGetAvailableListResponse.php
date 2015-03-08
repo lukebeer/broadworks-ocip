@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to ServiceProviderDnGetAvailableListRequest.
+     * Response to ServiceProviderDnGetAvailableListRequest.
  *         Contains a list of available DNs not yet assigned to any group.
  */
 class ServiceProviderDnGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $availableDn  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDnGetAvailableListResponse';
+    public    $name        = __CLASS__;
+    protected $availableDn = null;
 
 
-    public function setAvailableDn(xs:token $availableDn = null)
+    /**
+     * 
+     */
+    public function setAvailableDn($availableDn = null)
     {
+        $this->availableDn = (string) $availableDn;
     }
 
+    /**
+     * 
+     */
     public function getAvailableDn()
     {
-        return (!$this->availableDn) ?: $this->availableDn->value();
+        return (!$this->availableDn) ?: $this->availableDn->getValue();
     }
 }

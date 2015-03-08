@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a particular endpoint type.
+     * Criteria for searching for a particular endpoint type.
  */
 class SearchCriteriaExactEndpointType extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $endpointType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactEndpointType';
+    public    $name         = __CLASS__;
+    protected $endpointType = null;
 
     public function __construct(
          $endpointType
@@ -26,6 +27,9 @@ class SearchCriteriaExactEndpointType extends ComplexType implements ComplexInte
         $this->setEndpointType($endpointType);
     }
 
+    /**
+     * Types of Endpoints in Broadworks.
+     */
     public function setEndpointType($endpointType = null)
     {
         $this->endpointType = ($endpointType InstanceOf EndpointType)
@@ -33,8 +37,11 @@ class SearchCriteriaExactEndpointType extends ComplexType implements ComplexInte
              : new EndpointType($endpointType);
     }
 
+    /**
+     * Types of Endpoints in Broadworks.
+     */
     public function getEndpointType()
     {
-        return (!$this->endpointType) ?: $this->endpointType->value();
+        return (!$this->endpointType) ?: $this->endpointType->getValue();
     }
 }

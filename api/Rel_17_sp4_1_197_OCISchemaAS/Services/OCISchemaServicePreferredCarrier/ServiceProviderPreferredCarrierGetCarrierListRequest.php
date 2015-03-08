@@ -14,14 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the lists of carriers for a specified country code for a service provider / enterprise.
+     * Requests the lists of carriers for a specified country code for a service provider / enterprise.
  *         The response is either a ServiceProviderPreferredCarrierGetCarrierListResponse or an ErrorResponse.
  */
 class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $countryCode        = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse';
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $countryCode       = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +32,10 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
         $this->setCountryCode($countryCode);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +43,18 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Country dialing code.
+     */
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = ($countryCode InstanceOf CountryCode)
@@ -50,8 +62,11 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
              : new CountryCode($countryCode);
     }
 
+    /**
+     * Country dialing code.
+     */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->value();
+        return (!$this->countryCode) ?: $this->countryCode->getValue();
     }
 }

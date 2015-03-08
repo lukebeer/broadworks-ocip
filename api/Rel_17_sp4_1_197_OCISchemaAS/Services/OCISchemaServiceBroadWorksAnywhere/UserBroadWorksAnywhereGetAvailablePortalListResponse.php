@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserBroadWorksAnywhereGetAvailablePortalListRequest.
+     * Response to the UserBroadWorksAnywhereGetAvailablePortalListRequest.
  *         Contains a table with column headings: "Portal Name", "Phone Number", "Extension", "Language".
  */
 class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $portalTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetAvailablePortalListResponse';
+    public    $name        = __CLASS__;
+    protected $portalTable = null;
 
 
+    /**
+     * 
+     */
     public function setPortalTable(core:OCITable $portalTable = null)
     {
+        $this->portalTable = core:OCITable $portalTable;
     }
 
+    /**
+     * 
+     */
     public function getPortalTable()
     {
-        return (!$this->portalTable) ?: $this->portalTable->value();
+        return (!$this->portalTable) ?: $this->portalTable->getValue();
     }
 }

@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupGroupPagingTargetsCapacityGetRequest.
+     * Response to GroupGroupPagingTargetsCapacityGetRequest.
  */
 class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
-    protected $maximumTargetUsersFromServiceProvider  = null;
-    protected $maximumTargetUsers                     = null;
+    const     RESPONSE_TYPE                          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingTargetsCapacityGetResponse';
+    public    $name                                  = __CLASS__;
+    protected $maximumTargetUsersFromServiceProvider = null;
+    protected $maximumTargetUsers                    = null;
 
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function setMaximumTargetUsersFromServiceProvider($maximumTargetUsersFromServiceProvider = null)
     {
         $this->maximumTargetUsersFromServiceProvider = ($maximumTargetUsersFromServiceProvider InstanceOf GroupPagingMaxTargetCapacity)
@@ -29,11 +33,17 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
              : new GroupPagingMaxTargetCapacity($maximumTargetUsersFromServiceProvider);
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function getMaximumTargetUsersFromServiceProvider()
     {
-        return (!$this->maximumTargetUsersFromServiceProvider) ?: $this->maximumTargetUsersFromServiceProvider->value();
+        return (!$this->maximumTargetUsersFromServiceProvider) ?: $this->maximumTargetUsersFromServiceProvider->getValue();
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
@@ -41,8 +51,11 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
     }
 
+    /**
+     * Maximum number of targets per Paging Group
+     */
     public function getMaximumTargetUsers()
     {
-        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->value();
+        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->getValue();
     }
 }

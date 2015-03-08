@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Either all agents or list of agents.
+     * Either all agents or list of agents.
  *         The agent table has the following column headings:
  *         "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
  */
 class CallCenterScheduledReportAgentSelectionRead extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterScheduledReportAgentSelectionRead';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

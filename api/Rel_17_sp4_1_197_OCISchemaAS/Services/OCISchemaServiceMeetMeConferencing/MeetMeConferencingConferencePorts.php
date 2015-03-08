@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
  */
 class MeetMeConferencingConferencePorts extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePorts';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

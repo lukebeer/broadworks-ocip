@@ -17,19 +17,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemAutomaticCallbackGetRequest.
+     * Response to SystemAutomaticCallbackGetRequest.
  *         Replaced By: SystemAutomaticCallbackGetResponse15
  */
 class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $monitorMinutes                     = null;
-    protected $waitBetweenRetryOriginatorMinutes  = null;
-    protected $maxMonitorsPerOriginator           = null;
-    protected $maxCallbackRings                   = null;
-    protected $maxRetryOriginatorMinutes          = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAutomaticCallbackGetResponse';
+    public    $name                              = __CLASS__;
+    protected $monitorMinutes                    = null;
+    protected $waitBetweenRetryOriginatorMinutes = null;
+    protected $maxMonitorsPerOriginator          = null;
+    protected $maxCallbackRings                  = null;
+    protected $maxRetryOriginatorMinutes         = null;
 
 
+    /**
+     * Automatic Callback monitor minutes.
+     */
     public function setMonitorMinutes($monitorMinutes = null)
     {
         $this->monitorMinutes = ($monitorMinutes InstanceOf AutomaticCallbackMonitorMinutes)
@@ -37,11 +41,17 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
              : new AutomaticCallbackMonitorMinutes($monitorMinutes);
     }
 
+    /**
+     * Automatic Callback monitor minutes.
+     */
     public function getMonitorMinutes()
     {
-        return (!$this->monitorMinutes) ?: $this->monitorMinutes->value();
+        return (!$this->monitorMinutes) ?: $this->monitorMinutes->getValue();
     }
 
+    /**
+     * Wait between retry originator minutes.
+     */
     public function setWaitBetweenRetryOriginatorMinutes($waitBetweenRetryOriginatorMinutes = null)
     {
         $this->waitBetweenRetryOriginatorMinutes = ($waitBetweenRetryOriginatorMinutes InstanceOf AutomaticCallbackWaitBetweenRetryOriginatorMinutes)
@@ -49,11 +59,17 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
              : new AutomaticCallbackWaitBetweenRetryOriginatorMinutes($waitBetweenRetryOriginatorMinutes);
     }
 
+    /**
+     * Wait between retry originator minutes.
+     */
     public function getWaitBetweenRetryOriginatorMinutes()
     {
-        return (!$this->waitBetweenRetryOriginatorMinutes) ?: $this->waitBetweenRetryOriginatorMinutes->value();
+        return (!$this->waitBetweenRetryOriginatorMinutes) ?: $this->waitBetweenRetryOriginatorMinutes->getValue();
     }
 
+    /**
+     * Maximum monitors per originator.
+     */
     public function setMaxMonitorsPerOriginator($maxMonitorsPerOriginator = null)
     {
         $this->maxMonitorsPerOriginator = ($maxMonitorsPerOriginator InstanceOf AutomaticCallbackMaxMonitorsPerOriginator)
@@ -61,11 +77,17 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
              : new AutomaticCallbackMaxMonitorsPerOriginator($maxMonitorsPerOriginator);
     }
 
+    /**
+     * Maximum monitors per originator.
+     */
     public function getMaxMonitorsPerOriginator()
     {
-        return (!$this->maxMonitorsPerOriginator) ?: $this->maxMonitorsPerOriginator->value();
+        return (!$this->maxMonitorsPerOriginator) ?: $this->maxMonitorsPerOriginator->getValue();
     }
 
+    /**
+     * Maximum callback rings.
+     */
     public function setMaxCallbackRings($maxCallbackRings = null)
     {
         $this->maxCallbackRings = ($maxCallbackRings InstanceOf AutomaticCallbackMaxCallbackRings)
@@ -73,11 +95,17 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
              : new AutomaticCallbackMaxCallbackRings($maxCallbackRings);
     }
 
+    /**
+     * Maximum callback rings.
+     */
     public function getMaxCallbackRings()
     {
-        return (!$this->maxCallbackRings) ?: $this->maxCallbackRings->value();
+        return (!$this->maxCallbackRings) ?: $this->maxCallbackRings->getValue();
     }
 
+    /**
+     * Maximum retry originator minutes.
+     */
     public function setMaxRetryOriginatorMinutes($maxRetryOriginatorMinutes = null)
     {
         $this->maxRetryOriginatorMinutes = ($maxRetryOriginatorMinutes InstanceOf AutomaticCallbackMaxRetryOriginatorMinutes)
@@ -85,8 +113,11 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
              : new AutomaticCallbackMaxRetryOriginatorMinutes($maxRetryOriginatorMinutes);
     }
 
+    /**
+     * Maximum retry originator minutes.
+     */
     public function getMaxRetryOriginatorMinutes()
     {
-        return (!$this->maxRetryOriginatorMinutes) ?: $this->maxRetryOriginatorMinutes->value();
+        return (!$this->maxRetryOriginatorMinutes) ?: $this->maxRetryOriginatorMinutes->getValue();
     }
 }

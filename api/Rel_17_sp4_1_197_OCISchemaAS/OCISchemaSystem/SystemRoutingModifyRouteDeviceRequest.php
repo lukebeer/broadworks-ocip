@@ -17,17 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a routing device.
+     * Request to modify a routing device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $routeName          = null;
-    protected $netAddress         = null;
-    protected $port               = null;
-    protected $transportProtocol  = null;
-    protected $description        = null;
+    public    $name              = __CLASS__;
+    protected $routeName         = null;
+    protected $netAddress        = null;
+    protected $port              = null;
+    protected $transportProtocol = null;
+    protected $description       = null;
 
     public function __construct(
          $routeName,
@@ -43,6 +43,9 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
         $this->setDescription($description);
     }
 
+    /**
+     * Route name.
+     */
     public function setRouteName($routeName = null)
     {
         $this->routeName = ($routeName InstanceOf RouteName)
@@ -50,11 +53,17 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
              : new RouteName($routeName);
     }
 
+    /**
+     * Route name.
+     */
     public function getRouteName()
     {
-        return (!$this->routeName) ?: $this->routeName->value();
+        return (!$this->routeName) ?: $this->routeName->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -62,11 +71,17 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function setPort($port = null)
     {
         $this->port = ($port InstanceOf Port1025)
@@ -74,11 +89,17 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
              : new Port1025($port);
     }
 
+    /**
+     * TCP/IP Port number above the well-known range.
+     */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->value();
+        return (!$this->port) ?: $this->port->getValue();
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function setTransportProtocol($transportProtocol = null)
     {
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
@@ -86,11 +107,17 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
              : new TransportProtocol($transportProtocol);
     }
 
+    /**
+     * Network Transport Protocol.
+     */
     public function getTransportProtocol()
     {
-        return (!$this->transportProtocol) ?: $this->transportProtocol->value();
+        return (!$this->transportProtocol) ?: $this->transportProtocol->getValue();
     }
 
+    /**
+     * Route device description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf RouteDeviceDescription)
@@ -98,8 +125,11 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
              : new RouteDeviceDescription($description);
     }
 
+    /**
+     * Route device description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

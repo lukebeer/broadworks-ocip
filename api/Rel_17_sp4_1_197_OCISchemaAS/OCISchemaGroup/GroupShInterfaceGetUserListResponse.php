@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupShInterfaceGetUserListRequest.
+     * Response to the GroupShInterfaceGetUserListRequest.
  *         The response contains the Sh Non Transparent data and associated Public User Identity
  *         information for every Public User Identity in the group.
  */
 class GroupShInterfaceGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
-    protected $entry  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupShInterfaceGetUserListResponse';
+    public    $name  = __CLASS__;
+    protected $entry = null;
 
 
+    /**
+     * ShInterface User List Entry.
+     */
     public function setEntry(ShInterfaceUserListEntry $entry = null)
     {
+        $this->entry = ShInterfaceUserListEntry $entry;
     }
 
+    /**
+     * ShInterface User List Entry.
+     */
     public function getEntry()
     {
-        return (!$this->entry) ?: $this->entry->value();
+        return (!$this->entry) ?: $this->entry->getValue();
     }
 }

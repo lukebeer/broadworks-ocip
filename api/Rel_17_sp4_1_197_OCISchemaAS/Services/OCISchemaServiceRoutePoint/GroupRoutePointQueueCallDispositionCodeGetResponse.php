@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupRoutePointQueueCallDispositionCodeGetRequest
+     * Response to the GroupRoutePointQueueCallDispositionCodeGetRequest
  */
 class GroupRoutePointQueueCallDispositionCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $isActive     = null;
-    protected $description  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetResponse';
+    public    $name        = __CLASS__;
+    protected $isActive    = null;
+    protected $description = null;
 
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Call Center Call Disposition Code Description.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf CallDispositionCodeDescription)
@@ -38,8 +49,11 @@ class GroupRoutePointQueueCallDispositionCodeGetResponse extends ComplexType imp
              : new CallDispositionCodeDescription($description);
     }
 
+    /**
+     * Call Center Call Disposition Code Description.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

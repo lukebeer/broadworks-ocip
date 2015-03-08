@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Call Processing Policy.
+     * Request the system level data associated with Call Processing Policy.
  *         The response is either a SystemCallProcessingGetPolicyResponse16sp2 or an
  *         ErrorResponse.
  */
 class SystemCallProcessingGetPolicyRequest16sp2 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCallProcessingGetPolicyResponse16sp2';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

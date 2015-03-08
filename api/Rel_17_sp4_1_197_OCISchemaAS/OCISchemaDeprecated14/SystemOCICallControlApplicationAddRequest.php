@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add an application to the OCI call control application list.
+     * Add an application to the OCI call control application list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCICallControlApplicationAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $applicationId     = null;
-    protected $enableSystemWide  = null;
-    protected $description       = null;
+    public    $name             = __CLASS__;
+    protected $applicationId    = null;
+    protected $enableSystemWide = null;
+    protected $description      = null;
 
     public function __construct(
          $applicationId,
@@ -34,6 +34,9 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
         $this->setDescription($description);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
@@ -41,20 +44,33 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
              : new OCICallControlApplicationId($applicationId);
     }
 
+    /**
+     * A OCI Call Control Application Id.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 
-    public function setEnableSystemWide(xs:boolean $enableSystemWide = null)
+    /**
+     * 
+     */
+    public function setEnableSystemWide($enableSystemWide = null)
     {
+        $this->enableSystemWide = (boolean) $enableSystemWide;
     }
 
+    /**
+     * 
+     */
     public function getEnableSystemWide()
     {
-        return (!$this->enableSystemWide) ?: $this->enableSystemWide->value();
+        return (!$this->enableSystemWide) ?: $this->enableSystemWide->getValue();
     }
 
+    /**
+     * The description for the entry in the OCI call control application list.
+     */
     public function setDescription($description = null)
     {
         $this->description = ($description InstanceOf OCICallControlApplicationDescription)
@@ -62,8 +78,11 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
              : new OCICallControlApplicationDescription($description);
     }
 
+    /**
+     * The description for the entry in the OCI call control application list.
+     */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->value();
+        return (!$this->description) ?: $this->description->getValue();
     }
 }

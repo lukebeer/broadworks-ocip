@@ -17,18 +17,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Diameter routing peer.  The realm must refer to a Diameter routing realm whose action is relay.  The destinationPeerIdentity must refer to an existing Diameter peer whose mode is active.
+     * Add a Diameter routing peer.  The realm must refer to a Diameter routing realm whose action is relay.  The destinationPeerIdentity must refer to an existing Diameter peer whose mode is active.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
-    protected $instance       = null;
-    protected $realm          = null;
-    protected $applicationId  = null;
-    protected $identity       = null;
-    protected $priority       = null;
-    protected $weight         = null;
+    public    $name          = __CLASS__;
+    protected $instance      = null;
+    protected $realm         = null;
+    protected $applicationId = null;
+    protected $identity      = null;
+    protected $priority      = null;
+    protected $weight        = null;
 
     public function __construct(
          $instance,
@@ -46,6 +46,9 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
         $this->setWeight($weight);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function setInstance($instance = null)
     {
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
@@ -53,11 +56,17 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
              : new BwDiameterPeerInstance($instance);
     }
 
+    /**
+     * The diameter peer instance type for an entry in the Peer Table.
+     */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->value();
+        return (!$this->instance) ?: $this->instance->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setRealm($realm = null)
     {
         $this->realm = ($realm InstanceOf DomainName)
@@ -65,11 +74,17 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
              : new DomainName($realm);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getRealm()
     {
-        return (!$this->realm) ?: $this->realm->value();
+        return (!$this->realm) ?: $this->realm->getValue();
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
@@ -77,11 +92,17 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
              : new BwDiameterApplicationId($applicationId);
     }
 
+    /**
+     * Choices for locally supported Diameter Application Ids.
+     */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->value();
+        return (!$this->applicationId) ?: $this->applicationId->getValue();
     }
 
+    /**
+     * Network domain name.
+     */
     public function setIdentity($identity = null)
     {
         $this->identity = ($identity InstanceOf DomainName)
@@ -89,11 +110,17 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
              : new DomainName($identity);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getIdentity()
     {
-        return (!$this->identity) ?: $this->identity->value();
+        return (!$this->identity) ?: $this->identity->getValue();
     }
 
+    /**
+     * The priority of a peer against other routing peers associated to the same Realm Routing Table entry.
+     */
     public function setPriority($priority = null)
     {
         $this->priority = ($priority InstanceOf BwDiameterPriority)
@@ -101,11 +128,17 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
              : new BwDiameterPriority($priority);
     }
 
+    /**
+     * The priority of a peer against other routing peers associated to the same Realm Routing Table entry.
+     */
     public function getPriority()
     {
-        return (!$this->priority) ?: $this->priority->value();
+        return (!$this->priority) ?: $this->priority->getValue();
     }
 
+    /**
+     * The weight used for ordering peers having the same priority.
+     */
     public function setWeight($weight = null)
     {
         $this->weight = ($weight InstanceOf BwDiameterWeight)
@@ -113,8 +146,11 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
              : new BwDiameterWeight($weight);
     }
 
+    /**
+     * The weight used for ordering peers having the same priority.
+     */
     public function getWeight()
     {
-        return (!$this->weight) ?: $this->weight->value();
+        return (!$this->weight) ?: $this->weight->getValue();
     }
 }

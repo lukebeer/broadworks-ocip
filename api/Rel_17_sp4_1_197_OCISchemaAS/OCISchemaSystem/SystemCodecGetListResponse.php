@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCodecGetListRequest.
+     * Response to SystemCodecGetListRequest.
  */
 class SystemCodecGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
-    protected $codec  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCodecGetListResponse';
+    public    $name  = __CLASS__;
+    protected $codec = null;
 
 
+    /**
+     * Codec.
+     */
     public function setCodec($codec = null)
     {
         $this->codec = ($codec InstanceOf Codec)
@@ -28,8 +32,11 @@ class SystemCodecGetListResponse extends ComplexType implements ComplexInterface
              : new Codec($codec);
     }
 
+    /**
+     * Codec.
+     */
     public function getCodec()
     {
-        return (!$this->codec) ?: $this->codec->value();
+        return (!$this->codec) ?: $this->codec->getValue();
     }
 }

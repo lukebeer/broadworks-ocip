@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a route point's DNIS.
+     * Delete a route point's DNIS.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupRoutePointDeleteDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
-    protected $dnisKey  = null;
+    public    $name    = __CLASS__;
+    protected $dnisKey = null;
 
     public function __construct(
          DNISKey $dnisKey
@@ -27,12 +27,19 @@ class GroupRoutePointDeleteDNISRequest extends ComplexType implements ComplexInt
         $this->setDnisKey($dnisKey);
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
+        $this->dnisKey = DNISKey $dnisKey;
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->value();
+        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
     }
 }

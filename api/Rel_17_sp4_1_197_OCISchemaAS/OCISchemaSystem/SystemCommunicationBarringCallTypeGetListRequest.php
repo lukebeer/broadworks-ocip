@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get all the Communication Barring Call Types defined in the system.
+     * Get all the Communication Barring Call Types defined in the system.
  *         The response is either a SystemCommunicationBarringCallTypeGetListResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringCallTypeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCallTypeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

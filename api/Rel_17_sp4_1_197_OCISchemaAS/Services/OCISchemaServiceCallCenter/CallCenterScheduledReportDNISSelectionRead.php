@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Either all DNIS under the specified Call Center or 2 lists of DNIS, one for current one for past (deleted).
+     * Either all DNIS under the specified Call Center or 2 lists of DNIS, one for current one for past (deleted).
  */
 class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterScheduledReportDNISSelectionRead';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

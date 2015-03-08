@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Enterprise Voice VPN Treatment entry
+     * Enterprise Voice VPN Treatment entry
  */
 class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNTreatmentEntry';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

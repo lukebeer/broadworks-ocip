@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a NS Treatment mapping.
+     * Delete a NS Treatment mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $nsTreatment  = null;
+    public    $name        = __CLASS__;
+    protected $nsTreatment = null;
 
     public function __construct(
          $nsTreatment
@@ -27,6 +27,9 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
         $this->setNsTreatment($nsTreatment);
     }
 
+    /**
+     * Possible string value for Network Server Treatment.
+     */
     public function setNsTreatment($nsTreatment = null)
     {
         $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
@@ -34,8 +37,11 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
              : new NetworkServerTreatment($nsTreatment);
     }
 
+    /**
+     * Possible string value for Network Server Treatment.
+     */
     public function getNsTreatment()
     {
-        return (!$this->nsTreatment) ?: $this->nsTreatment->value();
+        return (!$this->nsTreatment) ?: $this->nsTreatment->getValue();
     }
 }

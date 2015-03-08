@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The OCITableRow type is used in responses only, never in requests. It occurs
+     * The OCITableRow type is used in responses only, never in requests. It occurs
  *         inside the OCITable type. The OCITableRow consists columns of strings.
  *         Clients should not assume any particular column order as future
  *         revisions of the protocol may move or add columns. See the OCITable data type
@@ -21,6 +21,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class OCITableRow extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCITableRow';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

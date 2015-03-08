@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * CommPilot Express type to transfer to voice mail or forward to a number
+     * CommPilot Express type to transfer to voice mail or forward to a number
  *         with certain exceptions used in the context of a get.
  */
 class CommPilotExpressRedirectionWithException extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress\CommPilotExpressRedirectionWithException';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

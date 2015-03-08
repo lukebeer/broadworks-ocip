@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of expensive alternate call indicators in the system.
+     * Request to get the list of expensive alternate call indicators in the system.
  *         The response is either a SystemExpensiveCallTypeGetListResponse16sp1     
  *         or an ErrorResponse.
  */
 class SystemExpensiveCallTypeGetListRequest16sp1 extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeGetListResponse16sp1';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

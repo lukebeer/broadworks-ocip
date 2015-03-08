@@ -22,7 +22,7 @@ class CallingNameRetrievalQueryTimeoutMilliseconds extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'int';
+        $this->dataType = (int);
         $this->addRestriction(new MinInclusive("100"));
         $this->addRestriction(new MaxInclusive("10000"));
     }

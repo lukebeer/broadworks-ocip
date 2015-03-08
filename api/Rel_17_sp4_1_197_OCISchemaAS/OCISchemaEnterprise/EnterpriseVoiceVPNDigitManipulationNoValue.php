@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Enterprise Voice VPN Digit Manipulation Entry that has no value.
+     * Enterprise Voice VPN Digit Manipulation Entry that has no value.
  */
 class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $operation  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationNoValue';
+    public    $name      = __CLASS__;
+    protected $operation = null;
 
     public function __construct(
          $operation
@@ -26,6 +27,9 @@ class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements 
         $this->setOperation($operation);
     }
 
+    /**
+     * Enterprise Voice VPN Digit Manipulation Operations that have no value.
+     */
     public function setOperation($operation = null)
     {
         $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationNoValue)
@@ -33,8 +37,11 @@ class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements 
              : new EnterpriseVoiceVPNDigitManipulationOperationNoValue($operation);
     }
 
+    /**
+     * Enterprise Voice VPN Digit Manipulation Operations that have no value.
+     */
     public function getOperation()
     {
-        return (!$this->operation) ?: $this->operation->value();
+        return (!$this->operation) ?: $this->operation->getValue();
     }
 }

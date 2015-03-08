@@ -15,17 +15,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the group's extension length range.
+     * Modify the group's extension length range.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupExtensionLengthModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $serviceProviderId       = null;
-    protected $groupId                 = null;
-    protected $minExtensionLength      = null;
-    protected $maxExtensionLength      = null;
-    protected $defaultExtensionLength  = null;
+    public    $name                   = __CLASS__;
+    protected $serviceProviderId      = null;
+    protected $groupId                = null;
+    protected $minExtensionLength     = null;
+    protected $maxExtensionLength     = null;
+    protected $defaultExtensionLength = null;
 
     public function __construct(
          $serviceProviderId,
@@ -41,6 +41,10 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         $this->setDefaultExtensionLength($defaultExtensionLength);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -48,11 +52,19 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -60,11 +72,18 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * The group's extension length.
+     */
     public function setMinExtensionLength($minExtensionLength = null)
     {
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
@@ -72,11 +91,17 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
              : new ExtensionLength($minExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getMinExtensionLength()
     {
-        return (!$this->minExtensionLength) ?: $this->minExtensionLength->value();
+        return (!$this->minExtensionLength) ?: $this->minExtensionLength->getValue();
     }
 
+    /**
+     * The group's extension length.
+     */
     public function setMaxExtensionLength($maxExtensionLength = null)
     {
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
@@ -84,11 +109,17 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
              : new ExtensionLength($maxExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getMaxExtensionLength()
     {
-        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->value();
+        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->getValue();
     }
 
+    /**
+     * The group's extension length.
+     */
     public function setDefaultExtensionLength($defaultExtensionLength = null)
     {
         $this->defaultExtensionLength = ($defaultExtensionLength InstanceOf ExtensionLength)
@@ -96,8 +127,11 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
              : new ExtensionLength($defaultExtensionLength);
     }
 
+    /**
+     * The group's extension length.
+     */
     public function getDefaultExtensionLength()
     {
-        return (!$this->defaultExtensionLength) ?: $this->defaultExtensionLength->value();
+        return (!$this->defaultExtensionLength) ?: $this->defaultExtensionLength->getValue();
     }
 }

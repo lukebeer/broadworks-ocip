@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupDepartmentAdminGetListRequest.
+     * Response to GroupDepartmentAdminGetListRequest.
  *         Contains a 5 column table with column headings "Administrator ID",
  *         "Last Name", "First Name", "Department", "Language".
  */
 class GroupDepartmentAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $departmentAdminTable  = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetListResponse';
+    public    $name                 = __CLASS__;
+    protected $departmentAdminTable = null;
 
 
+    /**
+     * 
+     */
     public function setDepartmentAdminTable(core:OCITable $departmentAdminTable = null)
     {
+        $this->departmentAdminTable = core:OCITable $departmentAdminTable;
     }
 
+    /**
+     * 
+     */
     public function getDepartmentAdminTable()
     {
-        return (!$this->departmentAdminTable) ?: $this->departmentAdminTable->value();
+        return (!$this->departmentAdminTable) ?: $this->departmentAdminTable->getValue();
     }
 }

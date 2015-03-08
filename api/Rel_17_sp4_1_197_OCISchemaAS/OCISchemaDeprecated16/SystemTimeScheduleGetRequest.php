@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a system time schedule.
+     * Request to get a system time schedule.
  *         The response is either a SystemTimeScheduleGetResponse or an ErrorResponse.
  */
 class SystemTimeScheduleGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $timeScheduleName  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleGetResponse';
+    public    $name             = __CLASS__;
+    protected $timeScheduleName = null;
 
     public function __construct(
          $timeScheduleName
@@ -27,6 +28,9 @@ class SystemTimeScheduleGetRequest extends ComplexType implements ComplexInterfa
         $this->setTimeScheduleName($timeScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function setTimeScheduleName($timeScheduleName = null)
     {
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
@@ -34,8 +38,11 @@ class SystemTimeScheduleGetRequest extends ComplexType implements ComplexInterfa
              : new ScheduleName($timeScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getTimeScheduleName()
     {
-        return (!$this->timeScheduleName) ?: $this->timeScheduleName->value();
+        return (!$this->timeScheduleName) ?: $this->timeScheduleName->getValue();
     }
 }

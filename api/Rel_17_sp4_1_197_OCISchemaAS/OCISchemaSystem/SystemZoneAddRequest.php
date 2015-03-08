@@ -16,17 +16,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Add a Zone and optional Net Addresses and Physical Locations.
+     * Add a Zone and optional Net Addresses and Physical Locations.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $zoneName                       = null;
-    protected $netAddress                     = null;
-    protected $netAddressRange                = null;
-    protected $locationBasedPhysicalLocation  = null;
-    protected $callingZonePhysicalLocation    = null;
+    public    $name                          = __CLASS__;
+    protected $zoneName                      = null;
+    protected $netAddress                    = null;
+    protected $netAddressRange               = null;
+    protected $locationBasedPhysicalLocation = null;
+    protected $callingZonePhysicalLocation   = null;
 
     public function __construct(
          $zoneName,
@@ -42,6 +42,9 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         $this->setCallingZonePhysicalLocation($callingZonePhysicalLocation);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -49,11 +52,17 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf IPAddress)
@@ -61,20 +70,33 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
              : new IPAddress($netAddress);
     }
 
+    /**
+     * Numeric IP Address.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * IP Address Range.
+     */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
+        $this->netAddressRange = IPAddressRange $netAddressRange;
     }
 
+    /**
+     * IP Address Range.
+     */
     public function getNetAddressRange()
     {
-        return (!$this->netAddressRange) ?: $this->netAddressRange->value();
+        return (!$this->netAddressRange) ?: $this->netAddressRange->getValue();
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function setLocationBasedPhysicalLocation($locationBasedPhysicalLocation = null)
     {
         $this->locationBasedPhysicalLocation = ($locationBasedPhysicalLocation InstanceOf PhysicalLocation)
@@ -82,11 +104,17 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
              : new PhysicalLocation($locationBasedPhysicalLocation);
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function getLocationBasedPhysicalLocation()
     {
-        return (!$this->locationBasedPhysicalLocation) ?: $this->locationBasedPhysicalLocation->value();
+        return (!$this->locationBasedPhysicalLocation) ?: $this->locationBasedPhysicalLocation->getValue();
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function setCallingZonePhysicalLocation($callingZonePhysicalLocation = null)
     {
         $this->callingZonePhysicalLocation = ($callingZonePhysicalLocation InstanceOf PhysicalLocation)
@@ -94,8 +122,11 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
              : new PhysicalLocation($callingZonePhysicalLocation);
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function getCallingZonePhysicalLocation()
     {
-        return (!$this->callingZonePhysicalLocation) ?: $this->callingZonePhysicalLocation->value();
+        return (!$this->callingZonePhysicalLocation) ?: $this->callingZonePhysicalLocation->getValue();
     }
 }

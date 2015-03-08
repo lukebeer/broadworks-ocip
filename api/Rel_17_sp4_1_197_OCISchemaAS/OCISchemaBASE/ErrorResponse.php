@@ -13,50 +13,79 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The ErrorResponse is concrete response sent whenever a transaction fails and does not return any data.
+     * The ErrorResponse is concrete response sent whenever a transaction fails and does not return any data.
  */
 class ErrorResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $errorCode       = null;
-    protected $summary         = null;
-    protected $summaryEnglish  = null;
-    protected $detail          = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\ErrorResponse';
+    public    $name           = __CLASS__;
+    protected $errorCode      = null;
+    protected $summary        = null;
+    protected $summaryEnglish = null;
+    protected $detail         = null;
 
 
-    public function setErrorCode(xs:int $errorCode = null)
+    /**
+     * 
+     */
+    public function setErrorCode($errorCode = null)
     {
+        $this->errorCode = (int) $errorCode;
     }
 
+    /**
+     * 
+     */
     public function getErrorCode()
     {
-        return (!$this->errorCode) ?: $this->errorCode->value();
+        return (!$this->errorCode) ?: $this->errorCode->getValue();
     }
 
-    public function setSummary(xs:string $summary = null)
+    /**
+     * 
+     */
+    public function setSummary($summary = null)
     {
+        $this->summary = (string) $summary;
     }
 
+    /**
+     * 
+     */
     public function getSummary()
     {
-        return (!$this->summary) ?: $this->summary->value();
+        return (!$this->summary) ?: $this->summary->getValue();
     }
 
-    public function setSummaryEnglish(xs:string $summaryEnglish = null)
+    /**
+     * 
+     */
+    public function setSummaryEnglish($summaryEnglish = null)
     {
+        $this->summaryEnglish = (string) $summaryEnglish;
     }
 
+    /**
+     * 
+     */
     public function getSummaryEnglish()
     {
-        return (!$this->summaryEnglish) ?: $this->summaryEnglish->value();
+        return (!$this->summaryEnglish) ?: $this->summaryEnglish->getValue();
     }
 
-    public function setDetail(xs:string $detail = null)
+    /**
+     * 
+     */
+    public function setDetail($detail = null)
     {
+        $this->detail = (string) $detail;
     }
 
+    /**
+     * 
+     */
     public function getDetail()
     {
-        return (!$this->detail) ?: $this->detail->value();
+        return (!$this->detail) ?: $this->detail->getValue();
     }
 }

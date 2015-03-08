@@ -54,7 +54,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the system's default policy settings.
+     * Request to modify the system's default policy settings.
  *         The response is either SuccessResponse or ErrorResponse.
  *         The following elements are only used in AS data mode:
  *             GroupAdminDialableCallerIDAccess
@@ -64,49 +64,49 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                                               = __CLASS__;
-    protected $groupCallingPlanAccess                             = null;
-    protected $groupExtensionAccess                               = null;
-    protected $groupLDAPIntegrationAccess                         = null;
-    protected $groupVoiceMessagingAccess                          = null;
-    protected $groupDepartmentAdminUserAccess                     = null;
-    protected $groupDepartmentAdminTrunkGroupAccess               = null;
-    protected $groupDepartmentAdminPhoneNumberExtensionAccess     = null;
-    protected $groupDepartmentAdminCallingLineIdNumberAccess      = null;
-    protected $groupUserAuthenticationAccess                      = null;
-    protected $groupUserGroupDirectoryAccess                      = null;
-    protected $groupUserProfileAccess                             = null;
-    protected $groupUserEnhancedCallLogsAccess                    = null;
-    protected $groupAdminProfileAccess                            = null;
-    protected $groupAdminUserAccess                               = null;
-    protected $groupAdminAdminAccess                              = null;
-    protected $groupAdminDepartmentAccess                         = null;
-    protected $groupAdminAccessDeviceAccess                       = null;
-    protected $groupAdminEnhancedServiceInstanceAccess            = null;
-    protected $groupAdminFeatureAccessCodeAccess                  = null;
-    protected $groupAdminPhoneNumberExtensionAccess               = null;
-    protected $groupAdminCallingLineIdNumberAccess                = null;
-    protected $groupAdminServiceAccess                            = null;
-    protected $groupAdminTrunkGroupAccess                         = null;
-    protected $groupAdminSessionAdmissionControlAccess            = null;
-    protected $groupAdminDialableCallerIDAccess                   = null;
-    protected $groupAdminOfficeZoneAccess                         = null;
-    protected $serviceProviderAdminProfileAccess                  = null;
-    protected $serviceProviderAdminGroupAccess                    = null;
-    protected $serviceProviderAdminUserAccess                     = null;
-    protected $serviceProviderAdminAdminAccess                    = null;
-    protected $ServiceProviderAdminDepartmentAccess               = null;
-    protected $serviceProviderAdminAccessDeviceAccess             = null;
-    protected $serviceProviderAdminPhoneNumberExtensionAccess     = null;
-    protected $serviceProviderAdminCallingLineIdNumberAccess      = null;
-    protected $serviceProviderAdminServiceAccess                  = null;
-    protected $serviceProviderAdminServicePackAccess              = null;
-    protected $serviceProviderAdminSessionAdmissionControlAccess  = null;
-    protected $serviceProviderAdminWebBrandingAccess              = null;
-    protected $serviceProviderAdminOfficeZoneAccess               = null;
-    protected $serviceProviderAdminCommunicationBarringAccess     = null;
-    protected $enterpriseAdminNetworkPolicyAccess                 = null;
-    protected $serviceProviderAdminDialableCallerIDAccess         = null;
+    public    $name                                              = __CLASS__;
+    protected $groupCallingPlanAccess                            = null;
+    protected $groupExtensionAccess                              = null;
+    protected $groupLDAPIntegrationAccess                        = null;
+    protected $groupVoiceMessagingAccess                         = null;
+    protected $groupDepartmentAdminUserAccess                    = null;
+    protected $groupDepartmentAdminTrunkGroupAccess              = null;
+    protected $groupDepartmentAdminPhoneNumberExtensionAccess    = null;
+    protected $groupDepartmentAdminCallingLineIdNumberAccess     = null;
+    protected $groupUserAuthenticationAccess                     = null;
+    protected $groupUserGroupDirectoryAccess                     = null;
+    protected $groupUserProfileAccess                            = null;
+    protected $groupUserEnhancedCallLogsAccess                   = null;
+    protected $groupAdminProfileAccess                           = null;
+    protected $groupAdminUserAccess                              = null;
+    protected $groupAdminAdminAccess                             = null;
+    protected $groupAdminDepartmentAccess                        = null;
+    protected $groupAdminAccessDeviceAccess                      = null;
+    protected $groupAdminEnhancedServiceInstanceAccess           = null;
+    protected $groupAdminFeatureAccessCodeAccess                 = null;
+    protected $groupAdminPhoneNumberExtensionAccess              = null;
+    protected $groupAdminCallingLineIdNumberAccess               = null;
+    protected $groupAdminServiceAccess                           = null;
+    protected $groupAdminTrunkGroupAccess                        = null;
+    protected $groupAdminSessionAdmissionControlAccess           = null;
+    protected $groupAdminDialableCallerIDAccess                  = null;
+    protected $groupAdminOfficeZoneAccess                        = null;
+    protected $serviceProviderAdminProfileAccess                 = null;
+    protected $serviceProviderAdminGroupAccess                   = null;
+    protected $serviceProviderAdminUserAccess                    = null;
+    protected $serviceProviderAdminAdminAccess                   = null;
+    protected $ServiceProviderAdminDepartmentAccess              = null;
+    protected $serviceProviderAdminAccessDeviceAccess            = null;
+    protected $serviceProviderAdminPhoneNumberExtensionAccess    = null;
+    protected $serviceProviderAdminCallingLineIdNumberAccess     = null;
+    protected $serviceProviderAdminServiceAccess                 = null;
+    protected $serviceProviderAdminServicePackAccess             = null;
+    protected $serviceProviderAdminSessionAdmissionControlAccess = null;
+    protected $serviceProviderAdminWebBrandingAccess             = null;
+    protected $serviceProviderAdminOfficeZoneAccess              = null;
+    protected $serviceProviderAdminCommunicationBarringAccess    = null;
+    protected $enterpriseAdminNetworkPolicyAccess                = null;
+    protected $serviceProviderAdminDialableCallerIDAccess        = null;
 
     public function __construct(
          $groupCallingPlanAccess = null,
@@ -196,6 +196,14 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
         $this->setServiceProviderAdminDialableCallerIDAccess($serviceProviderAdminDialableCallerIDAccess);
     }
 
+    /**
+     * Group's policy for accessing group level and user level calling plan configuration.
+     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
+     *         "Restricted" indicates
+     *         1) not to provide access to group-level calling plan configuration,
+     *         2) to provide access to only collect calls for user level incoming calling plan,
+     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     */
     public function setGroupCallingPlanAccess($groupCallingPlanAccess = null)
     {
         $this->groupCallingPlanAccess = ($groupCallingPlanAccess InstanceOf GroupCallingPlanAccess)
@@ -203,11 +211,22 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupCallingPlanAccess($groupCallingPlanAccess);
     }
 
+    /**
+     * Group's policy for accessing group level and user level calling plan configuration.
+     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
+     *         "Restricted" indicates
+     *         1) not to provide access to group-level calling plan configuration,
+     *         2) to provide access to only collect calls for user level incoming calling plan,
+     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     */
     public function getGroupCallingPlanAccess()
     {
-        return (!$this->groupCallingPlanAccess) ?: $this->groupCallingPlanAccess->value();
+        return (!$this->groupCallingPlanAccess) ?: $this->groupCallingPlanAccess->getValue();
     }
 
+    /**
+     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     */
     public function setGroupExtensionAccess($groupExtensionAccess = null)
     {
         $this->groupExtensionAccess = ($groupExtensionAccess InstanceOf GroupExtensionAccess)
@@ -215,11 +234,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupExtensionAccess($groupExtensionAccess);
     }
 
+    /**
+     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     */
     public function getGroupExtensionAccess()
     {
-        return (!$this->groupExtensionAccess) ?: $this->groupExtensionAccess->value();
+        return (!$this->groupExtensionAccess) ?: $this->groupExtensionAccess->getValue();
     }
 
+    /**
+     * Group's policy for accessing LDAP Integration configuration.
+     */
     public function setGroupLDAPIntegrationAccess($groupLDAPIntegrationAccess = null)
     {
         $this->groupLDAPIntegrationAccess = ($groupLDAPIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
@@ -227,11 +252,20 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupLDAPIntegrationAccess($groupLDAPIntegrationAccess);
     }
 
+    /**
+     * Group's policy for accessing LDAP Integration configuration.
+     */
     public function getGroupLDAPIntegrationAccess()
     {
-        return (!$this->groupLDAPIntegrationAccess) ?: $this->groupLDAPIntegrationAccess->value();
+        return (!$this->groupLDAPIntegrationAccess) ?: $this->groupLDAPIntegrationAccess->getValue();
     }
 
+    /**
+     * Group's policy for user access to his voice messaging configuration.
+     *         "Full" indicates full control over the voice messaging configuration.
+     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
+     *         or to forward the voice message to a designated email address is not available.
+     */
     public function setGroupVoiceMessagingAccess($groupVoiceMessagingAccess = null)
     {
         $this->groupVoiceMessagingAccess = ($groupVoiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
@@ -239,11 +273,28 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupVoiceMessagingAccess($groupVoiceMessagingAccess);
     }
 
+    /**
+     * Group's policy for user access to his voice messaging configuration.
+     *         "Full" indicates full control over the voice messaging configuration.
+     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
+     *         or to forward the voice message to a designated email address is not available.
+     */
     public function getGroupVoiceMessagingAccess()
     {
-        return (!$this->groupVoiceMessagingAccess) ?: $this->groupVoiceMessagingAccess->value();
+        return (!$this->groupVoiceMessagingAccess) ?: $this->groupVoiceMessagingAccess->getValue();
     }
 
+    /**
+     * Group's policy for department administrator's access to user configuration.
+     *         "Full" indicates full access to users in the department.
+     *         "Read-Only Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the department.
+     */
     public function setGroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess = null)
     {
         $this->groupDepartmentAdminUserAccess = ($groupDepartmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
@@ -251,11 +302,27 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess);
     }
 
+    /**
+     * Group's policy for department administrator's access to user configuration.
+     *         "Full" indicates full access to users in the department.
+     *         "Read-Only Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the department administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the department.
+     */
     public function getGroupDepartmentAdminUserAccess()
     {
-        return (!$this->groupDepartmentAdminUserAccess) ?: $this->groupDepartmentAdminUserAccess->value();
+        return (!$this->groupDepartmentAdminUserAccess) ?: $this->groupDepartmentAdminUserAccess->getValue();
     }
 
+    /**
+     * Group's policy for department administrator's access to trunk group configuration.
+     *         "Full" indicates full access to trunk groups in the department.
+     *         "None" indicates no access to trunk groups in the department.
+     */
     public function setGroupDepartmentAdminTrunkGroupAccess($groupDepartmentAdminTrunkGroupAccess = null)
     {
         $this->groupDepartmentAdminTrunkGroupAccess = ($groupDepartmentAdminTrunkGroupAccess InstanceOf GroupDepartmentAdminTrunkGroupAccess)
@@ -263,11 +330,19 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupDepartmentAdminTrunkGroupAccess($groupDepartmentAdminTrunkGroupAccess);
     }
 
+    /**
+     * Group's policy for department administrator's access to trunk group configuration.
+     *         "Full" indicates full access to trunk groups in the department.
+     *         "None" indicates no access to trunk groups in the department.
+     */
     public function getGroupDepartmentAdminTrunkGroupAccess()
     {
-        return (!$this->groupDepartmentAdminTrunkGroupAccess) ?: $this->groupDepartmentAdminTrunkGroupAccess->value();
+        return (!$this->groupDepartmentAdminTrunkGroupAccess) ?: $this->groupDepartmentAdminTrunkGroupAccess->getValue();
     }
 
+    /**
+     * Policy for a department administrator's access to assigning phone numbers and extensions.
+     */
     public function setGroupDepartmentAdminPhoneNumberExtensionAccess($groupDepartmentAdminPhoneNumberExtensionAccess = null)
     {
         $this->groupDepartmentAdminPhoneNumberExtensionAccess = ($groupDepartmentAdminPhoneNumberExtensionAccess InstanceOf GroupDepartmentAdminPhoneNumberExtensionAccess)
@@ -275,11 +350,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupDepartmentAdminPhoneNumberExtensionAccess($groupDepartmentAdminPhoneNumberExtensionAccess);
     }
 
+    /**
+     * Policy for a department administrator's access to assigning phone numbers and extensions.
+     */
     public function getGroupDepartmentAdminPhoneNumberExtensionAccess()
     {
-        return (!$this->groupDepartmentAdminPhoneNumberExtensionAccess) ?: $this->groupDepartmentAdminPhoneNumberExtensionAccess->value();
+        return (!$this->groupDepartmentAdminPhoneNumberExtensionAccess) ?: $this->groupDepartmentAdminPhoneNumberExtensionAccess->getValue();
     }
 
+    /**
+     * Department Administrator's policy for accessing calling line id number.
+     */
     public function setGroupDepartmentAdminCallingLineIdNumberAccess($groupDepartmentAdminCallingLineIdNumberAccess = null)
     {
         $this->groupDepartmentAdminCallingLineIdNumberAccess = ($groupDepartmentAdminCallingLineIdNumberAccess InstanceOf GroupDepartmentAdminCallingLineIdNumberAccess)
@@ -287,11 +368,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupDepartmentAdminCallingLineIdNumberAccess($groupDepartmentAdminCallingLineIdNumberAccess);
     }
 
+    /**
+     * Department Administrator's policy for accessing calling line id number.
+     */
     public function getGroupDepartmentAdminCallingLineIdNumberAccess()
     {
-        return (!$this->groupDepartmentAdminCallingLineIdNumberAccess) ?: $this->groupDepartmentAdminCallingLineIdNumberAccess->value();
+        return (!$this->groupDepartmentAdminCallingLineIdNumberAccess) ?: $this->groupDepartmentAdminCallingLineIdNumberAccess->getValue();
     }
 
+    /**
+     * Group's policy for a user's access to their Authentication service configuration.
+     */
     public function setGroupUserAuthenticationAccess($groupUserAuthenticationAccess = null)
     {
         $this->groupUserAuthenticationAccess = ($groupUserAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
@@ -299,11 +386,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupUserAuthenticationAccess($groupUserAuthenticationAccess);
     }
 
+    /**
+     * Group's policy for a user's access to their Authentication service configuration.
+     */
     public function getGroupUserAuthenticationAccess()
     {
-        return (!$this->groupUserAuthenticationAccess) ?: $this->groupUserAuthenticationAccess->value();
+        return (!$this->groupUserAuthenticationAccess) ?: $this->groupUserAuthenticationAccess->getValue();
     }
 
+    /**
+     * Group's policy for a user's access to the group or enterprise directory.
+     */
     public function setGroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess = null)
     {
         $this->groupUserGroupDirectoryAccess = ($groupUserGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
@@ -311,11 +404,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess);
     }
 
+    /**
+     * Group's policy for a user's access to the group or enterprise directory.
+     */
     public function getGroupUserGroupDirectoryAccess()
     {
-        return (!$this->groupUserGroupDirectoryAccess) ?: $this->groupUserGroupDirectoryAccess->value();
+        return (!$this->groupUserGroupDirectoryAccess) ?: $this->groupUserGroupDirectoryAccess->getValue();
     }
 
+    /**
+     * Group's policy for a user's access to his profile.
+     */
     public function setGroupUserProfileAccess($groupUserProfileAccess = null)
     {
         $this->groupUserProfileAccess = ($groupUserProfileAccess InstanceOf GroupUserProfileAccess)
@@ -323,11 +422,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupUserProfileAccess($groupUserProfileAccess);
     }
 
+    /**
+     * Group's policy for a user's access to his profile.
+     */
     public function getGroupUserProfileAccess()
     {
-        return (!$this->groupUserProfileAccess) ?: $this->groupUserProfileAccess->value();
+        return (!$this->groupUserProfileAccess) ?: $this->groupUserProfileAccess->getValue();
     }
 
+    /**
+     * Policy for user to delete call logs
+     */
     public function setGroupUserEnhancedCallLogsAccess($groupUserEnhancedCallLogsAccess = null)
     {
         $this->groupUserEnhancedCallLogsAccess = ($groupUserEnhancedCallLogsAccess InstanceOf GroupUserCallLogAccess)
@@ -335,11 +440,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupUserCallLogAccess($groupUserEnhancedCallLogsAccess);
     }
 
+    /**
+     * Policy for user to delete call logs
+     */
     public function getGroupUserEnhancedCallLogsAccess()
     {
-        return (!$this->groupUserEnhancedCallLogsAccess) ?: $this->groupUserEnhancedCallLogsAccess->value();
+        return (!$this->groupUserEnhancedCallLogsAccess) ?: $this->groupUserEnhancedCallLogsAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to the group profile.
+     */
     public function setGroupAdminProfileAccess($groupAdminProfileAccess = null)
     {
         $this->groupAdminProfileAccess = ($groupAdminProfileAccess InstanceOf GroupAdminProfileAccess)
@@ -347,11 +458,28 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminProfileAccess($groupAdminProfileAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to the group profile.
+     */
     public function getGroupAdminProfileAccess()
     {
-        return (!$this->groupAdminProfileAccess) ?: $this->groupAdminProfileAccess->value();
+        return (!$this->groupAdminProfileAccess) ?: $this->groupAdminProfileAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to user configuration.
+     *         "Full" indicates full access to users in the group.
+     *         "Full Profile" indicates
+     *           1) the group administrator is restricted from adding or removing users, but
+     *           2) has full access to the user's profile
+     *         "Read-Only Profile" indicates
+     *           1) the group administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the group administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the group.
+     */
     public function setGroupAdminUserAccess($groupAdminUserAccess = null)
     {
         $this->groupAdminUserAccess = ($groupAdminUserAccess InstanceOf GroupAdminUserAccess)
@@ -359,11 +487,28 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminUserAccess($groupAdminUserAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to user configuration.
+     *         "Full" indicates full access to users in the group.
+     *         "Full Profile" indicates
+     *           1) the group administrator is restricted from adding or removing users, but
+     *           2) has full access to the user's profile
+     *         "Read-Only Profile" indicates
+     *           1) the group administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the group administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the group.
+     */
     public function getGroupAdminUserAccess()
     {
-        return (!$this->groupAdminUserAccess) ?: $this->groupAdminUserAccess->value();
+        return (!$this->groupAdminUserAccess) ?: $this->groupAdminUserAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to group administrators and department administrators.
+     */
     public function setGroupAdminAdminAccess($groupAdminAdminAccess = null)
     {
         $this->groupAdminAdminAccess = ($groupAdminAdminAccess InstanceOf GroupAdminAdminAccess)
@@ -371,11 +516,20 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminAdminAccess($groupAdminAdminAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to group administrators and department administrators.
+     */
     public function getGroupAdminAdminAccess()
     {
-        return (!$this->groupAdminAdminAccess) ?: $this->groupAdminAdminAccess->value();
+        return (!$this->groupAdminAdminAccess) ?: $this->groupAdminAdminAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to departments.
+     *         "Full" indicates full access to departments.
+     *         "Read-Only" indicates read-only access to the department list
+     *         "None" indicates no access to the department list
+     */
     public function setGroupAdminDepartmentAccess($groupAdminDepartmentAccess = null)
     {
         $this->groupAdminDepartmentAccess = ($groupAdminDepartmentAccess InstanceOf GroupAdminDepartmentAccess)
@@ -383,11 +537,25 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminDepartmentAccess($groupAdminDepartmentAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to departments.
+     *         "Full" indicates full access to departments.
+     *         "Read-Only" indicates read-only access to the department list
+     *         "None" indicates no access to the department list
+     */
     public function getGroupAdminDepartmentAccess()
     {
-        return (!$this->groupAdminDepartmentAccess) ?: $this->groupAdminDepartmentAccess->value();
+        return (!$this->groupAdminDepartmentAccess) ?: $this->groupAdminDepartmentAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to access devices.
+     *        "Full" indicates full access to access devices.
+     *        "Associate User With Device" indicates
+     *          1) read-only access to devices, but
+     *          2) the group administrator may associate users with devices
+     *        "Read-Only" indicates read-only access to devices and user-device associations
+     */
     public function setGroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess = null)
     {
         $this->groupAdminAccessDeviceAccess = ($groupAdminAccessDeviceAccess InstanceOf GroupAdminAccessDeviceAccess)
@@ -395,11 +563,27 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to access devices.
+     *        "Full" indicates full access to access devices.
+     *        "Associate User With Device" indicates
+     *          1) read-only access to devices, but
+     *          2) the group administrator may associate users with devices
+     *        "Read-Only" indicates read-only access to devices and user-device associations
+     */
     public function getGroupAdminAccessDeviceAccess()
     {
-        return (!$this->groupAdminAccessDeviceAccess) ?: $this->groupAdminAccessDeviceAccess->value();
+        return (!$this->groupAdminAccessDeviceAccess) ?: $this->groupAdminAccessDeviceAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to enhanced service instances (e.g. - instances of Auto Attendants, Call Capacity Groups,
+     *         Conference Bridges, Hunt Groups, Call Centers, Series Completion Groups, etc.).
+     *         "Full" indicates full access to enhanced service instances.
+     *         "Modify-Only" indicates
+     *           1) the group administrator is restricted from adding or removing enhanced service instances, but
+     *           2) may modify existing instances.
+     */
     public function setGroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess = null)
     {
         $this->groupAdminEnhancedServiceInstanceAccess = ($groupAdminEnhancedServiceInstanceAccess InstanceOf GroupAdminEnhancedServiceInstanceAccess)
@@ -407,11 +591,22 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to enhanced service instances (e.g. - instances of Auto Attendants, Call Capacity Groups,
+     *         Conference Bridges, Hunt Groups, Call Centers, Series Completion Groups, etc.).
+     *         "Full" indicates full access to enhanced service instances.
+     *         "Modify-Only" indicates
+     *           1) the group administrator is restricted from adding or removing enhanced service instances, but
+     *           2) may modify existing instances.
+     */
     public function getGroupAdminEnhancedServiceInstanceAccess()
     {
-        return (!$this->groupAdminEnhancedServiceInstanceAccess) ?: $this->groupAdminEnhancedServiceInstanceAccess->value();
+        return (!$this->groupAdminEnhancedServiceInstanceAccess) ?: $this->groupAdminEnhancedServiceInstanceAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to feature access codes.
+     */
     public function setGroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess = null)
     {
         $this->groupAdminFeatureAccessCodeAccess = ($groupAdminFeatureAccessCodeAccess InstanceOf GroupAdminFeatureAccessCodeAccess)
@@ -419,11 +614,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to feature access codes.
+     */
     public function getGroupAdminFeatureAccessCodeAccess()
     {
-        return (!$this->groupAdminFeatureAccessCodeAccess) ?: $this->groupAdminFeatureAccessCodeAccess->value();
+        return (!$this->groupAdminFeatureAccessCodeAccess) ?: $this->groupAdminFeatureAccessCodeAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to assigning phone numbers and extensions.
+     */
     public function setGroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess = null)
     {
         $this->groupAdminPhoneNumberExtensionAccess = ($groupAdminPhoneNumberExtensionAccess InstanceOf GroupAdminPhoneNumberExtensionAccess)
@@ -431,11 +632,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to assigning phone numbers and extensions.
+     */
     public function getGroupAdminPhoneNumberExtensionAccess()
     {
-        return (!$this->groupAdminPhoneNumberExtensionAccess) ?: $this->groupAdminPhoneNumberExtensionAccess->value();
+        return (!$this->groupAdminPhoneNumberExtensionAccess) ?: $this->groupAdminPhoneNumberExtensionAccess->getValue();
     }
 
+    /**
+     * Group Administrator's policy for accessing calling line id number.
+     */
     public function setGroupAdminCallingLineIdNumberAccess($groupAdminCallingLineIdNumberAccess = null)
     {
         $this->groupAdminCallingLineIdNumberAccess = ($groupAdminCallingLineIdNumberAccess InstanceOf GroupAdminCallingLineIdNumberAccess)
@@ -443,11 +650,17 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminCallingLineIdNumberAccess($groupAdminCallingLineIdNumberAccess);
     }
 
+    /**
+     * Group Administrator's policy for accessing calling line id number.
+     */
     public function getGroupAdminCallingLineIdNumberAccess()
     {
-        return (!$this->groupAdminCallingLineIdNumberAccess) ?: $this->groupAdminCallingLineIdNumberAccess->value();
+        return (!$this->groupAdminCallingLineIdNumberAccess) ?: $this->groupAdminCallingLineIdNumberAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to assigning services to groups and users.
+     */
     public function setGroupAdminServiceAccess($groupAdminServiceAccess = null)
     {
         $this->groupAdminServiceAccess = ($groupAdminServiceAccess InstanceOf GroupAdminServiceAccess)
@@ -455,11 +668,25 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminServiceAccess($groupAdminServiceAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to assigning services to groups and users.
+     */
     public function getGroupAdminServiceAccess()
     {
-        return (!$this->groupAdminServiceAccess) ?: $this->groupAdminServiceAccess->value();
+        return (!$this->groupAdminServiceAccess) ?: $this->groupAdminServiceAccess->getValue();
     }
 
+    /**
+     * Policy for a group administrator's access to trunk groups.
+     *         "Full" indicates full access to add/modify/delete trunk groups in the group.
+     *         "Full Resources" indicates
+     *           1) Restricted from adding or removing trunk groups, and
+     *           2) Full access to trunk group resources
+     *         "Read-Only Resources" indicates
+     *           1) Restricted from adding or removing trunk groups, and
+     *           2) Read-only access to trunk group resources
+     *         "None" indicates no access to trunk groups in the group.
+     */
     public function setGroupAdminTrunkGroupAccess($groupAdminTrunkGroupAccess = null)
     {
         $this->groupAdminTrunkGroupAccess = ($groupAdminTrunkGroupAccess InstanceOf GroupAdminTrunkGroupAccess)
@@ -467,11 +694,26 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminTrunkGroupAccess($groupAdminTrunkGroupAccess);
     }
 
+    /**
+     * Policy for a group administrator's access to trunk groups.
+     *         "Full" indicates full access to add/modify/delete trunk groups in the group.
+     *         "Full Resources" indicates
+     *           1) Restricted from adding or removing trunk groups, and
+     *           2) Full access to trunk group resources
+     *         "Read-Only Resources" indicates
+     *           1) Restricted from adding or removing trunk groups, and
+     *           2) Read-only access to trunk group resources
+     *         "None" indicates no access to trunk groups in the group.
+     */
     public function getGroupAdminTrunkGroupAccess()
     {
-        return (!$this->groupAdminTrunkGroupAccess) ?: $this->groupAdminTrunkGroupAccess->value();
+        return (!$this->groupAdminTrunkGroupAccess) ?: $this->groupAdminTrunkGroupAccess->getValue();
     }
 
+    /**
+     * Group Administrator's policy for accessing
+     *         the Session Admission Control information.
+     */
     public function setGroupAdminSessionAdmissionControlAccess($groupAdminSessionAdmissionControlAccess = null)
     {
         $this->groupAdminSessionAdmissionControlAccess = ($groupAdminSessionAdmissionControlAccess InstanceOf GroupAdminSessionAdmissionControlAccess)
@@ -479,11 +721,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminSessionAdmissionControlAccess($groupAdminSessionAdmissionControlAccess);
     }
 
+    /**
+     * Group Administrator's policy for accessing
+     *         the Session Admission Control information.
+     */
     public function getGroupAdminSessionAdmissionControlAccess()
     {
-        return (!$this->groupAdminSessionAdmissionControlAccess) ?: $this->groupAdminSessionAdmissionControlAccess->value();
+        return (!$this->groupAdminSessionAdmissionControlAccess) ?: $this->groupAdminSessionAdmissionControlAccess->getValue();
     }
 
+    /**
+     * Policy for accessing the group Dialable Caller ID configuration.
+     */
     public function setGroupAdminDialableCallerIDAccess($groupAdminDialableCallerIDAccess = null)
     {
         $this->groupAdminDialableCallerIDAccess = ($groupAdminDialableCallerIDAccess InstanceOf GroupAdminDialableCallerIDAccess)
@@ -491,11 +740,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminDialableCallerIDAccess($groupAdminDialableCallerIDAccess);
     }
 
+    /**
+     * Policy for accessing the group Dialable Caller ID configuration.
+     */
     public function getGroupAdminDialableCallerIDAccess()
     {
-        return (!$this->groupAdminDialableCallerIDAccess) ?: $this->groupAdminDialableCallerIDAccess->value();
+        return (!$this->groupAdminDialableCallerIDAccess) ?: $this->groupAdminDialableCallerIDAccess->getValue();
     }
 
+    /**
+     * Group Administrator's policy for accessing
+     *         the Office Zone information.
+     */
     public function setGroupAdminOfficeZoneAccess($groupAdminOfficeZoneAccess = null)
     {
         $this->groupAdminOfficeZoneAccess = ($groupAdminOfficeZoneAccess InstanceOf GroupAdminOfficeZoneAccess)
@@ -503,11 +759,19 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new GroupAdminOfficeZoneAccess($groupAdminOfficeZoneAccess);
     }
 
+    /**
+     * Group Administrator's policy for accessing
+     *         the Office Zone information.
+     */
     public function getGroupAdminOfficeZoneAccess()
     {
-        return (!$this->groupAdminOfficeZoneAccess) ?: $this->groupAdminOfficeZoneAccess->value();
+        return (!$this->groupAdminOfficeZoneAccess) ?: $this->groupAdminOfficeZoneAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing
+     *         the service provider profile information.
+     */
     public function setServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess = null)
     {
         $this->serviceProviderAdminProfileAccess = ($serviceProviderAdminProfileAccess InstanceOf ServiceProviderAdminProfileAccess)
@@ -515,11 +779,19 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing
+     *         the service provider profile information.
+     */
     public function getServiceProviderAdminProfileAccess()
     {
-        return (!$this->serviceProviderAdminProfileAccess) ?: $this->serviceProviderAdminProfileAccess->value();
+        return (!$this->serviceProviderAdminProfileAccess) ?: $this->serviceProviderAdminProfileAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing groups
+     *         within the service provider.
+     */
     public function setServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess = null)
     {
         $this->serviceProviderAdminGroupAccess = ($serviceProviderAdminGroupAccess InstanceOf ServiceProviderAdminGroupAccess)
@@ -527,11 +799,29 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing groups
+     *         within the service provider.
+     */
     public function getServiceProviderAdminGroupAccess()
     {
-        return (!$this->serviceProviderAdminGroupAccess) ?: $this->serviceProviderAdminGroupAccess->value();
+        return (!$this->serviceProviderAdminGroupAccess) ?: $this->serviceProviderAdminGroupAccess->getValue();
     }
 
+    /**
+     * Policy for a service provider administrator's access to user configuration.
+     *         "Full" indicates full access to users in the service provider.
+     *         "Full Profile" indicates
+     *           1) the service provider administrator is restricted from adding or removing users, but
+     *           2) has full access to the user's profile
+     *         "Read-Only Profile" indicates
+     *           1) the service provider administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the service provider administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the service provider.
+     */
     public function setServiceProviderAdminUserAccess($serviceProviderAdminUserAccess = null)
     {
         $this->serviceProviderAdminUserAccess = ($serviceProviderAdminUserAccess InstanceOf ServiceProviderAdminUserAccess)
@@ -539,11 +829,29 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminUserAccess($serviceProviderAdminUserAccess);
     }
 
+    /**
+     * Policy for a service provider administrator's access to user configuration.
+     *         "Full" indicates full access to users in the service provider.
+     *         "Full Profile" indicates
+     *           1) the service provider administrator is restricted from adding or removing users, but
+     *           2) has full access to the user's profile
+     *         "Read-Only Profile" indicates
+     *           1) the service provider administrator is restricted from adding or removing users, and
+     *           2) read-only access is granted to the user's profile.
+     *         "No Profile" indicates
+     *           1) the service provider administrator is restricted from adding or removing users, and
+     *           2) no access is granted to the user's profile.
+     *         "None" indicates no access to users in the service provider.
+     */
     public function getServiceProviderAdminUserAccess()
     {
-        return (!$this->serviceProviderAdminUserAccess) ?: $this->serviceProviderAdminUserAccess->value();
+        return (!$this->serviceProviderAdminUserAccess) ?: $this->serviceProviderAdminUserAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing other
+     *         Service Provider Administrator's within the same service provider.
+     */
     public function setServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess = null)
     {
         $this->serviceProviderAdminAdminAccess = ($serviceProviderAdminAdminAccess InstanceOf ServiceProviderAdminAdminAccess)
@@ -551,11 +859,19 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing other
+     *         Service Provider Administrator's within the same service provider.
+     */
     public function getServiceProviderAdminAdminAccess()
     {
-        return (!$this->serviceProviderAdminAdminAccess) ?: $this->serviceProviderAdminAdminAccess->value();
+        return (!$this->serviceProviderAdminAdminAccess) ?: $this->serviceProviderAdminAdminAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing department lists
+     *         within the service provider.
+     */
     public function setServiceProviderAdminDepartmentAccess($ServiceProviderAdminDepartmentAccess = null)
     {
         $this->ServiceProviderAdminDepartmentAccess = ($ServiceProviderAdminDepartmentAccess InstanceOf ServiceProviderAdminDepartmentAccess)
@@ -563,11 +879,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminDepartmentAccess($ServiceProviderAdminDepartmentAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing department lists
+     *         within the service provider.
+     */
     public function getServiceProviderAdminDepartmentAccess()
     {
-        return (!$this->ServiceProviderAdminDepartmentAccess) ?: $this->ServiceProviderAdminDepartmentAccess->value();
+        return (!$this->ServiceProviderAdminDepartmentAccess) ?: $this->ServiceProviderAdminDepartmentAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing access devices.
+     */
     public function setServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess = null)
     {
         $this->serviceProviderAdminAccessDeviceAccess = ($serviceProviderAdminAccessDeviceAccess InstanceOf ServiceProviderAdminAccessDeviceAccess)
@@ -575,11 +898,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing access devices.
+     */
     public function getServiceProviderAdminAccessDeviceAccess()
     {
-        return (!$this->serviceProviderAdminAccessDeviceAccess) ?: $this->serviceProviderAdminAccessDeviceAccess->value();
+        return (!$this->serviceProviderAdminAccessDeviceAccess) ?: $this->serviceProviderAdminAccessDeviceAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing phone numbers or
+     *         extensions.
+     */
     public function setServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess = null)
     {
         $this->serviceProviderAdminPhoneNumberExtensionAccess = ($serviceProviderAdminPhoneNumberExtensionAccess InstanceOf ServiceProviderAdminPhoneNumberExtensionAccess)
@@ -587,11 +917,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing phone numbers or
+     *         extensions.
+     */
     public function getServiceProviderAdminPhoneNumberExtensionAccess()
     {
-        return (!$this->serviceProviderAdminPhoneNumberExtensionAccess) ?: $this->serviceProviderAdminPhoneNumberExtensionAccess->value();
+        return (!$this->serviceProviderAdminPhoneNumberExtensionAccess) ?: $this->serviceProviderAdminPhoneNumberExtensionAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing calling line id number.
+     */
     public function setServiceProviderAdminCallingLineIdNumberAccess($serviceProviderAdminCallingLineIdNumberAccess = null)
     {
         $this->serviceProviderAdminCallingLineIdNumberAccess = ($serviceProviderAdminCallingLineIdNumberAccess InstanceOf ServiceProviderAdminCallingLineIdNumberAccess)
@@ -599,11 +936,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminCallingLineIdNumberAccess($serviceProviderAdminCallingLineIdNumberAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing calling line id number.
+     */
     public function getServiceProviderAdminCallingLineIdNumberAccess()
     {
-        return (!$this->serviceProviderAdminCallingLineIdNumberAccess) ?: $this->serviceProviderAdminCallingLineIdNumberAccess->value();
+        return (!$this->serviceProviderAdminCallingLineIdNumberAccess) ?: $this->serviceProviderAdminCallingLineIdNumberAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing services.
+     *         "No Authorization" was added in release 14.
+     */
     public function setServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess = null)
     {
         $this->serviceProviderAdminServiceAccess = ($serviceProviderAdminServiceAccess InstanceOf ServiceProviderAdminServiceAccess)
@@ -611,11 +955,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing services.
+     *         "No Authorization" was added in release 14.
+     */
     public function getServiceProviderAdminServiceAccess()
     {
-        return (!$this->serviceProviderAdminServiceAccess) ?: $this->serviceProviderAdminServiceAccess->value();
+        return (!$this->serviceProviderAdminServiceAccess) ?: $this->serviceProviderAdminServiceAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing service packs.
+     */
     public function setServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess = null)
     {
         $this->serviceProviderAdminServicePackAccess = ($serviceProviderAdminServicePackAccess InstanceOf ServiceProviderAdminServicePackAccess)
@@ -623,11 +974,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing service packs.
+     */
     public function getServiceProviderAdminServicePackAccess()
     {
-        return (!$this->serviceProviderAdminServicePackAccess) ?: $this->serviceProviderAdminServicePackAccess->value();
+        return (!$this->serviceProviderAdminServicePackAccess) ?: $this->serviceProviderAdminServicePackAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing
+     *         the Session Admission Control information.
+     */
     public function setServiceProviderAdminSessionAdmissionControlAccess($serviceProviderAdminSessionAdmissionControlAccess = null)
     {
         $this->serviceProviderAdminSessionAdmissionControlAccess = ($serviceProviderAdminSessionAdmissionControlAccess InstanceOf ServiceProviderAdminSessionAdmissionControlAccess)
@@ -635,11 +993,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminSessionAdmissionControlAccess($serviceProviderAdminSessionAdmissionControlAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing
+     *         the Session Admission Control information.
+     */
     public function getServiceProviderAdminSessionAdmissionControlAccess()
     {
-        return (!$this->serviceProviderAdminSessionAdmissionControlAccess) ?: $this->serviceProviderAdminSessionAdmissionControlAccess->value();
+        return (!$this->serviceProviderAdminSessionAdmissionControlAccess) ?: $this->serviceProviderAdminSessionAdmissionControlAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing web branding.
+     */
     public function setServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess = null)
     {
         $this->serviceProviderAdminWebBrandingAccess = ($serviceProviderAdminWebBrandingAccess InstanceOf ServiceProviderAdminWebBrandingAccess)
@@ -647,11 +1012,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing web branding.
+     */
     public function getServiceProviderAdminWebBrandingAccess()
     {
-        return (!$this->serviceProviderAdminWebBrandingAccess) ?: $this->serviceProviderAdminWebBrandingAccess->value();
+        return (!$this->serviceProviderAdminWebBrandingAccess) ?: $this->serviceProviderAdminWebBrandingAccess->getValue();
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing
+     *         the Office Zone information.
+     */
     public function setServiceProviderAdminOfficeZoneAccess($serviceProviderAdminOfficeZoneAccess = null)
     {
         $this->serviceProviderAdminOfficeZoneAccess = ($serviceProviderAdminOfficeZoneAccess InstanceOf ServiceProviderAdminOfficeZoneAccess)
@@ -659,11 +1031,19 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminOfficeZoneAccess($serviceProviderAdminOfficeZoneAccess);
     }
 
+    /**
+     * Service Provider Administrator's policy for accessing
+     *         the Office Zone information.
+     */
     public function getServiceProviderAdminOfficeZoneAccess()
     {
-        return (!$this->serviceProviderAdminOfficeZoneAccess) ?: $this->serviceProviderAdminOfficeZoneAccess->value();
+        return (!$this->serviceProviderAdminOfficeZoneAccess) ?: $this->serviceProviderAdminOfficeZoneAccess->getValue();
     }
 
+    /**
+     * Service Providers Administrator's policy for accessing
+     *         the Communication Barring information.
+     */
     public function setServiceProviderAdminCommunicationBarringAccess($serviceProviderAdminCommunicationBarringAccess = null)
     {
         $this->serviceProviderAdminCommunicationBarringAccess = ($serviceProviderAdminCommunicationBarringAccess InstanceOf ServiceProviderAdminCommunicationBarringAccess)
@@ -671,11 +1051,19 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminCommunicationBarringAccess($serviceProviderAdminCommunicationBarringAccess);
     }
 
+    /**
+     * Service Providers Administrator's policy for accessing
+     *         the Communication Barring information.
+     */
     public function getServiceProviderAdminCommunicationBarringAccess()
     {
-        return (!$this->serviceProviderAdminCommunicationBarringAccess) ?: $this->serviceProviderAdminCommunicationBarringAccess->value();
+        return (!$this->serviceProviderAdminCommunicationBarringAccess) ?: $this->serviceProviderAdminCommunicationBarringAccess->getValue();
     }
 
+    /**
+     * This data type is applicable only for an Enterprise administrator.
+     *         It specifies the Enterprise Administrator's policy for accessing network policies (e.g. - VoiceVPN).
+     */
     public function setEnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess = null)
     {
         $this->enterpriseAdminNetworkPolicyAccess = ($enterpriseAdminNetworkPolicyAccess InstanceOf EnterpriseAdminNetworkPolicyAccess)
@@ -683,11 +1071,18 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new EnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess);
     }
 
+    /**
+     * This data type is applicable only for an Enterprise administrator.
+     *         It specifies the Enterprise Administrator's policy for accessing network policies (e.g. - VoiceVPN).
+     */
     public function getEnterpriseAdminNetworkPolicyAccess()
     {
-        return (!$this->enterpriseAdminNetworkPolicyAccess) ?: $this->enterpriseAdminNetworkPolicyAccess->value();
+        return (!$this->enterpriseAdminNetworkPolicyAccess) ?: $this->enterpriseAdminNetworkPolicyAccess->getValue();
     }
 
+    /**
+     * Policy for accessing the service provider Dialable Caller ID configuration.
+     */
     public function setServiceProviderAdminDialableCallerIDAccess($serviceProviderAdminDialableCallerIDAccess = null)
     {
         $this->serviceProviderAdminDialableCallerIDAccess = ($serviceProviderAdminDialableCallerIDAccess InstanceOf ServiceProviderAdminDialableCallerIDAccess)
@@ -695,8 +1090,11 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
              : new ServiceProviderAdminDialableCallerIDAccess($serviceProviderAdminDialableCallerIDAccess);
     }
 
+    /**
+     * Policy for accessing the service provider Dialable Caller ID configuration.
+     */
     public function getServiceProviderAdminDialableCallerIDAccess()
     {
-        return (!$this->serviceProviderAdminDialableCallerIDAccess) ?: $this->serviceProviderAdminDialableCallerIDAccess->value();
+        return (!$this->serviceProviderAdminDialableCallerIDAccess) ?: $this->serviceProviderAdminDialableCallerIDAccess->getValue();
     }
 }

@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Report interval for call center enhanced reporting scheduled reports.
+     * Report interval for call center enhanced reporting scheduled reports.
  */
 class CallCenterReportInterval extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportInterval';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

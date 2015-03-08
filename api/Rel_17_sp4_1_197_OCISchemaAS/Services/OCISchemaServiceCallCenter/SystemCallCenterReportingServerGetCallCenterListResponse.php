@@ -13,23 +13,31 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the
+     * Response to the
  *         SystemCallCenterReportingServerGetCallCenterListRequest.
  *         Contains a table with column headings: "Service Provider Id",
  *         "Group Id","Service User Id", "Name", "Phone", "Extension".
  */
 class SystemCallCenterReportingServerGetCallCenterListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $callCenterTable  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse';
+    public    $name            = __CLASS__;
+    protected $callCenterTable = null;
 
 
+    /**
+     * 
+     */
     public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
+        $this->callCenterTable = core:OCITable $callCenterTable;
     }
 
+    /**
+     * 
+     */
     public function getCallCenterTable()
     {
-        return (!$this->callCenterTable) ?: $this->callCenterTable->value();
+        return (!$this->callCenterTable) ?: $this->callCenterTable->getValue();
     }
 }

@@ -16,16 +16,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a SMDI Server for a user.
+     * Request to add a SMDI Server for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSMDIMessageDeskAddServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $userId      = null;
-    protected $deviceName  = null;
-    protected $netAddress  = null;
-    protected $port        = null;
+    public    $name       = __CLASS__;
+    protected $userId     = null;
+    protected $deviceName = null;
+    protected $netAddress = null;
+    protected $port       = null;
 
     public function __construct(
          $userId,
@@ -39,6 +39,13 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
         $this->setPort($port);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -46,11 +53,21 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * SMDI device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
@@ -58,11 +75,17 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
              : new SMDIDeviceName($deviceName);
     }
 
+    /**
+     * SMDI device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = ($netAddress InstanceOf NetAddress)
@@ -70,11 +93,17 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
              : new NetAddress($netAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->value();
+        return (!$this->netAddress) ?: $this->netAddress->getValue();
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function setPort($port = null)
     {
         $this->port = ($port InstanceOf Port)
@@ -82,8 +111,11 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
              : new Port($port);
     }
 
+    /**
+     * TCP/IP Port.
+     */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->value();
+        return (!$this->port) ?: $this->port->getValue();
     }
 }

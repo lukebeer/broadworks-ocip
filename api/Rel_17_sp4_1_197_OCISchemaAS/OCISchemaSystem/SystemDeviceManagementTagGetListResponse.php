@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemDeviceManagementTagGetListRequest.
+     * Response to SystemDeviceManagementTagGetListRequest.
  *         Contains a table of custom configuration tags managed by the Device Management System.
  *         The column headings are: "Tag Name", "Tag Value".
  */
 class SystemDeviceManagementTagGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $tagsTable  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagGetListResponse';
+    public    $name      = __CLASS__;
+    protected $tagsTable = null;
 
 
+    /**
+     * 
+     */
     public function setTagsTable(core:OCITable $tagsTable = null)
     {
+        $this->tagsTable = core:OCITable $tagsTable;
     }
 
+    /**
+     * 
+     */
     public function getTagsTable()
     {
-        return (!$this->tagsTable) ?: $this->tagsTable->value();
+        return (!$this->tagsTable) ?: $this->tagsTable->getValue();
     }
 }

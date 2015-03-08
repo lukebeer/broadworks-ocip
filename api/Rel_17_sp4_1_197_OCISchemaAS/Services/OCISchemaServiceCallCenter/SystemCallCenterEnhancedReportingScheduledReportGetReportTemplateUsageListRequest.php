@@ -13,15 +13,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get all the call center reporting scheduled report in the system that uses a 
+     * Request to get all the call center reporting scheduled report in the system that uses a 
  *         given system level report template. 
  *         The response is either a SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse
  *         or an ErrorResponse.
  */
 class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse';
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -29,6 +30,9 @@ class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageList
         $this->setName($name);
     }
 
+    /**
+     * The call center enhanced reporting report template name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
@@ -36,8 +40,11 @@ class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageList
              : new CallCenterReportTemplateName($name);
     }
 
+    /**
+     * The call center enhanced reporting report template name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

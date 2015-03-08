@@ -15,15 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get an existing Digit Pattern Criteria.
+     * Get an existing Digit Pattern Criteria.
  *         The response is either a SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
-    protected $name                        = null;
-    protected $responseSizeLimit           = null;
-    protected $searchCriteriaDigitPattern  = null;
+    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse';
+    public    $name                       = __CLASS__;
+    protected $name                       = null;
+    protected $responseSizeLimit          = null;
+    protected $searchCriteriaDigitPattern = null;
 
     public function __construct(
          $name,
@@ -35,6 +36,9 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
         $this->setSearchCriteriaDigitPattern($searchCriteriaDigitPattern);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
@@ -42,11 +46,19 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
              : new DigitPatternCriteriaName($name);
     }
 
+    /**
+     * Digit Pattern Criteria Name
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -54,17 +66,29 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for digit pattern.
+     */
     public function setSearchCriteriaDigitPattern(SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null)
     {
+        $this->searchCriteriaDigitPattern = SearchCriteriaDigitPattern $searchCriteriaDigitPattern;
     }
 
+    /**
+     * Criteria for searching for digit pattern.
+     */
     public function getSearchCriteriaDigitPattern()
     {
-        return (!$this->searchCriteriaDigitPattern) ?: $this->searchCriteriaDigitPattern->value();
+        return (!$this->searchCriteriaDigitPattern) ?: $this->searchCriteriaDigitPattern->getValue();
     }
 }

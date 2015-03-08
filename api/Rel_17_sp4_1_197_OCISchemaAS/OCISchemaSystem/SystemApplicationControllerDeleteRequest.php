@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete an application controller.
+     * Delete an application controller.
  *       The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemApplicationControllerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $name  = null;
+    public    $name = __CLASS__;
+    protected $name = null;
 
     public function __construct(
          $name
@@ -27,6 +27,9 @@ class SystemApplicationControllerDeleteRequest extends ComplexType implements Co
         $this->setName($name);
     }
 
+    /**
+     * The application controller name.
+     */
     public function setName($name = null)
     {
         $this->name = ($name InstanceOf ApplicationControllerName)
@@ -34,8 +37,11 @@ class SystemApplicationControllerDeleteRequest extends ComplexType implements Co
              : new ApplicationControllerName($name);
     }
 
+    /**
+     * The application controller name.
+     */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->value();
+        return (!$this->name) ?: $this->name->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the SMDI access control list.
+     * Get the SMDI access control list.
  *         The response is either SystemSMDIGetACLListResponse or ErrorResponse.
  */
 class SystemSMDIGetACLListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMDIGetACLListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a system schedule.
+     * Modify a system schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $scheduleKey      = null;
-    protected $newScheduleName  = null;
+    public    $name            = __CLASS__;
+    protected $scheduleKey     = null;
+    protected $newScheduleName = null;
 
     public function __construct(
          ScheduleKey $scheduleKey,
@@ -31,15 +31,25 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
         $this->setNewScheduleName($newScheduleName);
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
+        $this->scheduleKey = ScheduleKey $scheduleKey;
     }
 
+    /**
+     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->value();
+        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
     }
 
+    /**
+     * Schedule name.
+     */
     public function setNewScheduleName($newScheduleName = null)
     {
         $this->newScheduleName = ($newScheduleName InstanceOf ScheduleName)
@@ -47,8 +57,11 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
              : new ScheduleName($newScheduleName);
     }
 
+    /**
+     * Schedule name.
+     */
     public function getNewScheduleName()
     {
-        return (!$this->newScheduleName) ?: $this->newScheduleName->value();
+        return (!$this->newScheduleName) ?: $this->newScheduleName->getValue();
     }
 }

@@ -15,18 +15,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Assign a list of Network Classes of Service to a group.
+     * Assign a list of Network Classes of Service to a group.
  *         The Element defaultNetworkClassOfService is required only for the first     
  *         assignment, for subsequent assignments it is optional.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
-    protected $serviceProviderId             = null;
-    protected $groupId                       = null;
-    protected $networkClassOfService         = null;
-    protected $defaultNetworkClassOfService  = null;
+    public    $name                         = __CLASS__;
+    protected $serviceProviderId            = null;
+    protected $groupId                      = null;
+    protected $networkClassOfService        = null;
+    protected $defaultNetworkClassOfService = null;
 
     public function __construct(
          $serviceProviderId,
@@ -40,6 +40,10 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
         $this->setDefaultNetworkClassOfService($defaultNetworkClassOfService);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -47,11 +51,19 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -59,11 +71,18 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
@@ -71,11 +90,17 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
              : new NetworkClassOfServiceName($networkClassOfService);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->value();
+        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function setDefaultNetworkClassOfService($defaultNetworkClassOfService = null)
     {
         $this->defaultNetworkClassOfService = ($defaultNetworkClassOfService InstanceOf NetworkClassOfServiceName)
@@ -83,8 +108,11 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
              : new NetworkClassOfServiceName($defaultNetworkClassOfService);
     }
 
+    /**
+     * Network Class of Service name.
+     */
     public function getDefaultNetworkClassOfService()
     {
-        return (!$this->defaultNetworkClassOfService) ?: $this->defaultNetworkClassOfService->value();
+        return (!$this->defaultNetworkClassOfService) ?: $this->defaultNetworkClassOfService->getValue();
     }
 }

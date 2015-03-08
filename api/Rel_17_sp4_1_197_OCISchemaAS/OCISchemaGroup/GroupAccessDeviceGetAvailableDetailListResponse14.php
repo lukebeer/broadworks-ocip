@@ -13,21 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupAccessDeviceGetAvailableDetailListRequest14.
+     * Response to GroupAccessDeviceGetAvailableDetailListRequest14.
  */
 class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $availableAccessDevice  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14';
+    public    $name                  = __CLASS__;
+    protected $availableAccessDevice = null;
 
 
-    public function setAvailableAccessDevice(xs:boolean $availableAccessDevice = null)
+    /**
+     * 
+     */
+    public function setAvailableAccessDevice($availableAccessDevice = null)
     {
         $this->availableAccessDevice = $availableAccessDevice;
     }
 
+    /**
+     * 
+     */
     public function getAvailableAccessDevice()
     {
-        return (!$this->availableAccessDevice) ?: $this->availableAccessDevice->value();
+        return (!$this->availableAccessDevice) ?: $this->availableAccessDevice->getValue();
     }
 }

@@ -13,31 +13,46 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the EnterpriseCallCenterCurrentAndPastAgentGetListRequest.
+     * Response to the EnterpriseCallCenterCurrentAndPastAgentGetListRequest.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $agentUserTable         = null;
-    protected $deletedAgentUserTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastAgentGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $agentUserTable        = null;
+    protected $deletedAgentUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setAgentUserTable(core:OCITable $agentUserTable = null)
     {
+        $this->agentUserTable = core:OCITable $agentUserTable;
     }
 
+    /**
+     * 
+     */
     public function getAgentUserTable()
     {
-        return (!$this->agentUserTable) ?: $this->agentUserTable->value();
+        return (!$this->agentUserTable) ?: $this->agentUserTable->getValue();
     }
 
+    /**
+     * 
+     */
     public function setDeletedAgentUserTable(core:OCITable $deletedAgentUserTable = null)
     {
+        $this->deletedAgentUserTable = core:OCITable $deletedAgentUserTable;
     }
 
+    /**
+     * 
+     */
     public function getDeletedAgentUserTable()
     {
-        return (!$this->deletedAgentUserTable) ?: $this->deletedAgentUserTable->value();
+        return (!$this->deletedAgentUserTable) ?: $this->deletedAgentUserTable->getValue();
     }
 }

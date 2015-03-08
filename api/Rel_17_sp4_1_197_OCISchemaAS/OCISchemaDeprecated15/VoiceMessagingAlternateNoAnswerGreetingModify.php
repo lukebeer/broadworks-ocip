@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * The configuration of a alternate no answer greeting.
+     * The configuration of a alternate no answer greeting.
  *         It is used when modifying a user's voice messaging greeting.
  */
 class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\VoiceMessagingAlternateNoAnswerGreetingModify';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

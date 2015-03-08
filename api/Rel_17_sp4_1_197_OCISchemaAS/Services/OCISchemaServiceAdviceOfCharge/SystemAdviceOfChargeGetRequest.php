@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of Advice of Charge system parameters.
+     * Request to get the list of Advice of Charge system parameters.
  *         The response is either SystemAdviceOfChargeGetResponse or ErrorResponse.
  */
 class SystemAdviceOfChargeGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge\SystemAdviceOfChargeGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

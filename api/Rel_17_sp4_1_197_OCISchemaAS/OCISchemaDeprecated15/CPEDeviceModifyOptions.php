@@ -13,7 +13,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * CPE device's options when used with a modify request.
+     * CPE device's options when used with a modify request.
  *         The following options are not changeable:
  *           configType
  *           systemFileName
@@ -21,6 +21,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class CPEDeviceModifyOptions extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CPEDeviceModifyOptions';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

@@ -14,30 +14,45 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListRequest.
+     * Response to GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListRequest.
  */
 class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $groupPermissions       = null;
-    protected $departmentPermissions  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse';
+    public    $name                  = __CLASS__;
+    protected $groupPermissions      = null;
+    protected $departmentPermissions = null;
 
 
+    /**
+     * Outgoing Pinhole Digit Plan redirecting call permissions for specified digit patterns.
+     */
     public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $groupPermissions = null)
     {
+        $this->groupPermissions = OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $groupPermissions;
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan redirecting call permissions for specified digit patterns.
+     */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->value();
+        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan initiating call forwards/transfer permissions for a department.
+     */
     public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions = null)
     {
+        $this->departmentPermissions = OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions;
     }
 
+    /**
+     * Outgoing Pinhole Digit Plan initiating call forwards/transfer permissions for a department.
+     */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->value();
+        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
     }
 }

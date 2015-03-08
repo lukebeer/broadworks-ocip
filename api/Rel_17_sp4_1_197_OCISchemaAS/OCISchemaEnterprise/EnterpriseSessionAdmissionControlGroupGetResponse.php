@@ -14,23 +14,27 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterpriseSessionAdmissionControlGroupGetRequest.
+     * Response to EnterpriseSessionAdmissionControlGroupGetRequest.
  *         Returns the profile information for the session admission control group.
  */
 class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $maxSession                       = null;
-    protected $maxUserOriginatingSessions       = null;
-    protected $maxUserTerminatingSessions       = null;
-    protected $reservedSession                  = null;
-    protected $reservedUserOriginatingSessions  = null;
-    protected $reservedUserTerminatingSessions  = null;
-    protected $defaultGroup                     = null;
-    protected $countIntraSACGroupSessions       = null;
-    protected $devices                          = null;
+    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetResponse';
+    public    $name                            = __CLASS__;
+    protected $maxSession                      = null;
+    protected $maxUserOriginatingSessions      = null;
+    protected $maxUserTerminatingSessions      = null;
+    protected $reservedSession                 = null;
+    protected $reservedUserOriginatingSessions = null;
+    protected $reservedUserTerminatingSessions = null;
+    protected $defaultGroup                    = null;
+    protected $countIntraSACGroupSessions      = null;
+    protected $devices                         = null;
 
 
+    /**
+     * Non-negative integer.
+     */
     public function setMaxSession($maxSession = null)
     {
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
@@ -38,11 +42,17 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
              : new NonNegativeInt($maxSession);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getMaxSession()
     {
-        return (!$this->maxSession) ?: $this->maxSession->value();
+        return (!$this->maxSession) ?: $this->maxSession->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
@@ -50,11 +60,17 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
              : new NonNegativeInt($maxUserOriginatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getMaxUserOriginatingSessions()
     {
-        return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->value();
+        return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
@@ -62,11 +78,17 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
              : new NonNegativeInt($maxUserTerminatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getMaxUserTerminatingSessions()
     {
-        return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->value();
+        return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setReservedSession($reservedSession = null)
     {
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
@@ -74,11 +96,17 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
              : new NonNegativeInt($reservedSession);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getReservedSession()
     {
-        return (!$this->reservedSession) ?: $this->reservedSession->value();
+        return (!$this->reservedSession) ?: $this->reservedSession->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions = null)
     {
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
@@ -86,11 +114,17 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
              : new NonNegativeInt($reservedUserOriginatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getReservedUserOriginatingSessions()
     {
-        return (!$this->reservedUserOriginatingSessions) ?: $this->reservedUserOriginatingSessions->value();
+        return (!$this->reservedUserOriginatingSessions) ?: $this->reservedUserOriginatingSessions->getValue();
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions = null)
     {
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
@@ -98,35 +132,59 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
              : new NonNegativeInt($reservedUserTerminatingSessions);
     }
 
+    /**
+     * Non-negative integer.
+     */
     public function getReservedUserTerminatingSessions()
     {
-        return (!$this->reservedUserTerminatingSessions) ?: $this->reservedUserTerminatingSessions->value();
+        return (!$this->reservedUserTerminatingSessions) ?: $this->reservedUserTerminatingSessions->getValue();
     }
 
-    public function setDefaultGroup(xs:boolean $defaultGroup = null)
+    /**
+     * 
+     */
+    public function setDefaultGroup($defaultGroup = null)
     {
+        $this->defaultGroup = (boolean) $defaultGroup;
     }
 
+    /**
+     * 
+     */
     public function getDefaultGroup()
     {
-        return (!$this->defaultGroup) ?: $this->defaultGroup->value();
+        return (!$this->defaultGroup) ?: $this->defaultGroup->getValue();
     }
 
-    public function setCountIntraSACGroupSessions(xs:boolean $countIntraSACGroupSessions = null)
+    /**
+     * 
+     */
+    public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
+        $this->countIntraSACGroupSessions = (boolean) $countIntraSACGroupSessions;
     }
 
+    /**
+     * 
+     */
     public function getCountIntraSACGroupSessions()
     {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->value();
+        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->getValue();
     }
 
+    /**
+     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+     */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
+        $this->devices = EnterpriseAccessDevice $devices;
     }
 
+    /**
+     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+     */
     public function getDevices()
     {
-        return (!$this->devices) ?: $this->devices->value();
+        return (!$this->devices) ?: $this->devices->getValue();
     }
 }

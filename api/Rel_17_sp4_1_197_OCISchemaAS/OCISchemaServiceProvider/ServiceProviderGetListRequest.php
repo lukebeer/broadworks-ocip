@@ -15,18 +15,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request a list of service providers and/or enterprises in the system.
+     * Request a list of service providers and/or enterprises in the system.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a ServiceProviderGetListResponse or an ErrorResponse.
  */
 class ServiceProviderGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
-    protected $isEnterprise                       = null;
-    protected $responseSizeLimit                  = null;
-    protected $searchCriteriaServiceProviderId    = null;
-    protected $searchCriteriaServiceProviderName  = null;
+    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetListResponse';
+    public    $name                              = __CLASS__;
+    protected $isEnterprise                      = null;
+    protected $responseSizeLimit                 = null;
+    protected $searchCriteriaServiceProviderId   = null;
+    protected $searchCriteriaServiceProviderName = null;
 
     public function __construct(
          $isEnterprise = null,
@@ -40,15 +41,27 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
         $this->setSearchCriteriaServiceProviderName($searchCriteriaServiceProviderName);
     }
 
-    public function setIsEnterprise(xs:boolean $isEnterprise = null)
+    /**
+     * 
+     */
+    public function setIsEnterprise($isEnterprise = null)
     {
+        $this->isEnterprise = (boolean) $isEnterprise;
     }
 
+    /**
+     * 
+     */
     public function getIsEnterprise()
     {
-        return (!$this->isEnterprise) ?: $this->isEnterprise->value();
+        return (!$this->isEnterprise) ?: $this->isEnterprise->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -56,26 +69,45 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a service provider ID.
+     */
     public function setSearchCriteriaServiceProviderId(SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null)
     {
+        $this->searchCriteriaServiceProviderId = SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId;
     }
 
+    /**
+     * Criteria for searching for a service provider ID.
+     */
     public function getSearchCriteriaServiceProviderId()
     {
-        return (!$this->searchCriteriaServiceProviderId) ?: $this->searchCriteriaServiceProviderId->value();
+        return (!$this->searchCriteriaServiceProviderId) ?: $this->searchCriteriaServiceProviderId->getValue();
     }
 
+    /**
+     * Criteria for searching for a service provider name.
+     */
     public function setSearchCriteriaServiceProviderName(SearchCriteriaServiceProviderName $searchCriteriaServiceProviderName = null)
     {
+        $this->searchCriteriaServiceProviderName = SearchCriteriaServiceProviderName $searchCriteriaServiceProviderName;
     }
 
+    /**
+     * Criteria for searching for a service provider name.
+     */
     public function getSearchCriteriaServiceProviderName()
     {
-        return (!$this->searchCriteriaServiceProviderName) ?: $this->searchCriteriaServiceProviderName->value();
+        return (!$this->searchCriteriaServiceProviderName) ?: $this->searchCriteriaServiceProviderName->getValue();
     }
 }

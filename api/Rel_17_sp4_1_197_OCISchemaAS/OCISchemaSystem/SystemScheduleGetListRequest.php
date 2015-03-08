@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get the list of a system schedules. The list can be filtered by schedule type.
+     * Get the list of a system schedules. The list can be filtered by schedule type.
  *         The response is either a SystemScheduleGetListResponse or an ErrorResponse.
  */
 class SystemScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
-    protected $scheduleType  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetListResponse';
+    public    $name         = __CLASS__;
+    protected $scheduleType = null;
 
     public function __construct(
          $scheduleType = null
@@ -27,6 +28,9 @@ class SystemScheduleGetListRequest extends ComplexType implements ComplexInterfa
         $this->setScheduleType($scheduleType);
     }
 
+    /**
+     * Schedule type.
+     */
     public function setScheduleType($scheduleType = null)
     {
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
@@ -34,8 +38,11 @@ class SystemScheduleGetListRequest extends ComplexType implements ComplexInterfa
              : new ScheduleType($scheduleType);
     }
 
+    /**
+     * Schedule type.
+     */
     public function getScheduleType()
     {
-        return (!$this->scheduleType) ?: $this->scheduleType->value();
+        return (!$this->scheduleType) ?: $this->scheduleType->getValue();
     }
 }

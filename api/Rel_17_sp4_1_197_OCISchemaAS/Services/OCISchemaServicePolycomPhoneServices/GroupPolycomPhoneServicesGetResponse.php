@@ -13,34 +13,52 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupPolycomPhoneServicesGetRequest.
+     * Response to GroupPolycomPhoneServicesGetRequest.
  */
 class GroupPolycomPhoneServicesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                           = __CLASS__;
-    protected $includeGroupCommonPhoneListInDirectory         = null;
-    protected $includeGroupCustomContactDirectoryInDirectory  = null;
-    protected $groupCustomContactDirectory                    = null;
+    const     RESPONSE_TYPE                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices\GroupPolycomPhoneServicesGetResponse';
+    public    $name                                          = __CLASS__;
+    protected $includeGroupCommonPhoneListInDirectory        = null;
+    protected $includeGroupCustomContactDirectoryInDirectory = null;
+    protected $groupCustomContactDirectory                   = null;
 
 
-    public function setIncludeGroupCommonPhoneListInDirectory(xs:boolean $includeGroupCommonPhoneListInDirectory = null)
+    /**
+     * 
+     */
+    public function setIncludeGroupCommonPhoneListInDirectory($includeGroupCommonPhoneListInDirectory = null)
     {
+        $this->includeGroupCommonPhoneListInDirectory = (boolean) $includeGroupCommonPhoneListInDirectory;
     }
 
+    /**
+     * 
+     */
     public function getIncludeGroupCommonPhoneListInDirectory()
     {
-        return (!$this->includeGroupCommonPhoneListInDirectory) ?: $this->includeGroupCommonPhoneListInDirectory->value();
+        return (!$this->includeGroupCommonPhoneListInDirectory) ?: $this->includeGroupCommonPhoneListInDirectory->getValue();
     }
 
-    public function setIncludeGroupCustomContactDirectoryInDirectory(xs:boolean $includeGroupCustomContactDirectoryInDirectory = null)
+    /**
+     * 
+     */
+    public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory = null)
     {
+        $this->includeGroupCustomContactDirectoryInDirectory = (boolean) $includeGroupCustomContactDirectoryInDirectory;
     }
 
+    /**
+     * 
+     */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
-        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->value();
+        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->getValue();
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function setGroupCustomContactDirectory($groupCustomContactDirectory = null)
     {
         $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
@@ -48,8 +66,11 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
              : new CustomContactDirectoryName($groupCustomContactDirectory);
     }
 
+    /**
+     * Custom Contact Directory name.
+     */
     public function getGroupCustomContactDirectory()
     {
-        return (!$this->groupCustomContactDirectory) ?: $this->groupCustomContactDirectory->value();
+        return (!$this->groupCustomContactDirectory) ?: $this->groupCustomContactDirectory->getValue();
     }
 }

@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to GroupCallCenterEnhancedGetRequest.
+     * Response to GroupCallCenterEnhancedGetRequest.
  */
 class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
-    protected $overrideAgentWrapUpTime  = null;
-    protected $wrapUpSeconds            = null;
+    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterEnhancedGetResponse';
+    public    $name                    = __CLASS__;
+    protected $overrideAgentWrapUpTime = null;
+    protected $wrapUpSeconds           = null;
 
 
-    public function setOverrideAgentWrapUpTime(xs:boolean $overrideAgentWrapUpTime = null)
+    /**
+     * 
+     */
+    public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
+        $this->overrideAgentWrapUpTime = (boolean) $overrideAgentWrapUpTime;
     }
 
+    /**
+     * 
+     */
     public function getOverrideAgentWrapUpTime()
     {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->value();
+        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->getValue();
     }
 
+    /**
+     * The ACD wrap up time in seconds.
+     */
     public function setWrapUpSeconds($wrapUpSeconds = null)
     {
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
@@ -38,8 +49,11 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
     }
 
+    /**
+     * The ACD wrap up time in seconds.
+     */
     public function getWrapUpSeconds()
     {
-        return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->value();
+        return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->getValue();
     }
 }

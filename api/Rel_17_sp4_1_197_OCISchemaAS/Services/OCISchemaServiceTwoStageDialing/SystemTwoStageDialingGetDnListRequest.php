@@ -14,15 +14,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get a list of Two Stage Dialing dns defined in the system.
+     * Request to get a list of Two Stage Dialing dns defined in the system.
  *           The response is either a SystemTwoStageDialingGetDnListResponse
  *           or an ErrorResponse.
  */
 class SystemTwoStageDialingGetDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $responseSizeLimit              = null;
-    protected $searchCriteriaSystemServiceDn  = null;
+    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
+    public    $name                          = __CLASS__;
+    protected $responseSizeLimit             = null;
+    protected $searchCriteriaSystemServiceDn = null;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -32,6 +33,11 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
         $this->setSearchCriteriaSystemServiceDn($searchCriteriaSystemServiceDn);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -39,17 +45,29 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for a system service DN.
+     */
     public function setSearchCriteriaSystemServiceDn(SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn = null)
     {
+        $this->searchCriteriaSystemServiceDn = SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn;
     }
 
+    /**
+     * Criteria for searching for a system service DN.
+     */
     public function getSearchCriteriaSystemServiceDn()
     {
-        return (!$this->searchCriteriaSystemServiceDn) ?: $this->searchCriteriaSystemServiceDn->value();
+        return (!$this->searchCriteriaSystemServiceDn) ?: $this->searchCriteriaSystemServiceDn->getValue();
     }
 }

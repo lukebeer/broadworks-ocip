@@ -13,14 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a system Anonymous Call Rejection parameter.
+     * Modify a system Anonymous Call Rejection parameter.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $paiRequired           = null;
-    protected $screenOnlyLocalCalls  = null;
+    public    $name                 = __CLASS__;
+    protected $paiRequired          = null;
+    protected $screenOnlyLocalCalls = null;
 
     public function __construct(
          $paiRequired = null,
@@ -30,21 +30,35 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
         $this->setScreenOnlyLocalCalls($screenOnlyLocalCalls);
     }
 
-    public function setPaiRequired(xs:boolean $paiRequired = null)
+    /**
+     * 
+     */
+    public function setPaiRequired($paiRequired = null)
     {
+        $this->paiRequired = (boolean) $paiRequired;
     }
 
+    /**
+     * 
+     */
     public function getPaiRequired()
     {
-        return (!$this->paiRequired) ?: $this->paiRequired->value();
+        return (!$this->paiRequired) ?: $this->paiRequired->getValue();
     }
 
-    public function setScreenOnlyLocalCalls(xs:boolean $screenOnlyLocalCalls = null)
+    /**
+     * 
+     */
+    public function setScreenOnlyLocalCalls($screenOnlyLocalCalls = null)
     {
+        $this->screenOnlyLocalCalls = (boolean) $screenOnlyLocalCalls;
     }
 
+    /**
+     * 
+     */
     public function getScreenOnlyLocalCalls()
     {
-        return (!$this->screenOnlyLocalCalls) ?: $this->screenOnlyLocalCalls->value();
+        return (!$this->screenOnlyLocalCalls) ?: $this->screenOnlyLocalCalls->getValue();
     }
 }

@@ -23,34 +23,34 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify the service provider's password rules settings
+     * Request to modify the service provider's password rules settings
  *         setting applicable to Administrators (Group and Department) and Users.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
-    protected $serviceProviderId                       = null;
-    protected $rulesApplyTo                            = null;
-    protected $allowWebAddExternalAuthenticationUsers  = null;
-    protected $disallowUserId                          = null;
-    protected $disallowOldPassword                     = null;
-    protected $disallowReversedOldPassword             = null;
-    protected $restrictMinDigits                       = null;
-    protected $minDigits                               = null;
-    protected $restrictMinUpperCaseLetters             = null;
-    protected $minUpperCaseLetters                     = null;
-    protected $restrictMinLowerCaseLetters             = null;
-    protected $minLowerCaseLetters                     = null;
-    protected $restrictMinNonAlphanumericCharacters    = null;
-    protected $minNonAlphanumericCharacters            = null;
-    protected $minLength                               = null;
-    protected $maxFailedLoginAttempts                  = null;
-    protected $passwordExpiresDays                     = null;
-    protected $sendLoginDisabledNotifyEmail            = null;
-    protected $loginDisabledNotifyEmailAddress         = null;
-    protected $disallowPreviousPasswords               = null;
-    protected $numberOfPreviousPasswords               = null;
+    public    $name                                   = __CLASS__;
+    protected $serviceProviderId                      = null;
+    protected $rulesApplyTo                           = null;
+    protected $allowWebAddExternalAuthenticationUsers = null;
+    protected $disallowUserId                         = null;
+    protected $disallowOldPassword                    = null;
+    protected $disallowReversedOldPassword            = null;
+    protected $restrictMinDigits                      = null;
+    protected $minDigits                              = null;
+    protected $restrictMinUpperCaseLetters            = null;
+    protected $minUpperCaseLetters                    = null;
+    protected $restrictMinLowerCaseLetters            = null;
+    protected $minLowerCaseLetters                    = null;
+    protected $restrictMinNonAlphanumericCharacters   = null;
+    protected $minNonAlphanumericCharacters           = null;
+    protected $minLength                              = null;
+    protected $maxFailedLoginAttempts                 = null;
+    protected $passwordExpiresDays                    = null;
+    protected $sendLoginDisabledNotifyEmail           = null;
+    protected $loginDisabledNotifyEmailAddress        = null;
+    protected $disallowPreviousPasswords              = null;
+    protected $numberOfPreviousPasswords              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -98,6 +98,10 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
         $this->setNumberOfPreviousPasswords($numberOfPreviousPasswords);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -105,11 +109,20 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * User types for which the Service Provider Password Rules apply.
+     *         The rules could apply to the Administrators (Group and Department) or
+     *         Administrators (Group and Department) and Users.
+     */
     public function setRulesApplyTo($rulesApplyTo = null)
     {
         $this->rulesApplyTo = ($rulesApplyTo InstanceOf ServiceProviderPasswordRulesApplyTo)
@@ -117,56 +130,99 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new ServiceProviderPasswordRulesApplyTo($rulesApplyTo);
     }
 
+    /**
+     * User types for which the Service Provider Password Rules apply.
+     *         The rules could apply to the Administrators (Group and Department) or
+     *         Administrators (Group and Department) and Users.
+     */
     public function getRulesApplyTo()
     {
-        return (!$this->rulesApplyTo) ?: $this->rulesApplyTo->value();
+        return (!$this->rulesApplyTo) ?: $this->rulesApplyTo->getValue();
     }
 
-    public function setAllowWebAddExternalAuthenticationUsers(xs:boolean $allowWebAddExternalAuthenticationUsers = null)
+    /**
+     * 
+     */
+    public function setAllowWebAddExternalAuthenticationUsers($allowWebAddExternalAuthenticationUsers = null)
     {
+        $this->allowWebAddExternalAuthenticationUsers = (boolean) $allowWebAddExternalAuthenticationUsers;
     }
 
+    /**
+     * 
+     */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
-        return (!$this->allowWebAddExternalAuthenticationUsers) ?: $this->allowWebAddExternalAuthenticationUsers->value();
+        return (!$this->allowWebAddExternalAuthenticationUsers) ?: $this->allowWebAddExternalAuthenticationUsers->getValue();
     }
 
-    public function setDisallowUserId(xs:boolean $disallowUserId = null)
+    /**
+     * 
+     */
+    public function setDisallowUserId($disallowUserId = null)
     {
+        $this->disallowUserId = (boolean) $disallowUserId;
     }
 
+    /**
+     * 
+     */
     public function getDisallowUserId()
     {
-        return (!$this->disallowUserId) ?: $this->disallowUserId->value();
+        return (!$this->disallowUserId) ?: $this->disallowUserId->getValue();
     }
 
-    public function setDisallowOldPassword(xs:boolean $disallowOldPassword = null)
+    /**
+     * 
+     */
+    public function setDisallowOldPassword($disallowOldPassword = null)
     {
+        $this->disallowOldPassword = (boolean) $disallowOldPassword;
     }
 
+    /**
+     * 
+     */
     public function getDisallowOldPassword()
     {
-        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword->value();
+        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword->getValue();
     }
 
-    public function setDisallowReversedOldPassword(xs:boolean $disallowReversedOldPassword = null)
+    /**
+     * 
+     */
+    public function setDisallowReversedOldPassword($disallowReversedOldPassword = null)
     {
+        $this->disallowReversedOldPassword = (boolean) $disallowReversedOldPassword;
     }
 
+    /**
+     * 
+     */
     public function getDisallowReversedOldPassword()
     {
-        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword->value();
+        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword->getValue();
     }
 
-    public function setRestrictMinDigits(xs:boolean $restrictMinDigits = null)
+    /**
+     * 
+     */
+    public function setRestrictMinDigits($restrictMinDigits = null)
     {
+        $this->restrictMinDigits = (boolean) $restrictMinDigits;
     }
 
+    /**
+     * 
+     */
     public function getRestrictMinDigits()
     {
-        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits->value();
+        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits->getValue();
     }
 
+    /**
+     * Password Rules can be used to require at least this many numeric digits in passwords.
+     */
     public function setMinDigits($minDigits = null)
     {
         $this->minDigits = ($minDigits InstanceOf PasswordMinDigits)
@@ -174,20 +230,33 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new PasswordMinDigits($minDigits);
     }
 
+    /**
+     * Password Rules can be used to require at least this many numeric digits in passwords.
+     */
     public function getMinDigits()
     {
-        return (!$this->minDigits) ?: $this->minDigits->value();
+        return (!$this->minDigits) ?: $this->minDigits->getValue();
     }
 
-    public function setRestrictMinUpperCaseLetters(xs:boolean $restrictMinUpperCaseLetters = null)
+    /**
+     * 
+     */
+    public function setRestrictMinUpperCaseLetters($restrictMinUpperCaseLetters = null)
     {
+        $this->restrictMinUpperCaseLetters = (boolean) $restrictMinUpperCaseLetters;
     }
 
+    /**
+     * 
+     */
     public function getRestrictMinUpperCaseLetters()
     {
-        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters->value();
+        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters->getValue();
     }
 
+    /**
+     * Password Rules can be used to require at least this many uppercase letters in passwords.
+     */
     public function setMinUpperCaseLetters($minUpperCaseLetters = null)
     {
         $this->minUpperCaseLetters = ($minUpperCaseLetters InstanceOf PasswordMinUpperCaseLetters)
@@ -195,20 +264,33 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new PasswordMinUpperCaseLetters($minUpperCaseLetters);
     }
 
+    /**
+     * Password Rules can be used to require at least this many uppercase letters in passwords.
+     */
     public function getMinUpperCaseLetters()
     {
-        return (!$this->minUpperCaseLetters) ?: $this->minUpperCaseLetters->value();
+        return (!$this->minUpperCaseLetters) ?: $this->minUpperCaseLetters->getValue();
     }
 
-    public function setRestrictMinLowerCaseLetters(xs:boolean $restrictMinLowerCaseLetters = null)
+    /**
+     * 
+     */
+    public function setRestrictMinLowerCaseLetters($restrictMinLowerCaseLetters = null)
     {
+        $this->restrictMinLowerCaseLetters = (boolean) $restrictMinLowerCaseLetters;
     }
 
+    /**
+     * 
+     */
     public function getRestrictMinLowerCaseLetters()
     {
-        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters->value();
+        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters->getValue();
     }
 
+    /**
+     * Password Rules can be used to require at least this many lowercase letters in passwords.
+     */
     public function setMinLowerCaseLetters($minLowerCaseLetters = null)
     {
         $this->minLowerCaseLetters = ($minLowerCaseLetters InstanceOf PasswordMinLowerCaseLetters)
@@ -216,20 +298,33 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new PasswordMinLowerCaseLetters($minLowerCaseLetters);
     }
 
+    /**
+     * Password Rules can be used to require at least this many lowercase letters in passwords.
+     */
     public function getMinLowerCaseLetters()
     {
-        return (!$this->minLowerCaseLetters) ?: $this->minLowerCaseLetters->value();
+        return (!$this->minLowerCaseLetters) ?: $this->minLowerCaseLetters->getValue();
     }
 
-    public function setRestrictMinNonAlphanumericCharacters(xs:boolean $restrictMinNonAlphanumericCharacters = null)
+    /**
+     * 
+     */
+    public function setRestrictMinNonAlphanumericCharacters($restrictMinNonAlphanumericCharacters = null)
     {
+        $this->restrictMinNonAlphanumericCharacters = (boolean) $restrictMinNonAlphanumericCharacters;
     }
 
+    /**
+     * 
+     */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters->value();
+        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters->getValue();
     }
 
+    /**
+     * Password Rules can be used to require at least this many non-alphanumeric characters in passwords.
+     */
     public function setMinNonAlphanumericCharacters($minNonAlphanumericCharacters = null)
     {
         $this->minNonAlphanumericCharacters = ($minNonAlphanumericCharacters InstanceOf PasswordMinNonAlphanumericCharacters)
@@ -237,11 +332,17 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
     }
 
+    /**
+     * Password Rules can be used to require at least this many non-alphanumeric characters in passwords.
+     */
     public function getMinNonAlphanumericCharacters()
     {
-        return (!$this->minNonAlphanumericCharacters) ?: $this->minNonAlphanumericCharacters->value();
+        return (!$this->minNonAlphanumericCharacters) ?: $this->minNonAlphanumericCharacters->getValue();
     }
 
+    /**
+     * Password Rules can be used to require at least this total characters in passwords.
+     */
     public function setMinLength($minLength = null)
     {
         $this->minLength = ($minLength InstanceOf PasswordMinLength)
@@ -249,11 +350,17 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new PasswordMinLength($minLength);
     }
 
+    /**
+     * Password Rules can be used to require at least this total characters in passwords.
+     */
     public function getMinLength()
     {
-        return (!$this->minLength) ?: $this->minLength->value();
+        return (!$this->minLength) ?: $this->minLength->getValue();
     }
 
+    /**
+     * Password Rules can be used to specify the maximum allowed failed login attempts.
+     */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf MaxFailedLoginAttempts)
@@ -261,11 +368,17 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new MaxFailedLoginAttempts($maxFailedLoginAttempts);
     }
 
+    /**
+     * Password Rules can be used to specify the maximum allowed failed login attempts.
+     */
     public function getMaxFailedLoginAttempts()
     {
-        return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->value();
+        return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->getValue();
     }
 
+    /**
+     * Password Rules can be used to specify when passwords expire.
+     */
     public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
         $this->passwordExpiresDays = ($passwordExpiresDays InstanceOf PasswordExpiresDays)
@@ -273,20 +386,33 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new PasswordExpiresDays($passwordExpiresDays);
     }
 
+    /**
+     * Password Rules can be used to specify when passwords expire.
+     */
     public function getPasswordExpiresDays()
     {
-        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->value();
+        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->getValue();
     }
 
-    public function setSendLoginDisabledNotifyEmail(xs:boolean $sendLoginDisabledNotifyEmail = null)
+    /**
+     * 
+     */
+    public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
+        $this->sendLoginDisabledNotifyEmail = (boolean) $sendLoginDisabledNotifyEmail;
     }
 
+    /**
+     * 
+     */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->value();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
     }
 
+    /**
+     * Email Address
+     */
     public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
@@ -294,20 +420,33 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new EmailAddress($loginDisabledNotifyEmailAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return (!$this->loginDisabledNotifyEmailAddress) ?: $this->loginDisabledNotifyEmailAddress->value();
+        return (!$this->loginDisabledNotifyEmailAddress) ?: $this->loginDisabledNotifyEmailAddress->getValue();
     }
 
-    public function setDisallowPreviousPasswords(xs:boolean $disallowPreviousPasswords = null)
+    /**
+     * 
+     */
+    public function setDisallowPreviousPasswords($disallowPreviousPasswords = null)
     {
+        $this->disallowPreviousPasswords = (boolean) $disallowPreviousPasswords;
     }
 
+    /**
+     * 
+     */
     public function getDisallowPreviousPasswords()
     {
-        return (!$this->disallowPreviousPasswords) ?: $this->disallowPreviousPasswords->value();
+        return (!$this->disallowPreviousPasswords) ?: $this->disallowPreviousPasswords->getValue();
     }
 
+    /**
+     * Number of previous passwords to keep.
+     */
     public function setNumberOfPreviousPasswords($numberOfPreviousPasswords = null)
     {
         $this->numberOfPreviousPasswords = ($numberOfPreviousPasswords InstanceOf PasswordHistoryCount)
@@ -315,8 +454,11 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
              : new PasswordHistoryCount($numberOfPreviousPasswords);
     }
 
+    /**
+     * Number of previous passwords to keep.
+     */
     public function getNumberOfPreviousPasswords()
     {
-        return (!$this->numberOfPreviousPasswords) ?: $this->numberOfPreviousPasswords->value();
+        return (!$this->numberOfPreviousPasswords) ?: $this->numberOfPreviousPasswords->getValue();
     }
 }

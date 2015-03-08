@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemAliasGetListRequest. Contains the list of all network alias' for
+     * Response to SystemAliasGetListRequest. Contains the list of all network alias' for
  *         the Application Server.
  */
 class SystemAliasGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
-    protected $aliasNetAddress  = null;
+    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAliasGetListResponse';
+    public    $name            = __CLASS__;
+    protected $aliasNetAddress = null;
 
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setAliasNetAddress($aliasNetAddress = null)
     {
         $this->aliasNetAddress = ($aliasNetAddress InstanceOf NetAddress)
@@ -29,8 +33,11 @@ class SystemAliasGetListResponse extends ComplexType implements ComplexInterface
              : new NetAddress($aliasNetAddress);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getAliasNetAddress()
     {
-        return (!$this->aliasNetAddress) ?: $this->aliasNetAddress->value();
+        return (!$this->aliasNetAddress) ?: $this->aliasNetAddress->getValue();
     }
 }

@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with SystemSelectiveServicesRequest.
+     * Modify the system level data associated with SystemSelectiveServicesRequest.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSelectiveServicesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $scheduleCombination  = null;
+    public    $name                = __CLASS__;
+    protected $scheduleCombination = null;
 
     public function __construct(
          $scheduleCombination = null
@@ -27,6 +27,9 @@ class SystemSelectiveServicesModifyRequest extends ComplexType implements Comple
         $this->setScheduleCombination($scheduleCombination);
     }
 
+    /**
+     * Schedule Combination.
+     */
     public function setScheduleCombination($scheduleCombination = null)
     {
         $this->scheduleCombination = ($scheduleCombination InstanceOf ScheduleCombinationType)
@@ -34,8 +37,11 @@ class SystemSelectiveServicesModifyRequest extends ComplexType implements Comple
              : new ScheduleCombinationType($scheduleCombination);
     }
 
+    /**
+     * Schedule Combination.
+     */
     public function getScheduleCombination()
     {
-        return (!$this->scheduleCombination) ?: $this->scheduleCombination->value();
+        return (!$this->scheduleCombination) ?: $this->scheduleCombination->getValue();
     }
 }

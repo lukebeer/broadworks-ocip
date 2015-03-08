@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify File System parameters.
+     * Request to modify File System parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemConfigurableFileSystemModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $mediaDirectory  = null;
+    public    $name           = __CLASS__;
+    protected $mediaDirectory = null;
 
     public function __construct(
          $mediaDirectory = null
@@ -27,6 +27,9 @@ class SystemConfigurableFileSystemModifyRequest extends ComplexType implements C
         $this->setMediaDirectory($mediaDirectory);
     }
 
+    /**
+     * Audio/Video File Directory location.
+     */
     public function setMediaDirectory($mediaDirectory = null)
     {
         $this->mediaDirectory = ($mediaDirectory InstanceOf ConfigurableFileSystemDirectory)
@@ -34,8 +37,11 @@ class SystemConfigurableFileSystemModifyRequest extends ComplexType implements C
              : new ConfigurableFileSystemDirectory($mediaDirectory);
     }
 
+    /**
+     * Audio/Video File Directory location.
+     */
     public function getMediaDirectory()
     {
-        return (!$this->mediaDirectory) ?: $this->mediaDirectory->value();
+        return (!$this->mediaDirectory) ?: $this->mediaDirectory->getValue();
     }
 }

@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Either all agents or 2 list of agents: one for current and one for past (deleted) agents. 
+     * Either all agents or 2 list of agents: one for current and one for past (deleted) agents. 
  *          This is used when an admin reads a Scheduled Report.
  *          Each agent table has the following column headings:
  *          "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
  */
 class CallCenterScheduledReportAgentSelectionAdminRead extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterScheduledReportAgentSelectionAdminRead';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

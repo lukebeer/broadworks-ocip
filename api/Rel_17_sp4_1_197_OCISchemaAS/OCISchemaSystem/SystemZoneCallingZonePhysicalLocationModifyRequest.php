@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modifies a zone calling physical location for a given zone.
+     * Modifies a zone calling physical location for a given zone.
  * 	     Response is a SuccessResponse or an ErrorResponse.
  */
 class SystemZoneCallingZonePhysicalLocationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $zoneName          = null;
-    protected $physicalLocation  = null;
+    public    $name             = __CLASS__;
+    protected $zoneName         = null;
+    protected $physicalLocation = null;
 
     public function __construct(
          $zoneName,
@@ -31,6 +31,9 @@ class SystemZoneCallingZonePhysicalLocationModifyRequest extends ComplexType imp
         $this->setPhysicalLocation($physicalLocation);
     }
 
+    /**
+     * Zone Name.
+     */
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = ($zoneName InstanceOf ZoneName)
@@ -38,11 +41,17 @@ class SystemZoneCallingZonePhysicalLocationModifyRequest extends ComplexType imp
              : new ZoneName($zoneName);
     }
 
+    /**
+     * Zone Name.
+     */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->value();
+        return (!$this->zoneName) ?: $this->zoneName->getValue();
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function setPhysicalLocation($physicalLocation = null)
     {
         $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
@@ -50,8 +59,11 @@ class SystemZoneCallingZonePhysicalLocationModifyRequest extends ComplexType imp
              : new PhysicalLocation($physicalLocation);
     }
 
+    /**
+     * Physical geographic location of the zone
+     */
     public function getPhysicalLocation()
     {
-        return (!$this->physicalLocation) ?: $this->physicalLocation->value();
+        return (!$this->physicalLocation) ?: $this->physicalLocation->getValue();
     }
 }

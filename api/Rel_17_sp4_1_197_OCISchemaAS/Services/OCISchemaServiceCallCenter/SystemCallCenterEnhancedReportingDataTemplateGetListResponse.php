@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemCallCenterEnhancedReportingDataTemplateGetListRequest.
+     * Response to SystemCallCenterEnhancedReportingDataTemplateGetListRequest.
  */
 class SystemCallCenterEnhancedReportingDataTemplateGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $info  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingDataTemplateGetListResponse';
+    public    $name = __CLASS__;
+    protected $info = null;
 
 
+    /**
+     * Call center reporting data template info.
+     */
     public function setInfo(CallCenterReportDataTemplateInfo $info = null)
     {
+        $this->info = CallCenterReportDataTemplateInfo $info;
     }
 
+    /**
+     * Call center reporting data template info.
+     */
     public function getInfo()
     {
-        return (!$this->info) ?: $this->info->value();
+        return (!$this->info) ?: $this->info->getValue();
     }
 }

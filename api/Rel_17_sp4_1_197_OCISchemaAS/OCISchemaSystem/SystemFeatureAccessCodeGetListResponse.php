@@ -13,20 +13,28 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the SystemFeatureAccessCodeGetListRequest.
+     * Response to the SystemFeatureAccessCodeGetListRequest.
  */
 class SystemFeatureAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $featureAccessCode  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFeatureAccessCodeGetListResponse';
+    public    $name              = __CLASS__;
+    protected $featureAccessCode = null;
 
 
+    /**
+     * Feature Access Code Entry
+     */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
+        $this->featureAccessCode = FeatureAccessCodeEntry $featureAccessCode;
     }
 
+    /**
+     * Feature Access Code Entry
+     */
     public function getFeatureAccessCode()
     {
-        return (!$this->featureAccessCode) ?: $this->featureAccessCode->value();
+        return (!$this->featureAccessCode) ?: $this->featureAccessCode->getValue();
     }
 }

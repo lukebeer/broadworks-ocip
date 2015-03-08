@@ -14,17 +14,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupCallParkGetRequest.
+     * Response to the GroupCallParkGetRequest.
  *           Contains the settings that apply to the whole group for Call Park.
  */
 class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
-    protected $recallTimerSeconds             = null;
-    protected $displayTimerSeconds            = null;
-    protected $enableDestinationAnnouncement  = null;
+    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallParkGetResponse';
+    public    $name                          = __CLASS__;
+    protected $recallTimerSeconds            = null;
+    protected $displayTimerSeconds           = null;
+    protected $enableDestinationAnnouncement = null;
 
 
+    /**
+     * The timer determines how long a call can be parked before the parker is recalled.
+     */
     public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
         $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf CallParkRecallTimerSeconds)
@@ -32,11 +36,17 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
              : new CallParkRecallTimerSeconds($recallTimerSeconds);
     }
 
+    /**
+     * The timer determines how long a call can be parked before the parker is recalled.
+     */
     public function getRecallTimerSeconds()
     {
-        return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->value();
+        return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->getValue();
     }
 
+    /**
+     * The timer determines how long the extension/DN of the parked against user is displayed.
+     */
     public function setDisplayTimerSeconds($displayTimerSeconds = null)
     {
         $this->displayTimerSeconds = ($displayTimerSeconds InstanceOf CallParkDisplayTimerSeconds)
@@ -44,17 +54,27 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
              : new CallParkDisplayTimerSeconds($displayTimerSeconds);
     }
 
+    /**
+     * The timer determines how long the extension/DN of the parked against user is displayed.
+     */
     public function getDisplayTimerSeconds()
     {
-        return (!$this->displayTimerSeconds) ?: $this->displayTimerSeconds->value();
+        return (!$this->displayTimerSeconds) ?: $this->displayTimerSeconds->getValue();
     }
 
-    public function setEnableDestinationAnnouncement(xs:boolean $enableDestinationAnnouncement = null)
+    /**
+     * 
+     */
+    public function setEnableDestinationAnnouncement($enableDestinationAnnouncement = null)
     {
+        $this->enableDestinationAnnouncement = (boolean) $enableDestinationAnnouncement;
     }
 
+    /**
+     * 
+     */
     public function getEnableDestinationAnnouncement()
     {
-        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement->value();
+        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement->getValue();
     }
 }

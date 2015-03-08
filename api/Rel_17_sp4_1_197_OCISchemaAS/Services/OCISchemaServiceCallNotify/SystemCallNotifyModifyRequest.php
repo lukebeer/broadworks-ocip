@@ -13,15 +13,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the system level data associated with Call Notify.
+     * Modify the system level data associated with Call Notify.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallNotifyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $defaultFromAddress   = null;
-    protected $useShortSubjectLine  = null;
-    protected $useDnInMailBody      = null;
+    public    $name                = __CLASS__;
+    protected $defaultFromAddress  = null;
+    protected $useShortSubjectLine = null;
+    protected $useDnInMailBody     = null;
 
     public function __construct(
          $defaultFromAddress = null,
@@ -33,6 +33,9 @@ class SystemCallNotifyModifyRequest extends ComplexType implements ComplexInterf
         $this->setUseDnInMailBody($useDnInMailBody);
     }
 
+    /**
+     * Email Address
+     */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
@@ -40,26 +43,43 @@ class SystemCallNotifyModifyRequest extends ComplexType implements ComplexInterf
              : new EmailAddress($defaultFromAddress);
     }
 
+    /**
+     * Email Address
+     */
     public function getDefaultFromAddress()
     {
-        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->value();
+        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->getValue();
     }
 
-    public function setUseShortSubjectLine(xs:boolean $useShortSubjectLine = null)
+    /**
+     * 
+     */
+    public function setUseShortSubjectLine($useShortSubjectLine = null)
     {
+        $this->useShortSubjectLine = (boolean) $useShortSubjectLine;
     }
 
+    /**
+     * 
+     */
     public function getUseShortSubjectLine()
     {
-        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->value();
+        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->getValue();
     }
 
-    public function setUseDnInMailBody(xs:boolean $useDnInMailBody = null)
+    /**
+     * 
+     */
+    public function setUseDnInMailBody($useDnInMailBody = null)
     {
+        $this->useDnInMailBody = (boolean) $useDnInMailBody;
     }
 
+    /**
+     * 
+     */
     public function getUseDnInMailBody()
     {
-        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->value();
+        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->getValue();
     }
 }

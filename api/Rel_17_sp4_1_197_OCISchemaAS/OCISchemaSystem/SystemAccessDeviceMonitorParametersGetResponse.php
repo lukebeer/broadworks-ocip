@@ -13,15 +13,20 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemAccessDeviceMonitorParametersGetListRequest.
+     * Response to SystemAccessDeviceMonitorParametersGetListRequest.
  *         Contains a list of system Access Device Monitor parameters.
  */
 class SystemAccessDeviceMonitorParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
-    protected $pollingIntervalMinutes  = null;
+    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceMonitorParametersGetResponse';
+    public    $name                   = __CLASS__;
+    protected $pollingIntervalMinutes = null;
 
 
+    /**
+     * Polling interval in minutes.
+     *         Setting the monitoring interval to zero will turn it off.
+     */
     public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf AccessDeviceMonitorPollingIntervalMinutes)
@@ -29,8 +34,12 @@ class SystemAccessDeviceMonitorParametersGetResponse extends ComplexType impleme
              : new AccessDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
     }
 
+    /**
+     * Polling interval in minutes.
+     *         Setting the monitoring interval to zero will turn it off.
+     */
     public function getPollingIntervalMinutes()
     {
-        return (!$this->pollingIntervalMinutes) ?: $this->pollingIntervalMinutes->value();
+        return (!$this->pollingIntervalMinutes) ?: $this->pollingIntervalMinutes->getValue();
     }
 }

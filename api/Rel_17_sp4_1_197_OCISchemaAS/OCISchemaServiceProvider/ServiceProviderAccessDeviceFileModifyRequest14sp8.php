@@ -17,17 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to modify a specified service provider/enterprise access device file.
+     * Request to modify a specified service provider/enterprise access device file.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $deviceName         = null;
-    protected $fileFormat         = null;
-    protected $fileSource         = null;
-    protected $uploadFile         = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $deviceName        = null;
+    protected $fileFormat        = null;
+    protected $fileSource        = null;
+    protected $uploadFile        = null;
 
     public function __construct(
          $serviceProviderId,
@@ -43,6 +43,10 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
         $this->setUploadFile($uploadFile);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -50,11 +54,18 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -62,11 +73,17 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function setFileFormat($fileFormat = null)
     {
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
@@ -74,11 +91,17 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
              : new DeviceManagementFileFormat($fileFormat);
     }
 
+    /**
+     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->value();
+        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
     }
 
+    /**
+     * Choices for the access device configuration mode.
+     */
     public function setFileSource($fileSource = null)
     {
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
@@ -86,17 +109,29 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
     }
 
+    /**
+     * Choices for the access device configuration mode.
+     */
     public function getFileSource()
     {
-        return (!$this->fileSource) ?: $this->fileSource->value();
+        return (!$this->fileSource) ?: $this->fileSource->getValue();
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer.
+     */
     public function setUploadFile(FileResource $uploadFile = null)
     {
+        $this->uploadFile = FileResource $uploadFile;
     }
 
+    /**
+     * Represents either an existing file for the application server to use, or
+     *         the contents of a file to transfer.
+     */
     public function getUploadFile()
     {
-        return (!$this->uploadFile) ?: $this->uploadFile->value();
+        return (!$this->uploadFile) ?: $this->uploadFile->getValue();
     }
 }

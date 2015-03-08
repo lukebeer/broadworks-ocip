@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user's Portal passcode
+     * Modify the user's Portal passcode
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
-    protected $userId       = null;
-    protected $oldPasscode  = null;
-    protected $newPasscode  = null;
+    public    $name        = __CLASS__;
+    protected $userId      = null;
+    protected $oldPasscode = null;
+    protected $newPasscode = null;
 
     public function __construct(
          $userId,
@@ -34,6 +34,13 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
         $this->setNewPasscode($newPasscode);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -41,11 +48,21 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
+    /**
+     * Portal passcode
+     */
     public function setOldPasscode($oldPasscode = null)
     {
         $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
@@ -53,11 +70,17 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
              : new Passcode($oldPasscode);
     }
 
+    /**
+     * Portal passcode
+     */
     public function getOldPasscode()
     {
-        return (!$this->oldPasscode) ?: $this->oldPasscode->value();
+        return (!$this->oldPasscode) ?: $this->oldPasscode->getValue();
     }
 
+    /**
+     * Portal passcode
+     */
     public function setNewPasscode($newPasscode = null)
     {
         $this->newPasscode = ($newPasscode InstanceOf Passcode)
@@ -65,8 +88,11 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
              : new Passcode($newPasscode);
     }
 
+    /**
+     * Portal passcode
+     */
     public function getNewPasscode()
     {
-        return (!$this->newPasscode) ?: $this->newPasscode->value();
+        return (!$this->newPasscode) ?: $this->newPasscode->getValue();
     }
 }

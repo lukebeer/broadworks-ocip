@@ -17,18 +17,22 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserCommPilotExpressSRGetRequest13mp16.
+     * Response to the UserCommPilotExpressSRGetRequest13mp16.
  */
 class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
-    protected $profile               = null;
-    protected $availableInOffice     = null;
-    protected $availableOutOfOffice  = null;
-    protected $busy                  = null;
-    protected $unavailable           = null;
+    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16';
+    public    $name                 = __CLASS__;
+    protected $profile              = null;
+    protected $availableInOffice    = null;
+    protected $availableOutOfOffice = null;
+    protected $busy                 = null;
+    protected $unavailable          = null;
 
 
+    /**
+     * CommPilot Express SR Profile Type.
+     */
     public function setProfile($profile = null)
     {
         $this->profile = ($profile InstanceOf CommPilotExpressSRProfile)
@@ -36,44 +40,75 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
              : new CommPilotExpressSRProfile($profile);
     }
 
+    /**
+     * CommPilot Express SR Profile Type.
+     */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->value();
+        return (!$this->profile) ?: $this->profile->getValue();
     }
 
+    /**
+     * CommPilot Express SR Available In Office Settings used in the context of a get.
+     */
     public function setAvailableInOffice(CommPilotExpressSRAvailableInOffice $availableInOffice = null)
     {
+        $this->availableInOffice = CommPilotExpressSRAvailableInOffice $availableInOffice;
     }
 
+    /**
+     * CommPilot Express SR Available In Office Settings used in the context of a get.
+     */
     public function getAvailableInOffice()
     {
-        return (!$this->availableInOffice) ?: $this->availableInOffice->value();
+        return (!$this->availableInOffice) ?: $this->availableInOffice->getValue();
     }
 
+    /**
+     * CommPilot Express SR Available Out Of Office Configuration used in the context of a get.
+     */
     public function setAvailableOutOfOffice(CommPilotExpressSRAvailableOutOfOffice $availableOutOfOffice = null)
     {
+        $this->availableOutOfOffice = CommPilotExpressSRAvailableOutOfOffice $availableOutOfOffice;
     }
 
+    /**
+     * CommPilot Express SR Available Out Of Office Configuration used in the context of a get.
+     */
     public function getAvailableOutOfOffice()
     {
-        return (!$this->availableOutOfOffice) ?: $this->availableOutOfOffice->value();
+        return (!$this->availableOutOfOffice) ?: $this->availableOutOfOffice->getValue();
     }
 
+    /**
+     * CommPilot Express SR Available In Office Configuration used in the context of a get.
+     */
     public function setBusy(CommPilotExpressSRBusy $busy = null)
     {
+        $this->busy = CommPilotExpressSRBusy $busy;
     }
 
+    /**
+     * CommPilot Express SR Available In Office Configuration used in the context of a get.
+     */
     public function getBusy()
     {
-        return (!$this->busy) ?: $this->busy->value();
+        return (!$this->busy) ?: $this->busy->getValue();
     }
 
+    /**
+     * CommPilot Express SR Unavailable Configuration used in the context of a get.
+     */
     public function setUnavailable(CommPilotExpressSRUnavailable $unavailable = null)
     {
+        $this->unavailable = CommPilotExpressSRUnavailable $unavailable;
     }
 
+    /**
+     * CommPilot Express SR Unavailable Configuration used in the context of a get.
+     */
     public function getUnavailable()
     {
-        return (!$this->unavailable) ?: $this->unavailable->value();
+        return (!$this->unavailable) ?: $this->unavailable->getValue();
     }
 }

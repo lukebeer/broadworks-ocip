@@ -14,15 +14,15 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the user level data associated with Outlook Integration.
+     * Modify the user level data associated with Outlook Integration.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserOutlookIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $userId                     = null;
-    protected $isActive                   = null;
-    protected $contactRetrievalSelection  = null;
+    public    $name                      = __CLASS__;
+    protected $userId                    = null;
+    protected $isActive                  = null;
+    protected $contactRetrievalSelection = null;
 
     public function __construct(
          $userId,
@@ -34,6 +34,13 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
         $this->setContactRetrievalSelection($contactRetrievalSelection);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function setUserId($userId = null)
     {
         $this->userId = ($userId InstanceOf UserId)
@@ -41,20 +48,38 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
              : new UserId($userId);
     }
 
+    /**
+     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
+     *         If the domain is not specified, it is assumed to be the system default domain.
+     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
+     *         Hunt Groups, Call Centers....
+     *         The domain must not be specified for system-level and service-provider-level administrators.
+     */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->value();
+        return (!$this->userId) ?: $this->userId->getValue();
     }
 
-    public function setIsActive(xs:boolean $isActive = null)
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
     {
+        $this->isActive = (boolean) $isActive;
     }
 
+    /**
+     * 
+     */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->value();
+        return (!$this->isActive) ?: $this->isActive->getValue();
     }
 
+    /**
+     * Microsoft Outlook contact database search option.
+     *         Controls which contacts are retrieved from outlook.
+     */
     public function setContactRetrievalSelection($contactRetrievalSelection = null)
     {
         $this->contactRetrievalSelection = ($contactRetrievalSelection InstanceOf OutlookIntegrationContactRetrievalSelection)
@@ -62,8 +87,12 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
              : new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
     }
 
+    /**
+     * Microsoft Outlook contact database search option.
+     *         Controls which contacts are retrieved from outlook.
+     */
     public function getContactRetrievalSelection()
     {
-        return (!$this->contactRetrievalSelection) ?: $this->contactRetrievalSelection->value();
+        return (!$this->contactRetrievalSelection) ?: $this->contactRetrievalSelection->getValue();
     }
 }

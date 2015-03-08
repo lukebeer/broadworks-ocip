@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for user in/not in a trunk group.
+     * Criteria for searching for user in/not in a trunk group.
  */
 class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
-    protected $userInTrunkGroup  = null;
+    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserInTrunkGroup';
+    public    $name             = __CLASS__;
+    protected $userInTrunkGroup = null;
 
     public function __construct(
          $userInTrunkGroup
@@ -26,12 +27,19 @@ class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements Complex
         $this->setUserInTrunkGroup($userInTrunkGroup);
     }
 
-    public function setUserInTrunkGroup(xs:boolean $userInTrunkGroup = null)
+    /**
+     * 
+     */
+    public function setUserInTrunkGroup($userInTrunkGroup = null)
     {
+        $this->userInTrunkGroup = (boolean) $userInTrunkGroup;
     }
 
+    /**
+     * 
+     */
     public function getUserInTrunkGroup()
     {
-        return (!$this->userInTrunkGroup) ?: $this->userInTrunkGroup->value();
+        return (!$this->userInTrunkGroup) ?: $this->userInTrunkGroup->getValue();
     }
 }

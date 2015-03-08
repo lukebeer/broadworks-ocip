@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request the system level data associated with Call Me Now service.
+     * Request the system level data associated with Call Me Now service.
  *         The response is either a SystemCallMeNowGetResponse or an ErrorResponse.
  */
 class SystemCallMeNowGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\SystemCallMeNowGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

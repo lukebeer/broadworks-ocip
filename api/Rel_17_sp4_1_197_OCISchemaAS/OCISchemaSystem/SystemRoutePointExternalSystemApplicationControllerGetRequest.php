@@ -13,13 +13,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of Application Controllers assigned to the Route Point External Systems specified.
+     * Get a list of Application Controllers assigned to the Route Point External Systems specified.
  *       The response is either SystemRoutePointExternalSystemApplicationControllerGetResponse or ErrorResponse.
  */
 class SystemRoutePointExternalSystemApplicationControllerGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
-    protected $externalSystem  = null;
+    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemApplicationControllerGetResponse';
+    public    $name           = __CLASS__;
+    protected $externalSystem = null;
 
     public function __construct(
          $externalSystem
@@ -27,6 +28,9 @@ class SystemRoutePointExternalSystemApplicationControllerGetRequest extends Comp
         $this->setExternalSystem($externalSystem);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function setExternalSystem($externalSystem = null)
     {
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
@@ -34,8 +38,11 @@ class SystemRoutePointExternalSystemApplicationControllerGetRequest extends Comp
              : new RoutePointExternalSystem($externalSystem);
     }
 
+    /**
+     * The Route Point External System's name.
+     */
     public function getExternalSystem()
     {
-        return (!$this->externalSystem) ?: $this->externalSystem->value();
+        return (!$this->externalSystem) ?: $this->externalSystem->getValue();
     }
 }

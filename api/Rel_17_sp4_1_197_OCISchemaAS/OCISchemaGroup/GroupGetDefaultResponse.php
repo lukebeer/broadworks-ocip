@@ -16,17 +16,21 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the GroupGetDefaultRequest. All values are default values for a group's profile.
+     * Response to the GroupGetDefaultRequest. All values are default values for a group's profile.
  */
 class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $defaultDomain        = null;
-    protected $userLimit            = null;
-    protected $timeZone             = null;
-    protected $timeZoneDisplayName  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetDefaultResponse';
+    public    $name                = __CLASS__;
+    protected $defaultDomain       = null;
+    protected $userLimit           = null;
+    protected $timeZone            = null;
+    protected $timeZoneDisplayName = null;
 
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setDefaultDomain($defaultDomain = null)
     {
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
@@ -34,11 +38,17 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
              : new NetAddress($defaultDomain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->value();
+        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
     }
 
+    /**
+     * Configured maximum number of users in a group.
+     */
     public function setUserLimit($userLimit = null)
     {
         $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
@@ -46,11 +56,17 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
              : new GroupUserLimit($userLimit);
     }
 
+    /**
+     * Configured maximum number of users in a group.
+     */
     public function getUserLimit()
     {
-        return (!$this->userLimit) ?: $this->userLimit->value();
+        return (!$this->userLimit) ?: $this->userLimit->getValue();
     }
 
+    /**
+     * Time zone key.
+     */
     public function setTimeZone($timeZone = null)
     {
         $this->timeZone = ($timeZone InstanceOf TimeZone)
@@ -58,11 +74,17 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
              : new TimeZone($timeZone);
     }
 
+    /**
+     * Time zone key.
+     */
     public function getTimeZone()
     {
-        return (!$this->timeZone) ?: $this->timeZone->value();
+        return (!$this->timeZone) ?: $this->timeZone->getValue();
     }
 
+    /**
+     * Localized Time Zone Display Name
+     */
     public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
@@ -70,8 +92,11 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
              : new TimeZoneDisplayName($timeZoneDisplayName);
     }
 
+    /**
+     * Localized Time Zone Display Name
+     */
     public function getTimeZoneDisplayName()
     {
-        return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->value();
+        return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->getValue();
     }
 }

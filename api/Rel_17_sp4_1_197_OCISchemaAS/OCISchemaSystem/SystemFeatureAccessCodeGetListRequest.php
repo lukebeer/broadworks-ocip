@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get list of default Feature Access Codes defined on system level.
+     * Request to get list of default Feature Access Codes defined on system level.
  *         The response is either SystemFeatureAccessCodeGetListResponse or ErrorResponse.
  */
 class SystemFeatureAccessCodeGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFeatureAccessCodeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

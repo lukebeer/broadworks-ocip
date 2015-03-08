@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of system routing profiles.
+     * Request to get the list of system routing profiles.
  *         The response is either a SystemRoutingProfileGetListResponse or an ErrorResponse.
  */
 class SystemRoutingProfileGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingProfileGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

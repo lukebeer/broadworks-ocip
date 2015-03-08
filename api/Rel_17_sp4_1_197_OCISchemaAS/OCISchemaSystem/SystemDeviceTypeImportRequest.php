@@ -13,13 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to import a Device Type Archive File (DTAF) as a new Device Type.  The URL supports the HTTP and the FILE protocols.
+     * Request to import a Device Type Archive File (DTAF) as a new Device Type.  The URL supports the HTTP and the FILE protocols.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
-    protected $file  = null;
+    public    $name = __CLASS__;
+    protected $file = null;
 
     public function __construct(
          $file
@@ -27,6 +27,9 @@ class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterf
         $this->setFile($file);
     }
 
+    /**
+     * URL.
+     */
     public function setFile($file = null)
     {
         $this->file = ($file InstanceOf URL)
@@ -34,8 +37,11 @@ class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterf
              : new URL($file);
     }
 
+    /**
+     * URL.
+     */
     public function getFile()
     {
-        return (!$this->file) ?: $this->file->value();
+        return (!$this->file) ?: $this->file->getValue();
     }
 }

@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Get a list of system administrators.
+     * Get a list of system administrators.
  *         The response is either a SystemAdminGetResponse or an ErrorResponse.
  */
 class SystemAdminGetListRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

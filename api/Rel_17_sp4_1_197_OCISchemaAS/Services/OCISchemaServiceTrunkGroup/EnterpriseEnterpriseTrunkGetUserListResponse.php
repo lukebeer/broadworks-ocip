@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to EnterpriseEnterpriseTrunkGetUserListRequest.
+     * Response to EnterpriseEnterpriseTrunkGetUserListRequest.
  *         The column headings for the enterpriseTrunkUserTable are: "Group Id", "User Id", "Last Name", "First Name", "Phone Number", "Alternate Trunk Identity", "Hiragana Last Name", "Hiragana First Name".
  */
 class EnterpriseEnterpriseTrunkGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $enterpriseTrunkUserTable  = null;
+    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetUserListResponse';
+    public    $name                     = __CLASS__;
+    protected $enterpriseTrunkUserTable = null;
 
 
+    /**
+     * 
+     */
     public function setEnterpriseTrunkUserTable(core:OCITable $enterpriseTrunkUserTable = null)
     {
+        $this->enterpriseTrunkUserTable = core:OCITable $enterpriseTrunkUserTable;
     }
 
+    /**
+     * 
+     */
     public function getEnterpriseTrunkUserTable()
     {
-        return (!$this->enterpriseTrunkUserTable) ?: $this->enterpriseTrunkUserTable->value();
+        return (!$this->enterpriseTrunkUserTable) ?: $this->enterpriseTrunkUserTable->getValue();
     }
 }

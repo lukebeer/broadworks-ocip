@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Criteria for searching for a particular Dn activation state.
+     * Criteria for searching for a particular Dn activation state.
  */
 class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $activated  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDnActivation';
+    public    $name      = __CLASS__;
+    protected $activated = null;
 
     public function __construct(
          $activated
@@ -26,12 +27,19 @@ class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInte
         $this->setActivated($activated);
     }
 
-    public function setActivated(xs:boolean $activated = null)
+    /**
+     * 
+     */
+    public function setActivated($activated = null)
     {
+        $this->activated = (boolean) $activated;
     }
 
+    /**
+     * 
+     */
     public function getActivated()
     {
-        return (!$this->activated) ?: $this->activated->value();
+        return (!$this->activated) ?: $this->activated->getValue();
     }
 }

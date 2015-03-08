@@ -21,7 +21,7 @@ class SearchMode extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'string';
+        $this->dataType = (string);
         $this->addRestriction(new Enumeration([
             'Starts With',
             'Contains',

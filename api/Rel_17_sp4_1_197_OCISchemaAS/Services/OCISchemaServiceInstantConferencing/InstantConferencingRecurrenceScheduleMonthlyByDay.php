@@ -13,12 +13,13 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Monthly by day recurrence conference schedule used in the context of a conference add.
+     * Monthly by day recurrence conference schedule used in the context of a conference add.
  */
 class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
-    protected $dayOfMonth  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByDay';
+    public    $name       = __CLASS__;
+    protected $dayOfMonth = null;
 
     public function __construct(
          $dayOfMonth
@@ -26,6 +27,9 @@ class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType impl
         $this->setDayOfMonth($dayOfMonth);
     }
 
+    /**
+     * The day of month.
+     */
     public function setDayOfMonth($dayOfMonth = null)
     {
         $this->dayOfMonth = ($dayOfMonth InstanceOf DayOfMonth)
@@ -33,8 +37,11 @@ class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType impl
              : new DayOfMonth($dayOfMonth);
     }
 
+    /**
+     * The day of month.
+     */
     public function getDayOfMonth()
     {
-        return (!$this->dayOfMonth) ?: $this->dayOfMonth->value();
+        return (!$this->dayOfMonth) ?: $this->dayOfMonth->getValue();
     }
 }

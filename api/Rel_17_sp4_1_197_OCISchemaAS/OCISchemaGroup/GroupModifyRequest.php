@@ -23,23 +23,23 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify the profile for a group.
+     * Modify the profile for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $serviceProviderId         = null;
-    protected $groupId                   = null;
-    protected $defaultDomain             = null;
-    protected $userLimit                 = null;
-    protected $groupName                 = null;
-    protected $callingLineIdName         = null;
-    protected $callingLineIdPhoneNumber  = null;
-    protected $timeZone                  = null;
-    protected $locationDialingCode       = null;
-    protected $contact                   = null;
-    protected $address                   = null;
+    public    $name                     = __CLASS__;
+    protected $serviceProviderId        = null;
+    protected $groupId                  = null;
+    protected $defaultDomain            = null;
+    protected $userLimit                = null;
+    protected $groupName                = null;
+    protected $callingLineIdName        = null;
+    protected $callingLineIdPhoneNumber = null;
+    protected $timeZone                 = null;
+    protected $locationDialingCode      = null;
+    protected $contact                  = null;
+    protected $address                  = null;
 
     public function __construct(
          $serviceProviderId,
@@ -67,6 +67,10 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
         $this->setAddress($address);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -74,11 +78,19 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -86,11 +98,18 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function setDefaultDomain($defaultDomain = null)
     {
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
@@ -98,11 +117,17 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new NetAddress($defaultDomain);
     }
 
+    /**
+     * IP Address, hostname, or domain.
+     */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->value();
+        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
     }
 
+    /**
+     * Configured maximum number of users in a group.
+     */
     public function setUserLimit($userLimit = null)
     {
         $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
@@ -110,11 +135,17 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new GroupUserLimit($userLimit);
     }
 
+    /**
+     * Configured maximum number of users in a group.
+     */
     public function getUserLimit()
     {
-        return (!$this->userLimit) ?: $this->userLimit->value();
+        return (!$this->userLimit) ?: $this->userLimit->getValue();
     }
 
+    /**
+     * Group display name.
+     */
     public function setGroupName($groupName = null)
     {
         $this->groupName = ($groupName InstanceOf GroupName)
@@ -122,11 +153,17 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new GroupName($groupName);
     }
 
+    /**
+     * Group display name.
+     */
     public function getGroupName()
     {
-        return (!$this->groupName) ?: $this->groupName->value();
+        return (!$this->groupName) ?: $this->groupName->getValue();
     }
 
+    /**
+     * Group calling line ID name.
+     */
     public function setCallingLineIdName($callingLineIdName = null)
     {
         $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
@@ -134,11 +171,17 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new GroupCallingLineIdName($callingLineIdName);
     }
 
+    /**
+     * Group calling line ID name.
+     */
     public function getCallingLineIdName()
     {
-        return (!$this->callingLineIdName) ?: $this->callingLineIdName->value();
+        return (!$this->callingLineIdName) ?: $this->callingLineIdName->getValue();
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
@@ -146,11 +189,17 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new DN($callingLineIdPhoneNumber);
     }
 
+    /**
+     * Directory Number in E164 Format.
+     */
     public function getCallingLineIdPhoneNumber()
     {
-        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->value();
+        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->getValue();
     }
 
+    /**
+     * Time zone key.
+     */
     public function setTimeZone($timeZone = null)
     {
         $this->timeZone = ($timeZone InstanceOf TimeZone)
@@ -158,11 +207,17 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new TimeZone($timeZone);
     }
 
+    /**
+     * Time zone key.
+     */
     public function getTimeZone()
     {
-        return (!$this->timeZone) ?: $this->timeZone->value();
+        return (!$this->timeZone) ?: $this->timeZone->getValue();
     }
 
+    /**
+     * Group location dialing code for groups that are part of a enterprise.
+     */
     public function setLocationDialingCode($locationDialingCode = null)
     {
         $this->locationDialingCode = ($locationDialingCode InstanceOf LocationDialingCode)
@@ -170,26 +225,43 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
              : new LocationDialingCode($locationDialingCode);
     }
 
+    /**
+     * Group location dialing code for groups that are part of a enterprise.
+     */
     public function getLocationDialingCode()
     {
-        return (!$this->locationDialingCode) ?: $this->locationDialingCode->value();
+        return (!$this->locationDialingCode) ?: $this->locationDialingCode->getValue();
     }
 
+    /**
+     * Contact information.
+     */
     public function setContact(Contact $contact = null)
     {
+        $this->contact = Contact $contact;
     }
 
+    /**
+     * Contact information.
+     */
     public function getContact()
     {
-        return (!$this->contact) ?: $this->contact->value();
+        return (!$this->contact) ?: $this->contact->getValue();
     }
 
+    /**
+     * Street address information.
+     */
     public function setAddress(StreetAddress $address = null)
     {
+        $this->address = StreetAddress $address;
     }
 
+    /**
+     * Street address information.
+     */
     public function getAddress()
     {
-        return (!$this->address) ?: $this->address->value();
+        return (!$this->address) ?: $this->address->getValue();
     }
 }

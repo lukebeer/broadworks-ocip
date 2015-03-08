@@ -13,21 +13,29 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemNumberActivationGetRequest.
+     * Response to SystemNumberActivationGetRequest.
  *         Contains the system number activation setting.
  */
 class SystemNumberActivationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
-    protected $useNumberActivation  = null;
+    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNumberActivationGetResponse';
+    public    $name                = __CLASS__;
+    protected $useNumberActivation = null;
 
 
-    public function setUseNumberActivation(xs:boolean $useNumberActivation = null)
+    /**
+     * 
+     */
+    public function setUseNumberActivation($useNumberActivation = null)
     {
+        $this->useNumberActivation = (boolean) $useNumberActivation;
     }
 
+    /**
+     * 
+     */
     public function getUseNumberActivation()
     {
-        return (!$this->useNumberActivation) ?: $this->useNumberActivation->value();
+        return (!$this->useNumberActivation) ?: $this->useNumberActivation->getValue();
     }
 }

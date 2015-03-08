@@ -15,16 +15,16 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify group FAC code level and the list of feature access codes for a group.
+     * Modify group FAC code level and the list of feature access codes for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Note: choice element is only valid when useFeatureAccessCodeLevel is set to "Group", otherwise an ErrorResponse will be returned.
  */
 class GroupFeatureAccessCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
-    protected $serviceProviderId          = null;
-    protected $groupId                    = null;
-    protected $useFeatureAccessCodeLevel  = null;
+    public    $name                      = __CLASS__;
+    protected $serviceProviderId         = null;
+    protected $groupId                   = null;
+    protected $useFeatureAccessCodeLevel = null;
 
     public function __construct(
          $serviceProviderId,
@@ -36,6 +36,10 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
         $this->setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -43,11 +47,19 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function setGroupId($groupId = null)
     {
         $this->groupId = ($groupId InstanceOf GroupId)
@@ -55,11 +67,18 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
              : new GroupId($groupId);
     }
 
+    /**
+     * Group Id identifies a group within a service provider or enterprise. The group id is not
+     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->value();
+        return (!$this->groupId) ?: $this->groupId->getValue();
     }
 
+    /**
+     * Feature Access Code Level defining group policy how Feature Access Codes will be used by a group.
+     */
     public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel = null)
     {
         $this->useFeatureAccessCodeLevel = ($useFeatureAccessCodeLevel InstanceOf GroupFeatureAccessCodeLevel)
@@ -67,8 +86,11 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
              : new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
     }
 
+    /**
+     * Feature Access Code Level defining group policy how Feature Access Codes will be used by a group.
+     */
     public function getUseFeatureAccessCodeLevel()
     {
-        return (!$this->useFeatureAccessCodeLevel) ?: $this->useFeatureAccessCodeLevel->value();
+        return (!$this->useFeatureAccessCodeLevel) ?: $this->useFeatureAccessCodeLevel->getValue();
     }
 }

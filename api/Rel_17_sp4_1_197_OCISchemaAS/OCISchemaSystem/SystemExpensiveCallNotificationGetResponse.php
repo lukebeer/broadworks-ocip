@@ -13,24 +13,35 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemExpensiveCallNotificationGetRequest.
+     * Response to SystemExpensiveCallNotificationGetRequest.
  */
 class SystemExpensiveCallNotificationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
-    protected $enablePostAnnouncementDelayTimer  = null;
-    protected $postAnnouncementDelaySeconds      = null;
+    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallNotificationGetResponse';
+    public    $name                             = __CLASS__;
+    protected $enablePostAnnouncementDelayTimer = null;
+    protected $postAnnouncementDelaySeconds     = null;
 
 
-    public function setEnablePostAnnouncementDelayTimer(xs:boolean $enablePostAnnouncementDelayTimer = null)
+    /**
+     * 
+     */
+    public function setEnablePostAnnouncementDelayTimer($enablePostAnnouncementDelayTimer = null)
     {
+        $this->enablePostAnnouncementDelayTimer = (boolean) $enablePostAnnouncementDelayTimer;
     }
 
+    /**
+     * 
+     */
     public function getEnablePostAnnouncementDelayTimer()
     {
-        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer->value();
+        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer->getValue();
     }
 
+    /**
+     * Additional grace period after the expensive call notification announcement before call setup continues.
+     */
     public function setPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds = null)
     {
         $this->postAnnouncementDelaySeconds = ($postAnnouncementDelaySeconds InstanceOf ExpensiveCallNotificationPostAnnouncementDelaySeconds)
@@ -38,8 +49,11 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
              : new ExpensiveCallNotificationPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds);
     }
 
+    /**
+     * Additional grace period after the expensive call notification announcement before call setup continues.
+     */
     public function getPostAnnouncementDelaySeconds()
     {
-        return (!$this->postAnnouncementDelaySeconds) ?: $this->postAnnouncementDelaySeconds->value();
+        return (!$this->postAnnouncementDelaySeconds) ?: $this->postAnnouncementDelaySeconds->getValue();
     }
 }

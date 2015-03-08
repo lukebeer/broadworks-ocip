@@ -13,10 +13,11 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
  */
 class UnboundedPositiveInt extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

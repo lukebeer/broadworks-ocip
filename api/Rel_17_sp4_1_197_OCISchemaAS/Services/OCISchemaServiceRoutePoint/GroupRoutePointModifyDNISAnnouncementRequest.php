@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Modify a route point DNIS announcement settings.
+     * Modify a route point DNIS announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $dnisKey            = null;
-    protected $mediaOnHoldSource  = null;
+    public    $name              = __CLASS__;
+    protected $dnisKey           = null;
+    protected $mediaOnHoldSource = null;
 
     public function __construct(
          DNISKey $dnisKey,
@@ -31,21 +31,35 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
         $this->setMediaOnHoldSource($mediaOnHoldSource);
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
+        $this->dnisKey = DNISKey $dnisKey;
     }
 
+    /**
+     * Uniquely identifies a Call Center DNIS.
+     */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->value();
+        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
     }
 
+    /**
+     * Contains the call center media on hold source configuration.
+     */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
+        $this->mediaOnHoldSource = CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource;
     }
 
+    /**
+     * Contains the call center media on hold source configuration.
+     */
     public function getMediaOnHoldSource()
     {
-        return (!$this->mediaOnHoldSource) ?: $this->mediaOnHoldSource->value();
+        return (!$this->mediaOnHoldSource) ?: $this->mediaOnHoldSource->getValue();
     }
 }

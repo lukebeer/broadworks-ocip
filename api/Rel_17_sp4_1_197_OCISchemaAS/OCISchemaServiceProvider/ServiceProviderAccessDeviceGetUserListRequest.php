@@ -24,24 +24,25 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Requests the list of users on a specified device.
+     * Requests the list of users on a specified device.
  *         The response is either ServiceProviderAccessDeviceGetResponse or ErrorResponse.
  */
 class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
-    protected $serviceProviderId                = null;
-    protected $deviceName                       = null;
-    protected $responseSizeLimit                = null;
-    protected $searchCriteriaLinePortUserPart   = null;
-    protected $searchCriteriaLinePortDomain     = null;
-    protected $searchCriteriaUserLastName       = null;
-    protected $searchCriteriaUserFirstName      = null;
-    protected $searchCriteriaDn                 = null;
-    protected $searchCriteriaUserId             = null;
-    protected $searchCriteriaGroupId            = null;
-    protected $searchCriteriaExactEndpointType  = null;
-    protected $searchCriteriaExactUserType      = null;
+    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse';
+    public    $name                            = __CLASS__;
+    protected $serviceProviderId               = null;
+    protected $deviceName                      = null;
+    protected $responseSizeLimit               = null;
+    protected $searchCriteriaLinePortUserPart  = null;
+    protected $searchCriteriaLinePortDomain    = null;
+    protected $searchCriteriaUserLastName      = null;
+    protected $searchCriteriaUserFirstName     = null;
+    protected $searchCriteriaDn                = null;
+    protected $searchCriteriaUserId            = null;
+    protected $searchCriteriaGroupId           = null;
+    protected $searchCriteriaExactEndpointType = null;
+    protected $searchCriteriaExactUserType     = null;
 
     public function __construct(
          $serviceProviderId,
@@ -71,6 +72,10 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->setSearchCriteriaExactUserType($searchCriteriaExactUserType);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -78,11 +83,18 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Access device name.
+     */
     public function setDeviceName($deviceName = null)
     {
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
@@ -90,11 +102,19 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
              : new AccessDeviceName($deviceName);
     }
 
+    /**
+     * Access device name.
+     */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->value();
+        return (!$this->deviceName) ?: $this->deviceName->getValue();
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
@@ -102,89 +122,157 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
              : new ResponseSizeLimit($responseSizeLimit);
     }
 
+    /**
+     * Maximum number of rows to return in response to a search.
+     *         By convention, elements of this type can be omitted to allow an
+     *         unlimited number or rows in the search result.
+     */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->value();
+        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
     }
 
+    /**
+     * Criteria for searching for device line/port, or SIPURI user part.
+     */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
+        $this->searchCriteriaLinePortUserPart = SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart;
     }
 
+    /**
+     * Criteria for searching for device line/port, or SIPURI user part.
+     */
     public function getSearchCriteriaLinePortUserPart()
     {
-        return (!$this->searchCriteriaLinePortUserPart) ?: $this->searchCriteriaLinePortUserPart->value();
+        return (!$this->searchCriteriaLinePortUserPart) ?: $this->searchCriteriaLinePortUserPart->getValue();
     }
 
+    /**
+     * Criteria for searching for device line/port, or SIPURI domain part.
+     */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
+        $this->searchCriteriaLinePortDomain = SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain;
     }
 
+    /**
+     * Criteria for searching for device line/port, or SIPURI domain part.
+     */
     public function getSearchCriteriaLinePortDomain()
     {
-        return (!$this->searchCriteriaLinePortDomain) ?: $this->searchCriteriaLinePortDomain->value();
+        return (!$this->searchCriteriaLinePortDomain) ?: $this->searchCriteriaLinePortDomain->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
+        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
     }
 
+    /**
+     * Criteria for searching for a user's last name.
+     */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->value();
+        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
+        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
     }
 
+    /**
+     * Criteria for searching for a user's first name.
+     */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->value();
+        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
+        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
     }
 
+    /**
+     * Criteria for searching for a DN.
+     */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->value();
+        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
+        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
     }
 
+    /**
+     * Criteria for searching for a user's userId.
+     */
     public function getSearchCriteriaUserId()
     {
-        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->value();
+        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->getValue();
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
+        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
     }
 
+    /**
+     * Criteria for searching for a group ID.
+     */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->value();
+        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular endpoint type.
+     */
     public function setSearchCriteriaExactEndpointType(SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null)
     {
+        $this->searchCriteriaExactEndpointType = SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType;
     }
 
+    /**
+     * Criteria for searching for a particular endpoint type.
+     */
     public function getSearchCriteriaExactEndpointType()
     {
-        return (!$this->searchCriteriaExactEndpointType) ?: $this->searchCriteriaExactEndpointType->value();
+        return (!$this->searchCriteriaExactEndpointType) ?: $this->searchCriteriaExactEndpointType->getValue();
     }
 
+    /**
+     * Criteria for searching for a particular User Type.
+     */
     public function setSearchCriteriaExactUserType(SearchCriteriaExactUserType $searchCriteriaExactUserType = null)
     {
+        $this->searchCriteriaExactUserType = SearchCriteriaExactUserType $searchCriteriaExactUserType;
     }
 
+    /**
+     * Criteria for searching for a particular User Type.
+     */
     public function getSearchCriteriaExactUserType()
     {
-        return (!$this->searchCriteriaExactUserType) ?: $this->searchCriteriaExactUserType->value();
+        return (!$this->searchCriteriaExactUserType) ?: $this->searchCriteriaExactUserType->getValue();
     }
 }

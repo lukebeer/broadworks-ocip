@@ -13,22 +13,30 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to the UserMeetMeConferencingGetBridgeListRequest.
+     * Response to the UserMeetMeConferencingGetBridgeListRequest.
  *         Contains a table with column headings: "Bridge Id", "Name", "Phone Number", "Extension", "Ports", and "Is Active"
  *         The column values for "Is Active" can either be true, or false.
  */
 class UserMeetMeConferencingGetBridgeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
-    protected $conferenceBridgeTable  = null;
+    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetBridgeListResponse';
+    public    $name                  = __CLASS__;
+    protected $conferenceBridgeTable = null;
 
 
+    /**
+     * 
+     */
     public function setConferenceBridgeTable(core:OCITable $conferenceBridgeTable = null)
     {
+        $this->conferenceBridgeTable = core:OCITable $conferenceBridgeTable;
     }
 
+    /**
+     * 
+     */
     public function getConferenceBridgeTable()
     {
-        return (!$this->conferenceBridgeTable) ?: $this->conferenceBridgeTable->value();
+        return (!$this->conferenceBridgeTable) ?: $this->conferenceBridgeTable->getValue();
     }
 }

@@ -23,7 +23,7 @@ class CallCenterReportIntervalNumber extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = 'int';
+        $this->dataType = (int);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("99"));
     }

@@ -13,15 +13,19 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to SystemMediaSetGetRequest.
+     * Response to SystemMediaSetGetRequest.
  *         Returns a list of media names in the set.
  */
 class SystemMediaSetGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
-    protected $mediaName  = null;
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetGetResponse';
+    public    $name      = __CLASS__;
+    protected $mediaName = null;
 
 
+    /**
+     * Media name
+     */
     public function setMediaName($mediaName = null)
     {
         $this->mediaName = ($mediaName InstanceOf MediaName)
@@ -29,8 +33,11 @@ class SystemMediaSetGetResponse extends ComplexType implements ComplexInterface
              : new MediaName($mediaName);
     }
 
+    /**
+     * Media name
+     */
     public function getMediaName()
     {
-        return (!$this->mediaName) ?: $this->mediaName->value();
+        return (!$this->mediaName) ?: $this->mediaName->getValue();
     }
 }

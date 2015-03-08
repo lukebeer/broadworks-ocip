@@ -14,14 +14,14 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Delete a Call Center Call Disposition Code.
+     * Delete a Call Center Call Disposition Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $serviceProviderId  = null;
-    protected $code               = null;
+    public    $name              = __CLASS__;
+    protected $serviceProviderId = null;
+    protected $code              = null;
 
     public function __construct(
          $serviceProviderId,
@@ -31,6 +31,10 @@ class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType i
         $this->setCode($code);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
@@ -38,11 +42,18 @@ class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType i
              : new ServiceProviderId($serviceProviderId);
     }
 
+    /**
+     * Service Provider Id uniquely identifies a service provider.
+     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->value();
+        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function setCode($code = null)
     {
         $this->code = ($code InstanceOf CallDispositionCode)
@@ -50,8 +61,11 @@ class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType i
              : new CallDispositionCode($code);
     }
 
+    /**
+     * Call Center Call Disposition Code Value.
+     */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->value();
+        return (!$this->code) ?: $this->code->getValue();
     }
 }

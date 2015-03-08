@@ -13,11 +13,12 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to get the list of system Domain parameters.
+     * Request to get the list of system Domain parameters.
  *         The response is either SystemDomainParametersGetResponse or ErrorResponse.
  */
 class SystemDomainParametersGetRequest extends ComplexType implements ComplexInterface
 {
+    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainParametersGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {

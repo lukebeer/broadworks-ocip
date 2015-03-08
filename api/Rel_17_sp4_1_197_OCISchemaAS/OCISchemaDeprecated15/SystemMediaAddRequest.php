@@ -17,17 +17,17 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Request to add a Media to the system.
+     * Request to add a Media to the system.
  *             The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMediaAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
-    protected $mediaName                 = null;
-    protected $codecName                 = null;
-    protected $mediaType                 = null;
-    protected $bandwidthEnforcementType  = null;
-    protected $mediaBandwidth            = null;
+    public    $name                     = __CLASS__;
+    protected $mediaName                = null;
+    protected $codecName                = null;
+    protected $mediaType                = null;
+    protected $bandwidthEnforcementType = null;
+    protected $mediaBandwidth           = null;
 
     public function __construct(
          $mediaName,
@@ -43,6 +43,9 @@ class SystemMediaAddRequest extends ComplexType implements ComplexInterface
         $this->setMediaBandwidth($mediaBandwidth);
     }
 
+    /**
+     * Media name
+     */
     public function setMediaName($mediaName = null)
     {
         $this->mediaName = ($mediaName InstanceOf MediaName)
@@ -50,11 +53,17 @@ class SystemMediaAddRequest extends ComplexType implements ComplexInterface
              : new MediaName($mediaName);
     }
 
+    /**
+     * Media name
+     */
     public function getMediaName()
     {
-        return (!$this->mediaName) ?: $this->mediaName->value();
+        return (!$this->mediaName) ?: $this->mediaName->getValue();
     }
 
+    /**
+     * Codec name
+     */
     public function setCodecName($codecName = null)
     {
         $this->codecName = ($codecName InstanceOf CodecName)
@@ -62,11 +71,17 @@ class SystemMediaAddRequest extends ComplexType implements ComplexInterface
              : new CodecName($codecName);
     }
 
+    /**
+     * Codec name
+     */
     public function getCodecName()
     {
-        return (!$this->codecName) ?: $this->codecName->value();
+        return (!$this->codecName) ?: $this->codecName->getValue();
     }
 
+    /**
+     * Media types.
+     */
     public function setMediaType($mediaType = null)
     {
         $this->mediaType = ($mediaType InstanceOf MediaType)
@@ -74,11 +89,17 @@ class SystemMediaAddRequest extends ComplexType implements ComplexInterface
              : new MediaType($mediaType);
     }
 
+    /**
+     * Media types.
+     */
     public function getMediaType()
     {
-        return (!$this->mediaType) ?: $this->mediaType->value();
+        return (!$this->mediaType) ?: $this->mediaType->getValue();
     }
 
+    /**
+     * Types of bandwidth enforcement.
+     */
     public function setBandwidthEnforcementType($bandwidthEnforcementType = null)
     {
         $this->bandwidthEnforcementType = ($bandwidthEnforcementType InstanceOf MediaBandwidthEnforcementType)
@@ -86,11 +107,17 @@ class SystemMediaAddRequest extends ComplexType implements ComplexInterface
              : new MediaBandwidthEnforcementType($bandwidthEnforcementType);
     }
 
+    /**
+     * Types of bandwidth enforcement.
+     */
     public function getBandwidthEnforcementType()
     {
-        return (!$this->bandwidthEnforcementType) ?: $this->bandwidthEnforcementType->value();
+        return (!$this->bandwidthEnforcementType) ?: $this->bandwidthEnforcementType->getValue();
     }
 
+    /**
+     * Bandwidth for a Media.
+     */
     public function setMediaBandwidth($mediaBandwidth = null)
     {
         $this->mediaBandwidth = ($mediaBandwidth InstanceOf MediaBandwidthBitsPerSecond)
@@ -98,8 +125,11 @@ class SystemMediaAddRequest extends ComplexType implements ComplexInterface
              : new MediaBandwidthBitsPerSecond($mediaBandwidth);
     }
 
+    /**
+     * Bandwidth for a Media.
+     */
     public function getMediaBandwidth()
     {
-        return (!$this->mediaBandwidth) ?: $this->mediaBandwidth->value();
+        return (!$this->mediaBandwidth) ?: $this->mediaBandwidth->getValue();
     }
 }

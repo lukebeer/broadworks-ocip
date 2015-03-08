@@ -13,14 +13,18 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 
 
 /**
- * Response to PublicClusterGetFullyQualifiedDomainNameRequest.
+     * Response to PublicClusterGetFullyQualifiedDomainNameRequest.
  */
 class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
-    protected $publicClusterFQDN  = null;
+    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PublicClusterGetFullyQualifiedDomainNameResponse';
+    public    $name              = __CLASS__;
+    protected $publicClusterFQDN = null;
 
 
+    /**
+     * Network domain name.
+     */
     public function setPublicClusterFQDN($publicClusterFQDN = null)
     {
         $this->publicClusterFQDN = ($publicClusterFQDN InstanceOf DomainName)
@@ -28,8 +32,11 @@ class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType imple
              : new DomainName($publicClusterFQDN);
     }
 
+    /**
+     * Network domain name.
+     */
     public function getPublicClusterFQDN()
     {
-        return (!$this->publicClusterFQDN) ?: $this->publicClusterFQDN->value();
+        return (!$this->publicClusterFQDN) ?: $this->publicClusterFQDN->getValue();
     }
 }
