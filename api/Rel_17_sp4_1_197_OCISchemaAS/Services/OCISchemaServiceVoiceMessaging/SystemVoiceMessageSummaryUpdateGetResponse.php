@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessageSummaryUpdateGetResponse';
     public    $name                                = __CLASS__;
     protected $sendSavedAndUrgentMWIOnNotification = null;
     protected $sendMessageSummaryUpdateOnRegister  = null;

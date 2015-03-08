@@ -37,8 +37,8 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
          $codeType = null,
          $numberOfDigits = null,
          $allowLocalAndTollFreeCalls = null,
-         ReplacementUserIdList $mandatoryUsageUserIdList = null,
-         ReplacementUserIdList $optionalUsageUserIdList = null
+          $mandatoryUsageUserIdList = null,
+          $optionalUsageUserIdList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -147,7 +147,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setMandatoryUsageUserIdList(ReplacementUserIdList $mandatoryUsageUserIdList = null)
     {
-        $this->mandatoryUsageUserIdList = ReplacementUserIdList $mandatoryUsageUserIdList;
+        $this->mandatoryUsageUserIdList =  $mandatoryUsageUserIdList;
     }
 
     /**
@@ -165,7 +165,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setOptionalUsageUserIdList(ReplacementUserIdList $optionalUsageUserIdList = null)
     {
-        $this->optionalUsageUserIdList = ReplacementUserIdList $optionalUsageUserIdList;
+        $this->optionalUsageUserIdList =  $optionalUsageUserIdList;
     }
 
     /**

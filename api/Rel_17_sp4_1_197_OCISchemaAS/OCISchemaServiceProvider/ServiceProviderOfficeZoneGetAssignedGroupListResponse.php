@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderOfficeZoneGetAssignedGroupListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneGetAssignedGroupListResponse';
     public    $name       = __CLASS__;
     protected $groupTable = null;
 
@@ -27,7 +26,7 @@ class ServiceProviderOfficeZoneGetAssignedGroupListResponse extends ComplexType 
      */
     public function setGroupTable(core:OCITable $groupTable = null)
     {
-        $this->groupTable = core:OCITable $groupTable;
+        $this->groupTable =  $groupTable;
     }
 
     /**

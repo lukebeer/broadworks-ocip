@@ -31,7 +31,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
          $userId,
          $usePersonalizedName = null,
          $voicePortalAutoLogin = null,
-         LabeledFileResource $personalizedNameAudioFile = null
+          $personalizedNameAudioFile = null
     ) {
         $this->setUserId($userId);
         $this->setUsePersonalizedName($usePersonalizedName);
@@ -103,7 +103,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function setPersonalizedNameAudioFile(LabeledFileResource $personalizedNameAudioFile = null)
     {
-        $this->personalizedNameAudioFile = LabeledFileResource $personalizedNameAudioFile;
+        $this->personalizedNameAudioFile =  $personalizedNameAudioFile;
     }
 
     /**

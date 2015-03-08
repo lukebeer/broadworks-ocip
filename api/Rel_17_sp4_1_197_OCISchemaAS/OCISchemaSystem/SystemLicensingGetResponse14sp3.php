@@ -24,7 +24,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicensingGetResponse14sp3';
     public    $name                       = __CLASS__;
     protected $licenseStrictness          = null;
     protected $groupUserlimit             = null;
@@ -86,7 +85,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setExpirationDate(xs:dateTime $expirationDate = null)
     {
-        $this->expirationDate = xs:dateTime $expirationDate;
+        $this->expirationDate =  $expirationDate;
     }
 
     /**
@@ -154,7 +153,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setSubscriberLicenseTable(core:OCITable $subscriberLicenseTable = null)
     {
-        $this->subscriberLicenseTable = core:OCITable $subscriberLicenseTable;
+        $this->subscriberLicenseTable =  $subscriberLicenseTable;
     }
 
     /**
@@ -170,7 +169,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setGroupServiceLicenseTable(core:OCITable $groupServiceLicenseTable = null)
     {
-        $this->groupServiceLicenseTable = core:OCITable $groupServiceLicenseTable;
+        $this->groupServiceLicenseTable =  $groupServiceLicenseTable;
     }
 
     /**
@@ -186,7 +185,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setVirtualServiceLicenseTable(core:OCITable $virtualServiceLicenseTable = null)
     {
-        $this->virtualServiceLicenseTable = core:OCITable $virtualServiceLicenseTable;
+        $this->virtualServiceLicenseTable =  $virtualServiceLicenseTable;
     }
 
     /**
@@ -202,7 +201,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setUserServiceLicenseTable(core:OCITable $userServiceLicenseTable = null)
     {
-        $this->userServiceLicenseTable = core:OCITable $userServiceLicenseTable;
+        $this->userServiceLicenseTable =  $userServiceLicenseTable;
     }
 
     /**
@@ -218,7 +217,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setSystemParamLicenseTable(core:OCITable $systemParamLicenseTable = null)
     {
-        $this->systemParamLicenseTable = core:OCITable $systemParamLicenseTable;
+        $this->systemParamLicenseTable =  $systemParamLicenseTable;
     }
 
     /**

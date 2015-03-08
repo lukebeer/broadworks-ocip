@@ -75,7 +75,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
          $mobilityManagerDefaultOriginatingServiceKey = null,
          $mobilityManagerDefaultTerminatingServiceKey = null,
          $useCustomUserNamePassword = null,
-         DeviceManagementUserNamePassword16 $accessDeviceCredentials = null
+          $accessDeviceCredentials = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
@@ -446,7 +446,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
      */
     public function setAccessDeviceCredentials(DeviceManagementUserNamePassword16 $accessDeviceCredentials = null)
     {
-        $this->accessDeviceCredentials = DeviceManagementUserNamePassword16 $accessDeviceCredentials;
+        $this->accessDeviceCredentials =  $accessDeviceCredentials;
     }
 
     /**

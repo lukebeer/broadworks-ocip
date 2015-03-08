@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeFileGetResponse14sp8';
     public    $name                               = __CLASS__;
     protected $remoteFileFormat                   = null;
     protected $fileCategory                       = null;

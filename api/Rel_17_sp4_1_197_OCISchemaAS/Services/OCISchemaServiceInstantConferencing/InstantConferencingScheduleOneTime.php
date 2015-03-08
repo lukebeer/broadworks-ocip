@@ -35,7 +35,7 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function setStartTime(xs:time $startTime = null)
     {
-        $this->startTime = xs:time $startTime;
+        $this->startTime =  $startTime;
     }
 
     /**
@@ -51,7 +51,7 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function setDuration(xs:duration $duration = null)
     {
-        $this->duration = xs:duration $duration;
+        $this->duration =  $duration;
     }
 
     /**

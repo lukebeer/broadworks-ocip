@@ -29,8 +29,8 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaDeviceType $searchCriteriaDeviceType = null,
-         SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null
+          $searchCriteriaDeviceType = null,
+          $searchCriteriaExactSignalingAddressType = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaDeviceType($searchCriteriaDeviceType);
@@ -64,7 +64,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
      */
     public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
-        $this->searchCriteriaDeviceType = SearchCriteriaDeviceType $searchCriteriaDeviceType;
+        $this->searchCriteriaDeviceType =  $searchCriteriaDeviceType;
     }
 
     /**
@@ -80,7 +80,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
      */
     public function setSearchCriteriaExactSignalingAddressType(SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null)
     {
-        $this->searchCriteriaExactSignalingAddressType = SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType;
+        $this->searchCriteriaExactSignalingAddressType =  $searchCriteriaExactSignalingAddressType;
     }
 
     /**

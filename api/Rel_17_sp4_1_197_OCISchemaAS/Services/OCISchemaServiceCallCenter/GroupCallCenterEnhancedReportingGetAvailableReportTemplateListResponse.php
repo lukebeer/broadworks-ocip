@@ -29,7 +29,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse';
     public    $name                = __CLASS__;
     protected $reportTemplateTable = null;
 
@@ -39,7 +38,7 @@ class GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse ext
      */
     public function setReportTemplateTable(core:OCITable $reportTemplateTable = null)
     {
-        $this->reportTemplateTable = core:OCITable $reportTemplateTable;
+        $this->reportTemplateTable =  $reportTemplateTable;
     }
 
     /**

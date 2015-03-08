@@ -63,7 +63,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfileCallCenter $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $type,
          $policy,
          $enableVideo,
@@ -185,7 +185,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfileCallCenter $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfileCallCenter $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

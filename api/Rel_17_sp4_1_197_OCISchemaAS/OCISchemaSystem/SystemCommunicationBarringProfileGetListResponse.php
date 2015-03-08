@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringProfileGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetListResponse';
     public    $name         = __CLASS__;
     protected $profileTable = null;
 
@@ -29,7 +28,7 @@ class SystemCommunicationBarringProfileGetListResponse extends ComplexType imple
      */
     public function setProfileTable(core:OCITable $profileTable = null)
     {
-        $this->profileTable = core:OCITable $profileTable;
+        $this->profileTable =  $profileTable;
     }
 
     /**

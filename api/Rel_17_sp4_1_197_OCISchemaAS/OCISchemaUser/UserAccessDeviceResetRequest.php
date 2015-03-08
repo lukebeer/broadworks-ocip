@@ -25,7 +25,7 @@ class UserAccessDeviceResetRequest extends ComplexType implements ComplexInterfa
 
     public function __construct(
          $userId,
-         AccessDevice $accessDevice
+          $accessDevice
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
@@ -62,7 +62,7 @@ class UserAccessDeviceResetRequest extends ComplexType implements ComplexInterfa
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice = AccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**

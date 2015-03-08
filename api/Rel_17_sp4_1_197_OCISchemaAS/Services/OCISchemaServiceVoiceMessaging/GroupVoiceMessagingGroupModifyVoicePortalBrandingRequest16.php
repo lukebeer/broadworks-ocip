@@ -33,9 +33,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
          $serviceProviderId,
          $groupId,
          $voicePortalGreetingSelection = null,
-         LabeledMediaFileResource $voicePortalGreetingFile = null,
+          $voicePortalGreetingFile = null,
          $voiceMessagingGreetingSelection = null,
-         LabeledMediaFileResource $voiceMessagingGreetingFile = null
+          $voiceMessagingGreetingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -109,7 +109,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
      */
     public function setVoicePortalGreetingFile(LabeledMediaFileResource $voicePortalGreetingFile = null)
     {
-        $this->voicePortalGreetingFile = LabeledMediaFileResource $voicePortalGreetingFile;
+        $this->voicePortalGreetingFile =  $voicePortalGreetingFile;
     }
 
     /**
@@ -145,7 +145,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
      */
     public function setVoiceMessagingGreetingFile(LabeledMediaFileResource $voiceMessagingGreetingFile = null)
     {
-        $this->voiceMessagingGreetingFile = LabeledMediaFileResource $voiceMessagingGreetingFile;
+        $this->voiceMessagingGreetingFile =  $voiceMessagingGreetingFile;
     }
 
     /**

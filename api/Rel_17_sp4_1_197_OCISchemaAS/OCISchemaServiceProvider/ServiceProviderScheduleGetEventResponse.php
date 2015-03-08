@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderScheduleGetEventResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse';
     public    $name       = __CLASS__;
     protected $startDate  = null;
     protected $endDate    = null;
@@ -30,7 +29,7 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate = xs:date $startDate;
+        $this->startDate =  $startDate;
     }
 
     /**
@@ -46,7 +45,7 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate = xs:date $endDate;
+        $this->endDate =  $endDate;
     }
 
     /**
@@ -62,7 +61,7 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        $this->recurrence = Recurrence $recurrence;
+        $this->recurrence =  $recurrence;
     }
 
     /**

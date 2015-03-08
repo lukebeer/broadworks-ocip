@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse';
     public    $name            = __CLASS__;
     protected $isLoginDisabled = null;
     protected $password        = null;

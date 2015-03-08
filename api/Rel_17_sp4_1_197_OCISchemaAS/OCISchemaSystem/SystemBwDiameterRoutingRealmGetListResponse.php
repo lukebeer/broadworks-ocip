@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingRealmGetListResponse';
     public    $name              = __CLASS__;
     protected $routingRealmTable = null;
 
@@ -27,7 +26,7 @@ class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements
      */
     public function setRoutingRealmTable(core:OCITable $routingRealmTable = null)
     {
-        $this->routingRealmTable = core:OCITable $routingRealmTable;
+        $this->routingRealmTable =  $routingRealmTable;
     }
 
     /**

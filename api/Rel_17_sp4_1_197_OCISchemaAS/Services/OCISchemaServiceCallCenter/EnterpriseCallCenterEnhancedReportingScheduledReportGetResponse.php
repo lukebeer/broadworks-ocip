@@ -31,7 +31,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse';
     public    $name                            = __CLASS__;
     protected $description                     = null;
     protected $reportTemplate                  = null;
@@ -76,7 +75,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        $this->reportTemplate = CallCenterReportTemplateKey $reportTemplate;
+        $this->reportTemplate =  $reportTemplate;
     }
 
     /**
@@ -93,7 +92,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setSchedule(CallCenterReportSchedule $schedule = null)
     {
-        $this->schedule = CallCenterReportSchedule $schedule;
+        $this->schedule =  $schedule;
     }
 
     /**
@@ -200,7 +199,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportInterval(CallCenterReportInterval $reportInterval = null)
     {
-        $this->reportInterval = CallCenterReportInterval $reportInterval;
+        $this->reportInterval =  $reportInterval;
     }
 
     /**
@@ -237,7 +236,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setAgent(CallCenterScheduledReportAgentSelectionAdminRead $agent = null)
     {
-        $this->agent = CallCenterScheduledReportAgentSelectionAdminRead $agent;
+        $this->agent =  $agent;
     }
 
     /**
@@ -310,7 +309,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setServiceLevelInclusions(CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions = null)
     {
-        $this->serviceLevelInclusions = CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions;
+        $this->serviceLevelInclusions =  $serviceLevelInclusions;
     }
 
     /**

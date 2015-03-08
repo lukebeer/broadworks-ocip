@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInventoryReportGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
     public    $name                 = __CLASS__;
     protected $inventoryReportTable = null;
 
@@ -27,7 +26,7 @@ class GroupInventoryReportGetResponse extends ComplexType implements ComplexInte
      */
     public function setInventoryReportTable(core:OCITable $inventoryReportTable = null)
     {
-        $this->inventoryReportTable = core:OCITable $inventoryReportTable;
+        $this->inventoryReportTable =  $inventoryReportTable;
     }
 
     /**

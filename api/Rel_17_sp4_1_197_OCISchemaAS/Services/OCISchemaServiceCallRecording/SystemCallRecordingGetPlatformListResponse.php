@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallRecordingGetPlatformListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformListResponse';
     public    $name                       = __CLASS__;
     protected $systemDefault              = null;
     protected $callRecordingPlatformTable = null;
@@ -47,7 +46,7 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
      */
     public function setCallRecordingPlatformTable(core:OCITable $callRecordingPlatformTable = null)
     {
-        $this->callRecordingPlatformTable = core:OCITable $callRecordingPlatformTable;
+        $this->callRecordingPlatformTable =  $callRecordingPlatformTable;
     }
 
     /**

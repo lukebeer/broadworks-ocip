@@ -40,9 +40,9 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
          $playAnnouncementAfterRinging = null,
          $ringTimeBeforePlayingAnnouncementSeconds = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+          $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setIsActive($isActive);
@@ -175,7 +175,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -211,7 +211,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

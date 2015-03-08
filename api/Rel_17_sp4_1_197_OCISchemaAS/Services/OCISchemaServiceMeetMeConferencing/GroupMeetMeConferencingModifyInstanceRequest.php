@@ -34,12 +34,12 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
-         MeetMeConferencingConferencePorts $allocatedPorts = null,
+          $serviceInstanceProfile = null,
+          $allocatedPorts = null,
          $networkClassOfService = null,
          $allowIndividualOutDial = null,
          $operatorNumber = null,
-         ReplacementUserIdList $conferenceHostUserIdList = null
+          $conferenceHostUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setServiceInstanceProfile($serviceInstanceProfile);
@@ -81,7 +81,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -97,7 +97,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = MeetMeConferencingConferencePorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**
@@ -180,7 +180,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
      */
     public function setConferenceHostUserIdList(ReplacementUserIdList $conferenceHostUserIdList = null)
     {
-        $this->conferenceHostUserIdList = ReplacementUserIdList $conferenceHostUserIdList;
+        $this->conferenceHostUserIdList =  $conferenceHostUserIdList;
     }
 
     /**

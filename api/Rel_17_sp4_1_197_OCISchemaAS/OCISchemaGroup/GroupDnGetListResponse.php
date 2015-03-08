@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDnGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetListResponse';
     public    $name        = __CLASS__;
     protected $phoneNumber = null;
 

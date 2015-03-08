@@ -33,7 +33,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
          $groupId,
          $departmentName,
          $newDepartmentName = null,
-         DepartmentKey $newParentDepartmentKey = null
+          $newParentDepartmentKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -133,7 +133,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setNewParentDepartmentKey(DepartmentKey $newParentDepartmentKey = null)
     {
-        $this->newParentDepartmentKey = DepartmentKey $newParentDepartmentKey;
+        $this->newParentDepartmentKey =  $newParentDepartmentKey;
     }
 
     /**

@@ -41,12 +41,12 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
          $name,
          $newName = null,
          $description = null,
-         LabeledFileResource $xsltTemplate = null,
+          $xsltTemplate = null,
          $scope = null,
          $isEnabled = null,
          $isRealtimeReport = null,
          $filterNumber = null,
-         CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null
+          $filterValue = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -140,7 +140,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
      */
     public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        $this->xsltTemplate = LabeledFileResource $xsltTemplate;
+        $this->xsltTemplate =  $xsltTemplate;
     }
 
     /**
@@ -226,7 +226,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
      */
     public function setFilterValue(CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null)
     {
-        $this->filterValue = CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue;
+        $this->filterValue =  $filterValue;
     }
 
     /**

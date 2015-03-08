@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPriorityAlertGetCriteriaListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePriorityAlert\UserPriorityAlertGetCriteriaListResponse';
     public    $name          = __CLASS__;
     protected $criteriaTable = null;
 
@@ -28,7 +27,7 @@ class UserPriorityAlertGetCriteriaListResponse extends ComplexType implements Co
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable = core:OCITable $criteriaTable;
+        $this->criteriaTable =  $criteriaTable;
     }
 
     /**

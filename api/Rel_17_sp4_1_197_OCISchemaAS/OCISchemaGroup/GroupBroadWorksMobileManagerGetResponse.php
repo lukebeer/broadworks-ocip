@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetResponse';
     public    $name                         = __CLASS__;
     protected $mobileManagerId              = null;
     protected $name                         = null;

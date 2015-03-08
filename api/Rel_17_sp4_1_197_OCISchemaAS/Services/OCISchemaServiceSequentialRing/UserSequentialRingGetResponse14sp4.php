@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSequentialRing\UserSequentialRingGetResponse14sp4';
     public    $name                         = __CLASS__;
     protected $ringBaseLocationFirst        = null;
     protected $baseLocationNumberOfRings    = null;
@@ -104,7 +103,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setLocation01(SequentialRingLocation14sp4 $Location01 = null)
     {
-        $this->Location01 = SequentialRingLocation14sp4 $Location01;
+        $this->Location01 =  $Location01;
     }
 
     /**
@@ -120,7 +119,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setLocation02(SequentialRingLocation14sp4 $Location02 = null)
     {
-        $this->Location02 = SequentialRingLocation14sp4 $Location02;
+        $this->Location02 =  $Location02;
     }
 
     /**
@@ -136,7 +135,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setLocation03(SequentialRingLocation14sp4 $Location03 = null)
     {
-        $this->Location03 = SequentialRingLocation14sp4 $Location03;
+        $this->Location03 =  $Location03;
     }
 
     /**
@@ -152,7 +151,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setLocation04(SequentialRingLocation14sp4 $Location04 = null)
     {
-        $this->Location04 = SequentialRingLocation14sp4 $Location04;
+        $this->Location04 =  $Location04;
     }
 
     /**
@@ -168,7 +167,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setLocation05(SequentialRingLocation14sp4 $Location05 = null)
     {
-        $this->Location05 = SequentialRingLocation14sp4 $Location05;
+        $this->Location05 =  $Location05;
     }
 
     /**
@@ -184,7 +183,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable = core:OCITable $criteriaTable;
+        $this->criteriaTable =  $criteriaTable;
     }
 
     /**

@@ -25,7 +25,7 @@ class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements
 
     public function __construct(
          $serviceUserId,
-         ReplacementUserIdList $originatorUserIdList = null
+          $originatorUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setOriginatorUserIdList($originatorUserIdList);
@@ -63,7 +63,7 @@ class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements
      */
     public function setOriginatorUserIdList(ReplacementUserIdList $originatorUserIdList = null)
     {
-        $this->originatorUserIdList = ReplacementUserIdList $originatorUserIdList;
+        $this->originatorUserIdList =  $originatorUserIdList;
     }
 
     /**

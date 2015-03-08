@@ -30,8 +30,8 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
     public function __construct(
          $serviceProviderId,
          $groupId,
-         OutgoingCallingPlanTransferNumbersModify $groupNumbers = null,
-         OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers = null
+          $groupNumbers = null,
+          $departmentNumbers = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -84,7 +84,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function setGroupNumbers(OutgoingCallingPlanTransferNumbersModify $groupNumbers = null)
     {
-        $this->groupNumbers = OutgoingCallingPlanTransferNumbersModify $groupNumbers;
+        $this->groupNumbers =  $groupNumbers;
     }
 
     /**
@@ -100,7 +100,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers = null)
     {
-        $this->departmentNumbers = OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers;
+        $this->departmentNumbers =  $departmentNumbers;
     }
 
     /**

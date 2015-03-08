@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterOverflowGetResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterOverflowGetResponse17';
     public    $name                                     = __CLASS__;
     protected $action                                   = null;
     protected $transferPhoneNumber                      = null;
@@ -163,7 +162,7 @@ class GroupCallCenterOverflowGetResponse17 extends ComplexType implements Comple
      */
     public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLList $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -179,7 +178,7 @@ class GroupCallCenterOverflowGetResponse17 extends ComplexType implements Comple
      */
     public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementDescriptionList $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -195,7 +194,7 @@ class GroupCallCenterOverflowGetResponse17 extends ComplexType implements Comple
      */
     public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $this->audioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList;
+        $this->audioMediaTypeList =  $audioMediaTypeList;
     }
 
     /**
@@ -229,7 +228,7 @@ class GroupCallCenterOverflowGetResponse17 extends ComplexType implements Comple
      */
     public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLList $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -245,7 +244,7 @@ class GroupCallCenterOverflowGetResponse17 extends ComplexType implements Comple
      */
     public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementDescriptionList $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**
@@ -261,7 +260,7 @@ class GroupCallCenterOverflowGetResponse17 extends ComplexType implements Comple
      */
     public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $this->videoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList;
+        $this->videoMediaTypeList =  $videoMediaTypeList;
     }
 
     /**

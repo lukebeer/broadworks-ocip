@@ -28,7 +28,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
     public function __construct(
          $serviceProviderId,
          $name,
-         EnterpriseAccessDevice $devices = null
+          $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -80,7 +80,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
      */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        $this->devices = EnterpriseAccessDevice $devices;
+        $this->devices =  $devices;
     }
 
     /**

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueStatusNotificationGetResponse';
     public    $name                          = __CLASS__;
     protected $enableQueueStatusNotification = null;
     protected $enableQueueDepthThreshold     = null;

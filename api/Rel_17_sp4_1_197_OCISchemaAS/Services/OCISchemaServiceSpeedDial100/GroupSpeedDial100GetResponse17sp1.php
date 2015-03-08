@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\GroupSpeedDial100GetResponse17sp1';
     public    $name   = __CLASS__;
     protected $prefix = null;
 

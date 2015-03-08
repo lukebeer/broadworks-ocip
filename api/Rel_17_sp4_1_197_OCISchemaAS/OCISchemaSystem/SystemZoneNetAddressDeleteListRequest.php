@@ -28,7 +28,7 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
     public function __construct(
          $zoneName,
          $netAddress = null,
-         IPAddressRange $netAddressRange = null
+          $netAddressRange = null
     ) {
         $this->setZoneName($zoneName);
         $this->setNetAddress($netAddress);
@@ -76,7 +76,7 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        $this->netAddressRange = IPAddressRange $netAddressRange;
+        $this->netAddressRange =  $netAddressRange;
     }
 
     /**

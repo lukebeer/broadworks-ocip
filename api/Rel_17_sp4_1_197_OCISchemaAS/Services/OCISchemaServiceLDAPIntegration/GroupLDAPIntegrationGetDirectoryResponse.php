@@ -26,7 +26,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\GroupLDAPIntegrationGetDirectoryResponse';
     public    $name                                 = __CLASS__;
     protected $useLevel                             = null;
     protected $serverNetAddress                     = null;

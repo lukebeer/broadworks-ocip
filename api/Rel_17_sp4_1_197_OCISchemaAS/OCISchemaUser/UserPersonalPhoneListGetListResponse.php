@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPersonalPhoneListGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse';
     public    $name  = __CLASS__;
     protected $entry = null;
 
@@ -28,7 +27,7 @@ class UserPersonalPhoneListGetListResponse extends ComplexType implements Comple
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        $this->entry = PhoneListEntry $entry;
+        $this->entry =  $entry;
     }
 
     /**

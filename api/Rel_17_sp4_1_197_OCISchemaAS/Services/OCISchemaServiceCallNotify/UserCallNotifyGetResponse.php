@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyGetResponse';
     public    $name                   = __CLASS__;
     protected $callNotifyEmailAddress = null;
     protected $criteriaTable          = null;
@@ -47,7 +46,7 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable = core:OCITable $criteriaTable;
+        $this->criteriaTable =  $criteriaTable;
     }
 
     /**

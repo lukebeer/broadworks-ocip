@@ -33,7 +33,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAdminGetPolicyResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetPolicyResponse17sp3';
     public    $name                          = __CLASS__;
     protected $profileAccess                 = null;
     protected $userAccess                    = null;

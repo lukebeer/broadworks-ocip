@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSubscriberGetCallProcessingParametersResponse14sp7 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemSubscriberGetCallProcessingParametersResponse14sp7';
     public    $name                                   = __CLASS__;
     protected $isExtendedCallingLineIdActive          = null;
     protected $isRingTimeOutActive                    = null;

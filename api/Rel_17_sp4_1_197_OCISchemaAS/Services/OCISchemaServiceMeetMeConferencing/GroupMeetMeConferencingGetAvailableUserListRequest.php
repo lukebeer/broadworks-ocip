@@ -45,13 +45,13 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaExactUserDepartment = null,
+          $searchCriteriaExactUserGroup = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExtension = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -132,7 +132,7 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -148,7 +148,7 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -164,7 +164,7 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -180,7 +180,7 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
+        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
     }
 
     /**
@@ -196,7 +196,7 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
+        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
     }
 
     /**
@@ -212,7 +212,7 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -228,7 +228,7 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**

@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDnGetSummaryListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetSummaryListResponse';
     public    $name    = __CLASS__;
     protected $dnTable = null;
 
@@ -32,7 +31,7 @@ class GroupDnGetSummaryListResponse extends ComplexType implements ComplexInterf
      */
     public function setDnTable(core:OCITable $dnTable = null)
     {
-        $this->dnTable = core:OCITable $dnTable;
+        $this->dnTable =  $dnTable;
     }
 
     /**

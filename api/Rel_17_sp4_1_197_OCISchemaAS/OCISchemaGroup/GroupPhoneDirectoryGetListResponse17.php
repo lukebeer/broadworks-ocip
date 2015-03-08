@@ -25,7 +25,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPhoneDirectoryGetListResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPhoneDirectoryGetListResponse17';
     public    $name           = __CLASS__;
     protected $directoryTable = null;
 
@@ -35,7 +34,7 @@ class GroupPhoneDirectoryGetListResponse17 extends ComplexType implements Comple
      */
     public function setDirectoryTable(core:OCITable $directoryTable = null)
     {
-        $this->directoryTable = core:OCITable $directoryTable;
+        $this->directoryTable =  $directoryTable;
     }
 
     /**

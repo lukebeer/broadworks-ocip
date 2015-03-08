@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserNetworkConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserNetworkConferencingGetResponse';
     public    $name                 = __CLASS__;
     protected $conferenceURI        = null;
     protected $maxConferenceParties = null;

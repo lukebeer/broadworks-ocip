@@ -25,7 +25,7 @@ class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implement
 
     public function __construct(
          $serviceUserId,
-         ReplacementUserIdList $supervisorUserIdList = null
+          $supervisorUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setSupervisorUserIdList($supervisorUserIdList);
@@ -63,7 +63,7 @@ class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implement
      */
     public function setSupervisorUserIdList(ReplacementUserIdList $supervisorUserIdList = null)
     {
-        $this->supervisorUserIdList = ReplacementUserIdList $supervisorUserIdList;
+        $this->supervisorUserIdList =  $supervisorUserIdList;
     }
 
     /**

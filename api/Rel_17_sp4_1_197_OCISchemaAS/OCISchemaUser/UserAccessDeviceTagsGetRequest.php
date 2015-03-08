@@ -26,7 +26,7 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
 
     public function __construct(
          $userId,
-         AccessDevice $accessDevice
+          $accessDevice
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
@@ -63,7 +63,7 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice = AccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**

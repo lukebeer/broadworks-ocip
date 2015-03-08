@@ -46,12 +46,12 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
     public function __construct(
          $userId,
          $callLogType = null,
-         EnhancedCallLogsTimeRange $dateTimeRange,
-         EnhancedCallLogsNumberFilter $numberFilter = null,
-         EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null,
-         EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null,
+          $dateTimeRange,
+          $numberFilter = null,
+          $redirectedNumberFilter = null,
+          $accountAuthorizationCodeFilter = null,
          $subscriberType = null,
-         ResponsePagingControl $responsePagingControl = null
+          $responsePagingControl = null
     ) {
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);
@@ -112,7 +112,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function setDateTimeRange(EnhancedCallLogsTimeRange $dateTimeRange = null)
     {
-        $this->dateTimeRange = EnhancedCallLogsTimeRange $dateTimeRange;
+        $this->dateTimeRange =  $dateTimeRange;
     }
 
     /**
@@ -128,7 +128,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function setNumberFilter(EnhancedCallLogsNumberFilter $numberFilter = null)
     {
-        $this->numberFilter = EnhancedCallLogsNumberFilter $numberFilter;
+        $this->numberFilter =  $numberFilter;
     }
 
     /**
@@ -144,7 +144,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function setRedirectedNumberFilter(EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null)
     {
-        $this->redirectedNumberFilter = EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter;
+        $this->redirectedNumberFilter =  $redirectedNumberFilter;
     }
 
     /**
@@ -162,7 +162,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function setAccountAuthorizationCodeFilter(EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null)
     {
-        $this->accountAuthorizationCodeFilter = EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter;
+        $this->accountAuthorizationCodeFilter =  $accountAuthorizationCodeFilter;
     }
 
     /**
@@ -200,7 +200,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function setResponsePagingControl(ResponsePagingControl $responsePagingControl = null)
     {
-        $this->responsePagingControl = ResponsePagingControl $responsePagingControl;
+        $this->responsePagingControl =  $responsePagingControl;
     }
 
     /**

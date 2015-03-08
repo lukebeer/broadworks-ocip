@@ -29,7 +29,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
 
     public function __construct(
          $conferenceOwnerUserId,
-         InstantConferencingConferenceKey $conferenceKey,
+          $conferenceKey,
          $conferenceCallId
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
@@ -68,7 +68,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

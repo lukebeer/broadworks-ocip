@@ -35,13 +35,13 @@ class GroupMusicOnHoldAddInstanceRequest16 extends ComplexType implements Comple
     public function __construct(
          $serviceProviderId,
          $groupId,
-         DepartmentKey $department,
+          $department,
          $isActiveDuringCallHold,
          $isActiveDuringCallPark,
          $isActiveDuringBusyCampOn,
-         MusicOnHoldSourceAdd16 $source,
+          $source,
          $useAlternateSourceForInternalCalls,
-         MusicOnHoldSourceAdd16 $internalSource = null
+          $internalSource = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -105,7 +105,7 @@ class GroupMusicOnHoldAddInstanceRequest16 extends ComplexType implements Comple
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -175,7 +175,7 @@ class GroupMusicOnHoldAddInstanceRequest16 extends ComplexType implements Comple
      */
     public function setSource(MusicOnHoldSourceAdd16 $source = null)
     {
-        $this->source = MusicOnHoldSourceAdd16 $source;
+        $this->source =  $source;
     }
 
     /**
@@ -207,7 +207,7 @@ class GroupMusicOnHoldAddInstanceRequest16 extends ComplexType implements Comple
      */
     public function setInternalSource(MusicOnHoldSourceAdd16 $internalSource = null)
     {
-        $this->internalSource = MusicOnHoldSourceAdd16 $internalSource;
+        $this->internalSource =  $internalSource;
     }
 
     /**

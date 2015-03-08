@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereGetSelectiveCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetSelectiveCriteriaResponse16';
     public    $name            = __CLASS__;
     protected $timeSchedule    = null;
     protected $holidaySchedule = null;
@@ -32,7 +31,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaResponse16 extends ComplexType i
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -48,7 +47,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaResponse16 extends ComplexType i
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -80,7 +79,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaResponse16 extends ComplexType i
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

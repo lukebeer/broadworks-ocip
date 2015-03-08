@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueCallDispositionCodeGetResponse';
     public    $name        = __CLASS__;
     protected $isActive    = null;
     protected $description = null;

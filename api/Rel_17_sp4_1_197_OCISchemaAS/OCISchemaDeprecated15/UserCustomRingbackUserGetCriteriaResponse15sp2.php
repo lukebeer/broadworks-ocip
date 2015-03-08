@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserGetCriteriaResponse15sp2';
     public    $name                            = __CLASS__;
     protected $timeSchedule                    = null;
     protected $fromDnCriteria                  = null;
@@ -45,7 +44,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -61,7 +60,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

@@ -43,8 +43,8 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
          $groupId,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName = null,
-         SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber = null
+          $searchCriteriaGroupCommonPhoneListName = null,
+          $searchCriteriaGroupCommonPhoneListNumber = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -137,7 +137,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaGroupCommonPhoneListName(SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName = null)
     {
-        $this->searchCriteriaGroupCommonPhoneListName = SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName;
+        $this->searchCriteriaGroupCommonPhoneListName =  $searchCriteriaGroupCommonPhoneListName;
     }
 
     /**
@@ -153,7 +153,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaGroupCommonPhoneListNumber(SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber = null)
     {
-        $this->searchCriteriaGroupCommonPhoneListNumber = SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber;
+        $this->searchCriteriaGroupCommonPhoneListNumber =  $searchCriteriaGroupCommonPhoneListNumber;
     }
 
     /**

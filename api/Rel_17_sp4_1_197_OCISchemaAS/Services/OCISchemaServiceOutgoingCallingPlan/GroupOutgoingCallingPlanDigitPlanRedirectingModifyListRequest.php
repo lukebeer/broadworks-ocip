@@ -30,8 +30,8 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
     public function __construct(
          $serviceProviderId,
          $groupId,
-         OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions = null,
-         OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify $departmentPermissions = null
+          $groupPermissions = null,
+          $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -84,7 +84,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
      */
     public function setGroupPermissions(OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions = null)
     {
-        $this->groupPermissions = OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions;
+        $this->groupPermissions =  $groupPermissions;
     }
 
     /**
@@ -100,7 +100,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
      */
     public function setDepartmentPermissions(OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify $departmentPermissions = null)
     {
-        $this->departmentPermissions = OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify $departmentPermissions;
+        $this->departmentPermissions =  $departmentPermissions;
     }
 
     /**

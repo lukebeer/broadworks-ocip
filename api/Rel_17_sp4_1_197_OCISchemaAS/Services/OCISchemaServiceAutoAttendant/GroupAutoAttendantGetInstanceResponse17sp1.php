@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceResponse17sp1';
     public    $name                   = __CLASS__;
     protected $serviceInstanceProfile = null;
     protected $enableVideo            = null;
@@ -42,7 +41,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile17 $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -75,7 +74,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function setBusinessHours(TimeSchedule $businessHours = null)
     {
-        $this->businessHours = TimeSchedule $businessHours;
+        $this->businessHours =  $businessHours;
     }
 
     /**
@@ -91,7 +90,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -162,7 +161,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function setBusinessHoursMenu(AutoAttendantReadMenu16 $businessHoursMenu = null)
     {
-        $this->businessHoursMenu = AutoAttendantReadMenu16 $businessHoursMenu;
+        $this->businessHoursMenu =  $businessHoursMenu;
     }
 
     /**
@@ -180,7 +179,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function setAfterHoursMenu(AutoAttendantReadMenu16 $afterHoursMenu = null)
     {
-        $this->afterHoursMenu = AutoAttendantReadMenu16 $afterHoursMenu;
+        $this->afterHoursMenu =  $afterHoursMenu;
     }
 
     /**

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetAgentListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse';
     public    $name       = __CLASS__;
     protected $agentTable = null;
 
@@ -29,7 +28,7 @@ class GroupCallCenterGetAgentListResponse extends ComplexType implements Complex
      */
     public function setAgentTable(core:OCITable $agentTable = null)
     {
-        $this->agentTable = core:OCITable $agentTable;
+        $this->agentTable =  $agentTable;
     }
 
     /**

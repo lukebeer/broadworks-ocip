@@ -21,7 +21,7 @@ class CommPilotExpressSRProfile extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = (string);
+        $this->dataType = "string";
         $this->addRestriction(new Enumeration([
             'Available In Office',
             'Available Out Of Office',

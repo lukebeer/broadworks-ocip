@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterHolidayServiceGetResponse17sp1';
     public    $name                         = __CLASS__;
     protected $action                       = null;
     protected $holidaySchedule              = null;
@@ -62,7 +61,7 @@ class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implemen
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -144,7 +143,7 @@ class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implemen
      */
     public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLList $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -160,7 +159,7 @@ class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implemen
      */
     public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementDescriptionList $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -176,7 +175,7 @@ class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implemen
      */
     public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $this->audioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList;
+        $this->audioMediaTypeList =  $audioMediaTypeList;
     }
 
     /**
@@ -210,7 +209,7 @@ class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implemen
      */
     public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLList $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -226,7 +225,7 @@ class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implemen
      */
     public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementDescriptionList $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**
@@ -242,7 +241,7 @@ class GroupCallCenterHolidayServiceGetResponse17sp1 extends ComplexType implemen
      */
     public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $this->videoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList;
+        $this->videoMediaTypeList =  $videoMediaTypeList;
     }
 
     /**

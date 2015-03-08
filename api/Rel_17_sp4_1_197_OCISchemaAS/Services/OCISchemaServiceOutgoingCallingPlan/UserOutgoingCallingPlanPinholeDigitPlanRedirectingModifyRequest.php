@@ -27,7 +27,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanRedirectingModifyRequest extends Co
     public function __construct(
          $userId,
          $useCustomSettings = null,
-         OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $userPermissions = null
+          $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);
@@ -81,7 +81,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanRedirectingModifyRequest extends Co
      */
     public function setUserPermissions(OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $userPermissions = null)
     {
-        $this->userPermissions = OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $userPermissions;
+        $this->userPermissions =  $userPermissions;
     }
 
     /**

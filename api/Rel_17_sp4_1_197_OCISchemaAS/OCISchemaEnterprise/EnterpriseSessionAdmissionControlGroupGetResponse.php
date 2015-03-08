@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetResponse';
     public    $name                            = __CLASS__;
     protected $maxSession                      = null;
     protected $maxUserOriginatingSessions      = null;
@@ -177,7 +176,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        $this->devices = EnterpriseAccessDevice $devices;
+        $this->devices =  $devices;
     }
 
     /**

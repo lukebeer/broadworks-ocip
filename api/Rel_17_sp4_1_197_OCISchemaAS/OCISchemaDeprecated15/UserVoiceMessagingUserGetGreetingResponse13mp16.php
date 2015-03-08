@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserVoiceMessagingUserGetGreetingResponse13mp16';
     public    $name                          = __CLASS__;
     protected $busyAnnouncementSelection     = null;
     protected $busyPersonalAudioFile         = null;
@@ -151,7 +150,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
      */
     public function setNoAnswerAlternateGreeting01(VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting01 = null)
     {
-        $this->noAnswerAlternateGreeting01 = VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting01;
+        $this->noAnswerAlternateGreeting01 =  $noAnswerAlternateGreeting01;
     }
 
     /**
@@ -169,7 +168,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
      */
     public function setNoAnswerAlternateGreeting02(VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting02 = null)
     {
-        $this->noAnswerAlternateGreeting02 = VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting02;
+        $this->noAnswerAlternateGreeting02 =  $noAnswerAlternateGreeting02;
     }
 
     /**
@@ -187,7 +186,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
      */
     public function setNoAnswerAlternateGreeting03(VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting03 = null)
     {
-        $this->noAnswerAlternateGreeting03 = VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting03;
+        $this->noAnswerAlternateGreeting03 =  $noAnswerAlternateGreeting03;
     }
 
     /**

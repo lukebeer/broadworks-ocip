@@ -84,7 +84,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
          $extension = null,
          $callingLineIdPhoneNumber = null,
          $password = null,
-         DepartmentKey $department = null,
+          $department = null,
          $language = null,
          $timeZone = null,
          $alias = null,
@@ -94,7 +94,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
          $emailAddress = null,
          $yahooId = null,
          $addressLocation = null,
-         StreetAddress $address = null,
+          $address = null,
          $networkClassOfService = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -381,7 +381,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -585,7 +585,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

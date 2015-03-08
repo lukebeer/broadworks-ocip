@@ -27,7 +27,7 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn = null
+          $searchCriteriaSystemServiceDn = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaSystemServiceDn($searchCriteriaSystemServiceDn);
@@ -60,7 +60,7 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaSystemServiceDn(SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn = null)
     {
-        $this->searchCriteriaSystemServiceDn = SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn;
+        $this->searchCriteriaSystemServiceDn =  $searchCriteriaSystemServiceDn;
     }
 
     /**

@@ -37,7 +37,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
          $deviceName,
          $fileFormat,
          $fileSource = null,
-         FileResource $uploadFile = null
+          $uploadFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -147,7 +147,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile = FileResource $uploadFile;
+        $this->uploadFile =  $uploadFile;
     }
 
     /**

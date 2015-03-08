@@ -28,7 +28,7 @@ class UserInstantConferencingGetConferenceRequest extends ComplexType implements
 
     public function __construct(
          $userId,
-         InstantConferencingConferenceKey $conferenceKey
+          $conferenceKey
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
@@ -65,7 +65,7 @@ class UserInstantConferencingGetConferenceRequest extends ComplexType implements
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

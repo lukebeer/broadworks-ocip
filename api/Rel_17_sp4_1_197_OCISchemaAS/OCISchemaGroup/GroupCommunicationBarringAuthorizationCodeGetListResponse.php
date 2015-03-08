@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCommunicationBarringAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommunicationBarringAuthorizationCodeGetListResponse';
     public    $name = __CLASS__;
     protected $code = null;
 
@@ -29,7 +28,7 @@ class GroupCommunicationBarringAuthorizationCodeGetListResponse extends ComplexT
      */
     public function setCode(CommunicationBarringAuthorizationCodeEntry $code = null)
     {
-        $this->code = CommunicationBarringAuthorizationCodeEntry $code;
+        $this->code =  $code;
     }
 
     /**

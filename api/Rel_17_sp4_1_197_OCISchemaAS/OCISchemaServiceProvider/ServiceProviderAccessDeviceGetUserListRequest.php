@@ -48,15 +48,15 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
          $serviceProviderId,
          $deviceName,
          $responseSizeLimit = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null,
-         SearchCriteriaExactUserType $searchCriteriaExactUserType = null
+          $searchCriteriaLinePortUserPart = null,
+          $searchCriteriaLinePortDomain = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaExactEndpointType = null,
+          $searchCriteriaExactUserType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
@@ -137,7 +137,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        $this->searchCriteriaLinePortUserPart = SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart;
+        $this->searchCriteriaLinePortUserPart =  $searchCriteriaLinePortUserPart;
     }
 
     /**
@@ -153,7 +153,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        $this->searchCriteriaLinePortDomain = SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain;
+        $this->searchCriteriaLinePortDomain =  $searchCriteriaLinePortDomain;
     }
 
     /**
@@ -169,7 +169,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -185,7 +185,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -201,7 +201,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -217,7 +217,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -233,7 +233,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -249,7 +249,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaExactEndpointType(SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null)
     {
-        $this->searchCriteriaExactEndpointType = SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType;
+        $this->searchCriteriaExactEndpointType =  $searchCriteriaExactEndpointType;
     }
 
     /**
@@ -265,7 +265,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function setSearchCriteriaExactUserType(SearchCriteriaExactUserType $searchCriteriaExactUserType = null)
     {
-        $this->searchCriteriaExactUserType = SearchCriteriaExactUserType $searchCriteriaExactUserType;
+        $this->searchCriteriaExactUserType =  $searchCriteriaExactUserType;
     }
 
     /**

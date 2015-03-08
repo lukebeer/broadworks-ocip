@@ -33,12 +33,12 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
     protected $searchCriteriaExactUserDepartment = null;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey,
+          $trunkGroupKey,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExactUserDepartment = null
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -54,7 +54,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
      */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        $this->trunkGroupKey = TrunkGroupKey $trunkGroupKey;
+        $this->trunkGroupKey =  $trunkGroupKey;
     }
 
     /**
@@ -93,7 +93,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -109,7 +109,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -125,7 +125,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -141,7 +141,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
+        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
     }
 
     /**

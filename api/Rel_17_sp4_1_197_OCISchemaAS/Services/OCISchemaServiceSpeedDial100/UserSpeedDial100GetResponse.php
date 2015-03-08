@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\UserSpeedDial100GetResponse';
     public    $name        = __CLASS__;
     protected $phoneNumber = null;
     protected $description = null;

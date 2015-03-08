@@ -52,20 +52,20 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null,
-         SearchCriteriaExactOrganizationType $searchCriteriaExactOrganizationType = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaDeviceType $searchCriteriaDeviceType = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null
+          $searchCriteriaServiceProviderId = null,
+          $searchCriteriaExactOrganizationType = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaLinePortUserPart = null,
+          $searchCriteriaLinePortDomain = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExtension = null,
+          $searchCriteriaDeviceType = null,
+          $searchCriteriaDeviceName = null,
+          $searchCriteriaDeviceMACAddress = null,
+          $searchCriteriaDeviceNetAddress = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaServiceProviderId($searchCriteriaServiceProviderId);
@@ -111,7 +111,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaServiceProviderId(SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null)
     {
-        $this->searchCriteriaServiceProviderId = SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId;
+        $this->searchCriteriaServiceProviderId =  $searchCriteriaServiceProviderId;
     }
 
     /**
@@ -127,7 +127,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaExactOrganizationType(SearchCriteriaExactOrganizationType $searchCriteriaExactOrganizationType = null)
     {
-        $this->searchCriteriaExactOrganizationType = SearchCriteriaExactOrganizationType $searchCriteriaExactOrganizationType;
+        $this->searchCriteriaExactOrganizationType =  $searchCriteriaExactOrganizationType;
     }
 
     /**
@@ -143,7 +143,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -159,7 +159,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        $this->searchCriteriaLinePortUserPart = SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart;
+        $this->searchCriteriaLinePortUserPart =  $searchCriteriaLinePortUserPart;
     }
 
     /**
@@ -175,7 +175,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        $this->searchCriteriaLinePortDomain = SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain;
+        $this->searchCriteriaLinePortDomain =  $searchCriteriaLinePortDomain;
     }
 
     /**
@@ -191,7 +191,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -207,7 +207,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -223,7 +223,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -239,7 +239,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -255,7 +255,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**
@@ -271,7 +271,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
-        $this->searchCriteriaDeviceType = SearchCriteriaDeviceType $searchCriteriaDeviceType;
+        $this->searchCriteriaDeviceType =  $searchCriteriaDeviceType;
     }
 
     /**
@@ -287,7 +287,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName = SearchCriteriaDeviceName $searchCriteriaDeviceName;
+        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
     }
 
     /**
@@ -303,7 +303,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress = SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress;
+        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
     }
 
     /**
@@ -319,7 +319,7 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress = SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress;
+        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
     }
 
     /**

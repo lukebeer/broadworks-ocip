@@ -27,7 +27,7 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
     public function __construct(
          $userId,
          $useCustomSettings = null,
-         OutgoingCallingPlanTransferNumbersModify $userNumbers = null
+          $userNumbers = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);
@@ -81,7 +81,7 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function setUserNumbers(OutgoingCallingPlanTransferNumbersModify $userNumbers = null)
     {
-        $this->userNumbers = OutgoingCallingPlanTransferNumbersModify $userNumbers;
+        $this->userNumbers =  $userNumbers;
     }
 
     /**

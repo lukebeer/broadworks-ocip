@@ -50,14 +50,14 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $policy = null,
          $huntAfterNoAnswer = null,
          $noAnswerNumberOfRings = null,
          $forwardAfterTimeout = null,
          $forwardTimeoutSeconds = null,
          $forwardToPhoneNumber = null,
-         ReplacementUserIdList $agentUserIdList = null,
+          $agentUserIdList = null,
          $allowCallWaitingForAgents = null,
          $useSystemHuntGroupCLIDSetting = null,
          $includeHuntGroupNameInCLID = null,
@@ -113,7 +113,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -240,7 +240,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        $this->agentUserIdList = ReplacementUserIdList $agentUserIdList;
+        $this->agentUserIdList =  $agentUserIdList;
     }
 
     /**

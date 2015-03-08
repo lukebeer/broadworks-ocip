@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSMPPGetResponse';
     public    $name                          = __CLASS__;
     protected $primarySMPPServerNetAddress   = null;
     protected $primarySMPPPort               = null;

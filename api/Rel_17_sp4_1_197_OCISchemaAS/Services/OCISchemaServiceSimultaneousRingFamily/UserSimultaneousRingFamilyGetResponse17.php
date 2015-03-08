@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetResponse17';
     public    $name                   = __CLASS__;
     protected $isActive               = null;
     protected $doNotRingIfOnCall      = null;
@@ -63,7 +62,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
      */
     public function setSimultaneousRingNumber(SimultaneousRingNumber $simultaneousRingNumber = null)
     {
-        $this->simultaneousRingNumber = SimultaneousRingNumber $simultaneousRingNumber;
+        $this->simultaneousRingNumber =  $simultaneousRingNumber;
     }
 
     /**
@@ -79,7 +78,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable = core:OCITable $criteriaTable;
+        $this->criteriaTable =  $criteriaTable;
     }
 
     /**

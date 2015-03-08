@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemLicensingGetResponse';
     public    $name              = __CLASS__;
     protected $licenseStrictness = null;
     protected $groupUserlimit    = null;
@@ -79,7 +78,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setExpirationDate(xs:dateTime $expirationDate = null)
     {
-        $this->expirationDate = xs:dateTime $expirationDate;
+        $this->expirationDate =  $expirationDate;
     }
 
     /**
@@ -131,7 +130,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setLicenseTable(core:OCITable $licenseTable = null)
     {
-        $this->licenseTable = core:OCITable $licenseTable;
+        $this->licenseTable =  $licenseTable;
     }
 
     /**

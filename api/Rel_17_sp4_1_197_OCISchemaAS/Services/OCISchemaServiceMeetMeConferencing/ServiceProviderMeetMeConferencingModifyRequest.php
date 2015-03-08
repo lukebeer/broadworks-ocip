@@ -25,7 +25,7 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
 
     public function __construct(
          $serviceProviderId,
-         MeetMeConferencingConferencePorts $allocatedPorts = null
+          $allocatedPorts = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setAllocatedPorts($allocatedPorts);
@@ -56,7 +56,7 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = MeetMeConferencingConferencePorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**

@@ -39,9 +39,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
          $announcementInterruption = null,
          $interruptionDigitSequence = null,
          $audioSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+          $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -155,7 +155,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -191,7 +191,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

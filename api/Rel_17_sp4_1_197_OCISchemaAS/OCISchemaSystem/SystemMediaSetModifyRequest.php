@@ -25,7 +25,7 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
 
     public function __construct(
          $setName,
-         ReplacementMediaNameList $mediaNameList = null
+          $mediaNameList = null
     ) {
         $this->setSetName($setName);
         $this->setMediaNameList($mediaNameList);
@@ -54,7 +54,7 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setMediaNameList(ReplacementMediaNameList $mediaNameList = null)
     {
-        $this->mediaNameList = ReplacementMediaNameList $mediaNameList;
+        $this->mediaNameList =  $mediaNameList;
     }
 
     /**

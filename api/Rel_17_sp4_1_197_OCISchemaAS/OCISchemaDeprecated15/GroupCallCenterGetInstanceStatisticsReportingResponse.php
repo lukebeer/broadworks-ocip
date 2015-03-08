@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceStatisticsReportingResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetInstanceStatisticsReportingResponse';
     public    $name                    = __CLASS__;
     protected $generateDailyReport     = null;
     protected $collectionPeriodMinutes = null;

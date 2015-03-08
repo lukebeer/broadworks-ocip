@@ -29,7 +29,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderAdminGetPolicyResponse14';
     public    $name                       = __CLASS__;
     protected $profileAccess              = null;
     protected $groupAccess                = null;

@@ -28,7 +28,7 @@ class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexT
     public function __construct(
          $serviceProviderId,
          $groupId,
-         CallDispositionCodeActivation $callDispositionCodeActivation = null
+          $callDispositionCodeActivation = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -80,7 +80,7 @@ class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexT
      */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        $this->callDispositionCodeActivation = CallDispositionCodeActivation $callDispositionCodeActivation;
+        $this->callDispositionCodeActivation =  $callDispositionCodeActivation;
     }
 
     /**

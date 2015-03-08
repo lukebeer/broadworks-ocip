@@ -35,10 +35,10 @@ class UserPushToTalkGetAvailableUserListRequest extends ComplexType implements C
     public function __construct(
          $userId,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaExactUserDepartment = null,
+          $searchCriteriaExactUserGroup = null
     ) {
         $this->setUserId($userId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -101,7 +101,7 @@ class UserPushToTalkGetAvailableUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -117,7 +117,7 @@ class UserPushToTalkGetAvailableUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -133,7 +133,7 @@ class UserPushToTalkGetAvailableUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
+        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
     }
 
     /**
@@ -149,7 +149,7 @@ class UserPushToTalkGetAvailableUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
+        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
     }
 
     /**

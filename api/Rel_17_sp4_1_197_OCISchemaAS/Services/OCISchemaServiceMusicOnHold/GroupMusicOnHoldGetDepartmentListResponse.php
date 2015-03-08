@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetDepartmentListResponse';
     public    $name               = __CLASS__;
     protected $hasDepartment      = null;
     protected $department         = null;
@@ -52,7 +51,7 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**

@@ -25,7 +25,7 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
 
     public function __construct(
          $userId,
-         InstantConferencingRecordingKey $recordingKey = null
+          $recordingKey = null
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
@@ -62,7 +62,7 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        $this->recordingKey = InstantConferencingRecordingKey $recordingKey;
+        $this->recordingKey =  $recordingKey;
     }
 
     /**

@@ -33,10 +33,10 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $holidaySchedule = null,
          $rejectCall,
-         CallMeNowToDnCriteria $toDnCriteria
+          $toDnCriteria
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -95,7 +95,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -111,7 +111,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -143,7 +143,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setToDnCriteria(CallMeNowToDnCriteria $toDnCriteria = null)
     {
-        $this->toDnCriteria = CallMeNowToDnCriteria $toDnCriteria;
+        $this->toDnCriteria =  $toDnCriteria;
     }
 
     /**

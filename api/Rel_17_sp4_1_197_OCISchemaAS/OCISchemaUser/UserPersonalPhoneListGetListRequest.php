@@ -40,8 +40,8 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
          $userId,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null,
-         SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null
+          $searchCriteriaUserPersonalPhoneListName = null,
+          $searchCriteriaUserPersonalPhoneListNumber = null
     ) {
         $this->setUserId($userId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -119,7 +119,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserPersonalPhoneListName(SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null)
     {
-        $this->searchCriteriaUserPersonalPhoneListName = SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName;
+        $this->searchCriteriaUserPersonalPhoneListName =  $searchCriteriaUserPersonalPhoneListName;
     }
 
     /**
@@ -135,7 +135,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserPersonalPhoneListNumber(SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null)
     {
-        $this->searchCriteriaUserPersonalPhoneListNumber = SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber;
+        $this->searchCriteriaUserPersonalPhoneListNumber =  $searchCriteriaUserPersonalPhoneListNumber;
     }
 
     /**

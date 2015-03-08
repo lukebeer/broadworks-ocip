@@ -25,7 +25,7 @@ class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInter
 
     public function __construct(
          $userId,
-         SpeedDial100Entry $speedDialEntry = null
+          $speedDialEntry = null
     ) {
         $this->setUserId($userId);
         $this->setSpeedDialEntry($speedDialEntry);
@@ -63,7 +63,7 @@ class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInter
      */
     public function setSpeedDialEntry(SpeedDial100Entry $speedDialEntry = null)
     {
-        $this->speedDialEntry = SpeedDial100Entry $speedDialEntry;
+        $this->speedDialEntry =  $speedDialEntry;
     }
 
     /**

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemServiceCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse';
     public    $name             = __CLASS__;
     protected $serviceCodeTable = null;
 
@@ -29,7 +28,7 @@ class SystemServiceCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function setServiceCodeTable(core:OCITable $serviceCodeTable = null)
     {
-        $this->serviceCodeTable = core:OCITable $serviceCodeTable;
+        $this->serviceCodeTable =  $serviceCodeTable;
     }
 
     /**

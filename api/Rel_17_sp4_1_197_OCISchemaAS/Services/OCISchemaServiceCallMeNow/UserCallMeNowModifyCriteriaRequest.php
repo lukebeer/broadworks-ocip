@@ -35,10 +35,10 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
          $userId,
          $criteriaName,
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $holidaySchedule = null,
          $rejectCall = null,
-         CallMeNowToDnCriteriaModify $toDnCriteria = null
+          $toDnCriteria = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -116,7 +116,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -132,7 +132,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -164,7 +164,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setToDnCriteria(CallMeNowToDnCriteriaModify $toDnCriteria = null)
     {
-        $this->toDnCriteria = CallMeNowToDnCriteriaModify $toDnCriteria;
+        $this->toDnCriteria =  $toDnCriteria;
     }
 
     /**

@@ -22,7 +22,7 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
     protected $configFile = null;
 
     public function __construct(
-         FileResource $configFile = null
+          $configFile = null
     ) {
         $this->setConfigFile($configFile);
     }
@@ -33,7 +33,7 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setConfigFile(FileResource $configFile = null)
     {
-        $this->configFile = FileResource $configFile;
+        $this->configFile =  $configFile;
     }
 
     /**

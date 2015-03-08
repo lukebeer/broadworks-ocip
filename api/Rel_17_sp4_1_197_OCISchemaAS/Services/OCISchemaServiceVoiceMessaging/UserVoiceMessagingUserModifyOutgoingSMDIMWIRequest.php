@@ -27,7 +27,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
     public function __construct(
          $userId,
          $isActive = null,
-         ReplacementOutgoingDNList $outgoingSMDIMWIPhoneNumberList = null
+          $outgoingSMDIMWIPhoneNumberList = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
@@ -82,7 +82,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function setOutgoingSMDIMWIPhoneNumberList(ReplacementOutgoingDNList $outgoingSMDIMWIPhoneNumberList = null)
     {
-        $this->outgoingSMDIMWIPhoneNumberList = ReplacementOutgoingDNList $outgoingSMDIMWIPhoneNumberList;
+        $this->outgoingSMDIMWIPhoneNumberList =  $outgoingSMDIMWIPhoneNumberList;
     }
 
     /**

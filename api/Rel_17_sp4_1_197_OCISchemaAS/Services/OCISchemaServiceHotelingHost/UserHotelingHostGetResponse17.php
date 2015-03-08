@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost\UserHotelingHostGetResponse17';
     public    $name                     = __CLASS__;
     protected $isActive                 = null;
     protected $enforceAssociationLimit  = null;
@@ -200,7 +199,7 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function setGuestAssociationDateTime(xs:dateTime $guestAssociationDateTime = null)
     {
-        $this->guestAssociationDateTime = xs:dateTime $guestAssociationDateTime;
+        $this->guestAssociationDateTime =  $guestAssociationDateTime;
     }
 
     /**

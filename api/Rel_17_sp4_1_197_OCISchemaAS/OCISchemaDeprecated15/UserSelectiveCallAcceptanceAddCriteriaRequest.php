@@ -30,8 +30,8 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDn $fromDnCriteria
+          $timeSchedule = null,
+          $fromDnCriteria
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -88,7 +88,7 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -104,7 +104,7 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

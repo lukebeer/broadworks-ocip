@@ -52,16 +52,16 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
          $enterpriseId,
          $isExtendedInfoRequested,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaYahooId $searchCriteriaYahooId = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaGroupLocationCode = null,
+          $searchCriteriaExtension = null,
+          $searchCriteriaMobilePhoneNumber = null,
+          $searchCriteriaEmailAddress = null,
+          $searchCriteriaYahooId = null,
+          $searchCriteriaExactUserGroup = null,
+          $searchCriteriaExactUserDepartment = null
     ) {
         $this->setEnterpriseId($enterpriseId);
         $this->setIsExtendedInfoRequested($isExtendedInfoRequested);
@@ -141,7 +141,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -157,7 +157,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -173,7 +173,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -189,7 +189,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        $this->searchCriteriaGroupLocationCode = SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode;
+        $this->searchCriteriaGroupLocationCode =  $searchCriteriaGroupLocationCode;
     }
 
     /**
@@ -205,7 +205,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**
@@ -221,7 +221,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
-        $this->searchCriteriaMobilePhoneNumber = SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber;
+        $this->searchCriteriaMobilePhoneNumber =  $searchCriteriaMobilePhoneNumber;
     }
 
     /**
@@ -237,7 +237,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        $this->searchCriteriaEmailAddress = SearchCriteriaEmailAddress $searchCriteriaEmailAddress;
+        $this->searchCriteriaEmailAddress =  $searchCriteriaEmailAddress;
     }
 
     /**
@@ -253,7 +253,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaYahooId(SearchCriteriaYahooId $searchCriteriaYahooId = null)
     {
-        $this->searchCriteriaYahooId = SearchCriteriaYahooId $searchCriteriaYahooId;
+        $this->searchCriteriaYahooId =  $searchCriteriaYahooId;
     }
 
     /**
@@ -269,7 +269,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
+        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
     }
 
     /**
@@ -285,7 +285,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
+        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
     }
 
     /**

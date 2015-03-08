@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGroupPagingGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupGroupPagingGetInstanceResponse';
     public    $name                           = __CLASS__;
     protected $serviceInstanceProfile         = null;
     protected $confirmationToneTimeoutSeconds = null;
@@ -36,7 +35,7 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

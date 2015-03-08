@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupScheduleGetListResponse';
     public    $name          = __CLASS__;
     protected $scheduleName  = null;
     protected $scheduleType  = null;

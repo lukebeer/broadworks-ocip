@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceUserListResponse';
     public    $name                = __CLASS__;
     protected $trunkGroupUserTable = null;
 
@@ -29,7 +28,7 @@ class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements 
      */
     public function setTrunkGroupUserTable(core:OCITable $trunkGroupUserTable = null)
     {
-        $this->trunkGroupUserTable = core:OCITable $trunkGroupUserTable;
+        $this->trunkGroupUserTable =  $trunkGroupUserTable;
     }
 
     /**

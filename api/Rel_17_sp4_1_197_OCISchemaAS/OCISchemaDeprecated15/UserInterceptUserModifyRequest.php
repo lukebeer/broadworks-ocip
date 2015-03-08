@@ -38,8 +38,8 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
          $userId,
          $isActive = null,
          $announcementSelection = null,
-         LabeledFileResource $audioFile = null,
-         LabeledFileResource $videoFile = null,
+          $audioFile = null,
+          $videoFile = null,
          $playNewPhoneNumber = null,
          $newPhoneNumber = null,
          $transferOnZeroToPhoneNumber = null,
@@ -122,7 +122,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $this->audioFile = LabeledFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -140,7 +140,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $this->videoFile = LabeledFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

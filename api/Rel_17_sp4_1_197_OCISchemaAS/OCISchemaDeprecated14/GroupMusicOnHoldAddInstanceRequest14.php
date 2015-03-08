@@ -38,13 +38,13 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
     public function __construct(
          $serviceProviderId,
          $groupId,
-         DepartmentKey $department,
+          $department,
          $isActiveDuringCallHold,
          $isActiveDuringCallPark,
          $messageSelection,
-         AccessDeviceEndpointAdd $accessDeviceEndpoint = null,
-         LabeledFileResource $audioFile = null,
-         LabeledFileResource $videoFile = null
+          $accessDeviceEndpoint = null,
+          $audioFile = null,
+          $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -108,7 +108,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -180,7 +180,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointAdd $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointAdd $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**
@@ -197,7 +197,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $this->audioFile = LabeledFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -215,7 +215,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $this->videoFile = LabeledFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

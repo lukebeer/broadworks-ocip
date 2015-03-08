@@ -36,9 +36,9 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
          $groupId,
          $isActive = null,
          $audioSelection = null,
-         ExtendedFileResource $audioFile = null,
+          $audioFile = null,
          $videoSelection = null,
-         ExtendedFileResource $videoFile = null
+          $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -129,7 +129,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setAudioFile(ExtendedFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -165,7 +165,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setVideoFile(ExtendedFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

@@ -38,8 +38,8 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
          $deviceLevel = null,
          $deviceName = null,
          $deviceType = null,
-         SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI = null,
-         SearchCriteriaSIPContact $searchCriteriaSIPContact = null,
+          $searchCriteriaRegistrationURI = null,
+          $searchCriteriaSIPContact = null,
          $endpointType = null,
          $expired = null
     ) {
@@ -111,7 +111,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaRegistrationURI(SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI = null)
     {
-        $this->searchCriteriaRegistrationURI = SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI;
+        $this->searchCriteriaRegistrationURI =  $searchCriteriaRegistrationURI;
     }
 
     /**
@@ -127,7 +127,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaSIPContact(SearchCriteriaSIPContact $searchCriteriaSIPContact = null)
     {
-        $this->searchCriteriaSIPContact = SearchCriteriaSIPContact $searchCriteriaSIPContact;
+        $this->searchCriteriaSIPContact =  $searchCriteriaSIPContact;
     }
 
     /**

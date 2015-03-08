@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole\UserAttendantConsoleGetResponse14sp2';
     public    $name                       = __CLASS__;
     protected $launchOnLogin              = null;
     protected $allowUserConfigCallDetails = null;
@@ -99,7 +98,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $this->monitoredUserTable = core:OCITable $monitoredUserTable;
+        $this->monitoredUserTable =  $monitoredUserTable;
     }
 
     /**

@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPreferredCarrierUserGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\UserPreferredCarrierUserGetResponse';
     public    $name                 = __CLASS__;
     protected $intraLataCarrier     = null;
     protected $interLataCarrier     = null;
@@ -30,7 +29,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
      */
     public function setIntraLataCarrier(UserPreferredCarrierName $intraLataCarrier = null)
     {
-        $this->intraLataCarrier = UserPreferredCarrierName $intraLataCarrier;
+        $this->intraLataCarrier =  $intraLataCarrier;
     }
 
     /**
@@ -48,7 +47,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
      */
     public function setInterLataCarrier(UserPreferredCarrierName $interLataCarrier = null)
     {
-        $this->interLataCarrier = UserPreferredCarrierName $interLataCarrier;
+        $this->interLataCarrier =  $interLataCarrier;
     }
 
     /**
@@ -66,7 +65,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
      */
     public function setInternationalCarrier(UserPreferredCarrierName $internationalCarrier = null)
     {
-        $this->internationalCarrier = UserPreferredCarrierName $internationalCarrier;
+        $this->internationalCarrier =  $internationalCarrier;
     }
 
     /**

@@ -34,7 +34,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
          $isPremiumOnly = null,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null
+          $searchCriteriaCallCenterName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setIsPremiumOnly($isPremiumOnly);
@@ -126,7 +126,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function setSearchCriteriaCallCenterName(SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null)
     {
-        $this->searchCriteriaCallCenterName = SearchCriteriaCallCenterName $searchCriteriaCallCenterName;
+        $this->searchCriteriaCallCenterName =  $searchCriteriaCallCenterName;
     }
 
     /**

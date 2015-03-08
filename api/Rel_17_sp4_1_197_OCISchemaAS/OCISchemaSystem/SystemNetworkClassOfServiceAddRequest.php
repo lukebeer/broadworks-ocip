@@ -39,16 +39,16 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
     public function __construct(
          $name,
          $description = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9 = null,
+          $communicationBarringProfile0 = null,
+          $communicationBarringProfile1 = null,
+          $communicationBarringProfile2 = null,
+          $communicationBarringProfile3 = null,
+          $communicationBarringProfile4 = null,
+          $communicationBarringProfile5 = null,
+          $communicationBarringProfile6 = null,
+          $communicationBarringProfile7 = null,
+          $communicationBarringProfile8 = null,
+          $communicationBarringProfile9 = null,
          $networkTranslationIndex = null
     ) {
         $this->setName($name);
@@ -109,7 +109,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile0(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0 = null)
     {
-        $this->communicationBarringProfile0 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0;
+        $this->communicationBarringProfile0 =  $communicationBarringProfile0;
     }
 
     /**
@@ -129,7 +129,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile1(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1 = null)
     {
-        $this->communicationBarringProfile1 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1;
+        $this->communicationBarringProfile1 =  $communicationBarringProfile1;
     }
 
     /**
@@ -149,7 +149,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile2(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2 = null)
     {
-        $this->communicationBarringProfile2 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2;
+        $this->communicationBarringProfile2 =  $communicationBarringProfile2;
     }
 
     /**
@@ -169,7 +169,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile3(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3 = null)
     {
-        $this->communicationBarringProfile3 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3;
+        $this->communicationBarringProfile3 =  $communicationBarringProfile3;
     }
 
     /**
@@ -189,7 +189,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile4(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4 = null)
     {
-        $this->communicationBarringProfile4 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4;
+        $this->communicationBarringProfile4 =  $communicationBarringProfile4;
     }
 
     /**
@@ -209,7 +209,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile5(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5 = null)
     {
-        $this->communicationBarringProfile5 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5;
+        $this->communicationBarringProfile5 =  $communicationBarringProfile5;
     }
 
     /**
@@ -229,7 +229,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile6(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6 = null)
     {
-        $this->communicationBarringProfile6 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6;
+        $this->communicationBarringProfile6 =  $communicationBarringProfile6;
     }
 
     /**
@@ -249,7 +249,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile7(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7 = null)
     {
-        $this->communicationBarringProfile7 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7;
+        $this->communicationBarringProfile7 =  $communicationBarringProfile7;
     }
 
     /**
@@ -269,7 +269,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile8(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8 = null)
     {
-        $this->communicationBarringProfile8 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8;
+        $this->communicationBarringProfile8 =  $communicationBarringProfile8;
     }
 
     /**
@@ -289,7 +289,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
      */
     public function setCommunicationBarringProfile9(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9 = null)
     {
-        $this->communicationBarringProfile9 = NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9;
+        $this->communicationBarringProfile9 =  $communicationBarringProfile9;
     }
 
     /**

@@ -40,16 +40,16 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDn $fromDnCriteria,
+          $timeSchedule = null,
+          $fromDnCriteria,
          $audioSelection,
-         ExtendedFileResource $audioFile = null,
+          $audioFile = null,
          $videoSelection,
-         ExtendedFileResource $videoFile = null,
+          $videoFile = null,
          $callWaitingAudioSelection = null,
-         ExtendedFileResource $callWaitingAudioFile = null,
+          $callWaitingAudioFile = null,
          $callWaitingVideoSelection = null,
-         ExtendedFileResource $callWaitingVideoFile = null
+          $callWaitingVideoFile = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -114,7 +114,7 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -130,7 +130,7 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**
@@ -165,7 +165,7 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
      */
     public function setAudioFile(ExtendedFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -201,7 +201,7 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
      */
     public function setVideoFile(ExtendedFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**
@@ -237,7 +237,7 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
      */
     public function setCallWaitingAudioFile(ExtendedFileResource $callWaitingAudioFile = null)
     {
-        $this->callWaitingAudioFile = ExtendedFileResource $callWaitingAudioFile;
+        $this->callWaitingAudioFile =  $callWaitingAudioFile;
     }
 
     /**
@@ -273,7 +273,7 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
      */
     public function setCallWaitingVideoFile(ExtendedFileResource $callWaitingVideoFile = null)
     {
-        $this->callWaitingVideoFile = ExtendedFileResource $callWaitingVideoFile;
+        $this->callWaitingVideoFile =  $callWaitingVideoFile;
     }
 
     /**

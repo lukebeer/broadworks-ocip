@@ -25,7 +25,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17';
     public    $name                                       = __CLASS__;
     protected $enableDirectoryPrivacy                     = null;
     protected $enableAutoAttendantExtensionDialingPrivacy = null;
@@ -103,7 +102,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function setPermittedMonitorUserIdTable(core:OCITable $permittedMonitorUserIdTable = null)
     {
-        $this->permittedMonitorUserIdTable = core:OCITable $permittedMonitorUserIdTable;
+        $this->permittedMonitorUserIdTable =  $permittedMonitorUserIdTable;
     }
 
     /**

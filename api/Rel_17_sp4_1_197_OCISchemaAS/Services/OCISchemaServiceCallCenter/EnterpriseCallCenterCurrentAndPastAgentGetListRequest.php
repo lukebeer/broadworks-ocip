@@ -33,9 +33,9 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType 
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaExactUserGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -91,7 +91,7 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType 
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -107,7 +107,7 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType 
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -123,7 +123,7 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType 
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
+        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
     }
 
     /**

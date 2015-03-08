@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutingGetRouteDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetRouteDeviceListResponse';
     public    $name             = __CLASS__;
     protected $routeDeviceTable = null;
 
@@ -28,7 +27,7 @@ class SystemRoutingGetRouteDeviceListResponse extends ComplexType implements Com
      */
     public function setRouteDeviceTable(core:OCITable $routeDeviceTable = null)
     {
-        $this->routeDeviceTable = core:OCITable $routeDeviceTable;
+        $this->routeDeviceTable =  $routeDeviceTable;
     }
 
     /**

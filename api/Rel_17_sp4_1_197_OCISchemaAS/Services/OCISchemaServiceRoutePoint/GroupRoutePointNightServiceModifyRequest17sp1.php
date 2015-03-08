@@ -50,23 +50,23 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
     public function __construct(
          $serviceUserId,
          $action = null,
-         TimeSchedule $businessHours = null,
+          $businessHours = null,
          $forceNightService = null,
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+          $audioUrlList = null,
+          $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null,
+          $videoUrlList = null,
+          $videoFileList = null,
          $manualAnnouncementMode = null,
          $manualAudioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualAudioUrlList = null,
-         CallCenterAnnouncementFileListModify $manualAudioFileList = null,
+          $manualAudioUrlList = null,
+          $manualAudioFileList = null,
          $manualVideoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualVideoUrlList = null,
-         CallCenterAnnouncementFileListModify $manualVideoFileList = null
+          $manualVideoUrlList = null,
+          $manualVideoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -138,7 +138,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setBusinessHours(TimeSchedule $businessHours = null)
     {
-        $this->businessHours = TimeSchedule $businessHours;
+        $this->businessHours =  $businessHours;
     }
 
     /**
@@ -236,7 +236,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLListModify $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -252,7 +252,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementFileListModify $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -286,7 +286,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLListModify $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -302,7 +302,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementFileListModify $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**
@@ -354,7 +354,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualAudioUrlList(CallCenterAnnouncementURLListModify $manualAudioUrlList = null)
     {
-        $this->manualAudioUrlList = CallCenterAnnouncementURLListModify $manualAudioUrlList;
+        $this->manualAudioUrlList =  $manualAudioUrlList;
     }
 
     /**
@@ -370,7 +370,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualAudioFileList(CallCenterAnnouncementFileListModify $manualAudioFileList = null)
     {
-        $this->manualAudioFileList = CallCenterAnnouncementFileListModify $manualAudioFileList;
+        $this->manualAudioFileList =  $manualAudioFileList;
     }
 
     /**
@@ -404,7 +404,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualVideoUrlList(CallCenterAnnouncementURLListModify $manualVideoUrlList = null)
     {
-        $this->manualVideoUrlList = CallCenterAnnouncementURLListModify $manualVideoUrlList;
+        $this->manualVideoUrlList =  $manualVideoUrlList;
     }
 
     /**
@@ -420,7 +420,7 @@ class GroupRoutePointNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualVideoFileList(CallCenterAnnouncementFileListModify $manualVideoFileList = null)
     {
-        $this->manualVideoFileList = CallCenterAnnouncementFileListModify $manualVideoFileList;
+        $this->manualVideoFileList =  $manualVideoFileList;
     }
 
     /**

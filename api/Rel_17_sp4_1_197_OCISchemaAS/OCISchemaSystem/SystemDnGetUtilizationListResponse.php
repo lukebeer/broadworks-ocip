@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDnGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDnGetUtilizationListResponse';
     public    $name               = __CLASS__;
     protected $dnUtilizationTable = null;
 
@@ -29,7 +28,7 @@ class SystemDnGetUtilizationListResponse extends ComplexType implements ComplexI
      */
     public function setDnUtilizationTable(core:OCITable $dnUtilizationTable = null)
     {
-        $this->dnUtilizationTable = core:OCITable $dnUtilizationTable;
+        $this->dnUtilizationTable =  $dnUtilizationTable;
     }
 
     /**

@@ -33,8 +33,8 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
          $serviceProviderId,
          $isPremiumOnly = null,
          $responseSizeLimit = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null
+          $searchCriteriaExactUserGroup = null,
+          $searchCriteriaCallCenterName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setIsPremiumOnly($isPremiumOnly);
@@ -106,7 +106,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
+        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
     }
 
     /**
@@ -122,7 +122,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function setSearchCriteriaCallCenterName(SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null)
     {
-        $this->searchCriteriaCallCenterName = SearchCriteriaCallCenterName $searchCriteriaCallCenterName;
+        $this->searchCriteriaCallCenterName =  $searchCriteriaCallCenterName;
     }
 
     /**

@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserOutgoingCallingPlanDigitPlanOriginatingGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanDigitPlanOriginatingGetResponse';
     public    $name              = __CLASS__;
     protected $useCustomSettings = null;
     protected $userPermissions   = null;
@@ -44,7 +43,7 @@ class UserOutgoingCallingPlanDigitPlanOriginatingGetResponse extends ComplexType
      */
     public function setUserPermissions(OutgoingCallingPlanDigitPatternOriginatingPermissions $userPermissions = null)
     {
-        $this->userPermissions = OutgoingCallingPlanDigitPatternOriginatingPermissions $userPermissions;
+        $this->userPermissions =  $userPermissions;
     }
 
     /**

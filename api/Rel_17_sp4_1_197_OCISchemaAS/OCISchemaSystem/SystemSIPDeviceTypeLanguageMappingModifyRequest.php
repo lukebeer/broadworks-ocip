@@ -25,7 +25,7 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
 
     public function __construct(
          $deviceType,
-         DeviceManagementLanguageMapping $languageMapping = null
+          $languageMapping = null
     ) {
         $this->setDeviceType($deviceType);
         $this->setLanguageMapping($languageMapping);
@@ -54,7 +54,7 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
      */
     public function setLanguageMapping(DeviceManagementLanguageMapping $languageMapping = null)
     {
-        $this->languageMapping = DeviceManagementLanguageMapping $languageMapping;
+        $this->languageMapping =  $languageMapping;
     }
 
     /**

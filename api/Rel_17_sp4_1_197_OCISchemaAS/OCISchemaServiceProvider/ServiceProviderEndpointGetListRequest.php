@@ -51,18 +51,18 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaDeviceType $searchCriteriaDeviceType = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null
+          $searchCriteriaGroupId = null,
+          $searchCriteriaLinePortUserPart = null,
+          $searchCriteriaLinePortDomain = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExtension = null,
+          $searchCriteriaDeviceType = null,
+          $searchCriteriaDeviceName = null,
+          $searchCriteriaDeviceMACAddress = null,
+          $searchCriteriaDeviceNetAddress = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -127,7 +127,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -143,7 +143,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        $this->searchCriteriaLinePortUserPart = SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart;
+        $this->searchCriteriaLinePortUserPart =  $searchCriteriaLinePortUserPart;
     }
 
     /**
@@ -159,7 +159,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        $this->searchCriteriaLinePortDomain = SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain;
+        $this->searchCriteriaLinePortDomain =  $searchCriteriaLinePortDomain;
     }
 
     /**
@@ -175,7 +175,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -191,7 +191,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -207,7 +207,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -223,7 +223,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -239,7 +239,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**
@@ -255,7 +255,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
-        $this->searchCriteriaDeviceType = SearchCriteriaDeviceType $searchCriteriaDeviceType;
+        $this->searchCriteriaDeviceType =  $searchCriteriaDeviceType;
     }
 
     /**
@@ -271,7 +271,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName = SearchCriteriaDeviceName $searchCriteriaDeviceName;
+        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
     }
 
     /**
@@ -287,7 +287,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress = SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress;
+        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
     }
 
     /**
@@ -303,7 +303,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress = SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress;
+        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
     }
 
     /**

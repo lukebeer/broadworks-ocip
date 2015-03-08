@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserLinePortGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserLinePortGetListResponse';
     public    $name          = __CLASS__;
     protected $linePortTable = null;
 
@@ -31,7 +30,7 @@ class UserLinePortGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function setLinePortTable(core:OCITable $linePortTable = null)
     {
-        $this->linePortTable = core:OCITable $linePortTable;
+        $this->linePortTable =  $linePortTable;
     }
 
     /**

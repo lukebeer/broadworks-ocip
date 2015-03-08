@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse';
     public    $name                       = __CLASS__;
     protected $type                       = null;
     protected $numberOfDigits             = null;
@@ -86,7 +85,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setMandatoryUsageUserTable(core:OCITable $mandatoryUsageUserTable = null)
     {
-        $this->mandatoryUsageUserTable = core:OCITable $mandatoryUsageUserTable;
+        $this->mandatoryUsageUserTable =  $mandatoryUsageUserTable;
     }
 
     /**
@@ -102,7 +101,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setOptionalUsageUserTable(core:OCITable $optionalUsageUserTable = null)
     {
-        $this->optionalUsageUserTable = core:OCITable $optionalUsageUserTable;
+        $this->optionalUsageUserTable =  $optionalUsageUserTable;
     }
 
     /**

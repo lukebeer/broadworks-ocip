@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanOriginatingGetListResponse';
     public    $name                  = __CLASS__;
     protected $groupPermissions      = null;
     protected $departmentPermissions = null;
@@ -29,7 +28,7 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
      */
     public function setGroupPermissions(OutgoingCallingPlanOriginatingPermissions $groupPermissions = null)
     {
-        $this->groupPermissions = OutgoingCallingPlanOriginatingPermissions $groupPermissions;
+        $this->groupPermissions =  $groupPermissions;
     }
 
     /**
@@ -45,7 +44,7 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
      */
     public function setDepartmentPermissions(OutgoingCallingPlanOriginatingDepartmentPermissions $departmentPermissions = null)
     {
-        $this->departmentPermissions = OutgoingCallingPlanOriginatingDepartmentPermissions $departmentPermissions;
+        $this->departmentPermissions =  $departmentPermissions;
     }
 
     /**

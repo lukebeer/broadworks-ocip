@@ -62,22 +62,22 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
          $name,
          $newName = null,
          $description = null,
-         CallCenterReportSchedule $schedule = null,
+          $schedule = null,
          $samplingPeriod = null,
          $startDayOfWeek = null,
          $reportTimeZone = null,
          $reportDateFormat = null,
          $reportTimeFormat = null,
-         CallCenterReportInterval $reportInterval = null,
+          $reportInterval = null,
          $reportFormat = null,
-         CallCenterScheduledReportAgentSelection $agent = null,
+          $agent = null,
          $callCompletionThresholdSeconds = null,
          $shortDurationThresholdSeconds = null,
-         CallCenterReportServiceLevelThresholdReplacementList $serviceLevelThresholdSeconds = null,
-         CallCenterScheduledReportServiceLevelInclusionsModify $serviceLevelInclusions = null,
+          $serviceLevelThresholdSeconds = null,
+          $serviceLevelInclusions = null,
          $serviceLevelObjectivePercentage = null,
-         CallCenterReportAbandonedCallThresholdReplacementList $abandonedCallThresholdSeconds = null,
-         CallCenterReportReplacementEmailList $emailAddress = null
+          $abandonedCallThresholdSeconds = null,
+          $emailAddress = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -181,7 +181,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
      */
     public function setSchedule(CallCenterReportSchedule $schedule = null)
     {
-        $this->schedule = CallCenterReportSchedule $schedule;
+        $this->schedule =  $schedule;
     }
 
     /**
@@ -288,7 +288,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
      */
     public function setReportInterval(CallCenterReportInterval $reportInterval = null)
     {
-        $this->reportInterval = CallCenterReportInterval $reportInterval;
+        $this->reportInterval =  $reportInterval;
     }
 
     /**
@@ -322,7 +322,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
      */
     public function setAgent(CallCenterScheduledReportAgentSelection $agent = null)
     {
-        $this->agent = CallCenterScheduledReportAgentSelection $agent;
+        $this->agent =  $agent;
     }
 
     /**
@@ -374,7 +374,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
      */
     public function setServiceLevelThresholdSeconds(CallCenterReportServiceLevelThresholdReplacementList $serviceLevelThresholdSeconds = null)
     {
-        $this->serviceLevelThresholdSeconds = CallCenterReportServiceLevelThresholdReplacementList $serviceLevelThresholdSeconds;
+        $this->serviceLevelThresholdSeconds =  $serviceLevelThresholdSeconds;
     }
 
     /**
@@ -390,7 +390,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
      */
     public function setServiceLevelInclusions(CallCenterScheduledReportServiceLevelInclusionsModify $serviceLevelInclusions = null)
     {
-        $this->serviceLevelInclusions = CallCenterScheduledReportServiceLevelInclusionsModify $serviceLevelInclusions;
+        $this->serviceLevelInclusions =  $serviceLevelInclusions;
     }
 
     /**
@@ -424,7 +424,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
      */
     public function setAbandonedCallThresholdSeconds(CallCenterReportAbandonedCallThresholdReplacementList $abandonedCallThresholdSeconds = null)
     {
-        $this->abandonedCallThresholdSeconds = CallCenterReportAbandonedCallThresholdReplacementList $abandonedCallThresholdSeconds;
+        $this->abandonedCallThresholdSeconds =  $abandonedCallThresholdSeconds;
     }
 
     /**
@@ -440,7 +440,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
      */
     public function setEmailAddress(CallCenterReportReplacementEmailList $emailAddress = null)
     {
-        $this->emailAddress = CallCenterReportReplacementEmailList $emailAddress;
+        $this->emailAddress =  $emailAddress;
     }
 
     /**

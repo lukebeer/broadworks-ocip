@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupScheduleGetListResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetListResponse17sp1';
     public    $name              = __CLASS__;
     protected $scheduleGlobalKey = null;
 
@@ -29,7 +28,7 @@ class GroupScheduleGetListResponse17sp1 extends ComplexType implements ComplexIn
      */
     public function setScheduleGlobalKey(ScheduleGlobalKey $scheduleGlobalKey = null)
     {
-        $this->scheduleGlobalKey = ScheduleGlobalKey $scheduleGlobalKey;
+        $this->scheduleGlobalKey =  $scheduleGlobalKey;
     }
 
     /**

@@ -35,10 +35,10 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
     public function __construct(
          $userId,
          $profile = null,
-         CommPilotExpressAvailableInOfficeModify $availableInOffice = null,
-         CommPilotExpressAvailableOutOfOfficeModify $availableOutOfOffice = null,
-         CommPilotExpressBusyModify $busy = null,
-         CommPilotExpressUnavailableModify $unavailable = null
+          $availableInOffice = null,
+          $availableOutOfOffice = null,
+          $busy = null,
+          $unavailable = null
     ) {
         $this->setUserId($userId);
         $this->setProfile($profile);
@@ -97,7 +97,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
      */
     public function setAvailableInOffice(CommPilotExpressAvailableInOfficeModify $availableInOffice = null)
     {
-        $this->availableInOffice = CommPilotExpressAvailableInOfficeModify $availableInOffice;
+        $this->availableInOffice =  $availableInOffice;
     }
 
     /**
@@ -113,7 +113,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
      */
     public function setAvailableOutOfOffice(CommPilotExpressAvailableOutOfOfficeModify $availableOutOfOffice = null)
     {
-        $this->availableOutOfOffice = CommPilotExpressAvailableOutOfOfficeModify $availableOutOfOffice;
+        $this->availableOutOfOffice =  $availableOutOfOffice;
     }
 
     /**
@@ -129,7 +129,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
      */
     public function setBusy(CommPilotExpressBusyModify $busy = null)
     {
-        $this->busy = CommPilotExpressBusyModify $busy;
+        $this->busy =  $busy;
     }
 
     /**
@@ -145,7 +145,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
      */
     public function setUnavailable(CommPilotExpressUnavailableModify $unavailable = null)
     {
-        $this->unavailable = CommPilotExpressUnavailableModify $unavailable;
+        $this->unavailable =  $unavailable;
     }
 
     /**

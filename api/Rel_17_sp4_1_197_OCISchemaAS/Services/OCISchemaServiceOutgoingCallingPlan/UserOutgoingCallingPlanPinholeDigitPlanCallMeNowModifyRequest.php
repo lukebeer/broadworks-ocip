@@ -27,7 +27,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest extends Comp
     public function __construct(
          $userId,
          $useCustomSettings = null,
-         OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $userPermissions = null
+          $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);
@@ -81,7 +81,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest extends Comp
      */
     public function setUserPermissions(OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $userPermissions = null)
     {
-        $this->userPermissions = OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $userPermissions;
+        $this->userPermissions =  $userPermissions;
     }
 
     /**

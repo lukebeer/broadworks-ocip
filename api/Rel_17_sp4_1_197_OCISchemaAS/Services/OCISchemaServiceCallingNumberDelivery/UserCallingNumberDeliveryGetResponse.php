@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallingNumberDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNumberDelivery\UserCallingNumberDeliveryGetResponse';
     public    $name                     = __CLASS__;
     protected $isActiveForExternalCalls = null;
     protected $isActiveForInternalCalls = null;

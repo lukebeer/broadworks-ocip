@@ -38,7 +38,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
     public function __construct(
          $serviceProviderId,
          $groupId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $isActive = null,
          $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null,
          $useVoicePortalWizard = null,
@@ -104,7 +104,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

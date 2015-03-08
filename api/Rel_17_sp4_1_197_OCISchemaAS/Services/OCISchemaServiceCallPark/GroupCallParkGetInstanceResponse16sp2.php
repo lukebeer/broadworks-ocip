@@ -24,7 +24,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2';
     public    $name                  = __CLASS__;
     protected $recallAlternateUserId = null;
     protected $recallTo              = null;
@@ -80,7 +79,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable = core:OCITable $userTable;
+        $this->userTable =  $userTable;
     }
 
     /**

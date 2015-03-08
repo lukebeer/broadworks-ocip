@@ -28,7 +28,7 @@ class GroupScheduleDeleteListRequest extends ComplexType implements ComplexInter
     public function __construct(
          $serviceProviderId,
          $groupId,
-         ScheduleKey $scheduleKey
+          $scheduleKey
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -80,7 +80,7 @@ class GroupScheduleDeleteListRequest extends ComplexType implements ComplexInter
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

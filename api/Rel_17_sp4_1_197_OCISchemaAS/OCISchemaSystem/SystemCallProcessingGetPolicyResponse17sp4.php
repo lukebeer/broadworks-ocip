@@ -32,7 +32,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallProcessingGetPolicyResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallProcessingGetPolicyResponse17sp4';
     public    $name                                                = __CLASS__;
     protected $useMaxSimultaneousCalls                             = null;
     protected $maxSimultaneousCalls                                = null;

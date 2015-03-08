@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerListResponse';
     public    $name            = __CLASS__;
     protected $smdiServerTable = null;
 
@@ -28,7 +27,7 @@ class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements 
      */
     public function setSmdiServerTable(core:OCITable $smdiServerTable = null)
     {
-        $this->smdiServerTable = core:OCITable $smdiServerTable;
+        $this->smdiServerTable =  $smdiServerTable;
     }
 
     /**

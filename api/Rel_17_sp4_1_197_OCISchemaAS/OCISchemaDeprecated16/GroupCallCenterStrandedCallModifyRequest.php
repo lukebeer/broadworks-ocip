@@ -36,9 +36,9 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
          $action = null,
          $transferPhoneNumber = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+          $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -149,7 +149,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -185,7 +185,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

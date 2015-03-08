@@ -26,7 +26,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
     protected $IMSUserState       = null;
 
     public function __construct(
-         PublicUserIdentity $publicUserIdentity,
+          $publicUserIdentity,
          $SCSCFName = null,
          $IMSUserState = null
     ) {
@@ -40,7 +40,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
-        $this->publicUserIdentity = PublicUserIdentity $publicUserIdentity;
+        $this->publicUserIdentity =  $publicUserIdentity;
     }
 
     /**

@@ -25,7 +25,7 @@ class UserCallCenterModifyCallCenterListRequest extends ComplexType implements C
 
     public function __construct(
          $agentUserId,
-         ReplacementUserIdList $serviceUserIdList = null
+          $serviceUserIdList = null
     ) {
         $this->setAgentUserId($agentUserId);
         $this->setServiceUserIdList($serviceUserIdList);
@@ -63,7 +63,7 @@ class UserCallCenterModifyCallCenterListRequest extends ComplexType implements C
      */
     public function setServiceUserIdList(ReplacementUserIdList $serviceUserIdList = null)
     {
-        $this->serviceUserIdList = ReplacementUserIdList $serviceUserIdList;
+        $this->serviceUserIdList =  $serviceUserIdList;
     }
 
     /**

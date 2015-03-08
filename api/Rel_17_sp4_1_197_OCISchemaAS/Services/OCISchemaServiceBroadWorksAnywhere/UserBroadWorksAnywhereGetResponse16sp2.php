@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetResponse16sp2';
     public    $name                                 = __CLASS__;
     protected $alertAllLocationsForClickToDialCalls = null;
     protected $alertAllLocationsForGroupPagingCalls = null;
@@ -62,7 +61,7 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
-        $this->phoneNumberTable = core:OCITable $phoneNumberTable;
+        $this->phoneNumberTable =  $phoneNumberTable;
     }
 
     /**

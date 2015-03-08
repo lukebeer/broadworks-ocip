@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeGetResponse';
     public    $name                      = __CLASS__;
     protected $useFeatureAccessCodeLevel = null;
     protected $featureAccessCode         = null;
@@ -47,7 +46,7 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        $this->featureAccessCode = FeatureAccessCodeEntry $featureAccessCode;
+        $this->featureAccessCode =  $featureAccessCode;
     }
 
     /**

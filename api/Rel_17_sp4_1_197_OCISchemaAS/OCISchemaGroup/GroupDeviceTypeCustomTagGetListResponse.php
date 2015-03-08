@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDeviceTypeCustomTagGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeCustomTagGetListResponse';
     public    $name                           = __CLASS__;
     protected $groupDeviceTypeCustomTagsTable = null;
 
@@ -29,7 +28,7 @@ class GroupDeviceTypeCustomTagGetListResponse extends ComplexType implements Com
      */
     public function setGroupDeviceTypeCustomTagsTable(core:OCITable $groupDeviceTypeCustomTagsTable = null)
     {
-        $this->groupDeviceTypeCustomTagsTable = core:OCITable $groupDeviceTypeCustomTagsTable;
+        $this->groupDeviceTypeCustomTagsTable =  $groupDeviceTypeCustomTagsTable;
     }
 
     /**

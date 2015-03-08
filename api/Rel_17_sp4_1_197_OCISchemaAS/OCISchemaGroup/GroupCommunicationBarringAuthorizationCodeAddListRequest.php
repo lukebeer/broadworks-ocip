@@ -28,7 +28,7 @@ class GroupCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTy
     public function __construct(
          $serviceProviderId,
          $groupId,
-         CommunicationBarringAuthorizationCodeEntry $code = null
+          $code = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -80,7 +80,7 @@ class GroupCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTy
      */
     public function setCode(CommunicationBarringAuthorizationCodeEntry $code = null)
     {
-        $this->code = CommunicationBarringAuthorizationCodeEntry $code;
+        $this->code =  $code;
     }
 
     /**

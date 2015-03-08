@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceGetAuthorizedListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizedListResponse';
     public    $name             = __CLASS__;
     protected $servicePackName  = null;
     protected $groupServiceName = null;

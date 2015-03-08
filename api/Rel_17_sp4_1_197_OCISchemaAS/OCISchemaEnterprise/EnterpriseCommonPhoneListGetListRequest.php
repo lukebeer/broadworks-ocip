@@ -40,8 +40,8 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
          $serviceProviderId,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName = null,
-         SearchCriteriaEnterpriseCommonPhoneListNumber $searchCriteriaEnterpriseCommonPhoneListNumber = null
+          $searchCriteriaEnterpriseCommonPhoneListName = null,
+          $searchCriteriaEnterpriseCommonPhoneListNumber = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -113,7 +113,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaEnterpriseCommonPhoneListName(SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName = null)
     {
-        $this->searchCriteriaEnterpriseCommonPhoneListName = SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName;
+        $this->searchCriteriaEnterpriseCommonPhoneListName =  $searchCriteriaEnterpriseCommonPhoneListName;
     }
 
     /**
@@ -129,7 +129,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaEnterpriseCommonPhoneListNumber(SearchCriteriaEnterpriseCommonPhoneListNumber $searchCriteriaEnterpriseCommonPhoneListNumber = null)
     {
-        $this->searchCriteriaEnterpriseCommonPhoneListNumber = SearchCriteriaEnterpriseCommonPhoneListNumber $searchCriteriaEnterpriseCommonPhoneListNumber;
+        $this->searchCriteriaEnterpriseCommonPhoneListNumber =  $searchCriteriaEnterpriseCommonPhoneListNumber;
     }
 
     /**

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderNetworkClassOfServiceGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedListResponse';
     public    $name                       = __CLASS__;
     protected $networkClassOfServiceTable = null;
 
@@ -29,7 +28,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedListResponse extends Comple
      */
     public function setNetworkClassOfServiceTable(core:OCITable $networkClassOfServiceTable = null)
     {
-        $this->networkClassOfServiceTable = core:OCITable $networkClassOfServiceTable;
+        $this->networkClassOfServiceTable =  $networkClassOfServiceTable;
     }
 
     /**

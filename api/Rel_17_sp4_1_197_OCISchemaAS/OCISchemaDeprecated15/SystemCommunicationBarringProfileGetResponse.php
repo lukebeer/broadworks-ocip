@@ -25,7 +25,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringProfileGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemCommunicationBarringProfileGetResponse';
     public    $name                             = __CLASS__;
     protected $description                      = null;
     protected $originatingDefaultAction         = null;
@@ -117,7 +116,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
      */
     public function setOriginatingRule(CommunicationBarringOriginatingRule15sp2 $originatingRule = null)
     {
-        $this->originatingRule = CommunicationBarringOriginatingRule15sp2 $originatingRule;
+        $this->originatingRule =  $originatingRule;
     }
 
     /**
@@ -151,7 +150,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
      */
     public function setRedirectingRule(CommunicationBarringRedirectingRule15sp2 $redirectingRule = null)
     {
-        $this->redirectingRule = CommunicationBarringRedirectingRule15sp2 $redirectingRule;
+        $this->redirectingRule =  $redirectingRule;
     }
 
     /**

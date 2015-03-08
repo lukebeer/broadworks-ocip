@@ -57,7 +57,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
          $description = null,
          $dataTemplate,
          $filterNumber = null,
-         LabeledFileResource $xsltTemplate,
+          $xsltTemplate,
          $scope,
          $isEnabled,
          $isRealtimeReport = null,
@@ -210,7 +210,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        $this->xsltTemplate = LabeledFileResource $xsltTemplate;
+        $this->xsltTemplate =  $xsltTemplate;
     }
 
     /**

@@ -28,7 +28,7 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
     public function __construct(
          $serviceProviderId,
          $groupId,
-         DepartmentKey $department
+          $department
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -86,7 +86,7 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**

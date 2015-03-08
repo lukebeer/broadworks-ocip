@@ -34,7 +34,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetResponse17sp3';
     public    $name                             = __CLASS__;
     protected $description                      = null;
     protected $originatingDefaultAction         = null;
@@ -153,7 +152,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends Complex
      */
     public function setOriginatingRule(ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule = null)
     {
-        $this->originatingRule = ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule;
+        $this->originatingRule =  $originatingRule;
     }
 
     /**
@@ -205,7 +204,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends Complex
      */
     public function setRedirectingRule(ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule = null)
     {
-        $this->redirectingRule = ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule;
+        $this->redirectingRule =  $redirectingRule;
     }
 
     /**
@@ -257,7 +256,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends Complex
      */
     public function setCallMeNowRule(ServiceProviderCommunicationBarringHierarchicalCallMeNowRule $callMeNowRule = null)
     {
-        $this->callMeNowRule = ServiceProviderCommunicationBarringHierarchicalCallMeNowRule $callMeNowRule;
+        $this->callMeNowRule =  $callMeNowRule;
     }
 
     /**
@@ -309,7 +308,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends Complex
      */
     public function setIncomingRule(CommunicationBarringIncomingRule $incomingRule = null)
     {
-        $this->incomingRule = CommunicationBarringIncomingRule $incomingRule;
+        $this->incomingRule =  $incomingRule;
     }
 
     /**

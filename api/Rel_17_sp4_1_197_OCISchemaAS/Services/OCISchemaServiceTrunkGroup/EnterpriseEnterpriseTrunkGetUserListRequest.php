@@ -44,12 +44,12 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
          $serviceProviderId,
          $enterpriseTrunkName,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaAlternateTrunkIdentity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
@@ -129,7 +129,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -145,7 +145,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -161,7 +161,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -177,7 +177,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -193,7 +193,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -209,7 +209,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaAlternateTrunkIdentity(SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null)
     {
-        $this->searchCriteriaAlternateTrunkIdentity = SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity;
+        $this->searchCriteriaAlternateTrunkIdentity =  $searchCriteriaAlternateTrunkIdentity;
     }
 
     /**

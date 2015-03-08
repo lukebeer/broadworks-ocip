@@ -46,8 +46,8 @@ class ServiceProviderDialableCallerIDCriteriaModifyRequest extends ComplexType i
          $newName = null,
          $description = null,
          $prefixDigits = null,
-         ReplacementCommunicationBarringCallTypeList $matchCallType = null,
-         ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator = null,
+          $matchCallType = null,
+          $matchAlternateCallIndicator = null,
          $matchLocalCategory = null,
          $matchNationalCategory = null,
          $matchInterlataCategory = null,
@@ -175,7 +175,7 @@ class ServiceProviderDialableCallerIDCriteriaModifyRequest extends ComplexType i
      */
     public function setMatchCallType(ReplacementCommunicationBarringCallTypeList $matchCallType = null)
     {
-        $this->matchCallType = ReplacementCommunicationBarringCallTypeList $matchCallType;
+        $this->matchCallType =  $matchCallType;
     }
 
     /**
@@ -195,7 +195,7 @@ class ServiceProviderDialableCallerIDCriteriaModifyRequest extends ComplexType i
      */
     public function setMatchAlternateCallIndicator(ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator = null)
     {
-        $this->matchAlternateCallIndicator = ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator;
+        $this->matchAlternateCallIndicator =  $matchAlternateCallIndicator;
     }
 
     /**

@@ -21,7 +21,7 @@ class SystemLicenseType extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = (string);
+        $this->dataType = "string";
         $this->addRestriction(new Enumeration([
             'Lawful Intercept Event Monitoring',
             'Lawful Intercept Media Monitoring',

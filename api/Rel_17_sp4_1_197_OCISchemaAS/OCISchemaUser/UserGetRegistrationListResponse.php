@@ -26,7 +26,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetRegistrationListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetRegistrationListResponse';
     public    $name              = __CLASS__;
     protected $registrationTable = null;
 
@@ -36,7 +35,7 @@ class UserGetRegistrationListResponse extends ComplexType implements ComplexInte
      */
     public function setRegistrationTable(core:OCITable $registrationTable = null)
     {
-        $this->registrationTable = core:OCITable $registrationTable;
+        $this->registrationTable =  $registrationTable;
     }
 
     /**

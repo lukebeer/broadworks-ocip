@@ -48,7 +48,7 @@ class SystemSIPDeviceTypeFileAddRequest extends ComplexType implements ComplexIn
          $fileCategory,
          $allowFileCustomization,
          $fileSource,
-         FileResource $uploadFile = null,
+          $uploadFile = null,
          $useHttpDigestAuthentication,
          $macBasedFileAuthentication,
          $userNamePasswordFileAuthentication,
@@ -200,7 +200,7 @@ class SystemSIPDeviceTypeFileAddRequest extends ComplexType implements ComplexIn
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile = FileResource $uploadFile;
+        $this->uploadFile =  $uploadFile;
     }
 
     /**

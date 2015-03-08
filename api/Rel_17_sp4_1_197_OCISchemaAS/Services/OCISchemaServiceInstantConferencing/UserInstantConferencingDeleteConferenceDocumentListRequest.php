@@ -30,7 +30,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
 
     public function __construct(
          $userId,
-         InstantConferencingConferenceKey $conferenceKey,
+          $conferenceKey,
          $conferenceCallId,
          $documentId = null
     ) {
@@ -71,7 +71,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAutomaticCallbackGetResponse';
     public    $name                              = __CLASS__;
     protected $monitorMinutes                    = null;
     protected $waitBetweenRetryOriginatorMinutes = null;

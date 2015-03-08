@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDGetResponse';
     public    $name                       = __CLASS__;
     protected $useServiceProviderCriteria = null;
     protected $nsScreeningFailurePolicy   = null;
@@ -64,7 +63,7 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable = core:OCITable $criteriaTable;
+        $this->criteriaTable =  $criteriaTable;
     }
 
     /**

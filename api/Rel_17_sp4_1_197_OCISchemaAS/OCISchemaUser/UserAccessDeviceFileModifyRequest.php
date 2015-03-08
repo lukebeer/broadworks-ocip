@@ -29,9 +29,9 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
 
     public function __construct(
          $userId,
-         AccessDevice $accessDevice,
+          $accessDevice,
          $fileFormat,
-         FileResource $uploadFile
+          $uploadFile
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
@@ -70,7 +70,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice = AccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**
@@ -105,7 +105,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile = FileResource $uploadFile;
+        $this->uploadFile =  $uploadFile;
     }
 
     /**

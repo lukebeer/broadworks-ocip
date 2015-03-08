@@ -37,8 +37,8 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
          $defaultDomain = null,
          $serviceProviderName = null,
          $supportEmail = null,
-         Contact $contact = null,
-         StreetAddress $address = null,
+          $contact = null,
+          $address = null,
          $useServiceProviderLanguages = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -129,7 +129,7 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setContact(Contact $contact = null)
     {
-        $this->contact = Contact $contact;
+        $this->contact =  $contact;
     }
 
     /**
@@ -145,7 +145,7 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

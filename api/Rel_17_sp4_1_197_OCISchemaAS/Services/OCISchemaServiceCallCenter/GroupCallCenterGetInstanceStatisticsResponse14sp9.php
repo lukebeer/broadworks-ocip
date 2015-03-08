@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9';
     public    $name            = __CLASS__;
     protected $statisticsRange = null;
     protected $queueStatistics = null;
@@ -31,7 +30,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
      */
     public function setStatisticsRange(CallCenterStatisticsRange $statisticsRange = null)
     {
-        $this->statisticsRange = CallCenterStatisticsRange $statisticsRange;
+        $this->statisticsRange =  $statisticsRange;
     }
 
     /**
@@ -47,7 +46,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
      */
     public function setQueueStatistics(CallCenterQueueStatistics14sp9 $queueStatistics = null)
     {
-        $this->queueStatistics = CallCenterQueueStatistics14sp9 $queueStatistics;
+        $this->queueStatistics =  $queueStatistics;
     }
 
     /**
@@ -63,7 +62,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
      */
     public function setAgentStatistics(CallCenterAgentStatistics14sp9 $agentStatistics = null)
     {
-        $this->agentStatistics = CallCenterAgentStatistics14sp9 $agentStatistics;
+        $this->agentStatistics =  $agentStatistics;
     }
 
     /**

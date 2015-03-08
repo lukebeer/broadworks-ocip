@@ -44,15 +44,15 @@ class GroupAutoAttendantAddInstanceRequest16 extends ComplexType implements Comp
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $enableVideo,
          $businessHours = null,
          $holidayScheduleName = null,
          $extensionDialingScope,
          $nameDialingScope,
          $nameDialingEntries,
-         AutoAttendantAddMenu16 $businessHoursMenu = null,
-         AutoAttendantAddMenu16 $afterHoursMenu = null
+          $businessHoursMenu = null,
+          $afterHoursMenu = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -139,7 +139,7 @@ class GroupAutoAttendantAddInstanceRequest16 extends ComplexType implements Comp
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -262,7 +262,7 @@ class GroupAutoAttendantAddInstanceRequest16 extends ComplexType implements Comp
      */
     public function setBusinessHoursMenu(AutoAttendantAddMenu16 $businessHoursMenu = null)
     {
-        $this->businessHoursMenu = AutoAttendantAddMenu16 $businessHoursMenu;
+        $this->businessHoursMenu =  $businessHoursMenu;
     }
 
     /**
@@ -280,7 +280,7 @@ class GroupAutoAttendantAddInstanceRequest16 extends ComplexType implements Comp
      */
     public function setAfterHoursMenu(AutoAttendantAddMenu16 $afterHoursMenu = null)
     {
-        $this->afterHoursMenu = AutoAttendantAddMenu16 $afterHoursMenu;
+        $this->afterHoursMenu =  $afterHoursMenu;
     }
 
     /**

@@ -29,7 +29,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
     public function __construct(
          $name,
          $responseSizeLimit = null,
-         SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null
+          $searchCriteriaDigitPattern = null
     ) {
         $this->setName($name);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -81,7 +81,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
      */
     public function setSearchCriteriaDigitPattern(SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null)
     {
-        $this->searchCriteriaDigitPattern = SearchCriteriaDigitPattern $searchCriteriaDigitPattern;
+        $this->searchCriteriaDigitPattern =  $searchCriteriaDigitPattern;
     }
 
     /**

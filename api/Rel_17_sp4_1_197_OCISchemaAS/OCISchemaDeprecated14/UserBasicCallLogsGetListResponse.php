@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBasicCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserBasicCallLogsGetListResponse';
     public    $name     = __CLASS__;
     protected $placed   = null;
     protected $received = null;
@@ -31,7 +30,7 @@ class UserBasicCallLogsGetListResponse extends ComplexType implements ComplexInt
      */
     public function setPlaced(BasicCallLogsEntry $placed = null)
     {
-        $this->placed = BasicCallLogsEntry $placed;
+        $this->placed =  $placed;
     }
 
     /**
@@ -49,7 +48,7 @@ class UserBasicCallLogsGetListResponse extends ComplexType implements ComplexInt
      */
     public function setReceived(BasicCallLogsEntry $received = null)
     {
-        $this->received = BasicCallLogsEntry $received;
+        $this->received =  $received;
     }
 
     /**
@@ -67,7 +66,7 @@ class UserBasicCallLogsGetListResponse extends ComplexType implements ComplexInt
      */
     public function setMissed(BasicCallLogsEntry $missed = null)
     {
-        $this->missed = BasicCallLogsEntry $missed;
+        $this->missed =  $missed;
     }
 
     /**

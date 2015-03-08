@@ -29,8 +29,8 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
 
     public function __construct(
          $userId,
-         InstantConferencingConferenceKey $conferenceKey,
-         LabeledFileResource $documentFile,
+          $conferenceKey,
+          $documentFile,
          $encryptionPassword = null
     ) {
         $this->setUserId($userId);
@@ -70,7 +70,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**
@@ -87,7 +87,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function setDocumentFile(LabeledFileResource $documentFile = null)
     {
-        $this->documentFile = LabeledFileResource $documentFile;
+        $this->documentFile =  $documentFile;
     }
 
     /**

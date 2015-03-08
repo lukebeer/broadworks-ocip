@@ -31,7 +31,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
     public function __construct(
          $zoneName,
          $netAddress = null,
-         IPAddressRange $netAddressRange = null,
+          $netAddressRange = null,
          $locationBasedPhysicalLocation = null,
          $callingZonePhysicalLocation = null
     ) {
@@ -83,7 +83,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        $this->netAddressRange = IPAddressRange $netAddressRange;
+        $this->netAddressRange =  $netAddressRange;
     }
 
     /**

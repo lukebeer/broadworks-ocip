@@ -26,7 +26,7 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
 
     public function __construct(
          $userId,
-         SpeedDial100EntryModify $speedDialEntry = null
+          $speedDialEntry = null
     ) {
         $this->setUserId($userId);
         $this->setSpeedDialEntry($speedDialEntry);
@@ -64,7 +64,7 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
      */
     public function setSpeedDialEntry(SpeedDial100EntryModify $speedDialEntry = null)
     {
-        $this->speedDialEntry = SpeedDial100EntryModify $speedDialEntry;
+        $this->speedDialEntry =  $speedDialEntry;
     }
 
     /**

@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\SystemMeetMeConferencingGetResponse17sp3';
     public    $name                                    = __CLASS__;
     protected $conferenceIdLength                      = null;
     protected $moderatorPinLength                      = null;

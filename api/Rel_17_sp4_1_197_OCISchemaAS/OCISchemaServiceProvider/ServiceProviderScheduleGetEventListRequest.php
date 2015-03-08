@@ -26,7 +26,7 @@ class ServiceProviderScheduleGetEventListRequest extends ComplexType implements 
 
     public function __construct(
          $serviceProviderId,
-         ScheduleKey $scheduleKey
+          $scheduleKey
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);
@@ -57,7 +57,7 @@ class ServiceProviderScheduleGetEventListRequest extends ComplexType implements 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

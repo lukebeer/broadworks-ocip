@@ -78,7 +78,7 @@ class GroupAccessDeviceAddRequest14 extends ComplexType implements ComplexInterf
          $mobilityManagerDefaultOriginatingServiceKey = null,
          $mobilityManagerDefaultTerminatingServiceKey = null,
          $useCustomUserNamePassword = null,
-         DeviceManagementUserNamePassword16 $accessDeviceCredentials = null
+          $accessDeviceCredentials = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -470,7 +470,7 @@ class GroupAccessDeviceAddRequest14 extends ComplexType implements ComplexInterf
      */
     public function setAccessDeviceCredentials(DeviceManagementUserNamePassword16 $accessDeviceCredentials = null)
     {
-        $this->accessDeviceCredentials = DeviceManagementUserNamePassword16 $accessDeviceCredentials;
+        $this->accessDeviceCredentials =  $accessDeviceCredentials;
     }
 
     /**

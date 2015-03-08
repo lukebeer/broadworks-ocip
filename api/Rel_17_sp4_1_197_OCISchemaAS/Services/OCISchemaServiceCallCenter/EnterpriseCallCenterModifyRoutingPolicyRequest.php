@@ -28,7 +28,7 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
     public function __construct(
          $serviceProviderId,
          $routingPolicy = null,
-         CallCenterRoutingPriorityOrder $routingPriorityOrder = null
+          $routingPriorityOrder = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setRoutingPolicy($routingPolicy);
@@ -78,7 +78,7 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
      */
     public function setRoutingPriorityOrder(CallCenterRoutingPriorityOrder $routingPriorityOrder = null)
     {
-        $this->routingPriorityOrder = CallCenterRoutingPriorityOrder $routingPriorityOrder;
+        $this->routingPriorityOrder =  $routingPriorityOrder;
     }
 
     /**

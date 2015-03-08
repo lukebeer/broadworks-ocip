@@ -37,7 +37,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $confirmationToneTimeoutSeconds,
          $deliverOriginatorCLIDInstead,
          $originatorCLIDPrefix = null
@@ -122,7 +122,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

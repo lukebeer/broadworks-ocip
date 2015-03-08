@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeGetListResponse';
     public    $name                  = __CLASS__;
     protected $unavailableCodesTable = null;
 
@@ -28,7 +27,7 @@ class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexTyp
      */
     public function setUnavailableCodesTable(core:OCITable $unavailableCodesTable = null)
     {
-        $this->unavailableCodesTable = core:OCITable $unavailableCodesTable;
+        $this->unavailableCodesTable =  $unavailableCodesTable;
     }
 
     /**

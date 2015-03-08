@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceManagementTagGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagGetListResponse';
     public    $name      = __CLASS__;
     protected $tagsTable = null;
 
@@ -29,7 +28,7 @@ class SystemDeviceManagementTagGetListResponse extends ComplexType implements Co
      */
     public function setTagsTable(core:OCITable $tagsTable = null)
     {
-        $this->tagsTable = core:OCITable $tagsTable;
+        $this->tagsTable =  $tagsTable;
     }
 
     /**

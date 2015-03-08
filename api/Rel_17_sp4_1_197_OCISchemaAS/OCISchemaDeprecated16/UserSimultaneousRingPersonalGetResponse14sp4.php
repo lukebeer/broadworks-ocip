@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingPersonalGetResponse14sp4';
     public    $name             = __CLASS__;
     protected $isActive         = null;
     protected $incomingCalls    = null;
@@ -64,7 +63,7 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
      */
     public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
-        $this->phoneNumberTable = core:OCITable $phoneNumberTable;
+        $this->phoneNumberTable =  $phoneNumberTable;
     }
 
     /**

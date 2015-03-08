@@ -33,9 +33,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
-         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
-         SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null
+          $searchCriteriaCallCenterScheduledReportName = null,
+          $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+          $searchCriteriaExactCallCenterReportTemplateKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -91,7 +91,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
      */
     public function setSearchCriteriaCallCenterScheduledReportName(SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null)
     {
-        $this->searchCriteriaCallCenterScheduledReportName = SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName;
+        $this->searchCriteriaCallCenterScheduledReportName =  $searchCriteriaCallCenterScheduledReportName;
     }
 
     /**
@@ -108,7 +108,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
      */
     public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor(SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null)
     {
-        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
+        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor =  $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
     }
 
     /**
@@ -125,7 +125,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
      */
     public function setSearchCriteriaExactCallCenterReportTemplateKey(SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null)
     {
-        $this->searchCriteriaExactCallCenterReportTemplateKey = SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey;
+        $this->searchCriteriaExactCallCenterReportTemplateKey =  $searchCriteriaExactCallCenterReportTemplateKey;
     }
 
     /**

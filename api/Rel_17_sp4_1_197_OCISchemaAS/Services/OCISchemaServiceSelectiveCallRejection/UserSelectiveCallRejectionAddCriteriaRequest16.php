@@ -33,9 +33,9 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         SelectiveCallRejectionCriteriaCallType $fromDnCriteria,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $fromDnCriteria,
+          $holidaySchedule = null,
          $blacklisted
     ) {
         $this->setUserId($userId);
@@ -95,7 +95,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -111,7 +111,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
      */
     public function setFromDnCriteria(SelectiveCallRejectionCriteriaCallType $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = SelectiveCallRejectionCriteriaCallType $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**
@@ -127,7 +127,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**

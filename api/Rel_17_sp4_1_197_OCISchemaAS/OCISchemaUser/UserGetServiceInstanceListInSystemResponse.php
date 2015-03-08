@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetServiceInstanceListInSystemResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInSystemResponse';
     public    $name                 = __CLASS__;
     protected $serviceInstanceTable = null;
 
@@ -29,7 +28,7 @@ class UserGetServiceInstanceListInSystemResponse extends ComplexType implements 
      */
     public function setServiceInstanceTable(core:OCITable $serviceInstanceTable = null)
     {
-        $this->serviceInstanceTable = core:OCITable $serviceInstanceTable;
+        $this->serviceInstanceTable =  $serviceInstanceTable;
     }
 
     /**

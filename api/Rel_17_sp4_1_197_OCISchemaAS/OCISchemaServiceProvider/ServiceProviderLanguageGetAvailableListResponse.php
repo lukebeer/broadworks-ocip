@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderLanguageGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageGetAvailableListResponse';
     public    $name            = __CLASS__;
     protected $defaultLanguage = null;
     protected $languageTable   = null;
@@ -47,7 +46,7 @@ class ServiceProviderLanguageGetAvailableListResponse extends ComplexType implem
      */
     public function setLanguageTable(core:OCITable $languageTable = null)
     {
-        $this->languageTable = core:OCITable $languageTable;
+        $this->languageTable =  $languageTable;
     }
 
     /**

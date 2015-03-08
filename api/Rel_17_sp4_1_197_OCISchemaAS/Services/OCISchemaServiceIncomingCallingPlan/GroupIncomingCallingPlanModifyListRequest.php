@@ -30,8 +30,8 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
     public function __construct(
          $serviceProviderId,
          $groupId,
-         IncomingCallingPlanPermissionsModify $groupPermissions = null,
-         IncomingCallingPlanDepartmentPermissionsModify $departmentPermissions = null
+          $groupPermissions = null,
+          $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -85,7 +85,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
      */
     public function setGroupPermissions(IncomingCallingPlanPermissionsModify $groupPermissions = null)
     {
-        $this->groupPermissions = IncomingCallingPlanPermissionsModify $groupPermissions;
+        $this->groupPermissions =  $groupPermissions;
     }
 
     /**
@@ -103,7 +103,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
      */
     public function setDepartmentPermissions(IncomingCallingPlanDepartmentPermissionsModify $departmentPermissions = null)
     {
-        $this->departmentPermissions = IncomingCallingPlanDepartmentPermissionsModify $departmentPermissions;
+        $this->departmentPermissions =  $departmentPermissions;
     }
 
     /**

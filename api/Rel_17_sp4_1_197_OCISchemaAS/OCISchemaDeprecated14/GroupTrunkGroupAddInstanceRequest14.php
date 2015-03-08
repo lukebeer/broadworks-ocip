@@ -46,8 +46,8 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile,
-         AccessDeviceEndpointAdd $accessDeviceEndpoint = null,
+          $serviceInstanceProfile,
+          $accessDeviceEndpoint = null,
          $maxActiveCalls,
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
@@ -140,7 +140,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -157,7 +157,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointAdd $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointAdd $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**

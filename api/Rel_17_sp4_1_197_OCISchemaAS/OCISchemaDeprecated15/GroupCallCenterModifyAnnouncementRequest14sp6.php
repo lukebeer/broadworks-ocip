@@ -38,14 +38,14 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
     public function __construct(
          $serviceUserId,
          $entranceMessageSelection = null,
-         LabeledFileResource $entranceMessageAudioFile = null,
-         LabeledFileResource $entranceMessageVideoFile = null,
+          $entranceMessageAudioFile = null,
+          $entranceMessageVideoFile = null,
          $periodicComfortMessageSelection = null,
-         LabeledFileResource $periodicComfortMessageAudioFile = null,
-         LabeledFileResource $periodicComfortMessageVideoFile = null,
-         CallCenterMusicOnHoldSourceModify $onHoldSource = null,
+          $periodicComfortMessageAudioFile = null,
+          $periodicComfortMessageVideoFile = null,
+          $onHoldSource = null,
          $onHoldUseAlternateSourceForInternalCalls = null,
-         CallCenterMusicOnHoldSourceModify $onHoldInternalSource = null
+          $onHoldInternalSource = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setEntranceMessageSelection($entranceMessageSelection);
@@ -109,7 +109,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
      */
     public function setEntranceMessageAudioFile(LabeledFileResource $entranceMessageAudioFile = null)
     {
-        $this->entranceMessageAudioFile = LabeledFileResource $entranceMessageAudioFile;
+        $this->entranceMessageAudioFile =  $entranceMessageAudioFile;
     }
 
     /**
@@ -127,7 +127,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
      */
     public function setEntranceMessageVideoFile(LabeledFileResource $entranceMessageVideoFile = null)
     {
-        $this->entranceMessageVideoFile = LabeledFileResource $entranceMessageVideoFile;
+        $this->entranceMessageVideoFile =  $entranceMessageVideoFile;
     }
 
     /**
@@ -163,7 +163,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
      */
     public function setPeriodicComfortMessageAudioFile(LabeledFileResource $periodicComfortMessageAudioFile = null)
     {
-        $this->periodicComfortMessageAudioFile = LabeledFileResource $periodicComfortMessageAudioFile;
+        $this->periodicComfortMessageAudioFile =  $periodicComfortMessageAudioFile;
     }
 
     /**
@@ -181,7 +181,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
      */
     public function setPeriodicComfortMessageVideoFile(LabeledFileResource $periodicComfortMessageVideoFile = null)
     {
-        $this->periodicComfortMessageVideoFile = LabeledFileResource $periodicComfortMessageVideoFile;
+        $this->periodicComfortMessageVideoFile =  $periodicComfortMessageVideoFile;
     }
 
     /**
@@ -198,7 +198,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
      */
     public function setOnHoldSource(CallCenterMusicOnHoldSourceModify $onHoldSource = null)
     {
-        $this->onHoldSource = CallCenterMusicOnHoldSourceModify $onHoldSource;
+        $this->onHoldSource =  $onHoldSource;
     }
 
     /**
@@ -230,7 +230,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
      */
     public function setOnHoldInternalSource(CallCenterMusicOnHoldSourceModify $onHoldInternalSource = null)
     {
-        $this->onHoldInternalSource = CallCenterMusicOnHoldSourceModify $onHoldInternalSource;
+        $this->onHoldInternalSource =  $onHoldInternalSource;
     }
 
     /**

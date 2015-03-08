@@ -31,7 +31,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
          $userId,
          $isActive = null,
          $incomingCalls = null,
-         ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null
+          $simRingPhoneNumberList = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
@@ -105,7 +105,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function setSimRingPhoneNumberList(ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null)
     {
-        $this->simRingPhoneNumberList = ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList;
+        $this->simRingPhoneNumberList =  $simRingPhoneNumberList;
     }
 
     /**

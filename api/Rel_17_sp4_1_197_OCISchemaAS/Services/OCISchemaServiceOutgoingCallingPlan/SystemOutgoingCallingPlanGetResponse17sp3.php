@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanGetResponse17sp3';
     public    $name                         = __CLASS__;
     protected $directTransferScreening      = null;
     protected $enableEnhancedTollCallTyping = null;

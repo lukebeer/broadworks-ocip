@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse';
     public    $name       = __CLASS__;
     protected $trunkGroup = null;
 
@@ -27,7 +26,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse extends Comple
      */
     public function setTrunkGroup(EnterpriseTrunkTrunkGroupKey $trunkGroup = null)
     {
-        $this->trunkGroup = EnterpriseTrunkTrunkGroupKey $trunkGroup;
+        $this->trunkGroup =  $trunkGroup;
     }
 
     /**

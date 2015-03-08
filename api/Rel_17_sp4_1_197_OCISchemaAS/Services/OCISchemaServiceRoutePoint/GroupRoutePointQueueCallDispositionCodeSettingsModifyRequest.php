@@ -33,8 +33,8 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
          $enableCallDispositionCodes = null,
          $includeOrganizationCodes = null,
          $forceUseOfCallDispositionCodes = null,
-         CallDispositionCodeWithLevel $defaultCallDispositionCode = null,
-         CallDispositionCodeActivation $callDispositionCodeActivation = null
+          $defaultCallDispositionCode = null,
+          $callDispositionCodeActivation = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setEnableCallDispositionCodes($enableCallDispositionCodes);
@@ -123,7 +123,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function setDefaultCallDispositionCode(CallDispositionCodeWithLevel $defaultCallDispositionCode = null)
     {
-        $this->defaultCallDispositionCode = CallDispositionCodeWithLevel $defaultCallDispositionCode;
+        $this->defaultCallDispositionCode =  $defaultCallDispositionCode;
     }
 
     /**
@@ -139,7 +139,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        $this->callDispositionCodeActivation = CallDispositionCodeActivation $callDispositionCodeActivation;
+        $this->callDispositionCodeActivation =  $callDispositionCodeActivation;
     }
 
     /**

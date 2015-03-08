@@ -38,11 +38,11 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
     public function __construct(
          $classmark,
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaDn $searchCriteriaDn = null
+          $searchCriteriaGroupId = null,
+          $searchCriteriaExactServiceProviderId = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaDn = null
     ) {
         $this->setClassmark($classmark);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -98,7 +98,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -114,7 +114,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaExactServiceProviderId(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId = null)
     {
-        $this->searchCriteriaExactServiceProviderId = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId;
+        $this->searchCriteriaExactServiceProviderId =  $searchCriteriaExactServiceProviderId;
     }
 
     /**
@@ -130,7 +130,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -146,7 +146,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -162,7 +162,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**

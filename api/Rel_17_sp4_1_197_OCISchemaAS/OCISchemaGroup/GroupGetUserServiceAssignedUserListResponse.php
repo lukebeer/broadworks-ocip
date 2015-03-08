@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetUserServiceAssignedUserListResponse';
     public    $name          = __CLASS__;
     protected $userListTable = null;
 
@@ -31,7 +30,7 @@ class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements
      */
     public function setUserListTable(core:OCITable $userListTable = null)
     {
-        $this->userListTable = core:OCITable $userListTable;
+        $this->userListTable =  $userListTable;
     }
 
     /**

@@ -66,16 +66,16 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         ServiceProviderReplacementCommunicationBarringHierarchicalOriginatingRuleList $originatingRule = null,
+          $originatingRule = null,
          $redirectingDefaultAction = null,
          $redirectingDefaultCallTimeout = null,
-         ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList $redirectingRule = null,
+          $redirectingRule = null,
          $callMeNowDefaultAction = null,
          $callMeNowDefaultCallTimeout = null,
-         ServiceProviderReplacementCommunicationBarringHierarchicalCallMeNowRuleList $callMeNowRule = null,
+          $callMeNowRule = null,
          $incomingDefaultAction = null,
          $incomingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringIncomingRuleList $incomingRule = null,
+          $incomingRule = null,
          $becomeDefault = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -255,7 +255,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
      */
     public function setOriginatingRule(ServiceProviderReplacementCommunicationBarringHierarchicalOriginatingRuleList $originatingRule = null)
     {
-        $this->originatingRule = ServiceProviderReplacementCommunicationBarringHierarchicalOriginatingRuleList $originatingRule;
+        $this->originatingRule =  $originatingRule;
     }
 
     /**
@@ -309,7 +309,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
      */
     public function setRedirectingRule(ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList $redirectingRule = null)
     {
-        $this->redirectingRule = ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList $redirectingRule;
+        $this->redirectingRule =  $redirectingRule;
     }
 
     /**
@@ -363,7 +363,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
      */
     public function setCallMeNowRule(ServiceProviderReplacementCommunicationBarringHierarchicalCallMeNowRuleList $callMeNowRule = null)
     {
-        $this->callMeNowRule = ServiceProviderReplacementCommunicationBarringHierarchicalCallMeNowRuleList $callMeNowRule;
+        $this->callMeNowRule =  $callMeNowRule;
     }
 
     /**
@@ -418,7 +418,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
      */
     public function setIncomingRule(ReplacementCommunicationBarringIncomingRuleList $incomingRule = null)
     {
-        $this->incomingRule = ReplacementCommunicationBarringIncomingRuleList $incomingRule;
+        $this->incomingRule =  $incomingRule;
     }
 
     /**

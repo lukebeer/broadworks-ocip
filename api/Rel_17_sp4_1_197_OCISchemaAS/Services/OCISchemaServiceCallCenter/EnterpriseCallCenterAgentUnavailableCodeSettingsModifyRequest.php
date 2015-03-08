@@ -38,7 +38,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
          $defaultAgentUnavailableCodeOnConsecutiveBounces = null,
          $forceUseOfAgentUnavailableCodes = null,
          $defaultAgentUnavailableCode = null,
-         CallCenterAgentUnavailableCodeStateModify $codeStateList = null
+          $codeStateList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEnableAgentUnavailableCodes($enableAgentUnavailableCodes);
@@ -179,7 +179,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setCodeStateList(CallCenterAgentUnavailableCodeStateModify $codeStateList = null)
     {
-        $this->codeStateList = CallCenterAgentUnavailableCodeStateModify $codeStateList;
+        $this->codeStateList =  $codeStateList;
     }
 
     /**

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterAgentSignOutResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentSignOutResponse';
     public    $name            = __CLASS__;
     protected $callCenterTable = null;
 
@@ -29,7 +28,7 @@ class UserCallCenterAgentSignOutResponse extends ComplexType implements ComplexI
      */
     public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
-        $this->callCenterTable = core:OCITable $callCenterTable;
+        $this->callCenterTable =  $callCenterTable;
     }
 
     /**

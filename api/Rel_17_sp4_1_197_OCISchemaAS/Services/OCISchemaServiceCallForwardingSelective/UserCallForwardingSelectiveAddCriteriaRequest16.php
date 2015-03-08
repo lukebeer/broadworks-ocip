@@ -36,11 +36,11 @@ class UserCallForwardingSelectiveAddCriteriaRequest16 extends ComplexType implem
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $holidaySchedule = null,
          $forwardToNumberSelection = null,
          $forwardToPhoneNumber = null,
-         CriteriaFromDn $fromDnCriteria
+          $fromDnCriteria
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -100,7 +100,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest16 extends ComplexType implem
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -116,7 +116,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest16 extends ComplexType implem
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -182,7 +182,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest16 extends ComplexType implem
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

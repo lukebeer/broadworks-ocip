@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse';
     public    $name              = __CLASS__;
     protected $totalNumberOfRows = null;
     protected $extendedCallLog   = null;
@@ -62,7 +61,7 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
      */
     public function setExtendedCallLog(ExtendedMixedCallLogsEntry $extendedCallLog = null)
     {
-        $this->extendedCallLog = ExtendedMixedCallLogsEntry $extendedCallLog;
+        $this->extendedCallLog =  $extendedCallLog;
     }
 
     /**

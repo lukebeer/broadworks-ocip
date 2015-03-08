@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemSessionAuditGetResponse14sp3';
     public    $name                               = __CLASS__;
     protected $isAuditActive                      = null;
     protected $auditIntervalSeconds               = null;

@@ -27,7 +27,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
     public    $name              = __CLASS__;
     protected $totalNumberOfRows = null;
     protected $directoryTable    = null;
@@ -54,7 +53,7 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
      */
     public function setDirectoryTable(core:OCITable $directoryTable = null)
     {
-        $this->directoryTable = core:OCITable $directoryTable;
+        $this->directoryTable =  $directoryTable;
     }
 
     /**

@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserAlternateNumbersGetResponse';
     public    $name             = __CLASS__;
     protected $distinctiveRing  = null;
     protected $alternateEntry01 = null;
@@ -53,7 +52,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry01(AlternateNumberEntry $alternateEntry01 = null)
     {
-        $this->alternateEntry01 = AlternateNumberEntry $alternateEntry01;
+        $this->alternateEntry01 =  $alternateEntry01;
     }
 
     /**
@@ -69,7 +68,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry02(AlternateNumberEntry $alternateEntry02 = null)
     {
-        $this->alternateEntry02 = AlternateNumberEntry $alternateEntry02;
+        $this->alternateEntry02 =  $alternateEntry02;
     }
 
     /**
@@ -85,7 +84,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry03(AlternateNumberEntry $alternateEntry03 = null)
     {
-        $this->alternateEntry03 = AlternateNumberEntry $alternateEntry03;
+        $this->alternateEntry03 =  $alternateEntry03;
     }
 
     /**
@@ -101,7 +100,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry04(AlternateNumberEntry $alternateEntry04 = null)
     {
-        $this->alternateEntry04 = AlternateNumberEntry $alternateEntry04;
+        $this->alternateEntry04 =  $alternateEntry04;
     }
 
     /**
@@ -117,7 +116,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry05(AlternateNumberEntry $alternateEntry05 = null)
     {
-        $this->alternateEntry05 = AlternateNumberEntry $alternateEntry05;
+        $this->alternateEntry05 =  $alternateEntry05;
     }
 
     /**
@@ -133,7 +132,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry06(AlternateNumberEntry $alternateEntry06 = null)
     {
-        $this->alternateEntry06 = AlternateNumberEntry $alternateEntry06;
+        $this->alternateEntry06 =  $alternateEntry06;
     }
 
     /**
@@ -149,7 +148,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry07(AlternateNumberEntry $alternateEntry07 = null)
     {
-        $this->alternateEntry07 = AlternateNumberEntry $alternateEntry07;
+        $this->alternateEntry07 =  $alternateEntry07;
     }
 
     /**
@@ -165,7 +164,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry08(AlternateNumberEntry $alternateEntry08 = null)
     {
-        $this->alternateEntry08 = AlternateNumberEntry $alternateEntry08;
+        $this->alternateEntry08 =  $alternateEntry08;
     }
 
     /**
@@ -181,7 +180,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry09(AlternateNumberEntry $alternateEntry09 = null)
     {
-        $this->alternateEntry09 = AlternateNumberEntry $alternateEntry09;
+        $this->alternateEntry09 =  $alternateEntry09;
     }
 
     /**
@@ -197,7 +196,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setAlternateEntry10(AlternateNumberEntry $alternateEntry10 = null)
     {
-        $this->alternateEntry10 = AlternateNumberEntry $alternateEntry10;
+        $this->alternateEntry10 =  $alternateEntry10;
     }
 
     /**

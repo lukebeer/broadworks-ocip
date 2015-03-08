@@ -42,7 +42,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
          $groupId,
          $name,
          $newName = null,
-         ReplacementUserIdList $userIdList = null,
+          $userIdList = null,
          $recallAlternateUserId = null,
          $recallTo = null
     ) {
@@ -137,7 +137,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
-        $this->userIdList = ReplacementUserIdList $userIdList;
+        $this->userIdList =  $userIdList;
     }
 
     /**

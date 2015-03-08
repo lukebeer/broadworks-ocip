@@ -38,10 +38,10 @@ class GroupCustomContactDirectoryGetAvailableUserListRequest17 extends ComplexTy
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaExactUserDepartment = null,
+          $searchCriteriaExactUserGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -119,7 +119,7 @@ class GroupCustomContactDirectoryGetAvailableUserListRequest17 extends ComplexTy
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -135,7 +135,7 @@ class GroupCustomContactDirectoryGetAvailableUserListRequest17 extends ComplexTy
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -151,7 +151,7 @@ class GroupCustomContactDirectoryGetAvailableUserListRequest17 extends ComplexTy
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
+        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
     }
 
     /**
@@ -167,7 +167,7 @@ class GroupCustomContactDirectoryGetAvailableUserListRequest17 extends ComplexTy
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
+        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
     }
 
     /**

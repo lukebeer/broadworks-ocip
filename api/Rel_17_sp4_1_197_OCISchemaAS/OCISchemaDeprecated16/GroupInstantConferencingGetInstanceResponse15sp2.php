@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupInstantConferencingGetInstanceResponse15sp2';
     public    $name                           = __CLASS__;
     protected $serviceInstanceProfile         = null;
     protected $conferenceBridgeLinePort       = null;
@@ -42,7 +41,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -97,7 +96,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
      */
     public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = InstantConferencingAllocatedPorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**
@@ -164,7 +163,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
      */
     public function setBridgeAdministratorUserTable(core:OCITable $bridgeAdministratorUserTable = null)
     {
-        $this->bridgeAdministratorUserTable = core:OCITable $bridgeAdministratorUserTable;
+        $this->bridgeAdministratorUserTable =  $bridgeAdministratorUserTable;
     }
 
     /**

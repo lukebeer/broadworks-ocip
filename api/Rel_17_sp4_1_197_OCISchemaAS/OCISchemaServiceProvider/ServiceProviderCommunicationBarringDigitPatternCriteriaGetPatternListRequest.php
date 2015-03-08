@@ -32,7 +32,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
          $serviceProviderId,
          $name,
          $responseSizeLimit = null,
-         SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null
+          $searchCriteriaDigitPattern = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -105,7 +105,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function setSearchCriteriaDigitPattern(SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null)
     {
-        $this->searchCriteriaDigitPattern = SearchCriteriaDigitPattern $searchCriteriaDigitPattern;
+        $this->searchCriteriaDigitPattern =  $searchCriteriaDigitPattern;
     }
 
     /**

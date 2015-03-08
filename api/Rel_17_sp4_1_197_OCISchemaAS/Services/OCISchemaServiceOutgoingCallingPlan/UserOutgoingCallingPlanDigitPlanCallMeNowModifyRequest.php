@@ -27,7 +27,7 @@ class UserOutgoingCallingPlanDigitPlanCallMeNowModifyRequest extends ComplexType
     public function __construct(
          $userId,
          $useCustomSettings = null,
-         OutgoingCallingPlanDigitPatternCallMeNowPermissions $userPermissions = null
+          $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);
@@ -81,7 +81,7 @@ class UserOutgoingCallingPlanDigitPlanCallMeNowModifyRequest extends ComplexType
      */
     public function setUserPermissions(OutgoingCallingPlanDigitPatternCallMeNowPermissions $userPermissions = null)
     {
-        $this->userPermissions = OutgoingCallingPlanDigitPatternCallMeNowPermissions $userPermissions;
+        $this->userPermissions =  $userPermissions;
     }
 
     /**

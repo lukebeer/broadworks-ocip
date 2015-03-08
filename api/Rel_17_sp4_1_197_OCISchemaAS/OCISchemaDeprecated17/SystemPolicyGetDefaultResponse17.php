@@ -56,7 +56,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPolicyGetDefaultResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemPolicyGetDefaultResponse17';
     public    $name                                              = __CLASS__;
     protected $groupCallingPlanAccess                            = null;
     protected $groupExtensionAccess                              = null;

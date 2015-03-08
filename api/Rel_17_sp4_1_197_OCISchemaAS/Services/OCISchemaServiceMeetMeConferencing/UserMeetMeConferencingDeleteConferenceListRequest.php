@@ -25,7 +25,7 @@ class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType impl
 
     public function __construct(
          $userId,
-         MeetMeConferencingConferenceKey $conferenceKey = null
+          $conferenceKey = null
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
@@ -62,7 +62,7 @@ class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType impl
      */
     public function setConferenceKey(MeetMeConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = MeetMeConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

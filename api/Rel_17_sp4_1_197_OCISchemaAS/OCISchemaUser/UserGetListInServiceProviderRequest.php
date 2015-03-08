@@ -39,11 +39,11 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaEmailAddress = null,
+          $searchCriteriaExactUserInTrunkGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -101,7 +101,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -117,7 +117,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -133,7 +133,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -149,7 +149,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        $this->searchCriteriaEmailAddress = SearchCriteriaEmailAddress $searchCriteriaEmailAddress;
+        $this->searchCriteriaEmailAddress =  $searchCriteriaEmailAddress;
     }
 
     /**
@@ -165,7 +165,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaExactUserInTrunkGroup(SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null)
     {
-        $this->searchCriteriaExactUserInTrunkGroup = SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup;
+        $this->searchCriteriaExactUserInTrunkGroup =  $searchCriteriaExactUserInTrunkGroup;
     }
 
     /**

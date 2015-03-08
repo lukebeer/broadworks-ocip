@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceListResponse';
     public    $name                  = __CLASS__;
     protected $instantGroupCallTable = null;
 
@@ -30,7 +29,7 @@ class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implement
      */
     public function setInstantGroupCallTable(core:OCITable $instantGroupCallTable = null)
     {
-        $this->instantGroupCallTable = core:OCITable $instantGroupCallTable;
+        $this->instantGroupCallTable =  $instantGroupCallTable;
     }
 
     /**

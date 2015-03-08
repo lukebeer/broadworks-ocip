@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\EnterpriseVoiceVPNGetResponse';
     public    $name             = __CLASS__;
     protected $isActive         = null;
     protected $defaultSelection = null;

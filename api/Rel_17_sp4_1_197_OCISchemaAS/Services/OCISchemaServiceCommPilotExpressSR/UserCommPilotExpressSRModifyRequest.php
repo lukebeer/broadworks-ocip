@@ -34,10 +34,10 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
     public function __construct(
          $userId,
          $profile = null,
-         CommPilotExpressSRAvailableInOfficeModify $availableInOffice = null,
-         CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice = null,
-         CommPilotExpressSRBusyModify $busy = null,
-         CommPilotExpressSRUnavailableModify $unavailable = null
+          $availableInOffice = null,
+          $availableOutOfOffice = null,
+          $busy = null,
+          $unavailable = null
     ) {
         $this->setUserId($userId);
         $this->setProfile($profile);
@@ -96,7 +96,7 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setAvailableInOffice(CommPilotExpressSRAvailableInOfficeModify $availableInOffice = null)
     {
-        $this->availableInOffice = CommPilotExpressSRAvailableInOfficeModify $availableInOffice;
+        $this->availableInOffice =  $availableInOffice;
     }
 
     /**
@@ -112,7 +112,7 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setAvailableOutOfOffice(CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice = null)
     {
-        $this->availableOutOfOffice = CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice;
+        $this->availableOutOfOffice =  $availableOutOfOffice;
     }
 
     /**
@@ -128,7 +128,7 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setBusy(CommPilotExpressSRBusyModify $busy = null)
     {
-        $this->busy = CommPilotExpressSRBusyModify $busy;
+        $this->busy =  $busy;
     }
 
     /**
@@ -144,7 +144,7 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setUnavailable(CommPilotExpressSRUnavailableModify $unavailable = null)
     {
-        $this->unavailable = CommPilotExpressSRUnavailableModify $unavailable;
+        $this->unavailable =  $unavailable;
     }
 
     /**

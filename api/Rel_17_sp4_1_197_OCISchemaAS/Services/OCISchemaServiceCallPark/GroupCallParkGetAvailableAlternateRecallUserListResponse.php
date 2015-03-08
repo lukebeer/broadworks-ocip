@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetAvailableAlternateRecallUserListResponse';
     public    $name                    = __CLASS__;
     protected $availableHuntGroupTable = null;
 
@@ -28,7 +27,7 @@ class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexTy
      */
     public function setAvailableHuntGroupTable(core:OCITable $availableHuntGroupTable = null)
     {
-        $this->availableHuntGroupTable = core:OCITable $availableHuntGroupTable;
+        $this->availableHuntGroupTable =  $availableHuntGroupTable;
     }
 
     /**

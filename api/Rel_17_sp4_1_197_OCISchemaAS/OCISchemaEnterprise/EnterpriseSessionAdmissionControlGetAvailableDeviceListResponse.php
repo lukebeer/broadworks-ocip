@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse';
     public    $name         = __CLASS__;
     protected $accessDevice = null;
 
@@ -28,7 +27,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends Co
      */
     public function setAccessDevice(EnterpriseAccessDevice $accessDevice = null)
     {
-        $this->accessDevice = EnterpriseAccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**

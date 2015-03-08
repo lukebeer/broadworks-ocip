@@ -38,15 +38,15 @@ class GroupAutoAttendantModifyInstanceRequest extends ComplexType implements Com
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $enableVideo = null,
          $businessHours = null,
          $holidayScheduleName = null,
          $extensionDialingScope = null,
          $nameDialingScope = null,
          $nameDialingEntries = null,
-         AutoAttendantModifyMenu $businessHoursMenu = null,
-         AutoAttendantModifyMenu $afterHoursMenu = null
+          $businessHoursMenu = null,
+          $afterHoursMenu = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setServiceInstanceProfile($serviceInstanceProfile);
@@ -91,7 +91,7 @@ class GroupAutoAttendantModifyInstanceRequest extends ComplexType implements Com
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -215,7 +215,7 @@ class GroupAutoAttendantModifyInstanceRequest extends ComplexType implements Com
      */
     public function setBusinessHoursMenu(AutoAttendantModifyMenu $businessHoursMenu = null)
     {
-        $this->businessHoursMenu = AutoAttendantModifyMenu $businessHoursMenu;
+        $this->businessHoursMenu =  $businessHoursMenu;
     }
 
     /**
@@ -235,7 +235,7 @@ class GroupAutoAttendantModifyInstanceRequest extends ComplexType implements Com
      */
     public function setAfterHoursMenu(AutoAttendantModifyMenu $afterHoursMenu = null)
     {
-        $this->afterHoursMenu = AutoAttendantModifyMenu $afterHoursMenu;
+        $this->afterHoursMenu =  $afterHoursMenu;
     }
 
     /**

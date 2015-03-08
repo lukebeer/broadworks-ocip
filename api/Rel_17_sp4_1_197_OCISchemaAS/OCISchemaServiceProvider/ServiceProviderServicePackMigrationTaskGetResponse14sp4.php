@@ -26,7 +26,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4';
     public    $name                                  = __CLASS__;
     protected $taskName                              = null;
     protected $startTimestamp                        = null;
@@ -76,7 +75,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
-        $this->startTimestamp = xs:dateTime $startTimestamp;
+        $this->startTimestamp =  $startTimestamp;
     }
 
     /**

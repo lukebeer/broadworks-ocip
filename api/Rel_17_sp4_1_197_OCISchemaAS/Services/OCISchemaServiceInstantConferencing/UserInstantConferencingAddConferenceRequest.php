@@ -43,7 +43,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
          $leaderReleaseDropsParticipants,
          $announceCallers,
          $conferenceType,
-         InstantConferencingSchedule $conferenceSchedule,
+          $conferenceSchedule,
          $billingCode = null
     ) {
         $this->setUserId($userId);
@@ -225,7 +225,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
-        $this->conferenceSchedule = InstantConferencingSchedule $conferenceSchedule;
+        $this->conferenceSchedule =  $conferenceSchedule;
     }
 
     /**

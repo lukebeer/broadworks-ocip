@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceGetListResponse';
     public    $name                = __CLASS__;
     protected $fileRepositoryTable = null;
 
@@ -28,7 +27,7 @@ class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements C
      */
     public function setFileRepositoryTable(core:OCITable $fileRepositoryTable = null)
     {
-        $this->fileRepositoryTable = core:OCITable $fileRepositoryTable;
+        $this->fileRepositoryTable =  $fileRepositoryTable;
     }
 
     /**

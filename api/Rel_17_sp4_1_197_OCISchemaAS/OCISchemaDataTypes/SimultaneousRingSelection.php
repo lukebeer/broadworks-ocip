@@ -21,7 +21,7 @@ class SimultaneousRingSelection extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = (string);
+        $this->dataType = "string";
         $this->addRestriction(new Enumeration([
             'Do not Ring if on a Call',
             'Ring for all Incoming Calls'

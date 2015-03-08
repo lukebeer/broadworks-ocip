@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSelectiveCallAcceptanceGetCriteriaListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallAcceptance\UserSelectiveCallAcceptanceGetCriteriaListResponse';
     public    $name          = __CLASS__;
     protected $criteriaTable = null;
 
@@ -29,7 +28,7 @@ class UserSelectiveCallAcceptanceGetCriteriaListResponse extends ComplexType imp
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable = core:OCITable $criteriaTable;
+        $this->criteriaTable =  $criteriaTable;
     }
 
     /**

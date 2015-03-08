@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackGetLineTypeListResponse';
     public    $name          = __CLASS__;
     protected $lineTypeTable = null;
 
@@ -29,7 +28,7 @@ class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType i
      */
     public function setLineTypeTable(core:OCITable $lineTypeTable = null)
     {
-        $this->lineTypeTable = core:OCITable $lineTypeTable;
+        $this->lineTypeTable =  $lineTypeTable;
     }
 
     /**

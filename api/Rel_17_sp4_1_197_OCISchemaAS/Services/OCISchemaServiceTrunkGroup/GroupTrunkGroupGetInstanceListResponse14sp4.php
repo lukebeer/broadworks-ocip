@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceListResponse14sp4';
     public    $name            = __CLASS__;
     protected $trunkGroupTable = null;
 
@@ -30,7 +29,7 @@ class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements
      */
     public function setTrunkGroupTable(core:OCITable $trunkGroupTable = null)
     {
-        $this->trunkGroupTable = core:OCITable $trunkGroupTable;
+        $this->trunkGroupTable =  $trunkGroupTable;
     }
 
     /**

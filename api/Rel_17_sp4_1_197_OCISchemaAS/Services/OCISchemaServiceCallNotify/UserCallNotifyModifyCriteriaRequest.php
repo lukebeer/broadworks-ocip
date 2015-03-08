@@ -35,9 +35,9 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
          $userId,
          $criteriaName,
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDnModify $fromDnCriteria = null,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $fromDnCriteria = null,
+          $holidaySchedule = null,
          $blacklisted = null
     ) {
         $this->setUserId($userId);
@@ -116,7 +116,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -132,7 +132,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
      */
     public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDnModify $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**
@@ -148,7 +148,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**

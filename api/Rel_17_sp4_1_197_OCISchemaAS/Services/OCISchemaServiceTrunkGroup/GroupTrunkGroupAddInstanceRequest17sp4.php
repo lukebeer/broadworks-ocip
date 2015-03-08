@@ -113,9 +113,9 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
          $serviceProviderId,
          $groupId,
          $name,
-         TrunkGroupMultipleContactPilotUser $pilotUser = null,
-         DepartmentKey $department = null,
-         AccessDevice $accessDevice = null,
+          $pilotUser = null,
+          $department = null,
+          $accessDevice = null,
          $maxActiveCalls,
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
@@ -125,12 +125,12 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
          $burstingMaxOutgoingCalls = null,
          $capacityExceededAction = null,
          $capacityExceededForwardAddress = null,
-         TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null,
+          $capacityExceededRerouteTrunkGroupKey = null,
          $capacityExceededTrapInitialCalls,
          $capacityExceededTrapOffsetCalls,
          $unreachableDestinationAction = null,
          $unreachableDestinationForwardAddress = null,
-         TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null,
+          $unreachableDestinationRerouteTrunkGroupKey = null,
          $invitationTimeout,
          $requireAuthentication,
          $sipAuthenticationUserName = null,
@@ -151,7 +151,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
          $pilotUserChargeNumberPolicy,
          $callForwardingAlwaysAction = null,
          $callForwardingAlwaysForwardAddress = null,
-         TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null,
+          $callForwardingAlwaysRerouteTrunkGroupKey = null,
          $peeringDomain = null,
          $routeToPeeringDomain,
          $prefixEnabled,
@@ -290,7 +290,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPilotUser(TrunkGroupMultipleContactPilotUser $pilotUser = null)
     {
-        $this->pilotUser = TrunkGroupMultipleContactPilotUser $pilotUser;
+        $this->pilotUser =  $pilotUser;
     }
 
     /**
@@ -312,7 +312,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -334,7 +334,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice = AccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**
@@ -525,7 +525,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCapacityExceededRerouteTrunkGroupKey(TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null)
     {
-        $this->capacityExceededRerouteTrunkGroupKey = TrunkGroupKey $capacityExceededRerouteTrunkGroupKey;
+        $this->capacityExceededRerouteTrunkGroupKey =  $capacityExceededRerouteTrunkGroupKey;
     }
 
     /**
@@ -631,7 +631,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setUnreachableDestinationRerouteTrunkGroupKey(TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null)
     {
-        $this->unreachableDestinationRerouteTrunkGroupKey = TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey;
+        $this->unreachableDestinationRerouteTrunkGroupKey =  $unreachableDestinationRerouteTrunkGroupKey;
     }
 
     /**
@@ -1025,7 +1025,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCallForwardingAlwaysRerouteTrunkGroupKey(TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null)
     {
-        $this->callForwardingAlwaysRerouteTrunkGroupKey = TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey;
+        $this->callForwardingAlwaysRerouteTrunkGroupKey =  $callForwardingAlwaysRerouteTrunkGroupKey;
     }
 
     /**

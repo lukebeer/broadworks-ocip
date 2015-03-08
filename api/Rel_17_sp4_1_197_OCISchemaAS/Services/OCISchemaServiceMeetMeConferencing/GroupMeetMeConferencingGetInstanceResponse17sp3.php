@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceResponse17sp3';
     public    $name                    = __CLASS__;
     protected $serviceInstanceProfile  = null;
     protected $allocatedPorts          = null;
@@ -38,7 +37,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile17 $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -55,7 +54,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = MeetMeConferencingConferencePorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**
@@ -137,7 +136,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function setConferenceHostUserTable(core:OCITable $conferenceHostUserTable = null)
     {
-        $this->conferenceHostUserTable = core:OCITable $conferenceHostUserTable;
+        $this->conferenceHostUserTable =  $conferenceHostUserTable;
     }
 
     /**

@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServiceGetAuthorizationListResponse';
     public    $name                            = __CLASS__;
     protected $groupServicesAuthorizationTable = null;
     protected $userServicesAuthorizationTable  = null;
@@ -33,7 +32,7 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function setGroupServicesAuthorizationTable(core:OCITable $groupServicesAuthorizationTable = null)
     {
-        $this->groupServicesAuthorizationTable = core:OCITable $groupServicesAuthorizationTable;
+        $this->groupServicesAuthorizationTable =  $groupServicesAuthorizationTable;
     }
 
     /**
@@ -49,7 +48,7 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function setUserServicesAuthorizationTable(core:OCITable $userServicesAuthorizationTable = null)
     {
-        $this->userServicesAuthorizationTable = core:OCITable $userServicesAuthorizationTable;
+        $this->userServicesAuthorizationTable =  $userServicesAuthorizationTable;
     }
 
     /**

@@ -24,7 +24,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPDeviceTypeGetResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeGetResponse16';
     public    $name                              = __CLASS__;
     protected $isObsolete                        = null;
     protected $numberOfPorts                     = null;
@@ -78,7 +77,7 @@ class SystemSIPDeviceTypeGetResponse16 extends ComplexType implements ComplexInt
      */
     public function setNumberOfPorts(UnboundedPositiveInt $numberOfPorts = null)
     {
-        $this->numberOfPorts = UnboundedPositiveInt $numberOfPorts;
+        $this->numberOfPorts =  $numberOfPorts;
     }
 
     /**
@@ -354,7 +353,7 @@ class SystemSIPDeviceTypeGetResponse16 extends ComplexType implements ComplexInt
      */
     public function setCpeDeviceOptions(CPEDeviceOptionsRead16 $cpeDeviceOptions = null)
     {
-        $this->cpeDeviceOptions = CPEDeviceOptionsRead16 $cpeDeviceOptions;
+        $this->cpeDeviceOptions =  $cpeDeviceOptions;
     }
 
     /**

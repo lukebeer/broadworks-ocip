@@ -44,11 +44,11 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
          $groupId,
          $officeZoneName,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaEmailAddress = null,
+          $searchCriteriaExactUserDepartment = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -146,7 +146,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -162,7 +162,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -178,7 +178,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -194,7 +194,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        $this->searchCriteriaEmailAddress = SearchCriteriaEmailAddress $searchCriteriaEmailAddress;
+        $this->searchCriteriaEmailAddress =  $searchCriteriaEmailAddress;
     }
 
     /**
@@ -210,7 +210,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
+        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
     }
 
     /**

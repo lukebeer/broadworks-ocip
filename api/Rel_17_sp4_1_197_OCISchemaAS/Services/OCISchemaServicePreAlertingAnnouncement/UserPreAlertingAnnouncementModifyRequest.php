@@ -34,10 +34,10 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
          $userId,
          $isActive = null,
          $audioSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoSelection = null,
-         ExtendedMediaFileResource $videoFile = null,
-         CriteriaActivation $criteriaActivation = null
+          $videoFile = null,
+          $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
@@ -114,7 +114,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -150,7 +150,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**
@@ -167,7 +167,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $this->criteriaActivation = CriteriaActivation $criteriaActivation;
+        $this->criteriaActivation =  $criteriaActivation;
     }
 
     /**

@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDTMFTransmissionGetResponse';
     public    $name                 = __CLASS__;
     protected $transmissionMethod   = null;
     protected $signalingContentType = null;

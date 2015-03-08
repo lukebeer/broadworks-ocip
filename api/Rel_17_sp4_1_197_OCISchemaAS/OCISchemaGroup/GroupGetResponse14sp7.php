@@ -27,7 +27,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetResponse14sp7';
     public    $name                            = __CLASS__;
     protected $defaultDomain                   = null;
     protected $userLimit                       = null;
@@ -226,7 +225,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
      */
     public function setContact(Contact $contact = null)
     {
-        $this->contact = Contact $contact;
+        $this->contact =  $contact;
     }
 
     /**
@@ -242,7 +241,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

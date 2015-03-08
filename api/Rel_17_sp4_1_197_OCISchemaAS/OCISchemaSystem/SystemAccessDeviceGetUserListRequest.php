@@ -47,16 +47,16 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
     public function __construct(
          $deviceName,
          $responseSizeLimit = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null,
-         SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null,
-         SearchCriteriaExactUserType $searchCriteriaExactUserType = null
+          $searchCriteriaLinePortUserPart = null,
+          $searchCriteriaLinePortDomain = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaExactServiceProvider = null,
+          $searchCriteriaExactEndpointType = null,
+          $searchCriteriaExactUserType = null
     ) {
         $this->setDeviceName($deviceName);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -117,7 +117,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        $this->searchCriteriaLinePortUserPart = SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart;
+        $this->searchCriteriaLinePortUserPart =  $searchCriteriaLinePortUserPart;
     }
 
     /**
@@ -133,7 +133,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        $this->searchCriteriaLinePortDomain = SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain;
+        $this->searchCriteriaLinePortDomain =  $searchCriteriaLinePortDomain;
     }
 
     /**
@@ -149,7 +149,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -165,7 +165,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -181,7 +181,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -197,7 +197,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -213,7 +213,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -229,7 +229,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        $this->searchCriteriaExactServiceProvider = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider;
+        $this->searchCriteriaExactServiceProvider =  $searchCriteriaExactServiceProvider;
     }
 
     /**
@@ -245,7 +245,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaExactEndpointType(SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null)
     {
-        $this->searchCriteriaExactEndpointType = SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType;
+        $this->searchCriteriaExactEndpointType =  $searchCriteriaExactEndpointType;
     }
 
     /**
@@ -261,7 +261,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaExactUserType(SearchCriteriaExactUserType $searchCriteriaExactUserType = null)
     {
-        $this->searchCriteriaExactUserType = SearchCriteriaExactUserType $searchCriteriaExactUserType;
+        $this->searchCriteriaExactUserType =  $searchCriteriaExactUserType;
     }
 
     /**

@@ -22,7 +22,7 @@ class GroupBroadWorksAnywhereModifyActiveInstanceListRequest extends ComplexType
     protected $serviceActivation = null;
 
     public function __construct(
-         ServiceActivation $serviceActivation = null
+          $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
     }
@@ -32,7 +32,7 @@ class GroupBroadWorksAnywhereModifyActiveInstanceListRequest extends ComplexType
      */
     public function setServiceActivation(ServiceActivation $serviceActivation = null)
     {
-        $this->serviceActivation = ServiceActivation $serviceActivation;
+        $this->serviceActivation =  $serviceActivation;
     }
 
     /**

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserShInterfaceGetUserIdDataResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetUserIdDataResponse';
     public    $name  = __CLASS__;
     protected $entry = null;
 
@@ -29,7 +28,7 @@ class UserShInterfaceGetUserIdDataResponse extends ComplexType implements Comple
      */
     public function setEntry(ShInterfaceUserIdDataEntry $entry = null)
     {
-        $this->entry = ShInterfaceUserIdDataEntry $entry;
+        $this->entry =  $entry;
     }
 
     /**

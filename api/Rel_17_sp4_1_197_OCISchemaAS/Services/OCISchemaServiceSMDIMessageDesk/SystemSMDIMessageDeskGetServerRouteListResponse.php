@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerRouteListResponse';
     public    $name                 = __CLASS__;
     protected $smdiServerRouteTable = null;
 
@@ -28,7 +27,7 @@ class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implem
      */
     public function setSmdiServerRouteTable(core:OCITable $smdiServerRouteTable = null)
     {
-        $this->smdiServerRouteTable = core:OCITable $smdiServerRouteTable;
+        $this->smdiServerRouteTable =  $smdiServerRouteTable;
     }
 
     /**

@@ -31,11 +31,11 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     public function __construct(
          $serviceProviderId,
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName,
          $startDate,
          $endDate,
-         Recurrence $recurrence = null
+          $recurrence = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);
@@ -70,7 +70,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**
@@ -104,7 +104,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate = xs:date $startDate;
+        $this->startDate =  $startDate;
     }
 
     /**
@@ -120,7 +120,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate = xs:date $endDate;
+        $this->endDate =  $endDate;
     }
 
     /**
@@ -136,7 +136,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        $this->recurrence = Recurrence $recurrence;
+        $this->recurrence =  $recurrence;
     }
 
     /**

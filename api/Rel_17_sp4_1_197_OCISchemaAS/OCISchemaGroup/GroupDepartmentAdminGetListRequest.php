@@ -23,7 +23,7 @@ class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexI
     protected $departmentKey = null;
 
     public function __construct(
-         GroupDepartmentKey $departmentKey
+          $departmentKey
     ) {
         $this->setDepartmentKey($departmentKey);
     }
@@ -35,7 +35,7 @@ class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexI
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $this->departmentKey = GroupDepartmentKey $departmentKey;
+        $this->departmentKey =  $departmentKey;
     }
 
     /**

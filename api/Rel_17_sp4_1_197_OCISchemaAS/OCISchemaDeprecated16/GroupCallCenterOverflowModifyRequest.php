@@ -43,9 +43,9 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
          $timeoutSeconds = null,
          $playAnnouncementBeforeOverflowProcessing = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+          $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -209,7 +209,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -245,7 +245,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

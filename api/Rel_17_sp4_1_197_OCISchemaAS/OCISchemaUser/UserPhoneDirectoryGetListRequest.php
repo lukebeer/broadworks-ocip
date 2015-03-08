@@ -61,15 +61,15 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
          $includeCommonPhoneList,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExtension = null,
+          $searchCriteriaMobilePhoneNumber = null,
+          $searchCriteriaEmailAddress = null,
+          $searchCriteriaExactUserDepartment = null,
+          $searchCriteriaExactUserGroup = null,
+          $searchCriteriaExactCustomContactDirectory = null
     ) {
         $this->setUserId($userId);
         $this->setIncludeCommonPhoneList($includeCommonPhoneList);
@@ -171,7 +171,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -187,7 +187,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -203,7 +203,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -219,7 +219,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**
@@ -235,7 +235,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
-        $this->searchCriteriaMobilePhoneNumber = SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber;
+        $this->searchCriteriaMobilePhoneNumber =  $searchCriteriaMobilePhoneNumber;
     }
 
     /**
@@ -251,7 +251,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        $this->searchCriteriaEmailAddress = SearchCriteriaEmailAddress $searchCriteriaEmailAddress;
+        $this->searchCriteriaEmailAddress =  $searchCriteriaEmailAddress;
     }
 
     /**
@@ -267,7 +267,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment = SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment;
+        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
     }
 
     /**
@@ -283,7 +283,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup = SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup;
+        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
     }
 
     /**
@@ -299,7 +299,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExactCustomContactDirectory(SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory = null)
     {
-        $this->searchCriteriaExactCustomContactDirectory = SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory;
+        $this->searchCriteriaExactCustomContactDirectory =  $searchCriteriaExactCustomContactDirectory;
     }
 
     /**

@@ -27,7 +27,7 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
 
     public function __construct(
          $userId,
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName
     ) {
         $this->setUserId($userId);
@@ -66,7 +66,7 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

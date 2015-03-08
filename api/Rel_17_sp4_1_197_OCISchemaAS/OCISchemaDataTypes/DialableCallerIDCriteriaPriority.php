@@ -22,7 +22,7 @@ class DialableCallerIDCriteriaPriority extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = xs:float;
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("0.0"));
         $this->addRestriction(new MaxInclusive("1000000.0"));
     }

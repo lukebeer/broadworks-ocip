@@ -29,9 +29,9 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
 
     public function __construct(
          $userId,
-         MusicOnHoldUserSourceModify $source = null,
+          $source = null,
          $useAlternateSourceForInternalCalls = null,
-         MusicOnHoldUserSourceModify $internalSource = null
+          $internalSource = null
     ) {
         $this->setUserId($userId);
         $this->setSource($source);
@@ -70,7 +70,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function setSource(MusicOnHoldUserSourceModify $source = null)
     {
-        $this->source = MusicOnHoldUserSourceModify $source;
+        $this->source =  $source;
     }
 
     /**
@@ -102,7 +102,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function setInternalSource(MusicOnHoldUserSourceModify $internalSource = null)
     {
-        $this->internalSource = MusicOnHoldUserSourceModify $internalSource;
+        $this->internalSource =  $internalSource;
     }
 
     /**

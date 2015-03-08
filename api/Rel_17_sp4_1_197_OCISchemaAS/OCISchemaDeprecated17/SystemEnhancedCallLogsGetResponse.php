@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemEnhancedCallLogsGetResponse';
     public    $name                            = __CLASS__;
     protected $isSendEnabled                   = null;
     protected $server1NetAddress               = null;

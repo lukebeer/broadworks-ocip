@@ -32,8 +32,8 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
     public function __construct(
          $serviceProviderId,
          $groupId,
-         VirtualOnNetUser $virtualOnNetUser = null,
-         VirtualOnNetUserRange $virtualOnNetUserRange = null
+          $virtualOnNetUser = null,
+          $virtualOnNetUserRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -86,7 +86,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
      */
     public function setVirtualOnNetUser(VirtualOnNetUser $virtualOnNetUser = null)
     {
-        $this->virtualOnNetUser = VirtualOnNetUser $virtualOnNetUser;
+        $this->virtualOnNetUser =  $virtualOnNetUser;
     }
 
     /**
@@ -102,7 +102,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
      */
     public function setVirtualOnNetUserRange(VirtualOnNetUserRange $virtualOnNetUserRange = null)
     {
-        $this->virtualOnNetUserRange = VirtualOnNetUserRange $virtualOnNetUserRange;
+        $this->virtualOnNetUserRange =  $virtualOnNetUserRange;
     }
 
     /**

@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetConferenceCallResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceCallResponse';
     public    $name               = __CLASS__;
     protected $isBridgeActive     = null;
     protected $title              = null;
@@ -135,7 +134,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setConferenceLegTable(core:OCITable $conferenceLegTable = null)
     {
-        $this->conferenceLegTable = core:OCITable $conferenceLegTable;
+        $this->conferenceLegTable =  $conferenceLegTable;
     }
 
     /**

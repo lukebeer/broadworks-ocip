@@ -33,10 +33,10 @@ class UserSimultaneousRingPersonalAddCriteriaRequest extends ComplexType impleme
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $holidaySchedule = null,
          $blacklisted,
-         CriteriaFromDn $fromDnCriteria
+          $fromDnCriteria
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -95,7 +95,7 @@ class UserSimultaneousRingPersonalAddCriteriaRequest extends ComplexType impleme
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -111,7 +111,7 @@ class UserSimultaneousRingPersonalAddCriteriaRequest extends ComplexType impleme
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -143,7 +143,7 @@ class UserSimultaneousRingPersonalAddCriteriaRequest extends ComplexType impleme
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

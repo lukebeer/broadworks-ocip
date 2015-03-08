@@ -30,7 +30,7 @@ class GroupScheduleDeleteEventListRequest extends ComplexType implements Complex
     public function __construct(
          $serviceProviderId,
          $groupId,
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -84,7 +84,7 @@ class GroupScheduleDeleteEventListRequest extends ComplexType implements Complex
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

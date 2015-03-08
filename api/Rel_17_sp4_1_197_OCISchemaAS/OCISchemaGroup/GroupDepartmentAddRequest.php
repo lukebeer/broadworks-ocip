@@ -31,7 +31,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
          $serviceProviderId,
          $groupId,
          $departmentName,
-         DepartmentKey $parentDepartmentKey = null
+          $parentDepartmentKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -110,7 +110,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function setParentDepartmentKey(DepartmentKey $parentDepartmentKey = null)
     {
-        $this->parentDepartmentKey = DepartmentKey $parentDepartmentKey;
+        $this->parentDepartmentKey =  $parentDepartmentKey;
     }
 
     /**

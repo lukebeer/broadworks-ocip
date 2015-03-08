@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccountAuthorizationCodesGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetAvailableUserListResponse';
     public    $name      = __CLASS__;
     protected $userTable = null;
 
@@ -29,7 +28,7 @@ class GroupAccountAuthorizationCodesGetAvailableUserListResponse extends Complex
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable = core:OCITable $userTable;
+        $this->userTable =  $userTable;
     }
 
     /**

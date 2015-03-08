@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkSynchingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkSynchingServerGetListResponse';
     public    $name                             = __CLASS__;
     protected $preferredNetworkServerNetAddress = null;
     protected $networkSynchingServerTable       = null;
@@ -47,7 +46,7 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
      */
     public function setNetworkSynchingServerTable(core:OCITable $networkSynchingServerTable = null)
     {
-        $this->networkSynchingServerTable = core:OCITable $networkSynchingServerTable;
+        $this->networkSynchingServerTable =  $networkSynchingServerTable;
     }
 
     /**

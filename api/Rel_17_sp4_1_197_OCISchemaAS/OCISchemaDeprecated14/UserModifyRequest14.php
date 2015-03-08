@@ -76,10 +76,10 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
          $callingLineIdPhoneNumber = null,
          $oldPassword = null,
          $newPassword = null,
-         DepartmentKey $department = null,
+          $department = null,
          $language = null,
          $timeZone = null,
-         ReplacementSIPAliasList $sipAliasList = null,
+          $sipAliasList = null,
          $endpoint = null,
          $title = null,
          $pagerPhoneNumber = null,
@@ -87,7 +87,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
          $emailAddress = null,
          $yahooId = null,
          $addressLocation = null,
-         StreetAddress $address = null
+          $address = null
     ) {
         $this->setUserId($userId);
         $this->setLastName($lastName);
@@ -352,7 +352,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -411,7 +411,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
      */
     public function setSipAliasList(ReplacementSIPAliasList $sipAliasList = null)
     {
-        $this->sipAliasList = ReplacementSIPAliasList $sipAliasList;
+        $this->sipAliasList =  $sipAliasList;
     }
 
     /**
@@ -558,7 +558,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

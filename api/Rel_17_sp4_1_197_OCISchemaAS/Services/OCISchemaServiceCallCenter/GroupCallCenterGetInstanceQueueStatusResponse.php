@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceQueueStatusResponse';
     public    $name                   = __CLASS__;
     protected $numberOfCallsQueuedNow = null;
     protected $agentsCurrentlyStaffed = null;
@@ -44,7 +43,7 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function setAgentsCurrentlyStaffed(core:OCITable $agentsCurrentlyStaffed = null)
     {
-        $this->agentsCurrentlyStaffed = core:OCITable $agentsCurrentlyStaffed;
+        $this->agentsCurrentlyStaffed =  $agentsCurrentlyStaffed;
     }
 
     /**

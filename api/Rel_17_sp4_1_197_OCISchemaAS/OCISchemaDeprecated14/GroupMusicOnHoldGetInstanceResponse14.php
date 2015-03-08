@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMusicOnHoldGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldGetInstanceResponse14';
     public    $name                   = __CLASS__;
     protected $serviceUserId          = null;
     protected $isActiveDuringCallHold = null;
@@ -113,7 +112,7 @@ class GroupMusicOnHoldGetInstanceResponse14 extends ComplexType implements Compl
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointRead14 $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**

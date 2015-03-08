@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupHuntGroupGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\GroupHuntGroupGetInstanceListResponse';
     public    $name           = __CLASS__;
     protected $huntGroupTable = null;
 
@@ -31,7 +30,7 @@ class GroupHuntGroupGetInstanceListResponse extends ComplexType implements Compl
      */
     public function setHuntGroupTable(core:OCITable $huntGroupTable = null)
     {
-        $this->huntGroupTable = core:OCITable $huntGroupTable;
+        $this->huntGroupTable =  $huntGroupTable;
     }
 
     /**

@@ -36,8 +36,8 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
          $serviceProviderId,
          $networkClassOfService,
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null
+          $searchCriteriaGroupId = null,
+          $searchCriteriaGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setNetworkClassOfService($networkClassOfService);
@@ -111,7 +111,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -127,7 +127,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
+        $this->searchCriteriaGroupName =  $searchCriteriaGroupName;
     }
 
     /**

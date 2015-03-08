@@ -39,15 +39,15 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $enableVideo = null,
-         TimeSchedule $businessHours = null,
-         HolidaySchedule $holidaySchedule = null,
+          $businessHours = null,
+          $holidaySchedule = null,
          $extensionDialingScope = null,
          $nameDialingScope = null,
          $nameDialingEntries = null,
-         AutoAttendantModifyMenu16 $businessHoursMenu = null,
-         AutoAttendantModifyMenu16 $afterHoursMenu = null
+          $businessHoursMenu = null,
+          $afterHoursMenu = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setServiceInstanceProfile($serviceInstanceProfile);
@@ -92,7 +92,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -124,7 +124,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
      */
     public function setBusinessHours(TimeSchedule $businessHours = null)
     {
-        $this->businessHours = TimeSchedule $businessHours;
+        $this->businessHours =  $businessHours;
     }
 
     /**
@@ -140,7 +140,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -212,7 +212,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
      */
     public function setBusinessHoursMenu(AutoAttendantModifyMenu16 $businessHoursMenu = null)
     {
-        $this->businessHoursMenu = AutoAttendantModifyMenu16 $businessHoursMenu;
+        $this->businessHoursMenu =  $businessHoursMenu;
     }
 
     /**
@@ -232,7 +232,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
      */
     public function setAfterHoursMenu(AutoAttendantModifyMenu16 $afterHoursMenu = null)
     {
-        $this->afterHoursMenu = AutoAttendantModifyMenu16 $afterHoursMenu;
+        $this->afterHoursMenu =  $afterHoursMenu;
     }
 
     /**

@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigParametersGetResponse14sp6';
     public    $name                                = __CLASS__;
     protected $enableIPDeviceManagement            = null;
     protected $ftpConnectTimeoutSeconds            = null;

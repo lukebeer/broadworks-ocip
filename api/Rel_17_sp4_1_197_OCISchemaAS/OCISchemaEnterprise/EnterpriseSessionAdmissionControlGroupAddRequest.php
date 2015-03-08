@@ -45,7 +45,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
          $reservedUserTerminatingSessions = null,
          $becomeDefaultGroup,
          $countIntraSACGroupSessions,
-         EnterpriseAccessDevice $devices = null
+          $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -245,7 +245,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        $this->devices = EnterpriseAccessDevice $devices;
+        $this->devices =  $devices;
     }
 
     /**

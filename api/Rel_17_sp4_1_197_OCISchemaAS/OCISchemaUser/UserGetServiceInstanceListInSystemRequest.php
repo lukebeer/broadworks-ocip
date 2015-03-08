@@ -40,13 +40,13 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaExactServiceType $searchCriteriaExactServiceType = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
+          $searchCriteriaExactServiceType = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExtension = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaExactServiceProvider = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaExactServiceType($searchCriteriaExactServiceType);
@@ -85,7 +85,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactServiceType(SearchCriteriaExactServiceType $searchCriteriaExactServiceType = null)
     {
-        $this->searchCriteriaExactServiceType = SearchCriteriaExactServiceType $searchCriteriaExactServiceType;
+        $this->searchCriteriaExactServiceType =  $searchCriteriaExactServiceType;
     }
 
     /**
@@ -101,7 +101,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -117,7 +117,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -133,7 +133,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -149,7 +149,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**
@@ -165,7 +165,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -181,7 +181,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        $this->searchCriteriaExactServiceProvider = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider;
+        $this->searchCriteriaExactServiceProvider =  $searchCriteriaExactServiceProvider;
     }
 
     /**

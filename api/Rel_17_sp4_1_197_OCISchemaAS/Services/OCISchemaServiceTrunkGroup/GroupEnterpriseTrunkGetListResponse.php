@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupEnterpriseTrunkGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetListResponse';
     public    $name                 = __CLASS__;
     protected $enterpriseTrunkTable = null;
 
@@ -29,7 +28,7 @@ class GroupEnterpriseTrunkGetListResponse extends ComplexType implements Complex
      */
     public function setEnterpriseTrunkTable(core:OCITable $enterpriseTrunkTable = null)
     {
-        $this->enterpriseTrunkTable = core:OCITable $enterpriseTrunkTable;
+        $this->enterpriseTrunkTable =  $enterpriseTrunkTable;
     }
 
     /**

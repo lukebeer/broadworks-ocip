@@ -25,7 +25,7 @@ class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType i
 
     public function __construct(
          $userId,
-         ReplacementUserIdList $monitoredUserIdList = null
+          $monitoredUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setMonitoredUserIdList($monitoredUserIdList);
@@ -63,7 +63,7 @@ class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType i
      */
     public function setMonitoredUserIdList(ReplacementUserIdList $monitoredUserIdList = null)
     {
-        $this->monitoredUserIdList = ReplacementUserIdList $monitoredUserIdList;
+        $this->monitoredUserIdList =  $monitoredUserIdList;
     }
 
     /**

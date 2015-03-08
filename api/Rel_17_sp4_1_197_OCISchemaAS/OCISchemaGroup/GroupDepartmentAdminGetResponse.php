@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetResponse';
     public    $name               = __CLASS__;
     protected $departmentKey      = null;
     protected $departmentFullPath = null;
@@ -38,7 +37,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $this->departmentKey = GroupDepartmentKey $departmentKey;
+        $this->departmentKey =  $departmentKey;
     }
 
     /**

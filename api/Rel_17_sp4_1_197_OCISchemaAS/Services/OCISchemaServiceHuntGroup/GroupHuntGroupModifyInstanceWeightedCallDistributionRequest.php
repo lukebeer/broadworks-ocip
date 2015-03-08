@@ -28,7 +28,7 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
 
     public function __construct(
          $serviceUserId,
-         HuntAgentWeight $agentWeight = null
+          $agentWeight = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentWeight($agentWeight);
@@ -65,7 +65,7 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
      */
     public function setAgentWeight(HuntAgentWeight $agentWeight = null)
     {
-        $this->agentWeight = HuntAgentWeight $agentWeight;
+        $this->agentWeight =  $agentWeight;
     }
 
     /**

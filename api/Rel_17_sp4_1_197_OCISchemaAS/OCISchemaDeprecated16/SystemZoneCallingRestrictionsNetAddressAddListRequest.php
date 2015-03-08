@@ -29,7 +29,7 @@ class SystemZoneCallingRestrictionsNetAddressAddListRequest extends ComplexType 
     public function __construct(
          $zoneName,
          $netAddress = null,
-         IPAddressRange $netAddressRange = null
+          $netAddressRange = null
     ) {
         $this->setZoneName($zoneName);
         $this->setNetAddress($netAddress);
@@ -77,7 +77,7 @@ class SystemZoneCallingRestrictionsNetAddressAddListRequest extends ComplexType 
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        $this->netAddressRange = IPAddressRange $netAddressRange;
+        $this->netAddressRange =  $netAddressRange;
     }
 
     /**

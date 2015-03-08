@@ -102,7 +102,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
      */
     public function setReportStartDate(xs:date $reportStartDate = null)
     {
-        $this->reportStartDate = xs:date $reportStartDate;
+        $this->reportStartDate =  $reportStartDate;
     }
 
     /**
@@ -118,7 +118,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
      */
     public function setReportEndDate(xs:date $reportEndDate = null)
     {
-        $this->reportEndDate = xs:date $reportEndDate;
+        $this->reportEndDate =  $reportEndDate;
     }
 
     /**

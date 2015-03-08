@@ -56,18 +56,18 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+          $audioUrlList = null,
+          $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null,
+          $videoUrlList = null,
+          $videoFileList = null,
          $manualAnnouncementMode = null,
          $manualAudioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualAudioUrlList = null,
-         CallCenterAnnouncementFileListModify $manualAudioFileList = null,
+          $manualAudioUrlList = null,
+          $manualAudioFileList = null,
          $manualVideoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualVideoUrlList = null,
-         CallCenterAnnouncementFileListModify $manualVideoFileList = null
+          $manualVideoUrlList = null,
+          $manualVideoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -256,7 +256,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLListModify $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -272,7 +272,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementFileListModify $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -306,7 +306,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLListModify $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -322,7 +322,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementFileListModify $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**
@@ -374,7 +374,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setManualAudioUrlList(CallCenterAnnouncementURLListModify $manualAudioUrlList = null)
     {
-        $this->manualAudioUrlList = CallCenterAnnouncementURLListModify $manualAudioUrlList;
+        $this->manualAudioUrlList =  $manualAudioUrlList;
     }
 
     /**
@@ -390,7 +390,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setManualAudioFileList(CallCenterAnnouncementFileListModify $manualAudioFileList = null)
     {
-        $this->manualAudioFileList = CallCenterAnnouncementFileListModify $manualAudioFileList;
+        $this->manualAudioFileList =  $manualAudioFileList;
     }
 
     /**
@@ -424,7 +424,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setManualVideoUrlList(CallCenterAnnouncementURLListModify $manualVideoUrlList = null)
     {
-        $this->manualVideoUrlList = CallCenterAnnouncementURLListModify $manualVideoUrlList;
+        $this->manualVideoUrlList =  $manualVideoUrlList;
     }
 
     /**
@@ -440,7 +440,7 @@ class GroupCallCenterNightServiceModifyRequest17 extends ComplexType implements 
      */
     public function setManualVideoFileList(CallCenterAnnouncementFileListModify $manualVideoFileList = null)
     {
-        $this->manualVideoFileList = CallCenterAnnouncementFileListModify $manualVideoFileList;
+        $this->manualVideoFileList =  $manualVideoFileList;
     }
 
     /**

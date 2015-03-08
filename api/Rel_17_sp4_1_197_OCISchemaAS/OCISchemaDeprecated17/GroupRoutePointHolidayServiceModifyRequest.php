@@ -44,11 +44,11 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+          $audioUrlList = null,
+          $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null
+          $videoUrlList = null,
+          $videoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -196,7 +196,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLListModify $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -212,7 +212,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementFileListModify $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -246,7 +246,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLListModify $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -262,7 +262,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementFileListModify $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**

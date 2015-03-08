@@ -70,7 +70,7 @@ class SystemSIPDeviceTypeModifyRequest16 extends ComplexType implements ComplexI
          $PBXIntegration = null,
          $useBusinessTrunkingContact = null,
          $staticRegistrationCapable = null,
-         CPEDeviceModifyOptions16 $cpeDeviceOptions = null,
+          $cpeDeviceOptions = null,
          $earlyMediaSupport = null,
          $authenticateRefer = null,
          $autoConfigSoftClient = null,
@@ -344,7 +344,7 @@ class SystemSIPDeviceTypeModifyRequest16 extends ComplexType implements ComplexI
      */
     public function setCpeDeviceOptions(CPEDeviceModifyOptions16 $cpeDeviceOptions = null)
     {
-        $this->cpeDeviceOptions = CPEDeviceModifyOptions16 $cpeDeviceOptions;
+        $this->cpeDeviceOptions =  $cpeDeviceOptions;
     }
 
     /**

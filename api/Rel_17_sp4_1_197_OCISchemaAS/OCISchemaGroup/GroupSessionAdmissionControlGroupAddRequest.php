@@ -48,7 +48,7 @@ class GroupSessionAdmissionControlGroupAddRequest extends ComplexType implements
          $reservedUserTerminatingSessions = null,
          $becomeDefaultGroup,
          $countIntraSACGroupSessions,
-         AccessDevice $devices = null
+          $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -269,7 +269,7 @@ class GroupSessionAdmissionControlGroupAddRequest extends ComplexType implements
      */
     public function setDevices(AccessDevice $devices = null)
     {
-        $this->devices = AccessDevice $devices;
+        $this->devices =  $devices;
     }
 
     /**

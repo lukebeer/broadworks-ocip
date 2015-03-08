@@ -24,7 +24,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14';
     public    $name                      = __CLASS__;
     protected $serviceInstanceProfile    = null;
     protected $accessDeviceEndpoint      = null;
@@ -42,7 +41,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -60,7 +59,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointRead14 $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**

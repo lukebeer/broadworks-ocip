@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceStatisticsResponse13mp8';
     public    $name                     = __CLASS__;
     protected $numberOfCallsQueuedNow   = null;
     protected $generateDailyReport      = null;
@@ -124,7 +123,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setQueueStatisticsYesterday(CallCenterQueueStatistics13mp8 $queueStatisticsYesterday = null)
     {
-        $this->queueStatisticsYesterday = CallCenterQueueStatistics13mp8 $queueStatisticsYesterday;
+        $this->queueStatisticsYesterday =  $queueStatisticsYesterday;
     }
 
     /**
@@ -140,7 +139,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setQueueStatisticsToday(CallCenterQueueStatistics13mp8 $queueStatisticsToday = null)
     {
-        $this->queueStatisticsToday = CallCenterQueueStatistics13mp8 $queueStatisticsToday;
+        $this->queueStatisticsToday =  $queueStatisticsToday;
     }
 
     /**
@@ -156,7 +155,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setAgentStatistics(CallCenterAgentStatistics13mp8 $agentStatistics = null)
     {
-        $this->agentStatistics = CallCenterAgentStatistics13mp8 $agentStatistics;
+        $this->agentStatistics =  $agentStatistics;
     }
 
     /**

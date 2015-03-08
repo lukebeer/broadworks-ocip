@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\UserMaliciousCallTraceGetResponse';
     public    $name               = __CLASS__;
     protected $isActive           = null;
     protected $traceTypeSelection = null;
@@ -82,7 +81,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
      */
     public function setTraceTimePeriod(MaliciousCallTraceTimePeriod $traceTimePeriod = null)
     {
-        $this->traceTimePeriod = MaliciousCallTraceTimePeriod $traceTimePeriod;
+        $this->traceTimePeriod =  $traceTimePeriod;
     }
 
     /**

@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDnGetSummaryListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDnGetSummaryListResponse';
     public    $name           = __CLASS__;
     protected $dnSummaryTable = null;
 
@@ -28,7 +27,7 @@ class ServiceProviderDnGetSummaryListResponse extends ComplexType implements Com
      */
     public function setDnSummaryTable(core:OCITable $dnSummaryTable = null)
     {
-        $this->dnSummaryTable = core:OCITable $dnSummaryTable;
+        $this->dnSummaryTable =  $dnSummaryTable;
     }
 
     /**

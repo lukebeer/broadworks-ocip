@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16';
     public    $name                 = __CLASS__;
     protected $profile              = null;
     protected $availableInOffice    = null;
@@ -53,7 +52,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setAvailableInOffice(CommPilotExpressSRAvailableInOffice $availableInOffice = null)
     {
-        $this->availableInOffice = CommPilotExpressSRAvailableInOffice $availableInOffice;
+        $this->availableInOffice =  $availableInOffice;
     }
 
     /**
@@ -69,7 +68,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setAvailableOutOfOffice(CommPilotExpressSRAvailableOutOfOffice $availableOutOfOffice = null)
     {
-        $this->availableOutOfOffice = CommPilotExpressSRAvailableOutOfOffice $availableOutOfOffice;
+        $this->availableOutOfOffice =  $availableOutOfOffice;
     }
 
     /**
@@ -85,7 +84,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setBusy(CommPilotExpressSRBusy $busy = null)
     {
-        $this->busy = CommPilotExpressSRBusy $busy;
+        $this->busy =  $busy;
     }
 
     /**
@@ -101,7 +100,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setUnavailable(CommPilotExpressSRUnavailable $unavailable = null)
     {
-        $this->unavailable = CommPilotExpressSRUnavailable $unavailable;
+        $this->unavailable =  $unavailable;
     }
 
     /**

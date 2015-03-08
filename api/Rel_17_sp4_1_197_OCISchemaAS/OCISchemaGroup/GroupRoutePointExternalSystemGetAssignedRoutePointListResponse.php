@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedRoutePointListResponse';
     public    $name            = __CLASS__;
     protected $routePointTable = null;
 
@@ -30,7 +29,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends Com
      */
     public function setRoutePointTable(core:OCITable $routePointTable = null)
     {
-        $this->routePointTable = core:OCITable $routePointTable;
+        $this->routePointTable =  $routePointTable;
     }
 
     /**

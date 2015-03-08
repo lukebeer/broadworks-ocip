@@ -34,7 +34,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
          $deviceName,
          $fileFormat,
          $fileSource = null,
-         FileResource $uploadFile = null
+          $uploadFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
@@ -123,7 +123,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile = FileResource $uploadFile;
+        $this->uploadFile =  $uploadFile;
     }
 
     /**

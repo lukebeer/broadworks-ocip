@@ -24,7 +24,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHuntGroupGetInstanceResponse14';
     public    $name                      = __CLASS__;
     protected $serviceInstanceProfile    = null;
     protected $policy                    = null;
@@ -44,7 +43,7 @@ class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements Complex
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -172,7 +171,7 @@ class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements Complex
      */
     public function setAgentUserTable(core:OCITable $agentUserTable = null)
     {
-        $this->agentUserTable = core:OCITable $agentUserTable;
+        $this->agentUserTable =  $agentUserTable;
     }
 
     /**

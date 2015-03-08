@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetResponse';
     public    $name                              = __CLASS__;
     protected $portsAvailableFromServiceProvider = null;
     protected $portsAllocatedToGroup             = null;
@@ -29,7 +28,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function setPortsAvailableFromServiceProvider(UnboundedNonNegativeInt $portsAvailableFromServiceProvider = null)
     {
-        $this->portsAvailableFromServiceProvider = UnboundedNonNegativeInt $portsAvailableFromServiceProvider;
+        $this->portsAvailableFromServiceProvider =  $portsAvailableFromServiceProvider;
     }
 
     /**
@@ -45,7 +44,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function setPortsAllocatedToGroup(UnboundedNonNegativeInt $portsAllocatedToGroup = null)
     {
-        $this->portsAllocatedToGroup = UnboundedNonNegativeInt $portsAllocatedToGroup;
+        $this->portsAllocatedToGroup =  $portsAllocatedToGroup;
     }
 
     /**

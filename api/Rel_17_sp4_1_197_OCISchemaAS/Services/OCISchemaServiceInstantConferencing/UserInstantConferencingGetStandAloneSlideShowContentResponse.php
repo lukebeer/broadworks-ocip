@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetStandAloneSlideShowContentResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse';
     public    $name                  = __CLASS__;
     protected $audioURL              = null;
     protected $slideShowContentTable = null;
@@ -48,7 +47,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
      */
     public function setSlideShowContentTable(core:OCITable $slideShowContentTable = null)
     {
-        $this->slideShowContentTable = core:OCITable $slideShowContentTable;
+        $this->slideShowContentTable =  $slideShowContentTable;
     }
 
     /**

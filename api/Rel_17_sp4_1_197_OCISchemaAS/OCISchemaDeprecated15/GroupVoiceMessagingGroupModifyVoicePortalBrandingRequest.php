@@ -34,9 +34,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
          $serviceProviderId,
          $groupId,
          $voicePortalGreetingSelection = null,
-         LabeledFileResource $voicePortalGreetingFile = null,
+          $voicePortalGreetingFile = null,
          $voiceMessagingGreetingSelection = null,
-         LabeledFileResource $voiceMessagingGreetingFile = null
+          $voiceMessagingGreetingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -110,7 +110,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
      */
     public function setVoicePortalGreetingFile(LabeledFileResource $voicePortalGreetingFile = null)
     {
-        $this->voicePortalGreetingFile = LabeledFileResource $voicePortalGreetingFile;
+        $this->voicePortalGreetingFile =  $voicePortalGreetingFile;
     }
 
     /**
@@ -146,7 +146,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
      */
     public function setVoiceMessagingGreetingFile(LabeledFileResource $voiceMessagingGreetingFile = null)
     {
-        $this->voiceMessagingGreetingFile = LabeledFileResource $voiceMessagingGreetingFile;
+        $this->voiceMessagingGreetingFile =  $voiceMessagingGreetingFile;
     }
 
     /**

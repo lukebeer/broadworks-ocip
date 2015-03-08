@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterComfortMessageBypassGetResponse17';
     public    $name                                     = __CLASS__;
     protected $isActive                                 = null;
     protected $callWaitingAgeThresholdSeconds           = null;
@@ -131,7 +130,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLList $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -147,7 +146,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementDescriptionList $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -163,7 +162,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $this->audioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList;
+        $this->audioMediaTypeList =  $audioMediaTypeList;
     }
 
     /**
@@ -197,7 +196,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLList $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -213,7 +212,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementDescriptionList $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**
@@ -229,7 +228,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $this->videoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList;
+        $this->videoMediaTypeList =  $videoMediaTypeList;
     }
 
     /**

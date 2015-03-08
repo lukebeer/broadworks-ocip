@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetAgentSupervisorListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetAgentSupervisorListResponse';
     public    $name            = __CLASS__;
     protected $supervisorTable = null;
 
@@ -30,7 +29,7 @@ class UserCallCenterGetAgentSupervisorListResponse extends ComplexType implement
      */
     public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
-        $this->supervisorTable = core:OCITable $supervisorTable;
+        $this->supervisorTable =  $supervisorTable;
     }
 
     /**

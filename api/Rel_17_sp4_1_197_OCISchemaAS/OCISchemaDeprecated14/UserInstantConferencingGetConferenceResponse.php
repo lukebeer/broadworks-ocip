@@ -27,7 +27,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetConferenceResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceResponse';
     public    $name                           = __CLASS__;
     protected $conferenceCallId               = null;
     protected $conferenceOwnerUserId          = null;
@@ -100,7 +99,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function setConferenceOwnerDisplayNames(UserDisplayNames $conferenceOwnerDisplayNames = null)
     {
-        $this->conferenceOwnerDisplayNames = UserDisplayNames $conferenceOwnerDisplayNames;
+        $this->conferenceOwnerDisplayNames =  $conferenceOwnerDisplayNames;
     }
 
     /**
@@ -201,7 +200,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function setConferenceSchedule(InstantConferencingSchedule $conferenceSchedule = null)
     {
-        $this->conferenceSchedule = InstantConferencingSchedule $conferenceSchedule;
+        $this->conferenceSchedule =  $conferenceSchedule;
     }
 
     /**

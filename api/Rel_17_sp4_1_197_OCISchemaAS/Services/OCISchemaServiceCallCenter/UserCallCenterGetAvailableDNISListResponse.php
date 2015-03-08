@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetAvailableDNISListResponse';
     public    $name          = __CLASS__;
     protected $availableDNIS = null;
 
@@ -28,7 +27,7 @@ class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements 
      */
     public function setAvailableDNIS(DNISKey $availableDNIS = null)
     {
-        $this->availableDNIS = DNISKey $availableDNIS;
+        $this->availableDNIS =  $availableDNIS;
     }
 
     /**

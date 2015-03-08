@@ -28,7 +28,7 @@ class UserInstantConferencingGetConferenceRecordingRequest extends ComplexType i
 
     public function __construct(
          $userId,
-         InstantConferencingRecordingKey $recordingKey
+          $recordingKey
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
@@ -65,7 +65,7 @@ class UserInstantConferencingGetConferenceRecordingRequest extends ComplexType i
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        $this->recordingKey = InstantConferencingRecordingKey $recordingKey;
+        $this->recordingKey =  $recordingKey;
     }
 
     /**

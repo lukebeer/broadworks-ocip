@@ -28,7 +28,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderPasswordRulesGetResponse16';
     public    $name                                   = __CLASS__;
     protected $rulesApplyTo                           = null;
     protected $allowWebAddExternalAuthenticationUsers = null;

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetListResponse';
     public    $name                 = __CLASS__;
     protected $serviceProviderTable = null;
 
@@ -29,7 +28,7 @@ class ServiceProviderGetListResponse extends ComplexType implements ComplexInter
      */
     public function setServiceProviderTable(core:OCITable $serviceProviderTable = null)
     {
-        $this->serviceProviderTable = core:OCITable $serviceProviderTable;
+        $this->serviceProviderTable =  $serviceProviderTable;
     }
 
     /**

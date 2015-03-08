@@ -30,8 +30,8 @@ class GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyListRequest extends
     public function __construct(
          $serviceProviderId,
          $groupId,
-         OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $groupPermissions = null,
-         OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissionsModify $departmentPermissions = null
+          $groupPermissions = null,
+          $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -84,7 +84,7 @@ class GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyListRequest extends
      */
     public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $groupPermissions = null)
     {
-        $this->groupPermissions = OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $groupPermissions;
+        $this->groupPermissions =  $groupPermissions;
     }
 
     /**
@@ -100,7 +100,7 @@ class GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyListRequest extends
      */
     public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissionsModify $departmentPermissions = null)
     {
-        $this->departmentPermissions = OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissionsModify $departmentPermissions;
+        $this->departmentPermissions =  $departmentPermissions;
     }
 
     /**

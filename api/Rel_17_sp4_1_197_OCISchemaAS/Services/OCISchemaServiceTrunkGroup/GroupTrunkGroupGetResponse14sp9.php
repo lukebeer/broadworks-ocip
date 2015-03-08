@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetResponse14sp9';
     public    $name                            = __CLASS__;
     protected $maxActiveCalls                  = null;
     protected $maxAvailableActiveCalls         = null;
@@ -47,7 +46,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
      */
     public function setMaxAvailableActiveCalls(UnboundedNonNegativeInt $maxAvailableActiveCalls = null)
     {
-        $this->maxAvailableActiveCalls = UnboundedNonNegativeInt $maxAvailableActiveCalls;
+        $this->maxAvailableActiveCalls =  $maxAvailableActiveCalls;
     }
 
     /**
@@ -63,7 +62,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        $this->burstingMaxActiveCalls = UnboundedNonNegativeInt $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls =  $burstingMaxActiveCalls;
     }
 
     /**
@@ -79,7 +78,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
      */
     public function setBurstingMaxAvailableActiveCalls(UnboundedNonNegativeInt $burstingMaxAvailableActiveCalls = null)
     {
-        $this->burstingMaxAvailableActiveCalls = UnboundedNonNegativeInt $burstingMaxAvailableActiveCalls;
+        $this->burstingMaxAvailableActiveCalls =  $burstingMaxAvailableActiveCalls;
     }
 
     /**

@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPreferredCarrierGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\GroupPreferredCarrierGroupGetResponse';
     public    $name                 = __CLASS__;
     protected $intraLataCarrier     = null;
     protected $interLataCarrier     = null;
@@ -30,7 +29,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
      */
     public function setIntraLataCarrier(GroupPreferredCarrierName $intraLataCarrier = null)
     {
-        $this->intraLataCarrier = GroupPreferredCarrierName $intraLataCarrier;
+        $this->intraLataCarrier =  $intraLataCarrier;
     }
 
     /**
@@ -48,7 +47,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
      */
     public function setInterLataCarrier(GroupPreferredCarrierName $interLataCarrier = null)
     {
-        $this->interLataCarrier = GroupPreferredCarrierName $interLataCarrier;
+        $this->interLataCarrier =  $interLataCarrier;
     }
 
     /**
@@ -66,7 +65,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
      */
     public function setInternationalCarrier(GroupPreferredCarrierName $internationalCarrier = null)
     {
-        $this->internationalCarrier = GroupPreferredCarrierName $internationalCarrier;
+        $this->internationalCarrier =  $internationalCarrier;
     }
 
     /**

@@ -45,18 +45,18 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
          $userId,
          $criteriaName,
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $holidaySchedule = null,
          $blacklisted = null,
-         CriteriaFromDnModify $fromDnCriteria = null,
+          $fromDnCriteria = null,
          $audioSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoSelection = null,
-         ExtendedMediaFileResource $videoFile = null,
+          $videoFile = null,
          $callWaitingAudioSelection = null,
-         ExtendedMediaFileResource $callWaitingAudioFile = null,
+          $callWaitingAudioFile = null,
          $callWaitingVideoSelection = null,
-         ExtendedMediaFileResource $callWaitingVideoFile = null
+          $callWaitingVideoFile = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -142,7 +142,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -158,7 +158,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -190,7 +190,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
      */
     public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDnModify $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**
@@ -225,7 +225,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -261,7 +261,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**
@@ -297,7 +297,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
      */
     public function setCallWaitingAudioFile(ExtendedMediaFileResource $callWaitingAudioFile = null)
     {
-        $this->callWaitingAudioFile = ExtendedMediaFileResource $callWaitingAudioFile;
+        $this->callWaitingAudioFile =  $callWaitingAudioFile;
     }
 
     /**
@@ -333,7 +333,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
      */
     public function setCallWaitingVideoFile(ExtendedMediaFileResource $callWaitingVideoFile = null)
     {
-        $this->callWaitingVideoFile = ExtendedMediaFileResource $callWaitingVideoFile;
+        $this->callWaitingVideoFile =  $callWaitingVideoFile;
     }
 
     /**

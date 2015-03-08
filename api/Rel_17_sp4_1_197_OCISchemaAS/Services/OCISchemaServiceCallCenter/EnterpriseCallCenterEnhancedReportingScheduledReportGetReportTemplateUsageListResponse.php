@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse';
     public    $name                = __CLASS__;
     protected $scheduleReportTable = null;
 
@@ -30,7 +29,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsage
      */
     public function setScheduleReportTable(core:OCITable $scheduleReportTable = null)
     {
-        $this->scheduleReportTable = core:OCITable $scheduleReportTable;
+        $this->scheduleReportTable =  $scheduleReportTable;
     }
 
     /**

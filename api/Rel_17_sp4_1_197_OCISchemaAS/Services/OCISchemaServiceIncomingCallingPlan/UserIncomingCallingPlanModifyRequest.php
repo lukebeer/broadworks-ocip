@@ -27,7 +27,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
     public function __construct(
          $userId,
          $useCustomSettings = null,
-         IncomingCallingPlanPermissionsModify $userPermissions = null
+          $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);
@@ -82,7 +82,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function setUserPermissions(IncomingCallingPlanPermissionsModify $userPermissions = null)
     {
-        $this->userPermissions = IncomingCallingPlanPermissionsModify $userPermissions;
+        $this->userPermissions =  $userPermissions;
     }
 
     /**

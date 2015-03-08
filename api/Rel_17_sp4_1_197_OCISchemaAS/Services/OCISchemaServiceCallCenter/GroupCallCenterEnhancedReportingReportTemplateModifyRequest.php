@@ -44,12 +44,12 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
          $name,
          $newName = null,
          $description = null,
-         LabeledFileResource $xsltTemplate = null,
+          $xsltTemplate = null,
          $scope = null,
          $isEnabled = null,
          $isRealtimeReport = null,
          $filterNumber = null,
-         CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null
+          $filterValue = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -164,7 +164,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        $this->xsltTemplate = LabeledFileResource $xsltTemplate;
+        $this->xsltTemplate =  $xsltTemplate;
     }
 
     /**
@@ -250,7 +250,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setFilterValue(CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null)
     {
-        $this->filterValue = CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue;
+        $this->filterValue =  $filterValue;
     }
 
     /**

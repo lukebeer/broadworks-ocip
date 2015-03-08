@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetListResponse';
     public    $name      = __CLASS__;
     protected $taskTable = null;
 
@@ -31,7 +30,7 @@ class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType
      */
     public function setTaskTable(core:OCITable $taskTable = null)
     {
-        $this->taskTable = core:OCITable $taskTable;
+        $this->taskTable =  $taskTable;
     }
 
     /**

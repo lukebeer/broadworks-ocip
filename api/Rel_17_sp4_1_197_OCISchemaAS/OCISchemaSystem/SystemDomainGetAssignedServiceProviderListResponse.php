@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDomainGetAssignedServiceProviderListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetAssignedServiceProviderListResponse';
     public    $name                 = __CLASS__;
     protected $serviceProviderTable = null;
 
@@ -28,7 +27,7 @@ class SystemDomainGetAssignedServiceProviderListResponse extends ComplexType imp
      */
     public function setServiceProviderTable(core:OCITable $serviceProviderTable = null)
     {
-        $this->serviceProviderTable = core:OCITable $serviceProviderTable;
+        $this->serviceProviderTable =  $serviceProviderTable;
     }
 
     /**

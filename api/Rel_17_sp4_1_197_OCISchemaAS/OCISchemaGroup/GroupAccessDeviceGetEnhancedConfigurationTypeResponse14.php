@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14';
     public    $name                          = __CLASS__;
     protected $supportsEnhancedConfiguration = null;
     protected $supportsReset                 = null;

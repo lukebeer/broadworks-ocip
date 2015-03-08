@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksReceptionistOfficeGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistOffice\UserBroadWorksReceptionistOfficeGetResponse';
     public    $name               = __CLASS__;
     protected $monitoredUserTable = null;
 
@@ -30,7 +29,7 @@ class UserBroadWorksReceptionistOfficeGetResponse extends ComplexType implements
      */
     public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $this->monitoredUserTable = core:OCITable $monitoredUserTable;
+        $this->monitoredUserTable =  $monitoredUserTable;
     }
 
     /**

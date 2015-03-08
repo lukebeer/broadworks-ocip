@@ -21,7 +21,7 @@ class EnterpriseVoiceVPNDigitManipulationOperationRequiredValue extends SimpleTy
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = EnterpriseVoiceVPNDigitManipulationOperation;
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'Position',
             'Delete',

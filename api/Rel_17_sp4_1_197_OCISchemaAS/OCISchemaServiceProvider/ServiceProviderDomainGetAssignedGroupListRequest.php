@@ -36,8 +36,8 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
          $serviceProviderId,
          $domain,
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null
+          $searchCriteriaGroupId = null,
+          $searchCriteriaGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDomain($domain);
@@ -111,7 +111,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -127,7 +127,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
+        $this->searchCriteriaGroupName =  $searchCriteriaGroupName;
     }
 
     /**

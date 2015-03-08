@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse';
     public    $name              = __CLASS__;
     protected $digitPatternTable = null;
 
@@ -28,7 +27,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse extends Complex
      */
     public function setDigitPatternTable(core:OCITable $digitPatternTable = null)
     {
-        $this->digitPatternTable = core:OCITable $digitPatternTable;
+        $this->digitPatternTable =  $digitPatternTable;
     }
 
     /**

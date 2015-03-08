@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserBusyLampFieldGetResponse';
     public    $name               = __CLASS__;
     protected $listURI            = null;
     protected $monitoredUserTable = null;
@@ -64,7 +63,7 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $this->monitoredUserTable = core:OCITable $monitoredUserTable;
+        $this->monitoredUserTable =  $monitoredUserTable;
     }
 
     /**

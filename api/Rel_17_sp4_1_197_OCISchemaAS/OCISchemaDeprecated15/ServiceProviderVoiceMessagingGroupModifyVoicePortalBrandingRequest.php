@@ -31,9 +31,9 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends
     public function __construct(
          $serviceProviderId,
          $voicePortalGreetingSelection = null,
-         LabeledFileResource $voicePortalGreetingFile = null,
+          $voicePortalGreetingFile = null,
          $voiceMessagingGreetingSelection = null,
-         LabeledFileResource $voiceMessagingGreetingFile = null
+          $voiceMessagingGreetingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setVoicePortalGreetingSelection($voicePortalGreetingSelection);
@@ -86,7 +86,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends
      */
     public function setVoicePortalGreetingFile(LabeledFileResource $voicePortalGreetingFile = null)
     {
-        $this->voicePortalGreetingFile = LabeledFileResource $voicePortalGreetingFile;
+        $this->voicePortalGreetingFile =  $voicePortalGreetingFile;
     }
 
     /**
@@ -122,7 +122,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest extends
      */
     public function setVoiceMessagingGreetingFile(LabeledFileResource $voiceMessagingGreetingFile = null)
     {
-        $this->voiceMessagingGreetingFile = LabeledFileResource $voiceMessagingGreetingFile;
+        $this->voiceMessagingGreetingFile =  $voiceMessagingGreetingFile;
     }
 
     /**

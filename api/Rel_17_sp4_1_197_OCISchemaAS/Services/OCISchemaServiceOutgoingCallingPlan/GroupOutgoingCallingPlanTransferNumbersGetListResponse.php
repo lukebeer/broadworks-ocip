@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanTransferNumbersGetListResponse';
     public    $name              = __CLASS__;
     protected $groupNumbers      = null;
     protected $departmentNumbers = null;
@@ -29,7 +28,7 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
      */
     public function setGroupNumbers(OutgoingCallingPlanTransferNumbers $groupNumbers = null)
     {
-        $this->groupNumbers = OutgoingCallingPlanTransferNumbers $groupNumbers;
+        $this->groupNumbers =  $groupNumbers;
     }
 
     /**
@@ -45,7 +44,7 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
      */
     public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbers $departmentNumbers = null)
     {
-        $this->departmentNumbers = OutgoingCallingPlanDepartmentTransferNumbers $departmentNumbers;
+        $this->departmentNumbers =  $departmentNumbers;
     }
 
     /**

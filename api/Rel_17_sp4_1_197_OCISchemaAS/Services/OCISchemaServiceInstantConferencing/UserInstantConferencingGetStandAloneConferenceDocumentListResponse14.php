@@ -28,7 +28,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14';
     public    $name                    = __CLASS__;
     protected $conferenceCallId        = null;
     protected $documentId              = null;
@@ -188,7 +187,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
      */
     public function setDocumentTable(core:OCITable $documentTable = null)
     {
-        $this->documentTable = core:OCITable $documentTable;
+        $this->documentTable =  $documentTable;
     }
 
     /**

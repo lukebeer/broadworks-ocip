@@ -30,8 +30,8 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
     public function __construct(
          $serviceProviderId,
          $groupId,
-         OutgoingCallingPlanCallMeNowPermissionsModify $groupPermissions = null,
-         OutgoingCallingPlanCallMeNowDepartmentPermissionsModify $departmentPermissions = null
+          $groupPermissions = null,
+          $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -84,7 +84,7 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
      */
     public function setGroupPermissions(OutgoingCallingPlanCallMeNowPermissionsModify $groupPermissions = null)
     {
-        $this->groupPermissions = OutgoingCallingPlanCallMeNowPermissionsModify $groupPermissions;
+        $this->groupPermissions =  $groupPermissions;
     }
 
     /**
@@ -100,7 +100,7 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
      */
     public function setDepartmentPermissions(OutgoingCallingPlanCallMeNowDepartmentPermissionsModify $departmentPermissions = null)
     {
-        $this->departmentPermissions = OutgoingCallingPlanCallMeNowDepartmentPermissionsModify $departmentPermissions;
+        $this->departmentPermissions =  $departmentPermissions;
     }
 
     /**

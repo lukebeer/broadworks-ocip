@@ -41,15 +41,15 @@ class GroupRoutePointHolidayServiceModifyRequest17sp1 extends ComplexType implem
     public function __construct(
          $serviceUserId,
          $action = null,
-         HolidaySchedule $holidaySchedule = null,
+          $holidaySchedule = null,
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+          $audioUrlList = null,
+          $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null
+          $videoUrlList = null,
+          $videoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -113,7 +113,7 @@ class GroupRoutePointHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -195,7 +195,7 @@ class GroupRoutePointHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLListModify $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -211,7 +211,7 @@ class GroupRoutePointHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementFileListModify $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -245,7 +245,7 @@ class GroupRoutePointHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLListModify $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -261,7 +261,7 @@ class GroupRoutePointHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementFileListModify $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**

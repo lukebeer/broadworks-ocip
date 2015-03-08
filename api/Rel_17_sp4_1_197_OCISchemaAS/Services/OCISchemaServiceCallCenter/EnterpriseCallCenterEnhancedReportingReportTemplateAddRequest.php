@@ -54,7 +54,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateAddRequest extends Comp
          $description = null,
          $dataTemplate,
          $filterNumber = null,
-         LabeledFileResource $xsltTemplate,
+          $xsltTemplate,
          $scope,
          $isEnabled,
          $isRealtimeReport = null,
@@ -186,7 +186,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateAddRequest extends Comp
      */
     public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        $this->xsltTemplate = LabeledFileResource $xsltTemplate;
+        $this->xsltTemplate =  $xsltTemplate;
     }
 
     /**

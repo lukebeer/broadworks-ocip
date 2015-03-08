@@ -36,9 +36,9 @@ class GroupCallCenterEnhancedReportingScheduledReportGetListRequest extends Comp
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
-         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
-         SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null
+          $searchCriteriaCallCenterScheduledReportName = null,
+          $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+          $searchCriteriaExactCallCenterReportTemplateKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -115,7 +115,7 @@ class GroupCallCenterEnhancedReportingScheduledReportGetListRequest extends Comp
      */
     public function setSearchCriteriaCallCenterScheduledReportName(SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null)
     {
-        $this->searchCriteriaCallCenterScheduledReportName = SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName;
+        $this->searchCriteriaCallCenterScheduledReportName =  $searchCriteriaCallCenterScheduledReportName;
     }
 
     /**
@@ -132,7 +132,7 @@ class GroupCallCenterEnhancedReportingScheduledReportGetListRequest extends Comp
      */
     public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor(SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null)
     {
-        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
+        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor =  $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
     }
 
     /**
@@ -149,7 +149,7 @@ class GroupCallCenterEnhancedReportingScheduledReportGetListRequest extends Comp
      */
     public function setSearchCriteriaExactCallCenterReportTemplateKey(SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null)
     {
-        $this->searchCriteriaExactCallCenterReportTemplateKey = SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey;
+        $this->searchCriteriaExactCallCenterReportTemplateKey =  $searchCriteriaExactCallCenterReportTemplateKey;
     }
 
     /**

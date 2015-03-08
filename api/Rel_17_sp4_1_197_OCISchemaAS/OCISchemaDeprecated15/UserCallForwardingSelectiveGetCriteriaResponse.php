@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallForwardingSelectiveGetCriteriaResponse';
     public    $name                     = __CLASS__;
     protected $timeSchedule             = null;
     protected $forwardToNumberSelection = null;
@@ -33,7 +32,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -99,7 +98,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

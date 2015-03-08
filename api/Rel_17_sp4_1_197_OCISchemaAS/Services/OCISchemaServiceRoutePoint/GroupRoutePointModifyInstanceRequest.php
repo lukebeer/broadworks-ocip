@@ -47,7 +47,7 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $networkClassOfService = null,
          $externalPreferredAudioCodec = null,
          $internalPreferredAudioCodec = null,
@@ -112,7 +112,7 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

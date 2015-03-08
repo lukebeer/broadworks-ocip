@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetListResponse';
     public    $name                 = __CLASS__;
     protected $holidayScheduleTable = null;
 
@@ -28,7 +27,7 @@ class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexI
      */
     public function setHolidayScheduleTable(core:OCITable $holidayScheduleTable = null)
     {
-        $this->holidayScheduleTable = core:OCITable $holidayScheduleTable;
+        $this->holidayScheduleTable =  $holidayScheduleTable;
     }
 
     /**

@@ -42,11 +42,11 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaAlternateTrunkIdentity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -125,7 +125,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -141,7 +141,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -157,7 +157,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -173,7 +173,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -189,7 +189,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaAlternateTrunkIdentity(SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null)
     {
-        $this->searchCriteriaAlternateTrunkIdentity = SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity;
+        $this->searchCriteriaAlternateTrunkIdentity =  $searchCriteriaAlternateTrunkIdentity;
     }
 
     /**

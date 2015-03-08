@@ -33,7 +33,7 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
          $groupId,
          $name,
          $newName = null,
-         ReplacementCustomContactDirectoryEntryList $entryList = null
+          $entryList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -124,7 +124,7 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function setEntryList(ReplacementCustomContactDirectoryEntryList $entryList = null)
     {
-        $this->entryList = ReplacementCustomContactDirectoryEntryList $entryList;
+        $this->entryList =  $entryList;
     }
 
     /**

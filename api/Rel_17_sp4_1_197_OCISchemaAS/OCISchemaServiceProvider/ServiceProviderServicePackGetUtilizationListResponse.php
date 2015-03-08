@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetUtilizationListResponse';
     public    $name                    = __CLASS__;
     protected $servicePackName         = null;
     protected $serviceUtilizationTable = null;
@@ -48,7 +47,7 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
      */
     public function setServiceUtilizationTable(core:OCITable $serviceUtilizationTable = null)
     {
-        $this->serviceUtilizationTable = core:OCITable $serviceUtilizationTable;
+        $this->serviceUtilizationTable =  $serviceUtilizationTable;
     }
 
     /**

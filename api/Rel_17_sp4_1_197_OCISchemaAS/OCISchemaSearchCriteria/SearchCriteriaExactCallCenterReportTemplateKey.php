@@ -22,7 +22,7 @@ class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType impleme
     protected $reportTemplate = null;
 
     public function __construct(
-         CallCenterReportTemplateKey $reportTemplate
+          $reportTemplate
     ) {
         $this->setReportTemplate($reportTemplate);
     }
@@ -32,7 +32,7 @@ class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType impleme
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        $this->reportTemplate = CallCenterReportTemplateKey $reportTemplate;
+        $this->reportTemplate =  $reportTemplate;
     }
 
     /**

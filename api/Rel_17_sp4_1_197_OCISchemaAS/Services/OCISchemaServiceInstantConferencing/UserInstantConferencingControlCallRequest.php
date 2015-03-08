@@ -36,7 +36,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     public function __construct(
          $userId,
-         InstantConferencingConferenceKey $conferenceKey,
+          $conferenceKey,
          $conferenceCallId,
          $action,
          $phoneNumber = null,
@@ -83,7 +83,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

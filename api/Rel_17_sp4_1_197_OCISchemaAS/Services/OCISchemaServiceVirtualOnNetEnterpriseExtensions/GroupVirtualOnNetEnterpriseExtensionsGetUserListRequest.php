@@ -45,11 +45,11 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExtension = null,
+          $searchCriteriaExactVirtualOnNetCallTypeName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -128,7 +128,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -144,7 +144,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -160,7 +160,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -176,7 +176,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**
@@ -192,7 +192,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function setSearchCriteriaExactVirtualOnNetCallTypeName(SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName = null)
     {
-        $this->searchCriteriaExactVirtualOnNetCallTypeName = SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName;
+        $this->searchCriteriaExactVirtualOnNetCallTypeName =  $searchCriteriaExactVirtualOnNetCallTypeName;
     }
 
     /**

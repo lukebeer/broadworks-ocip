@@ -60,16 +60,16 @@ class SystemCommunicationBarringProfileAddRequest17sp3 extends ComplexType imple
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         CommunicationBarringOriginatingRule $originatingRule = null,
+          $originatingRule = null,
          $redirectingDefaultAction,
          $redirectingDefaultCallTimeout = null,
-         CommunicationBarringRedirectingRule $redirectingRule = null,
+          $redirectingRule = null,
          $incomingDefaultAction,
          $incomingDefaultCallTimeout = null,
-         CommunicationBarringIncomingRule $incomingRule = null,
+          $incomingRule = null,
          $callMeNowDefaultAction,
          $callMeNowDefaultCallTimeout = null,
-         CommunicationBarringCallMeNowRule $callMeNowRule = null
+          $callMeNowRule = null
     ) {
         $this->setName($name);
         $this->setDescription($description);
@@ -206,7 +206,7 @@ class SystemCommunicationBarringProfileAddRequest17sp3 extends ComplexType imple
      */
     public function setOriginatingRule(CommunicationBarringOriginatingRule $originatingRule = null)
     {
-        $this->originatingRule = CommunicationBarringOriginatingRule $originatingRule;
+        $this->originatingRule =  $originatingRule;
     }
 
     /**
@@ -258,7 +258,7 @@ class SystemCommunicationBarringProfileAddRequest17sp3 extends ComplexType imple
      */
     public function setRedirectingRule(CommunicationBarringRedirectingRule $redirectingRule = null)
     {
-        $this->redirectingRule = CommunicationBarringRedirectingRule $redirectingRule;
+        $this->redirectingRule =  $redirectingRule;
     }
 
     /**
@@ -310,7 +310,7 @@ class SystemCommunicationBarringProfileAddRequest17sp3 extends ComplexType imple
      */
     public function setIncomingRule(CommunicationBarringIncomingRule $incomingRule = null)
     {
-        $this->incomingRule = CommunicationBarringIncomingRule $incomingRule;
+        $this->incomingRule =  $incomingRule;
     }
 
     /**
@@ -362,7 +362,7 @@ class SystemCommunicationBarringProfileAddRequest17sp3 extends ComplexType imple
      */
     public function setCallMeNowRule(CommunicationBarringCallMeNowRule $callMeNowRule = null)
     {
-        $this->callMeNowRule = CommunicationBarringCallMeNowRule $callMeNowRule;
+        $this->callMeNowRule =  $callMeNowRule;
     }
 
     /**

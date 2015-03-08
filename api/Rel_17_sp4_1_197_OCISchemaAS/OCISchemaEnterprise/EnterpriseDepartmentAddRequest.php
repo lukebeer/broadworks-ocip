@@ -28,7 +28,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
     public function __construct(
          $enterpriseId,
          $departmentName,
-         EnterpriseDepartmentKey $parentDepartmentKey = null
+          $parentDepartmentKey = null
     ) {
         $this->setEnterpriseId($enterpriseId);
         $this->setDepartmentName($departmentName);
@@ -82,7 +82,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function setParentDepartmentKey(EnterpriseDepartmentKey $parentDepartmentKey = null)
     {
-        $this->parentDepartmentKey = EnterpriseDepartmentKey $parentDepartmentKey;
+        $this->parentDepartmentKey =  $parentDepartmentKey;
     }
 
     /**

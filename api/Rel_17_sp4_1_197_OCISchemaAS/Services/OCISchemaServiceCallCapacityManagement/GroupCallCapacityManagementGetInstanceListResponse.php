@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCapacityManagementGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceListResponse';
     public    $name                   = __CLASS__;
     protected $callCapacityGroupTable = null;
 
@@ -28,7 +27,7 @@ class GroupCallCapacityManagementGetInstanceListResponse extends ComplexType imp
      */
     public function setCallCapacityGroupTable(core:OCITable $callCapacityGroupTable = null)
     {
-        $this->callCapacityGroupTable = core:OCITable $callCapacityGroupTable;
+        $this->callCapacityGroupTable =  $callCapacityGroupTable;
     }
 
     /**

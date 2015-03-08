@@ -46,19 +46,19 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
          $playEntranceMessage = null,
          $mandatoryEntranceMessage = null,
          $entranceAudioMessageSelection = null,
-         ExtendedMediaFileResource $entranceMessageAudioFile = null,
+          $entranceMessageAudioFile = null,
          $entranceVideoMessageSelection = null,
-         ExtendedMediaFileResource $entranceMessageVideoFile = null,
+          $entranceMessageVideoFile = null,
          $playPeriodicComfortMessage = null,
          $timeBetweenComfortMessagesSeconds = null,
          $periodicComfortAudioMessageSelection = null,
-         ExtendedMediaFileResource $periodicComfortMessageAudioFile = null,
+          $periodicComfortMessageAudioFile = null,
          $periodicComfortVideoMessageSelection = null,
-         ExtendedMediaFileResource $periodicComfortMessageVideoFile = null,
+          $periodicComfortMessageVideoFile = null,
          $enableMediaOnHoldForQueuedCalls = null,
-         CallCenterMediaOnHoldSourceModify16 $mediaOnHoldSource = null,
+          $mediaOnHoldSource = null,
          $mediaOnHoldUseAlternateSourceForInternalCalls = null,
-         CallCenterMediaOnHoldSourceModify16 $mediaOnHoldInternalSource = null
+          $mediaOnHoldInternalSource = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setPlayEntranceMessage($playEntranceMessage);
@@ -161,7 +161,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function setEntranceMessageAudioFile(ExtendedMediaFileResource $entranceMessageAudioFile = null)
     {
-        $this->entranceMessageAudioFile = ExtendedMediaFileResource $entranceMessageAudioFile;
+        $this->entranceMessageAudioFile =  $entranceMessageAudioFile;
     }
 
     /**
@@ -197,7 +197,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function setEntranceMessageVideoFile(ExtendedMediaFileResource $entranceMessageVideoFile = null)
     {
-        $this->entranceMessageVideoFile = ExtendedMediaFileResource $entranceMessageVideoFile;
+        $this->entranceMessageVideoFile =  $entranceMessageVideoFile;
     }
 
     /**
@@ -267,7 +267,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function setPeriodicComfortMessageAudioFile(ExtendedMediaFileResource $periodicComfortMessageAudioFile = null)
     {
-        $this->periodicComfortMessageAudioFile = ExtendedMediaFileResource $periodicComfortMessageAudioFile;
+        $this->periodicComfortMessageAudioFile =  $periodicComfortMessageAudioFile;
     }
 
     /**
@@ -303,7 +303,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function setPeriodicComfortMessageVideoFile(ExtendedMediaFileResource $periodicComfortMessageVideoFile = null)
     {
-        $this->periodicComfortMessageVideoFile = ExtendedMediaFileResource $periodicComfortMessageVideoFile;
+        $this->periodicComfortMessageVideoFile =  $periodicComfortMessageVideoFile;
     }
 
     /**
@@ -336,7 +336,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify16 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource = CallCenterMediaOnHoldSourceModify16 $mediaOnHoldSource;
+        $this->mediaOnHoldSource =  $mediaOnHoldSource;
     }
 
     /**
@@ -368,7 +368,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function setMediaOnHoldInternalSource(CallCenterMediaOnHoldSourceModify16 $mediaOnHoldInternalSource = null)
     {
-        $this->mediaOnHoldInternalSource = CallCenterMediaOnHoldSourceModify16 $mediaOnHoldInternalSource;
+        $this->mediaOnHoldInternalSource =  $mediaOnHoldInternalSource;
     }
 
     /**

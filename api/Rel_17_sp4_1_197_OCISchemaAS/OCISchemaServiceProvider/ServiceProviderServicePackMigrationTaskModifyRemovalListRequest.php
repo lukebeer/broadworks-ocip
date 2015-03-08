@@ -31,8 +31,8 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
     public function __construct(
          $serviceProviderId,
          $taskName,
-         ReplacementUserServiceList $userServiceNameList = null,
-         ReplacementServicePackNameList $servicePackNameList = null
+          $userServiceNameList = null,
+          $servicePackNameList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
@@ -84,7 +84,7 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
      */
     public function setUserServiceNameList(ReplacementUserServiceList $userServiceNameList = null)
     {
-        $this->userServiceNameList = ReplacementUserServiceList $userServiceNameList;
+        $this->userServiceNameList =  $userServiceNameList;
     }
 
     /**
@@ -102,7 +102,7 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
      */
     public function setServicePackNameList(ReplacementServicePackNameList $servicePackNameList = null)
     {
-        $this->servicePackNameList = ReplacementServicePackNameList $servicePackNameList;
+        $this->servicePackNameList =  $servicePackNameList;
     }
 
     /**

@@ -24,7 +24,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterBaseDataGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemBwDiameterBaseDataGetResponse';
     public    $name                                 = __CLASS__;
     protected $xsRealm                              = null;
     protected $xsListeningPort                      = null;

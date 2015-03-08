@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDeviceTypeFileGetListResponse14sp8 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileGetListResponse14sp8';
     public    $name                      = __CLASS__;
     protected $groupDeviceTypeFilesTable = null;
 
@@ -29,7 +28,7 @@ class GroupDeviceTypeFileGetListResponse14sp8 extends ComplexType implements Com
      */
     public function setGroupDeviceTypeFilesTable(core:OCITable $groupDeviceTypeFilesTable = null)
     {
-        $this->groupDeviceTypeFilesTable = core:OCITable $groupDeviceTypeFilesTable;
+        $this->groupDeviceTypeFilesTable =  $groupDeviceTypeFilesTable;
     }
 
     /**

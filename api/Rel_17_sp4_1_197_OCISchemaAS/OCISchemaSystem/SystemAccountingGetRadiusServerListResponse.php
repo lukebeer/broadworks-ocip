@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemAccountingGetRadiusServerListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingGetRadiusServerListResponse';
     public    $name              = __CLASS__;
     protected $radiusServerTable = null;
 
@@ -28,7 +27,7 @@ class SystemAccountingGetRadiusServerListResponse extends ComplexType implements
      */
     public function setRadiusServerTable(core:OCITable $radiusServerTable = null)
     {
-        $this->radiusServerTable = core:OCITable $radiusServerTable;
+        $this->radiusServerTable =  $radiusServerTable;
     }
 
     /**

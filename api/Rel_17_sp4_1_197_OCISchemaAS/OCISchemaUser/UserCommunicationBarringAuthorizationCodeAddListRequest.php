@@ -25,7 +25,7 @@ class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTyp
 
     public function __construct(
          $userId,
-         CommunicationBarringAuthorizationCodeEntry $code = null
+          $code = null
     ) {
         $this->setUserId($userId);
         $this->setCode($code);
@@ -62,7 +62,7 @@ class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTyp
      */
     public function setCode(CommunicationBarringAuthorizationCodeEntry $code = null)
     {
-        $this->code = CommunicationBarringAuthorizationCodeEntry $code;
+        $this->code =  $code;
     }
 
     /**

@@ -23,7 +23,7 @@ abstract class TypeMap {
             case 'xs:int':
                 return "(int)";
             default:
-                return $type;
+                return '';
         }
     }
 
@@ -102,7 +102,9 @@ class BuildAPI {
                     $maxlen = (strlen($item['name']) > $maxlen) ? strlen($item['name']) : $maxlen;
                 }
                 if ($this->checkComplexType($responseName)) {
-                    $code .= str_pad("    const     RESPONSE_TYPE", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\$namespace\\$responseName';\n";
+                    if (!preg_match("/response/i", $name)) {
+                        $code .= str_pad("    const     RESPONSE_TYPE", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\$namespace\\$responseName';\n";
+                    }
                 }
                 $code .= str_pad("    public    \$name", $maxlen+15, ' ')." = __CLASS__;\n";
                 foreach ($elements as $item) {
@@ -245,7 +247,7 @@ class BuildAPI {
                 $code .= "    protected \$value;\n\n";
                 $code .= "    public function __construct(\$value) {\n";
                 $code .= "        \$this->value    = \$value;\n";
-                $code .= "        \$this->dataType = ".TypeMap::type($simpleType->restriction->attributes()->base).";\n";
+                $code .= "        \$this->dataType = \"".str_replace(['(', ')'], '', TypeMap::type($simpleType->restriction->attributes()->base))."\";\n";
                 foreach (get_object_vars($simpleType->restriction) as $restriction) {
                     if (is_object($restriction)) {
                         $header .= "use Broadworks_OCIP\core\Builder\Restrictions\\".ucfirst($restriction->getName()).";\n";

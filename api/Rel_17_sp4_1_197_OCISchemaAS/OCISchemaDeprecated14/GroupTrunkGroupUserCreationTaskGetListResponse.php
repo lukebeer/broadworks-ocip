@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupUserCreationTaskGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskGetListResponse';
     public    $name      = __CLASS__;
     protected $taskTable = null;
 
@@ -29,7 +28,7 @@ class GroupTrunkGroupUserCreationTaskGetListResponse extends ComplexType impleme
      */
     public function setTaskTable(core:OCITable $taskTable = null)
     {
-        $this->taskTable = core:OCITable $taskTable;
+        $this->taskTable =  $taskTable;
     }
 
     /**

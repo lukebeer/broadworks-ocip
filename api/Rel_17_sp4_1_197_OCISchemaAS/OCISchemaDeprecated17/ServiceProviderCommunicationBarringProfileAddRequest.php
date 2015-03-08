@@ -55,13 +55,13 @@ class ServiceProviderCommunicationBarringProfileAddRequest extends ComplexType i
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule = null,
+          $originatingRule = null,
          $redirectingDefaultAction,
          $redirectingDefaultCallTimeout = null,
-         ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule = null,
+          $redirectingRule = null,
          $incomingDefaultAction,
          $incomingDefaultCallTimeout = null,
-         CommunicationBarringIncomingRule $incomingRule = null,
+          $incomingRule = null,
          $becomeDefault
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -218,7 +218,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest extends ComplexType i
      */
     public function setOriginatingRule(ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule = null)
     {
-        $this->originatingRule = ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule;
+        $this->originatingRule =  $originatingRule;
     }
 
     /**
@@ -270,7 +270,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest extends ComplexType i
      */
     public function setRedirectingRule(ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule = null)
     {
-        $this->redirectingRule = ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule;
+        $this->redirectingRule =  $redirectingRule;
     }
 
     /**
@@ -322,7 +322,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest extends ComplexType i
      */
     public function setIncomingRule(CommunicationBarringIncomingRule $incomingRule = null)
     {
-        $this->incomingRule = CommunicationBarringIncomingRule $incomingRule;
+        $this->incomingRule =  $incomingRule;
     }
 
     /**

@@ -31,8 +31,8 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
     public function __construct(
          $serviceProviderId,
          $groupId,
-         DepartmentKey $departmentKey = null,
-         OutgoingCallingPlanAuthorizationCodeEntry $codeEntry
+          $departmentKey = null,
+          $codeEntry
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -91,7 +91,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
      */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        $this->departmentKey = DepartmentKey $departmentKey;
+        $this->departmentKey =  $departmentKey;
     }
 
     /**
@@ -113,7 +113,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
      */
     public function setCodeEntry(OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = null)
     {
-        $this->codeEntry = OutgoingCallingPlanAuthorizationCodeEntry $codeEntry;
+        $this->codeEntry =  $codeEntry;
     }
 
     /**

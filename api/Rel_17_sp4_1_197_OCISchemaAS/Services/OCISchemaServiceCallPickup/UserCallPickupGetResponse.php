@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPickup\UserCallPickupGetResponse';
     public    $name      = __CLASS__;
     protected $name      = null;
     protected $userTable = null;
@@ -48,7 +47,7 @@ class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable = core:OCITable $userTable;
+        $this->userTable =  $userTable;
     }
 
     /**

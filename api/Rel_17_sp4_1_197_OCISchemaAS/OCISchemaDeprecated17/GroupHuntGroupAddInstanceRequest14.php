@@ -44,7 +44,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $policy,
          $huntAfterNoAnswer,
          $noAnswerNumberOfRings,
@@ -139,7 +139,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

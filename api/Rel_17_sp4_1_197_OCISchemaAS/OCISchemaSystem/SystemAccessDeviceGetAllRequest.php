@@ -37,12 +37,12 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null,
-         SearchCriteriaExactDeviceServiceProvider $searchCriteriaExactDeviceServiceProvider = null
+          $searchCriteriaDeviceName = null,
+          $searchCriteriaDeviceMACAddress = null,
+          $searchCriteriaDeviceNetAddress = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaExactDeviceType = null,
+          $searchCriteriaExactDeviceServiceProvider = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaDeviceName($searchCriteriaDeviceName);
@@ -80,7 +80,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName = SearchCriteriaDeviceName $searchCriteriaDeviceName;
+        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
     }
 
     /**
@@ -96,7 +96,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress = SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress;
+        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
     }
 
     /**
@@ -112,7 +112,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress = SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress;
+        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
     }
 
     /**
@@ -128,7 +128,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -144,7 +144,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        $this->searchCriteriaExactDeviceType = SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType;
+        $this->searchCriteriaExactDeviceType =  $searchCriteriaExactDeviceType;
     }
 
     /**
@@ -160,7 +160,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaExactDeviceServiceProvider(SearchCriteriaExactDeviceServiceProvider $searchCriteriaExactDeviceServiceProvider = null)
     {
-        $this->searchCriteriaExactDeviceServiceProvider = SearchCriteriaExactDeviceServiceProvider $searchCriteriaExactDeviceServiceProvider;
+        $this->searchCriteriaExactDeviceServiceProvider =  $searchCriteriaExactDeviceServiceProvider;
     }
 
     /**

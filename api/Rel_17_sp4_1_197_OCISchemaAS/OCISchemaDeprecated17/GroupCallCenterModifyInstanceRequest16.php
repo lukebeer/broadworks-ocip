@@ -56,7 +56,7 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $type = null,
          $policy = null,
          $enableVideo = null,
@@ -135,7 +135,7 @@ class GroupCallCenterModifyInstanceRequest16 extends ComplexType implements Comp
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

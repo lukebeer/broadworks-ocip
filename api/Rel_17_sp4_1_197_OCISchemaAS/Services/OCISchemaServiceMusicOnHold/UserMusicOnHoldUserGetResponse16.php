@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\UserMusicOnHoldUserGetResponse16';
     public    $name                               = __CLASS__;
     protected $enableVideo                        = null;
     protected $source                             = null;
@@ -46,7 +45,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
      */
     public function setSource(MusicOnHoldUserSourceRead16 $source = null)
     {
-        $this->source = MusicOnHoldUserSourceRead16 $source;
+        $this->source =  $source;
     }
 
     /**
@@ -78,7 +77,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
      */
     public function setInternalSource(MusicOnHoldUserSourceRead16 $internalSource = null)
     {
-        $this->internalSource = MusicOnHoldUserSourceRead16 $internalSource;
+        $this->internalSource =  $internalSource;
     }
 
     /**

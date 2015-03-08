@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialPlanPolicyGetAccessCodeListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeListResponse';
     public    $name            = __CLASS__;
     protected $accessCodeTable = null;
 
@@ -29,7 +28,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeListResponse extends ComplexType
      */
     public function setAccessCodeTable(core:OCITable $accessCodeTable = null)
     {
-        $this->accessCodeTable = core:OCITable $accessCodeTable;
+        $this->accessCodeTable =  $accessCodeTable;
     }
 
     /**

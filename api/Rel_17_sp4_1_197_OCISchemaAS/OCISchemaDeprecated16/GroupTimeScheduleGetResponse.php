@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupTimeScheduleGetResponse';
     public    $name             = __CLASS__;
     protected $timeScheduleName = null;
     protected $timeInterval01   = null;
@@ -67,7 +66,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval01(TimeInterval $timeInterval01 = null)
     {
-        $this->timeInterval01 = TimeInterval $timeInterval01;
+        $this->timeInterval01 =  $timeInterval01;
     }
 
     /**
@@ -83,7 +82,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval02(TimeInterval $timeInterval02 = null)
     {
-        $this->timeInterval02 = TimeInterval $timeInterval02;
+        $this->timeInterval02 =  $timeInterval02;
     }
 
     /**
@@ -99,7 +98,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval03(TimeInterval $timeInterval03 = null)
     {
-        $this->timeInterval03 = TimeInterval $timeInterval03;
+        $this->timeInterval03 =  $timeInterval03;
     }
 
     /**
@@ -115,7 +114,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval04(TimeInterval $timeInterval04 = null)
     {
-        $this->timeInterval04 = TimeInterval $timeInterval04;
+        $this->timeInterval04 =  $timeInterval04;
     }
 
     /**
@@ -131,7 +130,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval05(TimeInterval $timeInterval05 = null)
     {
-        $this->timeInterval05 = TimeInterval $timeInterval05;
+        $this->timeInterval05 =  $timeInterval05;
     }
 
     /**
@@ -147,7 +146,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval06(TimeInterval $timeInterval06 = null)
     {
-        $this->timeInterval06 = TimeInterval $timeInterval06;
+        $this->timeInterval06 =  $timeInterval06;
     }
 
     /**
@@ -163,7 +162,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval07(TimeInterval $timeInterval07 = null)
     {
-        $this->timeInterval07 = TimeInterval $timeInterval07;
+        $this->timeInterval07 =  $timeInterval07;
     }
 
     /**
@@ -179,7 +178,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval08(TimeInterval $timeInterval08 = null)
     {
-        $this->timeInterval08 = TimeInterval $timeInterval08;
+        $this->timeInterval08 =  $timeInterval08;
     }
 
     /**
@@ -195,7 +194,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval09(TimeInterval $timeInterval09 = null)
     {
-        $this->timeInterval09 = TimeInterval $timeInterval09;
+        $this->timeInterval09 =  $timeInterval09;
     }
 
     /**
@@ -211,7 +210,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval10(TimeInterval $timeInterval10 = null)
     {
-        $this->timeInterval10 = TimeInterval $timeInterval10;
+        $this->timeInterval10 =  $timeInterval10;
     }
 
     /**
@@ -227,7 +226,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval11(TimeInterval $timeInterval11 = null)
     {
-        $this->timeInterval11 = TimeInterval $timeInterval11;
+        $this->timeInterval11 =  $timeInterval11;
     }
 
     /**
@@ -243,7 +242,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval12(TimeInterval $timeInterval12 = null)
     {
-        $this->timeInterval12 = TimeInterval $timeInterval12;
+        $this->timeInterval12 =  $timeInterval12;
     }
 
     /**
@@ -259,7 +258,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval13(TimeInterval $timeInterval13 = null)
     {
-        $this->timeInterval13 = TimeInterval $timeInterval13;
+        $this->timeInterval13 =  $timeInterval13;
     }
 
     /**
@@ -275,7 +274,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval14(TimeInterval $timeInterval14 = null)
     {
-        $this->timeInterval14 = TimeInterval $timeInterval14;
+        $this->timeInterval14 =  $timeInterval14;
     }
 
     /**
@@ -291,7 +290,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval15(TimeInterval $timeInterval15 = null)
     {
-        $this->timeInterval15 = TimeInterval $timeInterval15;
+        $this->timeInterval15 =  $timeInterval15;
     }
 
     /**
@@ -307,7 +306,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval16(TimeInterval $timeInterval16 = null)
     {
-        $this->timeInterval16 = TimeInterval $timeInterval16;
+        $this->timeInterval16 =  $timeInterval16;
     }
 
     /**
@@ -323,7 +322,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval17(TimeInterval $timeInterval17 = null)
     {
-        $this->timeInterval17 = TimeInterval $timeInterval17;
+        $this->timeInterval17 =  $timeInterval17;
     }
 
     /**
@@ -339,7 +338,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval18(TimeInterval $timeInterval18 = null)
     {
-        $this->timeInterval18 = TimeInterval $timeInterval18;
+        $this->timeInterval18 =  $timeInterval18;
     }
 
     /**
@@ -355,7 +354,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval19(TimeInterval $timeInterval19 = null)
     {
-        $this->timeInterval19 = TimeInterval $timeInterval19;
+        $this->timeInterval19 =  $timeInterval19;
     }
 
     /**
@@ -371,7 +370,7 @@ class GroupTimeScheduleGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTimeInterval20(TimeInterval $timeInterval20 = null)
     {
-        $this->timeInterval20 = TimeInterval $timeInterval20;
+        $this->timeInterval20 =  $timeInterval20;
     }
 
     /**

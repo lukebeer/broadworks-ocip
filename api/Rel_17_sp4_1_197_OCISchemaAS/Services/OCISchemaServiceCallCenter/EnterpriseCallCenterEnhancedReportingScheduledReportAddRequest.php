@@ -60,20 +60,20 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportAddRequest extends Com
          $serviceProviderId,
          $name,
          $description = null,
-         CallCenterReportTemplateKey $reportTemplate,
-         CallCenterReportSchedule $schedule,
+          $reportTemplate,
+          $schedule,
          $samplingPeriod = null,
          $startDayOfWeek = null,
          $reportTimeZone,
          $reportDateFormat,
          $reportTimeFormat,
-         CallCenterReportInterval $reportInterval,
+          $reportInterval,
          $reportFormat,
-         CallCenterScheduledReportAgentSelection $agent = null,
+          $agent = null,
          $callCompletionThresholdSeconds = null,
          $shortDurationThresholdSeconds = null,
          $serviceLevelThresholdSeconds = null,
-         CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions = null,
+          $serviceLevelInclusions = null,
          $serviceLevelObjectivePercentage = null,
          $abandonedCallThresholdSeconds = null,
          $emailAddress = null
@@ -161,7 +161,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportAddRequest extends Com
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        $this->reportTemplate = CallCenterReportTemplateKey $reportTemplate;
+        $this->reportTemplate =  $reportTemplate;
     }
 
     /**
@@ -178,7 +178,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportAddRequest extends Com
      */
     public function setSchedule(CallCenterReportSchedule $schedule = null)
     {
-        $this->schedule = CallCenterReportSchedule $schedule;
+        $this->schedule =  $schedule;
     }
 
     /**
@@ -285,7 +285,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportAddRequest extends Com
      */
     public function setReportInterval(CallCenterReportInterval $reportInterval = null)
     {
-        $this->reportInterval = CallCenterReportInterval $reportInterval;
+        $this->reportInterval =  $reportInterval;
     }
 
     /**
@@ -319,7 +319,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportAddRequest extends Com
      */
     public function setAgent(CallCenterScheduledReportAgentSelection $agent = null)
     {
-        $this->agent = CallCenterScheduledReportAgentSelection $agent;
+        $this->agent =  $agent;
     }
 
     /**
@@ -389,7 +389,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportAddRequest extends Com
      */
     public function setServiceLevelInclusions(CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions = null)
     {
-        $this->serviceLevelInclusions = CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions;
+        $this->serviceLevelInclusions =  $serviceLevelInclusions;
     }
 
     /**

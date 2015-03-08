@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCICallControlApplicationGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlApplicationGetListResponse';
     public    $name     = __CLASS__;
     protected $appTable = null;
 
@@ -28,7 +27,7 @@ class SystemOCICallControlApplicationGetListResponse extends ComplexType impleme
      */
     public function setAppTable(core:OCITable $appTable = null)
     {
-        $this->appTable = core:OCITable $appTable;
+        $this->appTable =  $appTable;
     }
 
     /**

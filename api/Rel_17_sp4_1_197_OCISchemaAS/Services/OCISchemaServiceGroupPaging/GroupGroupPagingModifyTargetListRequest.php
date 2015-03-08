@@ -25,7 +25,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
 
     public function __construct(
          $serviceUserId,
-         ReplacementUserIdList $targetUserIdList = null
+          $targetUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setTargetUserIdList($targetUserIdList);
@@ -63,7 +63,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
      */
     public function setTargetUserIdList(ReplacementUserIdList $targetUserIdList = null)
     {
-        $this->targetUserIdList = ReplacementUserIdList $targetUserIdList;
+        $this->targetUserIdList =  $targetUserIdList;
     }
 
     /**

@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\UserInterceptUserGetResponse16sp1';
     public    $name                          = __CLASS__;
     protected $isActive                      = null;
     protected $announcementSelection         = null;

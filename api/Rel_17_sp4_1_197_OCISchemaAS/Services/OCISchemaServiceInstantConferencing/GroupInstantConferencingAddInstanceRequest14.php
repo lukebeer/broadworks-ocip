@@ -43,9 +43,9 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $conferenceBridgeLinePort,
-         InstantConferencingAllocatedPorts $allocatedPorts,
+          $allocatedPorts,
          $serviceProfileAppliedOnOutcall,
          $allowOutdialInInvitation,
          $allowDocumentDownload,
@@ -136,7 +136,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -189,7 +189,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
      */
     public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = InstantConferencingAllocatedPorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**

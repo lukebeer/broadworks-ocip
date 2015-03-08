@@ -32,7 +32,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
     protected $language      = null;
 
     public function __construct(
-         GroupDepartmentKey $departmentKey,
+          $departmentKey,
          $userId,
          $firstName = null,
          $lastName = null,
@@ -54,7 +54,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $this->departmentKey = GroupDepartmentKey $departmentKey;
+        $this->departmentKey =  $departmentKey;
     }
 
     /**

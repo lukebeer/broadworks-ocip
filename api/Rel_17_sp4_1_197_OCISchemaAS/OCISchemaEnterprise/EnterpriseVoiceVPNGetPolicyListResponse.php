@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse';
     public    $name         = __CLASS__;
     protected $locationList = null;
 
@@ -29,7 +28,7 @@ class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements Com
      */
     public function setLocationList(core:OCITable $locationList = null)
     {
-        $this->locationList = core:OCITable $locationList;
+        $this->locationList =  $locationList;
     }
 
     /**

@@ -22,7 +22,7 @@ class SystemFeatureAccessCodeModifyListRequest extends ComplexType implements Co
     protected $featureAccessCode = null;
 
     public function __construct(
-         FeatureAccessCodeEntry $featureAccessCode = null
+          $featureAccessCode = null
     ) {
         $this->setFeatureAccessCode($featureAccessCode);
     }
@@ -32,7 +32,7 @@ class SystemFeatureAccessCodeModifyListRequest extends ComplexType implements Co
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        $this->featureAccessCode = FeatureAccessCodeEntry $featureAccessCode;
+        $this->featureAccessCode =  $featureAccessCode;
     }
 
     /**

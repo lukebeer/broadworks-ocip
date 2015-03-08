@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse';
     public    $name                    = __CLASS__;
     protected $groupsUsingCarrierTable = null;
 
@@ -32,7 +31,7 @@ class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements 
      */
     public function setGroupsUsingCarrierTable(core:OCITable $groupsUsingCarrierTable = null)
     {
-        $this->groupsUsingCarrierTable = core:OCITable $groupsUsingCarrierTable;
+        $this->groupsUsingCarrierTable =  $groupsUsingCarrierTable;
     }
 
     /**

@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback\GroupCustomRingbackGroupGetResponse16';
     public    $name                 = __CLASS__;
     protected $isActive             = null;
     protected $audioSelection       = null;

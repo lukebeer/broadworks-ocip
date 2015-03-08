@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceResponse';
     public    $name                         = __CLASS__;
     protected $title                        = null;
     protected $estimatedParticipants        = null;
@@ -161,7 +160,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
      */
     public function setConferenceSchedule(MeetMeConferencingConferenceSchedule $conferenceSchedule = null)
     {
-        $this->conferenceSchedule = MeetMeConferencingConferenceSchedule $conferenceSchedule;
+        $this->conferenceSchedule =  $conferenceSchedule;
     }
 
     /**

@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserServiceGetAssignmentListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceGetAssignmentListResponse';
     public    $name                        = __CLASS__;
     protected $servicePacksAssignmentTable = null;
     protected $userServicesAssignmentTable = null;
@@ -32,7 +31,7 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function setServicePacksAssignmentTable(core:OCITable $servicePacksAssignmentTable = null)
     {
-        $this->servicePacksAssignmentTable = core:OCITable $servicePacksAssignmentTable;
+        $this->servicePacksAssignmentTable =  $servicePacksAssignmentTable;
     }
 
     /**
@@ -48,7 +47,7 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function setUserServicesAssignmentTable(core:OCITable $userServicesAssignmentTable = null)
     {
-        $this->userServicesAssignmentTable = core:OCITable $userServicesAssignmentTable;
+        $this->userServicesAssignmentTable =  $userServicesAssignmentTable;
     }
 
     /**

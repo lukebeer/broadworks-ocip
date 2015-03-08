@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDCriteriaGetResponse';
     public    $name                        = __CLASS__;
     protected $description                 = null;
     protected $prefixDigits                = null;

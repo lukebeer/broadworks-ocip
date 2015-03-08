@@ -34,11 +34,11 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider = null,
-         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
-         SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName = null
+          $searchCriteriaCallCenterScheduledReportName = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaExactCallCenterScheduledReportServiceProvider = null,
+          $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+          $searchCriteriaCallCenterReportTemplateName = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
@@ -75,7 +75,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
      */
     public function setSearchCriteriaCallCenterScheduledReportName(SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null)
     {
-        $this->searchCriteriaCallCenterScheduledReportName = SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName;
+        $this->searchCriteriaCallCenterScheduledReportName =  $searchCriteriaCallCenterScheduledReportName;
     }
 
     /**
@@ -91,7 +91,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -107,7 +107,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
      */
     public function setSearchCriteriaExactCallCenterScheduledReportServiceProvider(SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider = null)
     {
-        $this->searchCriteriaExactCallCenterScheduledReportServiceProvider = SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider;
+        $this->searchCriteriaExactCallCenterScheduledReportServiceProvider =  $searchCriteriaExactCallCenterScheduledReportServiceProvider;
     }
 
     /**
@@ -124,7 +124,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
      */
     public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor(SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null)
     {
-        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
+        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor =  $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
     }
 
     /**
@@ -141,7 +141,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
      */
     public function setSearchCriteriaCallCenterReportTemplateName(SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName = null)
     {
-        $this->searchCriteriaCallCenterReportTemplateName = SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName;
+        $this->searchCriteriaCallCenterReportTemplateName =  $searchCriteriaCallCenterReportTemplateName;
     }
 
     /**

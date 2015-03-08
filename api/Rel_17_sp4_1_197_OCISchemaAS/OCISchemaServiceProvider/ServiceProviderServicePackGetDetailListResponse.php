@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderServicePackGetDetailListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetDetailListResponse';
     public    $name                   = __CLASS__;
     protected $servicePackName        = null;
     protected $servicePackDescription = null;
@@ -90,7 +89,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        $this->servicePackQuantity = UnboundedPositiveInt $servicePackQuantity;
+        $this->servicePackQuantity =  $servicePackQuantity;
     }
 
     /**
@@ -106,7 +105,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setAssignedQuantity(UnboundedNonNegativeInt $assignedQuantity = null)
     {
-        $this->assignedQuantity = UnboundedNonNegativeInt $assignedQuantity;
+        $this->assignedQuantity =  $assignedQuantity;
     }
 
     /**
@@ -122,7 +121,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setAllowedQuantity(UnboundedPositiveInt $allowedQuantity = null)
     {
-        $this->allowedQuantity = UnboundedPositiveInt $allowedQuantity;
+        $this->allowedQuantity =  $allowedQuantity;
     }
 
     /**
@@ -138,7 +137,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setUserServiceTable(core:OCITable $userServiceTable = null)
     {
-        $this->userServiceTable = core:OCITable $userServiceTable;
+        $this->userServiceTable =  $userServiceTable;
     }
 
     /**

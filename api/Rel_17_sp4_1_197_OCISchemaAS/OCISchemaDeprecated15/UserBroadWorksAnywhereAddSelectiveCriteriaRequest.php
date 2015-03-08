@@ -33,8 +33,8 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
          $userId,
          $phoneNumber,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDn $fromDnCriteria
+          $timeSchedule = null,
+          $fromDnCriteria
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
@@ -110,7 +110,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -126,7 +126,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

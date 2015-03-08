@@ -33,7 +33,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
          $allowAutoAnswer = null,
          $outgoingConnectionSelection = null,
          $accessListSelection = null,
-         ReplacementUserIdList $selectedUserIdList = null
+          $selectedUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setAllowAutoAnswer($allowAutoAnswer);
@@ -126,7 +126,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setSelectedUserIdList(ReplacementUserIdList $selectedUserIdList = null)
     {
-        $this->selectedUserIdList = ReplacementUserIdList $selectedUserIdList;
+        $this->selectedUserIdList =  $selectedUserIdList;
     }
 
     /**

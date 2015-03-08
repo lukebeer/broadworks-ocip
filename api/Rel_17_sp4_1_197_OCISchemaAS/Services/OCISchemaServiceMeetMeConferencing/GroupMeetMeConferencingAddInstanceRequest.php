@@ -40,8 +40,8 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
-         MeetMeConferencingConferencePorts $allocatedPorts,
+          $serviceInstanceProfile,
+          $allocatedPorts,
          $networkClassOfService = null,
          $allowIndividualOutDial,
          $operatorNumber = null,
@@ -129,7 +129,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -145,7 +145,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = MeetMeConferencingConferencePorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**

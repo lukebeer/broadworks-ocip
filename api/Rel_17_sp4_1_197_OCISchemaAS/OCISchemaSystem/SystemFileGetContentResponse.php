@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemFileGetContentResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileGetContentResponse';
     public    $name        = __CLASS__;
     protected $fileContent = null;
 
@@ -27,7 +26,7 @@ class SystemFileGetContentResponse extends ComplexType implements ComplexInterfa
      */
     public function setFileContent(xs:base64Binary $fileContent = null)
     {
-        $this->fileContent = xs:base64Binary $fileContent;
+        $this->fileContent =  $fileContent;
     }
 
     /**

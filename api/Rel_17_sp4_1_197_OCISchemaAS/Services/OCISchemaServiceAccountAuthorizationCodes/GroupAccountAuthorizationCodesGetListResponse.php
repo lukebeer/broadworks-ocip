@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAccountAuthorizationCodesGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetListResponse';
     public    $name      = __CLASS__;
     protected $codeEntry = null;
 
@@ -27,7 +26,7 @@ class GroupAccountAuthorizationCodesGetListResponse extends ComplexType implemen
      */
     public function setCodeEntry(AccountAuthorizationCodeEntry $codeEntry = null)
     {
-        $this->codeEntry = AccountAuthorizationCodeEntry $codeEntry;
+        $this->codeEntry =  $codeEntry;
     }
 
     /**

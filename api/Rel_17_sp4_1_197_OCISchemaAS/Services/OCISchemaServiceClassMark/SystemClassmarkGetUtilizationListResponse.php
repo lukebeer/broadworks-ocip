@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemClassmarkGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\SystemClassmarkGetUtilizationListResponse';
     public    $name               = __CLASS__;
     protected $classmarkUserTable = null;
 
@@ -29,7 +28,7 @@ class SystemClassmarkGetUtilizationListResponse extends ComplexType implements C
      */
     public function setClassmarkUserTable(core:OCITable $classmarkUserTable = null)
     {
-        $this->classmarkUserTable = core:OCITable $classmarkUserTable;
+        $this->classmarkUserTable =  $classmarkUserTable;
     }
 
     /**

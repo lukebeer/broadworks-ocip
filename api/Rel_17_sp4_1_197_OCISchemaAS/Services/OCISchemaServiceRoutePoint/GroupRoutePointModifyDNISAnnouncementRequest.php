@@ -24,8 +24,8 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
     protected $mediaOnHoldSource = null;
 
     public function __construct(
-         DNISKey $dnisKey,
-         CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null
+          $dnisKey,
+          $mediaOnHoldSource = null
     ) {
         $this->setDnisKey($dnisKey);
         $this->setMediaOnHoldSource($mediaOnHoldSource);
@@ -36,7 +36,7 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey = DNISKey $dnisKey;
+        $this->dnisKey =  $dnisKey;
     }
 
     /**
@@ -52,7 +52,7 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource = CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource;
+        $this->mediaOnHoldSource =  $mediaOnHoldSource;
     }
 
     /**

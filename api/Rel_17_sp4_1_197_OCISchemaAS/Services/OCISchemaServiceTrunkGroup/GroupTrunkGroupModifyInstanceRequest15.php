@@ -108,11 +108,11 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
     protected $useSystemCallingLineAssertedIdentityPolicy = null;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey,
+          $trunkGroupKey,
          $newName = null,
          $pilotUserId = null,
-         DepartmentKey $department = null,
-         AccessDevice $accessDevice = null,
+          $department = null,
+          $accessDevice = null,
          $maxActiveCalls = null,
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
@@ -122,17 +122,17 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
          $burstingMaxOutgoingCalls = null,
          $capacityExceededAction = null,
          $capacityExceededForwardAddress = null,
-         TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null,
+          $capacityExceededRerouteTrunkGroupKey = null,
          $capacityExceededTrapInitialCalls = null,
          $capacityExceededTrapOffsetCalls = null,
          $unreachableDestinationAction = null,
          $unreachableDestinationForwardAddress = null,
-         TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null,
+          $unreachableDestinationRerouteTrunkGroupKey = null,
          $invitationTimeout = null,
          $requireAuthentication = null,
          $sipAuthenticationUserName = null,
          $sipAuthenticationPassword = null,
-         ReplacementUserIdList $hostedUserIdList = null,
+          $hostedUserIdList = null,
          $trunkGroupIdentity = null,
          $otgDtgIdentity = null,
          $allowTerminationToTrunkGroupIdentity = null,
@@ -148,7 +148,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
          $pilotUserChargeNumberPolicy = null,
          $callForwardingAlwaysAction = null,
          $callForwardingAlwaysForwardAddress = null,
-         TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null,
+          $callForwardingAlwaysRerouteTrunkGroupKey = null,
          $peeringDomain = null,
          $routeToPeeringDomain = null,
          $prefixEnabled = null,
@@ -227,7 +227,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        $this->trunkGroupKey = TrunkGroupKey $trunkGroupKey;
+        $this->trunkGroupKey =  $trunkGroupKey;
     }
 
     /**
@@ -296,7 +296,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -318,7 +318,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice = AccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**
@@ -509,7 +509,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function setCapacityExceededRerouteTrunkGroupKey(TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null)
     {
-        $this->capacityExceededRerouteTrunkGroupKey = TrunkGroupKey $capacityExceededRerouteTrunkGroupKey;
+        $this->capacityExceededRerouteTrunkGroupKey =  $capacityExceededRerouteTrunkGroupKey;
     }
 
     /**
@@ -615,7 +615,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function setUnreachableDestinationRerouteTrunkGroupKey(TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null)
     {
-        $this->unreachableDestinationRerouteTrunkGroupKey = TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey;
+        $this->unreachableDestinationRerouteTrunkGroupKey =  $unreachableDestinationRerouteTrunkGroupKey;
     }
 
     /**
@@ -703,7 +703,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function setHostedUserIdList(ReplacementUserIdList $hostedUserIdList = null)
     {
-        $this->hostedUserIdList = ReplacementUserIdList $hostedUserIdList;
+        $this->hostedUserIdList =  $hostedUserIdList;
     }
 
     /**
@@ -1001,7 +1001,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function setCallForwardingAlwaysRerouteTrunkGroupKey(TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null)
     {
-        $this->callForwardingAlwaysRerouteTrunkGroupKey = TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey;
+        $this->callForwardingAlwaysRerouteTrunkGroupKey =  $callForwardingAlwaysRerouteTrunkGroupKey;
     }
 
     /**

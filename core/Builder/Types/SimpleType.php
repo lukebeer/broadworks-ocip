@@ -41,8 +41,4 @@ abstract class SimpleType
     {
         return ['SchemaType' => __CLASS__, 'DataType' => '', 'Errors' => $this->errors];
     }
-
-    public function getValue() {
-        return $this->value;
-    }
 }

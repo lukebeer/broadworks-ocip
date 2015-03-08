@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkRoutingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkRoutingServerGetListResponse';
     public    $name                      = __CLASS__;
     protected $networkRoutingServerTable = null;
 
@@ -28,7 +27,7 @@ class SystemNetworkRoutingServerGetListResponse extends ComplexType implements C
      */
     public function setNetworkRoutingServerTable(core:OCITable $networkRoutingServerTable = null)
     {
-        $this->networkRoutingServerTable = core:OCITable $networkRoutingServerTable;
+        $this->networkRoutingServerTable =  $networkRoutingServerTable;
     }
 
     /**

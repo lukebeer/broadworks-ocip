@@ -30,7 +30,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     public function __construct(
          $userId,
-         AccessDevice $accessDevice,
+          $accessDevice,
          $integratePhoneDirectoryWithBroadWorks = null,
          $includeUserPersonalPhoneListInDirectory = null,
          $includeGroupCustomContactDirectoryInDirectory = null,
@@ -75,7 +75,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice = AccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**

@@ -27,7 +27,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
     public function __construct(
          $userId,
          $bridgeServiceUserId,
-         ReplacementUserIdList $bridgeDelegatesUserIdList = null
+          $bridgeDelegatesUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setBridgeServiceUserId($bridgeServiceUserId);
@@ -92,7 +92,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function setBridgeDelegatesUserIdList(ReplacementUserIdList $bridgeDelegatesUserIdList = null)
     {
-        $this->bridgeDelegatesUserIdList = ReplacementUserIdList $bridgeDelegatesUserIdList;
+        $this->bridgeDelegatesUserIdList =  $bridgeDelegatesUserIdList;
     }
 
     /**

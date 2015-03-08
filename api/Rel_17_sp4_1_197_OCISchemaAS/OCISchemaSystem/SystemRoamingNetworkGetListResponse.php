@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoamingNetworkGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkGetListResponse';
     public    $name                = __CLASS__;
     protected $roamingNetworkTable = null;
 
@@ -28,7 +27,7 @@ class SystemRoamingNetworkGetListResponse extends ComplexType implements Complex
      */
     public function setRoamingNetworkTable(core:OCITable $roamingNetworkTable = null)
     {
-        $this->roamingNetworkTable = core:OCITable $roamingNetworkTable;
+        $this->roamingNetworkTable =  $roamingNetworkTable;
     }
 
     /**

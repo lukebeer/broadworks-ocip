@@ -25,7 +25,7 @@ class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType 
 
     public function __construct(
          $userId,
-         CriteriaActivation $criteriaActivation = null
+          $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaActivation($criteriaActivation);
@@ -62,7 +62,7 @@ class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType 
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $this->criteriaActivation = CriteriaActivation $criteriaActivation;
+        $this->criteriaActivation =  $criteriaActivation;
     }
 
     /**

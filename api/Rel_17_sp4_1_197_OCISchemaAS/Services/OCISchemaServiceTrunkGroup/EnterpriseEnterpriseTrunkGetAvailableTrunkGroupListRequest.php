@@ -32,8 +32,8 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null
+          $searchCriteriaTrunkGroupName = null,
+          $searchCriteriaGroupId = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -88,7 +88,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function setSearchCriteriaTrunkGroupName(SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null)
     {
-        $this->searchCriteriaTrunkGroupName = SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName;
+        $this->searchCriteriaTrunkGroupName =  $searchCriteriaTrunkGroupName;
     }
 
     /**
@@ -104,7 +104,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**

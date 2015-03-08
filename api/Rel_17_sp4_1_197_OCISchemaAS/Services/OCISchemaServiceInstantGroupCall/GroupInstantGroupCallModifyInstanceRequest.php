@@ -30,8 +30,8 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
-         ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList = null,
+          $serviceInstanceProfile = null,
+          $destinationPhoneNumberList = null,
          $isAnswerTimeoutEnabled = null,
          $answerTimeoutMinutes = null
     ) {
@@ -73,7 +73,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -90,7 +90,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
      */
     public function setDestinationPhoneNumberList(ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList = null)
     {
-        $this->destinationPhoneNumberList = ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList;
+        $this->destinationPhoneNumberList =  $destinationPhoneNumberList;
     }
 
     /**

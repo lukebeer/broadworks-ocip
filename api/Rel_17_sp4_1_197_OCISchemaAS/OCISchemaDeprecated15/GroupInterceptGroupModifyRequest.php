@@ -41,8 +41,8 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
          $groupId,
          $isActive = null,
          $announcementSelection = null,
-         LabeledFileResource $audioFile = null,
-         LabeledFileResource $videoFile = null,
+          $audioFile = null,
+          $videoFile = null,
          $playNewPhoneNumber = null,
          $newPhoneNumber = null,
          $transferOnZeroToPhoneNumber = null,
@@ -140,7 +140,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $this->audioFile = LabeledFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -158,7 +158,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $this->videoFile = LabeledFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

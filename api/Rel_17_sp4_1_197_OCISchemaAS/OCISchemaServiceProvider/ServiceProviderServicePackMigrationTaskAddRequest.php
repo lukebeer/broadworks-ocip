@@ -101,7 +101,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
      */
     public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
-        $this->startTimestamp = xs:dateTime $startTimestamp;
+        $this->startTimestamp =  $startTimestamp;
     }
 
     /**

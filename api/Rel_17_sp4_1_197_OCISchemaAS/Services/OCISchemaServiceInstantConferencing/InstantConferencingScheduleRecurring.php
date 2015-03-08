@@ -29,7 +29,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
          $startTime,
          $duration,
          $recurrenceTimeFrame,
-         InstantConferencingRecurrenceSchedule $recurrenceSchedule
+          $recurrenceSchedule
     ) {
         $this->setStartTime($startTime);
         $this->setDuration($duration);
@@ -42,7 +42,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setStartTime(xs:time $startTime = null)
     {
-        $this->startTime = xs:time $startTime;
+        $this->startTime =  $startTime;
     }
 
     /**
@@ -58,7 +58,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setDuration(xs:duration $duration = null)
     {
-        $this->duration = xs:duration $duration;
+        $this->duration =  $duration;
     }
 
     /**
@@ -96,7 +96,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setRecurrenceSchedule(InstantConferencingRecurrenceSchedule $recurrenceSchedule = null)
     {
-        $this->recurrenceSchedule = InstantConferencingRecurrenceSchedule $recurrenceSchedule;
+        $this->recurrenceSchedule =  $recurrenceSchedule;
     }
 
     /**

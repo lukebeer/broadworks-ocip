@@ -26,7 +26,7 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
 
     public function __construct(
          $imrnNumber = null,
-         DNRange $numberRange = null
+          $numberRange = null
     ) {
         $this->setImrnNumber($imrnNumber);
         $this->setNumberRange($numberRange);
@@ -55,7 +55,7 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
      */
     public function setNumberRange(DNRange $numberRange = null)
     {
-        $this->numberRange = DNRange $numberRange;
+        $this->numberRange =  $numberRange;
     }
 
     /**

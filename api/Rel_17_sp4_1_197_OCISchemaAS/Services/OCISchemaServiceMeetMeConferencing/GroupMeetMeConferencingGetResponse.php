@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetResponse';
     public    $name           = __CLASS__;
     protected $availablePorts = null;
     protected $allocatedPorts = null;
@@ -28,7 +27,7 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
      */
     public function setAvailablePorts(MeetMeConferencingConferencePorts $availablePorts = null)
     {
-        $this->availablePorts = MeetMeConferencingConferencePorts $availablePorts;
+        $this->availablePorts =  $availablePorts;
     }
 
     /**
@@ -44,7 +43,7 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = MeetMeConferencingConferencePorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**

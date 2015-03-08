@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupInstantGroupCallGetInstanceResponse14';
     public    $name                   = __CLASS__;
     protected $serviceInstanceProfile = null;
     protected $destinationPhoneNumber = null;
@@ -35,7 +34,7 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

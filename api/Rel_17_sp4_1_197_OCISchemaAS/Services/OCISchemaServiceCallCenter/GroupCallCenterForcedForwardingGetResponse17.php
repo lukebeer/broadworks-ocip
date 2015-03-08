@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterForcedForwardingGetResponse17';
     public    $name                             = __CLASS__;
     protected $isActive                         = null;
     protected $forwardToPhoneNumber             = null;
@@ -140,7 +139,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $this->audioUrlList = CallCenterAnnouncementURLList $audioUrlList;
+        $this->audioUrlList =  $audioUrlList;
     }
 
     /**
@@ -156,7 +155,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $this->audioFileList = CallCenterAnnouncementDescriptionList $audioFileList;
+        $this->audioFileList =  $audioFileList;
     }
 
     /**
@@ -172,7 +171,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $this->audioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList;
+        $this->audioMediaTypeList =  $audioMediaTypeList;
     }
 
     /**
@@ -206,7 +205,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $this->videoUrlList = CallCenterAnnouncementURLList $videoUrlList;
+        $this->videoUrlList =  $videoUrlList;
     }
 
     /**
@@ -222,7 +221,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $this->videoFileList = CallCenterAnnouncementDescriptionList $videoFileList;
+        $this->videoFileList =  $videoFileList;
     }
 
     /**
@@ -238,7 +237,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $this->videoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList;
+        $this->videoMediaTypeList =  $videoMediaTypeList;
     }
 
     /**

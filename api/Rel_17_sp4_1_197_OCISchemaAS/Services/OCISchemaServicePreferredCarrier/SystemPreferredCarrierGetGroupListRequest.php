@@ -35,9 +35,9 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
     public function __construct(
          $carrier,
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
+          $searchCriteriaGroupId = null,
+          $searchCriteriaGroupName = null,
+          $searchCriteriaExactServiceProvider = null
     ) {
         $this->setCarrier($carrier);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -91,7 +91,7 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -107,7 +107,7 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
+        $this->searchCriteriaGroupName =  $searchCriteriaGroupName;
     }
 
     /**
@@ -123,7 +123,7 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        $this->searchCriteriaExactServiceProvider = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider;
+        $this->searchCriteriaExactServiceProvider =  $searchCriteriaExactServiceProvider;
     }
 
     /**

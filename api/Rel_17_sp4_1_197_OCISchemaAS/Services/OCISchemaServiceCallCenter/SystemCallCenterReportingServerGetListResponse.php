@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCallCenterReportingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetListResponse';
     public    $name                 = __CLASS__;
     protected $reportingServerTable = null;
 
@@ -28,7 +27,7 @@ class SystemCallCenterReportingServerGetListResponse extends ComplexType impleme
      */
     public function setReportingServerTable(core:OCITable $reportingServerTable = null)
     {
-        $this->reportingServerTable = core:OCITable $reportingServerTable;
+        $this->reportingServerTable =  $reportingServerTable;
     }
 
     /**

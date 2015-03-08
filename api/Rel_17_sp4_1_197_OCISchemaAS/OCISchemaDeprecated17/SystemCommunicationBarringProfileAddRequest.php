@@ -45,10 +45,10 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         CommunicationBarringOriginatingRule $originatingRule = null,
+          $originatingRule = null,
          $redirectingDefaultAction,
          $redirectingDefaultCallTimeout = null,
-         CommunicationBarringRedirectingRule $redirectingRule = null
+          $redirectingRule = null
     ) {
         $this->setName($name);
         $this->setDescription($description);
@@ -179,7 +179,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
      */
     public function setOriginatingRule(CommunicationBarringOriginatingRule $originatingRule = null)
     {
-        $this->originatingRule = CommunicationBarringOriginatingRule $originatingRule;
+        $this->originatingRule =  $originatingRule;
     }
 
     /**
@@ -231,7 +231,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
      */
     public function setRedirectingRule(CommunicationBarringRedirectingRule $redirectingRule = null)
     {
-        $this->redirectingRule = CommunicationBarringRedirectingRule $redirectingRule;
+        $this->redirectingRule =  $redirectingRule;
     }
 
     /**

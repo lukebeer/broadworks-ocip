@@ -49,14 +49,14 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
          $groupId,
          $deviceName,
          $responseSizeLimit = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null,
-         SearchCriteriaExactUserType $searchCriteriaExactUserType = null
+          $searchCriteriaLinePortUserPart = null,
+          $searchCriteriaLinePortDomain = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaUserId = null,
+          $searchCriteriaExactEndpointType = null,
+          $searchCriteriaExactUserType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -157,7 +157,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        $this->searchCriteriaLinePortUserPart = SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart;
+        $this->searchCriteriaLinePortUserPart =  $searchCriteriaLinePortUserPart;
     }
 
     /**
@@ -173,7 +173,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        $this->searchCriteriaLinePortDomain = SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain;
+        $this->searchCriteriaLinePortDomain =  $searchCriteriaLinePortDomain;
     }
 
     /**
@@ -189,7 +189,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -205,7 +205,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -221,7 +221,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -237,7 +237,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId = SearchCriteriaUserId $searchCriteriaUserId;
+        $this->searchCriteriaUserId =  $searchCriteriaUserId;
     }
 
     /**
@@ -253,7 +253,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaExactEndpointType(SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null)
     {
-        $this->searchCriteriaExactEndpointType = SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType;
+        $this->searchCriteriaExactEndpointType =  $searchCriteriaExactEndpointType;
     }
 
     /**
@@ -269,7 +269,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaExactUserType(SearchCriteriaExactUserType $searchCriteriaExactUserType = null)
     {
-        $this->searchCriteriaExactUserType = SearchCriteriaExactUserType $searchCriteriaExactUserType;
+        $this->searchCriteriaExactUserType =  $searchCriteriaExactUserType;
     }
 
     /**

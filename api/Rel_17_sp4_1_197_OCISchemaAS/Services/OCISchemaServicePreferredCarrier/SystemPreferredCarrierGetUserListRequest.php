@@ -38,10 +38,10 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
     public function __construct(
          $carrier,
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaEmailAddress = null
     ) {
         $this->setCarrier($carrier);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -96,7 +96,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -112,7 +112,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -128,7 +128,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -144,7 +144,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        $this->searchCriteriaEmailAddress = SearchCriteriaEmailAddress $searchCriteriaEmailAddress;
+        $this->searchCriteriaEmailAddress =  $searchCriteriaEmailAddress;
     }
 
     /**

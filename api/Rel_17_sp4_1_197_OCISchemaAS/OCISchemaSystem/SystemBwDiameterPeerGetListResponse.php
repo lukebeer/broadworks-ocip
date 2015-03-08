@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemBwDiameterPeerGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterPeerGetListResponse';
     public    $name      = __CLASS__;
     protected $peerTable = null;
 
@@ -27,7 +26,7 @@ class SystemBwDiameterPeerGetListResponse extends ComplexType implements Complex
      */
     public function setPeerTable(core:OCITable $peerTable = null)
     {
-        $this->peerTable = core:OCITable $peerTable;
+        $this->peerTable =  $peerTable;
     }
 
     /**

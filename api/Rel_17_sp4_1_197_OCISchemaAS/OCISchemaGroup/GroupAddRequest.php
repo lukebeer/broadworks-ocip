@@ -48,8 +48,8 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
          $callingLineIdName = null,
          $timeZone = null,
          $locationDialingCode = null,
-         Contact $contact = null,
-         StreetAddress $address = null
+          $contact = null,
+          $address = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -216,7 +216,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setContact(Contact $contact = null)
     {
-        $this->contact = Contact $contact;
+        $this->contact =  $contact;
     }
 
     /**
@@ -232,7 +232,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

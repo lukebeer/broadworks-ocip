@@ -31,7 +31,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
          $serviceProviderId,
          $groupId,
          $name,
-         AccessDevice $devices = null
+          $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -104,7 +104,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function setDevices(AccessDevice $devices = null)
     {
-        $this->devices = AccessDevice $devices;
+        $this->devices =  $devices;
     }
 
     /**

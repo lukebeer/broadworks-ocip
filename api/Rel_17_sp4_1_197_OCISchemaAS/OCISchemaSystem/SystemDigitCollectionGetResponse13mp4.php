@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDigitCollectionGetResponse13mp4';
     public    $name            = __CLASS__;
     protected $accessCode      = null;
     protected $publicDigitMap  = null;

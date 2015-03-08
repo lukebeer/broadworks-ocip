@@ -32,9 +32,9 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
+          $searchCriteriaGroupId = null,
+          $searchCriteriaGroupName = null,
+          $searchCriteriaExactServiceProvider = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
@@ -69,7 +69,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -85,7 +85,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
+        $this->searchCriteriaGroupName =  $searchCriteriaGroupName;
     }
 
     /**
@@ -101,7 +101,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        $this->searchCriteriaExactServiceProvider = SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider;
+        $this->searchCriteriaExactServiceProvider =  $searchCriteriaExactServiceProvider;
     }
 
     /**

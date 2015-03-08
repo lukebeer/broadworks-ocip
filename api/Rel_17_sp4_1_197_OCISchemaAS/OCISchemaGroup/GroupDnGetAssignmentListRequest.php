@@ -42,11 +42,11 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment = null,
-         SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation = null
+          $searchCriteriaDn = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaExactDnDepartment = null,
+          $searchCriteriaExactDnActivation = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -125,7 +125,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -141,7 +141,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -157,7 +157,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -173,7 +173,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaExactDnDepartment(SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment = null)
     {
-        $this->searchCriteriaExactDnDepartment = SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment;
+        $this->searchCriteriaExactDnDepartment =  $searchCriteriaExactDnDepartment;
     }
 
     /**
@@ -189,7 +189,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaExactDnActivation(SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation = null)
     {
-        $this->searchCriteriaExactDnActivation = SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation;
+        $this->searchCriteriaExactDnActivation =  $searchCriteriaExactDnActivation;
     }
 
     /**

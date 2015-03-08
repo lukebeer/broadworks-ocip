@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAnswerConfirmationGetResponse16';
     public    $name                                    = __CLASS__;
     protected $announcementMessageSelection            = null;
     protected $confirmationMessageAudioFileDescription = null;

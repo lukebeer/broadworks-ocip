@@ -49,7 +49,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $policy,
          $huntAfterNoAnswer,
          $noAnswerNumberOfRings,
@@ -148,7 +148,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

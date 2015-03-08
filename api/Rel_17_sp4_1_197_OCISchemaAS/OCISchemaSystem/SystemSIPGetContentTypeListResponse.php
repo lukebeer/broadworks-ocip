@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemSIPGetContentTypeListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetContentTypeListResponse';
     public    $name             = __CLASS__;
     protected $contentTypeTable = null;
 
@@ -29,7 +28,7 @@ class SystemSIPGetContentTypeListResponse extends ComplexType implements Complex
      */
     public function setContentTypeTable(core:OCITable $contentTypeTable = null)
     {
-        $this->contentTypeTable = core:OCITable $contentTypeTable;
+        $this->contentTypeTable =  $contentTypeTable;
     }
 
     /**

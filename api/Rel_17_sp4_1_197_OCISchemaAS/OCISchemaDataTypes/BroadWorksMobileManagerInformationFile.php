@@ -21,7 +21,7 @@ class BroadWorksMobileManagerInformationFile extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = xs:base64Binary;
+        $this->dataType = "";
         $this->addRestriction(new MinLength("1"));
     }
 }

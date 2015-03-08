@@ -39,7 +39,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserGetResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserGetResponse14';
     public    $name                     = __CLASS__;
     protected $serviceProviderId        = null;
     protected $groupId                  = null;
@@ -283,7 +282,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -555,7 +554,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

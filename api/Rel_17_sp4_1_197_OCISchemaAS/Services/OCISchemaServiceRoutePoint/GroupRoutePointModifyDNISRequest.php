@@ -36,7 +36,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
     protected $allowOutgoingACDCall              = null;
 
     public function __construct(
-         DNISKey $dnisKey,
+          $dnisKey,
          $newDNISName = null,
          $dnisPhoneNumber = null,
          $extension = null,
@@ -64,7 +64,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey = DNISKey $dnisKey;
+        $this->dnisKey =  $dnisKey;
     }
 
     /**

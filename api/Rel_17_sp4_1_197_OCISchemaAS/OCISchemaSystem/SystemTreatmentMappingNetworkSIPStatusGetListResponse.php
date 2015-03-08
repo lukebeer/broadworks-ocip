@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTreatmentMappingNetworkSIPStatusGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingNetworkSIPStatusGetListResponse';
     public    $name                  = __CLASS__;
     protected $treatmentMappingTable = null;
 
@@ -28,7 +27,7 @@ class SystemTreatmentMappingNetworkSIPStatusGetListResponse extends ComplexType 
      */
     public function setTreatmentMappingTable(core:OCITable $treatmentMappingTable = null)
     {
-        $this->treatmentMappingTable = core:OCITable $treatmentMappingTable;
+        $this->treatmentMappingTable =  $treatmentMappingTable;
     }
 
     /**

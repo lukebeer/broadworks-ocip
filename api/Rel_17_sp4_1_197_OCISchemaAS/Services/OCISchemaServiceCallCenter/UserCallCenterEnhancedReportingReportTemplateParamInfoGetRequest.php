@@ -23,7 +23,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends C
     protected $reportTemplate = null;
 
     public function __construct(
-         CallCenterReportTemplateKey $reportTemplate
+          $reportTemplate
     ) {
         $this->setReportTemplate($reportTemplate);
     }
@@ -33,7 +33,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends C
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        $this->reportTemplate = CallCenterReportTemplateKey $reportTemplate;
+        $this->reportTemplate =  $reportTemplate;
     }
 
     /**

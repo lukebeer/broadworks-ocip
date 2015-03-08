@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\UserTwoStageDialingGetResponse13Mp20';
     public    $name                             = __CLASS__;
     protected $isActive                         = null;
     protected $allowActivationWithUserAddresses = null;

@@ -23,7 +23,7 @@ class GroupCallCenterGetDNISRequest extends ComplexType implements ComplexInterf
     protected $dnisKey = null;
 
     public function __construct(
-         DNISKey $dnisKey
+          $dnisKey
     ) {
         $this->setDnisKey($dnisKey);
     }
@@ -33,7 +33,7 @@ class GroupCallCenterGetDNISRequest extends ComplexType implements ComplexInterf
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey = DNISKey $dnisKey;
+        $this->dnisKey =  $dnisKey;
     }
 
     /**

@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCPEConfigGetFileServerListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCPEConfigGetFileServerListResponse';
     public    $name            = __CLASS__;
     protected $fileServerTable = null;
 
@@ -29,7 +28,7 @@ class SystemCPEConfigGetFileServerListResponse extends ComplexType implements Co
      */
     public function setFileServerTable(core:OCITable $fileServerTable = null)
     {
-        $this->fileServerTable = core:OCITable $fileServerTable;
+        $this->fileServerTable =  $fileServerTable;
     }
 
     /**

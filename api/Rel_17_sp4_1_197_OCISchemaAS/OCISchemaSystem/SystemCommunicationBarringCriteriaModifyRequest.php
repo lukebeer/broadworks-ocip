@@ -64,9 +64,9 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
          $name,
          $newName = null,
          $description = null,
-         ReplacementCommunicationBarringCallTypeList $matchCallType = null,
-         ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator = null,
-         ReplacementVirtualOnNetCallTypeNameList $matchVirtualOnNetCallType = null,
+          $matchCallType = null,
+          $matchAlternateCallIndicator = null,
+          $matchVirtualOnNetCallType = null,
          $matchPublicNetwork = null,
          $matchPrivateNetwork = null,
          $matchLocalCategory = null,
@@ -191,7 +191,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function setMatchCallType(ReplacementCommunicationBarringCallTypeList $matchCallType = null)
     {
-        $this->matchCallType = ReplacementCommunicationBarringCallTypeList $matchCallType;
+        $this->matchCallType =  $matchCallType;
     }
 
     /**
@@ -211,7 +211,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function setMatchAlternateCallIndicator(ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator = null)
     {
-        $this->matchAlternateCallIndicator = ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator;
+        $this->matchAlternateCallIndicator =  $matchAlternateCallIndicator;
     }
 
     /**
@@ -231,7 +231,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function setMatchVirtualOnNetCallType(ReplacementVirtualOnNetCallTypeNameList $matchVirtualOnNetCallType = null)
     {
-        $this->matchVirtualOnNetCallType = ReplacementVirtualOnNetCallTypeNameList $matchVirtualOnNetCallType;
+        $this->matchVirtualOnNetCallType =  $matchVirtualOnNetCallType;
     }
 
     /**

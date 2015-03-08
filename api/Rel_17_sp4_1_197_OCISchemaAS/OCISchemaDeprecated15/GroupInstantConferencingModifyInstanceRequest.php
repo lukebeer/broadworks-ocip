@@ -39,13 +39,13 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $conferenceBridgeLinePort = null,
-         InstantConferencingAllocatedPorts $allocatedPorts = null,
+          $allocatedPorts = null,
          $serviceProfileAppliedOnOutcall = null,
          $allowOutdialInInvitation = null,
          $allowDocumentDownload = null,
-         ReplacementUserIdList $bridgeAdministratorUserIdList = null,
+          $bridgeAdministratorUserIdList = null,
          $networkClassOfService = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -90,7 +90,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -143,7 +143,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $this->allocatedPorts = InstantConferencingAllocatedPorts $allocatedPorts;
+        $this->allocatedPorts =  $allocatedPorts;
     }
 
     /**
@@ -211,7 +211,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setBridgeAdministratorUserIdList(ReplacementUserIdList $bridgeAdministratorUserIdList = null)
     {
-        $this->bridgeAdministratorUserIdList = ReplacementUserIdList $bridgeAdministratorUserIdList;
+        $this->bridgeAdministratorUserIdList =  $bridgeAdministratorUserIdList;
     }
 
     /**

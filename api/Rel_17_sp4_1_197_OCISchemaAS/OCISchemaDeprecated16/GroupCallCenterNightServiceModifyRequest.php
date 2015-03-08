@@ -51,14 +51,14 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null,
+          $videoFile = null,
          $manualAnnouncementMode = null,
          $manualAudioMessageSelection = null,
-         ExtendedMediaFileResource $manualAudioFile = null,
+          $manualAudioFile = null,
          $manualVideoMessageSelection = null,
-         ExtendedMediaFileResource $manualVideoFile = null
+          $manualVideoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -244,7 +244,7 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -280,7 +280,7 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**
@@ -334,7 +334,7 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
      */
     public function setManualAudioFile(ExtendedMediaFileResource $manualAudioFile = null)
     {
-        $this->manualAudioFile = ExtendedMediaFileResource $manualAudioFile;
+        $this->manualAudioFile =  $manualAudioFile;
     }
 
     /**
@@ -370,7 +370,7 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
      */
     public function setManualVideoFile(ExtendedMediaFileResource $manualVideoFile = null)
     {
-        $this->manualVideoFile = ExtendedMediaFileResource $manualVideoFile;
+        $this->manualVideoFile =  $manualVideoFile;
     }
 
     /**

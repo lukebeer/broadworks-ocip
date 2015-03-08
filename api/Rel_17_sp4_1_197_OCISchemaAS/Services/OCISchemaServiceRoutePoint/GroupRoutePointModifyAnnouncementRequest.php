@@ -25,7 +25,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
 
     public function __construct(
          $serviceUserId,
-         CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null
+          $mediaOnHoldSource = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setMediaOnHoldSource($mediaOnHoldSource);
@@ -62,7 +62,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource = CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource;
+        $this->mediaOnHoldSource =  $mediaOnHoldSource;
     }
 
     /**

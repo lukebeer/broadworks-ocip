@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemEndpointGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemEndpointGetListResponse';
     public    $name          = __CLASS__;
     protected $endpointTable = null;
 
@@ -29,7 +28,7 @@ class SystemEndpointGetListResponse extends ComplexType implements ComplexInterf
      */
     public function setEndpointTable(core:OCITable $endpointTable = null)
     {
-        $this->endpointTable = core:OCITable $endpointTable;
+        $this->endpointTable =  $endpointTable;
     }
 
     /**

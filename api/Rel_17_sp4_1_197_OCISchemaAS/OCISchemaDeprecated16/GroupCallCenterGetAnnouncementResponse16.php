@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterGetAnnouncementResponse16';
     public    $name                                          = __CLASS__;
     protected $playEntranceMessage                           = null;
     protected $mandatoryEntranceMessage                      = null;
@@ -457,7 +456,7 @@ class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements Co
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceRead16 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource = CallCenterMediaOnHoldSourceRead16 $mediaOnHoldSource;
+        $this->mediaOnHoldSource =  $mediaOnHoldSource;
     }
 
     /**
@@ -489,7 +488,7 @@ class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements Co
      */
     public function setMediaOnHoldInternalSource(CallCenterMediaOnHoldSourceRead16 $mediaOnHoldInternalSource = null)
     {
-        $this->mediaOnHoldInternalSource = CallCenterMediaOnHoldSourceRead16 $mediaOnHoldInternalSource;
+        $this->mediaOnHoldInternalSource =  $mediaOnHoldInternalSource;
     }
 
     /**

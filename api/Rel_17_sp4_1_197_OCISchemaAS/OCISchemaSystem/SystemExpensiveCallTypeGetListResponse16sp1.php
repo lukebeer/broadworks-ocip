@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeGetListResponse16sp1';
     public    $name                        = __CLASS__;
     protected $alternateCallIndicatorTable = null;
 
@@ -29,7 +28,7 @@ class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements
      */
     public function setAlternateCallIndicatorTable(core:OCITable $alternateCallIndicatorTable = null)
     {
-        $this->alternateCallIndicatorTable = core:OCITable $alternateCallIndicatorTable;
+        $this->alternateCallIndicatorTable =  $alternateCallIndicatorTable;
     }
 
     /**

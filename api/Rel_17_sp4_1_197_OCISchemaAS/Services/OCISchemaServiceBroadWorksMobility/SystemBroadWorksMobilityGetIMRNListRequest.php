@@ -24,7 +24,7 @@ class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements 
     protected $searchCriteriaIMRN = null;
 
     public function __construct(
-         SearchCriteriaIMRN $searchCriteriaIMRN = null
+          $searchCriteriaIMRN = null
     ) {
         $this->setSearchCriteriaIMRN($searchCriteriaIMRN);
     }
@@ -34,7 +34,7 @@ class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements 
      */
     public function setSearchCriteriaIMRN(SearchCriteriaIMRN $searchCriteriaIMRN = null)
     {
-        $this->searchCriteriaIMRN = SearchCriteriaIMRN $searchCriteriaIMRN;
+        $this->searchCriteriaIMRN =  $searchCriteriaIMRN;
     }
 
     /**

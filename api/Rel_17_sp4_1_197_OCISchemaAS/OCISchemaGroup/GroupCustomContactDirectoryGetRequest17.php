@@ -53,11 +53,11 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
          $name,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null
+          $searchCriteriaUserLastName = null,
+          $searchCriteriaUserFirstName = null,
+          $searchCriteriaDn = null,
+          $searchCriteriaExtension = null,
+          $searchCriteriaMobilePhoneNumber = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -172,7 +172,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName = SearchCriteriaUserLastName $searchCriteriaUserLastName;
+        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
     }
 
     /**
@@ -188,7 +188,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName = SearchCriteriaUserFirstName $searchCriteriaUserFirstName;
+        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
     }
 
     /**
@@ -204,7 +204,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn = SearchCriteriaDn $searchCriteriaDn;
+        $this->searchCriteriaDn =  $searchCriteriaDn;
     }
 
     /**
@@ -220,7 +220,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension = SearchCriteriaExtension $searchCriteriaExtension;
+        $this->searchCriteriaExtension =  $searchCriteriaExtension;
     }
 
     /**
@@ -236,7 +236,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
-        $this->searchCriteriaMobilePhoneNumber = SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber;
+        $this->searchCriteriaMobilePhoneNumber =  $searchCriteriaMobilePhoneNumber;
     }
 
     /**

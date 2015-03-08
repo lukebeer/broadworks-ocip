@@ -25,7 +25,7 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
 
     public function __construct(
          $userId,
-         ReplacementUserIdList $supervisorUserIdList = null
+          $supervisorUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setSupervisorUserIdList($supervisorUserIdList);
@@ -63,7 +63,7 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
      */
     public function setSupervisorUserIdList(ReplacementUserIdList $supervisorUserIdList = null)
     {
-        $this->supervisorUserIdList = ReplacementUserIdList $supervisorUserIdList;
+        $this->supervisorUserIdList =  $supervisorUserIdList;
     }
 
     /**

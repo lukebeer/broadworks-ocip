@@ -31,11 +31,11 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
 
     public function __construct(
          $userId,
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName,
          $startDate,
          $endDate,
-         Recurrence $recurrence = null
+          $recurrence = null
     ) {
         $this->setUserId($userId);
         $this->setScheduleKey($scheduleKey);
@@ -76,7 +76,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**
@@ -110,7 +110,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate = xs:date $startDate;
+        $this->startDate =  $startDate;
     }
 
     /**
@@ -126,7 +126,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate = xs:date $endDate;
+        $this->endDate =  $endDate;
     }
 
     /**
@@ -142,7 +142,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        $this->recurrence = Recurrence $recurrence;
+        $this->recurrence =  $recurrence;
     }
 
     /**

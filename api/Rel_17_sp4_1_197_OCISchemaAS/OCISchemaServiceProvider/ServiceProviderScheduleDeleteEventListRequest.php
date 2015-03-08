@@ -27,7 +27,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
 
     public function __construct(
          $serviceProviderId,
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -60,7 +60,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

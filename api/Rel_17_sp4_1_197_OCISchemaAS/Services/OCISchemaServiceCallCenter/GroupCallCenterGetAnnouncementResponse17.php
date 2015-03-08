@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetAnnouncementResponse17';
     public    $name                                          = __CLASS__;
     protected $playEntranceMessage                           = null;
     protected $mandatoryEntranceMessage                      = null;
@@ -116,7 +115,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setEntranceMessageAudioUrlList(CallCenterAnnouncementURLList $entranceMessageAudioUrlList = null)
     {
-        $this->entranceMessageAudioUrlList = CallCenterAnnouncementURLList $entranceMessageAudioUrlList;
+        $this->entranceMessageAudioUrlList =  $entranceMessageAudioUrlList;
     }
 
     /**
@@ -132,7 +131,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setEntranceMessageAudioFileList(CallCenterAnnouncementDescriptionList $entranceMessageAudioFileList = null)
     {
-        $this->entranceMessageAudioFileList = CallCenterAnnouncementDescriptionList $entranceMessageAudioFileList;
+        $this->entranceMessageAudioFileList =  $entranceMessageAudioFileList;
     }
 
     /**
@@ -148,7 +147,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setEntranceMessageAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $entranceMessageAudioMediaTypeList = null)
     {
-        $this->entranceMessageAudioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $entranceMessageAudioMediaTypeList;
+        $this->entranceMessageAudioMediaTypeList =  $entranceMessageAudioMediaTypeList;
     }
 
     /**
@@ -182,7 +181,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setEntranceMessageVideoUrlList(CallCenterAnnouncementURLList $entranceMessageVideoUrlList = null)
     {
-        $this->entranceMessageVideoUrlList = CallCenterAnnouncementURLList $entranceMessageVideoUrlList;
+        $this->entranceMessageVideoUrlList =  $entranceMessageVideoUrlList;
     }
 
     /**
@@ -198,7 +197,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setEntranceMessageVideoFileList(CallCenterAnnouncementDescriptionList $entranceMessageVideoFileList = null)
     {
-        $this->entranceMessageVideoFileList = CallCenterAnnouncementDescriptionList $entranceMessageVideoFileList;
+        $this->entranceMessageVideoFileList =  $entranceMessageVideoFileList;
     }
 
     /**
@@ -214,7 +213,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setEntranceMessageVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $entranceMessageVideoMediaTypeList = null)
     {
-        $this->entranceMessageVideoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $entranceMessageVideoMediaTypeList;
+        $this->entranceMessageVideoMediaTypeList =  $entranceMessageVideoMediaTypeList;
     }
 
     /**
@@ -282,7 +281,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setPeriodicComfortMessageAudioUrlList(CallCenterAnnouncementURLList $periodicComfortMessageAudioUrlList = null)
     {
-        $this->periodicComfortMessageAudioUrlList = CallCenterAnnouncementURLList $periodicComfortMessageAudioUrlList;
+        $this->periodicComfortMessageAudioUrlList =  $periodicComfortMessageAudioUrlList;
     }
 
     /**
@@ -298,7 +297,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setPeriodicComfortMessageAudioFileList(CallCenterAnnouncementDescriptionList $periodicComfortMessageAudioFileList = null)
     {
-        $this->periodicComfortMessageAudioFileList = CallCenterAnnouncementDescriptionList $periodicComfortMessageAudioFileList;
+        $this->periodicComfortMessageAudioFileList =  $periodicComfortMessageAudioFileList;
     }
 
     /**
@@ -314,7 +313,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setPeriodicComfortMessageAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $periodicComfortMessageAudioMediaTypeList = null)
     {
-        $this->periodicComfortMessageAudioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $periodicComfortMessageAudioMediaTypeList;
+        $this->periodicComfortMessageAudioMediaTypeList =  $periodicComfortMessageAudioMediaTypeList;
     }
 
     /**
@@ -348,7 +347,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setPeriodicComfortMessageVideoUrlList(CallCenterAnnouncementURLList $periodicComfortMessageVideoUrlList = null)
     {
-        $this->periodicComfortMessageVideoUrlList = CallCenterAnnouncementURLList $periodicComfortMessageVideoUrlList;
+        $this->periodicComfortMessageVideoUrlList =  $periodicComfortMessageVideoUrlList;
     }
 
     /**
@@ -364,7 +363,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setPeriodicComfortMessageVideoFileList(CallCenterAnnouncementDescriptionList $periodicComfortMessageVideoFileList = null)
     {
-        $this->periodicComfortMessageVideoFileList = CallCenterAnnouncementDescriptionList $periodicComfortMessageVideoFileList;
+        $this->periodicComfortMessageVideoFileList =  $periodicComfortMessageVideoFileList;
     }
 
     /**
@@ -380,7 +379,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setPeriodicComfortMessageVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $periodicComfortMessageVideoMediaTypeList = null)
     {
-        $this->periodicComfortMessageVideoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $periodicComfortMessageVideoMediaTypeList;
+        $this->periodicComfortMessageVideoMediaTypeList =  $periodicComfortMessageVideoMediaTypeList;
     }
 
     /**
@@ -412,7 +411,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource = CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource;
+        $this->mediaOnHoldSource =  $mediaOnHoldSource;
     }
 
     /**
@@ -444,7 +443,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setMediaOnHoldInternalSource(CallCenterMediaOnHoldSourceRead17 $mediaOnHoldInternalSource = null)
     {
-        $this->mediaOnHoldInternalSource = CallCenterMediaOnHoldSourceRead17 $mediaOnHoldInternalSource;
+        $this->mediaOnHoldInternalSource =  $mediaOnHoldInternalSource;
     }
 
     /**
@@ -494,7 +493,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setWhisperMessageAudioUrlList(CallCenterAnnouncementURLList $whisperMessageAudioUrlList = null)
     {
-        $this->whisperMessageAudioUrlList = CallCenterAnnouncementURLList $whisperMessageAudioUrlList;
+        $this->whisperMessageAudioUrlList =  $whisperMessageAudioUrlList;
     }
 
     /**
@@ -510,7 +509,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setWhisperMessageAudioFileList(CallCenterAnnouncementDescriptionList $whisperMessageAudioFileList = null)
     {
-        $this->whisperMessageAudioFileList = CallCenterAnnouncementDescriptionList $whisperMessageAudioFileList;
+        $this->whisperMessageAudioFileList =  $whisperMessageAudioFileList;
     }
 
     /**
@@ -526,7 +525,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setWhisperMessageAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $whisperMessageAudioMediaTypeList = null)
     {
-        $this->whisperMessageAudioMediaTypeList = CallCenterAnnouncementMediaFileTypeList $whisperMessageAudioMediaTypeList;
+        $this->whisperMessageAudioMediaTypeList =  $whisperMessageAudioMediaTypeList;
     }
 
     /**
@@ -560,7 +559,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setWhisperMessageVideoUrlList(CallCenterAnnouncementURLList $whisperMessageVideoUrlList = null)
     {
-        $this->whisperMessageVideoUrlList = CallCenterAnnouncementURLList $whisperMessageVideoUrlList;
+        $this->whisperMessageVideoUrlList =  $whisperMessageVideoUrlList;
     }
 
     /**
@@ -576,7 +575,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setWhisperMessageVideoFileList(CallCenterAnnouncementDescriptionList $whisperMessageVideoFileList = null)
     {
-        $this->whisperMessageVideoFileList = CallCenterAnnouncementDescriptionList $whisperMessageVideoFileList;
+        $this->whisperMessageVideoFileList =  $whisperMessageVideoFileList;
     }
 
     /**
@@ -592,7 +591,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setWhisperMessageVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $whisperMessageVideoMediaTypeList = null)
     {
-        $this->whisperMessageVideoMediaTypeList = CallCenterAnnouncementMediaFileTypeList $whisperMessageVideoMediaTypeList;
+        $this->whisperMessageVideoMediaTypeList =  $whisperMessageVideoMediaTypeList;
     }
 
     /**
@@ -608,7 +607,7 @@ class GroupCallCenterGetAnnouncementResponse17 extends ComplexType implements Co
      */
     public function setEstimatedWaitMessageOptionsRead(EstimatedWaitMessageOptionsRead $estimatedWaitMessageOptionsRead = null)
     {
-        $this->estimatedWaitMessageOptionsRead = EstimatedWaitMessageOptionsRead $estimatedWaitMessageOptionsRead;
+        $this->estimatedWaitMessageOptionsRead =  $estimatedWaitMessageOptionsRead;
     }
 
     /**

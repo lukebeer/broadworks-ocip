@@ -36,7 +36,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
     protected $allowOutgoingACDCall              = null;
 
     public function __construct(
-         DNISKey $dnisKey,
+          $dnisKey,
          $dnisPhoneNumber = null,
          $extension = null,
          $useCustomCLIDSettings,
@@ -64,7 +64,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey = DNISKey $dnisKey;
+        $this->dnisKey =  $dnisKey;
     }
 
     /**

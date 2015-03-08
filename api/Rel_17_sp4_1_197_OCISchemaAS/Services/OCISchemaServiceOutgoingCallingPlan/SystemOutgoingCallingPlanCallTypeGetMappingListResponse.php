@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOutgoingCallingPlanCallTypeGetMappingListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeGetMappingListResponse';
     public    $name            = __CLASS__;
     protected $callTypeMapping = null;
 
@@ -28,7 +27,7 @@ class SystemOutgoingCallingPlanCallTypeGetMappingListResponse extends ComplexTyp
      */
     public function setCallTypeMapping(core:OCITable $callTypeMapping = null)
     {
-        $this->callTypeMapping = core:OCITable $callTypeMapping;
+        $this->callTypeMapping =  $callTypeMapping;
     }
 
     /**

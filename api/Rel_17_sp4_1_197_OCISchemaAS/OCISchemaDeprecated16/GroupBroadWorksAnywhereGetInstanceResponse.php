@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupBroadWorksAnywhereGetInstanceResponse';
     public    $name                    = __CLASS__;
     protected $serviceInstanceProfile  = null;
     protected $broadWorksAnywhereScope = null;
@@ -36,7 +35,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

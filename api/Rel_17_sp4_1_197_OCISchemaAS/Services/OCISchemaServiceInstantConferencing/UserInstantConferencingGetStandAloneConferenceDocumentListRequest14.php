@@ -28,7 +28,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
 
     public function __construct(
          $conferenceOwnerUserId,
-         InstantConferencingConferenceKey $conferenceKey,
+          $conferenceKey,
          $isWebServerCollocated
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
@@ -67,7 +67,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

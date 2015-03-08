@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\GroupServiceInstancePrivacyGetResponse17sp4';
     public    $name                                       = __CLASS__;
     protected $enableDirectoryPrivacy                     = null;
     protected $enableAutoAttendantExtensionDialingPrivacy = null;

@@ -65,16 +65,16 @@ class SystemCommunicationBarringProfileModifyRequest extends ComplexType impleme
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringOriginatingRuleList $originatingRule = null,
+          $originatingRule = null,
          $redirectingDefaultAction = null,
          $redirectingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringRedirectingRuleList $redirectingRule = null,
+          $redirectingRule = null,
          $incomingDefaultAction = null,
          $incomingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringIncomingRuleList $incomingRule = null,
+          $incomingRule = null,
          $callMeNowDefaultAction = null,
          $callMeNowDefaultCallTimeout = null,
-         ReplacementCommunicationBarringCallMeNowRuleList $callMeNowRule = null
+          $callMeNowRule = null
     ) {
         $this->setName($name);
         $this->setNewName($newName);
@@ -232,7 +232,7 @@ class SystemCommunicationBarringProfileModifyRequest extends ComplexType impleme
      */
     public function setOriginatingRule(ReplacementCommunicationBarringOriginatingRuleList $originatingRule = null)
     {
-        $this->originatingRule = ReplacementCommunicationBarringOriginatingRuleList $originatingRule;
+        $this->originatingRule =  $originatingRule;
     }
 
     /**
@@ -288,7 +288,7 @@ class SystemCommunicationBarringProfileModifyRequest extends ComplexType impleme
      */
     public function setRedirectingRule(ReplacementCommunicationBarringRedirectingRuleList $redirectingRule = null)
     {
-        $this->redirectingRule = ReplacementCommunicationBarringRedirectingRuleList $redirectingRule;
+        $this->redirectingRule =  $redirectingRule;
     }
 
     /**
@@ -344,7 +344,7 @@ class SystemCommunicationBarringProfileModifyRequest extends ComplexType impleme
      */
     public function setIncomingRule(ReplacementCommunicationBarringIncomingRuleList $incomingRule = null)
     {
-        $this->incomingRule = ReplacementCommunicationBarringIncomingRuleList $incomingRule;
+        $this->incomingRule =  $incomingRule;
     }
 
     /**
@@ -400,7 +400,7 @@ class SystemCommunicationBarringProfileModifyRequest extends ComplexType impleme
      */
     public function setCallMeNowRule(ReplacementCommunicationBarringCallMeNowRuleList $callMeNowRule = null)
     {
-        $this->callMeNowRule = ReplacementCommunicationBarringCallMeNowRuleList $callMeNowRule;
+        $this->callMeNowRule =  $callMeNowRule;
     }
 
     /**

@@ -28,7 +28,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
     public function __construct(
          $serviceProviderId,
          $groupId,
-         UnboundedNonNegativeInt $portsAllocatedToGroup = null
+          $portsAllocatedToGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -80,7 +80,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function setPortsAllocatedToGroup(UnboundedNonNegativeInt $portsAllocatedToGroup = null)
     {
-        $this->portsAllocatedToGroup = UnboundedNonNegativeInt $portsAllocatedToGroup;
+        $this->portsAllocatedToGroup =  $portsAllocatedToGroup;
     }
 
     /**

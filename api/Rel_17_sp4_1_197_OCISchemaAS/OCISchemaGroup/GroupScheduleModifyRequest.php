@@ -30,7 +30,7 @@ class GroupScheduleModifyRequest extends ComplexType implements ComplexInterface
     public function __construct(
          $serviceProviderId,
          $groupId,
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $newScheduleName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -84,7 +84,7 @@ class GroupScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

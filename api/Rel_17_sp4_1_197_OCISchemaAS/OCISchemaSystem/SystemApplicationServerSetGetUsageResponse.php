@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemApplicationServerSetGetUsageResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse';
     public    $name                                = __CLASS__;
     protected $applicationServerSetSubscriberTable = null;
 
@@ -29,7 +28,7 @@ class SystemApplicationServerSetGetUsageResponse extends ComplexType implements 
      */
     public function setApplicationServerSetSubscriberTable(core:OCITable $applicationServerSetSubscriberTable = null)
     {
-        $this->applicationServerSetSubscriberTable = core:OCITable $applicationServerSetSubscriberTable;
+        $this->applicationServerSetSubscriberTable =  $applicationServerSetSubscriberTable;
     }
 
     /**

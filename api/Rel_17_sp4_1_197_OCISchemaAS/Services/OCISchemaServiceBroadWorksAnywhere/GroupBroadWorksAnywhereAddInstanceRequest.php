@@ -38,7 +38,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $broadWorksAnywhereScope,
          $promptForCLID,
          $silentPromptMode,
@@ -125,7 +125,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

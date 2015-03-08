@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSharedCallAppearanceGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserSharedCallAppearanceGetResponse14sp2';
     public    $name                                   = __CLASS__;
     protected $alertAllAppearancesForClickToDialCalls = null;
     protected $maxAppearances                         = null;
@@ -120,7 +119,7 @@ class UserSharedCallAppearanceGetResponse14sp2 extends ComplexType implements Co
      */
     public function setEndpointTable(core:OCITable $endpointTable = null)
     {
-        $this->endpointTable = core:OCITable $endpointTable;
+        $this->endpointTable =  $endpointTable;
     }
 
     /**

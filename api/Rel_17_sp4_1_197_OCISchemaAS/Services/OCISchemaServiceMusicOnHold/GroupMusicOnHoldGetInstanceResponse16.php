@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetInstanceResponse16';
     public    $name                               = __CLASS__;
     protected $serviceUserId                      = null;
     protected $isActiveDuringCallHold             = null;
@@ -125,7 +124,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setSource(MusicOnHoldSourceRead16 $source = null)
     {
-        $this->source = MusicOnHoldSourceRead16 $source;
+        $this->source =  $source;
     }
 
     /**
@@ -157,7 +156,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setInternalSource(MusicOnHoldSourceRead16 $internalSource = null)
     {
-        $this->internalSource = MusicOnHoldSourceRead16 $internalSource;
+        $this->internalSource =  $internalSource;
     }
 
     /**

@@ -25,7 +25,7 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
 
     public function __construct(
          $serviceProviderId,
-         PhoneListEntry $entry
+          $entry
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEntry($entry);
@@ -56,7 +56,7 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        $this->entry = PhoneListEntry $entry;
+        $this->entry =  $entry;
     }
 
     /**

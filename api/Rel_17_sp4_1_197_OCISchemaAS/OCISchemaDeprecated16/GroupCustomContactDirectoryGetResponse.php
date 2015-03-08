@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCustomContactDirectoryGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCustomContactDirectoryGetResponse';
     public    $name      = __CLASS__;
     protected $userTable = null;
 
@@ -31,7 +30,7 @@ class GroupCustomContactDirectoryGetResponse extends ComplexType implements Comp
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable = core:OCITable $userTable;
+        $this->userTable =  $userTable;
     }
 
     /**

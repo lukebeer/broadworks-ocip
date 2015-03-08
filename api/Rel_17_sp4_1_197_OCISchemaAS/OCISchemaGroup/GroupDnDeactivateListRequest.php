@@ -34,7 +34,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
          $serviceProviderId,
          $groupId,
          $phoneNumber = null,
-         DNRange $dnRange = null
+          $dnRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -105,7 +105,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
      */
     public function setDnRange(DNRange $dnRange = null)
     {
-        $this->dnRange = DNRange $dnRange;
+        $this->dnRange =  $dnRange;
     }
 
     /**

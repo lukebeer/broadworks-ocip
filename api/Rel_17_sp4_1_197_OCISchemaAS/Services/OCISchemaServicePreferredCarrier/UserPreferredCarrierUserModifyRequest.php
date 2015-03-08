@@ -27,9 +27,9 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
 
     public function __construct(
          $userId,
-         UserPreferredCarrierNameModify $intraLataCarrier = null,
-         UserPreferredCarrierNameModify $interLataCarrier = null,
-         UserPreferredCarrierNameModify $internationalCarrier = null
+          $intraLataCarrier = null,
+          $interLataCarrier = null,
+          $internationalCarrier = null
     ) {
         $this->setUserId($userId);
         $this->setIntraLataCarrier($intraLataCarrier);
@@ -70,7 +70,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function setIntraLataCarrier(UserPreferredCarrierNameModify $intraLataCarrier = null)
     {
-        $this->intraLataCarrier = UserPreferredCarrierNameModify $intraLataCarrier;
+        $this->intraLataCarrier =  $intraLataCarrier;
     }
 
     /**
@@ -90,7 +90,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function setInterLataCarrier(UserPreferredCarrierNameModify $interLataCarrier = null)
     {
-        $this->interLataCarrier = UserPreferredCarrierNameModify $interLataCarrier;
+        $this->interLataCarrier =  $interLataCarrier;
     }
 
     /**
@@ -110,7 +110,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function setInternationalCarrier(UserPreferredCarrierNameModify $internationalCarrier = null)
     {
-        $this->internationalCarrier = UserPreferredCarrierNameModify $internationalCarrier;
+        $this->internationalCarrier =  $internationalCarrier;
     }
 
     /**

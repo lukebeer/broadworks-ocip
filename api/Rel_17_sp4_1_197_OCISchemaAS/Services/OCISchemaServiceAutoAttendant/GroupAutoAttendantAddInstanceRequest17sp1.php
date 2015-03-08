@@ -46,15 +46,15 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $enableVideo,
-         TimeSchedule $businessHours = null,
-         HolidaySchedule $holidaySchedule = null,
+          $businessHours = null,
+          $holidaySchedule = null,
          $extensionDialingScope,
          $nameDialingScope,
          $nameDialingEntries,
-         AutoAttendantAddMenu16 $businessHoursMenu = null,
-         AutoAttendantAddMenu16 $afterHoursMenu = null
+          $businessHoursMenu = null,
+          $afterHoursMenu = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -141,7 +141,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -173,7 +173,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
      */
     public function setBusinessHours(TimeSchedule $businessHours = null)
     {
-        $this->businessHours = TimeSchedule $businessHours;
+        $this->businessHours =  $businessHours;
     }
 
     /**
@@ -189,7 +189,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -260,7 +260,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
      */
     public function setBusinessHoursMenu(AutoAttendantAddMenu16 $businessHoursMenu = null)
     {
-        $this->businessHoursMenu = AutoAttendantAddMenu16 $businessHoursMenu;
+        $this->businessHoursMenu =  $businessHoursMenu;
     }
 
     /**
@@ -278,7 +278,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
      */
     public function setAfterHoursMenu(AutoAttendantAddMenu16 $afterHoursMenu = null)
     {
-        $this->afterHoursMenu = AutoAttendantAddMenu16 $afterHoursMenu;
+        $this->afterHoursMenu =  $afterHoursMenu;
     }
 
     /**

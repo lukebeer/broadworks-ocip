@@ -26,8 +26,8 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
 
     public function __construct(
          $serviceProviderId,
-         UnboundedNonNegativeInt $maxActiveCalls = null,
-         UnboundedNonNegativeInt $burstingMaxActiveCalls = null
+          $maxActiveCalls = null,
+          $burstingMaxActiveCalls = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setMaxActiveCalls($maxActiveCalls);
@@ -59,7 +59,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        $this->maxActiveCalls = UnboundedNonNegativeInt $maxActiveCalls;
+        $this->maxActiveCalls =  $maxActiveCalls;
     }
 
     /**
@@ -75,7 +75,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        $this->burstingMaxActiveCalls = UnboundedNonNegativeInt $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls =  $burstingMaxActiveCalls;
     }
 
     /**

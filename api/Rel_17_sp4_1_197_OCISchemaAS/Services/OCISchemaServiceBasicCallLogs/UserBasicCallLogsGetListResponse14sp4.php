@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4';
     public    $name     = __CLASS__;
     protected $placed   = null;
     protected $received = null;
@@ -29,7 +28,7 @@ class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements Compl
      */
     public function setPlaced(CallLogsEntry $placed = null)
     {
-        $this->placed = CallLogsEntry $placed;
+        $this->placed =  $placed;
     }
 
     /**
@@ -45,7 +44,7 @@ class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements Compl
      */
     public function setReceived(CallLogsEntry $received = null)
     {
-        $this->received = CallLogsEntry $received;
+        $this->received =  $received;
     }
 
     /**
@@ -61,7 +60,7 @@ class UserBasicCallLogsGetListResponse14sp4 extends ComplexType implements Compl
      */
     public function setMissed(CallLogsEntry $missed = null)
     {
-        $this->missed = CallLogsEntry $missed;
+        $this->missed =  $missed;
     }
 
     /**

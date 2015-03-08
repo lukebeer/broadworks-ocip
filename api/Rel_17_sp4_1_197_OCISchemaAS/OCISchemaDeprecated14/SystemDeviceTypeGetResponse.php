@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetResponse';
     public    $name                      = __CLASS__;
     protected $isObsolete                = null;
     protected $profile                   = null;
@@ -107,7 +106,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setCpeDeviceOptions(CPEDeviceOptions $cpeDeviceOptions = null)
     {
-        $this->cpeDeviceOptions = CPEDeviceOptions $cpeDeviceOptions;
+        $this->cpeDeviceOptions =  $cpeDeviceOptions;
     }
 
     /**

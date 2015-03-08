@@ -20,6 +20,6 @@ class TrunkGroupLicensedCallCapacity extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = (int);
+        $this->dataType = "int";
     }
 }

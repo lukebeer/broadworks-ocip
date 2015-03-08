@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCommunicationBarringCriteriaGetResponse';
     public    $name                        = __CLASS__;
     protected $description                 = null;
     protected $matchCallType               = null;

@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceListResponse';
     public    $name               = __CLASS__;
     protected $autoAttendantTable = null;
 
@@ -30,7 +29,7 @@ class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements C
      */
     public function setAutoAttendantTable(core:OCITable $autoAttendantTable = null)
     {
-        $this->autoAttendantTable = core:OCITable $autoAttendantTable;
+        $this->autoAttendantTable =  $autoAttendantTable;
     }
 
     /**

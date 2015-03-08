@@ -27,7 +27,7 @@ class UserInstantConferencingGetConferenceRequest14Sp6 extends ComplexType imple
 
     public function __construct(
          $userId,
-         InstantConferencingConferenceKey $conferenceKey
+          $conferenceKey
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
@@ -64,7 +64,7 @@ class UserInstantConferencingGetConferenceRequest14Sp6 extends ComplexType imple
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

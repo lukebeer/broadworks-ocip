@@ -46,12 +46,12 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
          $serviceProviderId,
          $groupId,
          $callLogType = null,
-         EnhancedCallLogsTimeRange $dateTimeRange,
-         EnhancedCallLogsNumberFilter $numberFilter = null,
-         EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null,
-         EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null,
+          $dateTimeRange,
+          $numberFilter = null,
+          $redirectedNumberFilter = null,
+          $accountAuthorizationCodeFilter = null,
          $subscriberType = null,
-         EnhancedCallLogsResponsePagingControl $responsePagingControl = null
+          $responsePagingControl = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -127,7 +127,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function setDateTimeRange(EnhancedCallLogsTimeRange $dateTimeRange = null)
     {
-        $this->dateTimeRange = EnhancedCallLogsTimeRange $dateTimeRange;
+        $this->dateTimeRange =  $dateTimeRange;
     }
 
     /**
@@ -143,7 +143,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function setNumberFilter(EnhancedCallLogsNumberFilter $numberFilter = null)
     {
-        $this->numberFilter = EnhancedCallLogsNumberFilter $numberFilter;
+        $this->numberFilter =  $numberFilter;
     }
 
     /**
@@ -159,7 +159,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function setRedirectedNumberFilter(EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null)
     {
-        $this->redirectedNumberFilter = EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter;
+        $this->redirectedNumberFilter =  $redirectedNumberFilter;
     }
 
     /**
@@ -177,7 +177,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function setAccountAuthorizationCodeFilter(EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null)
     {
-        $this->accountAuthorizationCodeFilter = EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter;
+        $this->accountAuthorizationCodeFilter =  $accountAuthorizationCodeFilter;
     }
 
     /**
@@ -216,7 +216,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function setResponsePagingControl(EnhancedCallLogsResponsePagingControl $responsePagingControl = null)
     {
-        $this->responsePagingControl = EnhancedCallLogsResponsePagingControl $responsePagingControl;
+        $this->responsePagingControl =  $responsePagingControl;
     }
 
     /**

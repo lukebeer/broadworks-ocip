@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderDialPlanPolicyGetResponse17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetResponse17';
     public    $name                                      = __CLASS__;
     protected $requiresAccessCodeForPublicCalls          = null;
     protected $allowE164PublicCalls                      = null;

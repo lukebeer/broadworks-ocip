@@ -30,8 +30,8 @@ class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingModifyListRequest exten
     public function __construct(
          $serviceProviderId,
          $groupId,
-         OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $groupPermissions = null,
-         OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissionsModify $departmentPermissions = null
+          $groupPermissions = null,
+          $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -84,7 +84,7 @@ class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingModifyListRequest exten
      */
     public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $groupPermissions = null)
     {
-        $this->groupPermissions = OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions $groupPermissions;
+        $this->groupPermissions =  $groupPermissions;
     }
 
     /**
@@ -100,7 +100,7 @@ class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingModifyListRequest exten
      */
     public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissionsModify $departmentPermissions = null)
     {
-        $this->departmentPermissions = OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissionsModify $departmentPermissions;
+        $this->departmentPermissions =  $departmentPermissions;
     }
 
     /**

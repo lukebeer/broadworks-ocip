@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse';
     public    $name           = __CLASS__;
     protected $homeZonesTable = null;
 
@@ -31,7 +30,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexTy
      */
     public function setHomeZonesTable(core:OCITable $homeZonesTable = null)
     {
-        $this->homeZonesTable = core:OCITable $homeZonesTable;
+        $this->homeZonesTable =  $homeZonesTable;
     }
 
     /**

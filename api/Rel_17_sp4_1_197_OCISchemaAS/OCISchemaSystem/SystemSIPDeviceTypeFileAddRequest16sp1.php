@@ -45,7 +45,7 @@ class SystemSIPDeviceTypeFileAddRequest16sp1 extends ComplexType implements Comp
          $fileCategory,
          $fileCustomization,
          $fileSource,
-         FileResource $uploadFile = null,
+          $uploadFile = null,
          $useHttpDigestAuthentication,
          $macBasedFileAuthentication,
          $userNamePasswordFileAuthentication,
@@ -180,7 +180,7 @@ class SystemSIPDeviceTypeFileAddRequest16sp1 extends ComplexType implements Comp
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile = FileResource $uploadFile;
+        $this->uploadFile =  $uploadFile;
     }
 
     /**

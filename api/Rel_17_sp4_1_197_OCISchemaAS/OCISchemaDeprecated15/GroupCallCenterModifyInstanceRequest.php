@@ -55,7 +55,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     public function __construct(
          $serviceUserId,
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+          $serviceInstanceProfile = null,
          $policy = null,
          $huntAfterNoAnswer = null,
          $noAnswerNumberOfRings = null,
@@ -70,7 +70,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
          $timeBetweenComfortMessagesSeconds = null,
          $enableGuardTimer = null,
          $guardTimerSeconds = null,
-         ReplacementUserIdList $agentUserIdList = null,
+          $agentUserIdList = null,
          $allowCallWaitingForAgents = null,
          $allowCallsToAgentsInWrapUp = null,
          $enableCallQueueWhenNoAgentsAvailable = null,
@@ -130,7 +130,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceModifyProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -391,7 +391,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        $this->agentUserIdList = ReplacementUserIdList $agentUserIdList;
+        $this->agentUserIdList =  $agentUserIdList;
     }
 
     /**

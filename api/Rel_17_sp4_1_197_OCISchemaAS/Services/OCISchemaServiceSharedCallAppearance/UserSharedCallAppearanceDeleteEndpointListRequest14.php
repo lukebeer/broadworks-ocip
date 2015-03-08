@@ -25,7 +25,7 @@ class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType im
 
     public function __construct(
          $userId,
-         AccessDeviceEndpointKey $accessDeviceEndpoint = null
+          $accessDeviceEndpoint = null
     ) {
         $this->setUserId($userId);
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
@@ -62,7 +62,7 @@ class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType im
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointKey $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointKey $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**

@@ -39,12 +39,12 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null,
-         SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel = null
+          $searchCriteriaDeviceName = null,
+          $searchCriteriaDeviceMACAddress = null,
+          $searchCriteriaDeviceNetAddress = null,
+          $searchCriteriaGroupId = null,
+          $searchCriteriaExactDeviceType = null,
+          $searchCriteriaExactDeviceLevel = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -103,7 +103,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName = SearchCriteriaDeviceName $searchCriteriaDeviceName;
+        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
     }
 
     /**
@@ -119,7 +119,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress = SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress;
+        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
     }
 
     /**
@@ -135,7 +135,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress = SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress;
+        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
     }
 
     /**
@@ -151,7 +151,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -167,7 +167,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
      */
     public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        $this->searchCriteriaExactDeviceType = SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType;
+        $this->searchCriteriaExactDeviceType =  $searchCriteriaExactDeviceType;
     }
 
     /**
@@ -183,7 +183,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
      */
     public function setSearchCriteriaExactDeviceLevel(SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel = null)
     {
-        $this->searchCriteriaExactDeviceLevel = SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel;
+        $this->searchCriteriaExactDeviceLevel =  $searchCriteriaExactDeviceLevel;
     }
 
     /**

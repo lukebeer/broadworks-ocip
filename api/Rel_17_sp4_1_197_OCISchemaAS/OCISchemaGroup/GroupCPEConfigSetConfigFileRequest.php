@@ -31,7 +31,7 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
          $serviceProviderId,
          $groupId,
          $deviceType,
-         FileResource $configFile
+          $configFile
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -103,7 +103,7 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function setConfigFile(FileResource $configFile = null)
     {
-        $this->configFile = FileResource $configFile;
+        $this->configFile =  $configFile;
     }
 
     /**

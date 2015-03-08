@@ -22,7 +22,7 @@ class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements C
     protected $trunkGroupKey = null;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey
+          $trunkGroupKey
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
     }
@@ -33,7 +33,7 @@ class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements C
      */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        $this->trunkGroupKey = TrunkGroupKey $trunkGroupKey;
+        $this->trunkGroupKey =  $trunkGroupKey;
     }
 
     /**

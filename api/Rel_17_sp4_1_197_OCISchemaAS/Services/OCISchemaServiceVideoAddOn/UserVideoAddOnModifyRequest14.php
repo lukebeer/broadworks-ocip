@@ -30,7 +30,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
          $userId,
          $isActive = null,
          $maxOriginatingCallDelaySeconds = null,
-         AccessDeviceEndpointModify $accessDeviceEndpoint = null
+          $accessDeviceEndpoint = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
@@ -103,7 +103,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointModify $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointModify $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**

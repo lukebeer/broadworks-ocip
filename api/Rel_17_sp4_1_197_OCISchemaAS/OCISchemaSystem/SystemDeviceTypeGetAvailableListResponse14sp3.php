@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeGetAvailableListResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3';
     public    $name       = __CLASS__;
     protected $deviceType = null;
     protected $typeInfo   = null;

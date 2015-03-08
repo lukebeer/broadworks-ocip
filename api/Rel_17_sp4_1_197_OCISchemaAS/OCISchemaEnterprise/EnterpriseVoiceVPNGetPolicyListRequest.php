@@ -33,8 +33,8 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
-         SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null
+          $searchCriteriaGroupLocationCode = null,
+          $searchCriteriaExactPolicySelection = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -89,7 +89,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        $this->searchCriteriaGroupLocationCode = SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode;
+        $this->searchCriteriaGroupLocationCode =  $searchCriteriaGroupLocationCode;
     }
 
     /**
@@ -105,7 +105,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function setSearchCriteriaExactPolicySelection(SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null)
     {
-        $this->searchCriteriaExactPolicySelection = SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection;
+        $this->searchCriteriaExactPolicySelection =  $searchCriteriaExactPolicySelection;
     }
 
     /**

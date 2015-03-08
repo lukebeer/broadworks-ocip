@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupDialPlanPolicyGetResponse';
     public    $name                             = __CLASS__;
     protected $useSetting                       = null;
     protected $requiresAccessCodeForPublicCalls = null;

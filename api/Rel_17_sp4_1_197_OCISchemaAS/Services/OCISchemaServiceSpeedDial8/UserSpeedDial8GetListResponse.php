@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSpeedDial8GetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial8\UserSpeedDial8GetListResponse';
     public    $name           = __CLASS__;
     protected $speedDialEntry = null;
 
@@ -28,7 +27,7 @@ class UserSpeedDial8GetListResponse extends ComplexType implements ComplexInterf
      */
     public function setSpeedDialEntry(SpeedDial8Entry $speedDialEntry = null)
     {
-        $this->speedDialEntry = SpeedDial8Entry $speedDialEntry;
+        $this->speedDialEntry =  $speedDialEntry;
     }
 
     /**

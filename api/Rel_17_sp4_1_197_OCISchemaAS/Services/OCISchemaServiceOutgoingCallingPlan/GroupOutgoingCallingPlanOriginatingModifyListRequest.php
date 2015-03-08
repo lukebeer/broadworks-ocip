@@ -30,8 +30,8 @@ class GroupOutgoingCallingPlanOriginatingModifyListRequest extends ComplexType i
     public function __construct(
          $serviceProviderId,
          $groupId,
-         OutgoingCallingPlanOriginatingPermissionsModify $groupPermissions = null,
-         OutgoingCallingPlanOriginatingDepartmentPermissionsModify $departmentPermissions = null
+          $groupPermissions = null,
+          $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -84,7 +84,7 @@ class GroupOutgoingCallingPlanOriginatingModifyListRequest extends ComplexType i
      */
     public function setGroupPermissions(OutgoingCallingPlanOriginatingPermissionsModify $groupPermissions = null)
     {
-        $this->groupPermissions = OutgoingCallingPlanOriginatingPermissionsModify $groupPermissions;
+        $this->groupPermissions =  $groupPermissions;
     }
 
     /**
@@ -100,7 +100,7 @@ class GroupOutgoingCallingPlanOriginatingModifyListRequest extends ComplexType i
      */
     public function setDepartmentPermissions(OutgoingCallingPlanOriginatingDepartmentPermissionsModify $departmentPermissions = null)
     {
-        $this->departmentPermissions = OutgoingCallingPlanOriginatingDepartmentPermissionsModify $departmentPermissions;
+        $this->departmentPermissions =  $departmentPermissions;
     }
 
     /**

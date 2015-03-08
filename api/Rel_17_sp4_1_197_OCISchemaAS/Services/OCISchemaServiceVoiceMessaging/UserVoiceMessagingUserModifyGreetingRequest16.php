@@ -40,14 +40,14 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
     public function __construct(
          $userId,
          $busyAnnouncementSelection = null,
-         LabeledMediaFileResource $busyPersonalAudioFile = null,
-         LabeledMediaFileResource $busyPersonalVideoFile = null,
+          $busyPersonalAudioFile = null,
+          $busyPersonalVideoFile = null,
          $noAnswerAnnouncementSelection = null,
-         LabeledMediaFileResource $noAnswerPersonalAudioFile = null,
-         LabeledMediaFileResource $noAnswerPersonalVideoFile = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting01 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting02 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting03 = null,
+          $noAnswerPersonalAudioFile = null,
+          $noAnswerPersonalVideoFile = null,
+          $noAnswerAlternateGreeting01 = null,
+          $noAnswerAlternateGreeting02 = null,
+          $noAnswerAlternateGreeting03 = null,
          $noAnswerNumberOfRings = null
     ) {
         $this->setUserId($userId);
@@ -113,7 +113,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
      */
     public function setBusyPersonalAudioFile(LabeledMediaFileResource $busyPersonalAudioFile = null)
     {
-        $this->busyPersonalAudioFile = LabeledMediaFileResource $busyPersonalAudioFile;
+        $this->busyPersonalAudioFile =  $busyPersonalAudioFile;
     }
 
     /**
@@ -131,7 +131,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
      */
     public function setBusyPersonalVideoFile(LabeledMediaFileResource $busyPersonalVideoFile = null)
     {
-        $this->busyPersonalVideoFile = LabeledMediaFileResource $busyPersonalVideoFile;
+        $this->busyPersonalVideoFile =  $busyPersonalVideoFile;
     }
 
     /**
@@ -167,7 +167,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
      */
     public function setNoAnswerPersonalAudioFile(LabeledMediaFileResource $noAnswerPersonalAudioFile = null)
     {
-        $this->noAnswerPersonalAudioFile = LabeledMediaFileResource $noAnswerPersonalAudioFile;
+        $this->noAnswerPersonalAudioFile =  $noAnswerPersonalAudioFile;
     }
 
     /**
@@ -185,7 +185,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
      */
     public function setNoAnswerPersonalVideoFile(LabeledMediaFileResource $noAnswerPersonalVideoFile = null)
     {
-        $this->noAnswerPersonalVideoFile = LabeledMediaFileResource $noAnswerPersonalVideoFile;
+        $this->noAnswerPersonalVideoFile =  $noAnswerPersonalVideoFile;
     }
 
     /**
@@ -203,7 +203,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
      */
     public function setNoAnswerAlternateGreeting01(VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting01 = null)
     {
-        $this->noAnswerAlternateGreeting01 = VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting01;
+        $this->noAnswerAlternateGreeting01 =  $noAnswerAlternateGreeting01;
     }
 
     /**
@@ -221,7 +221,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
      */
     public function setNoAnswerAlternateGreeting02(VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting02 = null)
     {
-        $this->noAnswerAlternateGreeting02 = VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting02;
+        $this->noAnswerAlternateGreeting02 =  $noAnswerAlternateGreeting02;
     }
 
     /**
@@ -239,7 +239,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
      */
     public function setNoAnswerAlternateGreeting03(VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting03 = null)
     {
-        $this->noAnswerAlternateGreeting03 = VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting03;
+        $this->noAnswerAlternateGreeting03 =  $noAnswerAlternateGreeting03;
     }
 
     /**

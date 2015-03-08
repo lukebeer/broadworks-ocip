@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingNoAnswer\UserCallForwardingNoAnswerGetResponse13mp16';
     public    $name                 = __CLASS__;
     protected $isActive             = null;
     protected $forwardToPhoneNumber = null;

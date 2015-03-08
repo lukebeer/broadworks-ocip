@@ -41,14 +41,14 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
     public function __construct(
          $userId,
          $busyAnnouncementSelection = null,
-         LabeledFileResource $busyPersonalAudioFile = null,
-         LabeledFileResource $busyPersonalVideoFile = null,
+          $busyPersonalAudioFile = null,
+          $busyPersonalVideoFile = null,
          $noAnswerAnnouncementSelection = null,
-         LabeledFileResource $noAnswerPersonalAudioFile = null,
-         LabeledFileResource $noAnswerPersonalVideoFile = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03 = null,
+          $noAnswerPersonalAudioFile = null,
+          $noAnswerPersonalVideoFile = null,
+          $noAnswerAlternateGreeting01 = null,
+          $noAnswerAlternateGreeting02 = null,
+          $noAnswerAlternateGreeting03 = null,
          $noAnswerNumberOfRings = null
     ) {
         $this->setUserId($userId);
@@ -114,7 +114,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
      */
     public function setBusyPersonalAudioFile(LabeledFileResource $busyPersonalAudioFile = null)
     {
-        $this->busyPersonalAudioFile = LabeledFileResource $busyPersonalAudioFile;
+        $this->busyPersonalAudioFile =  $busyPersonalAudioFile;
     }
 
     /**
@@ -132,7 +132,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
      */
     public function setBusyPersonalVideoFile(LabeledFileResource $busyPersonalVideoFile = null)
     {
-        $this->busyPersonalVideoFile = LabeledFileResource $busyPersonalVideoFile;
+        $this->busyPersonalVideoFile =  $busyPersonalVideoFile;
     }
 
     /**
@@ -168,7 +168,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
      */
     public function setNoAnswerPersonalAudioFile(LabeledFileResource $noAnswerPersonalAudioFile = null)
     {
-        $this->noAnswerPersonalAudioFile = LabeledFileResource $noAnswerPersonalAudioFile;
+        $this->noAnswerPersonalAudioFile =  $noAnswerPersonalAudioFile;
     }
 
     /**
@@ -186,7 +186,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
      */
     public function setNoAnswerPersonalVideoFile(LabeledFileResource $noAnswerPersonalVideoFile = null)
     {
-        $this->noAnswerPersonalVideoFile = LabeledFileResource $noAnswerPersonalVideoFile;
+        $this->noAnswerPersonalVideoFile =  $noAnswerPersonalVideoFile;
     }
 
     /**
@@ -204,7 +204,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
      */
     public function setNoAnswerAlternateGreeting01(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01 = null)
     {
-        $this->noAnswerAlternateGreeting01 = VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01;
+        $this->noAnswerAlternateGreeting01 =  $noAnswerAlternateGreeting01;
     }
 
     /**
@@ -222,7 +222,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
      */
     public function setNoAnswerAlternateGreeting02(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02 = null)
     {
-        $this->noAnswerAlternateGreeting02 = VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02;
+        $this->noAnswerAlternateGreeting02 =  $noAnswerAlternateGreeting02;
     }
 
     /**
@@ -240,7 +240,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
      */
     public function setNoAnswerAlternateGreeting03(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03 = null)
     {
-        $this->noAnswerAlternateGreeting03 = VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03;
+        $this->noAnswerAlternateGreeting03 =  $noAnswerAlternateGreeting03;
     }
 
     /**

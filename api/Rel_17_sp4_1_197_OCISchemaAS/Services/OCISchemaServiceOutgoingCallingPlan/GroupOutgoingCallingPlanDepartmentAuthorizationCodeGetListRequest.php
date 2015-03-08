@@ -30,7 +30,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends 
     public function __construct(
          $serviceProviderId,
          $groupId,
-         DepartmentKey $departmentKey = null
+          $departmentKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -88,7 +88,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends 
      */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        $this->departmentKey = DepartmentKey $departmentKey;
+        $this->departmentKey =  $departmentKey;
     }
 
     /**

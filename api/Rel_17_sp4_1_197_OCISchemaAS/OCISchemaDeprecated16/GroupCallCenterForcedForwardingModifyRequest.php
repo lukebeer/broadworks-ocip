@@ -39,9 +39,9 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
          $allowEnableViaFAC = null,
          $playAnnouncementBeforeForwarding = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+          $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setIsActive($isActive);
@@ -184,7 +184,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -220,7 +220,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

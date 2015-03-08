@@ -28,8 +28,8 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
 
     public function __construct(
          $serviceProviderId,
-         GroupServiceAuthorization $groupServiceAuthorization = null,
-         UserServiceAuthorization $userServiceAuthorization = null
+          $groupServiceAuthorization = null,
+          $userServiceAuthorization = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupServiceAuthorization($groupServiceAuthorization);
@@ -61,7 +61,7 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
      */
     public function setGroupServiceAuthorization(GroupServiceAuthorization $groupServiceAuthorization = null)
     {
-        $this->groupServiceAuthorization = GroupServiceAuthorization $groupServiceAuthorization;
+        $this->groupServiceAuthorization =  $groupServiceAuthorization;
     }
 
     /**
@@ -77,7 +77,7 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
      */
     public function setUserServiceAuthorization(UserServiceAuthorization $userServiceAuthorization = null)
     {
-        $this->userServiceAuthorization = UserServiceAuthorization $userServiceAuthorization;
+        $this->userServiceAuthorization =  $userServiceAuthorization;
     }
 
     /**

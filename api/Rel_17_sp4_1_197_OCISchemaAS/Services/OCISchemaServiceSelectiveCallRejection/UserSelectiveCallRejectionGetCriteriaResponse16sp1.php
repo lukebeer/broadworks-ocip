@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionGetCriteriaResponse16sp1';
     public    $name            = __CLASS__;
     protected $timeSchedule    = null;
     protected $fromDnCriteria  = null;
@@ -34,7 +33,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -50,7 +49,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setFromDnCriteria(SelectiveCallRejectionCriteriaCallType $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = SelectiveCallRejectionCriteriaCallType $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**
@@ -82,7 +81,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**

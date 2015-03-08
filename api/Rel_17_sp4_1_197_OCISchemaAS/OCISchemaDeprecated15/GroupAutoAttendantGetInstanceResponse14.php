@@ -23,7 +23,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupAutoAttendantGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupAutoAttendantGetInstanceResponse14';
     public    $name                   = __CLASS__;
     protected $serviceInstanceProfile = null;
     protected $enableVideo            = null;
@@ -43,7 +42,7 @@ class GroupAutoAttendantGetInstanceResponse14 extends ComplexType implements Com
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**
@@ -168,7 +167,7 @@ class GroupAutoAttendantGetInstanceResponse14 extends ComplexType implements Com
      */
     public function setBusinessHoursMenu(AutoAttendantReadMenu $businessHoursMenu = null)
     {
-        $this->businessHoursMenu = AutoAttendantReadMenu $businessHoursMenu;
+        $this->businessHoursMenu =  $businessHoursMenu;
     }
 
     /**
@@ -186,7 +185,7 @@ class GroupAutoAttendantGetInstanceResponse14 extends ComplexType implements Com
      */
     public function setAfterHoursMenu(AutoAttendantReadMenu $afterHoursMenu = null)
     {
-        $this->afterHoursMenu = AutoAttendantReadMenu $afterHoursMenu;
+        $this->afterHoursMenu =  $afterHoursMenu;
     }
 
     /**

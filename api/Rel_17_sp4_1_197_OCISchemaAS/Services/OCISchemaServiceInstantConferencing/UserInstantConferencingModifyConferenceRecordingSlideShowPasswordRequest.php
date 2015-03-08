@@ -29,7 +29,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
 
     public function __construct(
          $userId,
-         InstantConferencingRecordingKey $recordingKey,
+          $recordingKey,
          $recordingCallId,
          $slideShowPassword = null
     ) {
@@ -70,7 +70,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        $this->recordingKey = InstantConferencingRecordingKey $recordingKey;
+        $this->recordingKey =  $recordingKey;
     }
 
     /**

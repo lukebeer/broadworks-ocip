@@ -37,7 +37,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
          $groupId,
          $groupDepartmentName = null,
          $responseSizeLimit = null,
-         SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null
+          $searchCriteriaRoutePointName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -133,7 +133,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaRoutePointName(SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null)
     {
-        $this->searchCriteriaRoutePointName = SearchCriteriaRoutePointName $searchCriteriaRoutePointName;
+        $this->searchCriteriaRoutePointName =  $searchCriteriaRoutePointName;
     }
 
     /**

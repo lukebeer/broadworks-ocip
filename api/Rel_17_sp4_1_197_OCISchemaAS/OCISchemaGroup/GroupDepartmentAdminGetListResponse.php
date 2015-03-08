@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDepartmentAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetListResponse';
     public    $name                 = __CLASS__;
     protected $departmentAdminTable = null;
 
@@ -29,7 +28,7 @@ class GroupDepartmentAdminGetListResponse extends ComplexType implements Complex
      */
     public function setDepartmentAdminTable(core:OCITable $departmentAdminTable = null)
     {
-        $this->departmentAdminTable = core:OCITable $departmentAdminTable;
+        $this->departmentAdminTable =  $departmentAdminTable;
     }
 
     /**

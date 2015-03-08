@@ -50,7 +50,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
          $reservedUserTerminatingSessions = null,
          $becomeDefaultGroup = null,
          $countIntraSACGroupSessions = null,
-         ReplacementDeviceList $deviceList = null
+          $deviceList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -293,7 +293,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setDeviceList(ReplacementDeviceList $deviceList = null)
     {
-        $this->deviceList = ReplacementDeviceList $deviceList;
+        $this->deviceList =  $deviceList;
     }
 
     /**

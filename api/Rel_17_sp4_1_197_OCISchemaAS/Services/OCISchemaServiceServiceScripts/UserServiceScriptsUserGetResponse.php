@@ -17,7 +17,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\UserServiceScriptsUserGetResponse';
     public    $name          = __CLASS__;
     protected $isActive      = null;
     protected $scriptName    = null;
@@ -63,7 +62,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
      */
     public function setScriptContent(xs:base64Binary $scriptContent = null)
     {
-        $this->scriptContent = xs:base64Binary $scriptContent;
+        $this->scriptContent =  $scriptContent;
     }
 
     /**

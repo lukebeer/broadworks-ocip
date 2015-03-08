@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetAvailableBridgeDelegatesListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse';
     public    $name      = __CLASS__;
     protected $userTable = null;
 
@@ -30,7 +29,7 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListResponse extends Com
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable = core:OCITable $userTable;
+        $this->userTable =  $userTable;
     }
 
     /**

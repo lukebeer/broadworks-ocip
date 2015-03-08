@@ -25,7 +25,7 @@ class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterf
     protected $eventName   = null;
 
     public function __construct(
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName
     ) {
         $this->setScheduleKey($scheduleKey);
@@ -37,7 +37,7 @@ class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterf
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

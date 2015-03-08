@@ -34,11 +34,11 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
     public function __construct(
          $serviceProviderId,
          $groupId,
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName,
          $startDate,
          $endDate,
-         Recurrence $recurrence = null
+          $recurrence = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -94,7 +94,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**
@@ -128,7 +128,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate = xs:date $startDate;
+        $this->startDate =  $startDate;
     }
 
     /**
@@ -144,7 +144,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate = xs:date $endDate;
+        $this->endDate =  $endDate;
     }
 
     /**
@@ -160,7 +160,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        $this->recurrence = Recurrence $recurrence;
+        $this->recurrence =  $recurrence;
     }
 
     /**

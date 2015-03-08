@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetDefaultResponse';
     public    $name                       = __CLASS__;
     protected $policySelection            = null;
     protected $digitManipulationOperation = null;
@@ -89,7 +88,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function setTreatment(EnterpriseVoiceVPNTreatmentEntry $treatment = null)
     {
-        $this->treatment = EnterpriseVoiceVPNTreatmentEntry $treatment;
+        $this->treatment =  $treatment;
     }
 
     /**

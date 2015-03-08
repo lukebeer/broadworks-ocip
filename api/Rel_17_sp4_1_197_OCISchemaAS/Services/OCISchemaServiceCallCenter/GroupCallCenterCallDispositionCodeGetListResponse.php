@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterCallDispositionCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCallDispositionCodeGetListResponse';
     public    $name                  = __CLASS__;
     protected $dispositionCodesTable = null;
 
@@ -28,7 +27,7 @@ class GroupCallCenterCallDispositionCodeGetListResponse extends ComplexType impl
      */
     public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
     {
-        $this->dispositionCodesTable = core:OCITable $dispositionCodesTable;
+        $this->dispositionCodesTable =  $dispositionCodesTable;
     }
 
     /**

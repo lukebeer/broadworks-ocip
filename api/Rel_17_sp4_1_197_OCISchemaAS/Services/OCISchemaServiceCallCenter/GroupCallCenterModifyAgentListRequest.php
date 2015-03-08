@@ -25,7 +25,7 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
 
     public function __construct(
          $serviceUserId,
-         ReplacementUserIdList $agentUserIdList = null
+          $agentUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentUserIdList($agentUserIdList);
@@ -63,7 +63,7 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
      */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        $this->agentUserIdList = ReplacementUserIdList $agentUserIdList;
+        $this->agentUserIdList =  $agentUserIdList;
     }
 
     /**

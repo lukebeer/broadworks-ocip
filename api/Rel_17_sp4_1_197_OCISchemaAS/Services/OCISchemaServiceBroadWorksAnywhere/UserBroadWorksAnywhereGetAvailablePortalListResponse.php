@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetAvailablePortalListResponse';
     public    $name        = __CLASS__;
     protected $portalTable = null;
 
@@ -28,7 +27,7 @@ class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType i
      */
     public function setPortalTable(core:OCITable $portalTable = null)
     {
-        $this->portalTable = core:OCITable $portalTable;
+        $this->portalTable =  $portalTable;
     }
 
     /**

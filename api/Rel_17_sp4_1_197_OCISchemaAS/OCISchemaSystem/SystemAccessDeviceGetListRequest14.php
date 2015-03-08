@@ -34,10 +34,10 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null
+          $searchCriteriaDeviceName = null,
+          $searchCriteriaDeviceMACAddress = null,
+          $searchCriteriaDeviceNetAddress = null,
+          $searchCriteriaExactDeviceType = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaDeviceName($searchCriteriaDeviceName);
@@ -73,7 +73,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName = SearchCriteriaDeviceName $searchCriteriaDeviceName;
+        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
     }
 
     /**
@@ -89,7 +89,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress = SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress;
+        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
     }
 
     /**
@@ -105,7 +105,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress = SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress;
+        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
     }
 
     /**
@@ -121,7 +121,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        $this->searchCriteriaExactDeviceType = SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType;
+        $this->searchCriteriaExactDeviceType =  $searchCriteriaExactDeviceType;
     }
 
     /**

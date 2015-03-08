@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemZoneCallingRestrictionsZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsZoneGetListResponse';
     public    $name      = __CLASS__;
     protected $zoneTable = null;
 
@@ -29,7 +28,7 @@ class SystemZoneCallingRestrictionsZoneGetListResponse extends ComplexType imple
      */
     public function setZoneTable(core:OCITable $zoneTable = null)
     {
-        $this->zoneTable = core:OCITable $zoneTable;
+        $this->zoneTable =  $zoneTable;
     }
 
     /**

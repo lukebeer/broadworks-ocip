@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderRoutePointExternalSystemGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedListResponse';
     public    $name                = __CLASS__;
     protected $externalSystemTable = null;
 
@@ -29,7 +28,7 @@ class ServiceProviderRoutePointExternalSystemGetAssignedListResponse extends Com
      */
     public function setExternalSystemTable(core:OCITable $externalSystemTable = null)
     {
-        $this->externalSystemTable = core:OCITable $externalSystemTable;
+        $this->externalSystemTable =  $externalSystemTable;
     }
 
     /**

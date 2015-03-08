@@ -33,7 +33,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     public function __construct(
          $conferenceOwnerUserId,
-         InstantConferencingConferenceKey $conferenceKey,
+          $conferenceKey,
          $conferenceCallId,
          $action,
          $phoneNumber,
@@ -78,7 +78,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey = InstantConferencingConferenceKey $conferenceKey;
+        $this->conferenceKey =  $conferenceKey;
     }
 
     /**

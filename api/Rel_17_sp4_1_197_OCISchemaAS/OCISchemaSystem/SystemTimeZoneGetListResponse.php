@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTimeZoneGetListResponse';
     public    $name          = __CLASS__;
     protected $timeZoneTable = null;
 
@@ -28,7 +27,7 @@ class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterf
      */
     public function setTimeZoneTable(core:OCITable $timeZoneTable = null)
     {
-        $this->timeZoneTable = core:OCITable $timeZoneTable;
+        $this->timeZoneTable =  $timeZoneTable;
     }
 
     /**

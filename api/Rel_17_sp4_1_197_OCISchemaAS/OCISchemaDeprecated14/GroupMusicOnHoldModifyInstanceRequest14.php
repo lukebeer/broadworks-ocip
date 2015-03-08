@@ -38,14 +38,14 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
     public function __construct(
          $serviceProviderId,
          $groupId,
-         DepartmentKey $department = null,
+          $department = null,
          $isActiveDuringCallHold = null,
          $isActiveDuringCallPark = null,
          $isActiveDuringBusyCampOn = null,
          $messageSelection = null,
-         AccessDeviceEndpointModify $accessDeviceEndpoint = null,
-         LabeledFileResource $audioFile = null,
-         LabeledFileResource $videoFile = null
+          $accessDeviceEndpoint = null,
+          $audioFile = null,
+          $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -110,7 +110,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -198,7 +198,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointModify $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointModify $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**
@@ -215,7 +215,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $this->audioFile = LabeledFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -233,7 +233,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $this->videoFile = LabeledFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

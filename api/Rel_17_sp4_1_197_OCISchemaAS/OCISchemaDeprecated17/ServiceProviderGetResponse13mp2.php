@@ -22,7 +22,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderGetResponse13mp2';
     public    $name                = __CLASS__;
     protected $defaultDomain       = null;
     protected $serviceProviderName = null;
@@ -90,7 +89,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
      */
     public function setContact(Contact $contact = null)
     {
-        $this->contact = Contact $contact;
+        $this->contact =  $contact;
     }
 
     /**
@@ -106,7 +105,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

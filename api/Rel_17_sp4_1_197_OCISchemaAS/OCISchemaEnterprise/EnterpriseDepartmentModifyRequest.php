@@ -30,7 +30,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
          $enterpriseId,
          $departmentName,
          $newDepartmentName = null,
-         EnterpriseDepartmentKey $newParentDepartmentKey = null
+          $newParentDepartmentKey = null
     ) {
         $this->setEnterpriseId($enterpriseId);
         $this->setDepartmentName($departmentName);
@@ -105,7 +105,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function setNewParentDepartmentKey(EnterpriseDepartmentKey $newParentDepartmentKey = null)
     {
-        $this->newParentDepartmentKey = EnterpriseDepartmentKey $newParentDepartmentKey;
+        $this->newParentDepartmentKey =  $newParentDepartmentKey;
     }
 
     /**

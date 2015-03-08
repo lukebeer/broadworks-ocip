@@ -34,10 +34,10 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
+          $timeSchedule = null,
          $forwardToNumberSelection,
          $forwardToPhoneNumber = null,
-         CriteriaFromDn $fromDnCriteria
+          $fromDnCriteria
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -96,7 +96,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -162,7 +162,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**

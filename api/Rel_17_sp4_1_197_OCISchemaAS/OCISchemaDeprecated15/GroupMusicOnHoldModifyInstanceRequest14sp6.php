@@ -36,13 +36,13 @@ class GroupMusicOnHoldModifyInstanceRequest14sp6 extends ComplexType implements 
     public function __construct(
          $serviceProviderId,
          $groupId,
-         DepartmentKey $department = null,
+          $department = null,
          $isActiveDuringCallHold = null,
          $isActiveDuringCallPark = null,
          $isActiveDuringBusyCampOn = null,
-         MusicOnHoldSourceModify $source = null,
+          $source = null,
          $useAlternateSourceForInternalCalls = null,
-         MusicOnHoldSourceModify $internalSource = null
+          $internalSource = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -106,7 +106,7 @@ class GroupMusicOnHoldModifyInstanceRequest14sp6 extends ComplexType implements 
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -176,7 +176,7 @@ class GroupMusicOnHoldModifyInstanceRequest14sp6 extends ComplexType implements 
      */
     public function setSource(MusicOnHoldSourceModify $source = null)
     {
-        $this->source = MusicOnHoldSourceModify $source;
+        $this->source =  $source;
     }
 
     /**
@@ -208,7 +208,7 @@ class GroupMusicOnHoldModifyInstanceRequest14sp6 extends ComplexType implements 
      */
     public function setInternalSource(MusicOnHoldSourceModify $internalSource = null)
     {
-        $this->internalSource = MusicOnHoldSourceModify $internalSource;
+        $this->internalSource =  $internalSource;
     }
 
     /**

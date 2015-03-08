@@ -21,7 +21,7 @@ class UnscreenedPresentationIdentityPolicy extends SimpleType
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = (string);
+        $this->dataType = "string";
         $this->addRestriction(new Enumeration([
             'Profile Presentation Identity',
             'Unscreened Presentation Identity',

@@ -25,7 +25,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCallCenterGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterGetInstanceResponse16';
     public    $name                                = __CLASS__;
     protected $serviceInstanceProfile              = null;
     protected $type                                = null;
@@ -55,7 +54,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

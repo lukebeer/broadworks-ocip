@@ -26,7 +26,7 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
 
     public function __construct(
          $userId,
-         AccessDeviceEndpointKey $accessDeviceEndpoint
+          $accessDeviceEndpoint
     ) {
         $this->setUserId($userId);
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
@@ -63,7 +63,7 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointKey $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint = AccessDeviceEndpointKey $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
     }
 
     /**

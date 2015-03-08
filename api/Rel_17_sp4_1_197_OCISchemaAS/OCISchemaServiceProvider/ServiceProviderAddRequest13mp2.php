@@ -36,8 +36,8 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
          $defaultDomain,
          $serviceProviderName = null,
          $supportEmail = null,
-         Contact $contact = null,
-         StreetAddress $address = null
+          $contact = null,
+          $address = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDefaultDomain($defaultDomain);
@@ -126,7 +126,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setContact(Contact $contact = null)
     {
-        $this->contact = Contact $contact;
+        $this->contact =  $contact;
     }
 
     /**
@@ -142,7 +142,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address = StreetAddress $address;
+        $this->address =  $address;
     }
 
     /**

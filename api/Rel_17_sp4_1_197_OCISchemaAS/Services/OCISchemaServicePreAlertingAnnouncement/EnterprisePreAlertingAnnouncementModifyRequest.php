@@ -36,9 +36,9 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
          $announcementInterruption = null,
          $interruptionDigitSequence = null,
          $audioSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+          $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setAnnouncementInterruption($announcementInterruption);
@@ -131,7 +131,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -167,7 +167,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**

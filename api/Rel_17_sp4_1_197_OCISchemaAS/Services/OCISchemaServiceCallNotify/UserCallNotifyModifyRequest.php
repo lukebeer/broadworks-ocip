@@ -28,7 +28,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
     public function __construct(
          $userId,
          $callNotifyEmailAddress = null,
-         CriteriaActivation $criteriaActivation = null
+          $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setCallNotifyEmailAddress($callNotifyEmailAddress);
@@ -84,7 +84,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $this->criteriaActivation = CriteriaActivation $criteriaActivation;
+        $this->criteriaActivation =  $criteriaActivation;
     }
 
     /**

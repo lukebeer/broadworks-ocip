@@ -46,7 +46,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
          $endConferenceOnModeratorExit,
          $moderatorRequired,
          $attendeeNotification,
-         MeetMeConferencingConferenceSchedule $conferenceSchedule
+          $conferenceSchedule
     ) {
         $this->setUserId($userId);
         $this->setBridgeId($bridgeId);
@@ -237,7 +237,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function setConferenceSchedule(MeetMeConferencingConferenceSchedule $conferenceSchedule = null)
     {
-        $this->conferenceSchedule = MeetMeConferencingConferenceSchedule $conferenceSchedule;
+        $this->conferenceSchedule =  $conferenceSchedule;
     }
 
     /**

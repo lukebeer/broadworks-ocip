@@ -29,8 +29,8 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
     public function __construct(
          $serviceProviderId,
          $groupId,
-         UnboundedNonNegativeInt $maxActiveCalls = null,
-         UnboundedNonNegativeInt $burstingMaxActiveCalls = null
+          $maxActiveCalls = null,
+          $burstingMaxActiveCalls = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -83,7 +83,7 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        $this->maxActiveCalls = UnboundedNonNegativeInt $maxActiveCalls;
+        $this->maxActiveCalls =  $maxActiveCalls;
     }
 
     /**
@@ -99,7 +99,7 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        $this->burstingMaxActiveCalls = UnboundedNonNegativeInt $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls =  $burstingMaxActiveCalls;
     }
 
     /**

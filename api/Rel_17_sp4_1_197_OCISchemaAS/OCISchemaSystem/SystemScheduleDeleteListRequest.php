@@ -22,7 +22,7 @@ class SystemScheduleDeleteListRequest extends ComplexType implements ComplexInte
     protected $scheduleKey = null;
 
     public function __construct(
-         ScheduleKey $scheduleKey
+          $scheduleKey
     ) {
         $this->setScheduleKey($scheduleKey);
     }
@@ -32,7 +32,7 @@ class SystemScheduleDeleteListRequest extends ComplexType implements ComplexInte
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

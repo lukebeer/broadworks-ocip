@@ -31,7 +31,7 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
     public function __construct(
          $serviceProviderId,
          $announcementMessageSelection = null,
-         LabeledFileResource $confirmationMessageAudioFile = null,
+          $confirmationMessageAudioFile = null,
          $confirmationTimoutSeconds = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -84,7 +84,7 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
      */
     public function setConfirmationMessageAudioFile(LabeledFileResource $confirmationMessageAudioFile = null)
     {
-        $this->confirmationMessageAudioFile = LabeledFileResource $confirmationMessageAudioFile;
+        $this->confirmationMessageAudioFile =  $confirmationMessageAudioFile;
     }
 
     /**

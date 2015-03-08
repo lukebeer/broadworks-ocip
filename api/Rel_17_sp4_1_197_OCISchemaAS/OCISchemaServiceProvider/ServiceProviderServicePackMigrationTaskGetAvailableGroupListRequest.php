@@ -32,8 +32,8 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extend
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null
+          $searchCriteriaGroupId = null,
+          $searchCriteriaGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -88,7 +88,7 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extend
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId = SearchCriteriaGroupId $searchCriteriaGroupId;
+        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
     }
 
     /**
@@ -104,7 +104,7 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extend
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $this->searchCriteriaGroupName = SearchCriteriaGroupName $searchCriteriaGroupName;
+        $this->searchCriteriaGroupName =  $searchCriteriaGroupName;
     }
 
     /**

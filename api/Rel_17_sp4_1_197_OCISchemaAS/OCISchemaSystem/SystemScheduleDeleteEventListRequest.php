@@ -24,7 +24,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
     protected $eventName   = null;
 
     public function __construct(
-         ScheduleKey $scheduleKey,
+          $scheduleKey,
          $eventName
     ) {
         $this->setScheduleKey($scheduleKey);
@@ -36,7 +36,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey = ScheduleKey $scheduleKey;
+        $this->scheduleKey =  $scheduleKey;
     }
 
     /**

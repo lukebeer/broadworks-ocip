@@ -25,7 +25,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
 
     public function __construct(
          $serviceProviderId,
-         CallDispositionCodeActivation $callDispositionCodeActivation = null
+          $callDispositionCodeActivation = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCallDispositionCodeActivation($callDispositionCodeActivation);
@@ -56,7 +56,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
      */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        $this->callDispositionCodeActivation = CallDispositionCodeActivation $callDispositionCodeActivation;
+        $this->callDispositionCodeActivation =  $callDispositionCodeActivation;
     }
 
     /**

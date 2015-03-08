@@ -48,7 +48,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupTrunkGroupGetInstanceResponse17sp3';
     public    $name                                       = __CLASS__;
     protected $pilotUserId                                = null;
     protected $department                                 = null;
@@ -136,7 +135,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department = DepartmentKey $department;
+        $this->department =  $department;
     }
 
     /**
@@ -158,7 +157,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice = AccessDevice $accessDevice;
+        $this->accessDevice =  $accessDevice;
     }
 
     /**
@@ -349,7 +348,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function setCapacityExceededRerouteTrunkGroupKey(TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null)
     {
-        $this->capacityExceededRerouteTrunkGroupKey = TrunkGroupKey $capacityExceededRerouteTrunkGroupKey;
+        $this->capacityExceededRerouteTrunkGroupKey =  $capacityExceededRerouteTrunkGroupKey;
     }
 
     /**
@@ -455,7 +454,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function setUnreachableDestinationRerouteTrunkGroupKey(TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null)
     {
-        $this->unreachableDestinationRerouteTrunkGroupKey = TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey;
+        $this->unreachableDestinationRerouteTrunkGroupKey =  $unreachableDestinationRerouteTrunkGroupKey;
     }
 
     /**
@@ -524,7 +523,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function setHostedUserTable(core:OCITable $hostedUserTable = null)
     {
-        $this->hostedUserTable = core:OCITable $hostedUserTable;
+        $this->hostedUserTable =  $hostedUserTable;
     }
 
     /**
@@ -757,7 +756,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function setCallForwardingAlwaysRerouteTrunkGroupKey(TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null)
     {
-        $this->callForwardingAlwaysRerouteTrunkGroupKey = TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey;
+        $this->callForwardingAlwaysRerouteTrunkGroupKey =  $callForwardingAlwaysRerouteTrunkGroupKey;
     }
 
     /**

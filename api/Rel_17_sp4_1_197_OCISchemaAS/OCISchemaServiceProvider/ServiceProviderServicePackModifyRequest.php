@@ -35,7 +35,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
          $newServicePackName = null,
          $servicePackDescription = null,
          $isAvailableForUse = null,
-         UnboundedPositiveInt $servicePackQuantity = null
+          $servicePackQuantity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServicePackName($servicePackName);
@@ -140,7 +140,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        $this->servicePackQuantity = UnboundedPositiveInt $servicePackQuantity;
+        $this->servicePackQuantity =  $servicePackQuantity;
     }
 
     /**

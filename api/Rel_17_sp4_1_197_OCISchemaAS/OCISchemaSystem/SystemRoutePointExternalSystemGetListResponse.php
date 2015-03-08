@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemRoutePointExternalSystemGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetListResponse';
     public    $name                = __CLASS__;
     protected $externalSystemTable = null;
 
@@ -30,7 +29,7 @@ class SystemRoutePointExternalSystemGetListResponse extends ComplexType implemen
      */
     public function setExternalSystemTable(core:OCITable $externalSystemTable = null)
     {
-        $this->externalSystemTable = core:OCITable $externalSystemTable;
+        $this->externalSystemTable =  $externalSystemTable;
     }
 
     /**

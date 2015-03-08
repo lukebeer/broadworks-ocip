@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupVoiceMessagingGroupGetVoicePortalResponse14';
     public    $name                                                      = __CLASS__;
     protected $serviceUserId                                             = null;
     protected $serviceInstanceProfile                                    = null;
@@ -66,7 +65,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceReadProfile $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

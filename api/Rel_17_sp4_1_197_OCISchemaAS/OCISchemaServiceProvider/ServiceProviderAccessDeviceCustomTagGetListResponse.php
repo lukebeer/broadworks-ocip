@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderAccessDeviceCustomTagGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceCustomTagGetListResponse';
     public    $name                  = __CLASS__;
     protected $deviceCustomTagsTable = null;
 
@@ -29,7 +28,7 @@ class ServiceProviderAccessDeviceCustomTagGetListResponse extends ComplexType im
      */
     public function setDeviceCustomTagsTable(core:OCITable $deviceCustomTagsTable = null)
     {
-        $this->deviceCustomTagsTable = core:OCITable $deviceCustomTagsTable;
+        $this->deviceCustomTagsTable =  $deviceCustomTagsTable;
     }
 
     /**

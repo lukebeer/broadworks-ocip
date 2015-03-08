@@ -18,7 +18,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class ServiceProviderTrunkGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderTrunkGroupGetResponse';
     public    $name           = __CLASS__;
     protected $maxActiveCalls = null;
 
@@ -28,7 +27,7 @@ class ServiceProviderTrunkGroupGetResponse extends ComplexType implements Comple
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        $this->maxActiveCalls = UnboundedNonNegativeInt $maxActiveCalls;
+        $this->maxActiveCalls =  $maxActiveCalls;
     }
 
     /**

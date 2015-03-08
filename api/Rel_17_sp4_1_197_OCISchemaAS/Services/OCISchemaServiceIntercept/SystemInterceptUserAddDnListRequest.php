@@ -22,7 +22,7 @@ class SystemInterceptUserAddDnListRequest extends ComplexType implements Complex
     protected $interceptDNList = null;
 
     public function __construct(
-         InterceptDNListEntry $interceptDNList = null
+          $interceptDNList = null
     ) {
         $this->setInterceptDNList($interceptDNList);
     }
@@ -32,7 +32,7 @@ class SystemInterceptUserAddDnListRequest extends ComplexType implements Complex
      */
     public function setInterceptDNList(InterceptDNListEntry $interceptDNList = null)
     {
-        $this->interceptDNList = InterceptDNListEntry $interceptDNList;
+        $this->interceptDNList =  $interceptDNList;
     }
 
     /**

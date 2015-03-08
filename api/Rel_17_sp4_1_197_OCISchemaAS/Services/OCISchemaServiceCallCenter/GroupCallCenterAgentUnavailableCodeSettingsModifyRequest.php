@@ -41,7 +41,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
          $defaultAgentUnavailableCodeOnConsecutiveBounces = null,
          $forceUseOfAgentUnavailableCodes = null,
          $defaultAgentUnavailableCode = null,
-         CallCenterAgentUnavailableCodeStateModify $codeStateList = null
+          $codeStateList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -203,7 +203,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
      */
     public function setCodeStateList(CallCenterAgentUnavailableCodeStateModify $codeStateList = null)
     {
-        $this->codeStateList = CallCenterAgentUnavailableCodeStateModify $codeStateList;
+        $this->codeStateList =  $codeStateList;
     }
 
     /**

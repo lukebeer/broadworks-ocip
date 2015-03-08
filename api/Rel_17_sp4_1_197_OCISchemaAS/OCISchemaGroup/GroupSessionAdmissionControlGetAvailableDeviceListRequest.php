@@ -40,11 +40,11 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null,
-         SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel = null
+          $searchCriteriaDeviceName = null,
+          $searchCriteriaDeviceMACAddress = null,
+          $searchCriteriaDeviceNetAddress = null,
+          $searchCriteriaExactDeviceType = null,
+          $searchCriteriaExactDeviceLevel = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -123,7 +123,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName = SearchCriteriaDeviceName $searchCriteriaDeviceName;
+        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
     }
 
     /**
@@ -139,7 +139,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress = SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress;
+        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
     }
 
     /**
@@ -155,7 +155,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress = SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress;
+        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
     }
 
     /**
@@ -171,7 +171,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        $this->searchCriteriaExactDeviceType = SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType;
+        $this->searchCriteriaExactDeviceType =  $searchCriteriaExactDeviceType;
     }
 
     /**
@@ -187,7 +187,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaExactDeviceLevel(SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel = null)
     {
-        $this->searchCriteriaExactDeviceLevel = SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel;
+        $this->searchCriteriaExactDeviceLevel =  $searchCriteriaExactDeviceLevel;
     }
 
     /**

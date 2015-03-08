@@ -31,7 +31,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
          $serviceProviderId,
          $groupId,
          $routingPolicy = null,
-         CallCenterRoutingPriorityOrder $routingPriorityOrder = null
+          $routingPriorityOrder = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -102,7 +102,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function setRoutingPriorityOrder(CallCenterRoutingPriorityOrder $routingPriorityOrder = null)
     {
-        $this->routingPriorityOrder = CallCenterRoutingPriorityOrder $routingPriorityOrder;
+        $this->routingPriorityOrder =  $routingPriorityOrder;
     }
 
     /**

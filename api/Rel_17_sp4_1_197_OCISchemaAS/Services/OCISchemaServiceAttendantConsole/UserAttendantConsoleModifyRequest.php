@@ -33,8 +33,8 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
          $launchOnLogin = null,
          $allowUserConfigCallDetails = null,
          $allowUserViewCallDetails = null,
-         AttendantConsoleReplacementDisplayColumnList $displayColumnList = null,
-         ReplacementUserIdList $monitoredUserIdList = null
+          $displayColumnList = null,
+          $monitoredUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setLaunchOnLogin($launchOnLogin);
@@ -124,7 +124,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function setDisplayColumnList(AttendantConsoleReplacementDisplayColumnList $displayColumnList = null)
     {
-        $this->displayColumnList = AttendantConsoleReplacementDisplayColumnList $displayColumnList;
+        $this->displayColumnList =  $displayColumnList;
     }
 
     /**
@@ -142,7 +142,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function setMonitoredUserIdList(ReplacementUserIdList $monitoredUserIdList = null)
     {
-        $this->monitoredUserIdList = ReplacementUserIdList $monitoredUserIdList;
+        $this->monitoredUserIdList =  $monitoredUserIdList;
     }
 
     /**

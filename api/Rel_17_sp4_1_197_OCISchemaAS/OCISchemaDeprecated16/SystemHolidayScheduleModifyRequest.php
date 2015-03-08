@@ -46,26 +46,26 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
     public function __construct(
          $holidayScheduleName,
          $newHolidayScheduleName = null,
-         Holiday $holiday01 = null,
-         Holiday $holiday02 = null,
-         Holiday $holiday03 = null,
-         Holiday $holiday04 = null,
-         Holiday $holiday05 = null,
-         Holiday $holiday06 = null,
-         Holiday $holiday07 = null,
-         Holiday $holiday08 = null,
-         Holiday $holiday09 = null,
-         Holiday $holiday10 = null,
-         Holiday $holiday11 = null,
-         Holiday $holiday12 = null,
-         Holiday $holiday13 = null,
-         Holiday $holiday14 = null,
-         Holiday $holiday15 = null,
-         Holiday $holiday16 = null,
-         Holiday $holiday17 = null,
-         Holiday $holiday18 = null,
-         Holiday $holiday19 = null,
-         Holiday $holiday20 = null
+          $holiday01 = null,
+          $holiday02 = null,
+          $holiday03 = null,
+          $holiday04 = null,
+          $holiday05 = null,
+          $holiday06 = null,
+          $holiday07 = null,
+          $holiday08 = null,
+          $holiday09 = null,
+          $holiday10 = null,
+          $holiday11 = null,
+          $holiday12 = null,
+          $holiday13 = null,
+          $holiday14 = null,
+          $holiday15 = null,
+          $holiday16 = null,
+          $holiday17 = null,
+          $holiday18 = null,
+          $holiday19 = null,
+          $holiday20 = null
     ) {
         $this->setHolidayScheduleName($holidayScheduleName);
         $this->setNewHolidayScheduleName($newHolidayScheduleName);
@@ -132,7 +132,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday01(Holiday $holiday01 = null)
     {
-        $this->holiday01 = Holiday $holiday01;
+        $this->holiday01 =  $holiday01;
     }
 
     /**
@@ -148,7 +148,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday02(Holiday $holiday02 = null)
     {
-        $this->holiday02 = Holiday $holiday02;
+        $this->holiday02 =  $holiday02;
     }
 
     /**
@@ -164,7 +164,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday03(Holiday $holiday03 = null)
     {
-        $this->holiday03 = Holiday $holiday03;
+        $this->holiday03 =  $holiday03;
     }
 
     /**
@@ -180,7 +180,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday04(Holiday $holiday04 = null)
     {
-        $this->holiday04 = Holiday $holiday04;
+        $this->holiday04 =  $holiday04;
     }
 
     /**
@@ -196,7 +196,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday05(Holiday $holiday05 = null)
     {
-        $this->holiday05 = Holiday $holiday05;
+        $this->holiday05 =  $holiday05;
     }
 
     /**
@@ -212,7 +212,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday06(Holiday $holiday06 = null)
     {
-        $this->holiday06 = Holiday $holiday06;
+        $this->holiday06 =  $holiday06;
     }
 
     /**
@@ -228,7 +228,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday07(Holiday $holiday07 = null)
     {
-        $this->holiday07 = Holiday $holiday07;
+        $this->holiday07 =  $holiday07;
     }
 
     /**
@@ -244,7 +244,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday08(Holiday $holiday08 = null)
     {
-        $this->holiday08 = Holiday $holiday08;
+        $this->holiday08 =  $holiday08;
     }
 
     /**
@@ -260,7 +260,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday09(Holiday $holiday09 = null)
     {
-        $this->holiday09 = Holiday $holiday09;
+        $this->holiday09 =  $holiday09;
     }
 
     /**
@@ -276,7 +276,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday10(Holiday $holiday10 = null)
     {
-        $this->holiday10 = Holiday $holiday10;
+        $this->holiday10 =  $holiday10;
     }
 
     /**
@@ -292,7 +292,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday11(Holiday $holiday11 = null)
     {
-        $this->holiday11 = Holiday $holiday11;
+        $this->holiday11 =  $holiday11;
     }
 
     /**
@@ -308,7 +308,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday12(Holiday $holiday12 = null)
     {
-        $this->holiday12 = Holiday $holiday12;
+        $this->holiday12 =  $holiday12;
     }
 
     /**
@@ -324,7 +324,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday13(Holiday $holiday13 = null)
     {
-        $this->holiday13 = Holiday $holiday13;
+        $this->holiday13 =  $holiday13;
     }
 
     /**
@@ -340,7 +340,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday14(Holiday $holiday14 = null)
     {
-        $this->holiday14 = Holiday $holiday14;
+        $this->holiday14 =  $holiday14;
     }
 
     /**
@@ -356,7 +356,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday15(Holiday $holiday15 = null)
     {
-        $this->holiday15 = Holiday $holiday15;
+        $this->holiday15 =  $holiday15;
     }
 
     /**
@@ -372,7 +372,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday16(Holiday $holiday16 = null)
     {
-        $this->holiday16 = Holiday $holiday16;
+        $this->holiday16 =  $holiday16;
     }
 
     /**
@@ -388,7 +388,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday17(Holiday $holiday17 = null)
     {
-        $this->holiday17 = Holiday $holiday17;
+        $this->holiday17 =  $holiday17;
     }
 
     /**
@@ -404,7 +404,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday18(Holiday $holiday18 = null)
     {
-        $this->holiday18 = Holiday $holiday18;
+        $this->holiday18 =  $holiday18;
     }
 
     /**
@@ -420,7 +420,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday19(Holiday $holiday19 = null)
     {
-        $this->holiday19 = Holiday $holiday19;
+        $this->holiday19 =  $holiday19;
     }
 
     /**
@@ -436,7 +436,7 @@ class SystemHolidayScheduleModifyRequest extends ComplexType implements ComplexI
      */
     public function setHoliday20(Holiday $holiday20 = null)
     {
-        $this->holiday20 = Holiday $holiday20;
+        $this->holiday20 =  $holiday20;
     }
 
     /**

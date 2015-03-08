@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOCIReportingGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingGetACLListResponse';
     public    $name                 = __CLASS__;
     protected $ociReportingACLTable = null;
 
@@ -29,7 +28,7 @@ class SystemOCIReportingGetACLListResponse extends ComplexType implements Comple
      */
     public function setOciReportingACLTable(core:OCITable $ociReportingACLTable = null)
     {
-        $this->ociReportingACLTable = core:OCITable $ociReportingACLTable;
+        $this->ociReportingACLTable =  $ociReportingACLTable;
     }
 
     /**

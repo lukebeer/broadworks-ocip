@@ -58,7 +58,7 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-         ServiceInstanceAddProfileCallCenter $serviceInstanceProfile,
+          $serviceInstanceProfile,
          $policy,
          $huntAfterNoAnswer,
          $noAnswerNumberOfRings,
@@ -174,7 +174,7 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfileCallCenter $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile = ServiceInstanceAddProfileCallCenter $serviceInstanceProfile;
+        $this->serviceInstanceProfile =  $serviceInstanceProfile;
     }
 
     /**

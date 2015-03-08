@@ -47,7 +47,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
          $reservedUserTerminatingSessions = null,
          $becomeDefaultGroup = null,
          $countIntraSACGroupSessions = null,
-         ReplacementEnterpriseDeviceList $deviceList = null
+          $deviceList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -269,7 +269,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
      */
     public function setDeviceList(ReplacementEnterpriseDeviceList $deviceList = null)
     {
-        $this->deviceList = ReplacementEnterpriseDeviceList $deviceList;
+        $this->deviceList =  $deviceList;
     }
 
     /**

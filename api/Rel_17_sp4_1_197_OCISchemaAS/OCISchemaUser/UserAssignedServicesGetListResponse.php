@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserAssignedServicesGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAssignedServicesGetListResponse';
     public    $name              = __CLASS__;
     protected $groupServiceEntry = null;
     protected $userServiceEntry  = null;
@@ -31,7 +30,7 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
      */
     public function setGroupServiceEntry(AssignedGroupServicesEntry $groupServiceEntry = null)
     {
-        $this->groupServiceEntry = AssignedGroupServicesEntry $groupServiceEntry;
+        $this->groupServiceEntry =  $groupServiceEntry;
     }
 
     /**
@@ -49,7 +48,7 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
      */
     public function setUserServiceEntry(AssignedUserServicesEntry $userServiceEntry = null)
     {
-        $this->userServiceEntry = AssignedUserServicesEntry $userServiceEntry;
+        $this->userServiceEntry =  $userServiceEntry;
     }
 
     /**

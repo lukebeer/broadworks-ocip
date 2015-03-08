@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemOfficeZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetListResponse';
     public    $name            = __CLASS__;
     protected $officeZoneTable = null;
 
@@ -29,7 +28,7 @@ class SystemOfficeZoneGetListResponse extends ComplexType implements ComplexInte
      */
     public function setOfficeZoneTable(core:OCITable $officeZoneTable = null)
     {
-        $this->officeZoneTable = core:OCITable $officeZoneTable;
+        $this->officeZoneTable =  $officeZoneTable;
     }
 
     /**

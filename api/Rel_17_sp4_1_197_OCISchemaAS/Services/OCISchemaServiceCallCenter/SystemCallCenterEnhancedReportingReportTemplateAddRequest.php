@@ -51,7 +51,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
          $description = null,
          $dataTemplate,
          $filterNumber = null,
-         LabeledFileResource $xsltTemplate,
+          $xsltTemplate,
          $scope,
          $isEnabled,
          $isRealtimeReport = null,
@@ -162,7 +162,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
      */
     public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        $this->xsltTemplate = LabeledFileResource $xsltTemplate;
+        $this->xsltTemplate =  $xsltTemplate;
     }
 
     /**

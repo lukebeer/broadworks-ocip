@@ -43,18 +43,18 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
     public function __construct(
          $userId,
          $criteriaName,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+          $timeSchedule = null,
+          $holidaySchedule = null,
          $blacklisted,
-         CriteriaFromDn $fromDnCriteria,
+          $fromDnCriteria,
          $audioSelection,
-         ExtendedMediaFileResource $audioFile = null,
+          $audioFile = null,
          $videoSelection,
-         ExtendedMediaFileResource $videoFile = null,
+          $videoFile = null,
          $callWaitingAudioSelection = null,
-         ExtendedMediaFileResource $callWaitingAudioFile = null,
+          $callWaitingAudioFile = null,
          $callWaitingVideoSelection = null,
-         ExtendedMediaFileResource $callWaitingVideoFile = null
+          $callWaitingVideoFile = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -121,7 +121,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule = TimeSchedule $timeSchedule;
+        $this->timeSchedule =  $timeSchedule;
     }
 
     /**
@@ -137,7 +137,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule = HolidaySchedule $holidaySchedule;
+        $this->holidaySchedule =  $holidaySchedule;
     }
 
     /**
@@ -169,7 +169,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria = CriteriaFromDn $fromDnCriteria;
+        $this->fromDnCriteria =  $fromDnCriteria;
     }
 
     /**
@@ -204,7 +204,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile = ExtendedMediaFileResource $audioFile;
+        $this->audioFile =  $audioFile;
     }
 
     /**
@@ -240,7 +240,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile = ExtendedMediaFileResource $videoFile;
+        $this->videoFile =  $videoFile;
     }
 
     /**
@@ -276,7 +276,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function setCallWaitingAudioFile(ExtendedMediaFileResource $callWaitingAudioFile = null)
     {
-        $this->callWaitingAudioFile = ExtendedMediaFileResource $callWaitingAudioFile;
+        $this->callWaitingAudioFile =  $callWaitingAudioFile;
     }
 
     /**
@@ -312,7 +312,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function setCallWaitingVideoFile(ExtendedMediaFileResource $callWaitingVideoFile = null)
     {
-        $this->callWaitingVideoFile = ExtendedMediaFileResource $callWaitingVideoFile;
+        $this->callWaitingVideoFile =  $callWaitingVideoFile;
     }
 
     /**

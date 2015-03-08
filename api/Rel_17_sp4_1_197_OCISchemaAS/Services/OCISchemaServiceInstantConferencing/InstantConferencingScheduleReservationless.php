@@ -32,7 +32,7 @@ class InstantConferencingScheduleReservationless extends ComplexType implements 
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate = xs:date $endDate;
+        $this->endDate =  $endDate;
     }
 
     /**
