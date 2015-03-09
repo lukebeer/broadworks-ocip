@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPortalPasscodeRulesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the group's passcode rules setting.
+ * Request to modify the group's passcode rules setting.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements ComplexInterface
@@ -77,6 +80,14 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
         $this->setPasscodeExpiresDays($passcodeExpiresDays);
         $this->setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail);
         $this->setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress);
+    }
+
+    /**
+     * @return GroupPortalPasscodeRulesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -150,7 +161,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getDisallowRepeatedDigits()
     {
-        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits->getValue();
+        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits;
     }
 
     /**
@@ -166,7 +177,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getDisallowUserNumber()
     {
-        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber->getValue();
+        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber;
     }
 
     /**
@@ -182,7 +193,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getDisallowReversedUserNumber()
     {
-        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber->getValue();
+        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber;
     }
 
     /**
@@ -198,7 +209,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getDisallowOldPasscode()
     {
-        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode->getValue();
+        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode;
     }
 
     /**
@@ -214,7 +225,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getDisallowReversedOldPasscode()
     {
-        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode->getValue();
+        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode;
     }
 
     /**
@@ -266,7 +277,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
-        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts->getValue();
+        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts;
     }
 
     /**
@@ -300,7 +311,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getExpirePassword()
     {
-        return (!$this->expirePassword) ?: $this->expirePassword->getValue();
+        return (!$this->expirePassword) ?: $this->expirePassword;
     }
 
     /**
@@ -334,7 +345,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**

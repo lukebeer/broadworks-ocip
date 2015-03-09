@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a service code for the purpose of providing free format routable strings for dialing
+ * Request to add a service code for the purpose of providing free format routable strings for dialing
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceCodeAddRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemServiceCodeAddRequest extends ComplexType implements ComplexInterfac
     ) {
         $this->setServiceCode($serviceCode);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemServiceCodeAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

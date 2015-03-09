@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupExistingUsersAssignUserServiceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to assign the user services and service packs to all existing users within the group.
+ * Request to assign the user services and service packs to all existing users within the group.
  *         BroadSoft recommends using this command only for small groups with less than 100 users.  This 
  *         command will return an error if the group has over 500 users.  The recommended way to bulk 
  *         assign/unassign services is Service Pack Migration.
@@ -40,6 +43,14 @@ class GroupExistingUsersAssignUserServiceListRequest extends ComplexType impleme
         $this->setGroupId($groupId);
         $this->setServiceName($serviceName);
         $this->setServicePackName($servicePackName);
+    }
+
+    /**
+     * @return GroupExistingUsersAssignUserServiceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

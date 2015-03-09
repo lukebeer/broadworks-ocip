@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingExpiredConferenceHoldPeriodDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePassCodeLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemMeetMeConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemMeetMeConferencingGetRequest.
+ * Response to SystemMeetMeConferencingGetRequest.
  */
 class SystemMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -29,6 +32,13 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
     protected $expiredConferenceHoldPeriodDays         = null;
     protected $recordingWebAppURL                      = null;
 
+    /**
+     * @return SystemMeetMeConferencingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Length of conference Id and moderator pin.
@@ -79,7 +89,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
      */
     public function getEnableConferenceEndDateRestriction()
     {
-        return (!$this->enableConferenceEndDateRestriction) ?: $this->enableConferenceEndDateRestriction->getValue();
+        return (!$this->enableConferenceEndDateRestriction) ?: $this->enableConferenceEndDateRestriction;
     }
 
     /**
@@ -113,7 +123,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
      */
     public function getDeleteExpiredConferencesAfterHoldPeriod()
     {
-        return (!$this->deleteExpiredConferencesAfterHoldPeriod) ?: $this->deleteExpiredConferencesAfterHoldPeriod->getValue();
+        return (!$this->deleteExpiredConferencesAfterHoldPeriod) ?: $this->deleteExpiredConferencesAfterHoldPeriod;
     }
 
     /**

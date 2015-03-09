@@ -8,20 +8,31 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace\SystemCustomerOriginatedTraceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the system level data associated with Customer Originated Trace.
+ * Request the system level data associated with Customer Originated Trace.
  *         The response is either a SystemCustomerOriginatedTraceGetResponse or an
  *         ErrorResponse.
  */
 class SystemCustomerOriginatedTraceGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace\SystemCustomerOriginatedTraceGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace\SystemCustomerOriginatedTraceGetResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {
+    }
+
+    /**
+     * @return SystemCustomerOriginatedTraceGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 }

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessageSummaryUpdateSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessageSummaryUpdateModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Voice Messaging.
+ * Modify the system level data associated with Voice Messaging.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implements ComplexInterface
@@ -34,6 +37,14 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
     }
 
     /**
+     * @return SystemVoiceMessageSummaryUpdateModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setSendSavedAndUrgentMWIOnNotification($sendSavedAndUrgentMWIOnNotification = null)
@@ -46,7 +57,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
      */
     public function getSendSavedAndUrgentMWIOnNotification()
     {
-        return (!$this->sendSavedAndUrgentMWIOnNotification) ?: $this->sendSavedAndUrgentMWIOnNotification->getValue();
+        return (!$this->sendSavedAndUrgentMWIOnNotification) ?: $this->sendSavedAndUrgentMWIOnNotification;
     }
 
     /**
@@ -62,7 +73,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
      */
     public function getSendMessageSummaryUpdateOnRegister()
     {
-        return (!$this->sendMessageSummaryUpdateOnRegister) ?: $this->sendMessageSummaryUpdateOnRegister->getValue();
+        return (!$this->sendMessageSummaryUpdateOnRegister) ?: $this->sendMessageSummaryUpdateOnRegister;
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLanguageModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a language properties in the system.
+ * Request to modify a language properties in the system.
  *         If the becomeDefaultLanguage element is present, the language in this request becomes
  *         the default language for the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -38,6 +41,14 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
         $this->setBecomeDefaultLanguage($becomeDefaultLanguage);
         $this->setLocale($locale);
         $this->setEncoding($encoding);
+    }
+
+    /**
+     * @return SystemLanguageModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -71,7 +82,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getBecomeDefaultLanguage()
     {
-        return (!$this->becomeDefaultLanguage) ?: $this->becomeDefaultLanguage->getValue();
+        return (!$this->becomeDefaultLanguage) ?: $this->becomeDefaultLanguage;
     }
 
     /**

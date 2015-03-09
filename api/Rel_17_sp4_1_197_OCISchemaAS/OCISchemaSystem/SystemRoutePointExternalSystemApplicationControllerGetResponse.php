@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ApplicationControllerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemApplicationControllerGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemRoutePointExternalSystemApplicationControllerGetRequest.
+ * Response to the SystemRoutePointExternalSystemApplicationControllerGetRequest.
  */
 class SystemRoutePointExternalSystemApplicationControllerGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name                  = __CLASS__;
     protected $applicationController = null;
 
+    /**
+     * @return SystemRoutePointExternalSystemApplicationControllerGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The application controller name.

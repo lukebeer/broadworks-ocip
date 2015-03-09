@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\AutoAttendantReadMenu;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupAutoAttendantGetInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAutoAttendantGetInstanceRequest14.
+ * Response to GroupAutoAttendantGetInstanceRequest14.
  *         Contains the service profile information.
  *         Replaced By: GroupAutoAttendantGetInstanceResponse16
  */
@@ -34,6 +37,13 @@ class GroupAutoAttendantGetInstanceResponse14 extends ComplexType implements Com
     protected $businessHoursMenu      = null;
     protected $afterHoursMenu         = null;
 
+    /**
+     * @return GroupAutoAttendantGetInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -68,7 +78,7 @@ class GroupAutoAttendantGetInstanceResponse14 extends ComplexType implements Com
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**

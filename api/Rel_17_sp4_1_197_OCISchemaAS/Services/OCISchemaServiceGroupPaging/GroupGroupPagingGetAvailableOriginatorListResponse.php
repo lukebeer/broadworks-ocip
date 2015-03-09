@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableOriginatorListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupGroupPagingGetAvailableOriginatorListRequest.
+ * Response to the GroupGroupPagingGetAvailableOriginatorListRequest.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
  */
 class GroupGroupPagingGetAvailableOriginatorListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupGroupPagingGetAvailableOriginatorListResponse extends ComplexType imp
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return GroupGroupPagingGetAvailableOriginatorListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

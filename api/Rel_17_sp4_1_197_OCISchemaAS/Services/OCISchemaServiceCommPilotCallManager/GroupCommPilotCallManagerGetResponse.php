@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\CommPilotCallManagerGroupDirectoryDisplaySelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager\GroupCommPilotCallManagerGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupCommPilotCallManagerGetRequest.
+ * Response to GroupCommPilotCallManagerGetRequest.
  */
 class GroupCommPilotCallManagerGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name           = __CLASS__;
     protected $groupDirectory = null;
 
+    /**
+     * @return GroupCommPilotCallManagerGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Choices for commPilot call manager group directory display.

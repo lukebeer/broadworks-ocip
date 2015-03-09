@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsTimeRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request user's call logs.
+ * Request user's call logs.
  *         If the callLogType is not specified, all types of calls logs (placed, received, missed) are returned.
  *         The filters "dateTimeRange", "numberFilter", "redirectedNumberFilter", accountAuthorizationCodeFilter"
  *         and ""subscriberType" are ignored if call logs are stored in CDS. When "ReceivedOrMissed" is specified
@@ -32,7 +35,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4';
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4';
     public    $name                           = __CLASS__;
     protected $userId                         = null;
     protected $callLogType                    = null;
@@ -61,6 +64,14 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->setAccountAuthorizationCodeFilter($accountAuthorizationCodeFilter);
         $this->setSubscriberType($subscriberType);
         $this->setResponsePagingControl($responsePagingControl);
+    }
+
+    /**
+     * @return UserEnhancedCallLogsGetListResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

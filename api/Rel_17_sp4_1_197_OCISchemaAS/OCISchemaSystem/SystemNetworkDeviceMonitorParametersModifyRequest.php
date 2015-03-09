@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkDeviceMonitorFailedPollingIntervalMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkDeviceMonitorPollingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkDeviceMonitorParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Network Device Polling system parameters.
+ * Request to modify Network Device Polling system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
     ) {
         $this->setPollingIntervalMinutes($pollingIntervalMinutes);
         $this->setFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
+    }
+
+    /**
+     * @return SystemNetworkDeviceMonitorParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

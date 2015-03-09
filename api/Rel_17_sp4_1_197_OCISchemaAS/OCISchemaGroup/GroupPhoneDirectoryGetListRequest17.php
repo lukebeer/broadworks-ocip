@@ -20,12 +20,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPhoneDirectoryGetListResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a table containing the phone directory for a group.
+ * Request a table containing the phone directory for a group.
  *         If the specified group is part of an enterprise, the directory 
  *         includes all users in the enterprise and all entries in the enterprise 
  *         common phone list and the common phone list of the specified group.
@@ -43,7 +46,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPhoneDirectoryGetListResponse17';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPhoneDirectoryGetListResponse17';
     public    $name                              = __CLASS__;
     protected $serviceProviderId                 = null;
     protected $groupId                           = null;
@@ -90,6 +93,14 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
         $this->setSearchCriteriaYahooId($searchCriteriaYahooId);
         $this->setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
+    }
+
+    /**
+     * @return GroupPhoneDirectoryGetListResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -145,7 +156,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
      */
     public function getIsExtendedInfoRequested()
     {
-        return (!$this->isExtendedInfoRequested) ?: $this->isExtendedInfoRequested->getValue();
+        return (!$this->isExtendedInfoRequested) ?: $this->isExtendedInfoRequested;
     }
 
     /**

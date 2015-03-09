@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\SystemCallMeNowGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallMeNowGetRequest.
+ * Response to SystemCallMeNowGetRequest.
  */
 class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
     protected $passcodeLength         = null;
     protected $passcodeTimeoutSeconds = null;
 
+    /**
+     * @return SystemCallMeNowGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Maximum number of characters for Call Me Now passcode.

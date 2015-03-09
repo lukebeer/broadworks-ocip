@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManag
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementFTPConnectTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementMaxBusyTimeMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify CPE Config system parameters.
+ * Request to modify CPE Config system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCPEConfigParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -47,6 +50,14 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
     }
 
     /**
+     * @return SystemCPEConfigParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setEnableIPDeviceManagement($enableIPDeviceManagement = null)
@@ -59,7 +70,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
      */
     public function getEnableIPDeviceManagement()
     {
-        return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement->getValue();
+        return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement;
     }
 
     /**

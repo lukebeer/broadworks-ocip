@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeExportResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to export an existing Device Type to a Device Type Archive File (DTAF).
+ * Request to export an existing Device Type to a Device Type Archive File (DTAF).
  *         The response is either a SystemDeviceTypeExportResponse or an ErrorResponse.
  */
 class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeExportResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeExportResponse';
     public    $name       = __CLASS__;
     protected $deviceType = null;
 
@@ -26,6 +29,14 @@ class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterf
          $deviceType
     ) {
         $this->setDeviceType($deviceType);
+    }
+
+    /**
+     * @return SystemDeviceTypeExportResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

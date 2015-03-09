@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallingPartyCategoryGetListRequest.
+ * Response to SystemCallingPartyCategoryGetListRequest.
  *         Contains a table of Calling Party Category defined in system.
  *         The column headings are: "Category Name", "User Category", "Collect Call", "Default" and "Web Display Key".
  */
@@ -22,6 +25,13 @@ class SystemCallingPartyCategoryGetListResponse extends ComplexType implements C
     public    $name                      = __CLASS__;
     protected $callingPartyCategoryTable = null;
 
+    /**
+     * @return SystemCallingPartyCategoryGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

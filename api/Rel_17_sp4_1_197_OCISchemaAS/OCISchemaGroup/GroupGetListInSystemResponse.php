@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupGetListInSystemRequest.
+ * Response to GroupGetListInSystemRequest.
  *         Contains a table with column headings: "Group Id", "Group Name", "User Limit", "Organization Id", "Organization Type"
  *         and a row for each group.
  *         The "Organization Id" column is populated with either a service provider Id or an enterprise Id.
@@ -25,6 +28,13 @@ class GroupGetListInSystemResponse extends ComplexType implements ComplexInterfa
     public    $name       = __CLASS__;
     protected $groupTable = null;
 
+    /**
+     * @return GroupGetListInSystemResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

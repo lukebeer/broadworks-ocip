@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\GroupServiceInstancePrivacyGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupServiceInstancePrivacyGetRequest17sp4.
+ * Response to GroupServiceInstancePrivacyGetRequest17sp4.
  */
 class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
     protected $enableAutoAttendantExtensionDialingPrivacy = null;
     protected $enableAutoAttendantNameDialingPrivacy      = null;
 
+    /**
+     * @return GroupServiceInstancePrivacyGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->getValue();
+        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy;
     }
 
     /**
@@ -52,7 +62,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
+        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy;
     }
 
     /**
@@ -68,6 +78,6 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->getValue();
+        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy;
     }
 }

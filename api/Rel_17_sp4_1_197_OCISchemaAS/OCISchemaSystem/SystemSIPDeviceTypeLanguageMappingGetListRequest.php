@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeLanguageMappingGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get the list of device language names mapped to BroadWorks language names, per-device type.
+ * Request to get the list of device language names mapped to BroadWorks language names, per-device type.
  *         The response is either SystemSIPDeviceTypeLanguageMappingGetListResponse or ErrorResponse.
  */
 class SystemSIPDeviceTypeLanguageMappingGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeLanguageMappingGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeLanguageMappingGetListResponse';
     public    $name       = __CLASS__;
     protected $deviceType = null;
 
@@ -26,6 +29,14 @@ class SystemSIPDeviceTypeLanguageMappingGetListRequest extends ComplexType imple
          $deviceType
     ) {
         $this->setDeviceType($deviceType);
+    }
+
+    /**
+     * @return SystemSIPDeviceTypeLanguageMappingGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

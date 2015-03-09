@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleDisplayColumn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole\UserAttendantConsoleGetResponse14sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserAttendantConsoleGetRequest14sp2.
+ * Response to UserAttendantConsoleGetRequest14sp2.
  *         Returns a 5 column table with column headings:
  *           "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
@@ -26,6 +29,13 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
     protected $displayColumn              = null;
     protected $monitoredUserTable         = null;
 
+    /**
+     * @return UserAttendantConsoleGetResponse14sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -40,7 +50,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin->getValue();
+        return (!$this->launchOnLogin) ?: $this->launchOnLogin;
     }
 
     /**
@@ -56,7 +66,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getAllowUserConfigCallDetails()
     {
-        return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails->getValue();
+        return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails;
     }
 
     /**
@@ -72,7 +82,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getAllowUserViewCallDetails()
     {
-        return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails->getValue();
+        return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails;
     }
 
     /**

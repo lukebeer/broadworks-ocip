@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceAssignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to assign the user services and service packs for a user.
+ * Request to assign the user services and service packs for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserServiceAssignListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
         $this->setUserId($userId);
         $this->setServiceName($serviceName);
         $this->setServicePackName($servicePackName);
+    }
+
+    /**
+     * @return UserServiceAssignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

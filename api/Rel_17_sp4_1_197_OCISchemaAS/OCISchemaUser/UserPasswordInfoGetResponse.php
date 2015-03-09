@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPasswordInfoGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserPasswordInfoGetRequest.
+ * Response to UserPasswordInfoGetRequest.
  */
 class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name            = __CLASS__;
     protected $isLoginDisabled = null;
 
+    /**
+     * @return UserPasswordInfoGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -34,6 +44,6 @@ class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsLoginDisabled()
     {
-        return (!$this->isLoginDisabled) ?: $this->isLoginDisabled->getValue();
+        return (!$this->isLoginDisabled) ?: $this->isLoginDisabled;
     }
 }

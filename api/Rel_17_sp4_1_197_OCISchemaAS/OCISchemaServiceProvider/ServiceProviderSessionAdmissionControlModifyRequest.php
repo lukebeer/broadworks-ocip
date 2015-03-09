@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderSessionAdmissionControlModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify session admission control capacity for the service provider.
+ * Request to modify session admission control capacity for the service provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
         $this->setMaxUserOriginatingSessions($maxUserOriginatingSessions);
         $this->setMaxUserTerminatingSessions($maxUserTerminatingSessions);
         $this->setCountIntraServiceProviderSessions($countIntraServiceProviderSessions);
+    }
+
+    /**
+     * @return ServiceProviderSessionAdmissionControlModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -76,7 +87,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getRestrictAggregateSessions()
     {
-        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions->getValue();
+        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions;
     }
 
     /**
@@ -146,6 +157,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getCountIntraServiceProviderSessions()
     {
-        return (!$this->countIntraServiceProviderSessions) ?: $this->countIntraServiceProviderSessions->getValue();
+        return (!$this->countIntraServiceProviderSessions) ?: $this->countIntraServiceProviderSessions;
     }
 }

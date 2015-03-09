@@ -12,19 +12,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests a list of groups within a service provider that have a given external system assigned.
+ * Requests a list of groups within a service provider that have a given external system assigned.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse or an ErrorResponse.
  */
 class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
+    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
     public    $name                    = __CLASS__;
     protected $serviceProviderId       = null;
     protected $externalSystem          = null;
@@ -44,6 +47,14 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
         $this->setSearchCriteriaGroupName($searchCriteriaGroupName);
+    }
+
+    /**
+     * @return ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

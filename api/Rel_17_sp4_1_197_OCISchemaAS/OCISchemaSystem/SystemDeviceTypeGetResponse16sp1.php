@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEDevic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemDeviceTypeGetRequest16sp1.
+ * Response to SystemDeviceTypeGetRequest16sp1.
  */
 class SystemDeviceTypeGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
@@ -31,6 +34,13 @@ class SystemDeviceTypeGetResponse16sp1 extends ComplexType implements ComplexInt
     protected $useDomain                 = null;
     protected $isMobilityManagerDevice   = null;
 
+    /**
+     * @return SystemDeviceTypeGetResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class SystemDeviceTypeGetResponse16sp1 extends ComplexType implements ComplexInt
      */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
+        return (!$this->isObsolete) ?: $this->isObsolete;
     }
 
     /**
@@ -97,7 +107,7 @@ class SystemDeviceTypeGetResponse16sp1 extends ComplexType implements ComplexInt
      */
     public function getStaticRegistrationCapable()
     {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->getValue();
+        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
     }
 
     /**
@@ -147,7 +157,7 @@ class SystemDeviceTypeGetResponse16sp1 extends ComplexType implements ComplexInt
      */
     public function getIsIpAddressOptional()
     {
-        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional->getValue();
+        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional;
     }
 
     /**
@@ -163,7 +173,7 @@ class SystemDeviceTypeGetResponse16sp1 extends ComplexType implements ComplexInt
      */
     public function getUseDomain()
     {
-        return (!$this->useDomain) ?: $this->useDomain->getValue();
+        return (!$this->useDomain) ?: $this->useDomain;
     }
 
     /**
@@ -179,6 +189,6 @@ class SystemDeviceTypeGetResponse16sp1 extends ComplexType implements ComplexInt
      */
     public function getIsMobilityManagerDevice()
     {
-        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice->getValue();
+        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice;
     }
 }

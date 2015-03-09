@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get an existing Office Zone.
+ * Get an existing Office Zone.
  *         The response is either a SystemOfficeZoneGetResponse
  *         or an ErrorResponse.
  */
 class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetResponse';
+    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetResponse';
     public    $name           = __CLASS__;
     protected $officeZoneName = null;
 
@@ -27,6 +30,14 @@ class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
          $officeZoneName
     ) {
         $this->setOfficeZoneName($officeZoneName);
+    }
+
+    /**
+     * @return SystemOfficeZoneGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterBouncedCallModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's bounced call settings.
+ * Modify a call center's bounced call settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterBouncedCallModifyRequest extends ComplexType implements ComplexInterface
@@ -59,6 +62,14 @@ class GroupCallCenterBouncedCallModifyRequest extends ComplexType implements Com
     }
 
     /**
+     * @return GroupCallCenterBouncedCallModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -97,7 +108,7 @@ class GroupCallCenterBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -133,7 +144,7 @@ class GroupCallCenterBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getEnableTransfer()
     {
-        return (!$this->enableTransfer) ?: $this->enableTransfer->getValue();
+        return (!$this->enableTransfer) ?: $this->enableTransfer;
     }
 
     /**
@@ -181,7 +192,7 @@ class GroupCallCenterBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable->getValue();
+        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable;
     }
 
     /**
@@ -197,7 +208,7 @@ class GroupCallCenterBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getAlertCallCenterCallOnHold()
     {
-        return (!$this->alertCallCenterCallOnHold) ?: $this->alertCallCenterCallOnHold->getValue();
+        return (!$this->alertCallCenterCallOnHold) ?: $this->alertCallCenterCallOnHold;
     }
 
     /**
@@ -231,7 +242,7 @@ class GroupCallCenterBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getBounceCallCenterCallOnHold()
     {
-        return (!$this->bounceCallCenterCallOnHold) ?: $this->bounceCallCenterCallOnHold->getValue();
+        return (!$this->bounceCallCenterCallOnHold) ?: $this->bounceCallCenterCallOnHold;
     }
 
     /**

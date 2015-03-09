@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get an existing Communication Barring Profile.
+ * Get an existing Communication Barring Profile.
  *         The response is either a SystemCommunicationBarringProfileGetResponse17sp3
  *         or an ErrorResponse.
  */
 class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetResponse17sp3';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetResponse17sp3';
     public    $name = __CLASS__;
     protected $name = null;
 
@@ -27,6 +30,14 @@ class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType imple
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemCommunicationBarringProfileGetResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

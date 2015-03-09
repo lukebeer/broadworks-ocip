@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterForcedForwardingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterForcedForwardingGetRequest.
+ * Response to the GroupCallCenterForcedForwardingGetRequest.
  */
 class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -35,6 +38,13 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
     protected $videoFileDescription             = null;
     protected $videoMediaType                   = null;
 
+    /**
+     * @return GroupCallCenterForcedForwardingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -49,7 +59,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -97,7 +107,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getAllowEnableViaFAC()
     {
-        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC->getValue();
+        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC;
     }
 
     /**
@@ -113,7 +123,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding->getValue();
+        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding;
     }
 
     /**

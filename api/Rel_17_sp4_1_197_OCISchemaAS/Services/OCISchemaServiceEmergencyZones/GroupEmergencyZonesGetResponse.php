@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmerg
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\EmergencyZonesProhibition;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupEmergencyZonesGetRequest.
+ * Response to GroupEmergencyZonesGetRequest.
  */
 class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
     protected $sendEmergencyCallNotifyEmail    = null;
     protected $emergencyCallNotifyEmailAddress = null;
 
+    /**
+     * @return GroupEmergencyZonesGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -74,7 +84,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function getSendEmergencyCallNotifyEmail()
     {
-        return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail->getValue();
+        return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail;
     }
 
     /**

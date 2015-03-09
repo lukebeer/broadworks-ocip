@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete an existing Communication Barring Digit Pattern Criteria.
+ * Delete an existing Communication Barring Digit Pattern Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends Comple
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemCommunicationBarringDigitPatternCriteriaDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

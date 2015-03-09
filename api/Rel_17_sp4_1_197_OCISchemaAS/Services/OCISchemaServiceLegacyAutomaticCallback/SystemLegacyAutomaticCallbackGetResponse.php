@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackT4Seconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackT5Seconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackT7Minutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemLegacyAutomaticCallbackGetRequest.
+ * Response to SystemLegacyAutomaticCallbackGetRequest.
  */
 class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements ComplexInterface
 {
@@ -40,6 +43,13 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
     protected $t10OMinutes              = null;
     protected $t10TMinutes              = null;
 
+    /**
+     * @return SystemLegacyAutomaticCallbackGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Maximum monitors per originator.

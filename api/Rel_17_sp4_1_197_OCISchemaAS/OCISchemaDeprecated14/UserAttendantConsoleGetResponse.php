@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleDisplayColumn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserAttendantConsoleGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserAttendantConsoleGetRequest.
+ * Response to UserAttendantConsoleGetRequest.
  */
 class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInterface
 {
@@ -23,6 +26,13 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
     protected $allowUserViewCallDetails   = null;
     protected $displayColumn              = null;
 
+    /**
+     * @return UserAttendantConsoleGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
      */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin->getValue();
+        return (!$this->launchOnLogin) ?: $this->launchOnLogin;
     }
 
     /**
@@ -53,7 +63,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
      */
     public function getAllowUserConfigCallDetails()
     {
-        return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails->getValue();
+        return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails;
     }
 
     /**
@@ -69,7 +79,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
      */
     public function getAllowUserViewCallDetails()
     {
-        return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails->getValue();
+        return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails;
     }
 
     /**

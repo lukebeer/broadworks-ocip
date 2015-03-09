@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\SystemCallNotifyGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallNotifyGetRequest.
+ * Response to SystemCallNotifyGetRequest.
  */
 class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
     protected $useShortSubjectLine = null;
     protected $useDnInMailBody     = null;
 
+    /**
+     * @return SystemCallNotifyGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Email Address
@@ -54,7 +64,7 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseShortSubjectLine()
     {
-        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->getValue();
+        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine;
     }
 
     /**
@@ -70,6 +80,6 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDnInMailBody()
     {
-        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->getValue();
+        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody;
     }
 }

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InCallServiceActivationDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation\SystemInCallServiceActivationModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's DTMF based in-call service activation trigger  attributes.The response is either a SuccessResponse or an ErrorResponse.
+ * Modifies the system's DTMF based in-call service activation trigger  attributes.The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInCallServiceActivationModifyRequest17 extends ComplexType implements ComplexInterface
 {
@@ -27,6 +30,14 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
     ) {
         $this->setDefaultFlashActivationDigits($defaultFlashActivationDigits);
         $this->setDefaultCallTransferActivationDigits($defaultCallTransferActivationDigits);
+    }
+
+    /**
+     * @return SystemInCallServiceActivationModifyResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

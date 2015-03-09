@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueCallDispositionCodeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterQueueCallDispositionCodeGetRequest
+ * Response to the GroupCallCenterQueueCallDispositionCodeGetRequest
  */
 class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
     protected $isActive    = null;
     protected $description = null;
 
+    /**
+     * @return GroupCallCenterQueueCallDispositionCodeGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

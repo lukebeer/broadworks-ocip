@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdvic
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge\UserAdviceOfChargeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Advice of Charge.
+ * Modify the user level data associated with Advice of Charge.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
         $this->setUserId($userId);
         $this->setIsActive($isActive);
         $this->setAocType($aocType);
+    }
+
+    /**
+     * @return UserAdviceOfChargeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

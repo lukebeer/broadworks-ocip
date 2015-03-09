@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserRingTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IncomingCallToUserAliasMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxNoAnswerNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSubscriberGetCallProcessingParametersResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemSubscriberGetCallProcessingParametersRequest17sp4.
+ * Response to the SystemSubscriberGetCallProcessingParametersRequest17sp4.
  */
 class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexType implements ComplexInterface
 {
@@ -29,6 +32,13 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
     protected $bypassTerminationLoopDetection         = null;
     protected $honorCLIDBlockingForEmergencyCalls     = null;
 
+    /**
+     * @return SystemSubscriberGetCallProcessingParametersResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -43,7 +53,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->getValue();
+        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive;
     }
 
     /**
@@ -59,7 +69,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
      */
     public function getIsRingTimeOutActive()
     {
-        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->getValue();
+        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive;
     }
 
     /**
@@ -93,7 +103,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations->getValue();
+        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations;
     }
 
     /**
@@ -145,7 +155,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
      */
     public function getBypassTerminationLoopDetection()
     {
-        return (!$this->bypassTerminationLoopDetection) ?: $this->bypassTerminationLoopDetection->getValue();
+        return (!$this->bypassTerminationLoopDetection) ?: $this->bypassTerminationLoopDetection;
     }
 
     /**
@@ -161,6 +171,6 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
      */
     public function getHonorCLIDBlockingForEmergencyCalls()
     {
-        return (!$this->honorCLIDBlockingForEmergencyCalls) ?: $this->honorCLIDBlockingForEmergencyCalls->getValue();
+        return (!$this->honorCLIDBlockingForEmergencyCalls) ?: $this->honorCLIDBlockingForEmergencyCalls;
     }
 }

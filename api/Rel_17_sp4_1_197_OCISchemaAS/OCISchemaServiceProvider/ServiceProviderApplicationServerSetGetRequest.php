@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderApplicationServerSetGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the Application Server set for a service provider or enterprise.
+ * Get the Application Server set for a service provider or enterprise.
  *         The response is either a ServiceProviderApplicationServerSetGetResponse or an ErrorResponse.
  */
 class ServiceProviderApplicationServerSetGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderApplicationServerSetGetResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderApplicationServerSetGetResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
 
@@ -26,6 +29,14 @@ class ServiceProviderApplicationServerSetGetRequest extends ComplexType implemen
          $serviceProviderId
     ) {
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return ServiceProviderApplicationServerSetGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,19 +8,30 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFeatureAccessCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get list of default Feature Access Codes defined on system level.
+ * Request to get list of default Feature Access Codes defined on system level.
  *         The response is either SystemFeatureAccessCodeGetListResponse or ErrorResponse.
  */
 class SystemFeatureAccessCodeGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFeatureAccessCodeGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFeatureAccessCodeGetListResponse';
     public    $name = __CLASS__;
 
     public function __construct(    ) {
+    }
+
+    /**
+     * @return SystemFeatureAccessCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 }

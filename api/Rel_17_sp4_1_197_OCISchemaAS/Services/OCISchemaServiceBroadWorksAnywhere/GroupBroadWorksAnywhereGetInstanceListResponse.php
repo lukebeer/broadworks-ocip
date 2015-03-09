@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupBroadWorksAnywhereGetInstanceListRequest.
+ * Response to the GroupBroadWorksAnywhereGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Phone Number", "Extension", "Department", "Is Active".
  *         The column value for "Is Active" can either be true, or false.
@@ -23,6 +26,13 @@ class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType impleme
     public    $name                    = __CLASS__;
     protected $broadWorksAnywhereTable = null;
 
+    /**
+     * @return GroupBroadWorksAnywhereGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

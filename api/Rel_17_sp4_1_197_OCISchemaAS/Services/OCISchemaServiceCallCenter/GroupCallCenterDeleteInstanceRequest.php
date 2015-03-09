@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterDeleteInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Call Center instance from a group.
+ * Delete a Call Center instance from a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterDeleteInstanceRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class GroupCallCenterDeleteInstanceRequest extends ComplexType implements Comple
          $serviceUserId
     ) {
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return GroupCallCenterDeleteInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

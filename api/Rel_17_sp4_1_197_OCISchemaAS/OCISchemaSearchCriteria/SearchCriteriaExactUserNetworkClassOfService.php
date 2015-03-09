@@ -8,16 +8,19 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserNetworkClassOfService;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Criteria for searching for users with a specified network class of service.
+ * Criteria for searching for users with a specified network class of service.
  */
 class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserNetworkClassOfService';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserNetworkClassOfService';
     public    $name                  = __CLASS__;
     protected $networkClassOfService = null;
 
@@ -25,6 +28,14 @@ class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implement
          $networkClassOfService
     ) {
         $this->setNetworkClassOfService($networkClassOfService);
+    }
+
+    /**
+     * @return SearchCriteriaExactUserNetworkClassOfService
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

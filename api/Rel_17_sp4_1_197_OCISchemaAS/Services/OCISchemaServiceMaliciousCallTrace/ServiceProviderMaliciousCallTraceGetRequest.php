@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\ServiceProviderMaliciousCallTraceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the service provider's Malicious Call Trace settings.
+ * Get the service provider's Malicious Call Trace settings.
  *         The response is either a ServiceProviderMaliciousCallTraceGetResponse 
  *         or an ErrorResponse.
  */
 class ServiceProviderMaliciousCallTraceGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\ServiceProviderMaliciousCallTraceGetResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\ServiceProviderMaliciousCallTraceGetResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
 
@@ -27,6 +30,14 @@ class ServiceProviderMaliciousCallTraceGetRequest extends ComplexType implements
          $serviceProviderId
     ) {
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return ServiceProviderMaliciousCallTraceGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

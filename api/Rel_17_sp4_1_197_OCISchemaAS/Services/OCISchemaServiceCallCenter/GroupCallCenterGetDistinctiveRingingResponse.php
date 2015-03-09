@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDistinctiveRingingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterGetDistinctiveRingingRequest.
+ * Response to the GroupCallCenterGetDistinctiveRingingRequest.
  */
 class GroupCallCenterGetDistinctiveRingingResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupCallCenterGetDistinctiveRingingResponse extends ComplexType implement
     protected $distinctiveRingingRingPatternForCallCenter = null;
     protected $distinctiveRingingForceDeliveryRingPattern = null;
 
+    /**
+     * @return GroupCallCenterGetDistinctiveRingingResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class GroupCallCenterGetDistinctiveRingingResponse extends ComplexType implement
      */
     public function getDistinctiveRingingCallCenterCalls()
     {
-        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls->getValue();
+        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls;
     }
 
     /**

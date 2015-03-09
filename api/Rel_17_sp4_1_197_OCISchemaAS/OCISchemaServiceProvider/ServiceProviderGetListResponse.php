@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderGetListRequest.
+ * Response to ServiceProviderGetListRequest.
  *         Contains a 3 column table with column headings 'Service Provider Id', 'Service Provider Name'
  *         and 'Is Enterprise' and a row for each service provider or enterprise.
  */
@@ -22,6 +25,13 @@ class ServiceProviderGetListResponse extends ComplexType implements ComplexInter
     public    $name                 = __CLASS__;
     protected $serviceProviderTable = null;
 
+    /**
+     * @return ServiceProviderGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeServiceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemSIPDeviceTypeServiceGetRequest.
+ * Response to SystemSIPDeviceTypeServiceGetRequest.
  *         Contains the list of device type services integrated to BroadWorks.
  */
 class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements Compl
     public    $name                         = __CLASS__;
     protected $supportsPolycomPhoneServices = null;
 
+    /**
+     * @return SystemSIPDeviceTypeServiceGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,6 +45,6 @@ class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements Compl
      */
     public function getSupportsPolycomPhoneServices()
     {
-        return (!$this->supportsPolycomPhoneServices) ?: $this->supportsPolycomPhoneServices->getValue();
+        return (!$this->supportsPolycomPhoneServices) ?: $this->supportsPolycomPhoneServices;
     }
 }

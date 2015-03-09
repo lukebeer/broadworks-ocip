@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigSetConfigFileResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to set a new system default configuration file for a device type.
+ * Request to set a new system default configuration file for a device type.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCPEConfigSetConfigFileRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
     ) {
         $this->setDeviceType($deviceType);
         $this->setConfigFile($configFile);
+    }
+
+    /**
+     * @return SystemCPEConfigSetConfigFileResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

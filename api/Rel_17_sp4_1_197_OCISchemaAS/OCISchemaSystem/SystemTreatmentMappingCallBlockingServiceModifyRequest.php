@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CallBlockingService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingCallBlockingServiceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the fields for a Call Blocking Service mapping.
+ * Modify the fields for a Call Blocking Service mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
     ) {
         $this->setCallBlockingService($callBlockingService);
         $this->setTreatmentId($treatmentId);
+    }
+
+    /**
+     * @return SystemTreatmentMappingCallBlockingServiceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

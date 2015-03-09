@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests to modify a service pack for a service provider.
+ * Requests to modify a service pack for a service provider.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderServicePackModifyRequest extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         $this->setServicePackDescription($servicePackDescription);
         $this->setIsAvailableForUse($isAvailableForUse);
         $this->setServicePackQuantity($servicePackQuantity);
+    }
+
+    /**
+     * @return ServiceProviderServicePackModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -132,7 +143,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function getIsAvailableForUse()
     {
-        return (!$this->isAvailableForUse) ?: $this->isAvailableForUse->getValue();
+        return (!$this->isAvailableForUse) ?: $this->isAvailableForUse;
     }
 
     /**

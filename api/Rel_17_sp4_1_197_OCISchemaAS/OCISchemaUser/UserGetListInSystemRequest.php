@@ -16,19 +16,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the list of users in the system.
+ * Request the list of users in the system.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a UserGetListInSystemResponse or an ErrorResponse.
  */
 class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse';
+    public    $responseType                                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse';
     public    $name                                         = __CLASS__;
     protected $responseSizeLimit                            = null;
     protected $searchCriteriaUserLastName                   = null;
@@ -60,6 +63,14 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
         $this->setSearchCriteriaExactUserInTrunkGroup($searchCriteriaExactUserInTrunkGroup);
         $this->setSearchCriteriaExactUserNetworkClassOfService($searchCriteriaExactUserNetworkClassOfService);
+    }
+
+    /**
+     * @return UserGetListInSystemResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

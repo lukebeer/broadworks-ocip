@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformUsageResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of groups currently associated to the specified Call Recording platform.
+ * Get the list of groups currently associated to the specified Call Recording platform.
  *         The response is either SystemCallRecordingGetPlatformUsageResponse or ErrorResponse.
  */
 class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformUsageResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformUsageResponse';
     public    $name = __CLASS__;
     protected $name = null;
 
@@ -26,6 +29,14 @@ class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements 
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemCallRecordingGetPlatformUsageResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

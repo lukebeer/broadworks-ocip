@@ -7,11 +7,15 @@
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
+use Broadworks_OCIP\core\Client\Client;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+
 
 abstract class ComplexType
 {
     public $name = __CLASS__;
     protected $elements = [];
+    protected $responseType;
     protected $errors;
     protected $args;
 
@@ -21,8 +25,7 @@ abstract class ComplexType
     {
         foreach ($this->params as $param) {
             if (!$param->validate()) {
-                ;
-                $this->errors[$param->name()] = $param->errors();
+                $this->errors[$param->getName()] = $param->getErrors();
             }
         }
     }
@@ -35,5 +38,15 @@ abstract class ComplexType
     public function getErrors()
     {
         return $this->errors;
+    }
+
+    public function send(Client $client, $responseOutput = ResponseOutput::STD) {
+        $client->send($this);
+        return $client->getResponse($responseOutput);
+    }
+
+    public function getResponseType()
+    {
+        return $this->responseType;
     }
 }

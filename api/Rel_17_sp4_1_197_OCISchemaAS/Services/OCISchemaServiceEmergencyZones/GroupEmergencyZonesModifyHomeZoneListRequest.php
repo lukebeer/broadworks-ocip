@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmerg
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesModifyHomeZoneListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a list of home zones and/or home zone ranges.
+ * Modify a list of home zones and/or home zone ranges.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implements ComplexInterface
@@ -35,6 +38,14 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
         $this->setGroupId($groupId);
         $this->setHomeZoneIpAddressList($homeZoneIpAddressList);
         $this->setHomeZoneIpAddressRangeList($homeZoneIpAddressRangeList);
+    }
+
+    /**
+     * @return GroupEmergencyZonesModifyHomeZoneListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -90,7 +101,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function getHomeZoneIpAddressList()
     {
-        return (!$this->homeZoneIpAddressList) ?: $this->homeZoneIpAddressList->getValue();
+        return (!$this->homeZoneIpAddressList) ?: $this->homeZoneIpAddressList;
     }
 
     /**
@@ -106,6 +117,6 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function getHomeZoneIpAddressRangeList()
     {
-        return (!$this->homeZoneIpAddressRangeList) ?: $this->homeZoneIpAddressRangeList->getValue();
+        return (!$this->homeZoneIpAddressRangeList) ?: $this->homeZoneIpAddressRangeList;
     }
 }

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a holiday schedule from a user.
+ * Delete a holiday schedule from a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserHolidayScheduleDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserHolidayScheduleDeleteRequest extends ComplexType implements ComplexInt
     ) {
         $this->setUserId($userId);
         $this->setHolidayScheduleName($holidayScheduleName);
+    }
+
+    /**
+     * @return UserHolidayScheduleDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

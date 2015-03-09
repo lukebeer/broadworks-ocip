@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\RoutePointFailoverStatus;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetFailoverPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointGetFailoverPolicyRequest.
+ * Response to the GroupRoutePointGetFailoverPolicyRequest.
  */
 class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements ComplexInterface
 {
@@ -30,6 +33,13 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
     protected $perCallOutboundCallFailureTimeoutSeconds = null;
     protected $perCallFailoverPhoneNumber               = null;
 
+    /**
+     * @return GroupRoutePointGetFailoverPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -44,7 +54,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
      */
     public function getEnableFailoverSupport()
     {
-        return (!$this->enableFailoverSupport) ?: $this->enableFailoverSupport->getValue();
+        return (!$this->enableFailoverSupport) ?: $this->enableFailoverSupport;
     }
 
     /**
@@ -128,7 +138,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
      */
     public function getPerCallEnableFailoverSupport()
     {
-        return (!$this->perCallEnableFailoverSupport) ?: $this->perCallEnableFailoverSupport->getValue();
+        return (!$this->perCallEnableFailoverSupport) ?: $this->perCallEnableFailoverSupport;
     }
 
     /**

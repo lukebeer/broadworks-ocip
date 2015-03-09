@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelec
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallAcceptance\UserSelectiveCallAcceptanceGetCriteriaResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSelectiveCallAcceptanceGetCriteriaRequest16.
+ * Response to the UserSelectiveCallAcceptanceGetCriteriaRequest16.
  */
 class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
     protected $blacklisted     = null;
     protected $fromDnCriteria  = null;
 
+    /**
+     * @return UserSelectiveCallAcceptanceGetCriteriaResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.
@@ -71,7 +81,7 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**

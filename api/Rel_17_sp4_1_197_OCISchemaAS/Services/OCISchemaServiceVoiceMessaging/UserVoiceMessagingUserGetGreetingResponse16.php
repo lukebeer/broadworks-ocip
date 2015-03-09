@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetGreetingResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserVoiceMessagingUserGetGreetingRequest16.
+ * Response to UserVoiceMessagingUserGetGreetingRequest16.
  *         Contains the greeting configuration for a user's voice messaging.
  */
 class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements ComplexInterface
@@ -39,6 +42,13 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
     protected $noAnswerAlternateGreeting03    = null;
     protected $noAnswerNumberOfRings          = null;
 
+    /**
+     * @return UserVoiceMessagingUserGetGreetingResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Announcement Selection.

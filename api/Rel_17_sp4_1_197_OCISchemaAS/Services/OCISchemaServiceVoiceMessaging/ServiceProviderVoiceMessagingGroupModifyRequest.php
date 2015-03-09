@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a service provider's or enterprise's voice messaging settings.
+ * Request to modify a service provider's or enterprise's voice messaging settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
@@ -44,6 +47,14 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         $this->setUseSystemDefaultDeliveryFromAddress($useSystemDefaultDeliveryFromAddress);
         $this->setUseSystemDefaultNotificationFromAddress($useSystemDefaultNotificationFromAddress);
         $this->setUseSystemDefaultVoicePortalLockoutFromAddress($useSystemDefaultVoicePortalLockoutFromAddress);
+    }
+
+    /**
+     * @return ServiceProviderVoiceMessagingGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -133,7 +144,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultDeliveryFromAddress()
     {
-        return (!$this->useSystemDefaultDeliveryFromAddress) ?: $this->useSystemDefaultDeliveryFromAddress->getValue();
+        return (!$this->useSystemDefaultDeliveryFromAddress) ?: $this->useSystemDefaultDeliveryFromAddress;
     }
 
     /**
@@ -149,7 +160,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultNotificationFromAddress()
     {
-        return (!$this->useSystemDefaultNotificationFromAddress) ?: $this->useSystemDefaultNotificationFromAddress->getValue();
+        return (!$this->useSystemDefaultNotificationFromAddress) ?: $this->useSystemDefaultNotificationFromAddress;
     }
 
     /**
@@ -165,6 +176,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultVoicePortalLockoutFromAddress()
     {
-        return (!$this->useSystemDefaultVoicePortalLockoutFromAddress) ?: $this->useSystemDefaultVoicePortalLockoutFromAddress->getValue();
+        return (!$this->useSystemDefaultVoicePortalLockoutFromAddress) ?: $this->useSystemDefaultVoicePortalLockoutFromAddress;
     }
 }

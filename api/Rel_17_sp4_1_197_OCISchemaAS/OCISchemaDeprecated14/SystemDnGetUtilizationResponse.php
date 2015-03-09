@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDnGetUtilizationResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemDnGetUtilizationRequest.
+ * Response to SystemDnGetUtilizationRequest.
  *         Replaced By: SystemDnGetUtilizationResponse14sp3
  */
 class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInterface
@@ -28,6 +31,13 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
     protected $userType             = null;
     protected $isGroupCallingLineId = null;
 
+    /**
+     * @return SystemDnGetUtilizationResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Provider Id uniquely identifies a service provider.
@@ -126,6 +136,6 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
      */
     public function getIsGroupCallingLineId()
     {
-        return (!$this->isGroupCallingLineId) ?: $this->isGroupCallingLineId->getValue();
+        return (!$this->isGroupCallingLineId) ?: $this->isGroupCallingLineId;
     }
 }

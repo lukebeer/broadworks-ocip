@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DtmfTransmissionSignalingContentType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DTMFTransmissionMethod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDTMFTransmissionGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemDTMFTransmissionGetRequest.
+ * Response to the SystemDTMFTransmissionGetRequest.
  */
 class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
     protected $transmissionMethod   = null;
     protected $signalingContentType = null;
 
+    /**
+     * @return SystemDTMFTransmissionGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The DTMF transmission method.

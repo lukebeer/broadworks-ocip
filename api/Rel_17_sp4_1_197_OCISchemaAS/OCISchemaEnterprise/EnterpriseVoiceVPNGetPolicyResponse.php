@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\Enterpr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNPolicySelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseVoiceVPNGetPolicyRequest.
+ * Response to EnterpriseVoiceVPNGetPolicyRequest.
  */
 class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements ComplexInterface
 {
@@ -27,6 +30,13 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
     protected $routeGroupId       = null;
     protected $policySelection    = null;
 
+    /**
+     * @return EnterpriseVoiceVPNGetPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Enterprise Voice VPN Extension Length.

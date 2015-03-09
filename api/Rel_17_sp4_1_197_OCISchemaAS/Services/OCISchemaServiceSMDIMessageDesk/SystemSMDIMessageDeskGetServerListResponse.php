@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemMediaServerGetListRequest. The SMDI Server table column
+ * Response to SystemMediaServerGetListRequest. The SMDI Server table column
  *         headings are: "Device Name", "Net Address", "Port" and "Description".
  */
 class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements 
     public    $name            = __CLASS__;
     protected $smdiServerTable = null;
 
+    /**
+     * @return SystemSMDIMessageDeskGetServerListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

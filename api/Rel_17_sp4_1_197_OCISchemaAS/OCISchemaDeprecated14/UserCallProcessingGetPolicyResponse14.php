@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxSimultaneousCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaPolicySelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallProcessingGetPolicyResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallProcessingGetPolicyRequest14.
+ * Response to UserCallProcessingGetPolicyRequest14.
  */
 class UserCallProcessingGetPolicyResponse14 extends ComplexType implements ComplexInterface
 {
@@ -34,6 +37,13 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
     protected $mediaPolicySelection                 = null;
     protected $supportedMediaSetName                = null;
 
+    /**
+     * @return UserCallProcessingGetPolicyResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -48,7 +58,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
      */
     public function getUseUserSetting()
     {
-        return (!$this->useUserSetting) ?: $this->useUserSetting->getValue();
+        return (!$this->useUserSetting) ?: $this->useUserSetting;
     }
 
     /**
@@ -64,7 +74,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
      */
     public function getUseMaxSimultaneousCalls()
     {
-        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->getValue();
+        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls;
     }
 
     /**
@@ -98,7 +108,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
-        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->getValue();
+        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls;
     }
 
     /**
@@ -132,7 +142,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
-        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->getValue();
+        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls;
     }
 
     /**
@@ -166,7 +176,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
-        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->getValue();
+        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls;
     }
 
     /**

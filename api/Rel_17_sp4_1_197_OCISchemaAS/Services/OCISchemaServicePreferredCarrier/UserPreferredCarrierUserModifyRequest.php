@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\UserPreferredCarrierNameModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\UserPreferredCarrierUserModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the currently configured preferred carriers for a user.
+ * Modifies the currently configured preferred carriers for a user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserPreferredCarrierUserModifyRequest extends ComplexType implements ComplexInterface
@@ -35,6 +38,14 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
         $this->setIntraLataCarrier($intraLataCarrier);
         $this->setInterLataCarrier($interLataCarrier);
         $this->setInternationalCarrier($internationalCarrier);
+    }
+
+    /**
+     * @return UserPreferredCarrierUserModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

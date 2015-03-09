@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get all the information of a Meet-Me Conferencing bridge.
+ * Request to get all the information of a Meet-Me Conferencing bridge.
  *         The response is either GroupMeetMeConferencingGetInstanceResponse or ErrorResponse.
  */
 class GroupMeetMeConferencingGetInstanceRequest17sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceResponse17sp3';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceResponse17sp3';
     public    $name          = __CLASS__;
     protected $serviceUserId = null;
 
@@ -26,6 +29,14 @@ class GroupMeetMeConferencingGetInstanceRequest17sp3 extends ComplexType impleme
          $serviceUserId
     ) {
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return GroupMeetMeConferencingGetInstanceResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

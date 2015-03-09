@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CPEDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemDeviceTypeGetResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemDeviceTypeGetRequest14sp6.
+ * Response to SystemDeviceTypeGetRequest14sp6.
  *         Replaced by: SystemDeviceTypeGetResponse16
  */
 class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInterface
@@ -32,6 +35,13 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
     protected $useDomain                 = null;
     protected $isMobilityManagerDevice   = null;
 
+    /**
+     * @return SystemDeviceTypeGetResponse14sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -46,7 +56,7 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
+        return (!$this->isObsolete) ?: $this->isObsolete;
     }
 
     /**
@@ -98,7 +108,7 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function getStaticRegistrationCapable()
     {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->getValue();
+        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
     }
 
     /**
@@ -148,7 +158,7 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function getIsIpAddressOptional()
     {
-        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional->getValue();
+        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional;
     }
 
     /**
@@ -164,7 +174,7 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function getUseDomain()
     {
-        return (!$this->useDomain) ?: $this->useDomain->getValue();
+        return (!$this->useDomain) ?: $this->useDomain;
     }
 
     /**
@@ -180,6 +190,6 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function getIsMobilityManagerDevice()
     {
-        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice->getValue();
+        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice;
     }
 }

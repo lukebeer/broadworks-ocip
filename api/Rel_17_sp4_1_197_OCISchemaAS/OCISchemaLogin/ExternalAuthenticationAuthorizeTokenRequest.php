@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginToken;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\ExternalAuthenticationAuthorizeTokenResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * This command is part of the Portal API.
+ * This command is part of the Portal API.
  *         Sent when a Web or CLI user logs in using external authentication.
  *         The password must be hashed. The password hashing algorithm is:
  *         1) The message digest of the user's plain password is calculated using the SHA algorithm.
@@ -40,6 +43,14 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
         $this->setUserId($userId);
         $this->setPassword($password);
         $this->setLoginToken($loginToken);
+    }
+
+    /**
+     * @return ExternalAuthenticationAuthorizeTokenResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

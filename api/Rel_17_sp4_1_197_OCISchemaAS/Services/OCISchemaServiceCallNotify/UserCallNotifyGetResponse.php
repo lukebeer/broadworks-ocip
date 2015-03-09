@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallNotifyGetRequest. The criteria table's column headings are: "Is Active", 
+ * Response to the UserCallNotifyGetRequest. The criteria table's column headings are: "Is Active", 
  *         "Criteria Name", "Time Schedule", "Calls From", "Blacklisted" and "Holiday Schedule".
  */
 class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
@@ -22,6 +25,13 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
     protected $callNotifyEmailAddress = null;
     protected $criteriaTable          = null;
 
+    /**
+     * @return UserCallNotifyGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Email Address

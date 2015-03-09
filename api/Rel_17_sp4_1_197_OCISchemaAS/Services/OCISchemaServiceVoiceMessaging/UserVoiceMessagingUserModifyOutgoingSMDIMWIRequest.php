@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserModifyOutgoingSMDIMWIResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's voice messaging outgoing message waiting indicator service setting.
+ * Modify the user's voice messaging outgoing message waiting indicator service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
         $this->setUserId($userId);
         $this->setIsActive($isActive);
         $this->setOutgoingSMDIMWIPhoneNumberList($outgoingSMDIMWIPhoneNumberList);
+    }
+
+    /**
+     * @return UserVoiceMessagingUserModifyOutgoingSMDIMWIResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

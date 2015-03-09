@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegac
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackLineMatchAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackLineType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackModifyLineTypeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's legacy automatic callback line type attributes.
+ * Modifies the system's legacy automatic callback line type attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
         $this->setLineType($lineType);
         $this->setMatchAction($matchAction);
         $this->setNoMatchAction($noMatchAction);
+    }
+
+    /**
+     * @return SystemLegacyAutomaticCallbackModifyLineTypeResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

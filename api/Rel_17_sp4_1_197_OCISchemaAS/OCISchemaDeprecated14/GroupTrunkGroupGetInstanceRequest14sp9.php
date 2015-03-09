@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a Trunk Group Instance's profile.
+ * Get a Trunk Group Instance's profile.
  *         The response is either a GroupTrunkGroupGetInstanceResponse14sp9 or an ErrorResponse.
  *         The response contains a hosted user table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupTrunkGroupGetInstanceRequest14sp9 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp9';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp9';
     public    $name          = __CLASS__;
     protected $trunkGroupKey = null;
 
@@ -28,6 +31,14 @@ class GroupTrunkGroupGetInstanceRequest14sp9 extends ComplexType implements Comp
           $trunkGroupKey
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
+    }
+
+    /**
+     * @return GroupTrunkGroupGetInstanceResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

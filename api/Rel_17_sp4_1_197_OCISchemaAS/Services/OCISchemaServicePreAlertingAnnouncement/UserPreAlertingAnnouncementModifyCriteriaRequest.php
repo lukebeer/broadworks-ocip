@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidayS
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement\UserPreAlertingAnnouncementModifyCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a criteria for the user's pre-alerting service.
+ * Modify a criteria for the user's pre-alerting service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType implements ComplexInterface
@@ -47,6 +50,14 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
         $this->setHolidaySchedule($holidaySchedule);
         $this->setBlacklisted($blacklisted);
         $this->setFromDnCriteria($fromDnCriteria);
+    }
+
+    /**
+     * @return UserPreAlertingAnnouncementModifyCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -156,7 +167,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**

@@ -11,19 +11,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupLocationCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the list of Voice VPN locations.
+ * Request the list of Voice VPN locations.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a EnterpriseVoiceVPNGetPolicyListResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse';
+    public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse';
     public    $name                               = __CLASS__;
     protected $serviceProviderId                  = null;
     protected $responseSizeLimit                  = null;
@@ -40,6 +43,14 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
         $this->setSearchCriteriaExactPolicySelection($searchCriteriaExactPolicySelection);
+    }
+
+    /**
+     * @return EnterpriseVoiceVPNGetPolicyListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

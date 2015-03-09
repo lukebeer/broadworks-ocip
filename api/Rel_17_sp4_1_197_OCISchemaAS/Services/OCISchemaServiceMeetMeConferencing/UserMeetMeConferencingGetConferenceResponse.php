@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePassCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceTitle;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserMeetMeConferencingGetConferenceRequest.
+ * Response to UserMeetMeConferencingGetConferenceRequest.
  *         Contains the information of a conference.
  */
 class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements ComplexInterface
@@ -34,6 +37,13 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
     protected $conferenceSchedule           = null;
     protected $moderatorPin                 = null;
 
+    /**
+     * @return UserMeetMeConferencingGetConferenceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Conference title.
@@ -102,7 +112,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
      */
     public function getMuteAllAttendeesOnEntry()
     {
-        return (!$this->muteAllAttendeesOnEntry) ?: $this->muteAllAttendeesOnEntry->getValue();
+        return (!$this->muteAllAttendeesOnEntry) ?: $this->muteAllAttendeesOnEntry;
     }
 
     /**
@@ -118,7 +128,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
      */
     public function getEndConferenceOnModeratorExit()
     {
-        return (!$this->endConferenceOnModeratorExit) ?: $this->endConferenceOnModeratorExit->getValue();
+        return (!$this->endConferenceOnModeratorExit) ?: $this->endConferenceOnModeratorExit;
     }
 
     /**
@@ -134,7 +144,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
      */
     public function getModeratorRequired()
     {
-        return (!$this->moderatorRequired) ?: $this->moderatorRequired->getValue();
+        return (!$this->moderatorRequired) ?: $this->moderatorRequired;
     }
 
     /**

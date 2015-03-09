@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPContact;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback\UserExternalCustomRingbackGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserExternalCustomRingbackGetRequest.
+ * Response to UserExternalCustomRingbackGetRequest.
  */
 class UserExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
@@ -23,6 +26,13 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
     protected $useSettingLevel = null;
     protected $sipRequestURI   = null;
 
+    /**
+     * @return UserExternalCustomRingbackGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

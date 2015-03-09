@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAuthorizationCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCommunicationBarringAuthorizationCodeDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a list of Communication Barring Authorization codes from a user.
+ * Delete a list of Communication Barring Authorization codes from a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCommunicationBarringAuthorizationCodeDeleteListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserCommunicationBarringAuthorizationCodeDeleteListRequest extends Complex
     ) {
         $this->setUserId($userId);
         $this->setCode($code);
+    }
+
+    /**
+     * @return UserCommunicationBarringAuthorizationCodeDeleteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

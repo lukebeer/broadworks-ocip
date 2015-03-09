@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\GroupPreferredCarrierName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\GroupPreferredCarrierGroupGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a GroupPreferredCarrierGroupGetRequest.
+ * Response to a GroupPreferredCarrierGroupGetRequest.
  */
 class GroupPreferredCarrierGroupGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
     protected $interLataCarrier     = null;
     protected $internationalCarrier = null;
 
+    /**
+     * @return GroupPreferredCarrierGroupGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Group can either use it's service provider/enterprise's preferred carrier or use it's own.

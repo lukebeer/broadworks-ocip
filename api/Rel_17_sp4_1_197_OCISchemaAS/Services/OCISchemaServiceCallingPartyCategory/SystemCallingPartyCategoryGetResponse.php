@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\ISDNGenericTransparencyDescriptorOliValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebDisplayKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallingPartyCategoryGetRequest.
+ * Response to SystemCallingPartyCategoryGetRequest.
  *         Contains information of a Calling Party Category defined in system.
  */
 class SystemCallingPartyCategoryGetResponse extends ComplexType implements ComplexInterface
@@ -32,6 +35,13 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
     protected $collectCall   = null;
     protected $webDisplayKey = null;
 
+    /**
+     * @return SystemCallingPartyCategoryGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Value for the Calling Party Category used in signaling.
@@ -100,7 +110,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getUserCategory()
     {
-        return (!$this->userCategory) ?: $this->userCategory->getValue();
+        return (!$this->userCategory) ?: $this->userCategory;
     }
 
     /**
@@ -116,7 +126,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getPayPhone()
     {
-        return (!$this->payPhone) ?: $this->payPhone->getValue();
+        return (!$this->payPhone) ?: $this->payPhone;
     }
 
     /**
@@ -132,7 +142,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getOperator()
     {
-        return (!$this->operator) ?: $this->operator->getValue();
+        return (!$this->operator) ?: $this->operator;
     }
 
     /**
@@ -148,7 +158,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getDefault()
     {
-        return (!$this->default) ?: $this->default->getValue();
+        return (!$this->default) ?: $this->default;
     }
 
     /**
@@ -164,7 +174,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getCollectCall()
     {
-        return (!$this->collectCall) ?: $this->collectCall->getValue();
+        return (!$this->collectCall) ?: $this->collectCall;
     }
 
     /**

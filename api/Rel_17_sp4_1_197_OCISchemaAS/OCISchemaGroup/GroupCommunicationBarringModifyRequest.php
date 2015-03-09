@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommunicationBarringModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Gets Communication Barring setting for a group.  
+ * Gets Communication Barring setting for a group.  
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
         $this->setGroupId($groupId);
         $this->setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile);
         $this->setProfile($profile);
+    }
+
+    /**
+     * @return GroupCommunicationBarringModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -91,7 +102,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getUseDefaultServiceProviderProfile()
     {
-        return (!$this->useDefaultServiceProviderProfile) ?: $this->useDefaultServiceProviderProfile->getValue();
+        return (!$this->useDefaultServiceProviderProfile) ?: $this->useDefaultServiceProviderProfile;
     }
 
     /**

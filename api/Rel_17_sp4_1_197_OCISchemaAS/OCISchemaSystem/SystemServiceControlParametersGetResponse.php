@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServiceControlMaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceControlParametersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemServiceControlParametersGetListRequest.
+ * Response to SystemServiceControlParametersGetListRequest.
  *         Contains a list of system Service Control parameters.
  */
 class SystemServiceControlParametersGetResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
     protected $serverPort           = null;
     protected $maxClientConnections = null;
 
+    /**
+     * @return SystemServiceControlParametersGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * TCP/IP Port number above the well-known range.

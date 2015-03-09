@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMalic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceCallTypeSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceTimePeriod;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\UserMaliciousCallTraceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Malicious Call Trace.
+ * Modify the user level data associated with Malicious Call Trace.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
         $this->setTraceTypeSelection($traceTypeSelection);
         $this->setTraceForTimePeriod($traceForTimePeriod);
         $this->setTraceTimePeriod($traceTimePeriod);
+    }
+
+    /**
+     * @return UserMaliciousCallTraceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -80,7 +91,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -114,7 +125,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getTraceForTimePeriod()
     {
-        return (!$this->traceForTimePeriod) ?: $this->traceForTimePeriod->getValue();
+        return (!$this->traceForTimePeriod) ?: $this->traceForTimePeriod;
     }
 
     /**

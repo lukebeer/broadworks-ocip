@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\Voice
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserVoiceMessagingUserModifyGreetingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's voice messaging greeting.
+ * Modify the user's voice messaging greeting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  *         Replaced By: UserVoiceMessagingUserModifyGreetingRequest16
@@ -62,6 +65,14 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
         $this->setNoAnswerAlternateGreeting02($noAnswerAlternateGreeting02);
         $this->setNoAnswerAlternateGreeting03($noAnswerAlternateGreeting03);
         $this->setNoAnswerNumberOfRings($noAnswerNumberOfRings);
+    }
+
+    /**
+     * @return UserVoiceMessagingUserModifyGreetingResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

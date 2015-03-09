@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Announce
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupInterceptGroupGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupInterceptGroupGetRequest.
+ * Response to the GroupInterceptGroupGetRequest.
  *         Replaced By: GroupInterceptGroupGetResponse16
  */
 class GroupInterceptGroupGetResponse extends ComplexType implements ComplexInterface
@@ -31,6 +34,13 @@ class GroupInterceptGroupGetResponse extends ComplexType implements ComplexInter
     protected $transferOnZeroToPhoneNumber = null;
     protected $transferPhoneNumber         = null;
 
+    /**
+     * @return GroupInterceptGroupGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class GroupInterceptGroupGetResponse extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -115,7 +125,7 @@ class GroupInterceptGroupGetResponse extends ComplexType implements ComplexInter
      */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
     }
 
     /**
@@ -149,7 +159,7 @@ class GroupInterceptGroupGetResponse extends ComplexType implements ComplexInter
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
     }
 
     /**

@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a GroupTrunkGroupUserCreationTaskGetRequest.
+ * Response to a GroupTrunkGroupUserCreationTaskGetRequest.
  */
 class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements ComplexInterface
 {
@@ -41,6 +44,13 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
     protected $userCreationMode   = null;
     protected $taskSummary        = null;
 
+    /**
+     * @return GroupTrunkGroupUserCreationTaskGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * User Id format for Trunk Group User Creation.
@@ -91,7 +101,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getPopulateExtension()
     {
-        return (!$this->populateExtension) ?: $this->populateExtension->getValue();
+        return (!$this->populateExtension) ?: $this->populateExtension;
     }
 
     /**
@@ -143,7 +153,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getPopulateContact()
     {
-        return (!$this->populateContact) ?: $this->populateContact->getValue();
+        return (!$this->populateContact) ?: $this->populateContact;
     }
 
     /**
@@ -195,7 +205,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getUsersCreated()
     {
-        return (!$this->usersCreated) ?: $this->usersCreated->getValue();
+        return (!$this->usersCreated) ?: $this->usersCreated;
     }
 
     /**
@@ -211,7 +221,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getTotalUsersToCreate()
     {
-        return (!$this->totalUsersToCreate) ?: $this->totalUsersToCreate->getValue();
+        return (!$this->totalUsersToCreate) ?: $this->totalUsersToCreate;
     }
 
     /**
@@ -227,7 +237,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getErrorCount()
     {
-        return (!$this->errorCount) ?: $this->errorCount->getValue();
+        return (!$this->errorCount) ?: $this->errorCount;
     }
 
     /**
@@ -315,6 +325,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getTaskSummary()
     {
-        return (!$this->taskSummary) ?: $this->taskSummary->getValue();
+        return (!$this->taskSummary) ?: $this->taskSummary;
     }
 }

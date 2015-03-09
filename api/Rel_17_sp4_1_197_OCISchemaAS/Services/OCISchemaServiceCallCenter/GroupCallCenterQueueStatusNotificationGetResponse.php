@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterWaitingTimeNotificationThresholdSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterQueueDepthNotificationThreshold;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueStatusNotificationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterQueueStatusNotificationGetRequest.
+ * Response to the GroupCallCenterQueueStatusNotificationGetRequest.
  *         The response contains the call center status configuration information.
  */
 class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType implements ComplexInterface
@@ -26,6 +29,13 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
     protected $numberOfCallsThreshold        = null;
     protected $waitingTimeOfCallsThreshold   = null;
 
+    /**
+     * @return GroupCallCenterQueueStatusNotificationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -40,7 +50,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
      */
     public function getEnableQueueStatusNotification()
     {
-        return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification->getValue();
+        return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification;
     }
 
     /**
@@ -56,7 +66,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
      */
     public function getEnableQueueDepthThreshold()
     {
-        return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold->getValue();
+        return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold;
     }
 
     /**
@@ -72,7 +82,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
      */
     public function getEnableWaitingTimeThreshold()
     {
-        return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold->getValue();
+        return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold;
     }
 
     /**

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDia
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Group level data associated with Dial Plan Policy.
+ * Modify the Group level data associated with Dial Plan Policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInterface
@@ -49,6 +52,14 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
         $this->setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices);
         $this->setPublicDigitMap($publicDigitMap);
         $this->setPrivateDigitMap($privateDigitMap);
+    }
+
+    /**
+     * @return GroupDialPlanPolicyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -126,7 +137,7 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls->getValue();
+        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
     }
 
     /**
@@ -142,7 +153,7 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
      */
     public function getAllowE164PublicCalls()
     {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls->getValue();
+        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
     }
 
     /**
@@ -158,7 +169,7 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
      */
     public function getPreferE164NumberFormatForCallbackServices()
     {
-        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices->getValue();
+        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices;
     }
 
     /**

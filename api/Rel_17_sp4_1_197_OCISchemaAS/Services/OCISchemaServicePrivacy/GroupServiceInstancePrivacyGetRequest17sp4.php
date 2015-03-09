@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\GroupServiceInstancePrivacyGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the data associated with Privacy for a service instance.
+ * Request the data associated with Privacy for a service instance.
  *         The response is either a GroupServiceInstancePrivacyGetResponse17sp4
  *         or an ErrorResponse.
  */
 class GroupServiceInstancePrivacyGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\GroupServiceInstancePrivacyGetResponse17sp4';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\GroupServiceInstancePrivacyGetResponse17sp4';
     public    $name          = __CLASS__;
     protected $serviceUserId = null;
 
@@ -27,6 +30,14 @@ class GroupServiceInstancePrivacyGetRequest17sp4 extends ComplexType implements 
          $serviceUserId
     ) {
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return GroupServiceInstancePrivacyGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

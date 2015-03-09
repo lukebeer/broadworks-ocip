@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterWrapUpSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterEnhancedModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Call Center Enhanced configuration data for a Call
+ * Modify the Call Center Enhanced configuration data for a Call
  *         Center.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         
@@ -35,6 +38,14 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
         $this->setServiceUserId($serviceUserId);
         $this->setOverrideAgentWrapUpTime($overrideAgentWrapUpTime);
         $this->setWrapUpSeconds($wrapUpSeconds);
+    }
+
+    /**
+     * @return GroupCallCenterEnhancedModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -76,7 +87,7 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->getValue();
+        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime;
     }
 
     /**

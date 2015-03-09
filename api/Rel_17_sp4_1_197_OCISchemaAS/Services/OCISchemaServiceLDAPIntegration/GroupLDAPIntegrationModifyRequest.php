@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPI
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\GroupLDAPIntegrationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group level data associated with LDAP Integration.
+ * Modify the group level data associated with LDAP Integration.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupLDAPIntegrationModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class GroupLDAPIntegrationModifyRequest extends ComplexType implements ComplexIn
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setIsActive($isActive);
+    }
+
+    /**
+     * @return GroupLDAPIntegrationModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -87,6 +98,6 @@ class GroupLDAPIntegrationModifyRequest extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 }

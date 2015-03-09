@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDialPlanPolicySettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupDialPlanPolicyGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupDialPlanPolicyGetRequest
+ * Response to GroupDialPlanPolicyGetRequest
  * 
  *         Replaced by: GroupDialPlanPolicyGetResponse17
  */
@@ -27,6 +30,13 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
     protected $publicDigitMap                   = null;
     protected $privateDigitMap                  = null;
 
+    /**
+     * @return GroupDialPlanPolicyGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Choices for the group Dial Plan Policy to decide which type of settings shall be used.
@@ -63,7 +73,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls->getValue();
+        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
     }
 
     /**
@@ -79,7 +89,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function getAllowE164PublicCalls()
     {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls->getValue();
+        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
     }
 
     /**

@@ -9,16 +9,19 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingWeekOfMonth;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByWeek;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Monthly by week recurrence conference schedule used in the context of a conference add.
+ * Monthly by week recurrence conference schedule used in the context of a conference add.
  */
 class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByWeek';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByWeek';
     public    $name        = __CLASS__;
     protected $weekOfMonth = null;
     protected $dayOfWeek   = null;
@@ -29,6 +32,14 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
     ) {
         $this->setWeekOfMonth($weekOfMonth);
         $this->setDayOfWeek($dayOfWeek);
+    }
+
+    /**
+     * @return InstantConferencingRecurrenceScheduleMonthlyByWeek
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

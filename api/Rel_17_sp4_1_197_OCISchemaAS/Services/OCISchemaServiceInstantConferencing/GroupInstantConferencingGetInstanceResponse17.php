@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetInstanceResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupInstantConferencingGetInstanceRequest17.        Contains the service profile information and a table of assigned users.
+ * Response to GroupInstantConferencingGetInstanceRequest17.        Contains the service profile information and a table of assigned users.
  *         The table has column headings: "User Id", "Last Name", "First Name",
  *         "Hiragana Last Name", "Hiragana First Name".
  */
@@ -33,6 +36,13 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
     protected $bridgeAdministratorUserTable   = null;
     protected $networkClassOfService          = null;
 
+    /**
+     * @return GroupInstantConferencingGetInstanceResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -137,7 +147,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
     }
 
     /**
@@ -153,7 +163,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
      */
     public function getAllowDocumentDownload()
     {
-        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload->getValue();
+        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload;
     }
 
     /**

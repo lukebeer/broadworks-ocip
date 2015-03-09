@@ -17,18 +17,21 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RealmNam
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Md5Hash;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the address and credentials of the File Repository hosting the requested access device file. 
+ * Get the address and credentials of the File Repository hosting the requested access device file. 
  *         Also get the file name and path on the File Repository. 
  *         The response is either a DeviceManagementFileAuthLocationGetResponse17 or an ErrorResponse.
  */
 class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17';
+    public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17';
     public    $name                     = __CLASS__;
     protected $deviceAccessProtocol     = null;
     protected $deviceAccessMethod       = null;
@@ -63,6 +66,14 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
         $this->setRealmName($realmName);
         $this->setDigestHa1Complement($digestHa1Complement);
         $this->setDigestResponse($digestResponse);
+    }
+
+    /**
+     * @return DeviceManagementFileAuthLocationGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

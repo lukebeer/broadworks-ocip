@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupInstantConferencingGetRequest.
+ * Response to GroupInstantConferencingGetRequest.
  */
 class GroupInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
     protected $portsAllocatedToGroup             = null;
     protected $portsConsumedByGroupBridges       = null;
 
+    /**
+     * @return GroupInstantConferencingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
@@ -68,6 +78,6 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function getPortsConsumedByGroupBridges()
     {
-        return (!$this->portsConsumedByGroupBridges) ?: $this->portsConsumedByGroupBridges->getValue();
+        return (!$this->portsConsumedByGroupBridges) ?: $this->portsConsumedByGroupBridges;
     }
 }

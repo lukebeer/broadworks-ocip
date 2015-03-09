@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccou
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the group's account/authorization codes setting.
+ * Request the group's account/authorization codes setting.
  *         The response is either a GroupAccountAuthorizationCodesGetResponse or an ErrorResponse.
  */
 class GroupAccountAuthorizationCodesGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $groupId           = null;
@@ -30,6 +33,14 @@ class GroupAccountAuthorizationCodesGetRequest extends ComplexType implements Co
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
+    }
+
+    /**
+     * @return GroupAccountAuthorizationCodesGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

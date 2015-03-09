@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSimultaneousRingPersonalGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSimultaneousRingPersonalGetRequest.
+ * Response to the UserSimultaneousRingPersonalGetRequest.
  *         Replaced By: UserSimultaneousRingPersonalGetResponse14sp4
  */
 class UserSimultaneousRingPersonalGetResponse extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
     protected $incomingCalls      = null;
     protected $simRingPhoneNumber = null;
 
+    /**
+     * @return UserSimultaneousRingPersonalGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

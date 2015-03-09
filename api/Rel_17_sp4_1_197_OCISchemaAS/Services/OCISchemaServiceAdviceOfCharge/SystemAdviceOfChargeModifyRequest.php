@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdvic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeDelayBetweenNotificationSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeIncomingAocHandling;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge\SystemAdviceOfChargeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Advice of Charge system parameters.
+ * Request to modify Advice of Charge system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
         $this->setDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds);
         $this->setIncomingAocHandling($incomingAocHandling);
         $this->setCostInformationSource($costInformationSource);
+    }
+
+    /**
+     * @return SystemAdviceOfChargeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

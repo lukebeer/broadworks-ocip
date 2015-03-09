@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExternalSystemDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an Route Point External System.
+ * Modify an Route Point External System.
  *       The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
         $this->setName($name);
         $this->setNewName($newName);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemRoutePointExternalSystemModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

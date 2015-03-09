@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery\UserCallingNameDeliveryGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the user level data associated with Calling
+ * Request the user level data associated with Calling
  *         Name Delivery. The response is either a
  *         UserCallingNameDeliveryGetResponse or an ErrorResponse.
  */
 class UserCallingNameDeliveryGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery\UserCallingNameDeliveryGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery\UserCallingNameDeliveryGetResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -27,6 +30,14 @@ class UserCallingNameDeliveryGetRequest extends ComplexType implements ComplexIn
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserCallingNameDeliveryGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

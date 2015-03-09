@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a service code for the purpose of providing free format routable strings for dialing
+ * Request to delete a service code for the purpose of providing free format routable strings for dialing
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInter
          $serviceCode
     ) {
         $this->setServiceCode($serviceCode);
+    }
+
+    /**
+     * @return SystemServiceCodeDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

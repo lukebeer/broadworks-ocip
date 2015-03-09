@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInternalCallingLineIDDelivery; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInternalCallingLineIDDelivery\UserInternalCallingLineIDDeliveryGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInternalCallingLineIDDeliveryGetRequest.
+ * Response to UserInternalCallingLineIDDeliveryGetRequest.
  */
 class UserInternalCallingLineIDDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name     = __CLASS__;
     protected $isActive = null;
 
+    /**
+     * @return UserInternalCallingLineIDDeliveryGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -34,6 +44,6 @@ class UserInternalCallingLineIDDeliveryGetResponse extends ComplexType implement
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 }

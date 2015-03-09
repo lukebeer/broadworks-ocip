@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceMa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceCustomTagModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a static configuration tag for a group access device.
+ * Request to modify a static configuration tag for a group access device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
         $this->setDeviceName($deviceName);
         $this->setTagName($tagName);
         $this->setTagValue($tagValue);
+    }
+
+    /**
+     * @return GroupAccessDeviceCustomTagModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

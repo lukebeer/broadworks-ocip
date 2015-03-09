@@ -30,12 +30,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Departme
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupModifyInstanceResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Trunk Group Instance in a group.
+ * Modify a Trunk Group Instance in a group.
  *         The access device cannot be modified or cleared if there are any users assigned to the Trunk Group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -162,6 +165,14 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
         $this->setCallForwardingAlwaysAction($callForwardingAlwaysAction);
         $this->setCallForwardingAlwaysForwardAddress($callForwardingAlwaysForwardAddress);
         $this->setCallForwardingAlwaysRerouteTrunkGroupKey($callForwardingAlwaysRerouteTrunkGroupKey);
+    }
+
+    /**
+     * @return GroupTrunkGroupModifyInstanceResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -339,7 +350,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getEnableBursting()
     {
-        return (!$this->enableBursting) ?: $this->enableBursting->getValue();
+        return (!$this->enableBursting) ?: $this->enableBursting;
     }
 
     /**
@@ -639,7 +650,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**
@@ -759,7 +770,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getIncludeTrunkGroupIdentity()
     {
-        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity->getValue();
+        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity;
     }
 
     /**
@@ -775,7 +786,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getIncludeDtgIdentity()
     {
-        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity->getValue();
+        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity;
     }
 
     /**
@@ -791,7 +802,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getEnableNetworkAddressIdentity()
     {
-        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity->getValue();
+        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity;
     }
 
     /**
@@ -807,7 +818,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getAllowUnscreenedCalls()
     {
-        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls->getValue();
+        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls;
     }
 
     /**
@@ -823,7 +834,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
-        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls->getValue();
+        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls;
     }
 
     /**
@@ -839,7 +850,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getUsePilotUserCallingLineIdentity()
     {
-        return (!$this->usePilotUserCallingLineIdentity) ?: $this->usePilotUserCallingLineIdentity->getValue();
+        return (!$this->usePilotUserCallingLineIdentity) ?: $this->usePilotUserCallingLineIdentity;
     }
 
     /**
@@ -855,7 +866,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
      */
     public function getUsePilotUserChargeNumber()
     {
-        return (!$this->usePilotUserChargeNumber) ?: $this->usePilotUserChargeNumber->getValue();
+        return (!$this->usePilotUserChargeNumber) ?: $this->usePilotUserChargeNumber;
     }
 
     /**

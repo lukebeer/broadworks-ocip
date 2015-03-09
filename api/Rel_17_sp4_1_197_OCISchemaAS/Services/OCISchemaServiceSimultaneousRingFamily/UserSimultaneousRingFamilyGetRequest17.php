@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the user's simultaneous ring family service setting.
+ * Get the user's simultaneous ring family service setting.
  *         The response is either a UserSimultaneousRingFamilyGetResponse17 or an ErrorResponse.
  */
 class UserSimultaneousRingFamilyGetRequest17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetResponse17';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetResponse17';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -26,6 +29,14 @@ class UserSimultaneousRingFamilyGetRequest17 extends ComplexType implements Comp
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserSimultaneousRingFamilyGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

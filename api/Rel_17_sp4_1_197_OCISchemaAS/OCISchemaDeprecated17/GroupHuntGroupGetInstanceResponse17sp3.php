@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntForw
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupHuntGroupGetInstanceResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupHuntGroupGetInstanceRequest17sp3.
+ * Response to GroupHuntGroupGetInstanceRequest17sp3.
  *         Contains the service profile information and a table of assigned users.
  *         The table has column headings: "User Id", "Last Name", "First Name",
  *         "Hiragana Last Name", "Hiragana First Name", "Weight".
@@ -40,6 +43,13 @@ class GroupHuntGroupGetInstanceResponse17sp3 extends ComplexType implements Comp
     protected $useSystemHuntGroupCLIDSetting = null;
     protected $includeHuntGroupNameInCLID    = null;
 
+    /**
+     * @return GroupHuntGroupGetInstanceResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -90,7 +100,7 @@ class GroupHuntGroupGetInstanceResponse17sp3 extends ComplexType implements Comp
      */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
     }
 
     /**
@@ -126,7 +136,7 @@ class GroupHuntGroupGetInstanceResponse17sp3 extends ComplexType implements Comp
      */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
     }
 
     /**
@@ -198,7 +208,7 @@ class GroupHuntGroupGetInstanceResponse17sp3 extends ComplexType implements Comp
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 
     /**
@@ -214,7 +224,7 @@ class GroupHuntGroupGetInstanceResponse17sp3 extends ComplexType implements Comp
      */
     public function getUseSystemHuntGroupCLIDSetting()
     {
-        return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting->getValue();
+        return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting;
     }
 
     /**
@@ -230,6 +240,6 @@ class GroupHuntGroupGetInstanceResponse17sp3 extends ComplexType implements Comp
      */
     public function getIncludeHuntGroupNameInCLID()
     {
-        return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID->getValue();
+        return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID;
     }
 }

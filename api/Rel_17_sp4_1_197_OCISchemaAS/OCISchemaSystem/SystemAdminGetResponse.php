@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemAd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemAdminGetRequest.
+ * Response to the SystemAdminGetRequest.
  *         The response contains the system or provisioning administrators profile information.
  */
 class SystemAdminGetResponse extends ComplexType implements ComplexInterface
@@ -28,6 +31,13 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
     protected $adminType = null;
     protected $readOnly  = null;
 
+    /**
+     * @return SystemAdminGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * First Name is the first name of a user or an administrator.
@@ -114,6 +124,6 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function getReadOnly()
     {
-        return (!$this->readOnly) ?: $this->readOnly->getValue();
+        return (!$this->readOnly) ?: $this->readOnly;
     }
 }

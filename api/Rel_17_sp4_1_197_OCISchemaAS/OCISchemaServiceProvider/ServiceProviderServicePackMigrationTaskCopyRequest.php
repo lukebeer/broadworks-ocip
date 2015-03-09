@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskCopyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Makes a copy of one or more existing service pack migration tasks. A copied task
+ * Makes a copy of one or more existing service pack migration tasks. A copied task
  *         can be edited with other commands and scheduled for future execution. The
  *         name of the new task is chosen automatically. The name will
  *         be "Copy (number) of taskName".
@@ -32,6 +35,14 @@ class ServiceProviderServicePackMigrationTaskCopyRequest extends ComplexType imp
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
+    }
+
+    /**
+     * @return ServiceProviderServicePackMigrationTaskCopyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -22,12 +22,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderAccessDeviceGetResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to: ServiceProviderAccessDeviceGetRequest14sp6
+ * Response to: ServiceProviderAccessDeviceGetRequest14sp6
  *         Replaced by: ServiceProviderAccessDeviceGetRequest16
  */
 class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements ComplexInterface
@@ -54,6 +57,13 @@ class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements
     protected $useCustomUserNamePassword                   = null;
     protected $userName                                    = null;
 
+    /**
+     * @return ServiceProviderAccessDeviceGetResponse14sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Access device type.
@@ -246,7 +256,7 @@ class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements
      */
     public function getNumberOfAssignedPorts()
     {
-        return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts->getValue();
+        return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts;
     }
 
     /**
@@ -388,7 +398,7 @@ class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements
      */
     public function getUseCustomUserNamePassword()
     {
-        return (!$this->useCustomUserNamePassword) ?: $this->useCustomUserNamePassword->getValue();
+        return (!$this->useCustomUserNamePassword) ?: $this->useCustomUserNamePassword;
     }
 
     /**

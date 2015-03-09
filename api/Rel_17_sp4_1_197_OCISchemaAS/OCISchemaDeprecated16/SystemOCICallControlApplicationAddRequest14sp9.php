@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallApplicationNotificationTimeOutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallControlApplicationDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemOCICallControlApplicationAddResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add an application to the OCI call control application list.
+ * Add an application to the OCI call control application list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
         $this->setEnableSystemWide($enableSystemWide);
         $this->setNotificationTimeoutSeconds($notificationTimeoutSeconds);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemOCICallControlApplicationAddResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,7 +80,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
      */
     public function getEnableSystemWide()
     {
-        return (!$this->enableSystemWide) ?: $this->enableSystemWide->getValue();
+        return (!$this->enableSystemWide) ?: $this->enableSystemWide;
     }
 
     /**

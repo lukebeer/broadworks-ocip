@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get the properties of the DNH service for a specified serviceUserId.
+ * Request to get the properties of the DNH service for a specified serviceUserId.
  *         It gets the agents of a call center or hunt group that are members
  *         of a directory number hunting group.  They are agents that are not already
  *         assigned to any other directory number hunting group.
@@ -21,7 +24,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDirectoryNumberHuntingGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse';
     public    $name          = __CLASS__;
     protected $serviceUserId = null;
 
@@ -29,6 +32,14 @@ class GroupDirectoryNumberHuntingGetRequest extends ComplexType implements Compl
          $serviceUserId
     ) {
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return GroupDirectoryNumberHuntingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

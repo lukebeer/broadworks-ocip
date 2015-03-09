@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the service provider's enhanced call log settings.
+ * Get the service provider's enhanced call log settings.
  *         The response is either a ServiceProviderEnhancedCallLogsGetResponse17sp4 or an ErrorResponse.
  *         This command will return an ErrorResponse if DBS is used as the call log server.
  */
 class ServiceProviderEnhancedCallLogsGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
 
@@ -27,6 +30,14 @@ class ServiceProviderEnhancedCallLogsGetRequest17sp4 extends ComplexType impleme
          $serviceProviderId
     ) {
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return ServiceProviderEnhancedCallLogsGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

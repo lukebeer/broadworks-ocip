@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a ServiceProviderPreferredCarrierGetCarrierListRequest.
+ * Response to a ServiceProviderPreferredCarrierGetCarrierListRequest.
  *         Contains the lists of carriers for a specified country code for a service provider / enterprise.
  */
 class ServiceProviderPreferredCarrierGetCarrierListResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class ServiceProviderPreferredCarrierGetCarrierListResponse extends ComplexType 
     protected $interLataCarrier     = null;
     protected $internationalCarrier = null;
 
+    /**
+     * @return ServiceProviderPreferredCarrierGetCarrierListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Uniquely identifies a carrier.

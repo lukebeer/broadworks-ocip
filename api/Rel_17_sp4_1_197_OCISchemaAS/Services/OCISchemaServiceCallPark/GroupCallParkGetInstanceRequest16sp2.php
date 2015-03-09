@@ -10,17 +10,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Gets a Call Park group.
+ * Gets a Call Park group.
  *         The response is either GroupCallParkGetInstanceResponse16sp2 or ErrorResponse.
  */
 class GroupCallParkGetInstanceRequest16sp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $groupId           = null;
@@ -34,6 +37,14 @@ class GroupCallParkGetInstanceRequest16sp2 extends ComplexType implements Comple
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setName($name);
+    }
+
+    /**
+     * @return GroupCallParkGetInstanceResponse16sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

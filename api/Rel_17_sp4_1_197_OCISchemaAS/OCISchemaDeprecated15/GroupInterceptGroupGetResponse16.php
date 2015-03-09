@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDesc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupInterceptGroupGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupInterceptGroupGetRequest16.
+ * Response to the GroupInterceptGroupGetRequest16.
  *         Replaced By: GroupInterceptGroupGetResponse16sp1
  */
 class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInterface
@@ -34,6 +37,13 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
     protected $transferOnZeroToPhoneNumber = null;
     protected $transferPhoneNumber         = null;
 
+    /**
+     * @return GroupInterceptGroupGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -48,7 +58,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -170,7 +180,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
     }
 
     /**
@@ -204,7 +214,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
     }
 
     /**

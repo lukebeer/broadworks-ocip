@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetExpiredConferenceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of expired conferences owned by the user or the user's delegators.
+ * Get the list of expired conferences owned by the user or the user's delegators.
  *         The response is either UserInstantConferencingGetExpiredConferenceListResponse
  *         or ErrorResponse.
  */
 class UserInstantConferencingGetExpiredConferenceListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetExpiredConferenceListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetExpiredConferenceListResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -27,6 +30,14 @@ class UserInstantConferencingGetExpiredConferenceListRequest extends ComplexType
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserInstantConferencingGetExpiredConferenceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

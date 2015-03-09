@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a language for a service provder.
+ * Request to add a language for a service provder.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setLanguage($language);
+    }
+
+    /**
+     * @return ServiceProviderLanguageAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

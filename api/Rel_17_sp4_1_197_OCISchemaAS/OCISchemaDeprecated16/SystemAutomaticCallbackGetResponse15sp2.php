@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMaxCallbackRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMonitorMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMethod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAutomaticCallbackGetResponse15sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAutomaticCallbackGetRequest15sp2.
+ * Response to SystemAutomaticCallbackGetRequest15sp2.
  */
 class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements ComplexInterface
 {
@@ -32,6 +35,13 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
     protected $callbackMethod             = null;
     protected $pollingIntervalSeconds     = null;
 
+    /**
+     * @return SystemAutomaticCallbackGetResponse15sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Automatic Callback monitor minutes.

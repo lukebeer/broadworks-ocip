@@ -9,16 +9,19 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Criteria for searching for digit pattern.
+ * Criteria for searching for digit pattern.
  */
 class SearchCriteriaDigitPattern extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern';
     public    $name              = __CLASS__;
     protected $mode              = null;
     protected $value             = null;
@@ -32,6 +35,14 @@ class SearchCriteriaDigitPattern extends ComplexType implements ComplexInterface
         $this->setMode($mode);
         $this->setValue($value);
         $this->setIsCaseInsensitive($isCaseInsensitive);
+    }
+
+    /**
+     * @return SearchCriteriaDigitPattern
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -91,6 +102,6 @@ class SearchCriteriaDigitPattern extends ComplexType implements ComplexInterface
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
     }
 }

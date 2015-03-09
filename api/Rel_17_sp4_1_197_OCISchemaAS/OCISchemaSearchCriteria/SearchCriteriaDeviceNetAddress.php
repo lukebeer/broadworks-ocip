@@ -9,16 +9,19 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceNetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Criteria for searching for device network address.
+ * Criteria for searching for device network address.
  */
 class SearchCriteriaDeviceNetAddress extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceNetAddress';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceNetAddress';
     public    $name              = __CLASS__;
     protected $mode              = null;
     protected $value             = null;
@@ -32,6 +35,14 @@ class SearchCriteriaDeviceNetAddress extends ComplexType implements ComplexInter
         $this->setMode($mode);
         $this->setValue($value);
         $this->setIsCaseInsensitive($isCaseInsensitive);
+    }
+
+    /**
+     * @return SearchCriteriaDeviceNetAddress
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,6 +94,6 @@ class SearchCriteriaDeviceNetAddress extends ComplexType implements ComplexInter
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
     }
 }

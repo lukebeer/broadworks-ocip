@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetDefaultResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the Voice VPN default settings for the enterprise.
+ * Request the Voice VPN default settings for the enterprise.
  *         The response is EnterpriseVoiceVPNGetDefaultResponse or ErrorResponse.
  */
 class EnterpriseVoiceVPNGetDefaultRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetDefaultResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetDefaultResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
 
@@ -26,6 +29,14 @@ class EnterpriseVoiceVPNGetDefaultRequest extends ComplexType implements Complex
          $serviceProviderId
     ) {
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return EnterpriseVoiceVPNGetDefaultResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

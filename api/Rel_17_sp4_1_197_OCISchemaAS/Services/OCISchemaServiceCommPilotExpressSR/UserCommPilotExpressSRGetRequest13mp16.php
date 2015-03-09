@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the user's commPilot express SR service setting.
+ * Get the user's commPilot express SR service setting.
  *         The response is either a UserCommPilotExpressSRGetResponse13mp16 or an ErrorResponse.
  */
 class UserCommPilotExpressSRGetRequest13mp16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -26,6 +29,14 @@ class UserCommPilotExpressSRGetRequest13mp16 extends ComplexType implements Comp
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserCommPilotExpressSRGetResponse13mp16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

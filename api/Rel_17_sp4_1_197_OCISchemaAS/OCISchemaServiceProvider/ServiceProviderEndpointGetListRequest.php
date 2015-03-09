@@ -21,17 +21,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to search endpoints in the service provider/enterprise.
+ * Request to search endpoints in the service provider/enterprise.
  *         The response is either ServiceProviderEndpointGetListResponse or ErrorResponse.
  */
 class ServiceProviderEndpointGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse';
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse';
     public    $name                           = __CLASS__;
     protected $serviceProviderId              = null;
     protected $responseSizeLimit              = null;
@@ -78,6 +81,14 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
         $this->setSearchCriteriaDeviceName($searchCriteriaDeviceName);
         $this->setSearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
         $this->setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
+    }
+
+    /**
+     * @return ServiceProviderEndpointGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

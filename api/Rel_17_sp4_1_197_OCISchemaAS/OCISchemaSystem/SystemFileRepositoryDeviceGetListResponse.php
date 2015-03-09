@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemFileRepositoryDeviceGetListRequest.
+ * Response to SystemFileRepositoryDeviceGetListRequest.
  *         Contains a table with column headings : "Name","Protocol", "Root Directory" in a row for each file repository.
  */
 class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements C
     public    $name                = __CLASS__;
     protected $fileRepositoryTable = null;
 
+    /**
+     * @return SystemFileRepositoryDeviceGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

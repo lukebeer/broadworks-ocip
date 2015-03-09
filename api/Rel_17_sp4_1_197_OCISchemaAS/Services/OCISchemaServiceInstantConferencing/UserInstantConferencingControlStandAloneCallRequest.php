@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingControlStandAloneCallResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Control a conference call from a stand alone user.
+ * Control a conference call from a stand alone user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingControlStandAloneCallRequest extends ComplexType implements ComplexInterface
@@ -45,6 +48,14 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
         $this->setAction($action);
         $this->setPhoneNumber($phoneNumber);
         $this->setUserName($userName);
+    }
+
+    /**
+     * @return UserInstantConferencingControlStandAloneCallResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

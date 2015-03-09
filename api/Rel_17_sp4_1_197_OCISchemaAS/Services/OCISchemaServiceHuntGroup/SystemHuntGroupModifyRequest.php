@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup\HuntGroupUniformCallDistributionPolicyScope;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\SystemHuntGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Hunt Group.
+ * Modify the system level data associated with Hunt Group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterface
@@ -34,6 +37,14 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
+     * @return SystemHuntGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setAnonymousInsteadOfPrivateCLID($anonymousInsteadOfPrivateCLID = null)
@@ -46,7 +57,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getAnonymousInsteadOfPrivateCLID()
     {
-        return (!$this->anonymousInsteadOfPrivateCLID) ?: $this->anonymousInsteadOfPrivateCLID->getValue();
+        return (!$this->anonymousInsteadOfPrivateCLID) ?: $this->anonymousInsteadOfPrivateCLID;
     }
 
     /**
@@ -62,7 +73,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getRemoveHuntGroupNameFromCLID()
     {
-        return (!$this->removeHuntGroupNameFromCLID) ?: $this->removeHuntGroupNameFromCLID->getValue();
+        return (!$this->removeHuntGroupNameFromCLID) ?: $this->removeHuntGroupNameFromCLID;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemInstantConferencingGetRequest.
+ * Response to SystemInstantConferencingGetRequest.
  */
 class SystemInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
     protected $defaultAllowDialOutInInvitation            = null;
     protected $defaultFromAddress                         = null;
 
+    /**
+     * @return SystemInstantConferencingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function getDefaultDropAllParticipantsWhenLeaderLeaves()
     {
-        return (!$this->defaultDropAllParticipantsWhenLeaderLeaves) ?: $this->defaultDropAllParticipantsWhenLeaderLeaves->getValue();
+        return (!$this->defaultDropAllParticipantsWhenLeaderLeaves) ?: $this->defaultDropAllParticipantsWhenLeaderLeaves;
     }
 
     /**
@@ -52,7 +62,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function getDefaultAllowDialOutInInvitation()
     {
-        return (!$this->defaultAllowDialOutInInvitation) ?: $this->defaultAllowDialOutInInvitation->getValue();
+        return (!$this->defaultAllowDialOutInInvitation) ?: $this->defaultAllowDialOutInInvitation;
     }
 
     /**

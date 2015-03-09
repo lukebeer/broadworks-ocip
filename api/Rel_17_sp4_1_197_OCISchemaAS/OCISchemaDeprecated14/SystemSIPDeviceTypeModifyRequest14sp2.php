@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Authenti
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EarlyMediaSupportType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSIPDeviceTypeModifyResponse14sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a sip device type.
+ * Request to modify a sip device type.
  *         The following elements are not changeable:
  *           numberOfPorts
  *           SignalingAddressType
@@ -99,6 +102,14 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
     }
 
     /**
+     * @return SystemSIPDeviceTypeModifyResponse14sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Access device type.
      */
     public function setDeviceType($deviceType = null)
@@ -129,7 +140,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
+        return (!$this->isObsolete) ?: $this->isObsolete;
     }
 
     /**
@@ -145,7 +156,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getRegistrationCapable()
     {
-        return (!$this->registrationCapable) ?: $this->registrationCapable->getValue();
+        return (!$this->registrationCapable) ?: $this->registrationCapable;
     }
 
     /**
@@ -161,7 +172,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getRFC3264Hold()
     {
-        return (!$this->RFC3264Hold) ?: $this->RFC3264Hold->getValue();
+        return (!$this->RFC3264Hold) ?: $this->RFC3264Hold;
     }
 
     /**
@@ -177,7 +188,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getIsTrusted()
     {
-        return (!$this->isTrusted) ?: $this->isTrusted->getValue();
+        return (!$this->isTrusted) ?: $this->isTrusted;
     }
 
     /**
@@ -193,7 +204,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getE164Capable()
     {
-        return (!$this->E164Capable) ?: $this->E164Capable->getValue();
+        return (!$this->E164Capable) ?: $this->E164Capable;
     }
 
     /**
@@ -209,7 +220,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getRouteAdvance()
     {
-        return (!$this->routeAdvance) ?: $this->routeAdvance->getValue();
+        return (!$this->routeAdvance) ?: $this->routeAdvance;
     }
 
     /**
@@ -225,7 +236,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getForwardingOverride()
     {
-        return (!$this->forwardingOverride) ?: $this->forwardingOverride->getValue();
+        return (!$this->forwardingOverride) ?: $this->forwardingOverride;
     }
 
     /**
@@ -241,7 +252,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getWirelessIntegration()
     {
-        return (!$this->wirelessIntegration) ?: $this->wirelessIntegration->getValue();
+        return (!$this->wirelessIntegration) ?: $this->wirelessIntegration;
     }
 
     /**
@@ -275,7 +286,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getIsVideoCapable()
     {
-        return (!$this->isVideoCapable) ?: $this->isVideoCapable->getValue();
+        return (!$this->isVideoCapable) ?: $this->isVideoCapable;
     }
 
     /**
@@ -291,7 +302,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getPBXIntegration()
     {
-        return (!$this->PBXIntegration) ?: $this->PBXIntegration->getValue();
+        return (!$this->PBXIntegration) ?: $this->PBXIntegration;
     }
 
     /**
@@ -307,7 +318,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getUseBusinessTrunkingContact()
     {
-        return (!$this->useBusinessTrunkingContact) ?: $this->useBusinessTrunkingContact->getValue();
+        return (!$this->useBusinessTrunkingContact) ?: $this->useBusinessTrunkingContact;
     }
 
     /**
@@ -323,7 +334,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getStaticRegistrationCapable()
     {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->getValue();
+        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
     }
 
     /**
@@ -385,7 +396,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getAuthenticateRefer()
     {
-        return (!$this->authenticateRefer) ?: $this->authenticateRefer->getValue();
+        return (!$this->authenticateRefer) ?: $this->authenticateRefer;
     }
 
     /**
@@ -401,7 +412,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getAutoConfigSoftClient()
     {
-        return (!$this->autoConfigSoftClient) ?: $this->autoConfigSoftClient->getValue();
+        return (!$this->autoConfigSoftClient) ?: $this->autoConfigSoftClient;
     }
 
     /**
@@ -435,7 +446,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getTdmOverlay()
     {
-        return (!$this->tdmOverlay) ?: $this->tdmOverlay->getValue();
+        return (!$this->tdmOverlay) ?: $this->tdmOverlay;
     }
 
     /**
@@ -451,6 +462,6 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
      */
     public function getSupportsBroadWorksINFOForCallWaiting()
     {
-        return (!$this->supportsBroadWorksINFOForCallWaiting) ?: $this->supportsBroadWorksINFOForCallWaiting->getValue();
+        return (!$this->supportsBroadWorksINFOForCallWaiting) ?: $this->supportsBroadWorksINFOForCallWaiting;
     }
 }

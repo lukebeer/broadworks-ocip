@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceResetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Reset a specific user SIP device that supports the reset operation.
+ * Reset a specific user SIP device that supports the reset operation.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAccessDeviceResetRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserAccessDeviceResetRequest extends ComplexType implements ComplexInterfa
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
+    }
+
+    /**
+     * @return UserAccessDeviceResetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

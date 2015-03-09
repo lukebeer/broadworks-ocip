@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways\UserCallForwardingAlwaysGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the user level data associated with Call Forwarding Always.
+ * Request the user level data associated with Call Forwarding Always.
  *         The response is either a UserCallForwardingAlwaysGetResponse or an
  *         ErrorResponse.
  */
 class UserCallForwardingAlwaysGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways\UserCallForwardingAlwaysGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways\UserCallForwardingAlwaysGetResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -27,6 +30,14 @@ class UserCallForwardingAlwaysGetRequest extends ComplexType implements ComplexI
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserCallForwardingAlwaysGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

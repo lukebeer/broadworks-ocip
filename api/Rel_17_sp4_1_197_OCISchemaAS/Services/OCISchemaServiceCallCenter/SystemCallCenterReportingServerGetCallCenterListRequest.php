@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of Call Centers that are using the specified reporting
+ * Get a list of Call Centers that are using the specified reporting
  *         server.  The response is either a
  *         SystemCallCenterReportingServerGetCallCenterListResponse or an
  *         ErrorResponse.
  */
 class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse';
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse';
     public    $name                = __CLASS__;
     protected $reportingServerName = null;
 
@@ -28,6 +31,14 @@ class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexTyp
          $reportingServerName
     ) {
         $this->setReportingServerName($reportingServerName);
+    }
+
+    /**
+     * @return SystemCallCenterReportingServerGetCallCenterListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

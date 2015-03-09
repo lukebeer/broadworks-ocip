@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of Call Center Agent Unavailable Codes.
+ * Get the list of Call Center Agent Unavailable Codes.
  *         The response is either GroupCallCenterAgentUnavailableCodeGetListResponse or ErrorResponse.
  */
 class GroupCallCenterAgentUnavailableCodeGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeGetListResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeGetListResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $groupId           = null;
@@ -30,6 +33,14 @@ class GroupCallCenterAgentUnavailableCodeGetListRequest extends ComplexType impl
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
+    }
+
+    /**
+     * @return GroupCallCenterAgentUnavailableCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

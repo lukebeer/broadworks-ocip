@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest.
+ * Response to ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest.
  *         Contains a table of groups that have the Network Class of Service 
  *         assigned. The column headings are: "Group Id" and "Group Name".
  */
@@ -22,6 +25,13 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse extends C
     public    $name       = __CLASS__;
     protected $groupTable = null;
 
+    /**
+     * @return ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallDeleteInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete an Instant Group Call service instance from a group.
+ * Request to delete an Instant Group Call service instance from a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupInstantGroupCallDeleteInstanceRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class GroupInstantGroupCallDeleteInstanceRequest extends ComplexType implements 
          $serviceUserId
     ) {
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return GroupInstantGroupCallDeleteInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

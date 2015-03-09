@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanOriginatingPermissionsModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanOriginatingModifyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the originating permissions for a group default and it's departments.
+ * Modify the originating permissions for a group default and it's departments.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupOutgoingCallingPlanOriginatingModifyListRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupOutgoingCallingPlanOriginatingModifyListRequest extends ComplexType i
         $this->setGroupId($groupId);
         $this->setGroupPermissions($groupPermissions);
         $this->setDepartmentPermissions($departmentPermissions);
+    }
+
+    /**
+     * @return GroupOutgoingCallingPlanOriginatingModifyListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

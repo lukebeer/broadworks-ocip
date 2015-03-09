@@ -9,16 +9,19 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Criteria for searching for a group name.
+ * Criteria for searching for a group name.
  */
 class SearchCriteriaGroupName extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName';
     public    $name              = __CLASS__;
     protected $mode              = null;
     protected $value             = null;
@@ -32,6 +35,14 @@ class SearchCriteriaGroupName extends ComplexType implements ComplexInterface
         $this->setMode($mode);
         $this->setValue($value);
         $this->setIsCaseInsensitive($isCaseInsensitive);
+    }
+
+    /**
+     * @return SearchCriteriaGroupName
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,6 +94,6 @@ class SearchCriteriaGroupName extends ComplexType implements ComplexInterface
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
     }
 }

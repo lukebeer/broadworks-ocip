@@ -9,18 +9,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of Communication Barring profiles within a service provider that have a given Communication Barring Criteria assigned.
+ * Get a list of Communication Barring profiles within a service provider that have a given Communication Barring Criteria assigned.
  *         The response is either a ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse 
  *         or an ErrorResponse.
  */
 class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $criteriaName      = null;
@@ -31,6 +34,14 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCriteriaName($criteriaName);
+    }
+
+    /**
+     * @return ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl\UserCommunicationBarringUserControlGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCommunicationBarringUserControlGetRequest.
+ * Response to the UserCommunicationBarringUserControlGetRequest.
  *         Identifies the profiles available to the user and which one if any
  *         is active as well as the lockout status.
  *         Contains a table with column headings: "Name", "Code", "Activated" and "Primary".
@@ -24,6 +27,13 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
     protected $lockoutStatus = null;
     protected $profileTable  = null;
 
+    /**
+     * @return UserCommunicationBarringUserControlGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
      */
     public function getLockoutStatus()
     {
-        return (!$this->lockoutStatus) ?: $this->lockoutStatus->getValue();
+        return (!$this->lockoutStatus) ?: $this->lockoutStatus;
     }
 
     /**

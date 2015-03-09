@@ -13,17 +13,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of user's on a Trunk Group Instance.
+ * Get a list of user's on a Trunk Group Instance.
  *         The response is either a GroupTrunkGroupGetInstanceUserListResponse14sp4 or an ErrorResponse.
  */
 class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4';
     public    $name                              = __CLASS__;
     protected $trunkGroupKey                     = null;
     protected $responseSizeLimit                 = null;
@@ -46,6 +49,14 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
         $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
         $this->setSearchCriteriaDn($searchCriteriaDn);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
+    }
+
+    /**
+     * @return GroupTrunkGroupGetInstanceUserListResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

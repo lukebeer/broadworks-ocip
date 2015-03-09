@@ -19,12 +19,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AudioFil
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DtmfDigit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyInstanceResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a Call Center instance.
+ * Request to modify a Call Center instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements ComplexInterface
@@ -105,6 +108,14 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
         $this->setExternalPreferredAudioCodec($externalPreferredAudioCodec);
         $this->setInternalPreferredAudioCodec($internalPreferredAudioCodec);
         $this->setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall);
+    }
+
+    /**
+     * @return GroupCallCenterModifyInstanceResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -198,7 +209,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -232,7 +243,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getEnableReporting()
     {
-        return (!$this->enableReporting) ?: $this->enableReporting->getValue();
+        return (!$this->enableReporting) ?: $this->enableReporting;
     }
 
     /**
@@ -266,7 +277,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getAllowCallerToDialEscapeDigit()
     {
-        return (!$this->allowCallerToDialEscapeDigit) ?: $this->allowCallerToDialEscapeDigit->getValue();
+        return (!$this->allowCallerToDialEscapeDigit) ?: $this->allowCallerToDialEscapeDigit;
     }
 
     /**
@@ -300,7 +311,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getResetCallStatisticsUponEntryInQueue()
     {
-        return (!$this->resetCallStatisticsUponEntryInQueue) ?: $this->resetCallStatisticsUponEntryInQueue->getValue();
+        return (!$this->resetCallStatisticsUponEntryInQueue) ?: $this->resetCallStatisticsUponEntryInQueue;
     }
 
     /**
@@ -316,7 +327,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->getValue();
+        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff;
     }
 
     /**
@@ -332,7 +343,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 
     /**
@@ -348,7 +359,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->getValue();
+        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp;
     }
 
     /**
@@ -364,7 +375,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->getValue();
+        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime;
     }
 
     /**
@@ -398,7 +409,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getForceDeliveryOfCalls()
     {
-        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->getValue();
+        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls;
     }
 
     /**
@@ -432,7 +443,7 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getEnableAutomaticStateChangeForAgents()
     {
-        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->getValue();
+        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents;
     }
 
     /**
@@ -522,6 +533,6 @@ class GroupCallCenterModifyInstanceRequest17sp1 extends ComplexType implements C
      */
     public function getPlayRingingWhenOfferingCall()
     {
-        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->getValue();
+        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall;
     }
 }

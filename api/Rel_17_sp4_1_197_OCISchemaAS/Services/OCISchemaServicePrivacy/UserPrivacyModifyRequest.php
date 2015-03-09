@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePriva
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Privacy.
+ * Modify the user level data associated with Privacy.
  *         This command is supported for regular users only.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -42,6 +45,14 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
         $this->setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy);
         $this->setEnablePhoneStatusPrivacy($enablePhoneStatusPrivacy);
         $this->setPermittedMonitorUserIdList($permittedMonitorUserIdList);
+    }
+
+    /**
+     * @return UserPrivacyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,7 +94,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->getValue();
+        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy;
     }
 
     /**
@@ -99,7 +110,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
+        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy;
     }
 
     /**
@@ -115,7 +126,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->getValue();
+        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy;
     }
 
     /**
@@ -131,7 +142,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getEnablePhoneStatusPrivacy()
     {
-        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy->getValue();
+        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy;
     }
 
     /**

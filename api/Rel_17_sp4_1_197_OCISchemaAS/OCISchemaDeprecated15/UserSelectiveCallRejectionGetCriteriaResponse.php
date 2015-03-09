@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserSelectiveCallRejectionGetCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSelectiveCallRejectionGetCriteriaRequest.
+ * Response to the UserSelectiveCallRejectionGetCriteriaRequest.
  */
 class UserSelectiveCallRejectionGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class UserSelectiveCallRejectionGetCriteriaResponse extends ComplexType implemen
     protected $timeSchedule   = null;
     protected $fromDnCriteria = null;
 
+    /**
+     * @return UserSelectiveCallRejectionGetCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Replacem
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceFaxMessaging\UserFaxMessagingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Fax Messaging.
+ * Modify the user level data associated with Fax Messaging.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
         $this->setPhoneNumber($phoneNumber);
         $this->setExtension($extension);
         $this->setSipAliasList($sipAliasList);
+    }
+
+    /**
+     * @return UserFaxMessagingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -81,7 +92,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\UserRoutePointCallDispositionCodeGetAvailableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserRoutePointCallDispositionCodeGetAvailableListRequest.
+ * Response to the UserRoutePointCallDispositionCodeGetAvailableListRequest.
  *         This list may include Group/Enterprise level codes in addition to the Route Point level codes, 
  *         depending on the call center disposition codes settings.
  *         Only active codes are included in the list.
@@ -25,6 +28,13 @@ class UserRoutePointCallDispositionCodeGetAvailableListResponse extends ComplexT
     public    $name                  = __CLASS__;
     protected $dispositionCodesTable = null;
 
+    /**
+     * @return UserRoutePointCallDispositionCodeGetAvailableListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

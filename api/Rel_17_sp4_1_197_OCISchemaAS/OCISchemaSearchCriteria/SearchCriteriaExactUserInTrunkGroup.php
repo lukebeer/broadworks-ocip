@@ -8,16 +8,19 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserInTrunkGroup;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Criteria for searching for user in/not in a trunk group.
+ * Criteria for searching for user in/not in a trunk group.
  */
 class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserInTrunkGroup';
+    public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserInTrunkGroup';
     public    $name             = __CLASS__;
     protected $userInTrunkGroup = null;
 
@@ -25,6 +28,14 @@ class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements Complex
          $userInTrunkGroup
     ) {
         $this->setUserInTrunkGroup($userInTrunkGroup);
+    }
+
+    /**
+     * @return SearchCriteriaExactUserInTrunkGroup
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements Complex
      */
     public function getUserInTrunkGroup()
     {
-        return (!$this->userInTrunkGroup) ?: $this->userInTrunkGroup->getValue();
+        return (!$this->userInTrunkGroup) ?: $this->userInTrunkGroup;
     }
 }

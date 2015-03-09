@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get a sip device type.
+ * Request to get a sip device type.
  *         See Also: SystemDeviceTypeGetRequest
  *         The response is either SystemSIPDeviceTypeGetResponse17sp4 or ErrorResponse.
  */
 class SystemSIPDeviceTypeGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetResponse17sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetResponse17sp4';
     public    $name       = __CLASS__;
     protected $deviceType = null;
 
@@ -27,6 +30,14 @@ class SystemSIPDeviceTypeGetRequest17sp4 extends ComplexType implements ComplexI
          $deviceType
     ) {
         $this->setDeviceType($deviceType);
+    }
+
+    /**
+     * @return SystemSIPDeviceTypeGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManag
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementFTPConnectTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementMaxBusyTimeMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigParametersGetResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCPEConfigParametersGetListRequest14sp6.
+ * Response to SystemCPEConfigParametersGetListRequest14sp6.
  *         Contains a list of system CPE Config parameters.
  */
 class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements ComplexInterface
@@ -30,6 +33,13 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
     protected $maxBusyTimeMinutes                  = null;
     protected $deviceAccessAppServerClusterName    = null;
 
+    /**
+     * @return SystemCPEConfigParametersGetResponse14sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -44,7 +54,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function getEnableIPDeviceManagement()
     {
-        return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement->getValue();
+        return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement;
     }
 
     /**

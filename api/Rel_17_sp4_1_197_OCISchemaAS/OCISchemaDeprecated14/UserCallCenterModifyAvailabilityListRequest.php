@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentAvailability;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallCenterModifyAvailabilityListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request for an agent to login or logout of one or more Call Centers.
+ * Request for an agent to login or logout of one or more Call Centers.
  *         Contains a list specifing the desired login status of one or more call centers.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced By: UserCallCenterModifyRequest
@@ -31,6 +34,14 @@ class UserCallCenterModifyAvailabilityListRequest extends ComplexType implements
     ) {
         $this->setUserId($userId);
         $this->setCallCenterAvailability($callCenterAvailability);
+    }
+
+    /**
+     * @return UserCallCenterModifyAvailabilityListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoute
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterMediaOnHoldSourceModify17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointModifyDNISAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a route point DNIS announcement settings.
+ * Modify a route point DNIS announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
     ) {
         $this->setDnisKey($dnisKey);
         $this->setMediaOnHoldSource($mediaOnHoldSource);
+    }
+
+    /**
+     * @return GroupRoutePointModifyDNISAnnouncementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

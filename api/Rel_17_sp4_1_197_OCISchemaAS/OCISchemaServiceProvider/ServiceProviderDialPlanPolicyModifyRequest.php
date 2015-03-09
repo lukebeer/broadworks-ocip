@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Service Provider level data associated with Dial Plan Policy.
+ * Modify the Service Provider level data associated with Dial Plan Policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
         $this->setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices);
         $this->setPublicDigitMap($publicDigitMap);
         $this->setPrivateDigitMap($privateDigitMap);
+    }
+
+    /**
+     * @return ServiceProviderDialPlanPolicyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -76,7 +87,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls->getValue();
+        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
     }
 
     /**
@@ -92,7 +103,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getAllowE164PublicCalls()
     {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls->getValue();
+        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
     }
 
     /**
@@ -108,7 +119,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getPreferE164NumberFormatForCallbackServices()
     {
-        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices->getValue();
+        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices;
     }
 
     /**

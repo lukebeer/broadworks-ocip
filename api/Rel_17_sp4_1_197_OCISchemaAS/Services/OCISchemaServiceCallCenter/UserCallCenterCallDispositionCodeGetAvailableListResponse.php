@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterCallDispositionCodeGetAvailableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallCenterCallDispositionCodeGetAvailableListRequest.
+ * Response to the UserCallCenterCallDispositionCodeGetAvailableListRequest.
  *         This list may include Group/Enterprise level codes in addition to the Call Center level codes, 
  *         depending on the call center disposition codes settings.
  *         Only active codes are included in the list.
@@ -25,6 +28,13 @@ class UserCallCenterCallDispositionCodeGetAvailableListResponse extends ComplexT
     public    $name                  = __CLASS__;
     protected $dispositionCodesTable = null;
 
+    /**
+     * @return UserCallCenterCallDispositionCodeGetAvailableListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

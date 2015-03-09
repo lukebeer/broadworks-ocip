@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRemoteOffice; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRemoteOffice\UserRemoteOfficeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserRemoteOfficeGetRequest.
+ * Response to UserRemoteOfficeGetRequest.
  */
 class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
     protected $isActive                = null;
     protected $remoteOfficePhoneNumber = null;
 
+    /**
+     * @return UserRemoteOfficeGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

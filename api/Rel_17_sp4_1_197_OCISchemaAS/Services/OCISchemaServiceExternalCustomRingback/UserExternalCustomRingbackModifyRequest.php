@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExter
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPContact;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback\UserExternalCustomRingbackModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with External Custom Ringback.  
+ * Modify the user level data associated with External Custom Ringback.  
  *         The user SIP URI, when selected, it replaces the SP address, port and prefix.  
  *         The user SIP URI, if selected, is the Request URI of the SIP INVITE sent 
  *         to the external server.  When the service provider data is used instead, 
@@ -41,6 +44,14 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         $this->setIsActive($isActive);
         $this->setUseSettingLevel($useSettingLevel);
         $this->setSipRequestURI($sipRequestURI);
+    }
+
+    /**
+     * @return UserExternalCustomRingbackModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -82,7 +93,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroad
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityUserSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityPhoneToRing;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\UserBroadWorksMobilityGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a UserBroadWorksMobilityGetRequest.
+ * Response to a UserBroadWorksMobilityGetRequest.
  */
 class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
@@ -32,6 +35,13 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
     protected $denyCallOriginations      = null;
     protected $denyCallTerminations      = null;
 
+    /**
+     * @return UserBroadWorksMobilityGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -46,7 +56,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -98,7 +108,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlertClickToDialCalls()
     {
-        return (!$this->alertClickToDialCalls) ?: $this->alertClickToDialCalls->getValue();
+        return (!$this->alertClickToDialCalls) ?: $this->alertClickToDialCalls;
     }
 
     /**
@@ -114,7 +124,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlertGroupPagingCalls()
     {
-        return (!$this->alertGroupPagingCalls) ?: $this->alertGroupPagingCalls->getValue();
+        return (!$this->alertGroupPagingCalls) ?: $this->alertGroupPagingCalls;
     }
 
     /**
@@ -130,7 +140,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getEnableDiversionInhibitor()
     {
-        return (!$this->enableDiversionInhibitor) ?: $this->enableDiversionInhibitor->getValue();
+        return (!$this->enableDiversionInhibitor) ?: $this->enableDiversionInhibitor;
     }
 
     /**
@@ -146,7 +156,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getRequireAnswerConfirmation()
     {
-        return (!$this->requireAnswerConfirmation) ?: $this->requireAnswerConfirmation->getValue();
+        return (!$this->requireAnswerConfirmation) ?: $this->requireAnswerConfirmation;
     }
 
     /**
@@ -162,7 +172,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getBroadworksCallControl()
     {
-        return (!$this->broadworksCallControl) ?: $this->broadworksCallControl->getValue();
+        return (!$this->broadworksCallControl) ?: $this->broadworksCallControl;
     }
 
     /**
@@ -196,7 +206,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getDenyCallOriginations()
     {
-        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->getValue();
+        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations;
     }
 
     /**
@@ -212,6 +222,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getDenyCallTerminations()
     {
-        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations->getValue();
+        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations;
     }
 }

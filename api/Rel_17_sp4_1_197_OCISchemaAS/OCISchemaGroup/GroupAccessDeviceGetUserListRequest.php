@@ -19,17 +19,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the configuration of a specified group access device.
+ * Requests the configuration of a specified group access device.
  *         The response is either GroupAccessDeviceGetUserListResponse or ErrorResponse.
  */
 class GroupAccessDeviceGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetUserListResponse';
+    public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetUserListResponse';
     public    $name                            = __CLASS__;
     protected $serviceProviderId               = null;
     protected $groupId                         = null;
@@ -70,6 +73,14 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
         $this->setSearchCriteriaUserId($searchCriteriaUserId);
         $this->setSearchCriteriaExactEndpointType($searchCriteriaExactEndpointType);
         $this->setSearchCriteriaExactUserType($searchCriteriaExactUserType);
+    }
+
+    /**
+     * @return GroupAccessDeviceGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

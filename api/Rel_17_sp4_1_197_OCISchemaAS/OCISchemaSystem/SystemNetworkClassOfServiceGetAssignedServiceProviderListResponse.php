@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the
+ * Response to the
  *         SystemNetworkClassOfServiceGetAssignedServiceProviderListRequest.
  *         The response contains a table of all Service Providers that have
  *         the given Network Class of Service assigned. The column headings are
@@ -24,6 +27,13 @@ class SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse extends 
     public    $name                 = __CLASS__;
     protected $serviceProviderTable = null;
 
+    /**
+     * @return SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

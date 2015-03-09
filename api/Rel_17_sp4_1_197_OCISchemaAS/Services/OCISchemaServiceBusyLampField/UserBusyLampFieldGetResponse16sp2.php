@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField\UserBusyLampFieldGetResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserBusyLampFieldGetRequest16sp2.
+ * Response to UserBusyLampFieldGetRequest16sp2.
  *         The table has column headings:
  *           "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
@@ -24,6 +27,13 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
     protected $enableCallParkNotification = null;
     protected $monitoredUserTable         = null;
 
+    /**
+     * @return UserBusyLampFieldGetResponse16sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * SIP URI.
@@ -70,7 +80,7 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification->getValue();
+        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
     }
 
     /**

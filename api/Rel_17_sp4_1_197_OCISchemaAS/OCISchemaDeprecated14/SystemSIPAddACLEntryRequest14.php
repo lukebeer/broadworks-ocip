@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPACLTransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSIPAddACLEntryResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add an entry to the SIP access control list.
+ * Add an entry to the SIP access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSIPAddACLEntryRequest14 extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class SystemSIPAddACLEntryRequest14 extends ComplexType implements ComplexInterf
         $this->setNetAddress($netAddress);
         $this->setTransportProtocol($transportProtocol);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemSIPAddACLEntryResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

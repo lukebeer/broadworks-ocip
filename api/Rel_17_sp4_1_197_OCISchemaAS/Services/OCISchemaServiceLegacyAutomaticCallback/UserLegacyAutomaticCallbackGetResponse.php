@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\UserLegacyAutomaticCallbackGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserLegacyAutomaticCallbackGetRequest.
+ * Response to UserLegacyAutomaticCallbackGetRequest.
  */
 class UserLegacyAutomaticCallbackGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name     = __CLASS__;
     protected $isActive = null;
 
+    /**
+     * @return UserLegacyAutomaticCallbackGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -34,6 +44,6 @@ class UserLegacyAutomaticCallbackGetResponse extends ComplexType implements Comp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 }

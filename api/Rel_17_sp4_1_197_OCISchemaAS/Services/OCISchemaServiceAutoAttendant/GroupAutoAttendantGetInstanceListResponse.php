@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupAutoAttendantGetInstanceListRequest.
+ * Response to the GroupAutoAttendantGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department", "Is Active".
  *         The column values for "Video" and "Is Active" can either be true, or false.
@@ -23,6 +26,13 @@ class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements C
     public    $name               = __CLASS__;
     protected $autoAttendantTable = null;
 
+    /**
+     * @return GroupAutoAttendantGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

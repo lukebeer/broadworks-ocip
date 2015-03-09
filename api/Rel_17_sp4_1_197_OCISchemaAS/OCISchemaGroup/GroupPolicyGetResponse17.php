@@ -19,12 +19,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUse
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserCallLogAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingPlanAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPolicyGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupPolicyGetRequest17.
+ * Response to GroupPolicyGetRequest17.
  *           Contains the policy settings for the group.
  */
 class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
@@ -43,6 +46,13 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
     protected $userProfileAccess                         = null;
     protected $userEnhancedCallLogAccess                 = null;
 
+    /**
+     * @return GroupPolicyGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Group's policy for accessing group level and user level calling plan configuration.

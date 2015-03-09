@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderPasswordRulesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the service provider's password rules settings
+ * Request to modify the service provider's password rules settings
  *         setting applicable to Administrators (Group and Department) and Users.
  *         The response is either SuccessResponse or ErrorResponse.
  *         Replaced By: ServiceProviderPasswordRulesModifyRequest14sp3
@@ -96,6 +99,14 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
     }
 
     /**
+     * @return ServiceProviderPasswordRulesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -150,7 +161,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
-        return (!$this->allowWebAddExternalAuthenticationUsers) ?: $this->allowWebAddExternalAuthenticationUsers->getValue();
+        return (!$this->allowWebAddExternalAuthenticationUsers) ?: $this->allowWebAddExternalAuthenticationUsers;
     }
 
     /**
@@ -166,7 +177,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getDisallowUserId()
     {
-        return (!$this->disallowUserId) ?: $this->disallowUserId->getValue();
+        return (!$this->disallowUserId) ?: $this->disallowUserId;
     }
 
     /**
@@ -182,7 +193,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getDisallowOldPassword()
     {
-        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword->getValue();
+        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword;
     }
 
     /**
@@ -198,7 +209,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getDisallowReversedOldPassword()
     {
-        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword->getValue();
+        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword;
     }
 
     /**
@@ -214,7 +225,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getRestrictMinDigits()
     {
-        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits->getValue();
+        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits;
     }
 
     /**
@@ -248,7 +259,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters->getValue();
+        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters;
     }
 
     /**
@@ -282,7 +293,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters->getValue();
+        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters;
     }
 
     /**
@@ -316,7 +327,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters->getValue();
+        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters;
     }
 
     /**
@@ -404,7 +415,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**
@@ -438,6 +449,6 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
      */
     public function getDisallowRulesModification()
     {
-        return (!$this->disallowRulesModification) ?: $this->disallowRulesModification->getValue();
+        return (!$this->disallowRulesModification) ?: $this->disallowRulesModification;
     }
 }

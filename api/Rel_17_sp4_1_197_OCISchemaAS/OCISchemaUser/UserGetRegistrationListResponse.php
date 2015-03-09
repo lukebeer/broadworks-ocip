@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetRegistrationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserGetRegistrationListRequest.
+ * Response to UserGetRegistrationListRequest.
  *         The table column headings are:
  *           "Device Level", "Device Name", "Order", "URI", "Expiration", "Line/Port", "Endpoint Type".
  *         The "Device Level" column contains one of the AccessDeviceLevel enumerated constants.
@@ -29,6 +32,13 @@ class UserGetRegistrationListResponse extends ComplexType implements ComplexInte
     public    $name              = __CLASS__;
     protected $registrationTable = null;
 
+    /**
+     * @return UserGetRegistrationListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

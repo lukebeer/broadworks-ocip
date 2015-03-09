@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EarlyMediaS
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\TrunkMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a sip device type.
+ * Request to modify a sip device type.
  *         The following elements are not changeable:
  *           numberOfPorts
  *           SignalingAddressType
@@ -125,6 +128,14 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     }
 
     /**
+     * @return SystemSIPDeviceTypeModifyResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Access device type.
      */
     public function setDeviceType($deviceType = null)
@@ -155,7 +166,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
+        return (!$this->isObsolete) ?: $this->isObsolete;
     }
 
     /**
@@ -171,7 +182,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRegistrationCapable()
     {
-        return (!$this->registrationCapable) ?: $this->registrationCapable->getValue();
+        return (!$this->registrationCapable) ?: $this->registrationCapable;
     }
 
     /**
@@ -187,7 +198,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRFC3264Hold()
     {
-        return (!$this->RFC3264Hold) ?: $this->RFC3264Hold->getValue();
+        return (!$this->RFC3264Hold) ?: $this->RFC3264Hold;
     }
 
     /**
@@ -203,7 +214,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getIsTrusted()
     {
-        return (!$this->isTrusted) ?: $this->isTrusted->getValue();
+        return (!$this->isTrusted) ?: $this->isTrusted;
     }
 
     /**
@@ -219,7 +230,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getE164Capable()
     {
-        return (!$this->E164Capable) ?: $this->E164Capable->getValue();
+        return (!$this->E164Capable) ?: $this->E164Capable;
     }
 
     /**
@@ -235,7 +246,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRouteAdvance()
     {
-        return (!$this->routeAdvance) ?: $this->routeAdvance->getValue();
+        return (!$this->routeAdvance) ?: $this->routeAdvance;
     }
 
     /**
@@ -251,7 +262,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getForwardingOverride()
     {
-        return (!$this->forwardingOverride) ?: $this->forwardingOverride->getValue();
+        return (!$this->forwardingOverride) ?: $this->forwardingOverride;
     }
 
     /**
@@ -267,7 +278,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getWirelessIntegration()
     {
-        return (!$this->wirelessIntegration) ?: $this->wirelessIntegration->getValue();
+        return (!$this->wirelessIntegration) ?: $this->wirelessIntegration;
     }
 
     /**
@@ -301,7 +312,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getIsVideoCapable()
     {
-        return (!$this->isVideoCapable) ?: $this->isVideoCapable->getValue();
+        return (!$this->isVideoCapable) ?: $this->isVideoCapable;
     }
 
     /**
@@ -317,7 +328,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getPBXIntegration()
     {
-        return (!$this->PBXIntegration) ?: $this->PBXIntegration->getValue();
+        return (!$this->PBXIntegration) ?: $this->PBXIntegration;
     }
 
     /**
@@ -333,7 +344,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getStaticRegistrationCapable()
     {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->getValue();
+        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
     }
 
     /**
@@ -395,7 +406,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAuthenticateRefer()
     {
-        return (!$this->authenticateRefer) ?: $this->authenticateRefer->getValue();
+        return (!$this->authenticateRefer) ?: $this->authenticateRefer;
     }
 
     /**
@@ -411,7 +422,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAutoConfigSoftClient()
     {
-        return (!$this->autoConfigSoftClient) ?: $this->autoConfigSoftClient->getValue();
+        return (!$this->autoConfigSoftClient) ?: $this->autoConfigSoftClient;
     }
 
     /**
@@ -445,7 +456,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRequiresBroadWorksDigitCollection()
     {
-        return (!$this->requiresBroadWorksDigitCollection) ?: $this->requiresBroadWorksDigitCollection->getValue();
+        return (!$this->requiresBroadWorksDigitCollection) ?: $this->requiresBroadWorksDigitCollection;
     }
 
     /**
@@ -461,7 +472,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRequiresBroadWorksCallWaitingTone()
     {
-        return (!$this->requiresBroadWorksCallWaitingTone) ?: $this->requiresBroadWorksCallWaitingTone->getValue();
+        return (!$this->requiresBroadWorksCallWaitingTone) ?: $this->requiresBroadWorksCallWaitingTone;
     }
 
     /**
@@ -477,7 +488,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRequiresMWISubscription()
     {
-        return (!$this->requiresMWISubscription) ?: $this->requiresMWISubscription->getValue();
+        return (!$this->requiresMWISubscription) ?: $this->requiresMWISubscription;
     }
 
     /**
@@ -493,7 +504,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getUseHistoryInfoHeaderOnAccessSide()
     {
-        return (!$this->useHistoryInfoHeaderOnAccessSide) ?: $this->useHistoryInfoHeaderOnAccessSide->getValue();
+        return (!$this->useHistoryInfoHeaderOnAccessSide) ?: $this->useHistoryInfoHeaderOnAccessSide;
     }
 
     /**
@@ -509,7 +520,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAdviceOfChargeCapable()
     {
-        return (!$this->adviceOfChargeCapable) ?: $this->adviceOfChargeCapable->getValue();
+        return (!$this->adviceOfChargeCapable) ?: $this->adviceOfChargeCapable;
     }
 
     /**
@@ -543,7 +554,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getSupportCallCenterMIMEType()
     {
-        return (!$this->supportCallCenterMIMEType) ?: $this->supportCallCenterMIMEType->getValue();
+        return (!$this->supportCallCenterMIMEType) ?: $this->supportCallCenterMIMEType;
     }
 
     /**
@@ -577,7 +588,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAddPCalledPartyId()
     {
-        return (!$this->addPCalledPartyId) ?: $this->addPCalledPartyId->getValue();
+        return (!$this->addPCalledPartyId) ?: $this->addPCalledPartyId;
     }
 
     /**
@@ -593,7 +604,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getSupportIdentityInUpdateAndReInvite()
     {
-        return (!$this->supportIdentityInUpdateAndReInvite) ?: $this->supportIdentityInUpdateAndReInvite->getValue();
+        return (!$this->supportIdentityInUpdateAndReInvite) ?: $this->supportIdentityInUpdateAndReInvite;
     }
 
     /**

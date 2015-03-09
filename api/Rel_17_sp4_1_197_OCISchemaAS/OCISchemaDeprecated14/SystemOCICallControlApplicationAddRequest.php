@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallControlApplicationDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemOCICallControlApplicationAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add an application to the OCI call control application list.
+ * Add an application to the OCI call control application list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCICallControlApplicationAddRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
         $this->setApplicationId($applicationId);
         $this->setEnableSystemWide($enableSystemWide);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemOCICallControlApplicationAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -65,7 +76,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
      */
     public function getEnableSystemWide()
     {
-        return (!$this->enableSystemWide) ?: $this->enableSystemWide->getValue();
+        return (!$this->enableSystemWide) ?: $this->enableSystemWide;
     }
 
     /**

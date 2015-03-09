@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a static configuration tag for a system access device.
+ * Request to add a static configuration tag for a system access device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements Compl
         $this->setDeviceName($deviceName);
         $this->setTagName($tagName);
         $this->setTagValue($tagValue);
+    }
+
+    /**
+     * @return SystemAccessDeviceCustomTagAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

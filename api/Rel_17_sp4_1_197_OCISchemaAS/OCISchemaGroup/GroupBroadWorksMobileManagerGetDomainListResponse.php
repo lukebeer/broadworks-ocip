@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDomainName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetDomainListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupBroadWorksMobileManagerGetDomainListRequest.
+ * Response to the GroupBroadWorksMobileManagerGetDomainListRequest.
  *         Contains the list of domains.
  */
 class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType impl
     public    $name       = __CLASS__;
     protected $domainName = null;
 
+    /**
+     * @return GroupBroadWorksMobileManagerGetDomainListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Domain name.

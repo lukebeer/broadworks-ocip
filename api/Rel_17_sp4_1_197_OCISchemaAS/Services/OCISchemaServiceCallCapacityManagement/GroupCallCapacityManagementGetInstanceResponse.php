@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement\CallCapacityCallLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCapacityManagementGetInstanceRequest.
+ * Response to the GroupCallCapacityManagementGetInstanceRequest.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupCallCapacityManagementGetInstanceResponse extends ComplexType implements ComplexInterface
@@ -27,6 +30,13 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
     protected $defaultGroupForNewUsers       = null;
     protected $userTable                     = null;
 
+    /**
+     * @return GroupCallCapacityManagementGetInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Instance Name for a service without a user id.
@@ -113,7 +123,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function getDefaultGroupForNewUsers()
     {
-        return (!$this->defaultGroupForNewUsers) ?: $this->defaultGroupForNewUsers->getValue();
+        return (!$this->defaultGroupForNewUsers) ?: $this->defaultGroupForNewUsers;
     }
 
     /**

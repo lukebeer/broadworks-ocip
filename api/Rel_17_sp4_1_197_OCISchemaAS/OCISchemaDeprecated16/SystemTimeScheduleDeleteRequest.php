@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a system time schedule.
+ * Delete a system time schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
          $timeScheduleName
     ) {
         $this->setTimeScheduleName($timeScheduleName);
+    }
+
+    /**
+     * @return SystemTimeScheduleDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

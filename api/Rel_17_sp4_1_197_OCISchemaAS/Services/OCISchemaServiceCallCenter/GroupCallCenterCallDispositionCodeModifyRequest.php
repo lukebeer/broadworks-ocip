@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCallDispositionCodeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Call Center Call Disposition Code.
+ * Modify a Call Center Call Disposition Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
         $this->setCode($code);
         $this->setIsActive($isActive);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return GroupCallCenterCallDispositionCodeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -113,7 +124,7 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

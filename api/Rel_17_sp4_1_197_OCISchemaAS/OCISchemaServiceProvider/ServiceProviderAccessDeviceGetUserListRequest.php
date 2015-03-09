@@ -19,17 +19,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the list of users on a specified device.
+ * Requests the list of users on a specified device.
  *         The response is either ServiceProviderAccessDeviceGetResponse or ErrorResponse.
  */
 class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse';
+    public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse';
     public    $name                            = __CLASS__;
     protected $serviceProviderId               = null;
     protected $deviceName                      = null;
@@ -70,6 +73,14 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
         $this->setSearchCriteriaExactEndpointType($searchCriteriaExactEndpointType);
         $this->setSearchCriteriaExactUserType($searchCriteriaExactUserType);
+    }
+
+    /**
+     * @return ServiceProviderAccessDeviceGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

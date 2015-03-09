@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAccessDeviceGetUserListRequest.
+ * Response to SystemAccessDeviceGetUserListRequest.
  *         The column headings for the deviceUserTable are: "Line/Port", "Last Name",
  *         "First Name", "Phone Number", "Service Provider Id", "Group Id", "User Id",
  *         "User Type", "Endpoint Type", "Primary Line/Port", "Order"
@@ -27,6 +30,13 @@ class SystemAccessDeviceGetUserListResponse extends ComplexType implements Compl
     public    $name            = __CLASS__;
     protected $deviceUserTable = null;
 
+    /**
+     * @return SystemAccessDeviceGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

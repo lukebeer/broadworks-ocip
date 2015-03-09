@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidayS
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyModifyCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a criteria for the user's call notify service.
+ * Modify a criteria for the user's call notify service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallNotifyModifyCriteriaRequest extends ComplexType implements ComplexInterface
@@ -47,6 +50,14 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
         $this->setFromDnCriteria($fromDnCriteria);
         $this->setHolidaySchedule($holidaySchedule);
         $this->setBlacklisted($blacklisted);
+    }
+
+    /**
+     * @return UserCallNotifyModifyCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -172,6 +183,6 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 }

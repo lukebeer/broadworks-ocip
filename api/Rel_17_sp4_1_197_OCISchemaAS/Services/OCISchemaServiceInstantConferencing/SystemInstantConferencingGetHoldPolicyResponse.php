@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordedConferenceHoldPeriodDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingExpiredConferenceHoldPeriodDays;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetHoldPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemInstantConferencingGetHoldPolicyRequest.
+ * Response to SystemInstantConferencingGetHoldPolicyRequest.
  */
 class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
     protected $deleteRecordedConferences        = null;
     protected $recordedConferenceHoldPeriodDays = null;
 
+    /**
+     * @return SystemInstantConferencingGetHoldPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function getDeleteExpiredConferences()
     {
-        return (!$this->deleteExpiredConferences) ?: $this->deleteExpiredConferences->getValue();
+        return (!$this->deleteExpiredConferences) ?: $this->deleteExpiredConferences;
     }
 
     /**
@@ -72,7 +82,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function getDeleteRecordedConferences()
     {
-        return (!$this->deleteRecordedConferences) ?: $this->deleteRecordedConferences->getValue();
+        return (!$this->deleteRecordedConferences) ?: $this->deleteRecordedConferences;
     }
 
     /**

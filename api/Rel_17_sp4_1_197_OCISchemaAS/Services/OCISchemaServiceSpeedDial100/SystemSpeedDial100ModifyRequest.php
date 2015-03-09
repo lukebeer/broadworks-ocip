@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDialPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\SystemSpeedDial100ModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the speed dial 100 system-wide default prefix setting.
+ * Modify the speed dial 100 system-wide default prefix setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInte
          $prefix = null
     ) {
         $this->setPrefix($prefix);
+    }
+
+    /**
+     * @return SystemSpeedDial100ModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

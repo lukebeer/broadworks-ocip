@@ -14,17 +14,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the list of access devices in a group.
+ * Requests the list of access devices in a group.
  *         The response is either GroupAccessDeviceGetListResponse or ErrorResponse.
  */
 class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetListResponse';
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetListResponse';
     public    $name                           = __CLASS__;
     protected $serviceProviderId              = null;
     protected $groupId                        = null;
@@ -50,6 +53,14 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->setSearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
         $this->setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
         $this->setSearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
+    }
+
+    /**
+     * @return GroupAccessDeviceGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

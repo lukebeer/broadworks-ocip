@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserFeatureAccessCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of feature access codes for a user.
+ * Get the list of feature access codes for a user.
  *         The response is either a UserFeatureAccessCodeGetListResponse or an ErrorResponse.
  */
 class UserFeatureAccessCodeGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserFeatureAccessCodeGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserFeatureAccessCodeGetListResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -26,6 +29,14 @@ class UserFeatureAccessCodeGetListRequest extends ComplexType implements Complex
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserFeatureAccessCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

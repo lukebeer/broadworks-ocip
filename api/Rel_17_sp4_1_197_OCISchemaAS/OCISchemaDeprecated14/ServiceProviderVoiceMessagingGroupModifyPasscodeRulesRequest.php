@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\Voice
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\VoiceMessagingPasscodeExpiresDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderVoiceMessagingGroupModifyPasscodeRulesResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the service provider's voice portal passcode rules setting.
+ * Request to modify the service provider's voice portal passcode rules setting.
  *         The response is either SuccessResponse or ErrorResponse.
  *         Replaced By: ServiceProviderPortalPasscodeRulesModifyRequest
  */
@@ -73,6 +76,14 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     }
 
     /**
+     * @return ServiceProviderVoiceMessagingGroupModifyPasscodeRulesResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -105,7 +116,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowRepeatedDigits()
     {
-        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits->getValue();
+        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits;
     }
 
     /**
@@ -121,7 +132,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowUserNumber()
     {
-        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber->getValue();
+        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber;
     }
 
     /**
@@ -137,7 +148,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowReversedUserNumber()
     {
-        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber->getValue();
+        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber;
     }
 
     /**
@@ -153,7 +164,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowOldPasscode()
     {
-        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode->getValue();
+        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode;
     }
 
     /**
@@ -169,7 +180,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowReversedOldPasscode()
     {
-        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode->getValue();
+        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode;
     }
 
     /**
@@ -221,7 +232,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
-        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts->getValue();
+        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts;
     }
 
     /**
@@ -255,7 +266,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getExpirePassword()
     {
-        return (!$this->expirePassword) ?: $this->expirePassword->getValue();
+        return (!$this->expirePassword) ?: $this->expirePassword;
     }
 
     /**
@@ -289,7 +300,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**

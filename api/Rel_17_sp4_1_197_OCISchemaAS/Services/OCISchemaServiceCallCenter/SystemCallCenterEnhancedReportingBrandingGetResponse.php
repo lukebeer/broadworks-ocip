@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingSystemBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingBrandingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemCallCenterEnhancedReportingBrandingGetRequest.
+ * Response to the SystemCallCenterEnhancedReportingBrandingGetRequest.
  */
 class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
     protected $brandingChoice                = null;
     protected $customBrandingFileDescription = null;
 
+    /**
+     * @return SystemCallCenterEnhancedReportingBrandingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The call center enhanced reporting system level branding choice.

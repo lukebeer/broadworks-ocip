@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoute
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Route Point Call Disposition Code.
+ * Delete a Route Point Call Disposition Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupRoutePointQueueCallDispositionCodeDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class GroupRoutePointQueueCallDispositionCodeDeleteRequest extends ComplexType i
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setCode($code);
+    }
+
+    /**
+     * @return GroupRoutePointQueueCallDispositionCodeDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

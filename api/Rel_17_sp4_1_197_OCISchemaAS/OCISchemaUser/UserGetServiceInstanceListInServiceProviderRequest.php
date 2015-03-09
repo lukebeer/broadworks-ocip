@@ -16,19 +16,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the list of Service Instances in a service provider or an enterprise.
+ * Request the list of Service Instances in a service provider or an enterprise.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together. searchCriteriaExactUserDepartment criteria is only applicable for an enterprise and is ignored if set for a service provider. 
  *         The response is either a UserGetServiceInstanceListInServiceProviderResponse or an ErrorResponse.
  */
 class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse';
     public    $name                              = __CLASS__;
     protected $serviceProviderId                 = null;
     protected $responseSizeLimit                 = null;
@@ -60,6 +63,14 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
         $this->setSearchCriteriaDn($searchCriteriaDn);
         $this->setSearchCriteriaExtension($searchCriteriaExtension);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
+    }
+
+    /**
+     * @return UserGetServiceInstanceListInServiceProviderResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

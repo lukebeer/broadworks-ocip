@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusic
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\MusicOnHoldUserSourceModify16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\UserMusicOnHoldUserModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify data for Music On Hold User.
+ * Modify data for Music On Hold User.
  *         The response is either a SuccessResponse or an
  *         ErrorResponse.
  */
@@ -36,6 +39,14 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
         $this->setSource($source);
         $this->setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls);
         $this->setInternalSource($internalSource);
+    }
+
+    /**
+     * @return UserMusicOnHoldUserModifyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -93,7 +104,7 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->getValue();
+        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls;
     }
 
     /**

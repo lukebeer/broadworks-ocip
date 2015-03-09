@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterComfortMessageBypassGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterComfortMessageBypassGetRequest17.
+ * Response to the GroupCallCenterComfortMessageBypassGetRequest17.
  */
 class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -36,6 +39,13 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
     protected $videoFileList                            = null;
     protected $videoMediaTypeList                       = null;
 
+    /**
+     * @return GroupCallCenterComfortMessageBypassGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -50,7 +60,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -86,7 +96,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getPlayAnnouncementAfterRinging()
     {
-        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging->getValue();
+        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging;
     }
 
     /**

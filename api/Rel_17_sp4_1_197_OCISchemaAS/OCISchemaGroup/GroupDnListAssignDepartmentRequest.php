@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Departme
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnListAssignDepartmentResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Assign a list of group DNs to a department. If the department is not specified, this
+ * Assign a list of group DNs to a department. If the department is not specified, this
  *         will make the DNs become unassigned from any department.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -42,6 +45,14 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
         $this->setDepartmentKey($departmentKey);
         $this->setPhoneNumber($phoneNumber);
         $this->setDnRange($dnRange);
+    }
+
+    /**
+     * @return GroupDnListAssignDepartmentResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

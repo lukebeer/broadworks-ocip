@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkAccessListSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePushToTalk\UserPushToTalkModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Change the push to talk service settings.
+ * Change the push to talk service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
         $this->setOutgoingConnectionSelection($outgoingConnectionSelection);
         $this->setAccessListSelection($accessListSelection);
         $this->setSelectedUserIdList($selectedUserIdList);
+    }
+
+    /**
+     * @return UserPushToTalkModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -81,7 +92,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getAllowAutoAnswer()
     {
-        return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer->getValue();
+        return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer;
     }
 
     /**

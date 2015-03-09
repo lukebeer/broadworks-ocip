@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemMediaGetListRequest. The column headings are
+ * Response to SystemMediaGetListRequest. The column headings are
  *         "Media Name", "Codec", "Media Type", "Bandwidth Enforcement Type" and "Bandwidth".
  */
 class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
     public    $name       = __CLASS__;
     protected $mediaTable = null;
 
+    /**
+     * @return SystemMediaGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

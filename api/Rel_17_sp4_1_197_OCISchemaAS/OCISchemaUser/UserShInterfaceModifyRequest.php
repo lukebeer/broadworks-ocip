@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PublicUserIdentity;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IMSUserState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the Sh Interface non-transparent data associated with a Public User Identity.
+ * Modifies the Sh Interface non-transparent data associated with a Public User Identity.
  *         The response is a SuccessResponse or ErrorResponse.
  */
 class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
         $this->setPublicUserIdentity($publicUserIdentity);
         $this->setSCSCFName($SCSCFName);
         $this->setIMSUserState($IMSUserState);
+    }
+
+    /**
+     * @return UserShInterfaceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

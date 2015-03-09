@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimul
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a criteria for the user's simultaneous ring family service.
+ * Get a criteria for the user's simultaneous ring family service.
  *         The response is either a UserSimultaneousRingFamilyGetCriteriaResponse or an ErrorResponse.
  */
 class UserSimultaneousRingFamilyGetCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetCriteriaResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetCriteriaResponse';
     public    $name         = __CLASS__;
     protected $userId       = null;
     protected $criteriaName = null;
@@ -30,6 +33,14 @@ class UserSimultaneousRingFamilyGetCriteriaRequest extends ComplexType implement
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
+    }
+
+    /**
+     * @return UserSimultaneousRingFamilyGetCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

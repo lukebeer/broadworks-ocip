@@ -22,12 +22,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdm
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminModifyPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the group administrator's policy settings.
+ * Request to modify the group administrator's policy settings.
  *         The response is either SuccessResponse or ErrorResponse.
  *         The following elements are only used in AS data mode:
  *             dialableCallerIDAccess
@@ -83,6 +86,14 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->setSessionAdmissionControlAccess($sessionAdmissionControlAccess);
         $this->setOfficeZoneAccess($officeZoneAccess);
         $this->setDialableCallerIDAccess($dialableCallerIDAccess);
+    }
+
+    /**
+     * @return GroupAdminModifyPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

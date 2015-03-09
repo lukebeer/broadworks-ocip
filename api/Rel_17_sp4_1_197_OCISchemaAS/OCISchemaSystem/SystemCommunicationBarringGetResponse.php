@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCommunicationBarringGetRequest.
+ * Response to SystemCommunicationBarringGetRequest.
  */
 class SystemCommunicationBarringGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name                    = __CLASS__;
     protected $directTransferScreening = null;
 
+    /**
+     * @return SystemCommunicationBarringGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -34,6 +44,6 @@ class SystemCommunicationBarringGetResponse extends ComplexType implements Compl
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening->getValue();
+        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
     }
 }

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetBridgeDelegatesListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetBridgeDelegatesListRequest.
+ * Response to UserInstantConferencingGetBridgeDelegatesListRequest.
  *         Contains a table of assigned delegates.
  *         The table has column headings:
  *         "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
@@ -23,6 +26,13 @@ class UserInstantConferencingGetBridgeDelegatesListResponse extends ComplexType 
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return UserInstantConferencingGetBridgeDelegatesListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

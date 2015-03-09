@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneAssignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Assign a list of Office Zones to a group.
+ * Assign a list of Office Zones to a group.
  *         The Element defaultOfficeZone is required only for the first assignment, for subsequent assignments it is optional.
  *         Office Zones can only be assigned if the Location-Based Calling Restrictions has been authorized to the group otherwise the request will fail.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -38,6 +41,14 @@ class GroupOfficeZoneAssignListRequest extends ComplexType implements ComplexInt
         $this->setGroupId($groupId);
         $this->setOfficeZoneName($officeZoneName);
         $this->setDefaultOfficeZoneName($defaultOfficeZoneName);
+    }
+
+    /**
+     * @return GroupOfficeZoneAssignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

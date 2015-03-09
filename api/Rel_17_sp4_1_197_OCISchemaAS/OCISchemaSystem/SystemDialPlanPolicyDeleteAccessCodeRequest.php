@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyDeleteAccessCodeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a system-level Dial Plan Access Code and its all attribues.
+ * Request to delete a system-level Dial Plan Access Code and its all attribues.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements
          $accessCode
     ) {
         $this->setAccessCode($accessCode);
+    }
+
+    /**
+     * @return SystemDialPlanPolicyDeleteAccessCodeResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

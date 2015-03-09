@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasscodeMinLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderPortalPasscodeRulesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the service provider's passcode rules setting.
+ * Request to modify the service provider's passcode rules setting.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implements ComplexInterface
@@ -72,6 +75,14 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     }
 
     /**
+     * @return ServiceProviderPortalPasscodeRulesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -104,7 +115,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowRepeatedDigits()
     {
-        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits->getValue();
+        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits;
     }
 
     /**
@@ -120,7 +131,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowUserNumber()
     {
-        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber->getValue();
+        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber;
     }
 
     /**
@@ -136,7 +147,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowReversedUserNumber()
     {
-        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber->getValue();
+        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber;
     }
 
     /**
@@ -152,7 +163,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowOldPasscode()
     {
-        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode->getValue();
+        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode;
     }
 
     /**
@@ -168,7 +179,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowReversedOldPasscode()
     {
-        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode->getValue();
+        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode;
     }
 
     /**
@@ -220,7 +231,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
-        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts->getValue();
+        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts;
     }
 
     /**
@@ -254,7 +265,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getExpirePassword()
     {
-        return (!$this->expirePassword) ?: $this->expirePassword->getValue();
+        return (!$this->expirePassword) ?: $this->expirePassword;
     }
 
     /**
@@ -288,7 +299,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**

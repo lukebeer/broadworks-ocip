@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation\SystemConnectedLineIdentificationPresentationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with the COLP Service.
+ * Modify the system level data associated with the COLP Service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemConnectedLineIdentificationPresentationModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemConnectedLineIdentificationPresentationModifyRequest extends Complex
          $enforceUserServiceAssignment = null
     ) {
         $this->setEnforceUserServiceAssignment($enforceUserServiceAssignment);
+    }
+
+    /**
+     * @return SystemConnectedLineIdentificationPresentationModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SystemConnectedLineIdentificationPresentationModifyRequest extends Complex
      */
     public function getEnforceUserServiceAssignment()
     {
-        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment->getValue();
+        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment;
     }
 }

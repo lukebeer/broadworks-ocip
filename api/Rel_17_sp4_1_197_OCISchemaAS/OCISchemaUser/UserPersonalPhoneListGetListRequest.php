@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserPersonalPhoneListName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a user's personal phone list.
+ * Get a user's personal phone list.
  *         The response is either a UserPersonalPhoneListGetListResponse or an ErrorResponse.
  *         The search can be done using multiple criterion.
  *         If the searchCriteriaModeOr is present, any result matching any one criteria is included in the results. 
@@ -28,7 +31,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPersonalPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse';
+    public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse';
     public    $name                                      = __CLASS__;
     protected $userId                                    = null;
     protected $responseSizeLimit                         = null;
@@ -48,6 +51,14 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
         $this->setSearchCriteriaModeOr($searchCriteriaModeOr);
         $this->setSearchCriteriaUserPersonalPhoneListName($searchCriteriaUserPersonalPhoneListName);
         $this->setSearchCriteriaUserPersonalPhoneListNumber($searchCriteriaUserPersonalPhoneListNumber);
+    }
+
+    /**
+     * @return UserPersonalPhoneListGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -111,7 +122,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
     }
 
     /**

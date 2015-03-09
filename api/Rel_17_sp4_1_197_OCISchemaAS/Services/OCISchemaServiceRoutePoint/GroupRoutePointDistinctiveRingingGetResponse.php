@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointDistinctiveRingingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointDistinctiveRingingGetRequest.
+ * Response to the GroupRoutePointDistinctiveRingingGetRequest.
  */
 class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
     protected $distinctiveRingingRingPattern              = null;
     protected $distinctiveRingingForceDeliveryRingPattern = null;
 
+    /**
+     * @return GroupRoutePointDistinctiveRingingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
      */
     public function getEnableDistinctiveRinging()
     {
-        return (!$this->enableDistinctiveRinging) ?: $this->enableDistinctiveRinging->getValue();
+        return (!$this->enableDistinctiveRinging) ?: $this->enableDistinctiveRinging;
     }
 
     /**

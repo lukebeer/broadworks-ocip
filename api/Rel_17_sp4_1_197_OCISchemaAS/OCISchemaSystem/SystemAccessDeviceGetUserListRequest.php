@@ -19,17 +19,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the users associated with a specified system access device.
+ * Requests the users associated with a specified system access device.
  *         The response is either SystemAccessDeviceGetUserListResponse or ErrorResponse.
  */
 class SystemAccessDeviceGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetUserListResponse';
+    public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetUserListResponse';
     public    $name                               = __CLASS__;
     protected $deviceName                         = null;
     protected $responseSizeLimit                  = null;
@@ -70,6 +73,14 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
         $this->setSearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
         $this->setSearchCriteriaExactEndpointType($searchCriteriaExactEndpointType);
         $this->setSearchCriteriaExactUserType($searchCriteriaExactUserType);
+    }
+
+    /**
+     * @return SystemAccessDeviceGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

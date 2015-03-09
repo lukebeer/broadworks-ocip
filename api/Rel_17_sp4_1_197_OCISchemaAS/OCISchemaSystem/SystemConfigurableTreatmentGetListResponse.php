@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a SystemConfigurableTreatmentGetListRequest. Contains a table with one row per treatment.
+ * Response to a SystemConfigurableTreatmentGetListRequest. Contains a table with one row per treatment.
  *         The table columns are: "Treatment Id", "Description".
  */
 class SystemConfigurableTreatmentGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemConfigurableTreatmentGetListResponse extends ComplexType implements 
     public    $name           = __CLASS__;
     protected $treatmentTable = null;
 
+    /**
+     * @return SystemConfigurableTreatmentGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

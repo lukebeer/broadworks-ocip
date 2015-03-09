@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCPEConfigResetDeviceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Reset a specific group device.
+ * Reset a specific group device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCPEConfigResetDeviceRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupCPEConfigResetDeviceRequest extends ComplexType implements ComplexInt
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setDeviceName($deviceName);
+    }
+
+    /**
+     * @return GroupCPEConfigResetDeviceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -10,17 +10,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunk
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get an enterprise trunk
+ * Request to get an enterprise trunk
  *         The response is either an GroupEnterpriseTrunkGetResponse or an ErrorResponse.
  */
 class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse';
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse';
     public    $name                = __CLASS__;
     protected $serviceProviderId   = null;
     protected $groupId             = null;
@@ -34,6 +37,14 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
+    }
+
+    /**
+     * @return GroupEnterpriseTrunkGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

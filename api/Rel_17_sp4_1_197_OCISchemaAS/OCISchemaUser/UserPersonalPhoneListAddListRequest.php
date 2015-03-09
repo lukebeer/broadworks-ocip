@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add one or more entries to a user's personal phone list.
+ * Add one or more entries to a user's personal phone list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPersonalPhoneListAddListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserPersonalPhoneListAddListRequest extends ComplexType implements Complex
     ) {
         $this->setUserId($userId);
         $this->setEntry($entry);
+    }
+
+    /**
+     * @return UserPersonalPhoneListAddListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallCenterAgentDetailsGetRequest. 
+ * Response to the UserCallCenterAgentDetailsGetRequest. 
  *         Contains the detail information for a Call Center Agent.
  */
 class UserCallCenterAgentDetailsGetResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
     protected $isCallCenterStandardAssigned = null;
     protected $isCallCenterPremiumAssigned  = null;
 
+    /**
+     * @return UserCallCenterAgentDetailsGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function getIsCallCenterBasicAssigned()
     {
-        return (!$this->isCallCenterBasicAssigned) ?: $this->isCallCenterBasicAssigned->getValue();
+        return (!$this->isCallCenterBasicAssigned) ?: $this->isCallCenterBasicAssigned;
     }
 
     /**
@@ -53,7 +63,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function getIsCallCenterStandardAssigned()
     {
-        return (!$this->isCallCenterStandardAssigned) ?: $this->isCallCenterStandardAssigned->getValue();
+        return (!$this->isCallCenterStandardAssigned) ?: $this->isCallCenterStandardAssigned;
     }
 
     /**
@@ -69,6 +79,6 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function getIsCallCenterPremiumAssigned()
     {
-        return (!$this->isCallCenterPremiumAssigned) ?: $this->isCallCenterPremiumAssigned->getValue();
+        return (!$this->isCallCenterPremiumAssigned) ?: $this->isCallCenterPremiumAssigned;
     }
 }

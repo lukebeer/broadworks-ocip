@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWor
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerHomeZoneCellId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerModifyHomeZoneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an existing home zone in the BroadWorks Mobile Manager.
+ * Modify an existing home zone in the BroadWorks Mobile Manager.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType implements ComplexInterface
@@ -48,6 +51,14 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
         $this->setMobileNetworkCode($mobileNetworkCode);
         $this->setLocationAreaCode($locationAreaCode);
         $this->setCellIdentity($cellIdentity);
+    }
+
+    /**
+     * @return EnterpriseBroadWorksMobileManagerModifyHomeZoneResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,7 +94,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
      */
     public function getHomeZoneId()
     {
-        return (!$this->homeZoneId) ?: $this->homeZoneId->getValue();
+        return (!$this->homeZoneId) ?: $this->homeZoneId;
     }
 
     /**

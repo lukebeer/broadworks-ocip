@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Communic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringIncomingRule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderCommunicationBarringProfileGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderCommunicationBarringProfileGetRequest.
+ * Response to the ServiceProviderCommunicationBarringProfileGetRequest.
  *         The response contains the Communication Barring Profile information.
  *         The incoming, originating and redirecting rules are returned in ascending priority order.
  */
@@ -43,6 +46,13 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
     protected $incomingRule                     = null;
     protected $isDefault                        = null;
 
+    /**
+     * @return ServiceProviderCommunicationBarringProfileGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Communication Barring Profile description
@@ -271,6 +281,6 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
      */
     public function getIsDefault()
     {
-        return (!$this->isDefault) ?: $this->isDefault->getValue();
+        return (!$this->isDefault) ?: $this->isDefault;
     }
 }

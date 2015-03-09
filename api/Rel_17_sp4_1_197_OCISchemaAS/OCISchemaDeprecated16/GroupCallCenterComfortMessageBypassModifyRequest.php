@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterComfortMessageBypassModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's comfort message bypass settings.
+ * Modify a call center's comfort message bypass settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType implements ComplexInterface
@@ -53,6 +56,14 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
         $this->setAudioFile($audioFile);
         $this->setVideoMessageSelection($videoMessageSelection);
         $this->setVideoFile($videoFile);
+    }
+
+    /**
+     * @return GroupCallCenterComfortMessageBypassModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -94,7 +105,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -130,7 +141,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getPlayAnnouncementAfterRinging()
     {
-        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging->getValue();
+        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging;
     }
 
     /**

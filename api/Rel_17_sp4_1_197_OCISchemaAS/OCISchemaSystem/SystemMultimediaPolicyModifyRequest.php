@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMultimediaPolicyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Multimedia Policy.
+ * Modify the system level data associated with Multimedia Policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMultimediaPolicyModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemMultimediaPolicyModifyRequest extends ComplexType implements Complex
          $restrictNonAudioVideoMediaTypes = null
     ) {
         $this->setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes);
+    }
+
+    /**
+     * @return SystemMultimediaPolicyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SystemMultimediaPolicyModifyRequest extends ComplexType implements Complex
      */
     public function getRestrictNonAudioVideoMediaTypes()
     {
-        return (!$this->restrictNonAudioVideoMediaTypes) ?: $this->restrictNonAudioVideoMediaTypes->getValue();
+        return (!$this->restrictNonAudioVideoMediaTypes) ?: $this->restrictNonAudioVideoMediaTypes;
     }
 }

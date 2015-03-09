@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutlookIntegration; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutlookIntegration\OutlookIntegrationContactRetrievalSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutlookIntegration\UserOutlookIntegrationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserOutlookIntegrationGetRequest.
+ * Response to UserOutlookIntegrationGetRequest.
  */
 class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
     protected $isActive                  = null;
     protected $contactRetrievalSelection = null;
 
+    /**
+     * @return UserOutlookIntegrationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

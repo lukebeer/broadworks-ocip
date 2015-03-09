@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointModifyDNISParametersResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the setting that are configured for all the DNIS in a Route Point.
+ * Modify the setting that are configured for all the DNIS in a Route Point.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
         $this->setServiceUserId($serviceUserId);
         $this->setDisplayDNISNumber($displayDNISNumber);
         $this->setDisplayDNISName($displayDNISName);
+    }
+
+    /**
+     * @return GroupRoutePointModifyDNISParametersResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -72,7 +83,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getDisplayDNISNumber()
     {
-        return (!$this->displayDNISNumber) ?: $this->displayDNISNumber->getValue();
+        return (!$this->displayDNISNumber) ?: $this->displayDNISNumber;
     }
 
     /**
@@ -88,6 +99,6 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getDisplayDNISName()
     {
-        return (!$this->displayDNISName) ?: $this->displayDNISName->getValue();
+        return (!$this->displayDNISName) ?: $this->displayDNISName;
     }
 }

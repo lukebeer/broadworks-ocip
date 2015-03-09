@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extensio
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserHotelingHostGetResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserHotelingHostGetRequest14.
+ * Response to UserHotelingHostGetRequest14.
  *         Replaced by: UserHotelingHostGetResponse14sp4
  */
 class UserHotelingHostGetResponse14 extends ComplexType implements ComplexInterface
@@ -35,6 +38,13 @@ class UserHotelingHostGetResponse14 extends ComplexType implements ComplexInterf
     protected $guestLocationDialingCode = null;
     protected $guestAssociationDateTime = null;
 
+    /**
+     * @return UserHotelingHostGetResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -49,7 +59,7 @@ class UserHotelingHostGetResponse14 extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

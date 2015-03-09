@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceRead;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserMusicOnHoldUserGetRequest.
+ * Response to UserMusicOnHoldUserGetRequest.
  *         Replaced By: UserMusicOnHoldUserGetResponse16
  */
 class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
     protected $useAlternateSourceForInternalCalls = null;
     protected $internalSource                     = null;
 
+    /**
+     * @return UserMusicOnHoldUserGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -70,7 +80,7 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->getValue();
+        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls;
     }
 
     /**

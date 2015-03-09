@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingAddConferenceDocumentResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a conference document.
+ * Add a conference document.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
         $this->setConferenceKey($conferenceKey);
         $this->setDocumentFile($documentFile);
         $this->setEncryptionPassword($encryptionPassword);
+    }
+
+    /**
+     * @return UserInstantConferencingAddConferenceDocumentResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

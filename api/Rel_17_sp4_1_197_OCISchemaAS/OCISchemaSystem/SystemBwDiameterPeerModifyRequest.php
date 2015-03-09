@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterPeerModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the attributes of an entry in the Diameter Peer Table.
+ * Modifies the attributes of an entry in the Diameter Peer Table.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
         $this->setIpAddress($ipAddress);
         $this->setPort($port);
         $this->setEnabled($enabled);
+    }
+
+    /**
+     * @return SystemBwDiameterPeerModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -127,6 +138,6 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEnabled()
     {
-        return (!$this->enabled) ?: $this->enabled->getValue();
+        return (!$this->enabled) ?: $this->enabled;
     }
 }

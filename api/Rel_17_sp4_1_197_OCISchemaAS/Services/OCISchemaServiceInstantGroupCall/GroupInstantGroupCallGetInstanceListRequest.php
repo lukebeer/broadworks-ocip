@@ -10,18 +10,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get a list of Instant Group Call service instances within a group.
+ * Request to get a list of Instant Group Call service instances within a group.
  *         The response is either GroupInstantGroupCallGetInstanceListResponse or ErrorResponse.
  *         It is possible to get the service instances within a specified department.
  */
 class GroupInstantGroupCallGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceListResponse';
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceListResponse';
     public    $name                = __CLASS__;
     protected $serviceProviderId   = null;
     protected $groupId             = null;
@@ -35,6 +38,14 @@ class GroupInstantGroupCallGetInstanceListRequest extends ComplexType implements
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setGroupDepartmentName($groupDepartmentName);
+    }
+
+    /**
+     * @return GroupInstantGroupCallGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

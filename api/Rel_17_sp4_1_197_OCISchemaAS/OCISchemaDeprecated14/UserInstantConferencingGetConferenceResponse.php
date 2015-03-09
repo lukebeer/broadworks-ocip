@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserDisplayNames;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetConferenceRequest.
+ * Response to UserInstantConferencingGetConferenceRequest.
  *         Contains the information of a conference.
  */
 class UserInstantConferencingGetConferenceResponse extends ComplexType implements ComplexInterface
@@ -48,6 +51,13 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
     protected $allowOutdialInInvitation       = null;
     protected $bridgePhoneNumber              = null;
 
+    /**
+     * @return UserInstantConferencingGetConferenceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Conference call Id.
@@ -142,7 +152,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
+        return (!$this->leaderRequired) ?: $this->leaderRequired;
     }
 
     /**
@@ -158,7 +168,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants;
     }
 
     /**
@@ -174,7 +184,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
+        return (!$this->announceCallers) ?: $this->announceCallers;
     }
 
     /**
@@ -278,7 +288,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getIsCallActive()
     {
-        return (!$this->isCallActive) ?: $this->isCallActive->getValue();
+        return (!$this->isCallActive) ?: $this->isCallActive;
     }
 
     /**
@@ -294,7 +304,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired->getValue();
+        return (!$this->isExpired) ?: $this->isExpired;
     }
 
     /**
@@ -310,7 +320,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getIsFuture()
     {
-        return (!$this->isFuture) ?: $this->isFuture->getValue();
+        return (!$this->isFuture) ?: $this->isFuture;
     }
 
     /**
@@ -326,7 +336,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getHasPresentation()
     {
-        return (!$this->hasPresentation) ?: $this->hasPresentation->getValue();
+        return (!$this->hasPresentation) ?: $this->hasPresentation;
     }
 
     /**
@@ -360,7 +370,7 @@ class UserInstantConferencingGetConferenceResponse extends ComplexType implement
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
     }
 
     /**

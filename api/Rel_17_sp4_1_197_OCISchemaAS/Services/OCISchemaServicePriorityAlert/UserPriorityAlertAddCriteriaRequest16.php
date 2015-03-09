@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidayS
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePriorityAlert\UserPriorityAlertAddCriteriaResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a criteria to the user's priority alert service.
+ * Add a criteria to the user's priority alert service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPriorityAlertAddCriteriaRequest16 extends ComplexType implements ComplexInterface
@@ -44,6 +47,14 @@ class UserPriorityAlertAddCriteriaRequest16 extends ComplexType implements Compl
         $this->setHolidaySchedule($holidaySchedule);
         $this->setBlacklisted($blacklisted);
         $this->setFromDnCriteria($fromDnCriteria);
+    }
+
+    /**
+     * @return UserPriorityAlertAddCriteriaResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -135,7 +146,7 @@ class UserPriorityAlertAddCriteriaRequest16 extends ComplexType implements Compl
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**

@@ -12,17 +12,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastAgentGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to all the current and past agents in the enterprise.
+ * Request to all the current and past agents in the enterprise.
  *         The response is either EnterpriseCallCenterCurrentAndPastAgentGetListResponse or ErrorResponse.
  */
 class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastAgentGetListResponse';
+    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastAgentGetListResponse';
     public    $name                         = __CLASS__;
     protected $serviceProviderId            = null;
     protected $responseSizeLimit            = null;
@@ -42,6 +45,14 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType 
         $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
         $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
         $this->setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
+    }
+
+    /**
+     * @return EnterpriseCallCenterCurrentAndPastAgentGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceFileGetResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAccessDeviceFileGetRequest16sp1.
+ * Response to SystemAccessDeviceFileGetRequest16sp1.
  */
 class SystemAccessDeviceFileGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
@@ -26,6 +29,13 @@ class SystemAccessDeviceFileGetResponse16sp1 extends ComplexType implements Comp
     protected $repositoryUrl         = null;
     protected $templateUrl           = null;
 
+    /**
+     * @return SystemAccessDeviceFileGetResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Choices for the access device configuration mode.

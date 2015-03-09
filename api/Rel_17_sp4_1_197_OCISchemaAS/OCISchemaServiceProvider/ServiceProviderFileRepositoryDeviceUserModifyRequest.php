@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFileRepositoryDeviceUserModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a service provider file repository user.
+ * Modify a service provider file repository user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType implements ComplexInterface
@@ -46,6 +49,14 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
         $this->setAllowPut($allowPut);
         $this->setAllowDelete($allowDelete);
         $this->setAllowGet($allowGet);
+    }
+
+    /**
+     * @return ServiceProviderFileRepositoryDeviceUserModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -135,7 +146,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
      */
     public function getAllowPut()
     {
-        return (!$this->allowPut) ?: $this->allowPut->getValue();
+        return (!$this->allowPut) ?: $this->allowPut;
     }
 
     /**
@@ -151,7 +162,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
      */
     public function getAllowDelete()
     {
-        return (!$this->allowDelete) ?: $this->allowDelete->getValue();
+        return (!$this->allowDelete) ?: $this->allowDelete;
     }
 
     /**
@@ -167,6 +178,6 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
      */
     public function getAllowGet()
     {
-        return (!$this->allowGet) ?: $this->allowGet->getValue();
+        return (!$this->allowGet) ?: $this->allowGet;
     }
 }

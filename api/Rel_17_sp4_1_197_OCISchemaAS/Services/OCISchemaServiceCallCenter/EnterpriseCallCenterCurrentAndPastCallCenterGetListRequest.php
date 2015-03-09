@@ -11,17 +11,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get all the current and past call centers for the enterprise.
+ * Request to get all the current and past call centers for the enterprise.
  *         The response is either EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse or ErrorResponse.
  */
 class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse';
+    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse';
     public    $name                         = __CLASS__;
     protected $serviceProviderId            = null;
     protected $isPremiumOnly                = null;
@@ -41,6 +44,14 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
         $this->setSearchCriteriaCallCenterName($searchCriteriaCallCenterName);
+    }
+
+    /**
+     * @return EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -76,7 +87,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function getIsPremiumOnly()
     {
-        return (!$this->isPremiumOnly) ?: $this->isPremiumOnly->getValue();
+        return (!$this->isPremiumOnly) ?: $this->isPremiumOnly;
     }
 
     /**

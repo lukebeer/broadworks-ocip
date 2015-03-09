@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AgentACDState;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserCallCenterGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallCenterGetRequest16.
+ * Response to the UserCallCenterGetRequest16.
  *         Contains the user's call center settings.
  *         Indicates whether the agent is current available (logged in) to each call center in the list.
  *         Contains a table with column headings: "Service User Id", "Phone Number", "Extension", "Available", "Logoff Allowed", "Type", and "Priority".
@@ -34,6 +37,13 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     protected $numberConsecutiveBouncedCallsToForceAgentUnavailable = null;
     protected $callCenterTable                                      = null;
 
+    /**
+     * @return UserCallCenterGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Agent Automatic Call Distribution (ACD) State.
@@ -66,7 +76,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getUseDefaultGuardTimer()
     {
-        return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer->getValue();
+        return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer;
     }
 
     /**
@@ -82,7 +92,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -116,7 +126,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->getValue();
+        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings;
     }
 
     /**
@@ -132,7 +142,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
     }
 
     /**
@@ -148,7 +158,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getForceUnavailableOnPersonalCalls()
     {
-        return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls->getValue();
+        return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls;
     }
 
     /**
@@ -164,7 +174,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Zone.
+ * Delete a Zone.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemZoneDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemZoneDeleteRequest extends ComplexType implements ComplexInterface
          $zoneName
     ) {
         $this->setZoneName($zoneName);
+    }
+
+    /**
+     * @return SystemZoneDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

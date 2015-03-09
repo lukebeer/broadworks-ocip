@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CPEDeviceOptions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemDeviceTypeGetRequest.
+ * Response to SystemDeviceTypeGetRequest.
  *         Replaced By: SystemDeviceTypeGetResponse14sp3
  */
 class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterface
@@ -31,6 +34,13 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
     protected $isIpAddressOptional       = null;
     protected $useDomain                 = null;
 
+    /**
+     * @return SystemDeviceTypeGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
+        return (!$this->isObsolete) ?: $this->isObsolete;
     }
 
     /**
@@ -97,7 +107,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getStaticRegistrationCapable()
     {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->getValue();
+        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
     }
 
     /**
@@ -149,7 +159,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsIpAddressOptional()
     {
-        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional->getValue();
+        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional;
     }
 
     /**
@@ -165,6 +175,6 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDomain()
     {
-        return (!$this->useDomain) ?: $this->useDomain->getValue();
+        return (!$this->useDomain) ?: $this->useDomain;
     }
 }

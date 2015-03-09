@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeServiceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to set the level of integration that a device type has in relation to BroadWorks services.
+ * Request to set the level of integration that a device type has in relation to BroadWorks services.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
     ) {
         $this->setDeviceType($deviceType);
         $this->setSupportsPolycomPhoneServices($supportsPolycomPhoneServices);
+    }
+
+    /**
+     * @return SystemSIPDeviceTypeServiceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -61,6 +72,6 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
      */
     public function getSupportsPolycomPhoneServices()
     {
-        return (!$this->supportsPolycomPhoneServices) ?: $this->supportsPolycomPhoneServices->getValue();
+        return (!$this->supportsPolycomPhoneServices) ?: $this->supportsPolycomPhoneServices;
     }
 }

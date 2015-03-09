@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the list of Virtual On-Net users in an Enterprise.
+ * Request the list of Virtual On-Net users in an Enterprise.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a  EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse or 
@@ -28,7 +31,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse';
+    public    $responseType                                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse';
     public    $name                                        = __CLASS__;
     protected $serviceProviderId                           = null;
     protected $responseSizeLimit                           = null;
@@ -57,6 +60,14 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
         $this->setSearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
         $this->setSearchCriteriaExtension($searchCriteriaExtension);
         $this->setSearchCriteriaExactVirtualOnNetCallTypeName($searchCriteriaExactVirtualOnNetCallTypeName);
+    }
+
+    /**
+     * @return EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

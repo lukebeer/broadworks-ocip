@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskAddResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a user creation task for a trunk group.
+ * Add a user creation task for a trunk group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType implements ComplexInterface
@@ -64,6 +67,14 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
         $this->setContactDomain($contactDomain);
         $this->setServicePackName($servicePackName);
         $this->setUserService($userService);
+    }
+
+    /**
+     * @return GroupTrunkGroupUserCreationTaskAddResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -151,7 +162,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
      */
     public function getPopulateExtension()
     {
-        return (!$this->populateExtension) ?: $this->populateExtension->getValue();
+        return (!$this->populateExtension) ?: $this->populateExtension;
     }
 
     /**
@@ -203,7 +214,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
      */
     public function getPopulateContact()
     {
-        return (!$this->populateContact) ?: $this->populateContact->getValue();
+        return (!$this->populateContact) ?: $this->populateContact;
     }
 
     /**

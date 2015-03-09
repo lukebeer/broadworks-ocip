@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemConfigurableTreatmentGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get all the attributes of a configurable treatment.
+ * Get all the attributes of a configurable treatment.
  *             The response is either a SystemConfigurableTreatmentGetResponse or an ErrorResponse.
  *             Replaced By: SystemConfigurableTreatmentGetRequest16
  */
 class SystemConfigurableTreatmentGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemConfigurableTreatmentGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemConfigurableTreatmentGetResponse';
     public    $name        = __CLASS__;
     protected $treatmentId = null;
 
@@ -27,6 +30,14 @@ class SystemConfigurableTreatmentGetRequest extends ComplexType implements Compl
          $treatmentId
     ) {
         $this->setTreatmentId($treatmentId);
+    }
+
+    /**
+     * @return SystemConfigurableTreatmentGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGroupGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupSessionAdmissionControlGroupGetListRequest.
+ * Response to GroupSessionAdmissionControlGroupGetListRequest.
  *         Contains a table of session admission control group configured in the group.
  *         The column headings are: "Name", "Is Default", "Maximum Sessions", "Maximum Originating Sessions", "Maximum Terminating Sessions".
  */
@@ -22,6 +25,13 @@ class GroupSessionAdmissionControlGroupGetListResponse extends ComplexType imple
     public    $name                              = __CLASS__;
     protected $sessionAdmissionControlGroupTable = null;
 
+    /**
+     * @return GroupSessionAdmissionControlGroupGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

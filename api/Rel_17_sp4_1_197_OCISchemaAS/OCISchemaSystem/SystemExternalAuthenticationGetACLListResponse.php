@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalAuthenticationGetACLListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemExternalAuthenticationGetACLListRequest. The table columns are:
+ * Response to SystemExternalAuthenticationGetACLListRequest. The table columns are:
  *         "Net Address" and "Description".
  */
 class SystemExternalAuthenticationGetACLListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemExternalAuthenticationGetACLListResponse extends ComplexType impleme
     public    $name     = __CLASS__;
     protected $aclTable = null;
 
+    /**
+     * @return SystemExternalAuthenticationGetACLListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

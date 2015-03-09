@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueCallDispositionCodeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Call Center Call Disposition Code.
+ * Add a Call Center Call Disposition Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
         $this->setCode($code);
         $this->setIsActive($isActive);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return GroupCallCenterQueueCallDispositionCodeAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -95,7 +106,7 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

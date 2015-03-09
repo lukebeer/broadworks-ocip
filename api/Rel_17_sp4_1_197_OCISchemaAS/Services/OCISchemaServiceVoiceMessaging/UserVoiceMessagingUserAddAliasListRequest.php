@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserAddAliasListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add one or more voice mail aliases to a users voice message.
+ * Add one or more voice mail aliases to a users voice message.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVoiceMessagingUserAddAliasListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserVoiceMessagingUserAddAliasListRequest extends ComplexType implements C
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
+    }
+
+    /**
+     * @return UserVoiceMessagingUserAddAliasListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

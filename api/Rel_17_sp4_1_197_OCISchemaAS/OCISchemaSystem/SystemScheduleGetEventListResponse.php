@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemScheduleGetEventListRequest.
+ * Response to SystemScheduleGetEventListRequest.
  *         The response contains a list of events.
  */
 class SystemScheduleGetEventListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemScheduleGetEventListResponse extends ComplexType implements ComplexI
     public    $name      = __CLASS__;
     protected $eventName = null;
 
+    /**
+     * @return SystemScheduleGetEventListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Event name.

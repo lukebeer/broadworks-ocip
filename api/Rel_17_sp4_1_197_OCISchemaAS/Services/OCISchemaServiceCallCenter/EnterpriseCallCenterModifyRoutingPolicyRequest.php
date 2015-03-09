@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPriorityOrder;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterModifyRoutingPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the enterprise call center routing policy.
+ * Modify the enterprise call center routing policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
         $this->setServiceProviderId($serviceProviderId);
         $this->setRoutingPolicy($routingPolicy);
         $this->setRoutingPriorityOrder($routingPriorityOrder);
+    }
+
+    /**
+     * @return EnterpriseCallCenterModifyRoutingPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

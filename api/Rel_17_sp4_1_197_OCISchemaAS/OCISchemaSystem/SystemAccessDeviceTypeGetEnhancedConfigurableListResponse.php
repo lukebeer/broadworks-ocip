@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceTypeGetEnhancedConfigurableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAccessDeviceTypeGetEnhancedConfigurableListRequest.
+ * Response to SystemAccessDeviceTypeGetEnhancedConfigurableListRequest.
  *         Contains a table with columns: "Access Device Type", "Enhanced Configuration Type", "Supports Reset".
  *         The "Enhanced Configuration Type" column contains one of the AccessDeviceEnhancedConfigurationType14
  *         enumerated values.
@@ -24,6 +27,13 @@ class SystemAccessDeviceTypeGetEnhancedConfigurableListResponse extends ComplexT
     public    $name            = __CLASS__;
     protected $deviceTypeTable = null;
 
+    /**
+     * @return SystemAccessDeviceTypeGetEnhancedConfigurableListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

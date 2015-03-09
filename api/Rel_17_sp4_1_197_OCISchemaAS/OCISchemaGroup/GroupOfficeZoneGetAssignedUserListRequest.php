@@ -16,18 +16,21 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneGetAssignedUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of users within a group that have a given Office Zone assigned.
+ * Get a list of users within a group that have a given Office Zone assigned.
  *         The response is either a GroupOfficeZoneGetAssignedUserListResponse 
  *         or an ErrorResponse.
  */
 class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneGetAssignedUserListResponse';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneGetAssignedUserListResponse';
     public    $name                              = __CLASS__;
     protected $serviceProviderId                 = null;
     protected $groupId                           = null;
@@ -59,6 +62,14 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
         $this->setSearchCriteriaDn($searchCriteriaDn);
         $this->setSearchCriteriaEmailAddress($searchCriteriaEmailAddress);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
+    }
+
+    /**
+     * @return GroupOfficeZoneGetAssignedUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

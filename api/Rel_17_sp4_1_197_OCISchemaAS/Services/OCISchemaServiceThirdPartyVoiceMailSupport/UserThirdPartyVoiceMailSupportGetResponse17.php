@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTh
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportMailboxIdType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportMailServer;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceThirdPartyVoiceMailSupport\UserThirdPartyVoiceMailSupportGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserThirdPartyVoiceMailSupportGetRequest17.
+ * Response to UserThirdPartyVoiceMailSupportGetRequest17.
  */
 class UserThirdPartyVoiceMailSupportGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -33,6 +36,13 @@ class UserThirdPartyVoiceMailSupportGetResponse17 extends ComplexType implements
     protected $alwaysRedirectToVoiceMail           = null;
     protected $outOfPrimaryZoneRedirectToVoiceMail = null;
 
+    /**
+     * @return UserThirdPartyVoiceMailSupportGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -47,7 +57,7 @@ class UserThirdPartyVoiceMailSupportGetResponse17 extends ComplexType implements
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -63,7 +73,7 @@ class UserThirdPartyVoiceMailSupportGetResponse17 extends ComplexType implements
      */
     public function getBusyRedirectToVoiceMail()
     {
-        return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail->getValue();
+        return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail;
     }
 
     /**
@@ -79,7 +89,7 @@ class UserThirdPartyVoiceMailSupportGetResponse17 extends ComplexType implements
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
-        return (!$this->noAnswerRedirectToVoiceMail) ?: $this->noAnswerRedirectToVoiceMail->getValue();
+        return (!$this->noAnswerRedirectToVoiceMail) ?: $this->noAnswerRedirectToVoiceMail;
     }
 
     /**
@@ -199,7 +209,7 @@ class UserThirdPartyVoiceMailSupportGetResponse17 extends ComplexType implements
      */
     public function getAlwaysRedirectToVoiceMail()
     {
-        return (!$this->alwaysRedirectToVoiceMail) ?: $this->alwaysRedirectToVoiceMail->getValue();
+        return (!$this->alwaysRedirectToVoiceMail) ?: $this->alwaysRedirectToVoiceMail;
     }
 
     /**
@@ -215,6 +225,6 @@ class UserThirdPartyVoiceMailSupportGetResponse17 extends ComplexType implements
      */
     public function getOutOfPrimaryZoneRedirectToVoiceMail()
     {
-        return (!$this->outOfPrimaryZoneRedirectToVoiceMail) ?: $this->outOfPrimaryZoneRedirectToVoiceMail->getValue();
+        return (!$this->outOfPrimaryZoneRedirectToVoiceMail) ?: $this->outOfPrimaryZoneRedirectToVoiceMail;
     }
 }

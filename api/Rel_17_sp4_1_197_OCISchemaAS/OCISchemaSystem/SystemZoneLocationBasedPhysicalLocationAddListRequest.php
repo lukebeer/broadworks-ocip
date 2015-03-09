@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhysicalLocation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneLocationBasedPhysicalLocationAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Adds a list of physical locations to a zone
+ * Adds a list of physical locations to a zone
  *         The response is SuccessResponse or an ErrorResponse.
  */
 class SystemZoneLocationBasedPhysicalLocationAddListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemZoneLocationBasedPhysicalLocationAddListRequest extends ComplexType 
     ) {
         $this->setZoneName($zoneName);
         $this->setPhysicalLocation($physicalLocation);
+    }
+
+    /**
+     * @return SystemZoneLocationBasedPhysicalLocationAddListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

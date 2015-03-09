@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCPEConfigReorderDeviceLinePortsResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Reorder the lines of a group device. You can not add or delete line ports, only
+ * Reorder the lines of a group device. You can not add or delete line ports, only
  *         re-ordering the list is allowed. The ordered list of line ports can be obtained
  *         with the GroupAccessDeviceGetRequest14sp6 command.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -39,6 +42,14 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
         $this->setGroupId($groupId);
         $this->setDeviceName($deviceName);
         $this->setOrderedLinePortList($orderedLinePortList);
+    }
+
+    /**
+     * @return GroupCPEConfigReorderDeviceLinePortsResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

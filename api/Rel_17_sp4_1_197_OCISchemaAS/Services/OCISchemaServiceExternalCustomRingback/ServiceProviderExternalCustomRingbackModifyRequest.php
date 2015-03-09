@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEx
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback\ServiceProviderExternalCustomRingbackModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the service provider level data associated with External Custom Ringback.
+ * Modify the service provider level data associated with External Custom Ringback.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
         $this->setServerNetAddress($serverNetAddress);
         $this->setServerPort($serverPort);
         $this->setTimeoutSeconds($timeoutSeconds);
+    }
+
+    /**
+     * @return ServiceProviderExternalCustomRingbackModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

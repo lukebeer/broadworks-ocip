@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserRingTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IncomingCallToUserAliasMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxNoAnswerNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemSubscriberGetCallProcessingParametersResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemSubscriberGetCallProcessingParametersRequest17sp3.
+ * Response to the SystemSubscriberGetCallProcessingParametersRequest17sp3.
  */
 class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexType implements ComplexInterface
 {
@@ -28,6 +31,13 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
     protected $incomingCallToUserAliasMode            = null;
     protected $bypassTerminationLoopDetection         = null;
 
+    /**
+     * @return SystemSubscriberGetCallProcessingParametersResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -42,7 +52,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->getValue();
+        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive;
     }
 
     /**
@@ -58,7 +68,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getIsRingTimeOutActive()
     {
-        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->getValue();
+        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive;
     }
 
     /**
@@ -92,7 +102,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations->getValue();
+        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations;
     }
 
     /**
@@ -144,6 +154,6 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getBypassTerminationLoopDetection()
     {
-        return (!$this->bypassTerminationLoopDetection) ?: $this->bypassTerminationLoopDetection->getValue();
+        return (!$this->bypassTerminationLoopDetection) ?: $this->bypassTerminationLoopDetection;
     }
 }

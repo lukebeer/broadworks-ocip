@@ -49,12 +49,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUse
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPolicyGetDefaultResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemPolicyGetDefaultRequest17sp3.
+ * Response to SystemPolicyGetDefaultRequest17sp3.
  *         Contains the default policy settings for the system.
  *         The following elements are only used in AS data mode:
  *         		GroupAdminDialableCallerIDAccess
@@ -108,6 +111,13 @@ class SystemPolicyGetDefaultResponse17sp3 extends ComplexType implements Complex
     protected $enterpriseAdminNetworkPolicyAccess                = null;
     protected $serviceProviderAdminDialableCallerIDAccess        = null;
 
+    /**
+     * @return SystemPolicyGetDefaultResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Group's policy for accessing group level and user level calling plan configuration.

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServ
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkRoutingServerAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a routing Network Server to the system.
+ * Request to add a routing Network Server to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemNetworkRoutingServerAddRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
         $this->setTransportProtocol($transportProtocol);
         $this->setPoll($poll);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemNetworkRoutingServerAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -109,7 +120,7 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function getPoll()
     {
-        return (!$this->poll) ?: $this->poll->getValue();
+        return (!$this->poll) ?: $this->poll;
     }
 
     /**

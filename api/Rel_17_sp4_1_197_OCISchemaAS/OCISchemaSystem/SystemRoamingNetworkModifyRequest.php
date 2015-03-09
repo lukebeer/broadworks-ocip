@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkTranslationIndex;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Roaming Network.
+ * Modify a Roaming Network.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
     ) {
         $this->setMscAddress($mscAddress);
         $this->setNetworkTranslationIndex($networkTranslationIndex);
+    }
+
+    /**
+     * @return SystemRoamingNetworkModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

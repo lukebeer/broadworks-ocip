@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaServerSelectionRouteTimerMilliseconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaServerResponseTimerMilliseconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Media Server system parameters.
+ * Request to modify Media Server system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemMediaServerParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
         $this->setMediaServerResponseTimerMilliseconds($mediaServerResponseTimerMilliseconds);
         $this->setMediaServerSelectionRouteTimerMilliseconds($mediaServerSelectionRouteTimerMilliseconds);
         $this->setUseStaticMediaServerDevice($useStaticMediaServerDevice);
+    }
+
+    /**
+     * @return SystemMediaServerParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,6 +94,6 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
      */
     public function getUseStaticMediaServerDevice()
     {
-        return (!$this->useStaticMediaServerDevice) ?: $this->useStaticMediaServerDevice->getValue();
+        return (!$this->useStaticMediaServerDevice) ?: $this->useStaticMediaServerDevice;
     }
 }

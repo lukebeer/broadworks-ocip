@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the enterprise level data associated with Call Center Agents Unavailable Code Settings.
+ * Request the enterprise level data associated with Call Center Agents Unavailable Code Settings.
  *         The response is either an EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse or an
  *         ErrorResponse.
  */
 class EnterpriseCallCenterAgentUnavailableCodeSettingsGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
 
@@ -27,6 +30,14 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsGetRequest extends Complex
          $serviceProviderId
     ) {
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

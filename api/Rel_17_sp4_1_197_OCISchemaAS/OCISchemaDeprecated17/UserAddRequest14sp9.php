@@ -33,12 +33,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserAddResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaced by: UserAddRequest17sp4
+ * Replaced by: UserAddRequest17sp4
  *       
  *         Request to add a user.
  *         The domain is required in the userId.
@@ -133,6 +136,14 @@ class UserAddRequest14sp9 extends ComplexType implements ComplexInterface
         $this->setNetworkClassOfService($networkClassOfService);
         $this->setOfficeZoneName($officeZoneName);
         $this->setPrimaryZoneName($primaryZoneName);
+    }
+
+    /**
+     * @return UserAddResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

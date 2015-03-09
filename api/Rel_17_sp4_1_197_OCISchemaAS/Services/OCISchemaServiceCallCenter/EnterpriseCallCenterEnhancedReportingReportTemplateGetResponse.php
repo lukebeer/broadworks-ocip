@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportDataTemplateQueryFilterValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportDataTemplateFilterNumber;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingReportTemplateGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseCallCenterEnhancedReportingReportTemplateGetRequest.
+ * Response to EnterpriseCallCenterEnhancedReportingReportTemplateGetRequest.
  */
 class EnterpriseCallCenterEnhancedReportingReportTemplateGetResponse extends ComplexType implements ComplexInterface
 {
@@ -43,6 +46,13 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateGetResponse extends Com
     protected $abandonedCallThresholdParamNumber   = null;
     protected $filterValue                         = null;
 
+    /**
+     * @return EnterpriseCallCenterEnhancedReportingReportTemplateGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The call center enhanced reporting report template description.
@@ -147,7 +157,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateGetResponse extends Com
      */
     public function getIsEnabled()
     {
-        return (!$this->isEnabled) ?: $this->isEnabled->getValue();
+        return (!$this->isEnabled) ?: $this->isEnabled;
     }
 
     /**
@@ -163,7 +173,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateGetResponse extends Com
      */
     public function getIsRealtimeReport()
     {
-        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport->getValue();
+        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport;
     }
 
     /**

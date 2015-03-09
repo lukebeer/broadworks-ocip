@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterBouncedCallGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterBouncedCallGetRequest.
+ * Response to the GroupCallCenterBouncedCallGetRequest.
  */
 class GroupCallCenterBouncedCallGetResponse extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
     protected $transferPhoneNumber             = null;
     protected $bounceCallWhenAgentUnavailable  = null;
 
+    /**
+     * @return GroupCallCenterBouncedCallGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -39,7 +49,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -75,7 +85,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getEnableTransfer()
     {
-        return (!$this->enableTransfer) ?: $this->enableTransfer->getValue();
+        return (!$this->enableTransfer) ?: $this->enableTransfer;
     }
 
     /**
@@ -123,6 +133,6 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable->getValue();
+        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable;
     }
 }

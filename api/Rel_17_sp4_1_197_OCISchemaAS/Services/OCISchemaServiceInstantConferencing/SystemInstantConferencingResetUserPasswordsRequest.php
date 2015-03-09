@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingResetUserPasswordsResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Regenerate new credentials for the conference bridges defined on the
+ * Regenerate new credentials for the conference bridges defined on the
  *         specified device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -26,6 +29,14 @@ class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType imp
          $deviceName
     ) {
         $this->setDeviceName($deviceName);
+    }
+
+    /**
+     * @return SystemInstantConferencingResetUserPasswordsResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

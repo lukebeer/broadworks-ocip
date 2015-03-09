@@ -8,6 +8,9 @@
 namespace Broadworks_OCIP\core\Response;
 
 use Broadworks_OCIP\core\Logging\ErrorControl;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 
 class Response
 {
@@ -15,14 +18,14 @@ class Response
     private $responseBody = null;
 
 
-    public function __construct($response, $outputType)
+    public function __construct($response, $responseType, $outputType)
     {
         $this->response = $response;
         $this->responseBody = $response;
         if (preg_match('/SuccessResponse/', $this->response)) return $this->SuccessResponse();
         if (preg_match('/ErrorResponse/', $this->response)) return $this->ErrorResponse();
         if (preg_match('/<command .*>(.*)<\/command>/', $this->response, $cmdResponse)) {
-            $this->OCIResponse($cmdResponse[0], $outputType);
+            $this->OCIResponse($cmdResponse[0], $responseType, $outputType);
             return true;
         }
         return false;
@@ -47,11 +50,15 @@ class Response
         return false;
     }
 
-    private function OCIResponse($cmdResponse, $outputType)
-    {   $cmdResponse = str_replace('xsi:type', 'type', $cmdResponse);
+    private function OCIResponse($cmdResponse, $responseType, $outputType)
+    {
+        $cmdResponse = str_replace('xsi:type', 'type', $cmdResponse);
         switch ($outputType) {
             case ResponseOutput::STD:
-                $this->response = (object)json_decode(json_encode((array)simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true)), 1);
+                $normalizer = new GetSetMethodNormalizer();
+                $encoder = new XmlEncoder('command');
+                $serializer = new Serializer([$normalizer], [$encoder]);
+                $this->response = $serializer->deserialize($cmdResponse, $responseType, 'xml');
                 break;
             case ResponseOutput::XML:
                 $this->response = $cmdResponse;

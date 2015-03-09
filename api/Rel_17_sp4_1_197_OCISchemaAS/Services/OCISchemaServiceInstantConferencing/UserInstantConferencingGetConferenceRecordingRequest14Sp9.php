@@ -9,18 +9,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the information of a conference recording owned or delegated by the user.
+ * Get the information of a conference recording owned or delegated by the user.
  *         The response is either UserInstantConferencingGetConferenceRecordingResponse14Sp9
  *         or ErrorResponse.
  */
 class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9';
     public    $name         = __CLASS__;
     protected $userId       = null;
     protected $recordingKey = null;
@@ -31,6 +34,14 @@ class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexT
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
+    }
+
+    /**
+     * @return UserInstantConferencingGetConferenceRecordingResponse14Sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

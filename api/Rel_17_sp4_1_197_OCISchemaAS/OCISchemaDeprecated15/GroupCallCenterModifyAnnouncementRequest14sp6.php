@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallCenterMusicOnHoldSourceModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterModifyAnnouncementResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's announcement settings.
+ * Modify a call center's announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         
  *         Replaced By: GroupCallCenterModifyAnnouncementRequest16
@@ -57,6 +60,14 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
         $this->setOnHoldSource($onHoldSource);
         $this->setOnHoldUseAlternateSourceForInternalCalls($onHoldUseAlternateSourceForInternalCalls);
         $this->setOnHoldInternalSource($onHoldInternalSource);
+    }
+
+    /**
+     * @return GroupCallCenterModifyAnnouncementResponse14sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -222,7 +233,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
      */
     public function getOnHoldUseAlternateSourceForInternalCalls()
     {
-        return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls->getValue();
+        return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls;
     }
 
     /**

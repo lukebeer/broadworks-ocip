@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseAddUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add users to the BroadWorks Receptionist - Enterprise monitored user list.
+ * Add users to the BroadWorks Receptionist - Enterprise monitored user list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserBroadWorksReceptionistEnterpriseAddUserListRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserBroadWorksReceptionistEnterpriseAddUserListRequest extends ComplexType
     ) {
         $this->setUserId($userId);
         $this->setMonitoredUserId($monitoredUserId);
+    }
+
+    /**
+     * @return UserBroadWorksReceptionistEnterpriseAddUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

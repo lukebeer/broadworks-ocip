@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGroupGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupSessionAdmissionControlGroupGetRequest.
+ * Response to GroupSessionAdmissionControlGroupGetRequest.
  *         Returns the profile information for the session admission control group.
  */
 class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implements ComplexInterface
@@ -30,6 +33,13 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
     protected $countIntraSACGroupSessions      = null;
     protected $devices                         = null;
 
+    /**
+     * @return GroupSessionAdmissionControlGroupGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Non-negative integer.
@@ -152,7 +162,7 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
      */
     public function getDefaultGroup()
     {
-        return (!$this->defaultGroup) ?: $this->defaultGroup->getValue();
+        return (!$this->defaultGroup) ?: $this->defaultGroup;
     }
 
     /**
@@ -168,7 +178,7 @@ class GroupSessionAdmissionControlGroupGetResponse extends ComplexType implement
      */
     public function getCountIntraSACGroupSessions()
     {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->getValue();
+        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions;
     }
 
     /**

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingNumberOfRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSequentialRing\UserSequentialRingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's sequential ring service setting.
+ * Modify the user's sequential ring service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSequentialRingModifyRequest extends ComplexType implements ComplexInterface
@@ -61,6 +64,14 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
+     * @return UserSequentialRingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -99,7 +110,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getRingBaseLocationFirst()
     {
-        return (!$this->ringBaseLocationFirst) ?: $this->ringBaseLocationFirst->getValue();
+        return (!$this->ringBaseLocationFirst) ?: $this->ringBaseLocationFirst;
     }
 
     /**
@@ -133,7 +144,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getContinueIfBaseLocationIsBusy()
     {
-        return (!$this->continueIfBaseLocationIsBusy) ?: $this->continueIfBaseLocationIsBusy->getValue();
+        return (!$this->continueIfBaseLocationIsBusy) ?: $this->continueIfBaseLocationIsBusy;
     }
 
     /**
@@ -149,7 +160,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getCallerMayStopSearch()
     {
-        return (!$this->callerMayStopSearch) ?: $this->callerMayStopSearch->getValue();
+        return (!$this->callerMayStopSearch) ?: $this->callerMayStopSearch;
     }
 
     /**

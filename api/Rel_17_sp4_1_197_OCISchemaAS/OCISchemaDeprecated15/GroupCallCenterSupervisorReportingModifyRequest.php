@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterSupervisorReportingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaces a list of users as supervisors for a call center.
+ * Replaces a list of users as supervisors for a call center.
  *         Also allows the modification of the reporting server URL address.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         
@@ -36,6 +39,14 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
         $this->setServiceUserId($serviceUserId);
         $this->setReportingServerName($reportingServerName);
         $this->setSupervisorUserIdList($supervisorUserIdList);
+    }
+
+    /**
+     * @return GroupCallCenterSupervisorReportingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

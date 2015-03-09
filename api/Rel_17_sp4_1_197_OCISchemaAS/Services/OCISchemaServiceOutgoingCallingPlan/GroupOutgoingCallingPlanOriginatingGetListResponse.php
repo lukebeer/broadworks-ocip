@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgo
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanOriginatingDepartmentPermissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanOriginatingPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanOriginatingGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupOutgoingCallingPlanOriginatingGetListRequest.
+ * Response to GroupOutgoingCallingPlanOriginatingGetListRequest.
  */
 class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
     protected $groupPermissions      = null;
     protected $departmentPermissions = null;
 
+    /**
+     * @return GroupOutgoingCallingPlanOriginatingGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Outgoing Calling Plan originating call permissions.

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINInt
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MobilityManagerServiceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration\UserINIntegrationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the user level IN Integration service attributes
+ * Request to modify the user level IN Integration service attributes
  *         Response is either SuccessResponse or ErrorResponse
  */
 class UserINIntegrationModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
         $this->setUserId($userId);
         $this->setOriginatingServiceKey($originatingServiceKey);
         $this->setTerminatingServiceKey($terminatingServiceKey);
+    }
+
+    /**
+     * @return UserINIntegrationModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

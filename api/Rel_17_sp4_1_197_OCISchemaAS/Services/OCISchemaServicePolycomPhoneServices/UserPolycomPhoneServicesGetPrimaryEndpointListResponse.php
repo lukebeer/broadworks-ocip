@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetPrimaryEndpointListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserPolycomPhoneServicesGetPrimaryEndpointListRequest.
+ * Response to UserPolycomPhoneServicesGetPrimaryEndpointListRequest.
  *         The column headings for the deviceUserTable are: "Device Level", "Device Name", "Line/Port".
  */
 class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType
     public    $name            = __CLASS__;
     protected $deviceUserTable = null;
 
+    /**
+     * @return UserPolycomPhoneServicesGetPrimaryEndpointListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

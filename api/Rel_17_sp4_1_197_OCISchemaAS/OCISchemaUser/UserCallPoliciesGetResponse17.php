@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ConnectedLineIdentificationPrivacyOnRedirectedCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\CallBeingForwardedResponseCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCallPoliciesGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallPoliciesGetRequest17.
+ * Response to UserCallPoliciesGetRequest17.
  */
 class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
     protected $redirectedCallsCOLPPrivacy         = null;
     protected $callBeingForwardedResponseCallType = null;
 
+    /**
+     * @return UserCallPoliciesGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Choices for Connected Line Identification Privacy on Redirected Calls

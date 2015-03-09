@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallParkGetRequest16sp2.
+ * Response to the GroupCallParkGetRequest16sp2.
  *         Contains the settings that apply to the whole group for Call Park.
  *         
  *         The following elements are only used in AS data mode:
@@ -37,6 +40,13 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
     protected $recallTo                        = null;
     protected $alternateUserRecallTimerSeconds = null;
 
+    /**
+     * @return GroupCallParkGetResponse16sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The timer determines how long a call can be parked before the parker is recalled.
@@ -87,7 +97,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
      */
     public function getEnableDestinationAnnouncement()
     {
-        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement->getValue();
+        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement;
     }
 
     /**

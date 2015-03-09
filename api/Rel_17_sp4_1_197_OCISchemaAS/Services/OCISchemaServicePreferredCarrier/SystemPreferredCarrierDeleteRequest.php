@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a carrier from the system.
+ * Delete a carrier from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         An ErrorResponse is returned if the carrier is in use, or if the carrier didn't exist prior to deletion..
  */
@@ -26,6 +29,14 @@ class SystemPreferredCarrierDeleteRequest extends ComplexType implements Complex
          $carrier
     ) {
         $this->setCarrier($carrier);
+    }
+
+    /**
+     * @return SystemPreferredCarrierDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEm
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group level data associated with Emergency Zones.
+ * Modify the group level data associated with Emergency Zones.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
         $this->setEmergencyZonesProhibition($emergencyZonesProhibition);
         $this->setSendEmergencyCallNotifyEmail($sendEmergencyCallNotifyEmail);
         $this->setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress);
+    }
+
+    /**
+     * @return GroupEmergencyZonesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -98,7 +109,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -134,7 +145,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getSendEmergencyCallNotifyEmail()
     {
-        return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail->getValue();
+        return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail;
     }
 
     /**

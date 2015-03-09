@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseVoiceVPNGetListResponse.
+ * Response to EnterpriseVoiceVPNGetListResponse.
  *         Returns a 4 column table with column headings:
  *           "Location Code", "Min Extension Length", "Max Extension Length", "Location Selection".
  */
@@ -22,6 +25,13 @@ class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements Com
     public    $name         = __CLASS__;
     protected $locationList = null;
 
+    /**
+     * @return EnterpriseVoiceVPNGetPolicyListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LogoutRequestReason;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LogoutResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * LogoutRequest is sent when an OCI user logs out or when connection is lost.
+ * LogoutRequest is sent when an OCI user logs out or when connection is lost.
  *         This command can be sent either to the server, or to the client from OCS.
  *         Response is either SuccessResponse or ErrorResponse.
  */
@@ -30,6 +33,14 @@ class LogoutRequest extends ComplexType implements ComplexInterface
     ) {
         $this->setUserId($userId);
         $this->setReason($reason);
+    }
+
+    /**
+     * @return LogoutResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

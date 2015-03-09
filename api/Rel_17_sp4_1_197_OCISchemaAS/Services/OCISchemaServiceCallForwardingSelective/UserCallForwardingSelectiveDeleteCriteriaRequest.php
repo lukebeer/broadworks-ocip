@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallF
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective\UserCallForwardingSelectiveDeleteCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a criteria from the user's call forwarding selective service.
+ * Delete a criteria from the user's call forwarding selective service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
+    }
+
+    /**
+     * @return UserCallForwardingSelectiveDeleteCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

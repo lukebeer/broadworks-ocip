@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\ServiceProviderMeetMeConferencingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the service provider/enterprise level data associated with Meet-Me Conferencing functions.
+ * Modify the service provider/enterprise level data associated with Meet-Me Conferencing functions.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setAllocatedPorts($allocatedPorts);
+    }
+
+    /**
+     * @return ServiceProviderMeetMeConferencingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

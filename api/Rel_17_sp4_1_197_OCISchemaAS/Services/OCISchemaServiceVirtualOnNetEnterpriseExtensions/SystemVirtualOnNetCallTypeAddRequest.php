@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtu
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeCdrValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\SystemVirtualOnNetCallTypeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Virtual On-Net Call Type.
+ * Add a Virtual On-Net Call Type.
  *          The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
     ) {
         $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
         $this->setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
+    }
+
+    /**
+     * @return SystemVirtualOnNetCallTypeAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderScheduleGetListRequest.
+ * Response to ServiceProviderScheduleGetListRequest.
  *         The response contains a list of service provider schedules.
  */
 class ServiceProviderScheduleGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class ServiceProviderScheduleGetListResponse extends ComplexType implements Comp
     public    $name        = __CLASS__;
     protected $scheduleKey = null;
 
+    /**
+     * @return ServiceProviderScheduleGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).

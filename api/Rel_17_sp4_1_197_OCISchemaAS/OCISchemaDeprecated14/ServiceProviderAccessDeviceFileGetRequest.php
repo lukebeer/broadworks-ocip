@@ -10,18 +10,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\DeviceManagementFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceFileGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get a service provider device profile file.
+ * Request to get a service provider device profile file.
  *           The response is either ServiceProviderAccessDeviceFileGetResponse or ErrorResponse.
  *           Replaced By: ServiceProviderAccessDeviceFileGetRequest14sp8
  */
 class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceFileGetResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceFileGetResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $deviceName        = null;
@@ -35,6 +38,14 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
         $this->setFileType($fileType);
+    }
+
+    /**
+     * @return ServiceProviderAccessDeviceFileGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

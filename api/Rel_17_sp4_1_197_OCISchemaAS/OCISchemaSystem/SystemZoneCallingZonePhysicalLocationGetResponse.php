@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhysicalLocation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneCallingZonePhysicalLocationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemZoneCallingZonePhysicalLocationGetRequest.
+ * Response to SystemZoneCallingZonePhysicalLocationGetRequest.
  */
 class SystemZoneCallingZonePhysicalLocationGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name             = __CLASS__;
     protected $physicalLocation = null;
 
+    /**
+     * @return SystemZoneCallingZonePhysicalLocationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Physical geographic location of the zone

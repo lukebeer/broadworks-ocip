@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSche
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserBroadWorksAnywhereAddSelectiveCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a criteria to the user's BroadWorks Anywhere phone number.
+ * Add a criteria to the user's BroadWorks Anywhere phone number.
  *             The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
         $this->setCriteriaName($criteriaName);
         $this->setTimeSchedule($timeSchedule);
         $this->setFromDnCriteria($fromDnCriteria);
+    }
+
+    /**
+     * @return UserBroadWorksAnywhereAddSelectiveCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

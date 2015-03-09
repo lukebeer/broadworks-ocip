@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PublicUserIdentity;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetPublicIdDataResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Returns the Sh non-transparent data stored against a Public User Identity (a SIP URI
+ * Returns the Sh non-transparent data stored against a Public User Identity (a SIP URI
  *         or TEL URI).
  *         The response is either a UserShInterfaceGetPublicIdDataResponse or an ErrorResponse.
  */
 class UserShInterfaceGetPublicIdDataRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetPublicIdDataResponse';
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetPublicIdDataResponse';
     public    $name               = __CLASS__;
     protected $publicUserIdentity = null;
 
@@ -27,6 +30,14 @@ class UserShInterfaceGetPublicIdDataRequest extends ComplexType implements Compl
           $publicUserIdentity
     ) {
         $this->setPublicUserIdentity($publicUserIdentity);
+    }
+
+    /**
+     * @return UserShInterfaceGetPublicIdDataResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

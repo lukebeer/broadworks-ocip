@@ -9,19 +9,22 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of recordings of a conference owned or delegated by the user.
+ * Get the list of recordings of a conference owned or delegated by the user.
  *         The response is either UserInstantConferencingGetConferenceRecordingListResponse
  *         or ErrorResponse.
  *         If conferenceKey is not in the request, the recordings for all the conferences of the user will be returned.
  */
 class UserInstantConferencingGetConferenceRecordingListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingListResponse';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingListResponse';
     public    $name          = __CLASS__;
     protected $userId        = null;
     protected $conferenceKey = null;
@@ -32,6 +35,14 @@ class UserInstantConferencingGetConferenceRecordingListRequest extends ComplexTy
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
+    }
+
+    /**
+     * @return UserInstantConferencingGetConferenceRecordingListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

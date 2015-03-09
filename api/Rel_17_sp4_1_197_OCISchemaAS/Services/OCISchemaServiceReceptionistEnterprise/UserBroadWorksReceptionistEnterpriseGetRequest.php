@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the monitored users list for the BroadWorks Receptionist - Enterprise service.
+ * Request the monitored users list for the BroadWorks Receptionist - Enterprise service.
  *         The response is either a UserBroadWorksReceptionistEnterpriseGetResponse or an ErrorResponse.
  */
 class UserBroadWorksReceptionistEnterpriseGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -26,6 +29,14 @@ class UserBroadWorksReceptionistEnterpriseGetRequest extends ComplexType impleme
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserBroadWorksReceptionistEnterpriseGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

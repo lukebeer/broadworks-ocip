@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledF
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldAddInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Music On Hold Instance to a department.
+ * Add a Music On Hold Instance to a department.
  *         The response is either SuccessResponse or ErrorResponse.
  *         Replaced By: GroupMusicOnHoldAddInstanceRequest14Sp4
  */
@@ -55,6 +58,14 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
         $this->setAudioFile($audioFile);
         $this->setVideoFile($videoFile);
+    }
+
+    /**
+     * @return GroupMusicOnHoldAddInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -138,7 +149,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->getValue();
+        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold;
     }
 
     /**
@@ -154,7 +165,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->getValue();
+        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark;
     }
 
     /**

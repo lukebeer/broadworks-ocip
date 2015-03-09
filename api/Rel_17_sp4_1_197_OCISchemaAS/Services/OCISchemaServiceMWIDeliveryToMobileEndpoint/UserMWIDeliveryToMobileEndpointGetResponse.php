@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint\UserMWIDeliveryToMobileEndpointGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserMWIDeliveryToMobileEndpointGetRequest.
+ * Response to UserMWIDeliveryToMobileEndpointGetRequest.
  */
 class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
     protected $isActive          = null;
     protected $mobilePhoneNumber = null;
 
+    /**
+     * @return UserMWIDeliveryToMobileEndpointGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

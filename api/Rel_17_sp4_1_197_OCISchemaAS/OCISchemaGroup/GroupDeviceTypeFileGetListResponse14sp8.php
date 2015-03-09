@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileGetListResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupDeviceTypeFileGetListRequest14sp8.
+ * Response to GroupDeviceTypeFileGetListRequest14sp8.
  *         Contains a table of device type files managed by the Device Management System, on a per-group basis.
  *         The column headings are: "File Format", "Is Authenticated", "Access URL", "Repository URL", "Template URL".
  */
@@ -22,6 +25,13 @@ class GroupDeviceTypeFileGetListResponse14sp8 extends ComplexType implements Com
     public    $name                      = __CLASS__;
     protected $groupDeviceTypeFilesTable = null;
 
+    /**
+     * @return GroupDeviceTypeFileGetListResponse14sp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

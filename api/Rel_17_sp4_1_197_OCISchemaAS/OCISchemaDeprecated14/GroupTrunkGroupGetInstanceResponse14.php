@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncomingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupTrunkGroupGetInstanceRequest.
+ * Response to GroupTrunkGroupGetInstanceRequest.
  *         The publicUserIdentity in the ServiceInstanceReadProfile is not used for trunk groups.
  *         Returns the profile information for the Trunk Group.
  */
@@ -33,6 +36,13 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
     protected $requireAuthentication     = null;
     protected $sipAuthenticationUserName = null;
 
+    /**
+     * @return GroupTrunkGroupGetInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -137,7 +147,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**

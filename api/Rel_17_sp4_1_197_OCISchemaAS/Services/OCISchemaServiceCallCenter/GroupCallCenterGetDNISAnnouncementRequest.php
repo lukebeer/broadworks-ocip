@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a call center's DNIS Annoucements
+ * Get a call center's DNIS Annoucements
  *         The response is either a GroupCallCenterGetDNISAnnouncementRequest or an ErrorResponse.
  */
 class GroupCallCenterGetDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse';
     public    $name    = __CLASS__;
     protected $dnisKey = null;
 
@@ -26,6 +29,14 @@ class GroupCallCenterGetDNISAnnouncementRequest extends ComplexType implements C
           $dnisKey
     ) {
         $this->setDnisKey($dnisKey);
+    }
+
+    /**
+     * @return GroupCallCenterGetDNISAnnouncementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

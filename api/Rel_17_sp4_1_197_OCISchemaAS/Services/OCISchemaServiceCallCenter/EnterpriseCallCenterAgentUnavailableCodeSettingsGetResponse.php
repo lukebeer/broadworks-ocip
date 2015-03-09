@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseCallCenterAgentUnavailableCodeSettingsGetRequest.
+ * Response to EnterpriseCallCenterAgentUnavailableCodeSettingsGetRequest.
  */
 class EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse extends Comple
     protected $forceUseOfAgentUnavailableCodes                 = null;
     protected $defaultAgentUnavailableCode                     = null;
 
+    /**
+     * @return EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -39,7 +49,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse extends Comple
      */
     public function getEnableAgentUnavailableCodes()
     {
-        return (!$this->enableAgentUnavailableCodes) ?: $this->enableAgentUnavailableCodes->getValue();
+        return (!$this->enableAgentUnavailableCodes) ?: $this->enableAgentUnavailableCodes;
     }
 
     /**
@@ -109,7 +119,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse extends Comple
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
-        return (!$this->forceUseOfAgentUnavailableCodes) ?: $this->forceUseOfAgentUnavailableCodes->getValue();
+        return (!$this->forceUseOfAgentUnavailableCodes) ?: $this->forceUseOfAgentUnavailableCodes;
     }
 
     /**

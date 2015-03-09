@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\SystemCallWaitingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallWaitingGetRequest.
+ * Response to SystemCallWaitingGetRequest.
  */
 class SystemCallWaitingGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name                    = __CLASS__;
     protected $playDistinctiveRingback = null;
 
+    /**
+     * @return SystemCallWaitingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -34,6 +44,6 @@ class SystemCallWaitingGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getPlayDistinctiveRingback()
     {
-        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback->getValue();
+        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback;
     }
 }

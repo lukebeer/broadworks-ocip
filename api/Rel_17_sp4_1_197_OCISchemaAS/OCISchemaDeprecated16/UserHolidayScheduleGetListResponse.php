@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserHolidayScheduleGetListRequest.
+ * Response to the UserHolidayScheduleGetListRequest.
  *         The response contains all the user's personal and user's group holiday schedule names.
  */
 class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexI
     public    $name                 = __CLASS__;
     protected $holidayScheduleTable = null;
 
+    /**
+     * @return UserHolidayScheduleGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCode
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCountryCodeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a country code to the system.
+ * Add a country code to the system.
  *         If ringPeriodMilliseconds is not specified, a default of 6000 milliseconds is assumed.
  *         If offHookWarningTimerSeconds is not specified, a default of 30 seconds is assumed.
  *         If enableNationalPrefix is not specified, a default of false is assumed.
@@ -56,6 +59,14 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
         $this->setNationalPrefix($nationalPrefix);
         $this->setMaxCallWaitingTones($maxCallWaitingTones);
         $this->setTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds);
+    }
+
+    /**
+     * @return SystemCountryCodeAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -143,7 +154,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getEnableNationalPrefix()
     {
-        return (!$this->enableNationalPrefix) ?: $this->enableNationalPrefix->getValue();
+        return (!$this->enableNationalPrefix) ?: $this->enableNationalPrefix;
     }
 
     /**

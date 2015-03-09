@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupDialableCallerIDGetRequest.
+ * Response to the GroupDialableCallerIDGetRequest.
  *         The criteria tables column headings are "Active", "Name", "Description", Prefix Digits, Priority.
  */
 class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
     protected $nsScreeningFailurePolicy = null;
     protected $criteriaTable            = null;
 
+    /**
+     * @return GroupDialableCallerIDGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function getUseGroupCriteria()
     {
-        return (!$this->useGroupCriteria) ?: $this->useGroupCriteria->getValue();
+        return (!$this->useGroupCriteria) ?: $this->useGroupCriteria;
     }
 
     /**

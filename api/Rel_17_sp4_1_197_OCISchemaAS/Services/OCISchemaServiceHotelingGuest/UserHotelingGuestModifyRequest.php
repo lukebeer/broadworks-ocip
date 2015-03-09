@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotel
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingGuest\UserHotelingGuestModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Hoteling Guest.
+ * Modify the user level data associated with Hoteling Guest.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInterface
@@ -38,6 +41,14 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
         $this->setEnableAssociationLimit($enableAssociationLimit);
         $this->setAssociationLimitHours($associationLimitHours);
         $this->setHostUserId($hostUserId);
+    }
+
+    /**
+     * @return UserHotelingGuestModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -79,7 +90,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -95,7 +106,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function getEnableAssociationLimit()
     {
-        return (!$this->enableAssociationLimit) ?: $this->enableAssociationLimit->getValue();
+        return (!$this->enableAssociationLimit) ?: $this->enableAssociationLimit;
     }
 
     /**

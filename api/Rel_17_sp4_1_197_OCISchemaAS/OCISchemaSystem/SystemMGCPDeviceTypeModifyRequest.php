@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a mgcp device type. In release 14, this is limited to changing the obsolete flag.
+ * Request to modify a mgcp device type. In release 14, this is limited to changing the obsolete flag.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexIn
     ) {
         $this->setDeviceType($deviceType);
         $this->setIsObsolete($isObsolete);
+    }
+
+    /**
+     * @return SystemMGCPDeviceTypeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -61,6 +72,6 @@ class SystemMGCPDeviceTypeModifyRequest extends ComplexType implements ComplexIn
      */
     public function getIsObsolete()
     {
-        return (!$this->isObsolete) ?: $this->isObsolete->getValue();
+        return (!$this->isObsolete) ?: $this->isObsolete;
     }
 }

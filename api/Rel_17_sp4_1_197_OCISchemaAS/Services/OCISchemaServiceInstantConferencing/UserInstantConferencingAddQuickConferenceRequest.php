@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingAddQuickConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a conference quickly.
+ * Add a conference quickly.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingAddQuickConferenceRequest extends ComplexType implements ComplexInterface
@@ -46,6 +49,14 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->setParticipantPhoneNumber($participantPhoneNumber);
         $this->setParticipantName($participantName);
         $this->setBillingCode($billingCode);
+    }
+
+    /**
+     * @return UserInstantConferencingAddQuickConferenceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

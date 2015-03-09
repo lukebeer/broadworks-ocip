@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExpensiveCallNotificationPostAnnouncementDelaySeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallNotificationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the expensive call notification service parameters.
+ * Modify the expensive call notification service parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExpensiveCallNotificationModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class SystemExpensiveCallNotificationModifyRequest extends ComplexType implement
     }
 
     /**
+     * @return SystemExpensiveCallNotificationModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setEnablePostAnnouncementDelayTimer($enablePostAnnouncementDelayTimer = null)
@@ -43,7 +54,7 @@ class SystemExpensiveCallNotificationModifyRequest extends ComplexType implement
      */
     public function getEnablePostAnnouncementDelayTimer()
     {
-        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer->getValue();
+        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer;
     }
 
     /**

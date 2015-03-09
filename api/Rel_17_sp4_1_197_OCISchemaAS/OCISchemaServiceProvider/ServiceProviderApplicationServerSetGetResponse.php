@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderApplicationServerSetGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderApplicationServerSetGetRequest.
+ * Response to the ServiceProviderApplicationServerSetGetRequest.
  *         The response contains the service provider or enterprise's Application Server set information.
  */
 class ServiceProviderApplicationServerSetGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class ServiceProviderApplicationServerSetGetResponse extends ComplexType impleme
     public    $name                     = __CLASS__;
     protected $applicationServerSetName = null;
 
+    /**
+     * @return ServiceProviderApplicationServerSetGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Application Server set name.

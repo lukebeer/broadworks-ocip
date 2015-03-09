@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastDNISGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get all the past and current DNIS for the Call Center for the enterprise.
+ * Request to get all the past and current DNIS for the Call Center for the enterprise.
  *         The response is either EnterpriseCallCenterCurrentAndPastDNISGetListResponse or ErrorResponse.
  */
 class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastDNISGetListResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastDNISGetListResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $serviceUserId     = null;
@@ -30,6 +33,14 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return EnterpriseCallCenterCurrentAndPastDNISGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

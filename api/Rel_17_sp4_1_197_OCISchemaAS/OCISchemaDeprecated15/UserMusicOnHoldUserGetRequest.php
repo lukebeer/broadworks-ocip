@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the user level data associated with Music On Hold User.
+ * Request the user level data associated with Music On Hold User.
  *         The response is either a UserMusicOnHoldUserGetResponse or an
  *         ErrorResponse.
  *         Replaced By: UserMusicOnHoldUserGetRequest16
  */
 class UserMusicOnHoldUserGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserGetResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -28,6 +31,14 @@ class UserMusicOnHoldUserGetRequest extends ComplexType implements ComplexInterf
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserMusicOnHoldUserGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the Application Server set for a group.
+ * Get the Application Server set for a group.
  *         The response is either a GroupApplicationServerSetGetResponse or an ErrorResponse.
  */
 class GroupApplicationServerSetGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse';
     public    $name              = __CLASS__;
     protected $groupId           = null;
     protected $serviceProviderId = null;
@@ -30,6 +33,14 @@ class GroupApplicationServerSetGetRequest extends ComplexType implements Complex
     ) {
         $this->setGroupId($groupId);
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return GroupApplicationServerSetGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

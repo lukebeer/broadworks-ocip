@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtensionLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupExtensionLengthModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group's extension length range.
+ * Modify the group's extension length range.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupExtensionLengthModifyRequest17 extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         $this->setMinExtensionLength($minExtensionLength);
         $this->setMaxExtensionLength($maxExtensionLength);
         $this->setDefaultExtensionLength($defaultExtensionLength);
+    }
+
+    /**
+     * @return GroupExtensionLengthModifyResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

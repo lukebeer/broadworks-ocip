@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceShare
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceBridgeWarningTone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's Shared Call Appearance service setting.
+ * Modify the user's Shared Call Appearance service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         
  *         The following elements are only used in AS data mode:
@@ -50,6 +53,14 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
         $this->setAllowBridgingBetweenLocations($allowBridgingBetweenLocations);
         $this->setBridgeWarningTone($bridgeWarningTone);
         $this->setEnableCallParkNotification($enableCallParkNotification);
+    }
+
+    /**
+     * @return UserSharedCallAppearanceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -91,7 +102,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
-        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls->getValue();
+        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls;
     }
 
     /**
@@ -107,7 +118,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAlertAllAppearancesForGroupPagingCalls()
     {
-        return (!$this->alertAllAppearancesForGroupPagingCalls) ?: $this->alertAllAppearancesForGroupPagingCalls->getValue();
+        return (!$this->alertAllAppearancesForGroupPagingCalls) ?: $this->alertAllAppearancesForGroupPagingCalls;
     }
 
     /**
@@ -123,7 +134,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAllowSCACallRetrieve()
     {
-        return (!$this->allowSCACallRetrieve) ?: $this->allowSCACallRetrieve->getValue();
+        return (!$this->allowSCACallRetrieve) ?: $this->allowSCACallRetrieve;
     }
 
     /**
@@ -139,7 +150,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getMultipleCallArrangementIsActive()
     {
-        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive->getValue();
+        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive;
     }
 
     /**
@@ -155,7 +166,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAllowBridgingBetweenLocations()
     {
-        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations->getValue();
+        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations;
     }
 
     /**
@@ -191,6 +202,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification->getValue();
+        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
     }
 }

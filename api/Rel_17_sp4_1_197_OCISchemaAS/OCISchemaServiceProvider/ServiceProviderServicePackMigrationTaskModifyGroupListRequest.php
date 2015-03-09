@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskModifyGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replace the list of groups to be migrated for a specified service pack migration task.
+ * Replace the list of groups to be migrated for a specified service pack migration task.
  *         Modification is only allowed prior to task execution.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -30,6 +33,14 @@ class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends Comp
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
+    }
+
+    /**
+     * @return ServiceProviderServicePackMigrationTaskModifyGroupListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

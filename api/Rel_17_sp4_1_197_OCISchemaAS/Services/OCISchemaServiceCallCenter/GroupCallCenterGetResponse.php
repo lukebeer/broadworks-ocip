@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupCallCenterGetRequest.
+ * Response to GroupCallCenterGetRequest.
  */
 class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
 {
@@ -28,6 +31,13 @@ class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
     protected $forceAgentUnavailableOnBouncedCallLimit              = null;
     protected $numberConsecutiveBouncedCallsToForceAgentUnavailable = null;
 
+    /**
+     * @return GroupCallCenterGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -42,7 +52,7 @@ class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getUseSystemDefaultGuardTimer()
     {
-        return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer->getValue();
+        return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer;
     }
 
     /**
@@ -58,7 +68,7 @@ class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -92,7 +102,7 @@ class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->getValue();
+        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings;
     }
 
     /**
@@ -108,7 +118,7 @@ class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
     }
 
     /**
@@ -124,7 +134,7 @@ class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
-        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->getValue();
+        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls;
     }
 
     /**
@@ -140,7 +150,7 @@ class GroupCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserGetServiceInstanceListInServiceProviderRequest.
+ * Response to UserGetServiceInstanceListInServiceProviderRequest.
  *         Contains a table with column headings :  "User Id", "Group Id", "Service Type",
  *         "Name", "Phone Number", "Extension", "Department" in a row for each Service Instance.  Possible values for Service Type column are ServiceType enums.
  */
@@ -22,6 +25,13 @@ class UserGetServiceInstanceListInServiceProviderResponse extends ComplexType im
     public    $name                 = __CLASS__;
     protected $serviceInstanceTable = null;
 
+    /**
+     * @return UserGetServiceInstanceListInServiceProviderResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

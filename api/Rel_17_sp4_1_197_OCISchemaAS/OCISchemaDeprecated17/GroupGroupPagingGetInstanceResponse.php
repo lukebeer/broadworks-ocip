@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingConfirmationToneTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingOriginatorCLIDPrefix;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupGroupPagingGetInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaced by: GroupGroupPagingGetInstanceResponse17sp3
+ * Replaced by: GroupGroupPagingGetInstanceResponse17sp3
  *         Response to GroupGroupPagingGetInstanceRequest.
  *         Contains the service profile information.
  */
@@ -27,6 +30,13 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
     protected $deliverOriginatorCLIDInstead   = null;
     protected $originatorCLIDPrefix           = null;
 
+    /**
+     * @return GroupGroupPagingGetInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -81,7 +91,7 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead->getValue();
+        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead;
     }
 
     /**

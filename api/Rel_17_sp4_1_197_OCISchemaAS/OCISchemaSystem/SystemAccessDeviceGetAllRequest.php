@@ -14,18 +14,21 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the list of all access devices in the entire system.
+ * Requests the list of all access devices in the entire system.
  *         Prior to release 14, this functionality was provided with the SystemAccessDeviceGetListRequest.
  *         The response is either SystemAccessDeviceGetAllResponse or ErrorResponse.
  */
 class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse';
+    public    $responseType                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse';
     public    $name                                     = __CLASS__;
     protected $responseSizeLimit                        = null;
     protected $searchCriteriaDeviceName                 = null;
@@ -51,6 +54,14 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
         $this->setSearchCriteriaGroupId($searchCriteriaGroupId);
         $this->setSearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
         $this->setSearchCriteriaExactDeviceServiceProvider($searchCriteriaExactDeviceServiceProvider);
+    }
+
+    /**
+     * @return SystemAccessDeviceGetAllResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

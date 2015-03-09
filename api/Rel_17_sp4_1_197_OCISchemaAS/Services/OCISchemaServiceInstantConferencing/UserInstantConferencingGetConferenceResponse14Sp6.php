@@ -19,12 +19,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\National
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceResponse14Sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetConferenceRequest14Sp6.
+ * Response to UserInstantConferencingGetConferenceRequest14Sp6.
  *         Contains the information of a conference.
  */
 class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType implements ComplexInterface
@@ -52,6 +55,13 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
     protected $bridgeCountryCode              = null;
     protected $bridgeNationalPrefix           = null;
 
+    /**
+     * @return UserInstantConferencingGetConferenceResponse14Sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Conference call Id.
@@ -146,7 +156,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
+        return (!$this->leaderRequired) ?: $this->leaderRequired;
     }
 
     /**
@@ -162,7 +172,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants;
     }
 
     /**
@@ -178,7 +188,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
+        return (!$this->announceCallers) ?: $this->announceCallers;
     }
 
     /**
@@ -282,7 +292,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getIsCallActive()
     {
-        return (!$this->isCallActive) ?: $this->isCallActive->getValue();
+        return (!$this->isCallActive) ?: $this->isCallActive;
     }
 
     /**
@@ -298,7 +308,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired->getValue();
+        return (!$this->isExpired) ?: $this->isExpired;
     }
 
     /**
@@ -314,7 +324,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getIsFuture()
     {
-        return (!$this->isFuture) ?: $this->isFuture->getValue();
+        return (!$this->isFuture) ?: $this->isFuture;
     }
 
     /**
@@ -330,7 +340,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getHasPresentation()
     {
-        return (!$this->hasPresentation) ?: $this->hasPresentation->getValue();
+        return (!$this->hasPresentation) ?: $this->hasPresentation;
     }
 
     /**
@@ -364,7 +374,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
     }
 
     /**

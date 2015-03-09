@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EmergencyCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionAuditIntervalSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EmergencyCallAlarmMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionTimerRefresher;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSessionAuditModifyResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with session audit.
+ * Modify the system level data associated with session audit.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements ComplexInterface
@@ -83,6 +86,14 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
     }
 
     /**
+     * @return SystemSessionAuditModifyResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setIsAuditActive($isAuditActive = null)
@@ -95,7 +106,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getIsAuditActive()
     {
-        return (!$this->isAuditActive) ?: $this->isAuditActive->getValue();
+        return (!$this->isAuditActive) ?: $this->isAuditActive;
     }
 
     /**
@@ -147,7 +158,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getReleaseCallOnAuditFailure()
     {
-        return (!$this->releaseCallOnAuditFailure) ?: $this->releaseCallOnAuditFailure->getValue();
+        return (!$this->releaseCallOnAuditFailure) ?: $this->releaseCallOnAuditFailure;
     }
 
     /**
@@ -163,7 +174,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getIsSIPRefreshAllowedOnAudit()
     {
-        return (!$this->isSIPRefreshAllowedOnAudit) ?: $this->isSIPRefreshAllowedOnAudit->getValue();
+        return (!$this->isSIPRefreshAllowedOnAudit) ?: $this->isSIPRefreshAllowedOnAudit;
     }
 
     /**
@@ -179,7 +190,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getAllowUpdateForSIPRefresh()
     {
-        return (!$this->allowUpdateForSIPRefresh) ?: $this->allowUpdateForSIPRefresh->getValue();
+        return (!$this->allowUpdateForSIPRefresh) ?: $this->allowUpdateForSIPRefresh;
     }
 
     /**
@@ -195,7 +206,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getIsSIPSessionTimerActive()
     {
-        return (!$this->isSIPSessionTimerActive) ?: $this->isSIPSessionTimerActive->getValue();
+        return (!$this->isSIPSessionTimerActive) ?: $this->isSIPSessionTimerActive;
     }
 
     /**
@@ -229,7 +240,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getEnforceSIPSessionExpiresMaximum()
     {
-        return (!$this->enforceSIPSessionExpiresMaximum) ?: $this->enforceSIPSessionExpiresMaximum->getValue();
+        return (!$this->enforceSIPSessionExpiresMaximum) ?: $this->enforceSIPSessionExpiresMaximum;
     }
 
     /**
@@ -281,7 +292,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getAlwaysUseSessionTimerWhenSupported()
     {
-        return (!$this->alwaysUseSessionTimerWhenSupported) ?: $this->alwaysUseSessionTimerWhenSupported->getValue();
+        return (!$this->alwaysUseSessionTimerWhenSupported) ?: $this->alwaysUseSessionTimerWhenSupported;
     }
 
     /**
@@ -315,7 +326,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getEnableEmergencyCallAlarmTimer()
     {
-        return (!$this->enableEmergencyCallAlarmTimer) ?: $this->enableEmergencyCallAlarmTimer->getValue();
+        return (!$this->enableEmergencyCallAlarmTimer) ?: $this->enableEmergencyCallAlarmTimer;
     }
 
     /**
@@ -349,7 +360,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
      */
     public function getEnableEmergencyCallCleanupTimer()
     {
-        return (!$this->enableEmergencyCallCleanupTimer) ?: $this->enableEmergencyCallCleanupTimer->getValue();
+        return (!$this->enableEmergencyCallCleanupTimer) ?: $this->enableEmergencyCallCleanupTimer;
     }
 
     /**

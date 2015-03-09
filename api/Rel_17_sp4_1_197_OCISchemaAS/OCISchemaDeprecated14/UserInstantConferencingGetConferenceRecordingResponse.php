@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserDisp
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceRecordingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetConferenceRecordingRequest.
+ * Response to UserInstantConferencingGetConferenceRecordingRequest.
  *         Contains the information of a conference recording.
  */
 class UserInstantConferencingGetConferenceRecordingResponse extends ComplexType implements ComplexInterface
@@ -45,6 +48,13 @@ class UserInstantConferencingGetConferenceRecordingResponse extends ComplexType 
     protected $slideShowPasswordHex        = null;
     protected $conferenceServerFQDN        = null;
 
+    /**
+     * @return UserInstantConferencingGetConferenceRecordingResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Conference recording call Id.
@@ -189,7 +199,7 @@ class UserInstantConferencingGetConferenceRecordingResponse extends ComplexType 
      */
     public function getIsBridgeActive()
     {
-        return (!$this->isBridgeActive) ?: $this->isBridgeActive->getValue();
+        return (!$this->isBridgeActive) ?: $this->isBridgeActive;
     }
 
     /**
@@ -259,7 +269,7 @@ class UserInstantConferencingGetConferenceRecordingResponse extends ComplexType 
      */
     public function getHasSlideShow()
     {
-        return (!$this->hasSlideShow) ?: $this->hasSlideShow->getValue();
+        return (!$this->hasSlideShow) ?: $this->hasSlideShow;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetActiveListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest 
+ * Response to SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest 
  *         Contains a table with column headings : "Scheduled Report Name", "Description",
  *         "Service Provider Id", "Is Enterprise", "Group Id", "Created By", "Is Supervisor Report", 
  *         "Report Template Name", "Report Template Level" and "Recurring".
@@ -27,6 +30,13 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListResponse exte
     public    $name                 = __CLASS__;
     protected $scheduledReportTable = null;
 
+    /**
+     * @return SystemCallCenterEnhancedReportingScheduledReportGetActiveListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

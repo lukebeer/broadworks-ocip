@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallCenterHolidayServiceGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterHolidayServiceGetRequest17.
+ * Response to the GroupCallCenterHolidayServiceGetRequest17.
  */
 class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -37,6 +40,13 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
     protected $videoFileList                = null;
     protected $videoMediaTypeList           = null;
 
+    /**
+     * @return GroupCallCenterHolidayServiceGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
@@ -119,7 +129,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction->getValue();
+        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaximumMonitoredUsers;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole\SystemAttendantConsoleGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAttendantConsoleGetRequest.
+ * Response to SystemAttendantConsoleGetRequest.
  *         Contains a list of Attendant Console parameters.
  */
 class SystemAttendantConsoleGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemAttendantConsoleGetResponse extends ComplexType implements ComplexIn
     public    $name              = __CLASS__;
     protected $maxMonitoredUsers = null;
 
+    /**
+     * @return SystemAttendantConsoleGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Maximum number of users allowed in a monitored user list.

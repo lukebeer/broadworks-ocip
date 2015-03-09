@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceTy
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCategory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeFileGetResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemSIPDeviceTypeFileGetRequest.
+ * Response to SystemSIPDeviceTypeFileGetRequest.
  */
 class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements ComplexInterface
 {
@@ -33,6 +36,13 @@ class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements Com
     protected $macInNonRequestURI                 = null;
     protected $macFormatInNonRequestURI           = null;
 
+    /**
+     * @return SystemSIPDeviceTypeFileGetResponse14sp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The file name format for an access device file managed by the Device Management System on BroadWorks.
@@ -83,7 +93,7 @@ class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements Com
      */
     public function getAllowFileCustomization()
     {
-        return (!$this->allowFileCustomization) ?: $this->allowFileCustomization->getValue();
+        return (!$this->allowFileCustomization) ?: $this->allowFileCustomization;
     }
 
     /**
@@ -135,7 +145,7 @@ class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements Com
      */
     public function getUseHttpDigestAuthentication()
     {
-        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication->getValue();
+        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication;
     }
 
     /**
@@ -151,7 +161,7 @@ class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements Com
      */
     public function getMacBasedFileAuthentication()
     {
-        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication->getValue();
+        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication;
     }
 
     /**
@@ -167,7 +177,7 @@ class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements Com
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication->getValue();
+        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication;
     }
 
     /**
@@ -183,7 +193,7 @@ class SystemSIPDeviceTypeFileGetResponse14sp8 extends ComplexType implements Com
      */
     public function getMacInNonRequestURI()
     {
-        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI->getValue();
+        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI;
     }
 
     /**

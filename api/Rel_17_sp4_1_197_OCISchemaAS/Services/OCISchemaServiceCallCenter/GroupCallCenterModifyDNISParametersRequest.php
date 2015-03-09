@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\DNISPromoteCallPrioritySeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyDNISParametersResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the setting that are configured for all the DNIS in a Call Center.
+ * Modify the setting that are configured for all the DNIS in a Call Center.
  *       The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifyDNISParametersRequest extends ComplexType implements ComplexInterface
@@ -50,6 +53,14 @@ class GroupCallCenterModifyDNISParametersRequest extends ComplexType implements 
         $this->setPromoteCallsFromPriority1to0Seconds($promoteCallsFromPriority1to0Seconds);
         $this->setPromoteCallsFromPriority2to1Seconds($promoteCallsFromPriority2to1Seconds);
         $this->setPromoteCallsFromPriority3to2Seconds($promoteCallsFromPriority3to2Seconds);
+    }
+
+    /**
+     * @return GroupCallCenterModifyDNISParametersResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -91,7 +102,7 @@ class GroupCallCenterModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getDisplayDNISNumber()
     {
-        return (!$this->displayDNISNumber) ?: $this->displayDNISNumber->getValue();
+        return (!$this->displayDNISNumber) ?: $this->displayDNISNumber;
     }
 
     /**
@@ -107,7 +118,7 @@ class GroupCallCenterModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getDisplayDNISName()
     {
-        return (!$this->displayDNISName) ?: $this->displayDNISName->getValue();
+        return (!$this->displayDNISName) ?: $this->displayDNISName;
     }
 
     /**
@@ -123,7 +134,7 @@ class GroupCallCenterModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getPromoteCallsFromPriority1to0()
     {
-        return (!$this->promoteCallsFromPriority1to0) ?: $this->promoteCallsFromPriority1to0->getValue();
+        return (!$this->promoteCallsFromPriority1to0) ?: $this->promoteCallsFromPriority1to0;
     }
 
     /**
@@ -139,7 +150,7 @@ class GroupCallCenterModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getPromoteCallsFromPriority2to1()
     {
-        return (!$this->promoteCallsFromPriority2to1) ?: $this->promoteCallsFromPriority2to1->getValue();
+        return (!$this->promoteCallsFromPriority2to1) ?: $this->promoteCallsFromPriority2to1;
     }
 
     /**
@@ -155,7 +166,7 @@ class GroupCallCenterModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getPromoteCallsFromPriority3to2()
     {
-        return (!$this->promoteCallsFromPriority3to2) ?: $this->promoteCallsFromPriority3to2->getValue();
+        return (!$this->promoteCallsFromPriority3to2) ?: $this->promoteCallsFromPriority3to2;
     }
 
     /**

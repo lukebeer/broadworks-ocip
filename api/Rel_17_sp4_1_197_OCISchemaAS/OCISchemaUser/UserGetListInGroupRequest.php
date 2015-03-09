@@ -16,19 +16,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the list of users in a group.
+ * Request the list of users in a group.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
  *         The response is either a UserGetListInGroupResponse or an ErrorResponse.
  */
 class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse';
+    public    $responseType                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse';
     public    $name                                = __CLASS__;
     protected $serviceProviderId                   = null;
     protected $GroupId                             = null;
@@ -60,6 +63,14 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->setSearchCriteriaEmailAddress($searchCriteriaEmailAddress);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
         $this->setSearchCriteriaExactUserInTrunkGroup($searchCriteriaExactUserInTrunkGroup);
+    }
+
+    /**
+     * @return UserGetListInGroupResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderServicePackMigrationTaskGetListRequest.
+ * Response to ServiceProviderServicePackMigrationTaskGetListRequest.
  *         Contains a table with  a row for each service pack migration task and column headings :
  *         "Start Timestamp Milliseconds", "Name", "Status", "Error Count", "Users Processed", "Users Total".
  *         The start timestamp column is the number of milliseconds since the standard base time known as "the epoch",
@@ -24,6 +27,13 @@ class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType
     public    $name      = __CLASS__;
     protected $taskTable = null;
 
+    /**
+     * @return ServiceProviderServicePackMigrationTaskGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

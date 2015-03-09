@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupCallCenterGetInstanceRequest14sp3.
+ * Response to GroupCallCenterGetInstanceRequest14sp3.
  *         Contains the service profile information and a table of assigned users.
  *         The table has column headings: "User Id", "Last Name", "First Name",
  *         "Hiragana Last Name", "Hiragana First Name", "Weight".
@@ -49,6 +52,13 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
     protected $allowCallsToAgentsInWrapUp           = null;
     protected $enableCallQueueWhenNoAgentsAvailable = null;
 
+    /**
+     * @return GroupCallCenterGetInstanceResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -101,7 +111,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
     }
 
     /**
@@ -137,7 +147,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
     }
 
     /**
@@ -193,7 +203,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -227,7 +237,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->getValue();
+        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff;
     }
 
     /**
@@ -243,7 +253,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getPlayMusicOnHold()
     {
-        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold->getValue();
+        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold;
     }
 
     /**
@@ -259,7 +269,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getPlayComfortMessage()
     {
-        return (!$this->playComfortMessage) ?: $this->playComfortMessage->getValue();
+        return (!$this->playComfortMessage) ?: $this->playComfortMessage;
     }
 
     /**
@@ -293,7 +303,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -343,7 +353,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 
     /**
@@ -359,7 +369,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->getValue();
+        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp;
     }
 
     /**
@@ -375,6 +385,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {
-        return (!$this->enableCallQueueWhenNoAgentsAvailable) ?: $this->enableCallQueueWhenNoAgentsAvailable->getValue();
+        return (!$this->enableCallQueueWhenNoAgentsAvailable) ?: $this->enableCallQueueWhenNoAgentsAvailable;
     }
 }

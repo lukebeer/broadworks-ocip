@@ -36,12 +36,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupTrunkGroupGetInstanceResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupTrunkGroupGetInstanceRequest17sp3.
+ * Response to GroupTrunkGroupGetInstanceRequest17sp3.
  *         Returns the profile information for the Trunk Group.
  *         Contains a hosted user table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
@@ -97,6 +100,13 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
     protected $inviteFailureThresholdWindowSeconds        = null;
     protected $trunkGroupState                            = null;
 
+    /**
+     * @return GroupTrunkGroupGetInstanceResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
@@ -235,7 +245,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getEnableBursting()
     {
-        return (!$this->enableBursting) ?: $this->enableBursting->getValue();
+        return (!$this->enableBursting) ?: $this->enableBursting;
     }
 
     /**
@@ -497,7 +507,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**
@@ -597,7 +607,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getIncludeTrunkGroupIdentity()
     {
-        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity->getValue();
+        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity;
     }
 
     /**
@@ -613,7 +623,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getIncludeDtgIdentity()
     {
-        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity->getValue();
+        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity;
     }
 
     /**
@@ -629,7 +639,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getEnableNetworkAddressIdentity()
     {
-        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity->getValue();
+        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity;
     }
 
     /**
@@ -645,7 +655,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getAllowUnscreenedCalls()
     {
-        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls->getValue();
+        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls;
     }
 
     /**
@@ -661,7 +671,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
-        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls->getValue();
+        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls;
     }
 
     /**
@@ -799,7 +809,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getRouteToPeeringDomain()
     {
-        return (!$this->routeToPeeringDomain) ?: $this->routeToPeeringDomain->getValue();
+        return (!$this->routeToPeeringDomain) ?: $this->routeToPeeringDomain;
     }
 
     /**
@@ -815,7 +825,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getPrefixEnabled()
     {
-        return (!$this->prefixEnabled) ?: $this->prefixEnabled->getValue();
+        return (!$this->prefixEnabled) ?: $this->prefixEnabled;
     }
 
     /**
@@ -849,7 +859,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getStatefulReroutingEnabled()
     {
-        return (!$this->statefulReroutingEnabled) ?: $this->statefulReroutingEnabled->getValue();
+        return (!$this->statefulReroutingEnabled) ?: $this->statefulReroutingEnabled;
     }
 
     /**
@@ -865,7 +875,7 @@ class GroupTrunkGroupGetInstanceResponse17sp3 extends ComplexType implements Com
      */
     public function getSendContinuousOptionsMessage()
     {
-        return (!$this->sendContinuousOptionsMessage) ?: $this->sendContinuousOptionsMessage->getValue();
+        return (!$this->sendContinuousOptionsMessage) ?: $this->sendContinuousOptionsMessage;
     }
 
     /**

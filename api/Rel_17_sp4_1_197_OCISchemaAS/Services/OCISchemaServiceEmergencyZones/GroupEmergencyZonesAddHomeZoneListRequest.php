@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesAddHomeZoneListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a list of home zones and/or home zone ranges to the the group.
+ * Add a list of home zones and/or home zone ranges to the the group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEmergencyZonesAddHomeZoneListRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupEmergencyZonesAddHomeZoneListRequest extends ComplexType implements C
         $this->setGroupId($groupId);
         $this->setHomeZoneIpAddress($homeZoneIpAddress);
         $this->setHomeZoneIpAddressRange($homeZoneIpAddressRange);
+    }
+
+    /**
+     * @return GroupEmergencyZonesAddHomeZoneListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

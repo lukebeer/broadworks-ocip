@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserModifyVoicePortalResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's voice messaging voice portal settings.
+ * Modify the user's voice messaging voice portal settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  */
@@ -36,6 +39,14 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
         $this->setUsePersonalizedName($usePersonalizedName);
         $this->setVoicePortalAutoLogin($voicePortalAutoLogin);
         $this->setPersonalizedNameAudioFile($personalizedNameAudioFile);
+    }
+
+    /**
+     * @return UserVoiceMessagingUserModifyVoicePortalResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -77,7 +88,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
      */
     public function getUsePersonalizedName()
     {
-        return (!$this->usePersonalizedName) ?: $this->usePersonalizedName->getValue();
+        return (!$this->usePersonalizedName) ?: $this->usePersonalizedName;
     }
 
     /**
@@ -93,7 +104,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
      */
     public function getVoicePortalAutoLogin()
     {
-        return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin->getValue();
+        return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin;
     }
 
     /**

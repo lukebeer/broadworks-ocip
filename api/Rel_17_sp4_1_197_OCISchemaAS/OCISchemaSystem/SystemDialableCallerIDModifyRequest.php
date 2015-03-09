@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level Dialable Caller ID criteria list.
+ * Modify the system level Dialable Caller ID criteria list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemDialableCallerIDModifyRequest extends ComplexType implements Complex
           $criteriaPriorityOrder = null
     ) {
         $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
+    }
+
+    /**
+     * @return SystemDialableCallerIDModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

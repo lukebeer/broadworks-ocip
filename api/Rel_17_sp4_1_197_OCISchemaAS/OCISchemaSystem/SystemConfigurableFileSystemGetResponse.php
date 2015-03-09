@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ConfigurableFileSystemDirectory;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableFileSystemGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemConfigurableFileSystemGetRequest.
+ * Response to SystemConfigurableFileSystemGetRequest.
  *         Contains the File System parameters.
  */
 class SystemConfigurableFileSystemGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
     public    $name           = __CLASS__;
     protected $mediaDirectory = null;
 
+    /**
+     * @return SystemConfigurableFileSystemGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Audio/Video File Directory location.

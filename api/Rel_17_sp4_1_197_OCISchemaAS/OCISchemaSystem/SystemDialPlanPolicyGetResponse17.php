@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemDialPlanPolicyGetRequest17
+ * Response to SystemDialPlanPolicyGetRequest17
  */
 class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
     protected $publicDigitMap                            = null;
     protected $privateDigitMap                           = null;
 
+    /**
+     * @return SystemDialPlanPolicyGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls->getValue();
+        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
     }
 
     /**
@@ -54,7 +64,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getAllowE164PublicCalls()
     {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls->getValue();
+        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
     }
 
     /**
@@ -70,7 +80,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getPreferE164NumberFormatForCallbackServices()
     {
-        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices->getValue();
+        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices;
     }
 
     /**

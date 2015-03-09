@@ -22,12 +22,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingScheduledReportGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupCallCenterEnhancedReportingScheduledReportGetRequest.
+ * Response to GroupCallCenterEnhancedReportingScheduledReportGetRequest.
  */
 class GroupCallCenterEnhancedReportingScheduledReportGetResponse extends ComplexType implements ComplexInterface
 {
@@ -51,6 +54,13 @@ class GroupCallCenterEnhancedReportingScheduledReportGetResponse extends Complex
     protected $abandonedCallThresholdSeconds   = null;
     protected $emailAddress                    = null;
 
+    /**
+     * @return GroupCallCenterEnhancedReportingScheduledReportGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The call center enhanced reporting scheduled report description.

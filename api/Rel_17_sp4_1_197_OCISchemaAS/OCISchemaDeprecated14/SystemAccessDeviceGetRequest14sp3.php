@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceGetResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the configuration of a specified system access device.
+ * Requests the configuration of a specified system access device.
  *         The response is either SystemAccessDeviceGetResponse14sp3 or ErrorResponse.
  *         Replaced By: SystemAccessDeviceGetRequest14sp6
  */
 class SystemAccessDeviceGetRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceGetResponse14sp3';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceGetResponse14sp3';
     public    $name       = __CLASS__;
     protected $deviceName = null;
 
@@ -27,6 +30,14 @@ class SystemAccessDeviceGetRequest14sp3 extends ComplexType implements ComplexIn
          $deviceName
     ) {
         $this->setDeviceName($deviceName);
+    }
+
+    /**
+     * @return SystemAccessDeviceGetResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -25,12 +25,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a call center reporting scheduled report created by a supervisor.
+ * Request to modify a call center reporting scheduled report created by a supervisor.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends ComplexType implements ComplexInterface
@@ -99,6 +102,14 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->setServiceLevelObjectivePercentage($serviceLevelObjectivePercentage);
         $this->setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds);
         $this->setEmailAddress($emailAddress);
+    }
+
+    /**
+     * @return UserCallCenterEnhancedReportingScheduledReportModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

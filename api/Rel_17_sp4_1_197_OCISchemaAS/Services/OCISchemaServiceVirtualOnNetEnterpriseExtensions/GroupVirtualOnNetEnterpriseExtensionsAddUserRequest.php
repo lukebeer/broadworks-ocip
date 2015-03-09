@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\VirtualOnNetUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsAddUserResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Adds Virtual On-Net users to a Group. It is possible to add 
+ * Adds Virtual On-Net users to a Group. It is possible to add 
  *         either: a single user,  or a list of users, or a range of users, 
  *         or any combination thereof.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -39,6 +42,14 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         $this->setGroupId($groupId);
         $this->setVirtualOnNetUser($virtualOnNetUser);
         $this->setVirtualOnNetUserRange($virtualOnNetUserRange);
+    }
+
+    /**
+     * @return GroupVirtualOnNetEnterpriseExtensionsAddUserResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

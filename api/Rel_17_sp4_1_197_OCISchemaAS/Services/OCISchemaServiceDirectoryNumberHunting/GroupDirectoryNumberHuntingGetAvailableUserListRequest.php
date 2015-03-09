@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetAvailableUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get the agents of a call center or hunt group that are available
+ * Request to get the agents of a call center or hunt group that are available
  *         to be assigned to a directory number hunting group.  They are agents that
  *         are not already assigned to any other directory number hunting group.
  *         The response is either
@@ -21,7 +24,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDirectoryNumberHuntingGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetAvailableUserListResponse';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetAvailableUserListResponse';
     public    $name          = __CLASS__;
     protected $serviceUserId = null;
 
@@ -29,6 +32,14 @@ class GroupDirectoryNumberHuntingGetAvailableUserListRequest extends ComplexType
          $serviceUserId
     ) {
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return GroupDirectoryNumberHuntingGetAvailableUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

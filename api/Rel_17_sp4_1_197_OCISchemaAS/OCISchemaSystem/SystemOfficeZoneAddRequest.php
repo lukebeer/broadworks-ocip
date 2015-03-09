@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OfficeZoneDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new Office Zone.  The zoneList is an ordered list with the first member being of the highest priority. 
+ * Add a new Office Zone.  The zoneList is an ordered list with the first member being of the highest priority. 
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
         $this->setDescription($description);
         $this->setZoneName($zoneName);
         $this->setPrimaryZoneName($primaryZoneName);
+    }
+
+    /**
+     * @return SystemOfficeZoneAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

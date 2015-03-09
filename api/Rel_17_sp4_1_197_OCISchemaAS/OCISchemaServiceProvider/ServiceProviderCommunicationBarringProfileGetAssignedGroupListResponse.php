@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest.
+ * Response to ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest.
  *         Contains a table of groups that have the Communication Barring Profile 
  *         assigned. The column headings are: "Group Id" and "Group Name".
  */
@@ -22,6 +25,13 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse ext
     public    $name       = __CLASS__;
     protected $groupTable = null;
 
+    /**
+     * @return ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

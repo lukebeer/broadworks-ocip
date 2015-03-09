@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the lists of carriers for a specified country code for a service provider / enterprise.
+ * Requests the lists of carriers for a specified country code for a service provider / enterprise.
  *         The response is either a ServiceProviderPreferredCarrierGetCarrierListResponse or an ErrorResponse.
  */
 class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $countryCode       = null;
@@ -30,6 +33,14 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCountryCode($countryCode);
+    }
+
+    /**
+     * @return ServiceProviderPreferredCarrierGetCarrierListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

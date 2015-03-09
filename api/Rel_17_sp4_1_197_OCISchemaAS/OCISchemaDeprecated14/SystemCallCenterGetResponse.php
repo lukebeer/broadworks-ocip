@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCallCenterGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallCenterGetRequest.
+ * Response to SystemCallCenterGetRequest.
  *         Replaced By: SystemCallCenterGetResponse14sp9
  */
 class SystemCallCenterGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemCallCenterGetResponse extends ComplexType implements ComplexInterfac
     public    $name               = __CLASS__;
     protected $defaultFromAddress = null;
 
+    /**
+     * @return SystemCallCenterGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Email Address

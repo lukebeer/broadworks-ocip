@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AssignedGroupServicesEntry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AssignedUserServicesEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAssignedServicesGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserAssignedServicesGetListRequest.
+ * Response to UserAssignedServicesGetListRequest.
  *         A user can have both user services and group services because of music on hold.
  */
 class UserAssignedServicesGetListResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
     protected $groupServiceEntry = null;
     protected $userServiceEntry  = null;
 
+    /**
+     * @return UserAssignedServicesGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Assigned Group Services List Entry.

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastCallCenterGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterCurrentAndPastCallCenterGetListRequest.
+ * Response to the GroupCallCenterCurrentAndPastCallCenterGetListRequest.
  */
 class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
     protected $serviceUserId        = null;
     protected $deletedServiceUserId = null;
 
+    /**
+     * @return GroupCallCenterCurrentAndPastCallCenterGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.

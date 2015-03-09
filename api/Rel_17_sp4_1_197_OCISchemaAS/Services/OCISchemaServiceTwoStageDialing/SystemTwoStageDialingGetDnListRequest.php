@@ -9,18 +9,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoSt
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaSystemServiceDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get a list of Two Stage Dialing dns defined in the system.
+ * Request to get a list of Two Stage Dialing dns defined in the system.
  *           The response is either a SystemTwoStageDialingGetDnListResponse
  *           or an ErrorResponse.
  */
 class SystemTwoStageDialingGetDnListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
+    public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
     public    $name                          = __CLASS__;
     protected $responseSizeLimit             = null;
     protected $searchCriteriaSystemServiceDn = null;
@@ -31,6 +34,14 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaSystemServiceDn($searchCriteriaSystemServiceDn);
+    }
+
+    /**
+     * @return SystemTwoStageDialingGetDnListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

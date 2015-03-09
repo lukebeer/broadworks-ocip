@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\PerformanceMeasurementReportingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the performance measurements reporting settings.
+ * Modify the performance measurements reporting settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
     }
 
     /**
+     * @return SystemPerformanceMeasurementReportingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setIsActive($isActive = null)
@@ -55,7 +66,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -89,7 +100,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getResetMeasurementsAfterEachReport()
     {
-        return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport->getValue();
+        return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport;
     }
 
     /**
@@ -105,7 +116,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getReportEnterprise()
     {
-        return (!$this->reportEnterprise) ?: $this->reportEnterprise->getValue();
+        return (!$this->reportEnterprise) ?: $this->reportEnterprise;
     }
 
     /**
@@ -121,7 +132,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getReportServiceProvider()
     {
-        return (!$this->reportServiceProvider) ?: $this->reportServiceProvider->getValue();
+        return (!$this->reportServiceProvider) ?: $this->reportServiceProvider;
     }
 
     /**
@@ -137,6 +148,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getReportDevice()
     {
-        return (!$this->reportDevice) ?: $this->reportDevice->getValue();
+        return (!$this->reportDevice) ?: $this->reportDevice;
     }
 }

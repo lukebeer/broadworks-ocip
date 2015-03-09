@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a file repository.
+ * Modify a file repository.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements ComplexInterface
@@ -50,6 +53,14 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         $this->setProtocol($protocol);
         $this->setPort($port);
         $this->setFtpRemoteVerification($ftpRemoteVerification);
+    }
+
+    /**
+     * @return SystemFileRepositoryDeviceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -101,7 +112,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getSecure()
     {
-        return (!$this->secure) ?: $this->secure->getValue();
+        return (!$this->secure) ?: $this->secure;
     }
 
     /**
@@ -135,7 +146,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getFtpPassive()
     {
-        return (!$this->ftpPassive) ?: $this->ftpPassive->getValue();
+        return (!$this->ftpPassive) ?: $this->ftpPassive;
     }
 
     /**
@@ -187,6 +198,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getFtpRemoteVerification()
     {
-        return (!$this->ftpRemoteVerification) ?: $this->ftpRemoteVerification->getValue();
+        return (!$this->ftpRemoteVerification) ?: $this->ftpRemoteVerification;
     }
 }

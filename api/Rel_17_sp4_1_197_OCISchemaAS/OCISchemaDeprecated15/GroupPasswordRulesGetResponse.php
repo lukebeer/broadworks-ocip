@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupPasswordRulesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupPasswordRulesGetRequest.
+ * Response to GroupPasswordRulesGetRequest.
  *         Contains the password rules applicable to users within the group.
  *         Repleced by: GroupPasswordRulesGetResponse16
  */
@@ -49,6 +52,13 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
     protected $loginDisabledNotifyEmailAddress      = null;
     protected $disallowRulesModification            = null;
 
+    /**
+     * @return GroupPasswordRulesGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Provider Id uniquely identifies a service provider.
@@ -103,7 +113,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowUserId()
     {
-        return (!$this->disallowUserId) ?: $this->disallowUserId->getValue();
+        return (!$this->disallowUserId) ?: $this->disallowUserId;
     }
 
     /**
@@ -119,7 +129,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowOldPassword()
     {
-        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword->getValue();
+        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword;
     }
 
     /**
@@ -135,7 +145,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowReversedOldPassword()
     {
-        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword->getValue();
+        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword;
     }
 
     /**
@@ -151,7 +161,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinDigits()
     {
-        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits->getValue();
+        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits;
     }
 
     /**
@@ -185,7 +195,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters->getValue();
+        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters;
     }
 
     /**
@@ -219,7 +229,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters->getValue();
+        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters;
     }
 
     /**
@@ -253,7 +263,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters->getValue();
+        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters;
     }
 
     /**
@@ -341,7 +351,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**
@@ -375,6 +385,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowRulesModification()
     {
-        return (!$this->disallowRulesModification) ?: $this->disallowRulesModification->getValue();
+        return (!$this->disallowRulesModification) ?: $this->disallowRulesModification;
     }
 }

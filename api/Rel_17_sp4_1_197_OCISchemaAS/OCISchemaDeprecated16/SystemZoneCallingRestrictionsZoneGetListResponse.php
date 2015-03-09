@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsZoneGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemZoneCallingRestrictionsZoneGetListRequest. 
+ * Response to SystemZoneCallingRestrictionsZoneGetListRequest. 
  * 	Contains a table of all the zones in the system. The column headings are "Zone Name" , "Physical Location".
  *         Replaced by: SystemZoneGetListResponse
  */
@@ -22,6 +25,13 @@ class SystemZoneCallingRestrictionsZoneGetListResponse extends ComplexType imple
     public    $name      = __CLASS__;
     protected $zoneTable = null;
 
+    /**
+     * @return SystemZoneCallingRestrictionsZoneGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

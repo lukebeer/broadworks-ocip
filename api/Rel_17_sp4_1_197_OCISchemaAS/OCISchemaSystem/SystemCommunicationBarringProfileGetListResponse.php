@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemCommunicationBarringProfileGetListRequest.
+ * Response to the SystemCommunicationBarringProfileGetListRequest.
  *         The response contains a table of all Communication Barring Profiles
  *         in the system. The column headings are "Name" and "Description"
  */
@@ -22,6 +25,13 @@ class SystemCommunicationBarringProfileGetListResponse extends ComplexType imple
     public    $name         = __CLASS__;
     protected $profileTable = null;
 
+    /**
+     * @return SystemCommunicationBarringProfileGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

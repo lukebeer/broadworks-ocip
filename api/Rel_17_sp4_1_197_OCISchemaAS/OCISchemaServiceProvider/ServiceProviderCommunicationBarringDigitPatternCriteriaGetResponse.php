@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest.
+ * Response to the ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest.
  *         The response contains the Digit Pattern Criteria information.
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends
     public    $name        = __CLASS__;
     protected $description = null;
 
+    /**
+     * @return ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Digit Pattern Criteria Description

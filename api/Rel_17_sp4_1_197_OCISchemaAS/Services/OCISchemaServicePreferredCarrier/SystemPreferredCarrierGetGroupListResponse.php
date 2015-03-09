@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a SystemPreferredCarrierGetGroupListRequest.
+ * Response to a SystemPreferredCarrierGetGroupListRequest.
  *         Contains a table with one row per group.
  *         The table columns are: "Group Id", "Group Name", "Organization Id", "Organization Type".
  *         The "Organization Id" column is populated with either a service provider Id or an enterprise Id.
@@ -25,6 +28,13 @@ class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements 
     public    $name                    = __CLASS__;
     protected $groupsUsingCarrierTable = null;
 
+    /**
+     * @return SystemPreferredCarrierGetGroupListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

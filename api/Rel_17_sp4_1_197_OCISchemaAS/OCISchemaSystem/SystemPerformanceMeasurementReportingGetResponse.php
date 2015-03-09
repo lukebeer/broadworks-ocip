@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\PerformanceMeasurementReportingIntervalMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemPerformanceMeasurementReportingGetRequest.
+ * Response to SystemPerformanceMeasurementReportingGetRequest.
  */
 class SystemPerformanceMeasurementReportingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
     protected $reportServiceProvider            = null;
     protected $reportDevice                     = null;
 
+    /**
+     * @return SystemPerformanceMeasurementReportingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -39,7 +49,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -73,7 +83,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getResetMeasurementsAfterEachReport()
     {
-        return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport->getValue();
+        return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport;
     }
 
     /**
@@ -89,7 +99,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getReportEnterprise()
     {
-        return (!$this->reportEnterprise) ?: $this->reportEnterprise->getValue();
+        return (!$this->reportEnterprise) ?: $this->reportEnterprise;
     }
 
     /**
@@ -105,7 +115,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getReportServiceProvider()
     {
-        return (!$this->reportServiceProvider) ?: $this->reportServiceProvider->getValue();
+        return (!$this->reportServiceProvider) ?: $this->reportServiceProvider;
     }
 
     /**
@@ -121,6 +131,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getReportDevice()
     {
-        return (!$this->reportDevice) ?: $this->reportDevice->getValue();
+        return (!$this->reportDevice) ?: $this->reportDevice;
     }
 }

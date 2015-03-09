@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Outgoing Calling Plan.
+ * Modify the system level data associated with Outgoing Calling Plan.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
     }
 
     /**
+     * @return SystemOutgoingCallingPlanModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setDirectTransferScreening($directTransferScreening = null)
@@ -43,7 +54,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening->getValue();
+        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
     }
 
     /**
@@ -59,6 +70,6 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function getEnableEnhancedTollCallTyping()
     {
-        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping->getValue();
+        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping;
     }
 }

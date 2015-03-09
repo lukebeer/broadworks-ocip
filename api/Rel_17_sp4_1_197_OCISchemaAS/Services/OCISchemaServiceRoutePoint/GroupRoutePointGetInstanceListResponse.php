@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointGetInstanceListRequest.
+ * Response to the GroupRoutePointGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Video", "Phone Number", "Extension", "Department", "Is Active".
  *         The column values for "Video" and "Is Active" can either be true, or false.
@@ -23,6 +26,13 @@ class GroupRoutePointGetInstanceListResponse extends ComplexType implements Comp
     public    $name            = __CLASS__;
     protected $routePointTable = null;
 
+    /**
+     * @return GroupRoutePointGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityGroupSettingLevel;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\GroupBroadWorksMobilityGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * The response to a GroupBroadWorksMobilityGetRequest.
+ * The response to a GroupBroadWorksMobilityGetRequest.
  */
 class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
     protected $denyCallOriginations      = null;
     protected $denyCallTerminations      = null;
 
+    /**
+     * @return GroupBroadWorksMobilityGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * BroadWorks Mobility setting for the group level.
@@ -57,7 +67,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getEnableLocationServices()
     {
-        return (!$this->enableLocationServices) ?: $this->enableLocationServices->getValue();
+        return (!$this->enableLocationServices) ?: $this->enableLocationServices;
     }
 
     /**
@@ -73,7 +83,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getEnableMSRNLookup()
     {
-        return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup->getValue();
+        return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup;
     }
 
     /**
@@ -89,7 +99,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getEnableMobileStateChecking()
     {
-        return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking->getValue();
+        return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking;
     }
 
     /**
@@ -105,7 +115,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getDenyCallOriginations()
     {
-        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->getValue();
+        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations;
     }
 
     /**
@@ -121,6 +131,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getDenyCallTerminations()
     {
-        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations->getValue();
+        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations;
     }
 }

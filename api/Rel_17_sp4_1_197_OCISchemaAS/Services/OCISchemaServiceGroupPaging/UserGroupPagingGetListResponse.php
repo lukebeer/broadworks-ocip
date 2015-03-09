@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\UserGroupPagingGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserGroupPagingGetListRequest.
+ * Response to the UserGroupPagingGetListRequest.
  *         The groupPagingTable contains columns: "Name", "Phone Number", "Extension" and "Is Active"
  *         The column value for "Is Active" can either be true, or false.
  */
@@ -22,6 +25,13 @@ class UserGroupPagingGetListResponse extends ComplexType implements ComplexInter
     public    $name             = __CLASS__;
     protected $pagingGroupTable = null;
 
+    /**
+     * @return UserGroupPagingGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

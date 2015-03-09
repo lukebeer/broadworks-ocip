@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingFamilyGetResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSimultaneousRingFamilyGetRequest14sp4.
+ * Response to the UserSimultaneousRingFamilyGetRequest14sp4.
  *         Contains a table with column headings: "Phone Number", "Answer Confirmation Required".
  */
 class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
     protected $incomingCalls    = null;
     protected $phoneNumberTable = null;
 
+    /**
+     * @return UserSimultaneousRingFamilyGetResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

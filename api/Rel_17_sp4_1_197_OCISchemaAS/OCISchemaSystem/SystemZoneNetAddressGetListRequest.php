@@ -10,17 +10,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaZoneIPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneNetAddressGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Gets a list of IP Addresses and/or Ranges assigned to a zone.
+ * Gets a list of IP Addresses and/or Ranges assigned to a zone.
  *         Response is SystemZoneNetAddressGetListResponse or an ErrorResponse.
  */
 class SystemZoneNetAddressGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneNetAddressGetListResponse';
+    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneNetAddressGetListResponse';
     public    $name                        = __CLASS__;
     protected $zoneName                    = null;
     protected $responseSizeLimit           = null;
@@ -34,6 +37,14 @@ class SystemZoneNetAddressGetListRequest extends ComplexType implements ComplexI
         $this->setZoneName($zoneName);
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaZoneIPAddress($searchCriteriaZoneIPAddress);
+    }
+
+    /**
+     * @return SystemZoneNetAddressGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

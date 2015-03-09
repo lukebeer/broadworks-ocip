@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderGetRequest17sp1.
+ * Response to the ServiceProviderGetRequest17sp1.
  *         The response contains the service provider or enterprise's profile information.
  */
 class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInterface
@@ -30,6 +33,13 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
     protected $address                     = null;
     protected $useServiceProviderLanguages = null;
 
+    /**
+     * @return ServiceProviderGetResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * IP Address, hostname, or domain.
@@ -130,6 +140,6 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
      */
     public function getUseServiceProviderLanguages()
     {
-        return (!$this->useServiceProviderLanguages) ?: $this->useServiceProviderLanguages->getValue();
+        return (!$this->useServiceProviderLanguages) ?: $this->useServiceProviderLanguages;
     }
 }

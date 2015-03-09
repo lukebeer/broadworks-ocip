@@ -22,17 +22,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemEndpointGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to search endpoints in the system.
+ * Request to search endpoints in the system.
  *         The response is either SystemEndpointGetListResponse or ErrorResponse.
  */
 class SystemEndpointGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemEndpointGetListResponse';
+    public    $responseType                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemEndpointGetListResponse';
     public    $name                                = __CLASS__;
     protected $responseSizeLimit                   = null;
     protected $searchCriteriaServiceProviderId     = null;
@@ -82,6 +85,14 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
         $this->setSearchCriteriaDeviceName($searchCriteriaDeviceName);
         $this->setSearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
         $this->setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
+    }
+
+    /**
+     * @return SystemEndpointGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

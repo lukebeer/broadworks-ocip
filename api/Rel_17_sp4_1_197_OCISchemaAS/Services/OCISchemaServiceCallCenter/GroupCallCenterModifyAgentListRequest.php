@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the agent list for a call center.
+ * Request to modify the agent list for a call center.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifyAgentListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentUserIdList($agentUserIdList);
+    }
+
+    /**
+     * @return GroupCallCenterModifyAgentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

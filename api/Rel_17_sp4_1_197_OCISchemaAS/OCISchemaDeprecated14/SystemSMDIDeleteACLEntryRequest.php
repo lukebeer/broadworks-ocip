@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSMDIDeleteACLEntryResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete an entry from the SMDI access control list.
+ * Delete an entry from the SMDI access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInte
          $netAddress
     ) {
         $this->setNetAddress($netAddress);
+    }
+
+    /**
+     * @return SystemSMDIDeleteACLEntryResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

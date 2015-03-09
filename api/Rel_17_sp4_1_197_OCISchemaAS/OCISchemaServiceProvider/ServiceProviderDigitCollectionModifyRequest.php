@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the service provider's digit collection attributes.
+ * Modifies the service provider's digit collection attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
         $this->setAccessCode($accessCode);
         $this->setPublicDigitMap($publicDigitMap);
         $this->setPrivateDigitMap($privateDigitMap);
+    }
+
+    /**
+     * @return ServiceProviderDigitCollectionModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

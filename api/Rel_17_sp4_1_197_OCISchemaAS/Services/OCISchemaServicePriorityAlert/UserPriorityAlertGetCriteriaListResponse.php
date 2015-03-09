@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePriorityAlert; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePriorityAlert\UserPriorityAlertGetCriteriaListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserPriorityAlertGetCriteriaListRequest. The criteria table's column headings are:
+ * Response to the UserPriorityAlertGetCriteriaListRequest. The criteria table's column headings are:
  *         "Is Active", "Criteria Name", "Time Schedule", "Calls From", "Blacklisted" and "Holiday Schedule".
  */
 class UserPriorityAlertGetCriteriaListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class UserPriorityAlertGetCriteriaListResponse extends ComplexType implements Co
     public    $name          = __CLASS__;
     protected $criteriaTable = null;
 
+    /**
+     * @return UserPriorityAlertGetCriteriaListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

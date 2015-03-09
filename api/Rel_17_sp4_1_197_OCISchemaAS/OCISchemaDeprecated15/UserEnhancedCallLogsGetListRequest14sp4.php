@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\Enhan
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\EnhancedCallLogsOffset;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request user's call logs. It is possible to get a subset of the total list of calls
+ * Request user's call logs. It is possible to get a subset of the total list of calls
  *             by specifying a starting offset and the number of calls to get.
  *             If the callLogType is not specified, all types of calls are returned.
  *             The response is either a UserEnhancedCallLogsGetListResponse14sp4 or an ErrorResponse.
@@ -25,7 +28,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4';
+    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4';
     public    $name           = __CLASS__;
     protected $userId         = null;
     protected $callLogType    = null;
@@ -42,6 +45,14 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
         $this->setCallLogType($callLogType);
         $this->setStartingOffset($startingOffset);
         $this->setNumCalls($numCalls);
+    }
+
+    /**
+     * @return UserEnhancedCallLogsGetListResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

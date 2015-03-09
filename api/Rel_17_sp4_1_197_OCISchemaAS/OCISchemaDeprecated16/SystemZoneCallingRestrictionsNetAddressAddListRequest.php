@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsNetAddressAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Adds a list of IP addresses to a zone
+ * Adds a list of IP addresses to a zone
  *         The response is SuccessResponse or an ErrorResponse.
  *         Replaced by: SystemZoneNetAddressAddListRequest
  */
@@ -34,6 +37,14 @@ class SystemZoneCallingRestrictionsNetAddressAddListRequest extends ComplexType 
         $this->setZoneName($zoneName);
         $this->setNetAddress($netAddress);
         $this->setNetAddressRange($netAddressRange);
+    }
+
+    /**
+     * @return SystemZoneCallingRestrictionsNetAddressAddListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAlter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAlternateNumbers\AlternateNumberEntry17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAlternateNumbers\UserAlternateNumbersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Alternate Numbers.
+ * Modify the user level data associated with Alternate Numbers.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexInterface
@@ -62,6 +65,14 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
+     * @return UserAlternateNumbersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -100,7 +111,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getDistinctiveRing()
     {
-        return (!$this->distinctiveRing) ?: $this->distinctiveRing->getValue();
+        return (!$this->distinctiveRing) ?: $this->distinctiveRing;
     }
 
     /**

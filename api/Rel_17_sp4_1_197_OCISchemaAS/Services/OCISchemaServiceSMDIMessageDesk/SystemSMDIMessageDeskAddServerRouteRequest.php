@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIServerRouteDestination;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskAddServerRouteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a SMDI Server route to the system.
+ * Request to add a SMDI Server route to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
     ) {
         $this->setRouteDestination($routeDestination);
         $this->setDeviceName($deviceName);
+    }
+
+    /**
+     * @return SystemSMDIMessageDeskAddServerRouteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanGetResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemOutgoingCallingPlanGetRequest17sp3.
+ * Response to SystemOutgoingCallingPlanGetRequest17sp3.
  */
 class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
     protected $directTransferScreening      = null;
     protected $enableEnhancedTollCallTyping = null;
 
+    /**
+     * @return SystemOutgoingCallingPlanGetResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening->getValue();
+        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
     }
 
     /**
@@ -51,6 +61,6 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
      */
     public function getEnableEnhancedTollCallTyping()
     {
-        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping->getValue();
+        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping;
     }
 }

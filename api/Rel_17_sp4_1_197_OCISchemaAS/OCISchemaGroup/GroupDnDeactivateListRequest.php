@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnDeactivateListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Deactivate a list of activated DNs on a group. The DNs then become available for
+ * Deactivate a list of activated DNs on a group. The DNs then become available for
  *         activation again. It is possible to deactivate either: a single DN,
  *         or a list of DNs, or a range of DNs, or any combination thereof.
  *         It is not an error to deactivate an already deactivated DN.
@@ -40,6 +43,14 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
         $this->setGroupId($groupId);
         $this->setPhoneNumber($phoneNumber);
         $this->setDnRange($dnRange);
+    }
+
+    /**
+     * @return GroupDnDeactivateListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

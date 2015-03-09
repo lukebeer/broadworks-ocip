@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Network Class of Service.
+ * Delete a Network Class of Service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemNetworkClassOfServiceDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

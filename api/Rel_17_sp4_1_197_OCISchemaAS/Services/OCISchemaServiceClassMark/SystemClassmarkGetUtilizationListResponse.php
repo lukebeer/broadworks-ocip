@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\SystemClassmarkGetUtilizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemClassmarkGetUtilizationListRequest. 
+ * Response to SystemClassmarkGetUtilizationListRequest. 
  *         Contains a table with the column headings: "User Id", "Group Id", "Service Provider Id",
  *         "Last Name", "First Name", and "Phone Number".
  */
@@ -22,6 +25,13 @@ class SystemClassmarkGetUtilizationListResponse extends ComplexType implements C
     public    $name               = __CLASS__;
     protected $classmarkUserTable = null;
 
+    /**
+     * @return SystemClassmarkGetUtilizationListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

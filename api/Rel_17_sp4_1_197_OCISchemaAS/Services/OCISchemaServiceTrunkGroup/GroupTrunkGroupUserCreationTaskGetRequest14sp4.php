@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunk
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the details of a specified user creation task for a trunk group.
+ * Request the details of a specified user creation task for a trunk group.
  *         The response is either GroupTrunkGroupUserCreationTaskGetResponse14sp4 or ErrorResponse.
  */
 class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetResponse14sp4';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetResponse14sp4';
     public    $name          = __CLASS__;
     protected $trunkGroupKey = null;
     protected $taskName      = null;
@@ -30,6 +33,14 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
         $this->setTaskName($taskName);
+    }
+
+    /**
+     * @return GroupTrunkGroupUserCreationTaskGetResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

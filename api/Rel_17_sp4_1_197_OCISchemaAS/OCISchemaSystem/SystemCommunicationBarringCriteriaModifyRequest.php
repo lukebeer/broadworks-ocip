@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Communic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LocationCriteria;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoamingCriteria;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCriteriaModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an existing Communication Barring Criteria.
+ * Modify an existing Communication Barring Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implements ComplexInterface
@@ -128,6 +131,14 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
         $this->setMatchRoaming($matchRoaming);
         $this->setTimeSchedule($timeSchedule);
         $this->setHolidaySchedule($holidaySchedule);
+    }
+
+    /**
+     * @return SystemCommunicationBarringCriteriaModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -257,7 +268,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchPublicNetwork()
     {
-        return (!$this->matchPublicNetwork) ?: $this->matchPublicNetwork->getValue();
+        return (!$this->matchPublicNetwork) ?: $this->matchPublicNetwork;
     }
 
     /**
@@ -273,7 +284,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchPrivateNetwork()
     {
-        return (!$this->matchPrivateNetwork) ?: $this->matchPrivateNetwork->getValue();
+        return (!$this->matchPrivateNetwork) ?: $this->matchPrivateNetwork;
     }
 
     /**
@@ -289,7 +300,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchLocalCategory()
     {
-        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory->getValue();
+        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory;
     }
 
     /**
@@ -305,7 +316,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchNationalCategory()
     {
-        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory->getValue();
+        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory;
     }
 
     /**
@@ -321,7 +332,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchInterlataCategory()
     {
-        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory->getValue();
+        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory;
     }
 
     /**
@@ -337,7 +348,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchIntralataCategory()
     {
-        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory->getValue();
+        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory;
     }
 
     /**
@@ -353,7 +364,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchInternationalCategory()
     {
-        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory->getValue();
+        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory;
     }
 
     /**
@@ -369,7 +380,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchPrivateCategory()
     {
-        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory->getValue();
+        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory;
     }
 
     /**
@@ -385,7 +396,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchEmergencyCategory()
     {
-        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory->getValue();
+        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory;
     }
 
     /**
@@ -401,7 +412,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchOtherCategory()
     {
-        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory->getValue();
+        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory;
     }
 
     /**
@@ -417,7 +428,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchInterNetwork()
     {
-        return (!$this->matchInterNetwork) ?: $this->matchInterNetwork->getValue();
+        return (!$this->matchInterNetwork) ?: $this->matchInterNetwork;
     }
 
     /**
@@ -433,7 +444,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchInterHostingNE()
     {
-        return (!$this->matchInterHostingNE) ?: $this->matchInterHostingNE->getValue();
+        return (!$this->matchInterHostingNE) ?: $this->matchInterHostingNE;
     }
 
     /**
@@ -449,7 +460,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchInterAS()
     {
-        return (!$this->matchInterAS) ?: $this->matchInterAS->getValue();
+        return (!$this->matchInterAS) ?: $this->matchInterAS;
     }
 
     /**
@@ -465,7 +476,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchIntraAS()
     {
-        return (!$this->matchIntraAS) ?: $this->matchIntraAS->getValue();
+        return (!$this->matchIntraAS) ?: $this->matchIntraAS;
     }
 
     /**
@@ -481,7 +492,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchChargeCalls()
     {
-        return (!$this->matchChargeCalls) ?: $this->matchChargeCalls->getValue();
+        return (!$this->matchChargeCalls) ?: $this->matchChargeCalls;
     }
 
     /**
@@ -497,7 +508,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchNoChargeCalls()
     {
-        return (!$this->matchNoChargeCalls) ?: $this->matchNoChargeCalls->getValue();
+        return (!$this->matchNoChargeCalls) ?: $this->matchNoChargeCalls;
     }
 
     /**
@@ -513,7 +524,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchGroupCalls()
     {
-        return (!$this->matchGroupCalls) ?: $this->matchGroupCalls->getValue();
+        return (!$this->matchGroupCalls) ?: $this->matchGroupCalls;
     }
 
     /**
@@ -529,7 +540,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchEnterpriseCalls()
     {
-        return (!$this->matchEnterpriseCalls) ?: $this->matchEnterpriseCalls->getValue();
+        return (!$this->matchEnterpriseCalls) ?: $this->matchEnterpriseCalls;
     }
 
     /**
@@ -545,7 +556,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchNetworkCalls()
     {
-        return (!$this->matchNetworkCalls) ?: $this->matchNetworkCalls->getValue();
+        return (!$this->matchNetworkCalls) ?: $this->matchNetworkCalls;
     }
 
     /**
@@ -561,7 +572,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchNetworkURLCalls()
     {
-        return (!$this->matchNetworkURLCalls) ?: $this->matchNetworkURLCalls->getValue();
+        return (!$this->matchNetworkURLCalls) ?: $this->matchNetworkURLCalls;
     }
 
     /**
@@ -577,7 +588,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchRepairCalls()
     {
-        return (!$this->matchRepairCalls) ?: $this->matchRepairCalls->getValue();
+        return (!$this->matchRepairCalls) ?: $this->matchRepairCalls;
     }
 
     /**
@@ -593,7 +604,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchEmergencyCalls()
     {
-        return (!$this->matchEmergencyCalls) ?: $this->matchEmergencyCalls->getValue();
+        return (!$this->matchEmergencyCalls) ?: $this->matchEmergencyCalls;
     }
 
     /**
@@ -609,7 +620,7 @@ class SystemCommunicationBarringCriteriaModifyRequest extends ComplexType implem
      */
     public function getMatchInternalCalls()
     {
-        return (!$this->matchInternalCalls) ?: $this->matchInternalCalls->getValue();
+        return (!$this->matchInternalCalls) ?: $this->matchInternalCalls;
     }
 
     /**

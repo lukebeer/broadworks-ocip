@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCallingLineIDDelivery; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCallingLineIDDelivery\UserExternalCallingLineIDDeliveryGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the user level data associated with External Calling Line ID Delivery.
+ * Request the user level data associated with External Calling Line ID Delivery.
  *         The response is either a UserExternalCallingLineIDDeliveryGetResponse or an
  *         ErrorResponse.
  */
 class UserExternalCallingLineIDDeliveryGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCallingLineIDDelivery\UserExternalCallingLineIDDeliveryGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCallingLineIDDelivery\UserExternalCallingLineIDDeliveryGetResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -27,6 +30,14 @@ class UserExternalCallingLineIDDeliveryGetRequest extends ComplexType implements
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserExternalCallingLineIDDeliveryGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

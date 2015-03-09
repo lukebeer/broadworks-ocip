@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserInstantConferencingGetStandAloneSlideShowContentRequest.
+ * Response to the UserInstantConferencingGetStandAloneSlideShowContentRequest.
  *         Contains a table with column headings:
  *         "Image Source URL", "Slide End Time", "Slide Number" and "Slide Document Name".
  */
@@ -23,6 +26,13 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
     protected $audioURL              = null;
     protected $slideShowContentTable = null;
 
+    /**
+     * @return UserInstantConferencingGetStandAloneSlideShowContentResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * URL.

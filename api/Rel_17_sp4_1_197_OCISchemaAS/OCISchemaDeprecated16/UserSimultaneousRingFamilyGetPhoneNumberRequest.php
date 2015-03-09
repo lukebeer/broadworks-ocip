@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingFamilyGetPhoneNumberResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the answer confirmation setting for the phone number specified.
+ * Get the answer confirmation setting for the phone number specified.
  *         The response is either a UserSimultaneousRingFamilyGetPhoneNumberResponse or an ErrorResponse.
  */
 class UserSimultaneousRingFamilyGetPhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingFamilyGetPhoneNumberResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingFamilyGetPhoneNumberResponse';
     public    $name        = __CLASS__;
     protected $userId      = null;
     protected $phoneNumber = null;
@@ -30,6 +33,14 @@ class UserSimultaneousRingFamilyGetPhoneNumberRequest extends ComplexType implem
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
+    }
+
+    /**
+     * @return UserSimultaneousRingFamilyGetPhoneNumberResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

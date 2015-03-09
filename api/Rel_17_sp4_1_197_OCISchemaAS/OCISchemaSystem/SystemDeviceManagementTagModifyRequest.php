@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a static configuration tag.
+ * Request to modify a static configuration tag.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDeviceManagementTagModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemDeviceManagementTagModifyRequest extends ComplexType implements Comp
     ) {
         $this->setTagName($tagName);
         $this->setTagValue($tagValue);
+    }
+
+    /**
+     * @return SystemDeviceManagementTagModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

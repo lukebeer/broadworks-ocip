@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoute
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\UserRoutePointSupervisorModifyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the Route Point supervisor list for a user.
+ * Request to modify the Route Point supervisor list for a user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserRoutePointSupervisorModifyListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
     ) {
         $this->setUserId($userId);
         $this->setSupervisorUserIdList($supervisorUserIdList);
+    }
+
+    /**
+     * @return UserRoutePointSupervisorModifyListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

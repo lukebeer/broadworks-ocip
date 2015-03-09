@@ -13,17 +13,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of available users for BroadWorks Receptionist - Enterprise monitoring.
+ * Get a list of available users for BroadWorks Receptionist - Enterprise monitoring.
  *         The response is either UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse or ErrorResponse.
  */
 class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse';
     public    $name                              = __CLASS__;
     protected $userId                            = null;
     protected $responseSizeLimit                 = null;
@@ -46,6 +49,14 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
         $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
         $this->setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
+    }
+
+    /**
+     * @return UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

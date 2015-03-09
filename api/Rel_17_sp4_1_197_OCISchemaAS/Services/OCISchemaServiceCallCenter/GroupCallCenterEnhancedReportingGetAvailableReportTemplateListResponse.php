@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupCallCenterEnhancedReportingGetAvailableReportTemplateListRequest.
+ * Response to GroupCallCenterEnhancedReportingGetAvailableReportTemplateListRequest.
  *         Contains a table with column headings: "Name", "Description" and "Level", "Is Agent Required", 
  *         "Is Call Center Required", "Is Call Center Dnis Required","Is Real Time Report", "Is Sampling Period Required", 
  *         "Call Completion Threshold Parameter", "Short Duration Threshold Parameter", 
@@ -32,6 +35,13 @@ class GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse ext
     public    $name                = __CLASS__;
     protected $reportTemplateTable = null;
 
+    /**
+     * @return GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

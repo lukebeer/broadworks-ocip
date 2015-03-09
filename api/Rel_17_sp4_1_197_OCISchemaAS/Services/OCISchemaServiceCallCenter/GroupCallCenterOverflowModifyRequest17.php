@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntForwardTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterOverflowModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's overflow settings.
+ * Modify a call center's overflow settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements ComplexInterface
@@ -64,6 +67,14 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->setVideoMessageSelection($videoMessageSelection);
         $this->setVideoUrlList($videoUrlList);
         $this->setVideoFileList($videoFileList);
+    }
+
+    /**
+     * @return GroupCallCenterOverflowModifyResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -155,7 +166,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getOverflowAfterTimeout()
     {
-        return (!$this->overflowAfterTimeout) ?: $this->overflowAfterTimeout->getValue();
+        return (!$this->overflowAfterTimeout) ?: $this->overflowAfterTimeout;
     }
 
     /**
@@ -189,7 +200,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getPlayAnnouncementBeforeOverflowProcessing()
     {
-        return (!$this->playAnnouncementBeforeOverflowProcessing) ?: $this->playAnnouncementBeforeOverflowProcessing->getValue();
+        return (!$this->playAnnouncementBeforeOverflowProcessing) ?: $this->playAnnouncementBeforeOverflowProcessing;
     }
 
     /**

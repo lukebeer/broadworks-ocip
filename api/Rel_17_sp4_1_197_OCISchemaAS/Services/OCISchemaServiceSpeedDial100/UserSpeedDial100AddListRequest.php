@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeed
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SpeedDial100Entry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\UserSpeedDial100AddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add one or more speed dial 100 settings for a user.
+ * Add one or more speed dial 100 settings for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInter
     ) {
         $this->setUserId($userId);
         $this->setSpeedDialEntry($speedDialEntry);
+    }
+
+    /**
+     * @return UserSpeedDial100AddListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

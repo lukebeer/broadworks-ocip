@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Call Center Agent Unavailable Code.
+ * Modify a Call Center Agent Unavailable Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
         $this->setCode($code);
         $this->setIsActive($isActive);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return EnterpriseCallCenterAgentUnavailableCodeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -89,7 +100,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

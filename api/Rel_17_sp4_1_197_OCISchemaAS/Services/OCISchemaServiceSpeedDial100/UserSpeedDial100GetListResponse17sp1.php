@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeed
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SpeedDial100Entry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDialPrefix;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\UserSpeedDial100GetListResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSpeedDial100GetListRequest17sp1.
+ * Response to the UserSpeedDial100GetListRequest17sp1.
  */
 class UserSpeedDial100GetListResponse17sp1 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class UserSpeedDial100GetListResponse17sp1 extends ComplexType implements Comple
     protected $prefix         = null;
     protected $speedDialEntry = null;
 
+    /**
+     * @return UserSpeedDial100GetListResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Speed dial prefix.

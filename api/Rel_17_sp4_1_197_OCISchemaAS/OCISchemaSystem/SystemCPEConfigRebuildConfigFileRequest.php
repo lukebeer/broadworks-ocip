@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEDeviceConfigRebuildType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigRebuildConfigFileResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Rebuild the system default config file for the specified device type.
+ * Rebuild the system default config file for the specified device type.
  *         If the device type is not specified, all files for all device types in the system are rebuilt.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -30,6 +33,14 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
     ) {
         $this->setDeviceType($deviceType);
         $this->setRebuildType($rebuildType);
+    }
+
+    /**
+     * @return SystemCPEConfigRebuildConfigFileResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

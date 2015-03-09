@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RedundancyRollBackTimerMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemRedundancyParametersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaced by: SystemRedundancyParametersGetResponse16sp2
+ * Replaced by: SystemRedundancyParametersGetResponse16sp2
  *       
  *         Response to SystemRedundancyParametersGetRequest.
  *         Contains a list of system Redundancy parameters.
@@ -23,6 +26,13 @@ class SystemRedundancyParametersGetResponse extends ComplexType implements Compl
     public    $name                 = __CLASS__;
     protected $rollBackTimerMinutes = null;
 
+    /**
+     * @return SystemRedundancyParametersGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Redundancy rollback timer in minutes.

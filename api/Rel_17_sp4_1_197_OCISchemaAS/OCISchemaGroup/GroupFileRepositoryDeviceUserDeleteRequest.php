@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a group file repository user.
+ * Delete a group file repository user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
         $this->setGroupId($groupId);
         $this->setFileRepositoryName($fileRepositoryName);
         $this->setUserName($userName);
+    }
+
+    /**
+     * @return GroupFileRepositoryDeviceUserDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

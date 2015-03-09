@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackT4Seconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackT5Seconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackT7Minutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's legacy automatic callback attributes.
+ * Modifies the system's legacy automatic callback attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements ComplexInterface
@@ -65,6 +68,14 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
         $this->setTRingSeconds($tRingSeconds);
         $this->setT10OMinutes($t10OMinutes);
         $this->setT10TMinutes($t10TMinutes);
+    }
+
+    /**
+     * @return SystemLegacyAutomaticCallbackModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

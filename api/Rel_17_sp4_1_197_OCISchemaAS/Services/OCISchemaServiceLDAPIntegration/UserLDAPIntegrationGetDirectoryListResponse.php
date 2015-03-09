@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPI
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPColumnLabel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPPageNumber;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserLDAPIntegrationGetDirectoryListRequest. The table is a 4 column table.
+ * Response to UserLDAPIntegrationGetDirectoryListRequest. The table is a 4 column table.
  *         The column headings are defined by the group's LDAP settings.
  */
 class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
     protected $hasMoreEntries = null;
     protected $lastPageNumber = null;
 
+    /**
+     * @return UserLDAPIntegrationGetDirectoryListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -73,7 +83,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function getHasMoreEntries()
     {
-        return (!$this->hasMoreEntries) ?: $this->hasMoreEntries->getValue();
+        return (!$this->hasMoreEntries) ?: $this->hasMoreEntries;
     }
 
     /**

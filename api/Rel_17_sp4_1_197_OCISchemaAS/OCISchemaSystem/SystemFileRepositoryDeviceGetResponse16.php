@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemFileRepositoryDeviceGetRequest.
+ * Response to SystemFileRepositoryDeviceGetRequest.
  */
 class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements Com
     protected $rootDirectory = null;
     protected $port          = null;
 
+    /**
+     * @return SystemFileRepositoryDeviceGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * CPE Configuration File Directory.

@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of Office Zones that contain a specific
+ * Get the list of Office Zones that contain a specific
  *         Zone.
  *         The response is either a SystemOfficeZoneGetZoneUsageListResponse
  *         or an ErrorResponse.
  */
 class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse';
     public    $name     = __CLASS__;
     protected $zoneName = null;
 
@@ -28,6 +31,14 @@ class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements Com
          $zoneName
     ) {
         $this->setZoneName($zoneName);
+    }
+
+    /**
+     * @return SystemOfficeZoneGetZoneUsageListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomerOriginatedTrace\SystemCustomerOriginatedTraceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Customer Originated Trace.
+ * Modify the system level data associated with Customer Originated Trace.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements 
          $screenMaliciousCallers = null
     ) {
         $this->setScreenMaliciousCallers($screenMaliciousCallers);
+    }
+
+    /**
+     * @return SystemCustomerOriginatedTraceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements 
      */
     public function getScreenMaliciousCallers()
     {
-        return (!$this->screenMaliciousCallers) ?: $this->screenMaliciousCallers->getValue();
+        return (!$this->screenMaliciousCallers) ?: $this->screenMaliciousCallers;
     }
 }

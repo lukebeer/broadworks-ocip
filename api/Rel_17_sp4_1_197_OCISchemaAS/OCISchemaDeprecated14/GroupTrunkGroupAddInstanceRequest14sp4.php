@@ -29,12 +29,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Departme
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupAddInstanceResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Trunk Group instance to a group.
+ * Add a Trunk Group instance to a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupTrunkGroupAddInstanceRequest14sp4 extends ComplexType implements ComplexInterface
@@ -127,6 +130,14 @@ class GroupTrunkGroupAddInstanceRequest14sp4 extends ComplexType implements Comp
         $this->setSipAuthenticationUserName($sipAuthenticationUserName);
         $this->setSipAuthenticationPassword($sipAuthenticationPassword);
         $this->setHostedUserId($hostedUserId);
+    }
+
+    /**
+     * @return GroupTrunkGroupAddInstanceResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -316,7 +327,7 @@ class GroupTrunkGroupAddInstanceRequest14sp4 extends ComplexType implements Comp
      */
     public function getEnableBursting()
     {
-        return (!$this->enableBursting) ?: $this->enableBursting->getValue();
+        return (!$this->enableBursting) ?: $this->enableBursting;
     }
 
     /**
@@ -616,7 +627,7 @@ class GroupTrunkGroupAddInstanceRequest14sp4 extends ComplexType implements Comp
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**

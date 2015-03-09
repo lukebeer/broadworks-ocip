@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallAcceptance; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallAcceptance\UserSelectiveCallAcceptanceGetCriteriaListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSelectiveCallAcceptanceGetCriteriaRequest.
+ * Response to the UserSelectiveCallAcceptanceGetCriteriaRequest.
  *         The criteria table's column headings are:
  *         "Is Active", "Criteria Name", "Time Schedule", "Calls From", "Blacklisted" and "Holiday Schedule".
  */
@@ -22,6 +25,13 @@ class UserSelectiveCallAcceptanceGetCriteriaListResponse extends ComplexType imp
     public    $name          = __CLASS__;
     protected $criteriaTable = null;
 
+    /**
+     * @return UserSelectiveCallAcceptanceGetCriteriaListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

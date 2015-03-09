@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDesc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\GroupInterceptGroupGetResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupInterceptGroupGetRequest16sp1.
+ * Response to the GroupInterceptGroupGetRequest16sp1.
  */
 class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
@@ -41,6 +44,13 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
     protected $alternateBlockingAnnouncement = null;
     protected $routeToVoiceMail              = null;
 
+    /**
+     * @return GroupInterceptGroupGetResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -55,7 +65,7 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -177,7 +187,7 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
      */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
     }
 
     /**
@@ -211,7 +221,7 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
     }
 
     /**
@@ -249,7 +259,7 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
      */
     public function getRerouteOutboundCalls()
     {
-        return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls->getValue();
+        return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls;
     }
 
     /**
@@ -297,7 +307,7 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
      */
     public function getAllowOutboundLocalCalls()
     {
-        return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls->getValue();
+        return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls;
     }
 
     /**
@@ -331,7 +341,7 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
      */
     public function getAlternateBlockingAnnouncement()
     {
-        return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement->getValue();
+        return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement;
     }
 
     /**
@@ -347,6 +357,6 @@ class GroupInterceptGroupGetResponse16sp1 extends ComplexType implements Complex
      */
     public function getRouteToVoiceMail()
     {
-        return (!$this->routeToVoiceMail) ?: $this->routeToVoiceMail->getValue();
+        return (!$this->routeToVoiceMail) ?: $this->routeToVoiceMail;
     }
 }

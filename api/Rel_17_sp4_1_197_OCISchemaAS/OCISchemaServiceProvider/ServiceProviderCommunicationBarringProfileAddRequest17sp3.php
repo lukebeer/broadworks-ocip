@@ -21,12 +21,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Communic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileAddResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new Communication Barring Profile.
+ * Add a new Communication Barring Profile.
  *         The priorities for OriginatingRules, RedirectingRules, CallMeNowRules and IncomingRules are requantized to consecutive integers as part of the add.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *       The following elements are only used in AS data mode:
@@ -94,6 +97,14 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
         $this->setIncomingDefaultCallTimeout($incomingDefaultCallTimeout);
         $this->setIncomingRule($incomingRule);
         $this->setBecomeDefault($becomeDefault);
+    }
+
+    /**
+     * @return ServiceProviderCommunicationBarringProfileAddResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -413,6 +424,6 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
      */
     public function getBecomeDefault()
     {
-        return (!$this->becomeDefault) ?: $this->becomeDefault->getValue();
+        return (!$this->becomeDefault) ?: $this->becomeDefault;
     }
 }

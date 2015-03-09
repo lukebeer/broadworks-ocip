@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingFamilyAddPhoneNumberResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new phone number and set the answer confirmation setting.
+ * Add a new phone number and set the answer confirmation setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSimultaneousRingFamilyAddPhoneNumberRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserSimultaneousRingFamilyAddPhoneNumberRequest extends ComplexType implem
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
         $this->setAnswerConfirmationRequired($answerConfirmationRequired);
+    }
+
+    /**
+     * @return UserSimultaneousRingFamilyAddPhoneNumberResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -105,6 +116,6 @@ class UserSimultaneousRingFamilyAddPhoneNumberRequest extends ComplexType implem
      */
     public function getAnswerConfirmationRequired()
     {
-        return (!$this->answerConfirmationRequired) ?: $this->answerConfirmationRequired->getValue();
+        return (!$this->answerConfirmationRequired) ?: $this->answerConfirmationRequired;
     }
 }

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways\UserCallForwardingAlwaysGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallForwardingAlwaysGetRequest.
+ * Response to UserCallForwardingAlwaysGetRequest.
  */
 class UserCallForwardingAlwaysGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
     protected $forwardToPhoneNumber = null;
     protected $isRingSplashActive   = null;
 
+    /**
+     * @return UserCallForwardingAlwaysGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -84,6 +94,6 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
      */
     public function getIsRingSplashActive()
     {
-        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive->getValue();
+        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive;
     }
 }

@@ -20,12 +20,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Communic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an existing Communication Barring Profile.
+ * Modify an existing Communication Barring Profile.
  *         When the originatingDefaultAction is not Treatment, originatingDefaultTreatmentId
  *         will be automatically cleared. Also when the action of originatingRule is not Treatment,
  *         treatmentId will be automatically cleared for the rule.
@@ -93,6 +96,14 @@ class SystemCommunicationBarringProfileModifyRequest extends ComplexType impleme
         $this->setCallMeNowDefaultAction($callMeNowDefaultAction);
         $this->setCallMeNowDefaultCallTimeout($callMeNowDefaultCallTimeout);
         $this->setCallMeNowRule($callMeNowRule);
+    }
+
+    /**
+     * @return SystemCommunicationBarringProfileModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MobilityManagerServiceKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration\UserINIntegrationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserINIntegrationGetRequest
+ * Response to UserINIntegrationGetRequest
  */
 class UserINIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
     protected $originatingServiceKey = null;
     protected $terminatingServiceKey = null;
 
+    /**
+     * @return UserINIntegrationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Mobility Manager service key

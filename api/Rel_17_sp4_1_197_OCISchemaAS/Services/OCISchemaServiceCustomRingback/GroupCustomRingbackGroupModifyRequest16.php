@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback\GroupCustomRingbackGroupModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group's custom ring back service settings.
+ * Modify the group's custom ring back service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements ComplexInterface
@@ -46,6 +49,14 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
         $this->setAudioFile($audioFile);
         $this->setVideoSelection($videoSelection);
         $this->setVideoFile($videoFile);
+    }
+
+    /**
+     * @return GroupCustomRingbackGroupModifyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -101,7 +112,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

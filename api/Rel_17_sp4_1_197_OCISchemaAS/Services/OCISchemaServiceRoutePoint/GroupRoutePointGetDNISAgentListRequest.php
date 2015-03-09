@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of agent who selected the DNIS as the outgoing call.
+ * Get a list of agent who selected the DNIS as the outgoing call.
  *         The response is either GroupRoutePointGetDNISAgentListResponse or ErrorResponse.
  */
 class GroupRoutePointGetDNISAgentListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse';
     public    $name    = __CLASS__;
     protected $dnisKey = null;
 
@@ -26,6 +29,14 @@ class GroupRoutePointGetDNISAgentListRequest extends ComplexType implements Comp
           $dnisKey
     ) {
         $this->setDnisKey($dnisKey);
+    }
+
+    /**
+     * @return GroupRoutePointGetDNISAgentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

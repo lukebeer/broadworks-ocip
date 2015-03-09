@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingPresentationPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingModifyConferencePresentationPasswordResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the presentation password.
+ * Modify the presentation password.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingModifyConferencePresentationPasswordRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
         $this->setPresentationPassword($presentationPassword);
+    }
+
+    /**
+     * @return UserInstantConferencingModifyConferencePresentationPasswordResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

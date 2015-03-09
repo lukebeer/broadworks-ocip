@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingDeleteDeviceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete an Instant Conferencing device from the system.
+ * Request to delete an Instant Conferencing device from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInstantConferencingDeleteDeviceRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemInstantConferencingDeleteDeviceRequest extends ComplexType implement
          $deviceName
     ) {
         $this->setDeviceName($deviceName);
+    }
+
+    /**
+     * @return SystemInstantConferencingDeleteDeviceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

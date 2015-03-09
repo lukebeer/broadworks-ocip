@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\ServiceProviderInstantConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderInstantConferencingGetRequest.
+ * Response to ServiceProviderInstantConferencingGetRequest.
  */
 class ServiceProviderInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name                            = __CLASS__;
     protected $portsAllocatedToServiceProvider = null;
 
+    /**
+     * @return ServiceProviderInstantConferencingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.

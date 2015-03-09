@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlProfileCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl\UserCommunicationBarringUserControlModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Enabling a profile automatically disables the currently active profile.
+ * Enabling a profile automatically disables the currently active profile.
  *         Also allows the passcode for the service to be modified and the lockout to be reset.
  *         Admins only need to populate the newPasscode field when changing the passcode.  
  *         Users must populate both the oldPasscode and new Passcode fields when changing the passcode.
@@ -42,6 +45,14 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         $this->setOldPasscode($oldPasscode);
         $this->setNewPasscode($newPasscode);
         $this->setResetLockout($resetLockout);
+    }
+
+    /**
+     * @return UserCommunicationBarringUserControlModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -137,6 +148,6 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getResetLockout()
     {
-        return (!$this->resetLockout) ?: $this->resetLockout->getValue();
+        return (!$this->resetLockout) ?: $this->resetLockout;
     }
 }

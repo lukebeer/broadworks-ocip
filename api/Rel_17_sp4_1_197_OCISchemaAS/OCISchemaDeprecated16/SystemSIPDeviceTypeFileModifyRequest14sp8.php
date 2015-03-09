@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceMa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeFileModifyResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a sip device type file.
+ * Request to modify a sip device type file.
  *           The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
@@ -56,6 +59,14 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
         $this->setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication);
         $this->setMacInNonRequestURI($macInNonRequestURI);
         $this->setMacFormatInNonRequestURI($macFormatInNonRequestURI);
+    }
+
+    /**
+     * @return SystemSIPDeviceTypeFileModifyResponse14sp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -107,7 +118,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function getAllowFileCustomization()
     {
-        return (!$this->allowFileCustomization) ?: $this->allowFileCustomization->getValue();
+        return (!$this->allowFileCustomization) ?: $this->allowFileCustomization;
     }
 
     /**
@@ -159,7 +170,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function getUseHttpDigestAuthentication()
     {
-        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication->getValue();
+        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication;
     }
 
     /**
@@ -175,7 +186,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function getMacBasedFileAuthentication()
     {
-        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication->getValue();
+        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication;
     }
 
     /**
@@ -191,7 +202,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication->getValue();
+        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication;
     }
 
     /**
@@ -207,7 +218,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function getMacInNonRequestURI()
     {
-        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI->getValue();
+        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI;
     }
 
     /**

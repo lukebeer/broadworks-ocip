@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Enterpri
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add an enterprise trunk in a group.
+ * Request to add an enterprise trunk in a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInterface
@@ -45,6 +48,14 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
         $this->setMaximumRerouteAttempts($maximumRerouteAttempts);
         $this->setRouteExhaustionAction($routeExhaustionAction);
         $this->setRouteExhaustionForwardAddress($routeExhaustionForwardAddress);
+    }
+
+    /**
+     * @return GroupEnterpriseTrunkAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

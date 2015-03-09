@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallCenterMusicOnHoldSourceRead;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetAnnouncementResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterGetAnnouncementRequest14sp6.
+ * Response to the GroupCallCenterGetAnnouncementRequest14sp6.
  */
 class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements ComplexInterface
 {
@@ -30,6 +33,13 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
     protected $onHoldUseAlternateSourceForInternalCalls   = null;
     protected $onHoldInternalSource                       = null;
 
+    /**
+     * @return GroupCallCenterGetAnnouncementResponse14sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call Center Announcement Selection.
@@ -168,7 +178,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getOnHoldUseAlternateSourceForInternalCalls()
     {
-        return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls->getValue();
+        return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls;
     }
 
     /**

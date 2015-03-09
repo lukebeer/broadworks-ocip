@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationVerifyResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to AuthenticationVerifyRequest14sp8
+ * Response to AuthenticationVerifyRequest14sp8
  *         If a phoneNumber is returned, it will be the primay DN of the user
  */
 class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexInterface
@@ -39,6 +42,13 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
     protected $userId              = null;
     protected $phoneNumber         = null;
 
+    /**
+     * @return AuthenticationVerifyResponse14sp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The login type of the admin/user.
@@ -147,7 +157,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
      */
     public function getIsEnterprise()
     {
-        return (!$this->isEnterprise) ?: $this->isEnterprise->getValue();
+        return (!$this->isEnterprise) ?: $this->isEnterprise;
     }
 
     /**
@@ -163,7 +173,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
      */
     public function getPasswordExpiresDays()
     {
-        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->getValue();
+        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays;
     }
 
     /**

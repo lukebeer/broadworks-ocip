@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a language properties for a service provider/enterprise.
+ * Request to modify a language properties for a service provider/enterprise.
  *         If the becomeDefaultLanguage element is present, the language in this request
  *         Becomes the default language for the service provider/enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -34,6 +37,14 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
         $this->setServiceProviderId($serviceProviderId);
         $this->setLanguage($language);
         $this->setBecomeDefaultLanguage($becomeDefaultLanguage);
+    }
+
+    /**
+     * @return ServiceProviderLanguageModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -87,6 +98,6 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
      */
     public function getBecomeDefaultLanguage()
     {
-        return (!$this->becomeDefaultLanguage) ?: $this->becomeDefaultLanguage->getValue();
+        return (!$this->becomeDefaultLanguage) ?: $this->becomeDefaultLanguage;
     }
 }

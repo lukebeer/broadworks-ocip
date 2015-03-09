@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallReturn; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitAny;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallReturn\SystemCallReturnModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Call Return.
+ * Modify the system level data associated with Call Return.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
+     * @return SystemCallReturnModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setTwoLevelActivation($twoLevelActivation = null)
@@ -55,7 +66,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getTwoLevelActivation()
     {
-        return (!$this->twoLevelActivation) ?: $this->twoLevelActivation->getValue();
+        return (!$this->twoLevelActivation) ?: $this->twoLevelActivation;
     }
 
     /**
@@ -71,7 +82,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getProvideDate()
     {
-        return (!$this->provideDate) ?: $this->provideDate->getValue();
+        return (!$this->provideDate) ?: $this->provideDate;
     }
 
     /**
@@ -87,7 +98,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getLastUnansweredCallOnly()
     {
-        return (!$this->lastUnansweredCallOnly) ?: $this->lastUnansweredCallOnly->getValue();
+        return (!$this->lastUnansweredCallOnly) ?: $this->lastUnansweredCallOnly;
     }
 
     /**
@@ -121,7 +132,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getAllowRestrictedNumber()
     {
-        return (!$this->allowRestrictedNumber) ?: $this->allowRestrictedNumber->getValue();
+        return (!$this->allowRestrictedNumber) ?: $this->allowRestrictedNumber;
     }
 
     /**
@@ -137,6 +148,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getDeleteNumberAfterAnsweredCallReturn()
     {
-        return (!$this->deleteNumberAfterAnsweredCallReturn) ?: $this->deleteNumberAfterAnsweredCallReturn->getValue();
+        return (!$this->deleteNumberAfterAnsweredCallReturn) ?: $this->deleteNumberAfterAnsweredCallReturn;
     }
 }

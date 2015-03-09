@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVideo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVideoAddOn\VideoAddOnMaxOriginatingCallDelaySeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVideoAddOn\UserVideoAddOnModifyResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's Video Add-On service setting.
+ * Modify the user's Video Add-On service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
         $this->setIsActive($isActive);
         $this->setMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
+    }
+
+    /**
+     * @return UserVideoAddOnModifyResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -77,7 +88,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

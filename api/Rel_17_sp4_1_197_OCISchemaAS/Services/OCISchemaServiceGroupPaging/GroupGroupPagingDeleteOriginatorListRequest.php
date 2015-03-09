@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingDeleteOriginatorListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete originator(s) from a paging group.
+ * Delete originator(s) from a paging group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setOriginatorUserId($originatorUserId);
+    }
+
+    /**
+     * @return GroupGroupPagingDeleteOriginatorListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

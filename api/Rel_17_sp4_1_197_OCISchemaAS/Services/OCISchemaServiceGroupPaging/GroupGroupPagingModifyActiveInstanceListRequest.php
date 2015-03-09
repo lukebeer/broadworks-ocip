@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingModifyActiveInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to set the active status of Group Paging instances.
+ * Request to set the active status of Group Paging instances.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupGroupPagingModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class GroupGroupPagingModifyActiveInstanceListRequest extends ComplexType implem
           $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
+    }
+
+    /**
+     * @return GroupGroupPagingModifyActiveInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

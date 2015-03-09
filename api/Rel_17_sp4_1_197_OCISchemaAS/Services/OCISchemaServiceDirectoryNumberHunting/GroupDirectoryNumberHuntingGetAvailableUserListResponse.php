@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetAvailableUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupDirectoryNumberHuntingGetAvailableUserListRequest.
+ * Response to the GroupDirectoryNumberHuntingGetAvailableUserListRequest.
  *         Contains a table with column headings: "User Id", "Last Name",
  *         "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
@@ -22,6 +25,13 @@ class GroupDirectoryNumberHuntingGetAvailableUserListResponse extends ComplexTyp
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return GroupDirectoryNumberHuntingGetAvailableUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

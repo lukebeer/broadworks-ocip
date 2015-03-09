@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest.
+ * Response to the SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest.
  *         The response contains the Digit Pattern Criteria information.
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse exten
     public    $name              = __CLASS__;
     protected $matchDigitPattern = null;
 
+    /**
+     * @return SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Digit patterns that are used to restrict calls Communicaton Barring.

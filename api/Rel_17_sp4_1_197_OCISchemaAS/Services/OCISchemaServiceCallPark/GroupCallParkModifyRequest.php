@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the Group's Call Park settings.
+ * Modifies the Group's Call Park settings.
  *         The response is either SuccessResponse or ErrorResponse.
  *         
  *         The following elements are only used in AS data mode:
@@ -61,6 +64,14 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
         $this->setRecallRingPattern($recallRingPattern);
         $this->setRecallTo($recallTo);
         $this->setAlternateUserRecallTimerSeconds($alternateUserRecallTimerSeconds);
+    }
+
+    /**
+     * @return GroupCallParkModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -152,7 +163,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getEnableDestinationAnnouncement()
     {
-        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement->getValue();
+        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement;
     }
 
     /**

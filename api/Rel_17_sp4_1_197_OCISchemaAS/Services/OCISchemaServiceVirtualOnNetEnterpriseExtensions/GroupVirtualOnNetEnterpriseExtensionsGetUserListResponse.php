@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest.
+ * Response to GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest.
  *         Contains a table with column headings: "Last Name", 
  *         "First Name", "Phone Number", "Extension", 
  *         "Virtual On-Net Call Type Name"
@@ -24,6 +27,13 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse extends ComplexTy
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceMonthInterval;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Monthly recurrence conference schedule used in the context of a conference add.
+ * Monthly recurrence conference schedule used in the context of a conference add.
  *         This type is extended by:
  *           InstantConferencingRecurrenceScheduleMonthlyByDay,
  *           InstantConferencingRecurrenceScheduleMonthlyByWeek.
  */
 class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly';
+    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly';
     public    $name                    = __CLASS__;
     protected $recurrenceMonthInterval = null;
 
@@ -28,6 +31,14 @@ class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implement
          $recurrenceMonthInterval
     ) {
         $this->setRecurrenceMonthInterval($recurrenceMonthInterval);
+    }
+
+    /**
+     * @return InstantConferencingRecurrenceScheduleMonthly
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

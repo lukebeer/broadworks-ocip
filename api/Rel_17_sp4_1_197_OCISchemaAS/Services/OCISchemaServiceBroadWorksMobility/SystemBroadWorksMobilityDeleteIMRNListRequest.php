@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityDeleteIMRNListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Removes a BroadWorks Mobility IMRN number from the system. 
+ * Removes a BroadWorks Mobility IMRN number from the system. 
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implemen
          $imrnNumber = null
     ) {
         $this->setImrnNumber($imrnNumber);
+    }
+
+    /**
+     * @return SystemBroadWorksMobilityDeleteIMRNListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

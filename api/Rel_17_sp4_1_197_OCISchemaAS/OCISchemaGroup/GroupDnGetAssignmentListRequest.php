@@ -15,19 +15,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of assigned and unassigned DNs in a group. Each DN can be assigned
+ * Get the list of assigned and unassigned DNs in a group. Each DN can be assigned
  *   to a user and/or department. Ranges of DNs with identical assignment and activation properties
  *   are coalesced to a single table row entry.
  *   The response is either a GroupDnGetAssignmentListResponse or an ErrorResponse.
  */
 class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse';
+    public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse';
     public    $name                            = __CLASS__;
     protected $serviceProviderId               = null;
     protected $groupId                         = null;
@@ -56,6 +59,14 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
         $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);
         $this->setSearchCriteriaExactDnDepartment($searchCriteriaExactDnDepartment);
         $this->setSearchCriteriaExactDnActivation($searchCriteriaExactDnActivation);
+    }
+
+    /**
+     * @return GroupDnGetAssignmentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

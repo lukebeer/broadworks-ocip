@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPortalPasscodeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's Portal passcode
+ * Modify the user's Portal passcode
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
         $this->setUserId($userId);
         $this->setOldPasscode($oldPasscode);
         $this->setNewPasscode($newPasscode);
+    }
+
+    /**
+     * @return UserPortalPasscodeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

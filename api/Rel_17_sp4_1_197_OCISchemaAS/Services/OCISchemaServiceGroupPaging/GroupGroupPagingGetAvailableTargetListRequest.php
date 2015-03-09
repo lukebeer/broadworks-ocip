@@ -13,18 +13,21 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableTargetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of users that can be assigned as targets to a given paging group.
+ * Get a list of users that can be assigned as targets to a given paging group.
  *         Searching for users by group only makes sense when the paging group is part of an Enterprise.
  *         The response is either GroupGroupPagingGetAvailableTargetListResponse or ErrorResponse.
  */
 class GroupGroupPagingGetAvailableTargetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableTargetListResponse';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableTargetListResponse';
     public    $name                              = __CLASS__;
     protected $serviceUserId                     = null;
     protected $responseSizeLimit                 = null;
@@ -47,6 +50,14 @@ class GroupGroupPagingGetAvailableTargetListRequest extends ComplexType implemen
         $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
         $this->setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
+    }
+
+    /**
+     * @return GroupGroupPagingGetAvailableTargetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

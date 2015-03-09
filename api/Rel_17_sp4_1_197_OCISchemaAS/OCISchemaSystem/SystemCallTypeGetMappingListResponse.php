@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetMappingListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallTypeGetMappingListRequest. The table columns are:
+ * Response to SystemCallTypeGetMappingListRequest. The table columns are:
  *         "Country Code", "Digit Map" and "Call Type".
  */
 class SystemCallTypeGetMappingListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemCallTypeGetMappingListResponse extends ComplexType implements Comple
     public    $name            = __CLASS__;
     protected $callTypeMapping = null;
 
+    /**
+     * @return SystemCallTypeGetMappingListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

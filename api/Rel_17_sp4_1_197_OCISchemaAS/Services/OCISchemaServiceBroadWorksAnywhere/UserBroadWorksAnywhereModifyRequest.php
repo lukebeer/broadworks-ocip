@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the user-level settings for the BroadWorks Anywhere service for a specified user.
+ * Request to modify the user-level settings for the BroadWorks Anywhere service for a specified user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserBroadWorksAnywhereModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
         $this->setUserId($userId);
         $this->setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls);
         $this->setAlertAllLocationsForGroupPagingCalls($alertAllLocationsForGroupPagingCalls);
+    }
+
+    /**
+     * @return UserBroadWorksAnywhereModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -72,7 +83,7 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls->getValue();
+        return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls;
     }
 
     /**
@@ -88,6 +99,6 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function getAlertAllLocationsForGroupPagingCalls()
     {
-        return (!$this->alertAllLocationsForGroupPagingCalls) ?: $this->alertAllLocationsForGroupPagingCalls->getValue();
+        return (!$this->alertAllLocationsForGroupPagingCalls) ?: $this->alertAllLocationsForGroupPagingCalls;
     }
 }

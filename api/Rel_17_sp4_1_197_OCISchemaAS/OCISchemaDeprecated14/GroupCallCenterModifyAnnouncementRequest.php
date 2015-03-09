@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterModifyAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's announcement settings.
+ * Modify a call center's announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements ComplexInterface
@@ -54,6 +57,14 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
         $this->setOnHoldMessageSelection($onHoldMessageSelection);
         $this->setOnHoldMessageAudioFile($onHoldMessageAudioFile);
         $this->setOnHoldMessageVideoFile($onHoldMessageVideoFile);
+    }
+
+    /**
+     * @return GroupCallCenterModifyAnnouncementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\DeviceManagementFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSIPDeviceTypeFileDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a sip device type file.
+ * Request to delete a sip device type file.
  *             The response is either SuccessResponse or ErrorResponse.
  *             Replaced By: SystemSIPDeviceTypeFileDeleteRequest14sp8
  */
@@ -30,6 +33,14 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
     ) {
         $this->setDeviceType($deviceType);
         $this->setFileType($fileType);
+    }
+
+    /**
+     * @return SystemSIPDeviceTypeFileDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

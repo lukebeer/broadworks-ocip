@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a file repository user.
+ * Delete a file repository user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
     ) {
         $this->setFileRepositoryName($fileRepositoryName);
         $this->setUserName($userName);
+    }
+
+    /**
+     * @return SystemFileRepositoryDeviceUserDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

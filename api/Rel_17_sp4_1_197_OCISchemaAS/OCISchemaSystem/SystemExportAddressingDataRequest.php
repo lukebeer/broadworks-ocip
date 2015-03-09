@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExportAddressingDataResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to export Application Server addressing data, such as DNs, extensions, alias and user ids
+ * Request to export Application Server addressing data, such as DNs, extensions, alias and user ids
  *         to a file so they can be uploaded to a Network Server.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -26,6 +29,14 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
          $fileName
     ) {
         $this->setFileName($fileName);
+    }
+
+    /**
+     * @return SystemExportAddressingDataResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

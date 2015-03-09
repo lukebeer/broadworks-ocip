@@ -25,12 +25,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAdd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingScheduledReportAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a group level call center reporting scheduled report.
+ * Request to add a group level call center reporting scheduled report.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexType implements ComplexInterface
@@ -102,6 +105,14 @@ class GroupCallCenterEnhancedReportingScheduledReportAddRequest extends ComplexT
         $this->setServiceLevelObjectivePercentage($serviceLevelObjectivePercentage);
         $this->setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds);
         $this->setEmailAddress($emailAddress);
+    }
+
+    /**
+     * @return GroupCallCenterEnhancedReportingScheduledReportAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

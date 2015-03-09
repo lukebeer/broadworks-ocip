@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Schedule
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleAddEventResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add an event to user schedule. 
+ * Add an event to user schedule. 
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserScheduleAddEventRequest extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
         $this->setStartDate($startDate);
         $this->setEndDate($endDate);
         $this->setRecurrence($recurrence);
+    }
+
+    /**
+     * @return UserScheduleAddEventResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

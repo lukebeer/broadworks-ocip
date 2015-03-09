@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallCenterReportingServerGetListRequest.  The table columns are:
+ * Response to SystemCallCenterReportingServerGetListRequest.  The table columns are:
  *         "Name", "URL", "Net Address", and "Description".
  */
 class SystemCallCenterReportingServerGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemCallCenterReportingServerGetListResponse extends ComplexType impleme
     public    $name                 = __CLASS__;
     protected $reportingServerTable = null;
 
+    /**
+     * @return SystemCallCenterReportingServerGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

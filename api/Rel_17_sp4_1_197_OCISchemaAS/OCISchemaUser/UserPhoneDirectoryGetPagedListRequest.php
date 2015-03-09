@@ -20,12 +20,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a table containing the phone directory for a user.  
+ * Request a table containing the phone directory for a user.  
  *         Setting isEnterpriseRequested to true will return enterprise directory
  *         members in the response if the user is in an enterprise. Otherwise,
  *         just the group directory members for a user are returned in the 
@@ -42,7 +45,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
     public    $name                              = __CLASS__;
     protected $userId                            = null;
     protected $isEnterpriseInfoRequested         = null;
@@ -95,6 +98,14 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
     }
 
     /**
+     * @return UserPhoneDirectoryGetPagedListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -133,7 +144,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function getIsEnterpriseInfoRequested()
     {
-        return (!$this->isEnterpriseInfoRequested) ?: $this->isEnterpriseInfoRequested->getValue();
+        return (!$this->isEnterpriseInfoRequested) ?: $this->isEnterpriseInfoRequested;
     }
 
     /**
@@ -169,7 +180,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
     }
 
     /**

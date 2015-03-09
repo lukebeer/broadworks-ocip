@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingPersonalDeletePhoneNumberResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete the phone number specified.
+ * Delete the phone number specified.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSimultaneousRingPersonalDeletePhoneNumberRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserSimultaneousRingPersonalDeletePhoneNumberRequest extends ComplexType i
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
+    }
+
+    /**
+     * @return UserSimultaneousRingPersonalDeletePhoneNumberResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

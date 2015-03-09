@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemVoiceMessagingGroupGetRequest16sp2.
+ * Response to SystemVoiceMessagingGroupGetRequest16sp2.
  */
 class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
@@ -47,6 +50,13 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
     protected $defaultExternalRoutingAddress        = null;
     protected $vmOnlySystem                         = null;
 
+    /**
+     * @return SystemVoiceMessagingGroupGetResponse16sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -61,7 +71,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getRealDeleteForImap()
     {
-        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap->getValue();
+        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap;
     }
 
     /**
@@ -77,7 +87,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getUseDnInMailBody()
     {
-        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->getValue();
+        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody;
     }
 
     /**
@@ -93,7 +103,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getUseShortSubjectLine()
     {
-        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->getValue();
+        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine;
     }
 
     /**
@@ -145,7 +155,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getDoesMessageAge()
     {
-        return (!$this->doesMessageAge) ?: $this->doesMessageAge->getValue();
+        return (!$this->doesMessageAge) ?: $this->doesMessageAge;
     }
 
     /**
@@ -269,7 +279,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getUseOutgoingMWIOnSMDI()
     {
-        return (!$this->useOutgoingMWIOnSMDI) ?: $this->useOutgoingMWIOnSMDI->getValue();
+        return (!$this->useOutgoingMWIOnSMDI) ?: $this->useOutgoingMWIOnSMDI;
     }
 
     /**
@@ -327,7 +337,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getEnterpriseVoicePortalLicensed()
     {
-        return (!$this->enterpriseVoicePortalLicensed) ?: $this->enterpriseVoicePortalLicensed->getValue();
+        return (!$this->enterpriseVoicePortalLicensed) ?: $this->enterpriseVoicePortalLicensed;
     }
 
     /**
@@ -343,7 +353,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getNetworkWideMessaging()
     {
-        return (!$this->networkWideMessaging) ?: $this->networkWideMessaging->getValue();
+        return (!$this->networkWideMessaging) ?: $this->networkWideMessaging;
     }
 
     /**
@@ -359,7 +369,7 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getUseExternalRouting()
     {
-        return (!$this->useExternalRouting) ?: $this->useExternalRouting->getValue();
+        return (!$this->useExternalRouting) ?: $this->useExternalRouting;
     }
 
     /**
@@ -407,6 +417,6 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function getVmOnlySystem()
     {
-        return (!$this->vmOnlySystem) ?: $this->vmOnlySystem->getValue();
+        return (!$this->vmOnlySystem) ?: $this->vmOnlySystem;
     }
 }

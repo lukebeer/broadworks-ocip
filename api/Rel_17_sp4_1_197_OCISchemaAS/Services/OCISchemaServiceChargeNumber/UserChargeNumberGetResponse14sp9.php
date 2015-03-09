@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceChargeNumber; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceChargeNumber\UserChargeNumberGetResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserChargeNumberGetRequest14sp9.
+ * Response to UserChargeNumberGetRequest14sp9.
  */
 class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
     protected $useChargeNumberForEnhancedTranslations = null;
     protected $sendChargeNumberToNetwork              = null;
 
+    /**
+     * @return UserChargeNumberGetResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Directory Number in E164 Format.
@@ -54,7 +64,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function getUseChargeNumberForEnhancedTranslations()
     {
-        return (!$this->useChargeNumberForEnhancedTranslations) ?: $this->useChargeNumberForEnhancedTranslations->getValue();
+        return (!$this->useChargeNumberForEnhancedTranslations) ?: $this->useChargeNumberForEnhancedTranslations;
     }
 
     /**
@@ -70,6 +80,6 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function getSendChargeNumberToNetwork()
     {
-        return (!$this->sendChargeNumberToNetwork) ?: $this->sendChargeNumberToNetwork->getValue();
+        return (!$this->sendChargeNumberToNetwork) ?: $this->sendChargeNumberToNetwork;
     }
 }

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetStandAloneConferenceCallRequest.
+ * Response to UserInstantConferencingGetStandAloneConferenceCallRequest.
  *         Contains the information of a conference call.
  *         The conferenceLegTable contains a table with column headings:
  *         "Is Leader", "Phone Number", "User Name", "Status" and "Leg Id".
@@ -30,6 +33,13 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
     protected $isPaused           = null;
     protected $conferenceLegTable = null;
 
+    /**
+     * @return UserInstantConferencingGetStandAloneConferenceCallResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -44,7 +54,7 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function getIsBridgeActive()
     {
-        return (!$this->isBridgeActive) ?: $this->isBridgeActive->getValue();
+        return (!$this->isBridgeActive) ?: $this->isBridgeActive;
     }
 
     /**
@@ -78,7 +88,7 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function getIsLocked()
     {
-        return (!$this->isLocked) ?: $this->isLocked->getValue();
+        return (!$this->isLocked) ?: $this->isLocked;
     }
 
     /**
@@ -94,7 +104,7 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function getIsRecording()
     {
-        return (!$this->isRecording) ?: $this->isRecording->getValue();
+        return (!$this->isRecording) ?: $this->isRecording;
     }
 
     /**
@@ -110,7 +120,7 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired->getValue();
+        return (!$this->isExpired) ?: $this->isExpired;
     }
 
     /**
@@ -126,7 +136,7 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function getIsPaused()
     {
-        return (!$this->isPaused) ?: $this->isPaused->getValue();
+        return (!$this->isPaused) ?: $this->isPaused;
     }
 
     /**

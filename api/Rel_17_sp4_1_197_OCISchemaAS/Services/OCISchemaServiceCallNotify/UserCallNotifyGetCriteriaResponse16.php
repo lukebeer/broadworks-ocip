@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallN
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyGetCriteriaResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallNotifyGetCriteriaRequest16.
+ * Response to the UserCallNotifyGetCriteriaRequest16.
  */
 class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
     protected $blacklisted     = null;
     protected $fromDnCriteria  = null;
 
+    /**
+     * @return UserCallNotifyGetCriteriaResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.
@@ -71,7 +81,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**

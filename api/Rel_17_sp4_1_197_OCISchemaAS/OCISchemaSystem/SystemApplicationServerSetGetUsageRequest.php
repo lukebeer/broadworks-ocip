@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get list of enterprises, service providers, and service provider groups currently associated to the specified Application Server set.
+ * Get list of enterprises, service providers, and service provider groups currently associated to the specified Application Server set.
  *         The response is either SystemApplicationServerSetGetUsageResponse or ErrorResponse.
  */
 class SystemApplicationServerSetGetUsageRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse';
     public    $name = __CLASS__;
     protected $name = null;
 
@@ -26,6 +29,14 @@ class SystemApplicationServerSetGetUsageRequest extends ComplexType implements C
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemApplicationServerSetGetUsageResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

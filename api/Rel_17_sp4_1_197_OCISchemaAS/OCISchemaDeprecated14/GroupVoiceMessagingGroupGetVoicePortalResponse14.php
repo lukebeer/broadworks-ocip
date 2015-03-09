@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupVoiceMessagingGroupGetVoicePortalResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupVoiceMessagingGroupGetVoicePortalRequest14.
+ * Response to the GroupVoiceMessagingGroupGetVoicePortalRequest14.
  *         Replaced by GroupVoiceMessagingGroupGetVoicePortalResponse15
  */
 class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType implements ComplexInterface
@@ -31,6 +34,13 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
     protected $useExternalRouting                                        = null;
     protected $externalRoutingAddress                                    = null;
 
+    /**
+     * @return GroupVoiceMessagingGroupGetVoicePortalResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
@@ -91,7 +101,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -107,7 +117,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
      */
     public function getAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin()
     {
-        return (!$this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) ?: $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->getValue();
+        return (!$this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) ?: $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin;
     }
 
     /**
@@ -123,7 +133,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
      */
     public function getUseVoicePortalWizard()
     {
-        return (!$this->useVoicePortalWizard) ?: $this->useVoicePortalWizard->getValue();
+        return (!$this->useVoicePortalWizard) ?: $this->useVoicePortalWizard;
     }
 
     /**
@@ -157,7 +167,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
      */
     public function getUseExternalRouting()
     {
-        return (!$this->useExternalRouting) ?: $this->useExternalRouting->getValue();
+        return (!$this->useExternalRouting) ?: $this->useExternalRouting;
     }
 
     /**

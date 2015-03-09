@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingModifyActiveInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to set the active status of Instant Conferencing instances.
+ * Request to set the active status of Instant Conferencing instances.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupInstantConferencingModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class GroupInstantConferencingModifyActiveInstanceListRequest extends ComplexTyp
           $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
+    }
+
+    /**
+     * @return GroupInstantConferencingModifyActiveInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

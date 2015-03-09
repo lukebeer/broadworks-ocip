@@ -24,12 +24,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddre
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceAddResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a group access device.
+ * Request to add a group access device.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupAccessDeviceAddRequest14 extends ComplexType implements ComplexInterface
@@ -101,6 +104,14 @@ class GroupAccessDeviceAddRequest14 extends ComplexType implements ComplexInterf
         $this->setMobilityManagerDefaultTerminatingServiceKey($mobilityManagerDefaultTerminatingServiceKey);
         $this->setUseCustomUserNamePassword($useCustomUserNamePassword);
         $this->setAccessDeviceCredentials($accessDeviceCredentials);
+    }
+
+    /**
+     * @return GroupAccessDeviceAddResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -462,7 +473,7 @@ class GroupAccessDeviceAddRequest14 extends ComplexType implements ComplexInterf
      */
     public function getUseCustomUserNamePassword()
     {
-        return (!$this->useCustomUserNamePassword) ?: $this->useCustomUserNamePassword->getValue();
+        return (!$this->useCustomUserNamePassword) ?: $this->useCustomUserNamePassword;
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionGetResponse13mp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderDigitCollectionGetRequest13mp4.
+ * Response to ServiceProviderDigitCollectionGetRequest13mp4.
  */
 class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
@@ -23,6 +26,13 @@ class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType impleme
     protected $publicDigitMap  = null;
     protected $privateDigitMap = null;
 
+    /**
+     * @return ServiceProviderDigitCollectionGetResponse13mp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Digit Collection Access Code.

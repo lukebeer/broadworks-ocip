@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackGetLineTypeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemLegacyAutomaticCallbackGetLineTypeListRequest. Returns a 3 column
+ * Response to SystemLegacyAutomaticCallbackGetLineTypeListRequest. Returns a 3 column
  *         table with column headings: "Line Type", "Match" and "No Match". The possible values
  *         for the "Match" and "No Match" columns are "Accept" and "Deny".
  */
@@ -22,6 +25,13 @@ class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType i
     public    $name          = __CLASS__;
     protected $lineTypeTable = null;
 
+    /**
+     * @return SystemLegacyAutomaticCallbackGetLineTypeListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

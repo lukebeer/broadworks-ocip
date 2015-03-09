@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallN
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyGetCriteriaResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a criteria for the user's call notify service.
+ * Get a criteria for the user's call notify service.
  *         The response is either a UserCallNotifyGetCriteriaResponse16 or an ErrorResponse.
  */
 class UserCallNotifyGetCriteriaRequest16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyGetCriteriaResponse16';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyGetCriteriaResponse16';
     public    $name         = __CLASS__;
     protected $userId       = null;
     protected $criteriaName = null;
@@ -30,6 +33,14 @@ class UserCallNotifyGetCriteriaRequest16 extends ComplexType implements ComplexI
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
+    }
+
+    /**
+     * @return UserCallNotifyGetCriteriaResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

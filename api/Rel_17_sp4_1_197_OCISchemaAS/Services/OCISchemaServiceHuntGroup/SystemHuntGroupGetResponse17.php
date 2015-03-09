@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup\HuntGroupUniformCallDistributionPolicyScope;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\SystemHuntGroupGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemHuntGroupGetRequest.
+ * Response to SystemHuntGroupGetRequest.
  */
 class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
     protected $removeHuntGroupNameFromCLID        = null;
     protected $uniformCallDistributionPolicyScope = null;
 
+    /**
+     * @return SystemHuntGroupGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
      */
     public function getAnonymousInsteadOfPrivateCLID()
     {
-        return (!$this->anonymousInsteadOfPrivateCLID) ?: $this->anonymousInsteadOfPrivateCLID->getValue();
+        return (!$this->anonymousInsteadOfPrivateCLID) ?: $this->anonymousInsteadOfPrivateCLID;
     }
 
     /**
@@ -52,7 +62,7 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
      */
     public function getRemoveHuntGroupNameFromCLID()
     {
-        return (!$this->removeHuntGroupNameFromCLID) ?: $this->removeHuntGroupNameFromCLID->getValue();
+        return (!$this->removeHuntGroupNameFromCLID) ?: $this->removeHuntGroupNameFromCLID;
     }
 
     /**

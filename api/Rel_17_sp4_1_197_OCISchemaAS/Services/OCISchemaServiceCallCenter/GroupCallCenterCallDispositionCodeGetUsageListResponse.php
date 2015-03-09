@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCallDispositionCodeGetUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterCallDispositionCodeGetUsageListRequest.
+ * Response to the GroupCallCenterCallDispositionCodeGetUsageListRequest.
  *         The Type column contains either "Call Center" or "Route Point".
  *         Contains a table with column headings: "Id", "Name" and "Type".
  */
@@ -22,6 +25,13 @@ class GroupCallCenterCallDispositionCodeGetUsageListResponse extends ComplexType
     public    $name            = __CLASS__;
     protected $callCenterTable = null;
 
+    /**
+     * @return GroupCallCenterCallDispositionCodeGetUsageListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

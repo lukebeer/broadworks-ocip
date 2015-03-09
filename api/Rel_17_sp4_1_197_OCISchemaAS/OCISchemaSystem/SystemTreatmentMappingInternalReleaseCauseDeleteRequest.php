@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\InternalReleaseCause16;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingInternalReleaseCauseDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete an Internal Release Cause mapping.
+ * Delete an Internal Release Cause mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexTyp
          $internalReleaseCause
     ) {
         $this->setInternalReleaseCause($internalReleaseCause);
+    }
+
+    /**
+     * @return SystemTreatmentMappingInternalReleaseCauseDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingAddInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Meet-Me Conferencing bridge to a group.
+ * Add a Meet-Me Conferencing bridge to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -56,6 +59,14 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
         $this->setAllowIndividualOutDial($allowIndividualOutDial);
         $this->setOperatorNumber($operatorNumber);
         $this->setConferenceHostUserId($conferenceHostUserId);
+    }
+
+    /**
+     * @return GroupMeetMeConferencingAddInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -187,7 +198,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getAllowIndividualOutDial()
     {
-        return (!$this->allowIndividualOutDial) ?: $this->allowIndividualOutDial->getValue();
+        return (!$this->allowIndividualOutDial) ?: $this->allowIndividualOutDial;
     }
 
     /**

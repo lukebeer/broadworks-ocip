@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingNumber;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSimultaneousRingFamilyGetRequest17.
+ * Response to the UserSimultaneousRingFamilyGetRequest17.
  *         Contains a criteria table wich column heading: "Is Active", "Criteria Name", "Time Schedule", "Holiday Schedule", "Calls From" and "Blacklisted".
  */
 class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
     protected $simultaneousRingNumber = null;
     protected $criteriaTable          = null;
 
+    /**
+     * @return UserSimultaneousRingFamilyGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -54,7 +64,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
      */
     public function getDoNotRingIfOnCall()
     {
-        return (!$this->doNotRingIfOnCall) ?: $this->doNotRingIfOnCall->getValue();
+        return (!$this->doNotRingIfOnCall) ?: $this->doNotRingIfOnCall;
     }
 
     /**

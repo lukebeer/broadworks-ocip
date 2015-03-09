@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSeriesCompletion; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupSeriesCompletionGetInstanceRequest.
+ * Response to the GroupSeriesCompletionGetInstanceRequest.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class GroupSeriesCompletionGetInstanceResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupSeriesCompletionGetInstanceResponse extends ComplexType implements Co
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return GroupSeriesCompletionGetInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterMediaOnHoldSourceRead17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterGetDNISAnnouncementResponse.
+ * Response to the GroupCallCenterGetDNISAnnouncementResponse.
  */
 class GroupCallCenterGetDNISAnnouncementResponse extends ComplexType implements ComplexInterface
 {
@@ -57,6 +60,13 @@ class GroupCallCenterGetDNISAnnouncementResponse extends ComplexType implements 
     protected $whisperMessageVideoMediaTypeList         = null;
     protected $estimatedWaitMessageOptionsRead          = null;
 
+    /**
+     * @return GroupCallCenterGetDNISAnnouncementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -71,7 +81,7 @@ class GroupCallCenterGetDNISAnnouncementResponse extends ComplexType implements 
      */
     public function getPlayEntranceMessage()
     {
-        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage->getValue();
+        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage;
     }
 
     /**
@@ -87,7 +97,7 @@ class GroupCallCenterGetDNISAnnouncementResponse extends ComplexType implements 
      */
     public function getMandatoryEntranceMessage()
     {
-        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage->getValue();
+        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage;
     }
 
     /**
@@ -235,7 +245,7 @@ class GroupCallCenterGetDNISAnnouncementResponse extends ComplexType implements 
      */
     public function getPlayPeriodicComfortMessage()
     {
-        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage->getValue();
+        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage;
     }
 
     /**
@@ -401,7 +411,7 @@ class GroupCallCenterGetDNISAnnouncementResponse extends ComplexType implements 
      */
     public function getEnableMediaOnHoldForQueuedCalls()
     {
-        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls->getValue();
+        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls;
     }
 
     /**
@@ -433,7 +443,7 @@ class GroupCallCenterGetDNISAnnouncementResponse extends ComplexType implements 
      */
     public function getPlayWhisperMessage()
     {
-        return (!$this->playWhisperMessage) ?: $this->playWhisperMessage->getValue();
+        return (!$this->playWhisperMessage) ?: $this->playWhisperMessage;
     }
 
     /**

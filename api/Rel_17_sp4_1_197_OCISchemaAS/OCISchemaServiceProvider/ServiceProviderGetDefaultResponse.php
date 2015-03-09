@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetDefaultResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderGetDefaultRequest. All values are default values for
+ * Response to the ServiceProviderGetDefaultRequest. All values are default values for
  *         a service provider or enterprise's profile.
  */
 class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexInterface
@@ -22,6 +25,13 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
     protected $isEnterprise  = null;
     protected $defaultDomain = null;
 
+    /**
+     * @return ServiceProviderGetDefaultResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
      */
     public function getIsEnterprise()
     {
-        return (!$this->isEnterprise) ?: $this->isEnterprise->getValue();
+        return (!$this->isEnterprise) ?: $this->isEnterprise;
     }
 
     /**

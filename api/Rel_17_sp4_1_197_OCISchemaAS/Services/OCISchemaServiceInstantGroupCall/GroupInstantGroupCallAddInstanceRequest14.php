@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallAddInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add an Instant Group Call service instance to a group.
+ * Request to add an Instant Group Call service instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -49,6 +52,14 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->setDestinationPhoneNumber($destinationPhoneNumber);
         $this->setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled);
         $this->setAnswerTimeoutMinutes($answerTimeoutMinutes);
+    }
+
+    /**
+     * @return GroupInstantGroupCallAddInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -178,7 +189,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
      */
     public function getIsAnswerTimeoutEnabled()
     {
-        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->getValue();
+        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled;
     }
 
     /**

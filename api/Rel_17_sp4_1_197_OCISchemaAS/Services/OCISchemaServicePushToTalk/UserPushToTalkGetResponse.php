@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePushT
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkOutgoingConnectionSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkAccessListSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePushToTalk\UserPushToTalkGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserPushToTalkGetRequest.  It returns the service settings and a
+ * Response to UserPushToTalkGetRequest.  It returns the service settings and a
  *         5 column selected user table with the following column headings:
  *           "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
  */
@@ -26,6 +29,13 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
     protected $accessListSelection         = null;
     protected $selectedUserTable           = null;
 
+    /**
+     * @return UserPushToTalkGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -40,7 +50,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAllowAutoAnswer()
     {
-        return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer->getValue();
+        return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer;
     }
 
     /**

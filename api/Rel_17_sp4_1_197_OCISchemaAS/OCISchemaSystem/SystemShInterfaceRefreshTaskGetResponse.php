@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceRefreshTaskGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemShInterfaceRefreshTaskGetRequest.  Provides the status of the system refresh task.  If isRunning is false, numberPublicIdentityRefreshStarted and numberPublicIdentities are omitted.  If isRunning is true, numberPublicIdentities indicates the total number of public identities in the system that will be refreshed by the system refresh task; numberPublicIdentityRefreshesStarted indicates the total number of public identities for which a refresh has been started.
+ * Response to SystemShInterfaceRefreshTaskGetRequest.  Provides the status of the system refresh task.  If isRunning is false, numberPublicIdentityRefreshStarted and numberPublicIdentities are omitted.  If isRunning is true, numberPublicIdentities indicates the total number of public identities in the system that will be refreshed by the system refresh task; numberPublicIdentityRefreshesStarted indicates the total number of public identities for which a refresh has been started.
  */
 class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
     protected $numberPublicIdentityRefreshesStarted = null;
     protected $numberPublicIdentities               = null;
 
+    /**
+     * @return SystemShInterfaceRefreshTaskGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
      */
     public function getIsRunning()
     {
-        return (!$this->isRunning) ?: $this->isRunning->getValue();
+        return (!$this->isRunning) ?: $this->isRunning;
     }
 
     /**
@@ -52,7 +62,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
      */
     public function getNumberPublicIdentityRefreshesStarted()
     {
-        return (!$this->numberPublicIdentityRefreshesStarted) ?: $this->numberPublicIdentityRefreshesStarted->getValue();
+        return (!$this->numberPublicIdentityRefreshesStarted) ?: $this->numberPublicIdentityRefreshesStarted;
     }
 
     /**
@@ -68,6 +78,6 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
      */
     public function getNumberPublicIdentities()
     {
-        return (!$this->numberPublicIdentities) ?: $this->numberPublicIdentities->getValue();
+        return (!$this->numberPublicIdentities) ?: $this->numberPublicIdentities;
     }
 }

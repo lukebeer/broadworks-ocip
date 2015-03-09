@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallCenterEnhancedReportingGetRequest.
+ * Response to SystemCallCenterEnhancedReportingGetRequest.
  */
 class SystemCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemCallCenterEnhancedReportingGetResponse extends ComplexType implement
     protected $reportApplicationURL     = null;
     protected $repositoryApplicationURL = null;
 
+    /**
+     * @return SystemCallCenterEnhancedReportingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class SystemCallCenterEnhancedReportingGetResponse extends ComplexType implement
      */
     public function getArchiveReports()
     {
-        return (!$this->archiveReports) ?: $this->archiveReports->getValue();
+        return (!$this->archiveReports) ?: $this->archiveReports;
     }
 
     /**

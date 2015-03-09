@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingGetChargingFunctionElementServerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAccountingGetChargingFunctionElementServerListRequest. The accounting charging function element Server table column
+ * Response to SystemAccountingGetChargingFunctionElementServerListRequest. The accounting charging function element Server table column
  *         headings are: "Address", "Extended Net Address", "Type", "Description".
  */
 class SystemAccountingGetChargingFunctionElementServerListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemAccountingGetChargingFunctionElementServerListResponse extends Compl
     public    $name                               = __CLASS__;
     protected $chargingFunctionElementServerTable = null;
 
+    /**
+     * @return SystemAccountingGetChargingFunctionElementServerListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

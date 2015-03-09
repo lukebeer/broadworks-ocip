@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemRoutePointExternalSystemGetListRequest.
+ * Response to the SystemRoutePointExternalSystemGetListRequest.
  * 
  *       Contains a table with column headings:
  *       "External System", "Description".
@@ -23,6 +26,13 @@ class SystemRoutePointExternalSystemGetListResponse extends ComplexType implemen
     public    $name                = __CLASS__;
     protected $externalSystemTable = null;
 
+    /**
+     * @return SystemRoutePointExternalSystemGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

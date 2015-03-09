@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNorSIPURIList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSimultaneousRingFamilyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's simultaneous ring family service setting.
+ * Modify the user's simultaneous ring family service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced By: UserSimultaneousRingFamilyModifyRequest14sp4
  */
@@ -37,6 +40,14 @@ class UserSimultaneousRingFamilyModifyRequest extends ComplexType implements Com
         $this->setIsActive($isActive);
         $this->setIncomingCalls($incomingCalls);
         $this->setSimRingPhoneNumberList($simRingPhoneNumberList);
+    }
+
+    /**
+     * @return UserSimultaneousRingFamilyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -78,7 +89,7 @@ class UserSimultaneousRingFamilyModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

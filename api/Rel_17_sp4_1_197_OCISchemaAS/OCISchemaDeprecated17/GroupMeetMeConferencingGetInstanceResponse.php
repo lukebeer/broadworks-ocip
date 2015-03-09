@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupMeetMeConferencingGetInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupMeetMeConferencingGetInstanceRequest.
+ * Response to GroupMeetMeConferencingGetInstanceRequest.
  *         Contains the service profile information and a table of assigned hosts.
  *         The table has column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", and "Hiragana First Name".
  */
@@ -30,6 +33,13 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
     protected $operatorNumber          = null;
     protected $conferenceHostUserTable = null;
 
+    /**
+     * @return GroupMeetMeConferencingGetInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -98,7 +108,7 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function getAllowIndividualOutDial()
     {
-        return (!$this->allowIndividualOutDial) ?: $this->allowIndividualOutDial->getValue();
+        return (!$this->allowIndividualOutDial) ?: $this->allowIndividualOutDial;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation\SystemPhysicalLocationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemPhysicalLocationGetRequest.
+ * Response to SystemPhysicalLocationGetRequest.
  *         Contains a list of system Physical Location parameters.
  */
 class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexIn
     public    $name                      = __CLASS__;
     protected $alwaysAllowEmergencyCalls = null;
 
+    /**
+     * @return SystemPhysicalLocationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,6 +45,6 @@ class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlwaysAllowEmergencyCalls()
     {
-        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls->getValue();
+        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls;
     }
 }

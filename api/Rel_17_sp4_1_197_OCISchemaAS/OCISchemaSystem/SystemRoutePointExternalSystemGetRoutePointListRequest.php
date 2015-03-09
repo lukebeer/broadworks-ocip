@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of Route Points that are using the specified Route Point External System.  
+ * Get a list of Route Points that are using the specified Route Point External System.  
  *       The response is either a SystemRoutePointExternalSystemGetRoutePointListResponse or an
  *       ErrorResponse.
  */
 class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse';
+    public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse';
     public    $name                     = __CLASS__;
     protected $routePointExternalSystem = null;
 
@@ -27,6 +30,14 @@ class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType
          $routePointExternalSystem
     ) {
         $this->setRoutePointExternalSystem($routePointExternalSystem);
+    }
+
+    /**
+     * @return SystemRoutePointExternalSystemGetRoutePointListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

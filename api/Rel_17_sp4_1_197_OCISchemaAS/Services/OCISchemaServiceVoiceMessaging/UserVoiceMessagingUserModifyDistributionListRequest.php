@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingDistributionListId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNorSIPURIList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserModifyDistributionListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a voice mail distribution list for a users voice message.
+ * Modify a voice mail distribution list for a users voice message.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
         $this->setListId($listId);
         $this->setDescription($description);
         $this->setPhoneNumberList($phoneNumberList);
+    }
+
+    /**
+     * @return UserVoiceMessagingUserModifyDistributionListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

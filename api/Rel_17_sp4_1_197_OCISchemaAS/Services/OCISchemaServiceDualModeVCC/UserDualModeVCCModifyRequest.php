@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDualM
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDualModeVCC\DualModeVCCSubscriberUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DualModeVCCSubscriberPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDualModeVCC\UserDualModeVCCModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the user level IN Integration service attributes
+ * Request to modify the user level IN Integration service attributes
  *         Response is either UserINIntegrationGetResponse or ErrorResponse
  */
 class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
         $this->setUserId($userId);
         $this->setSubscriberUserName($subscriberUserName);
         $this->setSubscriberPassword($subscriberPassword);
+    }
+
+    /**
+     * @return UserDualModeVCCModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

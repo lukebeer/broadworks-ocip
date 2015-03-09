@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\RecordingOption;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\UserCallRecordingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallRecordingGetRequest.
+ * Response to the UserCallRecordingGetRequest.
  *         The response contains the user's Call Recording option information.
  */
 class UserCallRecordingGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class UserCallRecordingGetResponse extends ComplexType implements ComplexInterfa
     public    $name            = __CLASS__;
     protected $recordingOption = null;
 
+    /**
+     * @return UserCallRecordingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Recording Service Configuration.

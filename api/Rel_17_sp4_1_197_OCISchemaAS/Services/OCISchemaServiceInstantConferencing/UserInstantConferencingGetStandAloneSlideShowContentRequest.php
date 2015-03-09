@@ -10,18 +10,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideShowPasswordHex;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingDocumentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get slide show content of a recorded conference.
+ * Get slide show content of a recorded conference.
  *         The response is either UserInstantConferencingGetStandAloneSlideShowContentResponse
  *         or ErrorResponse.
  */
 class UserInstantConferencingGetStandAloneSlideShowContentRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse';
     public    $name                  = __CLASS__;
     protected $bridgeServiceUserId   = null;
     protected $conferenceOwnerUserId = null;
@@ -38,6 +41,14 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setDocumentId($documentId);
         $this->setSlideshowPasswordHex($slideshowPasswordHex);
+    }
+
+    /**
+     * @return UserInstantConferencingGetStandAloneSlideShowContentResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAutoAttendantGetInstanceRequest17sp1.
+ * Response to GroupAutoAttendantGetInstanceRequest17sp1.
  *         Contains the service profile information.
  */
 class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements ComplexInterface
@@ -34,6 +37,13 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
     protected $businessHoursMenu      = null;
     protected $afterHoursMenu         = null;
 
+    /**
+     * @return GroupAutoAttendantGetInstanceResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -66,7 +76,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**

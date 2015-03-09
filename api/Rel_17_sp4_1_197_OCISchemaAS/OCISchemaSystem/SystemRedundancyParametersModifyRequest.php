@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RedundancyRollBackTimerMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRedundancyParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Redundancy system parameters.
+ * Request to modify Redundancy system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemRedundancyParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
     ) {
         $this->setRollBackTimerMinutes($rollBackTimerMinutes);
         $this->setSendSipOptionMessageUponMigration($sendSipOptionMessageUponMigration);
+    }
+
+    /**
+     * @return SystemRedundancyParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -61,6 +72,6 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
      */
     public function getSendSipOptionMessageUponMigration()
     {
-        return (!$this->sendSipOptionMessageUponMigration) ?: $this->sendSipOptionMessageUponMigration->getValue();
+        return (!$this->sendSipOptionMessageUponMigration) ?: $this->sendSipOptionMessageUponMigration;
     }
 }

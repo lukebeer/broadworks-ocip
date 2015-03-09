@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneNetAddressDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Deletes a list of IP addresses from a zone
+ * Deletes a list of IP addresses from a zone
  *         The response is SuccessResponse or an ErrorResponse.
  */
 class SystemZoneNetAddressDeleteListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
         $this->setZoneName($zoneName);
         $this->setNetAddress($netAddress);
         $this->setNetAddressRange($netAddressRange);
+    }
+
+    /**
+     * @return SystemZoneNetAddressDeleteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

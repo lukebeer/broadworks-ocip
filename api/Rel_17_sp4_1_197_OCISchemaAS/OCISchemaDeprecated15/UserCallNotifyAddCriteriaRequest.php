@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Criteria
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallNotifyAddCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a criteria to the user's call notify service.        
+ * Add a criteria to the user's call notify service.        
  *          The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInt
         $this->setCriteriaName($criteriaName);
         $this->setTimeSchedule($timeSchedule);
         $this->setFromDnCriteria($fromDnCriteria);
+    }
+
+    /**
+     * @return UserCallNotifyAddCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCode
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCodeMaxCallWaitingTones;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCountryCodeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the attributes of a country code.
+ * Modify the attributes of a country code.
  *         If becomeDefaultCountryCode is true, the country code
  *         in this request becomes the default country code for the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -53,6 +56,14 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
         $this->setBecomeDefaultCountryCode($becomeDefaultCountryCode);
         $this->setMaxCallWaitingTones($maxCallWaitingTones);
         $this->setTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds);
+    }
+
+    /**
+     * @return SystemCountryCodeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -122,7 +133,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
      */
     public function getEnableNationalPrefix()
     {
-        return (!$this->enableNationalPrefix) ?: $this->enableNationalPrefix->getValue();
+        return (!$this->enableNationalPrefix) ?: $this->enableNationalPrefix;
     }
 
     /**
@@ -156,7 +167,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
      */
     public function getBecomeDefaultCountryCode()
     {
-        return (!$this->becomeDefaultCountryCode) ?: $this->becomeDefaultCountryCode->getValue();
+        return (!$this->becomeDefaultCountryCode) ?: $this->becomeDefaultCountryCode;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupApplicationServerSetGetRequest.
+ * Response to the GroupApplicationServerSetGetRequest.
  *         The response contains the group's Application Server set information.
  */
 class GroupApplicationServerSetGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupApplicationServerSetGetResponse extends ComplexType implements Comple
     public    $name                     = __CLASS__;
     protected $applicationServerSetName = null;
 
+    /**
+     * @return GroupApplicationServerSetGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Application Server set name.

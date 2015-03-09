@@ -21,12 +21,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdm
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminProfileAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetPolicyResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAdminGetPolicyRequest17sp3.
+ * Response to GroupAdminGetPolicyRequest17sp3.
  *         Contains the policy settings for the group administrator.
  *         The following elements are only used in AS data mode:
  *             dialableCallerIDAccess
@@ -49,6 +52,13 @@ class GroupAdminGetPolicyResponse17sp3 extends ComplexType implements ComplexInt
     protected $officeZoneAccess              = null;
     protected $dialableCallerIDAccess        = null;
 
+    /**
+     * @return GroupAdminGetPolicyResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Policy for a group administrator's access to the group profile.

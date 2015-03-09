@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\Holiday;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemHolidayScheduleAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a system holiday schedule.
+ * Add a system holiday schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInterface
@@ -86,6 +89,14 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
         $this->setHoliday18($holiday18);
         $this->setHoliday19($holiday19);
         $this->setHoliday20($holiday20);
+    }
+
+    /**
+     * @return SystemHolidayScheduleAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

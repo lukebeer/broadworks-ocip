@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\Se
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the properties of a specified service pack migration task.
+ * Modify the properties of a specified service pack migration task.
  *         Modification is only allowed prior to task execution.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -60,6 +63,14 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
         $this->setAbortErrorThreshold($abortErrorThreshold);
         $this->setReportAllUsers($reportAllUsers);
         $this->setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity);
+    }
+
+    /**
+     * @return ServiceProviderServicePackMigrationTaskModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -165,7 +176,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getSendReportEmail()
     {
-        return (!$this->sendReportEmail) ?: $this->sendReportEmail->getValue();
+        return (!$this->sendReportEmail) ?: $this->sendReportEmail;
     }
 
     /**
@@ -199,7 +210,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getAbortOnError()
     {
-        return (!$this->abortOnError) ?: $this->abortOnError->getValue();
+        return (!$this->abortOnError) ?: $this->abortOnError;
     }
 
     /**
@@ -233,7 +244,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getReportAllUsers()
     {
-        return (!$this->reportAllUsers) ?: $this->reportAllUsers->getValue();
+        return (!$this->reportAllUsers) ?: $this->reportAllUsers;
     }
 
     /**
@@ -249,6 +260,6 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {
-        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity->getValue();
+        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity;
     }
 }

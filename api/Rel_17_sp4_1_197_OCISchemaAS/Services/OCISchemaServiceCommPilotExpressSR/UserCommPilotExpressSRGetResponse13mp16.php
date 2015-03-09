@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRUnavailable;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRBusy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCommPilotExpressSRGetRequest13mp16.
+ * Response to the UserCommPilotExpressSRGetRequest13mp16.
  */
 class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
@@ -28,6 +31,13 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
     protected $busy                 = null;
     protected $unavailable          = null;
 
+    /**
+     * @return UserCommPilotExpressSRGetResponse13mp16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * CommPilot Express SR Profile Type.

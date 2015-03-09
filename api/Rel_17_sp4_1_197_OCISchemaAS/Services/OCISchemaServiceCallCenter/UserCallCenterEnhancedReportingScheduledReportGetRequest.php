@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get a call center reporting scheduled report created by supervisor.
+ * Request to get a call center reporting scheduled report created by supervisor.
  *         The response is either a UserCallCenterEnhancedReportingScheduledReportGetResponse or an ErrorResponse.
  */
 class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportGetResponse';
+    public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportGetResponse';
     public    $name             = __CLASS__;
     protected $supervisorUserId = null;
     protected $name             = null;
@@ -30,6 +33,14 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setName($name);
+    }
+
+    /**
+     * @return UserCallCenterEnhancedReportingScheduledReportGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

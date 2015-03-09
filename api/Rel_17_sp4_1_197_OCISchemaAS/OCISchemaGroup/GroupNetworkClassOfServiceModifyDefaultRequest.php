@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNetworkClassOfServiceModifyDefaultResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the default Network Classes of Service of a group.
+ * Modifies the default Network Classes of Service of a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType impleme
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setNetworkClassOfService($networkClassOfService);
+    }
+
+    /**
+     * @return GroupNetworkClassOfServiceModifyDefaultResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

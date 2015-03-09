@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get the list of custom configuration tags managed by the Device Management System, on a per-device profile basis.
+ * Request to get the list of custom configuration tags managed by the Device Management System, on a per-device profile basis.
  *         The response is either SystemAccessDeviceCustomTagGetListResponse or ErrorResponse.
  */
 class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagGetListResponse';
     public    $name       = __CLASS__;
     protected $deviceName = null;
 
@@ -26,6 +29,14 @@ class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements C
          $deviceName
     ) {
         $this->setDeviceName($deviceName);
+    }
+
+    /**
+     * @return SystemAccessDeviceCustomTagGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

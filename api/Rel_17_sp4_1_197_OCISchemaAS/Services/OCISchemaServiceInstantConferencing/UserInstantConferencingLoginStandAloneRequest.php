@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Handles stand alone login. Return a set of information for the user.
+ * Handles stand alone login. Return a set of information for the user.
  *         The response is either UserInstantConferencingLoginStandAloneResponse or ErrorResponse.
  */
 class UserInstantConferencingLoginStandAloneRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
     public    $name                  = __CLASS__;
     protected $bridgeServiceUserId   = null;
     protected $conferenceOwnerUserId = null;
@@ -29,6 +32,14 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
     ) {
         $this->setBridgeServiceUserId($bridgeServiceUserId);
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
+    }
+
+    /**
+     * @return UserInstantConferencingLoginStandAloneResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

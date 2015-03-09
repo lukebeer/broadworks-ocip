@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetAddressExtended;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingDeleteChargingFunctionElementServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a ChargingFunctionElementServer from the system.
+ * Request to delete a ChargingFunctionElementServer from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingDeleteChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemAccountingDeleteChargingFunctionElementServerRequest extends Complex
          $address
     ) {
         $this->setAddress($address);
+    }
+
+    /**
+     * @return SystemAccountingDeleteChargingFunctionElementServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

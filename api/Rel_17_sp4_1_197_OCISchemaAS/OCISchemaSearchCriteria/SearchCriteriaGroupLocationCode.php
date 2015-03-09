@@ -9,16 +9,19 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LocationDialingCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupLocationCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Criteria for searching for a group location dialing code.
+ * Criteria for searching for a group location dialing code.
  */
 class SearchCriteriaGroupLocationCode extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupLocationCode';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupLocationCode';
     public    $name              = __CLASS__;
     protected $mode              = null;
     protected $value             = null;
@@ -32,6 +35,14 @@ class SearchCriteriaGroupLocationCode extends ComplexType implements ComplexInte
         $this->setMode($mode);
         $this->setValue($value);
         $this->setIsCaseInsensitive($isCaseInsensitive);
+    }
+
+    /**
+     * @return SearchCriteriaGroupLocationCode
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,6 +94,6 @@ class SearchCriteriaGroupLocationCode extends ComplexType implements ComplexInte
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
     }
 }

@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Transpor
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingModifyDeviceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify an Instant Conferencing device in the system.
+ * Request to modify an Instant Conferencing device in the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType implements ComplexInterface
@@ -45,6 +48,14 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         $this->setDescription($description);
         $this->setIntegrated($integrated);
         $this->setTransportProtocol($transportProtocol);
+    }
+
+    /**
+     * @return SystemInstantConferencingModifyDeviceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

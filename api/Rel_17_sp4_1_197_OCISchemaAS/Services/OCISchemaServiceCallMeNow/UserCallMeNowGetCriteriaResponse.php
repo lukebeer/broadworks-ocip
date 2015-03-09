@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallM
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowToDnCriteria;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\UserCallMeNowGetCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallMeNowGetCriteriaRequest.
+ * Response to the UserCallMeNowGetCriteriaRequest.
  */
 class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
     protected $rejectCall      = null;
     protected $toDnCriteria    = null;
 
+    /**
+     * @return UserCallMeNowGetCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.
@@ -71,7 +81,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function getRejectCall()
     {
-        return (!$this->rejectCall) ?: $this->rejectCall->getValue();
+        return (!$this->rejectCall) ?: $this->rejectCall;
     }
 
     /**

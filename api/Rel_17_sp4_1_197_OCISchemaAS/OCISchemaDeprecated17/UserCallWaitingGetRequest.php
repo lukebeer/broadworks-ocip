@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserCallWaitingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the user level data associated with Call Waiting.
+ * Request the user level data associated with Call Waiting.
  *         The response is either a UserCallWaitingGetResponse or an
  *         ErrorResponse.
  *         Replaced by: UserCallWaitingGetRequest17sp4
  */
 class UserCallWaitingGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserCallWaitingGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserCallWaitingGetResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -28,6 +31,14 @@ class UserCallWaitingGetRequest extends ComplexType implements ComplexInterface
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserCallWaitingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

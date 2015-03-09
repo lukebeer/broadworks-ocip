@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPattern;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new Communication Barring Digit Pattern Criteria.
+ * Add a new Communication Barring Digit Pattern Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
         $this->setName($name);
         $this->setDescription($description);
         $this->setMatchDigitPattern($matchDigitPattern);
+    }
+
+    /**
+     * @return SystemCommunicationBarringDigitPatternCriteriaAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

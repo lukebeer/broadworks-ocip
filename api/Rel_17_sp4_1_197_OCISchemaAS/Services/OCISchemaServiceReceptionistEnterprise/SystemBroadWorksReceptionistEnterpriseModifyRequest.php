@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaximumMonitoredUsers;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\SystemBroadWorksReceptionistEnterpriseModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify BroadWorks Receptionist - Enterprise settings.
+ * Request to modify BroadWorks Receptionist - Enterprise settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType im
          $maxMonitoredUsers = null
     ) {
         $this->setMaxMonitoredUsers($maxMonitoredUsers);
+    }
+
+    /**
+     * @return SystemBroadWorksReceptionistEnterpriseModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

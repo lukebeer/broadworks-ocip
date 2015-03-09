@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterForcedForwardingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's forced forwarding settings.
+ * Modify a call center's forced forwarding settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implements ComplexInterface
@@ -52,6 +55,14 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
         $this->setAudioFile($audioFile);
         $this->setVideoMessageSelection($videoMessageSelection);
         $this->setVideoFile($videoFile);
+    }
+
+    /**
+     * @return GroupCallCenterForcedForwardingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -93,7 +104,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -141,7 +152,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getAllowEnableViaFAC()
     {
-        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC->getValue();
+        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC;
     }
 
     /**
@@ -157,7 +168,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding->getValue();
+        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding;
     }
 
     /**

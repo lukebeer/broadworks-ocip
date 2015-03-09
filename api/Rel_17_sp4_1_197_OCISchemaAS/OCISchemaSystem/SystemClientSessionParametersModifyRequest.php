@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ClientSessionTimeoutMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemClientSessionParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Client Session (web and CLI) system parameters.
+ * Request to modify Client Session (web and CLI) system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemClientSessionParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
     }
 
     /**
+     * @return SystemClientSessionParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setEnableInactivityTimeout($enableInactivityTimeout = null)
@@ -43,7 +54,7 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
      */
     public function getEnableInactivityTimeout()
     {
-        return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout->getValue();
+        return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout;
     }
 
     /**

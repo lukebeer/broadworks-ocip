@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\UserCallWaitingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Call Waiting.
+ * Modify the user level data associated with Call Waiting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         
  *         The following elements are only used in AS data mode:
@@ -34,6 +37,14 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
         $this->setUserId($userId);
         $this->setIsActive($isActive);
         $this->setDisableCallingLineIdDelivery($disableCallingLineIdDelivery);
+    }
+
+    /**
+     * @return UserCallWaitingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -75,7 +86,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -91,6 +102,6 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getDisableCallingLineIdDelivery()
     {
-        return (!$this->disableCallingLineIdDelivery) ?: $this->disableCallingLineIdDelivery->getValue();
+        return (!$this->disableCallingLineIdDelivery) ?: $this->disableCallingLineIdDelivery;
     }
 }

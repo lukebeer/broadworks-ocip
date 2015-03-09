@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterComfortMessageBypassGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterComfortMessageBypassGetRequest.
+ * Response to the GroupCallCenterComfortMessageBypassGetRequest.
  */
 class GroupCallCenterComfortMessageBypassGetResponse extends ComplexType implements ComplexInterface
 {
@@ -36,6 +39,13 @@ class GroupCallCenterComfortMessageBypassGetResponse extends ComplexType impleme
     protected $videoFileDescription                     = null;
     protected $videoMediaType                           = null;
 
+    /**
+     * @return GroupCallCenterComfortMessageBypassGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -50,7 +60,7 @@ class GroupCallCenterComfortMessageBypassGetResponse extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -86,7 +96,7 @@ class GroupCallCenterComfortMessageBypassGetResponse extends ComplexType impleme
      */
     public function getPlayAnnouncementAfterRinging()
     {
-        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging->getValue();
+        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging;
     }
 
     /**

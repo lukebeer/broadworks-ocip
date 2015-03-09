@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportInputParameterOption;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportAbandonedCallInputParameterNumber;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportServiceLevelInputParameterNumber;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest.
+ * Response to UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest.
  */
 class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends ComplexType implements ComplexInterface
 {
@@ -34,6 +37,13 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
     protected $serviceLevelThresholdParamNumber    = null;
     protected $abandonedCallThresholdParamNumber   = null;
 
+    /**
+     * @return UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -48,7 +58,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
      */
     public function getIsRealtimeReport()
     {
-        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport->getValue();
+        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport;
     }
 
     /**
@@ -64,7 +74,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
      */
     public function getRequireAgentParam()
     {
-        return (!$this->requireAgentParam) ?: $this->requireAgentParam->getValue();
+        return (!$this->requireAgentParam) ?: $this->requireAgentParam;
     }
 
     /**
@@ -80,7 +90,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
      */
     public function getRequireCallCenterParam()
     {
-        return (!$this->requireCallCenterParam) ?: $this->requireCallCenterParam->getValue();
+        return (!$this->requireCallCenterParam) ?: $this->requireCallCenterParam;
     }
 
     /**
@@ -96,7 +106,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
      */
     public function getRequireCallCenterDnisParam()
     {
-        return (!$this->requireCallCenterDnisParam) ?: $this->requireCallCenterDnisParam->getValue();
+        return (!$this->requireCallCenterDnisParam) ?: $this->requireCallCenterDnisParam;
     }
 
     /**
@@ -112,7 +122,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
      */
     public function getRequireSamplingPeriodParam()
     {
-        return (!$this->requireSamplingPeriodParam) ?: $this->requireSamplingPeriodParam->getValue();
+        return (!$this->requireSamplingPeriodParam) ?: $this->requireSamplingPeriodParam;
     }
 
     /**

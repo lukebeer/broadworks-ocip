@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\Enterpr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNModifyPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the enterprise level data associated with a Voice VPN location code.
+ * Modify the enterprise level data associated with a Voice VPN location code.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements ComplexInterface
@@ -48,6 +51,14 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
         $this->setDescription($description);
         $this->setRouteGroupId($routeGroupId);
         $this->setPolicySelection($policySelection);
+    }
+
+    /**
+     * @return EnterpriseVoiceVPNModifyPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

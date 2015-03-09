@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the country code preferred carriers for a service provider or enterprise. For each
+ * Modify the country code preferred carriers for a service provider or enterprise. For each
  *         combination of service provider and country code, you can assign an intra-lata, inter-lata,
  *         and international carrier. Each of the 3 types of carriers is optional.
  *         If an optional carrier is not specified, the assignment will not change.
@@ -45,6 +48,14 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
         $this->setIntraLataCarrier($intraLataCarrier);
         $this->setInterLataCarrier($interLataCarrier);
         $this->setInternationalCarrier($internationalCarrier);
+    }
+
+    /**
+     * @return ServiceProviderPreferredCarrierModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Communicati
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCommunicationBarringProfileAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new Communication Barring Profile.
+ * Add a new Communication Barring Profile.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringProfileAddRequest extends ComplexType implements ComplexInterface
@@ -60,6 +63,14 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
         $this->setRedirectingDefaultAction($redirectingDefaultAction);
         $this->setRedirectingDefaultCallTimeout($redirectingDefaultCallTimeout);
         $this->setRedirectingRule($redirectingRule);
+    }
+
+    /**
+     * @return SystemCommunicationBarringProfileAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

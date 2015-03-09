@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a Media Set.
+ * Request to delete a Media Set.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMediaSetDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemMediaSetDeleteRequest extends ComplexType implements ComplexInterfac
          $setName
     ) {
         $this->setSetName($setName);
+    }
+
+    /**
+     * @return SystemMediaSetDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

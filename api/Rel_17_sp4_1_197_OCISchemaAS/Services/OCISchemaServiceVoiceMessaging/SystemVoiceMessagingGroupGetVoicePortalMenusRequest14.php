@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the system voice portal Menus setting.
+ * Requests the system voice portal Menus setting.
  *         The response is either SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 or ErrorResponse.
  */
 class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
     public    $name               = __CLASS__;
     protected $getDefaultMenuKeys = null;
 
@@ -26,6 +29,14 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType 
          $getDefaultMenuKeys
     ) {
         $this->setGetDefaultMenuKeys($getDefaultMenuKeys);
+    }
+
+    /**
+     * @return SystemVoiceMessagingGroupGetVoicePortalMenusResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -41,6 +52,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType 
      */
     public function getGetDefaultMenuKeys()
     {
-        return (!$this->getDefaultMenuKeys) ?: $this->getDefaultMenuKeys->getValue();
+        return (!$this->getDefaultMenuKeys) ?: $this->getDefaultMenuKeys;
     }
 }

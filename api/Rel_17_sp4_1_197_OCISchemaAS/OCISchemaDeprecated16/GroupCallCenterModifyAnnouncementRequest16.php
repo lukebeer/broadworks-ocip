@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterModifyAnnouncementResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's announcement settings.
+ * Modify a call center's announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements ComplexInterface
@@ -80,6 +83,14 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
     }
 
     /**
+     * @return GroupCallCenterModifyAnnouncementResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -118,7 +129,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function getPlayEntranceMessage()
     {
-        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage->getValue();
+        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage;
     }
 
     /**
@@ -134,7 +145,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function getMandatoryEntranceMessage()
     {
-        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage->getValue();
+        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage;
     }
 
     /**
@@ -222,7 +233,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function getPlayPeriodicComfortMessage()
     {
-        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage->getValue();
+        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage;
     }
 
     /**
@@ -328,7 +339,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function getEnableMediaOnHoldForQueuedCalls()
     {
-        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls->getValue();
+        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls;
     }
 
     /**
@@ -360,7 +371,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
      */
     public function getMediaOnHoldUseAlternateSourceForInternalCalls()
     {
-        return (!$this->mediaOnHoldUseAlternateSourceForInternalCalls) ?: $this->mediaOnHoldUseAlternateSourceForInternalCalls->getValue();
+        return (!$this->mediaOnHoldUseAlternateSourceForInternalCalls) ?: $this->mediaOnHoldUseAlternateSourceForInternalCalls;
     }
 
     /**

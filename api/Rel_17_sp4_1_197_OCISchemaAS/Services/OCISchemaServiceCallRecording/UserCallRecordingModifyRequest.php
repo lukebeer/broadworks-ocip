@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallR
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\RecordingOption;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\UserCallRecordingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Call Recording attributes for a user. The recording option "On Demand" is not accepted for service instances.
+ * Modify the Call Recording attributes for a user. The recording option "On Demand" is not accepted for service instances.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallRecordingModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserCallRecordingModifyRequest extends ComplexType implements ComplexInter
     ) {
         $this->setUserId($userId);
         $this->setRecordingOption($recordingOption);
+    }
+
+    /**
+     * @return UserCallRecordingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

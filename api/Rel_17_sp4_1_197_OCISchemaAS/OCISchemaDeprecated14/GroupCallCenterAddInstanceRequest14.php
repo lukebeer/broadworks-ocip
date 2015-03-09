@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPoli
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterAddInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Call Center instance to a group.
+ * Add a Call Center instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  *         Replaced By: GroupCallCenterAddInstanceRequest14sp3
@@ -94,6 +97,14 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
         $this->setGuardTimerSeconds($guardTimerSeconds);
         $this->setAgentUserId($agentUserId);
         $this->setAllowCallWaitingForAgents($allowCallWaitingForAgents);
+    }
+
+    /**
+     * @return GroupCallCenterAddInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -211,7 +222,7 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
     }
 
     /**
@@ -247,7 +258,7 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
     }
 
     /**
@@ -303,7 +314,7 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -337,7 +348,7 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->getValue();
+        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff;
     }
 
     /**
@@ -353,7 +364,7 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getPlayMusicOnHold()
     {
-        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold->getValue();
+        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold;
     }
 
     /**
@@ -369,7 +380,7 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getPlayComfortMessage()
     {
-        return (!$this->playComfortMessage) ?: $this->playComfortMessage->getValue();
+        return (!$this->playComfortMessage) ?: $this->playComfortMessage;
     }
 
     /**
@@ -403,7 +414,7 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -463,6 +474,6 @@ class GroupCallCenterAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 }

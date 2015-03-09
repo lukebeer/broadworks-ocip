@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new file repository user.
+ * Add a new file repository user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements ComplexInterface
@@ -42,6 +45,14 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
         $this->setAllowPut($allowPut);
         $this->setAllowDelete($allowDelete);
         $this->setAllowGet($allowGet);
+    }
+
+    /**
+     * @return SystemFileRepositoryDeviceUserAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -111,7 +122,7 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getAllowPut()
     {
-        return (!$this->allowPut) ?: $this->allowPut->getValue();
+        return (!$this->allowPut) ?: $this->allowPut;
     }
 
     /**
@@ -127,7 +138,7 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getAllowDelete()
     {
-        return (!$this->allowDelete) ?: $this->allowDelete->getValue();
+        return (!$this->allowDelete) ?: $this->allowDelete;
     }
 
     /**
@@ -143,6 +154,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getAllowGet()
     {
-        return (!$this->allowGet) ?: $this->allowGet->getValue();
+        return (!$this->allowGet) ?: $this->allowGet;
     }
 }

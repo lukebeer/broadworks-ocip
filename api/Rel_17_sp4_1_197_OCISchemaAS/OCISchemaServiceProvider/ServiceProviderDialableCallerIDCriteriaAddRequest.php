@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Dialable
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDPrefixDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDCriteriaAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new Dialable Caller ID Criteria. Criteria are added at the bottom of the list with the lowest priority. The response is either a SuccessResponse or an ErrorResponse.
+ * Add a new Dialable Caller ID Criteria. Criteria are added at the bottom of the list with the lowest priority. The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType implements ComplexInterface
 {
@@ -68,6 +71,14 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
         $this->setMatchPrivateCategory($matchPrivateCategory);
         $this->setMatchEmergencyCategory($matchEmergencyCategory);
         $this->setMatchOtherCategory($matchOtherCategory);
+    }
+
+    /**
+     * @return ServiceProviderDialableCallerIDCriteriaAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -195,7 +206,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchLocalCategory()
     {
-        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory->getValue();
+        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory;
     }
 
     /**
@@ -211,7 +222,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchNationalCategory()
     {
-        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory->getValue();
+        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory;
     }
 
     /**
@@ -227,7 +238,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchInterlataCategory()
     {
-        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory->getValue();
+        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory;
     }
 
     /**
@@ -243,7 +254,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchIntralataCategory()
     {
-        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory->getValue();
+        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory;
     }
 
     /**
@@ -259,7 +270,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchInternationalCategory()
     {
-        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory->getValue();
+        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory;
     }
 
     /**
@@ -275,7 +286,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchPrivateCategory()
     {
-        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory->getValue();
+        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory;
     }
 
     /**
@@ -291,7 +302,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchEmergencyCategory()
     {
-        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory->getValue();
+        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory;
     }
 
     /**
@@ -307,6 +318,6 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
      */
     public function getMatchOtherCategory()
     {
-        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory->getValue();
+        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory;
     }
 }

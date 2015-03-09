@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceMa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceFileModifyResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a specified service provider/enterprise access device file.
+ * Request to modify a specified service provider/enterprise access device file.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
         $this->setFileFormat($fileFormat);
         $this->setFileSource($fileSource);
         $this->setUploadFile($uploadFile);
+    }
+
+    /**
+     * @return ServiceProviderAccessDeviceFileModifyResponse14sp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

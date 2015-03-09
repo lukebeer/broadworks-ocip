@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingDeleteConferenceRecordingListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete one or more conference recordings owned by the user or the user's delegators.
+ * Request to delete one or more conference recordings owned by the user or the user's delegators.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingDeleteConferenceRecordingListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
+    }
+
+    /**
+     * @return UserInstantConferencingDeleteConferenceRecordingListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

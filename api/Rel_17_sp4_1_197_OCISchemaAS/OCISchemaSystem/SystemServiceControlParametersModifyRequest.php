@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServiceControlMaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceControlParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Service Control system parameters.
+ * Request to modify Service Control system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceControlParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
     ) {
         $this->setServerPort($serverPort);
         $this->setMaxClientConnections($maxClientConnections);
+    }
+
+    /**
+     * @return SystemServiceControlParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

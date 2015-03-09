@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDigitCollectionSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDigitCollectionGetResponse13mp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupDigitCollectionGetRequest13mp4.
+ * Response to GroupDigitCollectionGetRequest13mp4.
  */
 class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
     protected $publicDigitMap  = null;
     protected $privateDigitMap = null;
 
+    /**
+     * @return GroupDigitCollectionGetResponse13mp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Choices for the group digit collection feature to decide which type of settings to use.

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a list of departments in a group. You may request only the
+ * Request a list of departments in a group. You may request only the
  *         list of departments defined at the group-level, or you may request
  *         the list of all departments in the group including all the departments
  *         defined within the enterprise the group belongs to.
@@ -22,7 +25,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetListResponse';
+    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetListResponse';
     public    $name                         = __CLASS__;
     protected $serviceProviderId            = null;
     protected $groupId                      = null;
@@ -36,6 +39,14 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setIncludeEnterpriseDepartments($includeEnterpriseDepartments);
+    }
+
+    /**
+     * @return GroupDepartmentGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -91,6 +102,6 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
      */
     public function getIncludeEnterpriseDepartments()
     {
-        return (!$this->includeEnterpriseDepartments) ?: $this->includeEnterpriseDepartments->getValue();
+        return (!$this->includeEnterpriseDepartments) ?: $this->includeEnterpriseDepartments;
     }
 }

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserCallingLineIdSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserRingTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxNoAnswerNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemSubscriberGetCallProcessingParametersResponse15;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemSubscriberGetCallProcessingParametersRequest15.
+ * Response to the SystemSubscriberGetCallProcessingParametersRequest15.
  */
 class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType implements ComplexInterface
 {
@@ -27,6 +30,13 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
     protected $allowEmergencyRemoteOfficeOriginations = null;
     protected $maxNoAnswerNumberOfRings               = null;
 
+    /**
+     * @return SystemSubscriberGetCallProcessingParametersResponse15
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * System User Calling Line Id Options.
@@ -59,7 +69,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->getValue();
+        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive;
     }
 
     /**
@@ -75,7 +85,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
      */
     public function getIsRingTimeOutActive()
     {
-        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->getValue();
+        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive;
     }
 
     /**
@@ -109,7 +119,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations->getValue();
+        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations;
     }
 
     /**

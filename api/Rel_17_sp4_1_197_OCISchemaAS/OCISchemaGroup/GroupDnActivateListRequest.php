@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnActivateListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Activate a list of assigned DNs on a group. It is possible to activate either: a single DN,
+ * Activate a list of assigned DNs on a group. It is possible to activate either: a single DN,
  *         or a list of DNs, or a range of DNs, or any combination thereof.
  *         The DNs must have previously been assigned to a user or virtual service.
  *         It is not an error to activate an already activated DN
@@ -40,6 +43,14 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
         $this->setGroupId($groupId);
         $this->setPhoneNumber($phoneNumber);
         $this->setDnRange($dnRange);
+    }
+
+    /**
+     * @return GroupDnActivateListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

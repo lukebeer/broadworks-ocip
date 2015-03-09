@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a service provider schedule.
+ * Add a service provider schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleName($scheduleName);
         $this->setScheduleType($scheduleType);
+    }
+
+    /**
+     * @return ServiceProviderScheduleAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

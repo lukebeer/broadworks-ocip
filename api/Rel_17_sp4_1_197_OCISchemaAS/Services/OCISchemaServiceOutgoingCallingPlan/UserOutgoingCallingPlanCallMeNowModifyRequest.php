@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgo
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanCallMeNowPermissionsModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanCallMeNowModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Call Me Now call permissions for a user.
+ * Modify the Call Me Now call permissions for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);
         $this->setUserPermissions($userPermissions);
+    }
+
+    /**
+     * @return UserOutgoingCallingPlanCallMeNowModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
      */
     public function getUseCustomSettings()
     {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings->getValue();
+        return (!$this->useCustomSettings) ?: $this->useCustomSettings;
     }
 
     /**

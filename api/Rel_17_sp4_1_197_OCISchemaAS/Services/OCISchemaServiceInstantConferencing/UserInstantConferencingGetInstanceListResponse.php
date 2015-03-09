@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserInstantConferencingGetInstanceListRequest.
+ * Response to the UserInstantConferencingGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Phone Number", "Extension", "Ports", "Is Active", "Is Device Integrated".
  *         The column values for "Is Active" can either be true, or false.
@@ -23,6 +26,13 @@ class UserInstantConferencingGetInstanceListResponse extends ComplexType impleme
     public    $name                     = __CLASS__;
     protected $instantConferencingTable = null;
 
+    /**
+     * @return UserInstantConferencingGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

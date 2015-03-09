@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceActivation;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyActiveInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to set the active status of Call Center instances.
+ * Request to set the active status of Call Center instances.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class GroupCallCenterModifyActiveInstanceListRequest extends ComplexType impleme
           $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
+    }
+
+    /**
+     * @return GroupCallCenterModifyActiveInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

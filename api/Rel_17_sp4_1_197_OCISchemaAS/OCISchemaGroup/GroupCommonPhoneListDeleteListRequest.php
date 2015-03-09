@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete one or more entries from a group's common phone list.
+ * Delete one or more entries from a group's common phone list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCommonPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setEntryName($entryName);
+    }
+
+    /**
+     * @return GroupCommonPhoneListDeleteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

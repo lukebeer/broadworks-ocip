@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCPEConfigSetConfigFileResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to set a new group default configuration file for a device type.
+ * Request to set a new group default configuration file for a device type.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
         $this->setGroupId($groupId);
         $this->setDeviceType($deviceType);
         $this->setConfigFile($configFile);
+    }
+
+    /**
+     * @return GroupCPEConfigSetConfigFileResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

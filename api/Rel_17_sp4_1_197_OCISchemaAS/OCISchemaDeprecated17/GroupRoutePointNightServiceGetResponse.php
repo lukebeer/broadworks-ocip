@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupRoutePointNightServiceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointNightServiceGetRequest.
+ * Response to the GroupRoutePointNightServiceGetRequest.
  */
 class GroupRoutePointNightServiceGetResponse extends ComplexType implements ComplexInterface
 {
@@ -48,6 +51,13 @@ class GroupRoutePointNightServiceGetResponse extends ComplexType implements Comp
     protected $manualVideoFileList          = null;
     protected $manualVideoMediaTypeList     = null;
 
+    /**
+     * @return GroupRoutePointNightServiceGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
@@ -98,7 +108,7 @@ class GroupRoutePointNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getForceNightService()
     {
-        return (!$this->forceNightService) ?: $this->forceNightService->getValue();
+        return (!$this->forceNightService) ?: $this->forceNightService;
     }
 
     /**
@@ -146,7 +156,7 @@ class GroupRoutePointNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction->getValue();
+        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction;
     }
 
     /**

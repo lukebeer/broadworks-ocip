@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\SystemCallMeNowModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Call me now service.
+ * Modify the system level data associated with Call me now service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
     ) {
         $this->setPasscodeLength($passcodeLength);
         $this->setPasscodeTimeoutSeconds($passcodeTimeoutSeconds);
+    }
+
+    /**
+     * @return SystemCallMeNowModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

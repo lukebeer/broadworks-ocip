@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterGetRoutingPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseCallCenterGetRoutingPolicyRequest.
+ * Response to EnterpriseCallCenterGetRoutingPolicyRequest.
  *         Contains a table with column headings: "Service User Id", "Name" and
  *         "Priority".
  */
@@ -23,6 +26,13 @@ class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implement
     protected $routingPolicy   = null;
     protected $callCenterTable = null;
 
+    /**
+     * @return EnterpriseCallCenterGetRoutingPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call center routing policy.

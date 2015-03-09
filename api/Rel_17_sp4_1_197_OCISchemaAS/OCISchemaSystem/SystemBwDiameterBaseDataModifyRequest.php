@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterT
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterTcTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterBaseDataModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the System Diameter base parameters.
+ * Modifies the System Diameter base parameters.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements ComplexInterface
@@ -71,6 +74,14 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
         $this->setDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours);
         $this->setAdvertisedOfflineBillingApplication($advertisedOfflineBillingApplication);
         $this->setAdvertisedOnlineBillingApplication($advertisedOnlineBillingApplication);
+    }
+
+    /**
+     * @return SystemBwDiameterBaseDataModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -158,7 +169,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
      */
     public function getPsRelayThroughXs()
     {
-        return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs->getValue();
+        return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs;
     }
 
     /**

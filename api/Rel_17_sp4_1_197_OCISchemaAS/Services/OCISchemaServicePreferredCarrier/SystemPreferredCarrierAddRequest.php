@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierIdCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a carrier to the system.
+ * Add a carrier to the system.
  *         More than one carrier may be assigned to each country code.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -43,6 +46,14 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
         $this->setIsIntraLata($isIntraLata);
         $this->setIsInterLata($isInterLata);
         $this->setIsInternational($isInternational);
+    }
+
+    /**
+     * @return SystemPreferredCarrierAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -112,7 +123,7 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getIsIntraLata()
     {
-        return (!$this->isIntraLata) ?: $this->isIntraLata->getValue();
+        return (!$this->isIntraLata) ?: $this->isIntraLata;
     }
 
     /**
@@ -128,7 +139,7 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getIsInterLata()
     {
-        return (!$this->isInterLata) ?: $this->isInterLata->getValue();
+        return (!$this->isInterLata) ?: $this->isInterLata;
     }
 
     /**
@@ -144,6 +155,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getIsInternational()
     {
-        return (!$this->isInternational) ?: $this->isInternational->getValue();
+        return (!$this->isInternational) ?: $this->isInternational;
     }
 }

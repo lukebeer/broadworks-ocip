@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExpensiveCallNotificationPostAnnouncementDelaySeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallNotificationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemExpensiveCallNotificationGetRequest.
+ * Response to SystemExpensiveCallNotificationGetRequest.
  */
 class SystemExpensiveCallNotificationGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
     protected $enablePostAnnouncementDelayTimer = null;
     protected $postAnnouncementDelaySeconds     = null;
 
+    /**
+     * @return SystemExpensiveCallNotificationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function getEnablePostAnnouncementDelayTimer()
     {
-        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer->getValue();
+        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer;
     }
 
     /**

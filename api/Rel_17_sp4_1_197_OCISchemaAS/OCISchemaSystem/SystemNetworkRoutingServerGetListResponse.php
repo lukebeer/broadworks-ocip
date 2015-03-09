@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkRoutingServerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemNetworkRoutingServerGetListRequest. The routing Network Server table column
+ * Response to SystemNetworkRoutingServerGetListRequest. The routing Network Server table column
  *         headings are: "Net Address", "Port", "Transport", "Poll", "OpState", "Description".
  */
 class SystemNetworkRoutingServerGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemNetworkRoutingServerGetListResponse extends ComplexType implements C
     public    $name                      = __CLASS__;
     protected $networkRoutingServerTable = null;
 
+    /**
+     * @return SystemNetworkRoutingServerGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

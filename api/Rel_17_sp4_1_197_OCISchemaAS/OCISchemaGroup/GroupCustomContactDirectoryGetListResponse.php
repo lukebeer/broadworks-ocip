@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCustomContactDirectoryGetListRequest.
+ * Response to the GroupCustomContactDirectoryGetListRequest.
  *         The response contains all the group's custom contact directory names.
  */
 class GroupCustomContactDirectoryGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupCustomContactDirectoryGetListResponse extends ComplexType implements 
     public    $name = __CLASS__;
     protected $name = null;
 
+    /**
+     * @return GroupCustomContactDirectoryGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Custom Contact Directory name.

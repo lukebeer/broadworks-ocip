@@ -35,12 +35,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserGetRequest17sp4.
+ * Response to UserGetRequest17sp4.
  *         It is possible that the TrunkAddressingRead element is present with nothing populated in it which means the user is a trunk user.
  *         The following data elements are only used in AS data mode:
  *           contact[2]-contact[5]
@@ -85,6 +88,13 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
     protected $officeZoneName           = null;
     protected $primaryZoneName          = null;
 
+    /**
+     * @return UserGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Provider Id uniquely identifies a service provider.

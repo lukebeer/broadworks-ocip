@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTimeZoneGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Contains a 2 column table with column headings 'Key' and 'Display Name' and a row
+ * Contains a 2 column table with column headings 'Key' and 'Display Name' and a row
  *         for each time zone.
  */
 class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterf
     public    $name          = __CLASS__;
     protected $timeZoneTable = null;
 
+    /**
+     * @return SystemTimeZoneGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

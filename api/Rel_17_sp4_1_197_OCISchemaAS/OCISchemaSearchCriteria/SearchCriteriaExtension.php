@@ -8,16 +8,19 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExtension;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Criteria for searching for an extension.
+ * Criteria for searching for an extension.
  */
 class SearchCriteriaExtension extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExtension';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExtension';
     public    $name              = __CLASS__;
     protected $mode              = null;
     protected $value             = null;
@@ -31,6 +34,14 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
         $this->setMode($mode);
         $this->setValue($value);
         $this->setIsCaseInsensitive($isCaseInsensitive);
+    }
+
+    /**
+     * @return SearchCriteriaExtension
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -64,7 +75,7 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->getValue();
+        return (!$this->value) ?: $this->value;
     }
 
     /**
@@ -80,6 +91,6 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive->getValue();
+        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
     }
 }

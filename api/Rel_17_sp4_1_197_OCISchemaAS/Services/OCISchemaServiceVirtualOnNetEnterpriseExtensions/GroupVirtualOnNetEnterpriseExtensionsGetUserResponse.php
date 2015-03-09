@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingL
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupVirtualOnNetEnterpriseExtensionsGetUserRequest.
+ * Response to GroupVirtualOnNetEnterpriseExtensionsGetUserRequest.
  */
 class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType implements ComplexInterface
 {
@@ -30,6 +33,13 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
     protected $callingLineIdLastName    = null;
     protected $virtualOnNetCallTypeName = null;
 
+    /**
+     * @return GroupVirtualOnNetEnterpriseExtensionsGetUserResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Extension.

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseSessionAdmissionControlGroupGetRequest.
+ * Response to EnterpriseSessionAdmissionControlGroupGetRequest.
  *         Returns the profile information for the session admission control group.
  */
 class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType implements ComplexInterface
@@ -30,6 +33,13 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
     protected $countIntraSACGroupSessions      = null;
     protected $devices                         = null;
 
+    /**
+     * @return EnterpriseSessionAdmissionControlGroupGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Non-negative integer.
@@ -152,7 +162,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getDefaultGroup()
     {
-        return (!$this->defaultGroup) ?: $this->defaultGroup->getValue();
+        return (!$this->defaultGroup) ?: $this->defaultGroup;
     }
 
     /**
@@ -168,7 +178,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getCountIntraSACGroupSessions()
     {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->getValue();
+        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions;
     }
 
     /**

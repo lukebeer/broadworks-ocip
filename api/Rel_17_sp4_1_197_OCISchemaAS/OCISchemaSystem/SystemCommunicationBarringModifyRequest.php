@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Communication Barring.
+ * Modify the system level data associated with Communication Barring.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCommunicationBarringModifyRequest extends ComplexType implements Com
          $directTransferScreening = null
     ) {
         $this->setDirectTransferScreening($directTransferScreening);
+    }
+
+    /**
+     * @return SystemCommunicationBarringModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SystemCommunicationBarringModifyRequest extends ComplexType implements Com
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening->getValue();
+        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
     }
 }

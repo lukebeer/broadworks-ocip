@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserBusyLampFieldGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaced by: UserBusyLampFieldGetResponse16sp2
+ * Replaced by: UserBusyLampFieldGetResponse16sp2
  *        
  *         Response to UserBusyLampFieldGetRequest.
  *         The table has column headings:
@@ -25,6 +28,13 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
     protected $listURI            = null;
     protected $monitoredUserTable = null;
 
+    /**
+     * @return UserBusyLampFieldGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * SIP URI.

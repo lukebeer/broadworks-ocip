@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Replacem
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies a Call Capacity Management group. Replaces the entire list of users in the group.
+ * Modifies a Call Capacity Management group. Replaces the entire list of users in the group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType implements ComplexInterface
@@ -53,6 +56,14 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
         $this->setMaxOutgoingActiveCallsAllowed($maxOutgoingActiveCallsAllowed);
         $this->setBecomeDefaultGroupForNewUsers($becomeDefaultGroupForNewUsers);
         $this->setUserIdList($userIdList);
+    }
+
+    /**
+     * @return GroupCallCapacityManagementModifyInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -198,7 +209,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getBecomeDefaultGroupForNewUsers()
     {
-        return (!$this->becomeDefaultGroupForNewUsers) ?: $this->becomeDefaultGroupForNewUsers->getValue();
+        return (!$this->becomeDefaultGroupForNewUsers) ?: $this->becomeDefaultGroupForNewUsers;
     }
 
     /**

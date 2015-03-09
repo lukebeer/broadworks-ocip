@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AlertCallCenterCallOnHoldSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterBouncedCallGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterBouncedCallGetRequest17.
+ * Response to the GroupCallCenterBouncedCallGetRequest17.
  */
 class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -31,6 +34,13 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
     protected $bounceCallCenterCallOnHold        = null;
     protected $bounceCallCenterCallOnHoldSeconds = null;
 
+    /**
+     * @return GroupCallCenterBouncedCallGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -81,7 +91,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getEnableTransfer()
     {
-        return (!$this->enableTransfer) ?: $this->enableTransfer->getValue();
+        return (!$this->enableTransfer) ?: $this->enableTransfer;
     }
 
     /**
@@ -129,7 +139,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable->getValue();
+        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable;
     }
 
     /**
@@ -145,7 +155,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getAlertCallCenterCallOnHold()
     {
-        return (!$this->alertCallCenterCallOnHold) ?: $this->alertCallCenterCallOnHold->getValue();
+        return (!$this->alertCallCenterCallOnHold) ?: $this->alertCallCenterCallOnHold;
     }
 
     /**
@@ -179,7 +189,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getBounceCallCenterCallOnHold()
     {
-        return (!$this->bounceCallCenterCallOnHold) ?: $this->bounceCallCenterCallOnHold->getValue();
+        return (!$this->bounceCallCenterCallOnHold) ?: $this->bounceCallCenterCallOnHold;
     }
 
     /**

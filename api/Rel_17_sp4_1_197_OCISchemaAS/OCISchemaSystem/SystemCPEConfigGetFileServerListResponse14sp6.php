@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigGetFileServerListResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCPEConfigGetFileServerListRequest14sp6. The table columns are:
+ * Response to SystemCPEConfigGetFileServerListRequest14sp6. The table columns are:
  *         "Device Type", "File Repository Name", "Directory".
  */
 class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implemen
     public    $name            = __CLASS__;
     protected $fileServerTable = null;
 
+    /**
+     * @return SystemCPEConfigGetFileServerListResponse14sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

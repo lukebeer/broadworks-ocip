@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallForwardingSelectiveGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallForwardingSelectiveGetRequest. The criteria table's column headings are:        
+ * Response to the UserCallForwardingSelectiveGetRequest. The criteria table's column headings are:        
  *          "Is Active", "Criteria Name", "Time Schedule", "Calls From" and "Forward To".
  */
 class UserCallForwardingSelectiveGetResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
     protected $playRingReminder            = null;
     protected $criteriaTable               = null;
 
+    /**
+     * @return UserCallForwardingSelectiveGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Phone Number or SIP URI that can be used to dial.
@@ -69,7 +79,7 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
      */
     public function getPlayRingReminder()
     {
-        return (!$this->playRingReminder) ?: $this->playRingReminder->getValue();
+        return (!$this->playRingReminder) ?: $this->playRingReminder;
     }
 
     /**

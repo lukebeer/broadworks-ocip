@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserDeleteAliasListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete one or more voice mail aliases from a users voice message.
+ * Delete one or more voice mail aliases from a users voice message.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVoiceMessagingUserDeleteAliasListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserVoiceMessagingUserDeleteAliasListRequest extends ComplexType implement
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
+    }
+
+    /**
+     * @return UserVoiceMessagingUserDeleteAliasListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

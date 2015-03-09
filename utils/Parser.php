@@ -103,7 +103,7 @@ class BuildAPI {
                 }
                 if ($this->checkComplexType($responseName)) {
                     if (!preg_match("/response/i", $name)) {
-                        $code .= str_pad("    const     RESPONSE_TYPE", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\$namespace\\$responseName';\n";
+                        $code .= str_pad("    public    \$responseType", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\$namespace\\$responseName';\n";
                     }
                 }
                 $code .= str_pad("    public    \$name", $maxlen+15, ' ')." = __CLASS__;\n";
@@ -141,8 +141,15 @@ class BuildAPI {
                 }
                 //$code .= str_pad('        $this->args', $maxlen+15, ' ');
                 //$code .= " = func_get_args();";
-                if (!preg_match("/response/i", $name)) $code .= "    }\n";
+                if (!preg_match("/response/i", $name)) $code .= "    }\n\n";
                 $pad = "    ";
+                $code .= "$pad/**\n";
+                $code .= "$pad * @return $responseName";
+                $code .= "\n$pad */\n$pad";
+                $code .= "public function get(Client \$client, \$responseOutput = ResponseOutput::STD)\n";
+                $code .= "$pad{\n";
+                $code .= "$pad    return \$this->send(\$client, \$responseOutput);\n";
+                $code .= "$pad}\n";
                 foreach ($elements as $item) {
                     $code .= "\n$pad";
                     $type = '';
@@ -171,8 +178,9 @@ class BuildAPI {
                     $code .= "\n$pad */\n$pad";
                     $code .= "public function get".ucfirst($item['name'])."()\n";
                     $code .= "$pad{\n";
-                    $code .= "$pad    return (!\$this->{$item['name']}) ?: \$this->{$item['name']}->getValue();\n";
-                    $code .= "$pad}\n";
+                    $code .= "$pad    return (!\$this->{$item['name']}) ?: ";
+                    $code .= (empty(TypeMap::typeStrip($item['type']))) ? "\$this->{$item['name']};" : "\$this->{$item['name']}->getValue();";
+                    $code .= "\n$pad}\n";
                 }
                 $code .= "}\n";
                 $header = "<?php\n";
@@ -185,10 +193,13 @@ class BuildAPI {
                 $types = array_combine($types, array_map('strlen', $types));
                 arsort($types);
                 $header .= implode("\n", array_unique(array_keys($types)))."\n";
+                if (!empty($responseName)) $header .= "use {$this->base_namespace}\\{$this->schema_out}\\{$namespace}\\{$responseName};\n";
                 $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexInterface;\n";
-                $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexType;\n\n\n";
+                $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexType;\n";
+                $header .= "use Broadworks_OCIP\\core\\Response\\ResponseOutput;\n";
+                $header .= "use Broadworks_OCIP\\core\\Client\\Client;\n\n\n";
                 $header .= "/**\n";
-                $header .= "$pad * ". implode("\n * ", explode("\n", trim($complexType->annotation->documentation)));
+                $header .= " * ". implode("\n * ", explode("\n", trim($complexType->annotation->documentation)));
                 $header .= "\n */\n";
                 $code = $header . $code;
                 $out_file = dirname(str_replace($this->base_dir.$this->schema, $this->dest, $file))."/$namespace/$name.php";

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAccessDeviceGetUserListRequest.
+ * Response to GroupAccessDeviceGetUserListRequest.
  *         The column headings for the deviceUserTable are: "Line/Port", "Last Name",
  *         "First Name", "Phone Number", "User Id", "User Type", "Endpoint Type", "Order", "Primary Line/Port".
  *         In IMS mode, the table will contain a row for each TEL-URI in the Phone Number column.
@@ -26,6 +29,13 @@ class GroupAccessDeviceGetUserListResponse extends ComplexType implements Comple
     public    $name            = __CLASS__;
     protected $deviceUserTable = null;
 
+    /**
+     * @return GroupAccessDeviceGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

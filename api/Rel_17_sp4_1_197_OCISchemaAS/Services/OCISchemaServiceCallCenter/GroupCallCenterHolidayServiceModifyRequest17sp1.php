@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterHolidayServiceModifyResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's holiday service settings.
+ * Modify a call center's holiday service settings.
  *         Only Group and Enterprise level schedules are accepted.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -62,6 +65,14 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->setVideoMessageSelection($videoMessageSelection);
         $this->setVideoUrlList($videoUrlList);
         $this->setVideoFileList($videoFileList);
+    }
+
+    /**
+     * @return GroupCallCenterHolidayServiceModifyResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -169,7 +180,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction->getValue();
+        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction;
     }
 
     /**

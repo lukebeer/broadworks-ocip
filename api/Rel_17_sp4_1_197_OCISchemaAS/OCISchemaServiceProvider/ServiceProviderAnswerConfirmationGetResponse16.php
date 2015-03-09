@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\An
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAnswerConfirmationGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderAnswerConfirmationGetRequest16.
+ * Response to the ServiceProviderAnswerConfirmationGetRequest16.
  */
 class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType implements ComplexInterface
 {
@@ -26,6 +29,13 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
     protected $confirmationMessageMediaType            = null;
     protected $confirmationTimoutSeconds               = null;
 
+    /**
+     * @return ServiceProviderAnswerConfirmationGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Anser Confirmation Announcement Selection.

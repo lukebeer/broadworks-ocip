@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OfficeZoneD
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementZoneList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an existing Office Zone.
+ * Modify an existing Office Zone.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
         $this->setDescription($description);
         $this->setReplacementZoneList($replacementZoneList);
         $this->setPrimaryZoneName($primaryZoneName);
+    }
+
+    /**
+     * @return SystemOfficeZoneModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

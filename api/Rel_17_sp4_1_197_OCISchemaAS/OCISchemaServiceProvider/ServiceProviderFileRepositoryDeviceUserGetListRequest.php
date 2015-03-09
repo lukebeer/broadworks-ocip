@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFileRepositoryDeviceUserGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the list of service provider users for a file repository in the system.
+ * Request the list of service provider users for a file repository in the system.
  *         The response is either a ServiceProviderFileRepositoryDeviceUserGetListResponse or an ErrorResponse.
  */
 class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFileRepositoryDeviceUserGetListResponse';
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFileRepositoryDeviceUserGetListResponse';
     public    $name               = __CLASS__;
     protected $serviceProviderId  = null;
     protected $fileRepositoryName = null;
@@ -30,6 +33,14 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setFileRepositoryName($fileRepositoryName);
+    }
+
+    /**
+     * @return ServiceProviderFileRepositoryDeviceUserGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

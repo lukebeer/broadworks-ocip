@@ -28,12 +28,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserModifyResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a user. The response is either SuccessResponse or ErrorResponse.
+ * Request to modify a user. The response is either SuccessResponse or ErrorResponse.
  */
 class UserModifyRequest14 extends ComplexType implements ComplexInterface
 {
@@ -113,6 +116,14 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
         $this->setYahooId($yahooId);
         $this->setAddressLocation($addressLocation);
         $this->setAddress($address);
+    }
+
+    /**
+     * @return UserModifyResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -436,7 +447,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
      */
     public function getEndpoint()
     {
-        return (!$this->endpoint) ?: $this->endpoint->getValue();
+        return (!$this->endpoint) ?: $this->endpoint;
     }
 
     /**

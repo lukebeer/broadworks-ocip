@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallF
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingAlways\UserCallForwardingAlwaysModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Call Forwarding Always.
+ * Modify the user level data associated with Call Forwarding Always.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  */
@@ -36,6 +39,14 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
         $this->setIsActive($isActive);
         $this->setForwardToPhoneNumber($forwardToPhoneNumber);
         $this->setIsRingSplashActive($isRingSplashActive);
+    }
+
+    /**
+     * @return UserCallForwardingAlwaysModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -77,7 +88,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -125,6 +136,6 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getIsRingSplashActive()
     {
-        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive->getValue();
+        return (!$this->isRingSplashActive) ?: $this->isRingSplashActive;
     }
 }

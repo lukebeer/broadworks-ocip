@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoute
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Route Point Call Disposition Code.
+ * Add a Route Point Call Disposition Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
         $this->setCode($code);
         $this->setIsActive($isActive);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return GroupRoutePointQueueCallDispositionCodeAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -95,7 +106,7 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

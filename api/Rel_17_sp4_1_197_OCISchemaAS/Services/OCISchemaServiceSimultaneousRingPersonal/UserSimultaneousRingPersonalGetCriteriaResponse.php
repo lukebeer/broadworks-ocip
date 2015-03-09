@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimul
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingPersonal\UserSimultaneousRingPersonalGetCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSimultaneousRingPersonalGetCriteriaRequest.
+ * Response to the UserSimultaneousRingPersonalGetCriteriaRequest.
  */
 class UserSimultaneousRingPersonalGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
@@ -25,6 +28,13 @@ class UserSimultaneousRingPersonalGetCriteriaResponse extends ComplexType implem
     protected $blacklisted     = null;
     protected $fromDnCriteria  = null;
 
+    /**
+     * @return UserSimultaneousRingPersonalGetCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.
@@ -71,7 +81,7 @@ class UserSimultaneousRingPersonalGetCriteriaResponse extends ComplexType implem
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**

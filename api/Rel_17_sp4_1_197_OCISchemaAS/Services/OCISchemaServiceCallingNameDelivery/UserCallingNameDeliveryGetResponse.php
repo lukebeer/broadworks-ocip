@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery\UserCallingNameDeliveryGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallingNameDeliveryGetRequest.
+ * Response to UserCallingNameDeliveryGetRequest.
  */
 class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
     protected $isActiveForExternalCalls = null;
     protected $isActiveForInternalCalls = null;
 
+    /**
+     * @return UserCallingNameDeliveryGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
      */
     public function getIsActiveForExternalCalls()
     {
-        return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls->getValue();
+        return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls;
     }
 
     /**
@@ -51,6 +61,6 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
      */
     public function getIsActiveForInternalCalls()
     {
-        return (!$this->isActiveForInternalCalls) ?: $this->isActiveForInternalCalls->getValue();
+        return (!$this->isActiveForInternalCalls) ?: $this->isActiveForInternalCalls;
     }
 }

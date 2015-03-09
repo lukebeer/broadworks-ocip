@@ -35,12 +35,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupTrunkGroupAddInstanceResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaced by: GroupTrunkGroupAddInstanceRequest17sp4
+ * Replaced by: GroupTrunkGroupAddInstanceRequest17sp4
  *       
  *         Add a Trunk Group instance to a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -171,6 +174,14 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
         $this->setCallForwardingAlwaysRerouteTrunkGroupKey($callForwardingAlwaysRerouteTrunkGroupKey);
         $this->setPeeringDomain($peeringDomain);
         $this->setRouteToPeeringDomain($routeToPeeringDomain);
+    }
+
+    /**
+     * @return GroupTrunkGroupAddInstanceResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -360,7 +371,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getEnableBursting()
     {
-        return (!$this->enableBursting) ?: $this->enableBursting->getValue();
+        return (!$this->enableBursting) ?: $this->enableBursting;
     }
 
     /**
@@ -622,7 +633,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**
@@ -750,7 +761,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getIncludeTrunkGroupIdentity()
     {
-        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity->getValue();
+        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity;
     }
 
     /**
@@ -766,7 +777,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getIncludeDtgIdentity()
     {
-        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity->getValue();
+        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity;
     }
 
     /**
@@ -782,7 +793,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getEnableNetworkAddressIdentity()
     {
-        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity->getValue();
+        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity;
     }
 
     /**
@@ -798,7 +809,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAllowUnscreenedCalls()
     {
-        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls->getValue();
+        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls;
     }
 
     /**
@@ -814,7 +825,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
-        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls->getValue();
+        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls;
     }
 
     /**
@@ -952,6 +963,6 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getRouteToPeeringDomain()
     {
-        return (!$this->routeToPeeringDomain) ?: $this->routeToPeeringDomain->getValue();
+        return (!$this->routeToPeeringDomain) ?: $this->routeToPeeringDomain;
     }
 }

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityPhoneToRing;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\UserBroadWorksMobilityModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's broadworks mobility service settings.
+ * Modify the user's broadworks mobility service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
@@ -64,6 +67,14 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
     }
 
     /**
+     * @return UserBroadWorksMobilityModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -102,7 +113,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -154,7 +165,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getAlertClickToDialCalls()
     {
-        return (!$this->alertClickToDialCalls) ?: $this->alertClickToDialCalls->getValue();
+        return (!$this->alertClickToDialCalls) ?: $this->alertClickToDialCalls;
     }
 
     /**
@@ -170,7 +181,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getAlertGroupPagingCalls()
     {
-        return (!$this->alertGroupPagingCalls) ?: $this->alertGroupPagingCalls->getValue();
+        return (!$this->alertGroupPagingCalls) ?: $this->alertGroupPagingCalls;
     }
 
     /**
@@ -186,7 +197,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getEnableDiversionInhibitor()
     {
-        return (!$this->enableDiversionInhibitor) ?: $this->enableDiversionInhibitor->getValue();
+        return (!$this->enableDiversionInhibitor) ?: $this->enableDiversionInhibitor;
     }
 
     /**
@@ -202,7 +213,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getRequireAnswerConfirmation()
     {
-        return (!$this->requireAnswerConfirmation) ?: $this->requireAnswerConfirmation->getValue();
+        return (!$this->requireAnswerConfirmation) ?: $this->requireAnswerConfirmation;
     }
 
     /**
@@ -218,7 +229,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getBroadworksCallControl()
     {
-        return (!$this->broadworksCallControl) ?: $this->broadworksCallControl->getValue();
+        return (!$this->broadworksCallControl) ?: $this->broadworksCallControl;
     }
 
     /**
@@ -252,7 +263,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getDenyCallOriginations()
     {
-        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->getValue();
+        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations;
     }
 
     /**
@@ -268,6 +279,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getDenyCallTerminations()
     {
-        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations->getValue();
+        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations;
     }
 }

@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupNam
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetResponse14sp7;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupGetRequest14sp7.
+ * Response to the GroupGetRequest14sp7.
  *         The response contains the group's profile information.
  */
 class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
@@ -41,6 +44,13 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
     protected $contact                         = null;
     protected $address                         = null;
 
+    /**
+     * @return GroupGetResponse14sp7
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * IP Address, hostname, or domain.
@@ -91,7 +101,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
      */
     public function getUserCount()
     {
-        return (!$this->userCount) ?: $this->userCount->getValue();
+        return (!$this->userCount) ?: $this->userCount;
     }
 
     /**

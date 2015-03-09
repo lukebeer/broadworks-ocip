@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupTimeScheduleGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupTimeScheduleGetListRequest.
+ * Response to the GroupTimeScheduleGetListRequest.
  *         The response contains all the group's time schedule name.
  */
 class GroupTimeScheduleGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupTimeScheduleGetListResponse extends ComplexType implements ComplexInt
     public    $name         = __CLASS__;
     protected $timeSchedule = null;
 
+    /**
+     * @return GroupTimeScheduleGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Schedule name.

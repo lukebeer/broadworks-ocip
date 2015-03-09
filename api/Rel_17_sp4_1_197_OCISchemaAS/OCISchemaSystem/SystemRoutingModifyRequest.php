@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingDNSR
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingStatefulExpirationMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingMaxAddresses;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RouteTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's general routing attributes.
+ * Modifies the system's general routing attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
@@ -46,6 +49,14 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
+     * @return SystemRoutingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setIsRouteRoundRobin($isRouteRoundRobin = null)
@@ -58,7 +69,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getIsRouteRoundRobin()
     {
-        return (!$this->isRouteRoundRobin) ?: $this->isRouteRoundRobin->getValue();
+        return (!$this->isRouteRoundRobin) ?: $this->isRouteRoundRobin;
     }
 
     /**

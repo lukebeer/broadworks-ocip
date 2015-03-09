@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the number of conference ports configured for a group.
+ * Modify the number of conference ports configured for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setPortsAllocatedToGroup($portsAllocatedToGroup);
+    }
+
+    /**
+     * @return GroupInstantConferencingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

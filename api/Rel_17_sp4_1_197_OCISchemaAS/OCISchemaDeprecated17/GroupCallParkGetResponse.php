@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkDisplayTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallParkGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallParkGetRequest.
+ * Response to the GroupCallParkGetRequest.
  *           Contains the settings that apply to the whole group for Call Park.
  */
 class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
     protected $displayTimerSeconds           = null;
     protected $enableDestinationAnnouncement = null;
 
+    /**
+     * @return GroupCallParkGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The timer determines how long a call can be parked before the parker is recalled.
@@ -74,6 +84,6 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getEnableDestinationAnnouncement()
     {
-        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement->getValue();
+        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement;
     }
 }

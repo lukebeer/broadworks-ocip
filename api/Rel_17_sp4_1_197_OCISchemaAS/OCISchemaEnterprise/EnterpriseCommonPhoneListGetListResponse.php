@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the EnterpriseCommonPhoneListGetListRequest.
+ * Response to the EnterpriseCommonPhoneListGetListRequest.
  *         The response contains the enterprise's common phone list.
  */
 class EnterpriseCommonPhoneListGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class EnterpriseCommonPhoneListGetListResponse extends ComplexType implements Co
     public    $name  = __CLASS__;
     protected $entry = null;
 
+    /**
+     * @return EnterpriseCommonPhoneListGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Phone list entry.

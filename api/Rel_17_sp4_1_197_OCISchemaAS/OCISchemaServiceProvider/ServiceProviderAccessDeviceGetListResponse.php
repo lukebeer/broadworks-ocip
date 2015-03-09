@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderAccessDeviceGetListRequest.
+ * Response to ServiceProviderAccessDeviceGetListRequest.
  *         Contains a table of devices configured in the service provider.
  *         The column headings are: "Device Name", "Device Type", "Available Ports",
  *         "Net Address", "MAC Address", and "Status".
@@ -23,6 +26,13 @@ class ServiceProviderAccessDeviceGetListResponse extends ComplexType implements 
     public    $name              = __CLASS__;
     protected $accessDeviceTable = null;
 
+    /**
+     * @return ServiceProviderAccessDeviceGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

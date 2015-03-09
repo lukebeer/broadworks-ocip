@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyAddAccessCodeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a Service Provider level Dial Plan Access Code and its all attribues.
+ * Request to add a Service Provider level Dial Plan Access Code and its all attribues.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderDialPlanPolicyAddAccessCodeRequest extends ComplexType implements ComplexInterface
@@ -42,6 +45,14 @@ class ServiceProviderDialPlanPolicyAddAccessCodeRequest extends ComplexType impl
         $this->setIncludeCodeForScreeningServices($includeCodeForScreeningServices);
         $this->setEnableSecondaryDialTone($enableSecondaryDialTone);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return ServiceProviderDialPlanPolicyAddAccessCodeResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -97,7 +108,7 @@ class ServiceProviderDialPlanPolicyAddAccessCodeRequest extends ComplexType impl
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
-        return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting->getValue();
+        return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting;
     }
 
     /**
@@ -113,7 +124,7 @@ class ServiceProviderDialPlanPolicyAddAccessCodeRequest extends ComplexType impl
      */
     public function getIncludeCodeForScreeningServices()
     {
-        return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices->getValue();
+        return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices;
     }
 
     /**
@@ -129,7 +140,7 @@ class ServiceProviderDialPlanPolicyAddAccessCodeRequest extends ComplexType impl
      */
     public function getEnableSecondaryDialTone()
     {
-        return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone->getValue();
+        return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone;
     }
 
     /**

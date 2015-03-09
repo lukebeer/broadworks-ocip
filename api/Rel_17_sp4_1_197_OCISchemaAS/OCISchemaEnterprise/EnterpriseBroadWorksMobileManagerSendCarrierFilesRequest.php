@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerSendCarrierFilesResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Sends an email with the carrier information and certificate files.
+ * Sends an email with the carrier information and certificate files.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEmailTo($emailTo);
+    }
+
+    /**
+     * @return EnterpriseBroadWorksMobileManagerSendCarrierFilesResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

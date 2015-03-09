@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectedCallPickupWithBargeIn; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectedCallPickupWithBargeIn\UserDirectedCallPickupWithBargeInGetResponse14sp7;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserDirectedCallPickupWithBargeInGetRequest14sp7.
+ * Response to UserDirectedCallPickupWithBargeInGetRequest14sp7.
  */
 class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
     protected $enableBargeInWarningTone       = null;
     protected $enableAutomaticTargetSelection = null;
 
+    /**
+     * @return UserDirectedCallPickupWithBargeInGetResponse14sp7
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function getEnableBargeInWarningTone()
     {
-        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone->getValue();
+        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone;
     }
 
     /**
@@ -51,6 +61,6 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function getEnableAutomaticTargetSelection()
     {
-        return (!$this->enableAutomaticTargetSelection) ?: $this->enableAutomaticTargetSelection->getValue();
+        return (!$this->enableAutomaticTargetSelection) ?: $this->enableAutomaticTargetSelection;
     }
 }

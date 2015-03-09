@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionAdmissionControlGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupDeleteDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete one or more devices from an enterprise level session admission control group.
+ * Request to delete one or more devices from an enterprise level session admission control group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
         $this->setDevices($devices);
+    }
+
+    /**
+     * @return EnterpriseSessionAdmissionControlGroupDeleteDeviceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

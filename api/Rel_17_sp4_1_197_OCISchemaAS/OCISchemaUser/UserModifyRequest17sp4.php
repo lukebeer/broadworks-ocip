@@ -31,12 +31,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserModifyResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a user. 
+ * Request to modify a user. 
  *         When oldPassword is specified, all password rule applies. If oldPassword in not specified,
  *         any password rule related to old password does not apply.         
  *         The request will fail if officeZoneName or primaryZoneName is present but the Location-Based Calling Restrictions service is not assigned to the user.
@@ -131,6 +134,14 @@ class UserModifyRequest17sp4 extends ComplexType implements ComplexInterface
         $this->setNetworkClassOfService($networkClassOfService);
         $this->setOfficeZoneName($officeZoneName);
         $this->setPrimaryZoneName($primaryZoneName);
+    }
+
+    /**
+     * @return UserModifyResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -452,7 +463,7 @@ class UserModifyRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getEndpoint()
     {
-        return (!$this->endpoint) ?: $this->endpoint->getValue();
+        return (!$this->endpoint) ?: $this->endpoint;
     }
 
     /**

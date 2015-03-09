@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupFileRepositoryDeviceUserGetListRequest.
+ * Response to GroupFileRepositoryDeviceUserGetListRequest.
  *         Contains a table with column headings : "User Name","Allow Delete","Allow Get","Allow Put" in a row for each file repository service provider user.
  */
 class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implement
     public    $name                    = __CLASS__;
     protected $fileRepositoryUserTable = null;
 
+    /**
+     * @return GroupFileRepositoryDeviceUserGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

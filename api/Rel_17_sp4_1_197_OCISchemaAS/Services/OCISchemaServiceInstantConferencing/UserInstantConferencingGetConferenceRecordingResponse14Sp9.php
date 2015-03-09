@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserDisp
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetConferenceRecordingRequest14Sp9.
+ * Response to UserInstantConferencingGetConferenceRecordingRequest14Sp9.
  *         Contains the information of a conference recording.
  */
 class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends ComplexType implements ComplexInterface
@@ -46,6 +49,13 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
     protected $conferenceServerFQDN        = null;
     protected $allowOutdialInInvitation    = null;
 
+    /**
+     * @return UserInstantConferencingGetConferenceRecordingResponse14Sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Conference recording call Id.
@@ -190,7 +200,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getIsBridgeActive()
     {
-        return (!$this->isBridgeActive) ?: $this->isBridgeActive->getValue();
+        return (!$this->isBridgeActive) ?: $this->isBridgeActive;
     }
 
     /**
@@ -260,7 +270,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getHasSlideShow()
     {
-        return (!$this->hasSlideShow) ?: $this->hasSlideShow->getValue();
+        return (!$this->hasSlideShow) ?: $this->hasSlideShow;
     }
 
     /**
@@ -330,6 +340,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
     }
 }

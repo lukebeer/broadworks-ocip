@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an entry in a user's personal phone list.
+ * Modify an entry in a user's personal phone list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
         $this->setEntryName($entryName);
         $this->setNewEntryName($newEntryName);
         $this->setPhoneNumber($phoneNumber);
+    }
+
+    /**
+     * @return UserPersonalPhoneListModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

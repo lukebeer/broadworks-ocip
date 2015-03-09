@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingAddInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Instant Conferencing instance to a group.
+ * Add a Instant Conferencing instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -63,6 +66,14 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
         $this->setAllowDocumentDownload($allowDocumentDownload);
         $this->setBridgeAdministratorUserId($bridgeAdministratorUserId);
         $this->setNetworkClassOfService($networkClassOfService);
+    }
+
+    /**
+     * @return GroupInstantConferencingAddInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -232,7 +243,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
     }
 
     /**
@@ -248,7 +259,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
      */
     public function getAllowDocumentDownload()
     {
-        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload->getValue();
+        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload;
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccou
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeEntry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a list of account/authorization codes to a group.
+ * Add a list of account/authorization codes to a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implement
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setCodeEntry($codeEntry);
+    }
+
+    /**
+     * @return GroupAccountAuthorizationCodesAddListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPasswordRulesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the group's password rules setting that apply to the
+ * Request to modify the group's password rules setting that apply to the
  *         users within the group. The response is either SuccessResponse or ErrorResponse.
  */
 class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInterface
@@ -95,6 +98,14 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
+     * @return GroupPasswordRulesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -147,7 +158,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getDisallowUserId()
     {
-        return (!$this->disallowUserId) ?: $this->disallowUserId->getValue();
+        return (!$this->disallowUserId) ?: $this->disallowUserId;
     }
 
     /**
@@ -163,7 +174,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getDisallowOldPassword()
     {
-        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword->getValue();
+        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword;
     }
 
     /**
@@ -179,7 +190,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getDisallowReversedOldPassword()
     {
-        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword->getValue();
+        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword;
     }
 
     /**
@@ -195,7 +206,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getRestrictMinDigits()
     {
-        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits->getValue();
+        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits;
     }
 
     /**
@@ -229,7 +240,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters->getValue();
+        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters;
     }
 
     /**
@@ -263,7 +274,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters->getValue();
+        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters;
     }
 
     /**
@@ -297,7 +308,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters->getValue();
+        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters;
     }
 
     /**
@@ -385,7 +396,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**
@@ -419,7 +430,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
      */
     public function getDisallowPreviousPasswords()
     {
-        return (!$this->disallowPreviousPasswords) ?: $this->disallowPreviousPasswords->getValue();
+        return (!$this->disallowPreviousPasswords) ?: $this->disallowPreviousPasswords;
     }
 
     /**

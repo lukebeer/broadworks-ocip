@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSche
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereModifySelectiveCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify selective criteria for the user's BroadWorks Anywhere phone number.
+ * Modify selective criteria for the user's BroadWorks Anywhere phone number.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType implements ComplexInterface
@@ -51,6 +54,14 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->setFromDnCriteria($fromDnCriteria);
         $this->setHolidaySchedule($holidaySchedule);
         $this->setBlacklisted($blacklisted);
+    }
+
+    /**
+     * @return UserBroadWorksAnywhereModifySelectiveCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -194,6 +205,6 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 }

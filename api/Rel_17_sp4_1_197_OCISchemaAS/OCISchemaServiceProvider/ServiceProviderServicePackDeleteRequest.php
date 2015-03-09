@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a service pack from a service provider.
+ * Request to delete a service pack from a service provider.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderServicePackDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServicePackName($servicePackName);
+    }
+
+    /**
+     * @return ServiceProviderServicePackDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

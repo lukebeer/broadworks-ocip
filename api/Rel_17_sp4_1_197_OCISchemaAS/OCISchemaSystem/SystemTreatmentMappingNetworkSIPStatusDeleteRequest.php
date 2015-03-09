@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPFailureStatusCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingNetworkSIPStatusDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Network SIP Status Code mapping.
+ * Delete a Network SIP Status Code mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingNetworkSIPStatusDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemTreatmentMappingNetworkSIPStatusDeleteRequest extends ComplexType im
          $sipStatusCode
     ) {
         $this->setSipStatusCode($sipStatusCode);
+    }
+
+    /**
+     * @return SystemTreatmentMappingNetworkSIPStatusDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

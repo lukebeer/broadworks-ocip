@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\InternalReleaseCause16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingInternalReleaseCauseModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the fields for an Internal Release Cause mapping.
+ * Modify the fields for an Internal Release Cause mapping.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
     ) {
         $this->setInternalReleaseCause($internalReleaseCause);
         $this->setTreatmentId($treatmentId);
+    }
+
+    /**
+     * @return SystemTreatmentMappingInternalReleaseCauseModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

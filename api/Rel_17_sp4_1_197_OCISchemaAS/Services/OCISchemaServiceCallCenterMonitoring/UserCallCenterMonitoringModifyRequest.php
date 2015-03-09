@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenterMonitoring; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenterMonitoring\UserCallCenterMonitoringModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's Call Center Monitoring settings.
+ * Modify the user's Call Center Monitoring settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallCenterMonitoringModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
     ) {
         $this->setUserId($userId);
         $this->setPlayToneToAgentForSilentMonitoring($playToneToAgentForSilentMonitoring);
+    }
+
+    /**
+     * @return UserCallCenterMonitoringModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,6 +80,6 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
      */
     public function getPlayToneToAgentForSilentMonitoring()
     {
-        return (!$this->playToneToAgentForSilentMonitoring) ?: $this->playToneToAgentForSilentMonitoring->getValue();
+        return (!$this->playToneToAgentForSilentMonitoring) ?: $this->playToneToAgentForSilentMonitoring;
     }
 }

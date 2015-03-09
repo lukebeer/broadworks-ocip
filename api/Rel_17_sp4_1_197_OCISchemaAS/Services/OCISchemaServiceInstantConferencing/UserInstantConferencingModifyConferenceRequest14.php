@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingModifyConferenceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an existing conference.
+ * Modify an existing conference.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingModifyConferenceRequest14 extends ComplexType implements ComplexInterface
@@ -50,6 +53,14 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         $this->setAnnounceCallers($announceCallers);
         $this->setConferenceSchedule($conferenceSchedule);
         $this->setBillingCode($billingCode);
+    }
+
+    /**
+     * @return UserInstantConferencingModifyConferenceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -125,7 +136,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
+        return (!$this->leaderRequired) ?: $this->leaderRequired;
     }
 
     /**
@@ -141,7 +152,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants;
     }
 
     /**
@@ -157,7 +168,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
+        return (!$this->announceCallers) ?: $this->announceCallers;
     }
 
     /**

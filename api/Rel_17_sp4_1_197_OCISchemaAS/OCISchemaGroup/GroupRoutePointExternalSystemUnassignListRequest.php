@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemUnassignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Unassign a list of route point external systems from a group.
+ * Unassign a list of route point external systems from a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setRoutePointExternalSystem($routePointExternalSystem);
+    }
+
+    /**
+     * @return GroupRoutePointExternalSystemUnassignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

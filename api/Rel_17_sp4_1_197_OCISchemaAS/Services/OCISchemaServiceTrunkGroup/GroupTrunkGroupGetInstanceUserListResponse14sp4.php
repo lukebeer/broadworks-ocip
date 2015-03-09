@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupTrunkGroupGetInstanceUserListRequest14sp4.
+ * Response to GroupTrunkGroupGetInstanceUserListRequest14sp4.
  *         The response contains a 7 column table with column headings "User Id", "Last Name",
  *         "First Name", "Department", "Phone Number", "Hiragana Last Name", "Hiragana First Name".
  */
@@ -22,6 +25,13 @@ class GroupTrunkGroupGetInstanceUserListResponse14sp4 extends ComplexType implem
     public    $name                = __CLASS__;
     protected $trunkGroupUserTable = null;
 
+    /**
+     * @return GroupTrunkGroupGetInstanceUserListResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

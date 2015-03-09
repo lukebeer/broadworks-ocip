@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidayS
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\UserCallMeNowModifyCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a criteria for the user's call me now service.
+ * Modify a criteria for the user's call me now service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexInterface
@@ -47,6 +50,14 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
         $this->setHolidaySchedule($holidaySchedule);
         $this->setRejectCall($rejectCall);
         $this->setToDnCriteria($toDnCriteria);
+    }
+
+    /**
+     * @return UserCallMeNowModifyCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -156,7 +167,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getRejectCall()
     {
-        return (!$this->rejectCall) ?: $this->rejectCall->getValue();
+        return (!$this->rejectCall) ?: $this->rejectCall;
     }
 
     /**

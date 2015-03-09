@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerSendCarrierFilesResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Sends an email with the carrier information and certificate files.
+ * Sends an email with the carrier information and certificate files.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setEmailTo($emailTo);
+    }
+
+    /**
+     * @return GroupBroadWorksMobileManagerSendCarrierFilesResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

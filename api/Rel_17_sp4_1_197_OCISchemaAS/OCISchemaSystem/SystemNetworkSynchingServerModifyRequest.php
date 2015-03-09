@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkSynchingServerModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a Network Server in the system.
+ * Request to modify a Network Server in the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemNetworkSynchingServerModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
         $this->setPort($port);
         $this->setDescription($description);
         $this->setBecomePreferred($becomePreferred);
+    }
+
+    /**
+     * @return SystemNetworkSynchingServerModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -105,6 +116,6 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getBecomePreferred()
     {
-        return (!$this->becomePreferred) ?: $this->becomePreferred->getValue();
+        return (!$this->becomePreferred) ?: $this->becomePreferred;
     }
 }

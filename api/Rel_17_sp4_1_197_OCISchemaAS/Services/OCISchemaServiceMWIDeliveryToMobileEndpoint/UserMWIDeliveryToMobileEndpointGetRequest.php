@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint\UserMWIDeliveryToMobileEndpointGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the user level data associated with MWI Delivery to Mobile Endpoint service.
+ * Request the user level data associated with MWI Delivery to Mobile Endpoint service.
  *         The response is either a UserMWIDeliveryToMobileEndpointGetResponse or an ErrorResponse.
  */
 class UserMWIDeliveryToMobileEndpointGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint\UserMWIDeliveryToMobileEndpointGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint\UserMWIDeliveryToMobileEndpointGetResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -26,6 +29,14 @@ class UserMWIDeliveryToMobileEndpointGetRequest extends ComplexType implements C
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserMWIDeliveryToMobileEndpointGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EarlyMediaS
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AuthenticationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeAddResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a sip device type.
+ * Request to add a sip device type.
  *         The response is either SuccessResponse or ErrorResponse.
  *         
  *         Replaced by: SystemSIPDeviceTypeAddRequest17
@@ -121,6 +124,14 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
     }
 
     /**
+     * @return SystemSIPDeviceTypeAddResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Access device type.
      */
     public function setDeviceType($deviceType = null)
@@ -185,7 +196,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getRegistrationCapable()
     {
-        return (!$this->registrationCapable) ?: $this->registrationCapable->getValue();
+        return (!$this->registrationCapable) ?: $this->registrationCapable;
     }
 
     /**
@@ -201,7 +212,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getIsConferenceDevice()
     {
-        return (!$this->isConferenceDevice) ?: $this->isConferenceDevice->getValue();
+        return (!$this->isConferenceDevice) ?: $this->isConferenceDevice;
     }
 
     /**
@@ -217,7 +228,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getIsMobilityManagerDevice()
     {
-        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice->getValue();
+        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice;
     }
 
     /**
@@ -233,7 +244,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getIsMusicOnHoldDevice()
     {
-        return (!$this->isMusicOnHoldDevice) ?: $this->isMusicOnHoldDevice->getValue();
+        return (!$this->isMusicOnHoldDevice) ?: $this->isMusicOnHoldDevice;
     }
 
     /**
@@ -249,7 +260,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getRFC3264Hold()
     {
-        return (!$this->RFC3264Hold) ?: $this->RFC3264Hold->getValue();
+        return (!$this->RFC3264Hold) ?: $this->RFC3264Hold;
     }
 
     /**
@@ -265,7 +276,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getIsTrusted()
     {
-        return (!$this->isTrusted) ?: $this->isTrusted->getValue();
+        return (!$this->isTrusted) ?: $this->isTrusted;
     }
 
     /**
@@ -281,7 +292,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getE164Capable()
     {
-        return (!$this->E164Capable) ?: $this->E164Capable->getValue();
+        return (!$this->E164Capable) ?: $this->E164Capable;
     }
 
     /**
@@ -297,7 +308,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getRouteAdvance()
     {
-        return (!$this->routeAdvance) ?: $this->routeAdvance->getValue();
+        return (!$this->routeAdvance) ?: $this->routeAdvance;
     }
 
     /**
@@ -313,7 +324,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getForwardingOverride()
     {
-        return (!$this->forwardingOverride) ?: $this->forwardingOverride->getValue();
+        return (!$this->forwardingOverride) ?: $this->forwardingOverride;
     }
 
     /**
@@ -329,7 +340,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getWirelessIntegration()
     {
-        return (!$this->wirelessIntegration) ?: $this->wirelessIntegration->getValue();
+        return (!$this->wirelessIntegration) ?: $this->wirelessIntegration;
     }
 
     /**
@@ -363,7 +374,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getIsVideoCapable()
     {
-        return (!$this->isVideoCapable) ?: $this->isVideoCapable->getValue();
+        return (!$this->isVideoCapable) ?: $this->isVideoCapable;
     }
 
     /**
@@ -379,7 +390,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getPBXIntegration()
     {
-        return (!$this->PBXIntegration) ?: $this->PBXIntegration->getValue();
+        return (!$this->PBXIntegration) ?: $this->PBXIntegration;
     }
 
     /**
@@ -395,7 +406,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getUseBusinessTrunkingContact()
     {
-        return (!$this->useBusinessTrunkingContact) ?: $this->useBusinessTrunkingContact->getValue();
+        return (!$this->useBusinessTrunkingContact) ?: $this->useBusinessTrunkingContact;
     }
 
     /**
@@ -411,7 +422,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getStaticRegistrationCapable()
     {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable->getValue();
+        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
     }
 
     /**
@@ -465,7 +476,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getAuthenticateRefer()
     {
-        return (!$this->authenticateRefer) ?: $this->authenticateRefer->getValue();
+        return (!$this->authenticateRefer) ?: $this->authenticateRefer;
     }
 
     /**
@@ -481,7 +492,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getAutoConfigSoftClient()
     {
-        return (!$this->autoConfigSoftClient) ?: $this->autoConfigSoftClient->getValue();
+        return (!$this->autoConfigSoftClient) ?: $this->autoConfigSoftClient;
     }
 
     /**
@@ -515,7 +526,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getRequiresBroadWorksDigitCollection()
     {
-        return (!$this->requiresBroadWorksDigitCollection) ?: $this->requiresBroadWorksDigitCollection->getValue();
+        return (!$this->requiresBroadWorksDigitCollection) ?: $this->requiresBroadWorksDigitCollection;
     }
 
     /**
@@ -531,7 +542,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getRequiresBroadWorksCallWaitingTone()
     {
-        return (!$this->requiresBroadWorksCallWaitingTone) ?: $this->requiresBroadWorksCallWaitingTone->getValue();
+        return (!$this->requiresBroadWorksCallWaitingTone) ?: $this->requiresBroadWorksCallWaitingTone;
     }
 
     /**
@@ -547,7 +558,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getRequiresMWISubscription()
     {
-        return (!$this->requiresMWISubscription) ?: $this->requiresMWISubscription->getValue();
+        return (!$this->requiresMWISubscription) ?: $this->requiresMWISubscription;
     }
 
     /**
@@ -563,7 +574,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getUseHistoryInfoHeaderOnAccessSide()
     {
-        return (!$this->useHistoryInfoHeaderOnAccessSide) ?: $this->useHistoryInfoHeaderOnAccessSide->getValue();
+        return (!$this->useHistoryInfoHeaderOnAccessSide) ?: $this->useHistoryInfoHeaderOnAccessSide;
     }
 
     /**
@@ -579,7 +590,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function getAdviceOfChargeCapable()
     {
-        return (!$this->adviceOfChargeCapable) ?: $this->adviceOfChargeCapable->getValue();
+        return (!$this->adviceOfChargeCapable) ?: $this->adviceOfChargeCapable;
     }
 
     /**

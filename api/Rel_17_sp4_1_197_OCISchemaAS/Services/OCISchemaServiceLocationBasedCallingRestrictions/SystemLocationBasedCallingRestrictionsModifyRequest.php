@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLocationBasedCallingRestrictions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLocationBasedCallingRestrictions\PhysicalLocationIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLocationBasedCallingRestrictions\SystemLocationBasedCallingRestrictionsModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system level Location Based Calling Restriction attributes.
+ * Modifies the system level Location Based Calling Restriction attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType implements ComplexInterface
@@ -34,6 +37,14 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
         $this->setEnforceMscValidation($enforceMscValidation);
         $this->setEnableOfficeZoneAnnouncement($enableOfficeZoneAnnouncement);
         $this->setEnhanceOfficeZone($enhanceOfficeZone);
+    }
+
+    /**
+     * @return SystemLocationBasedCallingRestrictionsModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function getEnforceMscValidation()
     {
-        return (!$this->enforceMscValidation) ?: $this->enforceMscValidation->getValue();
+        return (!$this->enforceMscValidation) ?: $this->enforceMscValidation;
     }
 
     /**
@@ -89,7 +100,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function getEnableOfficeZoneAnnouncement()
     {
-        return (!$this->enableOfficeZoneAnnouncement) ?: $this->enableOfficeZoneAnnouncement->getValue();
+        return (!$this->enableOfficeZoneAnnouncement) ?: $this->enableOfficeZoneAnnouncement;
     }
 
     /**
@@ -105,6 +116,6 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function getEnhanceOfficeZone()
     {
-        return (!$this->enhanceOfficeZone) ?: $this->enhanceOfficeZone->getValue();
+        return (!$this->enhanceOfficeZone) ?: $this->enhanceOfficeZone;
     }
 }

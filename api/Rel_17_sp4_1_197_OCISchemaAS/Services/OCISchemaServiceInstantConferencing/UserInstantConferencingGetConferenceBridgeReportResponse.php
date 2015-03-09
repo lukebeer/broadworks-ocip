@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetConferenceBridgeReportRequest.
+ * Response to UserInstantConferencingGetConferenceBridgeReportRequest.
  *         Contains a table of report.
  *         The table has column headings: "Bridge Name", "Call Date", "Call Start Time",
  *         "Time Zone", "Call Owner", "Phone Number", "Direction", "Leg Start", "Duration",
@@ -24,6 +27,13 @@ class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexTy
     public    $name                  = __CLASS__;
     protected $conferenceReportTable = null;
 
+    /**
+     * @return UserInstantConferencingGetConferenceBridgeReportResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

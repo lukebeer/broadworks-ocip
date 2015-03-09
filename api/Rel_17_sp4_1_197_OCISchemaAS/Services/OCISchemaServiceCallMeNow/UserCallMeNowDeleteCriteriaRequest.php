@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\UserCallMeNowDeleteCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a criteria from the user's call me now service.
+ * Delete a criteria from the user's call me now service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallMeNowDeleteCriteriaRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserCallMeNowDeleteCriteriaRequest extends ComplexType implements ComplexI
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
+    }
+
+    /**
+     * @return UserCallMeNowDeleteCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

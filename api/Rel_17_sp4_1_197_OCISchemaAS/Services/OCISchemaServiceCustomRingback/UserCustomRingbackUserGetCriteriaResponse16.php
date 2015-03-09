@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Criteria
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback\UserCustomRingbackUserGetCriteriaResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCustomRingbackUserGetCriteriaRequest16.
+ * Response to the UserCustomRingbackUserGetCriteriaRequest16.
  */
 class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
@@ -45,6 +48,13 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
     protected $callWaitingVideoMediaType       = null;
     protected $callWaitingVideoFileUrl         = null;
 
+    /**
+     * @return UserCustomRingbackUserGetCriteriaResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.
@@ -91,7 +101,7 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**

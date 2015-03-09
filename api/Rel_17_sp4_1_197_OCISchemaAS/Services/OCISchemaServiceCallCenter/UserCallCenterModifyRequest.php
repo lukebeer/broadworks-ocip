@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the agents call center settings and the availability for an agent in one or more Call Centers.
+ * Modifies the agents call center settings and the availability for an agent in one or more Call Centers.
  *         Contains a list specifying the desired availability status of one or more call centers.
  *         A default unavailable code will be used if the parameter agentUnavailableCode is not active, included or is invalid.
  *         Changing the agentACDState from unavailable to any other state will automatically clear the unavailable code.
@@ -73,6 +76,14 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
         $this->setMakeOutgoingCallsAsCallCenter($makeOutgoingCallsAsCallCenter);
         $this->setOutgoingCallDNIS($outgoingCallDNIS);
         $this->setCallCenterAvailability($callCenterAvailability);
+    }
+
+    /**
+     * @return UserCallCenterModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -150,7 +161,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getUseDefaultGuardTimer()
     {
-        return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer->getValue();
+        return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer;
     }
 
     /**
@@ -166,7 +177,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -200,7 +211,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->getValue();
+        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings;
     }
 
     /**
@@ -216,7 +227,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
     }
 
     /**
@@ -232,7 +243,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getForceUnavailableOnPersonalCalls()
     {
-        return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls->getValue();
+        return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls;
     }
 
     /**
@@ -248,7 +259,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
     }
 
     /**
@@ -282,7 +293,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getMakeOutgoingCallsAsCallCenter()
     {
-        return (!$this->makeOutgoingCallsAsCallCenter) ?: $this->makeOutgoingCallsAsCallCenter->getValue();
+        return (!$this->makeOutgoingCallsAsCallCenter) ?: $this->makeOutgoingCallsAsCallCenter;
     }
 
     /**

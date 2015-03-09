@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupFeatureAccessCodeGetRequest.
+ * Response to the GroupFeatureAccessCodeGetRequest.
  */
 class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
     protected $useFeatureAccessCodeLevel = null;
     protected $featureAccessCode         = null;
 
+    /**
+     * @return GroupFeatureAccessCodeGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Feature Access Code Level defining group policy how Feature Access Codes will be used by a group.

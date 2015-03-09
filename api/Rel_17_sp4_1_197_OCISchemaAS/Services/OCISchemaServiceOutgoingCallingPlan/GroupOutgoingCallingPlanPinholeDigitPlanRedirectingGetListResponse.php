@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgo
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListRequest.
+ * Response to GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListRequest.
  */
 class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse extends
     protected $groupPermissions      = null;
     protected $departmentPermissions = null;
 
+    /**
+     * @return GroupOutgoingCallingPlanPinholeDigitPlanRedirectingGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Outgoing Pinhole Digit Plan redirecting call permissions for specified digit patterns.

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanRedirectedPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanRedirectedGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserOutgoingCallingPlanRedirectedGetRequest.
+ * Response to UserOutgoingCallingPlanRedirectedGetRequest.
  */
 class UserOutgoingCallingPlanRedirectedGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserOutgoingCallingPlanRedirectedGetResponse extends ComplexType implement
     protected $useCustomSettings = null;
     protected $userPermissions   = null;
 
+    /**
+     * @return UserOutgoingCallingPlanRedirectedGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserOutgoingCallingPlanRedirectedGetResponse extends ComplexType implement
      */
     public function getUseCustomSettings()
     {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings->getValue();
+        return (!$this->useCustomSettings) ?: $this->useCustomSettings;
     }
 
     /**

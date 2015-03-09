@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusic
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentFullPathName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetDepartmentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupMusicOnHoldGetDepartmentListRequest.
+ * Response to the GroupMusicOnHoldGetDepartmentListRequest.
  */
 class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements ComplexInterface
 {
@@ -23,6 +26,13 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
     protected $department         = null;
     protected $departmentFullPath = null;
 
+    /**
+     * @return GroupMusicOnHoldGetDepartmentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function getHasDepartment()
     {
-        return (!$this->hasDepartment) ?: $this->hasDepartment->getValue();
+        return (!$this->hasDepartment) ?: $this->hasDepartment;
     }
 
     /**

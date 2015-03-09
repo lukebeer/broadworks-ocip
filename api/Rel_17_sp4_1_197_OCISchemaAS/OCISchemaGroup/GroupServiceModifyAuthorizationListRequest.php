@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserServ
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackAuthorization;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceModifyAuthorizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests to change the group's service authorization status.
+ * Requests to change the group's service authorization status.
  *         The boolean flags are used to authorize or unauthorize services and packs.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -42,6 +45,14 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         $this->setServicePackAuthorization($servicePackAuthorization);
         $this->setGroupServiceAuthorization($groupServiceAuthorization);
         $this->setUserServiceAuthorization($userServiceAuthorization);
+    }
+
+    /**
+     * @return GroupServiceModifyAuthorizationListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

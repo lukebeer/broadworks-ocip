@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify system Domain parameters.
+ * Request to modify system Domain parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemDomainParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
     }
 
     /**
+     * @return SystemDomainParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setUseAliasForDomain($useAliasForDomain = null)
@@ -43,7 +54,7 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
      */
     public function getUseAliasForDomain()
     {
-        return (!$this->useAliasForDomain) ?: $this->useAliasForDomain->getValue();
+        return (!$this->useAliasForDomain) ?: $this->useAliasForDomain;
     }
 
     /**

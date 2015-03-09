@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMDIMaxConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMDIParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify SMDI system parameters.
+ * Request to modify SMDI system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -35,6 +38,14 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
+     * @return SystemSMDIParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setEnableSMDI($enableSMDI = null)
@@ -47,7 +58,7 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEnableSMDI()
     {
-        return (!$this->enableSMDI) ?: $this->enableSMDI->getValue();
+        return (!$this->enableSMDI) ?: $this->enableSMDI;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete an alternate call indicator from the list of expensive alternate call indicators.
+ * Delete an alternate call indicator from the list of expensive alternate call indicators.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements Comple
          $alternateCallIndicator
     ) {
         $this->setAlternateCallIndicator($alternateCallIndicator);
+    }
+
+    /**
+     * @return SystemExpensiveCallTypeDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

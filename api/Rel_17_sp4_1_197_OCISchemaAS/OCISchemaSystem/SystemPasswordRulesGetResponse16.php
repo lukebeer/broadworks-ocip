@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPasswordRulesGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemPasswordRulesGetRequest16.
+ * Response to SystemPasswordRulesGetRequest16.
  *         Contains the password rules for System administrator, Provisioning Administrator,
  *         and/or Service Provider Administrator, Group Administrator, Department Administrator, user.
  */
@@ -51,6 +54,13 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
     protected $disallowPreviousPasswords              = null;
     protected $numberOfPreviousPasswords              = null;
 
+    /**
+     * @return SystemPasswordRulesGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * User types for which the System Password Rules apply.
@@ -91,7 +101,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
-        return (!$this->allowWebAddExternalAuthenticationUsers) ?: $this->allowWebAddExternalAuthenticationUsers->getValue();
+        return (!$this->allowWebAddExternalAuthenticationUsers) ?: $this->allowWebAddExternalAuthenticationUsers;
     }
 
     /**
@@ -107,7 +117,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getDisallowUserId()
     {
-        return (!$this->disallowUserId) ?: $this->disallowUserId->getValue();
+        return (!$this->disallowUserId) ?: $this->disallowUserId;
     }
 
     /**
@@ -123,7 +133,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getDisallowOldPassword()
     {
-        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword->getValue();
+        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword;
     }
 
     /**
@@ -139,7 +149,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getDisallowReversedOldPassword()
     {
-        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword->getValue();
+        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword;
     }
 
     /**
@@ -155,7 +165,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getRestrictMinDigits()
     {
-        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits->getValue();
+        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits;
     }
 
     /**
@@ -189,7 +199,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters->getValue();
+        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters;
     }
 
     /**
@@ -223,7 +233,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters->getValue();
+        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters;
     }
 
     /**
@@ -257,7 +267,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters->getValue();
+        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters;
     }
 
     /**
@@ -345,7 +355,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**
@@ -379,7 +389,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getDisallowRulesModification()
     {
-        return (!$this->disallowRulesModification) ?: $this->disallowRulesModification->getValue();
+        return (!$this->disallowRulesModification) ?: $this->disallowRulesModification;
     }
 
     /**
@@ -395,7 +405,7 @@ class SystemPasswordRulesGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getDisallowPreviousPasswords()
     {
-        return (!$this->disallowPreviousPasswords) ?: $this->disallowPreviousPasswords->getValue();
+        return (!$this->disallowPreviousPasswords) ?: $this->disallowPreviousPasswords;
     }
 
     /**

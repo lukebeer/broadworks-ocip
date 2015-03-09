@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAccessDeviceCustomTagGetListRequest.
+ * Response to SystemAccessDeviceCustomTagGetListRequest.
  *         Contains a table of custom configuration tags managed by the Device Management System on a per-device profile basis.
  *         The column headings are: "Tag Name", "Tag Value"
  */
@@ -22,6 +25,13 @@ class SystemAccessDeviceCustomTagGetListResponse extends ComplexType implements 
     public    $name                  = __CLASS__;
     protected $deviceCustomTagsTable = null;
 
+    /**
+     * @return SystemAccessDeviceCustomTagGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

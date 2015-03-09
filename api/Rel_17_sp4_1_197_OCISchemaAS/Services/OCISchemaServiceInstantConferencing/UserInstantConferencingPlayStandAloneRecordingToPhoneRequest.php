@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingPlayStandAloneRecordingToPhoneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Play a recording to a specified phone.
+ * Play a recording to a specified phone.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setRecordingKey($recordingKey);
         $this->setPlayBackPhoneNumber($playBackPhoneNumber);
+    }
+
+    /**
+     * @return UserInstantConferencingPlayStandAloneRecordingToPhoneResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

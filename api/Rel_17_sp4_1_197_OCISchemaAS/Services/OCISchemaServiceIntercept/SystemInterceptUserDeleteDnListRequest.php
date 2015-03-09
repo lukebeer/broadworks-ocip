@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserDeleteDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete an Intercept User number(s) from the system.
+ * Request to delete an Intercept User number(s) from the system.
  *               The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInterceptUserDeleteDnListRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemInterceptUserDeleteDnListRequest extends ComplexType implements Comp
          $phoneNumbers = null
     ) {
         $this->setPhoneNumbers($phoneNumbers);
+    }
+
+    /**
+     * @return SystemInterceptUserDeleteDnListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

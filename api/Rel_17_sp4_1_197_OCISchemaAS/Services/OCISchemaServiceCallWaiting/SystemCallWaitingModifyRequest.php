@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\SystemCallWaitingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Call Waiting.
+ * Modify the system level data associated with Call Waiting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
          $playDistinctiveRingback = null
     ) {
         $this->setPlayDistinctiveRingback($playDistinctiveRingback);
+    }
+
+    /**
+     * @return SystemCallWaitingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
      */
     public function getPlayDistinctiveRingback()
     {
-        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback->getValue();
+        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback;
     }
 }

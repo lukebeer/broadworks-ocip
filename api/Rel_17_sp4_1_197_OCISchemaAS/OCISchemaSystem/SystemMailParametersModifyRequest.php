@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMTPFromAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMTPSubject;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMailParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Mail system parameters.
+ * Request to modify Mail system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemMailParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
         $this->setDefaultFromAddress($defaultFromAddress);
         $this->setDefaultSubject($defaultSubject);
         $this->setSupportDNSSRVForMailServerAccess($supportDNSSRVForMailServerAccess);
+    }
+
+    /**
+     * @return SystemMailParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -126,6 +137,6 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getSupportDNSSRVForMailServerAccess()
     {
-        return (!$this->supportDNSSRVForMailServerAccess) ?: $this->supportDNSSRVForMailServerAccess->getValue();
+        return (!$this->supportDNSSRVForMailServerAccess) ?: $this->supportDNSSRVForMailServerAccess;
     }
 }

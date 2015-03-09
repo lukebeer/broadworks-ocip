@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSeriesCompletion; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupSeriesCompletionGetInstanceListRequest.
+ * Response to the GroupSeriesCompletionGetInstanceListRequest.
  */
 class GroupSeriesCompletionGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
     public    $name = __CLASS__;
     protected $name = null;
 
+    /**
+     * @return GroupSeriesCompletionGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Instance Name for a service without a user id.

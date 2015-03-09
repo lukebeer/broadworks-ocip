@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete the country code preferred carriers for a service provider or enterprise.
+ * Delete the country code preferred carriers for a service provider or enterprise.
  *         Note that this is different from unassigning all 3 types of carriers with
  *         the ServiceProviderPreferredCarrierModifyRequest.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -33,6 +36,14 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCountryCode($countryCode);
+    }
+
+    /**
+     * @return ServiceProviderPreferredCarrierDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

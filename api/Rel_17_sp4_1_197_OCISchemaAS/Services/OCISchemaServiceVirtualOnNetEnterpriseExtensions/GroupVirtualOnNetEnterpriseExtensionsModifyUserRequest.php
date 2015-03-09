@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstNam
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsModifyUserResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an existing Virtual On-Net user of a Group.
+ * Modify an existing Virtual On-Net user of a Group.
  *         The serviceProviderId, groupId and phoneNumber combination uniquely 
  *         identifies a Virtual On-Net User. 
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -59,6 +62,14 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->setCallingLineIdFirstName($callingLineIdFirstName);
         $this->setCallingLineIdLastName($callingLineIdLastName);
         $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
+    }
+
+    /**
+     * @return GroupVirtualOnNetEnterpriseExtensionsModifyUserResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

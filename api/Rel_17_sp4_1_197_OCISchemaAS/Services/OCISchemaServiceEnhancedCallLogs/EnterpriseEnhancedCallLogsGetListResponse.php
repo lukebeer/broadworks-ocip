@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ExtendedMixedCallLogsEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseEnhancedCallLogsGetListRequest.
+ * Response to EnterpriseEnhancedCallLogsGetListRequest.
  *         Total numbers of rows is:
  *         - the total number of retrievable logs of the call log type that was specified in the EnterpriseEnhancedCallLogsGetListRequest, 
  *           if a call log type was specified in the request.
@@ -27,6 +30,13 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
     protected $totalNumberOfRows = null;
     protected $extendedCallLog   = null;
 
+    /**
+     * @return EnterpriseEnhancedCallLogsGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -41,7 +51,7 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
      */
     public function getTotalNumberOfRows()
     {
-        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->getValue();
+        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerRouteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemSMDIMessageDeskGetServerRouteListRequest.
+ * Response to SystemSMDIMessageDeskGetServerRouteListRequest.
  *         The SMDI Server route table column headings are: "Destination" and "SMDI Servers".
  */
 class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implem
     public    $name                 = __CLASS__;
     protected $smdiServerRouteTable = null;
 
+    /**
+     * @return SystemSMDIMessageDeskGetServerRouteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

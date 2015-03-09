@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterStatisticsSource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallCenterModifyInstanceStatisticsReportingResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Call Center statistics reporting frequency and destination.
+ * Modify the Call Center statistics reporting frequency and destination.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
         $this->setReportingEmailAddress1($reportingEmailAddress1);
         $this->setReportingEmailAddress2($reportingEmailAddress2);
         $this->setStatisticsSource($statisticsSource);
+    }
+
+    /**
+     * @return GroupCallCenterModifyInstanceStatisticsReportingResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -84,7 +95,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
      */
     public function getGenerateDailyReport()
     {
-        return (!$this->generateDailyReport) ?: $this->generateDailyReport->getValue();
+        return (!$this->generateDailyReport) ?: $this->generateDailyReport;
     }
 
     /**

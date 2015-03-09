@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerDeleteHomeZoneListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a list of home zones from the BroadWorks Mobile Manager.
+ * Delete a list of home zones from the BroadWorks Mobile Manager.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest extends Complex
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setHomeZoneId($homeZoneId);
+    }
+
+    /**
+     * @return EnterpriseBroadWorksMobileManagerDeleteHomeZoneListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -63,6 +74,6 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest extends Complex
      */
     public function getHomeZoneId()
     {
-        return (!$this->homeZoneId) ?: $this->homeZoneId->getValue();
+        return (!$this->homeZoneId) ?: $this->homeZoneId;
     }
 }

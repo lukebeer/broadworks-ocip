@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingDeletePlatformResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Call Recording platform.
+ * Delete a Call Recording platform.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCallRecordingDeletePlatformRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCallRecordingDeletePlatformRequest extends ComplexType implements Co
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemCallRecordingDeletePlatformResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

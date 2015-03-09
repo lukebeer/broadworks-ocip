@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusic
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\MusicOnHoldSourceRead16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetInstanceResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupMusicOnHoldGetInstanceRequest16.
+ * Response to the GroupMusicOnHoldGetInstanceRequest16.
  */
 class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
@@ -28,6 +31,13 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
     protected $useAlternateSourceForInternalCalls = null;
     protected $internalSource                     = null;
 
+    /**
+     * @return GroupMusicOnHoldGetInstanceResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
@@ -68,7 +78,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->getValue();
+        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold;
     }
 
     /**
@@ -84,7 +94,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->getValue();
+        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark;
     }
 
     /**
@@ -100,7 +110,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getIsActiveDuringBusyCampOn()
     {
-        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->getValue();
+        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn;
     }
 
     /**
@@ -116,7 +126,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -148,7 +158,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->getValue();
+        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls;
     }
 
     /**

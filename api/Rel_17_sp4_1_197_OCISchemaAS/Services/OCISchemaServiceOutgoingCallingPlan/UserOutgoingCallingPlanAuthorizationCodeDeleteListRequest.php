@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgo
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanAuthorizationCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanAuthorizationCodeDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a list of authorization codes from a user.
+ * Delete a list of authorization codes from a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest extends ComplexT
     ) {
         $this->setUserId($userId);
         $this->setCode($code);
+    }
+
+    /**
+     * @return UserOutgoingCallingPlanAuthorizationCodeDeleteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

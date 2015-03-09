@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\UserLegacyAutomaticCallbackModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Legacy Automatic Callback.
+ * Modify the user level data associated with Legacy Automatic Callback.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserLegacyAutomaticCallbackModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserLegacyAutomaticCallbackModifyRequest extends ComplexType implements Co
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
+    }
+
+    /**
+     * @return UserLegacyAutomaticCallbackModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,6 +80,6 @@ class UserLegacyAutomaticCallbackModifyRequest extends ComplexType implements Co
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 }

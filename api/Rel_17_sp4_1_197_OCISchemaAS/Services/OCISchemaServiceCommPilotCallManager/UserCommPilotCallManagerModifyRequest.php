@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager\UserCommPilotCallManagerModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with CommPilot Call Manager.
+ * Modify the user level data associated with CommPilot Call Manager.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCommPilotCallManagerModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
     ) {
         $this->setUserId($userId);
         $this->setLaunchOnLogin($launchOnLogin);
+    }
+
+    /**
+     * @return UserCommPilotCallManagerModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,6 +80,6 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
      */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin->getValue();
+        return (!$this->launchOnLogin) ?: $this->launchOnLogin;
     }
 }

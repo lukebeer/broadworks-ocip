@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ShInterfacePublicIdentityRefreshDelaySeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceParametersGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemShInterfaceParametersGetRequest.  Contains the Sh Interface system parameters.
+ * Response to SystemShInterfaceParametersGetRequest.  Contains the Sh Interface system parameters.
  */
 class SystemShInterfaceParametersGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
     protected $hssRealm                          = null;
     protected $publicIdentityRefreshDelaySeconds = null;
 
+    /**
+     * @return SystemShInterfaceParametersGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Network domain name.

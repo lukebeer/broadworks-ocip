@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of call centers the user is assigned to as a supervisor.
+ * Get a list of call centers the user is assigned to as a supervisor.
  *         The response is either a UserCallCenterGetSupervisorCallCenterListResponse or an
  *         ErrorResponse.
  */
 class UserCallCenterGetSupervisorCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse';
+    public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse';
     public    $name             = __CLASS__;
     protected $supervisorUserId = null;
 
@@ -27,6 +30,14 @@ class UserCallCenterGetSupervisorCallCenterListRequest extends ComplexType imple
          $supervisorUserId
     ) {
         $this->setSupervisorUserId($supervisorUserId);
+    }
+
+    /**
+     * @return UserCallCenterGetSupervisorCallCenterListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

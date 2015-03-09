@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPickup\GroupCallPickupAddInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Adds a Call Pickup group.
+ * Adds a Call Pickup group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallPickupAddInstanceRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupCallPickupAddInstanceRequest extends ComplexType implements ComplexIn
         $this->setGroupId($groupId);
         $this->setName($name);
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return GroupCallPickupAddInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectedCallPickupWithBargeIn; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectedCallPickupWithBargeIn\UserDirectedCallPickupWithBargeInModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Directed Call Pickup With Barge In.
+ * Modify the user level data associated with Directed Call Pickup With Barge In.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
         $this->setUserId($userId);
         $this->setEnableBargeInWarningTone($enableBargeInWarningTone);
         $this->setEnableAutomaticTargetSelection($enableAutomaticTargetSelection);
+    }
+
+    /**
+     * @return UserDirectedCallPickupWithBargeInModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -72,7 +83,7 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function getEnableBargeInWarningTone()
     {
-        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone->getValue();
+        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone;
     }
 
     /**
@@ -88,6 +99,6 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function getEnableAutomaticTargetSelection()
     {
-        return (!$this->enableAutomaticTargetSelection) ?: $this->enableAutomaticTargetSelection->getValue();
+        return (!$this->enableAutomaticTargetSelection) ?: $this->enableAutomaticTargetSelection;
     }
 }

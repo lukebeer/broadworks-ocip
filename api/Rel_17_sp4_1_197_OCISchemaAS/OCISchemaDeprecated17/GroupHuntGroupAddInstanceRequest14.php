@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupHuntGroupAddInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Hunt Group instance to a group.
+ * Add a Hunt Group instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -66,6 +69,14 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->setForwardToPhoneNumber($forwardToPhoneNumber);
         $this->setAgentUserId($agentUserId);
         $this->setAllowCallWaitingForAgents($allowCallWaitingForAgents);
+    }
+
+    /**
+     * @return GroupHuntGroupAddInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -181,7 +192,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
     }
 
     /**
@@ -217,7 +228,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
     }
 
     /**
@@ -299,6 +310,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 }

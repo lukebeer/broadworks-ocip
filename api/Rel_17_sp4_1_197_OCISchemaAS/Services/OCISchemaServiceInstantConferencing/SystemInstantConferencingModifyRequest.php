@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Instant Conferencing.
+ * Modify the system level data associated with Instant Conferencing.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
@@ -34,6 +37,14 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
     }
 
     /**
+     * @return SystemInstantConferencingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setDefaultDropAllParticipantsWhenLeaderLeaves($defaultDropAllParticipantsWhenLeaderLeaves = null)
@@ -46,7 +57,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultDropAllParticipantsWhenLeaderLeaves()
     {
-        return (!$this->defaultDropAllParticipantsWhenLeaderLeaves) ?: $this->defaultDropAllParticipantsWhenLeaderLeaves->getValue();
+        return (!$this->defaultDropAllParticipantsWhenLeaderLeaves) ?: $this->defaultDropAllParticipantsWhenLeaderLeaves;
     }
 
     /**
@@ -62,7 +73,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultAllowDialOutInInvitation()
     {
-        return (!$this->defaultAllowDialOutInInvitation) ?: $this->defaultAllowDialOutInInvitation->getValue();
+        return (!$this->defaultAllowDialOutInInvitation) ?: $this->defaultAllowDialOutInInvitation;
     }
 
     /**

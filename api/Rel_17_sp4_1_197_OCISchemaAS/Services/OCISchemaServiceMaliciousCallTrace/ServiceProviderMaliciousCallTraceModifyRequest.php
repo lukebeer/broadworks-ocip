@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\ServiceProviderMaliciousCallTraceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the service provider's Malicious Call Trace settings.
+ * Modify the service provider's Malicious Call Trace settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
         $this->setServiceProviderId($serviceProviderId);
         $this->setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement);
         $this->setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement);
+    }
+
+    /**
+     * @return ServiceProviderMaliciousCallTraceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -66,7 +77,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
      */
     public function getUseSystemPlayMCTWarningAnnouncement()
     {
-        return (!$this->useSystemPlayMCTWarningAnnouncement) ?: $this->useSystemPlayMCTWarningAnnouncement->getValue();
+        return (!$this->useSystemPlayMCTWarningAnnouncement) ?: $this->useSystemPlayMCTWarningAnnouncement;
     }
 
     /**
@@ -82,6 +93,6 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->getValue();
+        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement;
     }
 }

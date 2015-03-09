@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePassCodeLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingRecordingFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\SystemMeetMeConferencingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Meet-Me Conferencing.
+ * Modify the system level data associated with Meet-Me Conferencing.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMeetMeConferencingModifyRequest extends ComplexType implements ComplexInterface
@@ -50,6 +53,14 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
         $this->setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
         $this->setRecordingWebAppURL($recordingWebAppURL);
         $this->setRecordingFileFormat($recordingFileFormat);
+    }
+
+    /**
+     * @return SystemMeetMeConferencingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -101,7 +112,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
      */
     public function getEnableConferenceEndDateRestriction()
     {
-        return (!$this->enableConferenceEndDateRestriction) ?: $this->enableConferenceEndDateRestriction->getValue();
+        return (!$this->enableConferenceEndDateRestriction) ?: $this->enableConferenceEndDateRestriction;
     }
 
     /**
@@ -135,7 +146,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
      */
     public function getDeleteExpiredConferencesAfterHoldPeriod()
     {
-        return (!$this->deleteExpiredConferencesAfterHoldPeriod) ?: $this->deleteExpiredConferencesAfterHoldPeriod->getValue();
+        return (!$this->deleteExpiredConferencesAfterHoldPeriod) ?: $this->deleteExpiredConferencesAfterHoldPeriod;
     }
 
     /**

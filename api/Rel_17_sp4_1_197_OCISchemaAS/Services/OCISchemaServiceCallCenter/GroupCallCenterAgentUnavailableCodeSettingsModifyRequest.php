@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeSettingsModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group level data associated with Call Center Agents Unavailable Code Settings.
+ * Modify the group level data associated with Call Center Agents Unavailable Code Settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexType implements ComplexInterface
@@ -52,6 +55,14 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
         $this->setForceUseOfAgentUnavailableCodes($forceUseOfAgentUnavailableCodes);
         $this->setDefaultAgentUnavailableCode($defaultAgentUnavailableCode);
         $this->setCodeStateList($codeStateList);
+    }
+
+    /**
+     * @return GroupCallCenterAgentUnavailableCodeSettingsModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -107,7 +118,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
      */
     public function getEnableAgentUnavailableCodes()
     {
-        return (!$this->enableAgentUnavailableCodes) ?: $this->enableAgentUnavailableCodes->getValue();
+        return (!$this->enableAgentUnavailableCodes) ?: $this->enableAgentUnavailableCodes;
     }
 
     /**
@@ -177,7 +188,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
-        return (!$this->forceUseOfAgentUnavailableCodes) ?: $this->forceUseOfAgentUnavailableCodes->getValue();
+        return (!$this->forceUseOfAgentUnavailableCodes) ?: $this->forceUseOfAgentUnavailableCodes;
     }
 
     /**

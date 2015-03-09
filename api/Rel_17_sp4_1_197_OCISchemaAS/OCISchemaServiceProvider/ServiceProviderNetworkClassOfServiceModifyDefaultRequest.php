@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceModifyDefaultResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the default Network Classes of Service of a Service Provider.
+ * Modifies the default Network Classes of Service of a Service Provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setNetworkClassOfService($networkClassOfService);
+    }
+
+    /**
+     * @return ServiceProviderNetworkClassOfServiceModifyDefaultResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserBroadWorksAnywhereGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserBroadWorksAnywhereGetRequest.
+ * Response to the UserBroadWorksAnywhereGetRequest.
  *         The phoneNumberTable contains columns: "Phone Number", "Description"
  *         Replaced by: UserBroadWorksAnywhereGetResponse16sp2
  */
@@ -23,6 +26,13 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
     protected $alertAllLocationsForClickToDialCalls = null;
     protected $phoneNumberTable                     = null;
 
+    /**
+     * @return UserBroadWorksAnywhereGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls->getValue();
+        return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls;
     }
 
     /**

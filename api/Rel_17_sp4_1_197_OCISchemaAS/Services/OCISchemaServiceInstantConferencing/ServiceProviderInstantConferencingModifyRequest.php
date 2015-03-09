@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\ServiceProviderInstantConferencingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the number of conference ports configured for a service provider.
+ * Modify the number of conference ports configured for a service provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setPortsAllocatedToServiceProvider($portsAllocatedToServiceProvider);
+    }
+
+    /**
+     * @return ServiceProviderInstantConferencingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

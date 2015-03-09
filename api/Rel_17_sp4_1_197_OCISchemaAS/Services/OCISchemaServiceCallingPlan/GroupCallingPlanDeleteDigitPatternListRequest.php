@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCalli
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPlanDigitPatternName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPlan\GroupCallingPlanDeleteDigitPatternListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete one or more calling plan digit strings.
+ * Delete one or more calling plan digit strings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallingPlanDeleteDigitPatternListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupCallingPlanDeleteDigitPatternListRequest extends ComplexType implemen
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setName($name);
+    }
+
+    /**
+     * @return GroupCallingPlanDeleteDigitPatternListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

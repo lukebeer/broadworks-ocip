@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemApplicationServerSetGetListRequest.
+ * Response to SystemApplicationServerSetGetListRequest.
  *         Contains the system set name and a table of Application Server sets.
  */
 class SystemApplicationServerSetGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemApplicationServerSetGetListResponse extends ComplexType implements C
     public    $name                  = __CLASS__;
     protected $applicationServerSets = null;
 
+    /**
+     * @return SystemApplicationServerSetGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Application Server set name.

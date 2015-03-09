@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests a list of users using the specified carrier.  It is possible to restrict the
+ * Requests a list of users using the specified carrier.  It is possible to restrict the
  *         number of rows returned by specifying various search criteria. Multiple search criteria
  *         are logically ANDed together.
  *         The response is either a SystemPreferreredCarrierGetUserListResponse
@@ -26,7 +29,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemPreferredCarrierGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetUserListResponse';
+    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetUserListResponse';
     public    $name                        = __CLASS__;
     protected $carrier                     = null;
     protected $responseSizeLimit           = null;
@@ -49,6 +52,14 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
         $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
         $this->setSearchCriteriaDn($searchCriteriaDn);
         $this->setSearchCriteriaEmailAddress($searchCriteriaEmailAddress);
+    }
+
+    /**
+     * @return SystemPreferredCarrierGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

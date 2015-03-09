@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\InterceptPhoneNumberDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserModifyDnResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a Intercept User number's description in the system.
+ * Request to modify a Intercept User number's description in the system.
  *           The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
     ) {
         $this->setPhoneNumber($phoneNumber);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemInterceptUserModifyDnResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

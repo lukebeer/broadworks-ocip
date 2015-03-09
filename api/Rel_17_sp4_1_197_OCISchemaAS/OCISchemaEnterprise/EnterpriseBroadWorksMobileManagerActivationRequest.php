@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDeactivationReason;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerActivationResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Activates or Deactivates the BroadWorks Mobile Manager.
+ * Activates or Deactivates the BroadWorks Mobile Manager.
  *         The deactivationReason is required when isActive is set to false. 
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -33,6 +36,14 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
         $this->setServiceProviderId($serviceProviderId);
         $this->setIsActive($isActive);
         $this->setDeactivationReason($deactivationReason);
+    }
+
+    /**
+     * @return EnterpriseBroadWorksMobileManagerActivationResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -68,7 +79,7 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

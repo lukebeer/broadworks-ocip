@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCusto
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback\UserCustomRingbackUserModifyActiveCriteriaListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's custom ringback service criteria's active setting.
+ * Modify the user's custom ringback service criteria's active setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType 
     ) {
         $this->setUserId($userId);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserCustomRingbackUserModifyActiveCriteriaListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

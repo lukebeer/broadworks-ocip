@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify session admission control capacity for the group.
+ * Request to modify session admission control capacity for the group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupSessionAdmissionControlModifyRequest extends ComplexType implements ComplexInterface
@@ -45,6 +48,14 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
         $this->setMaxUserOriginatingSessions($maxUserOriginatingSessions);
         $this->setMaxUserTerminatingSessions($maxUserTerminatingSessions);
         $this->setCountIntraGroupSessions($countIntraGroupSessions);
+    }
+
+    /**
+     * @return GroupSessionAdmissionControlModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -100,7 +111,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getRestrictAggregateSessions()
     {
-        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions->getValue();
+        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions;
     }
 
     /**
@@ -170,6 +181,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getCountIntraGroupSessions()
     {
-        return (!$this->countIntraGroupSessions) ?: $this->countIntraGroupSessions->getValue();
+        return (!$this->countIntraGroupSessions) ?: $this->countIntraGroupSessions;
     }
 }

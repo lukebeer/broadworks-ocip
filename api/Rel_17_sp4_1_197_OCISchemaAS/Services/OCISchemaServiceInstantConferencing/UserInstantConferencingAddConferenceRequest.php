@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingAddConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a conference.
+ * Add a conference.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingAddConferenceRequest extends ComplexType implements ComplexInterface
@@ -56,6 +59,14 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->setConferenceType($conferenceType);
         $this->setConferenceSchedule($conferenceSchedule);
         $this->setBillingCode($billingCode);
+    }
+
+    /**
+     * @return UserInstantConferencingAddConferenceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -167,7 +178,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
+        return (!$this->leaderRequired) ?: $this->leaderRequired;
     }
 
     /**
@@ -183,7 +194,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants;
     }
 
     /**
@@ -199,7 +210,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
+        return (!$this->announceCallers) ?: $this->announceCallers;
     }
 
     /**

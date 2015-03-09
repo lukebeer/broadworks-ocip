@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\Holiday;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a holiday schedule to a user.
+ * Add a holiday schedule to a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserHolidayScheduleAddRequest extends ComplexType implements ComplexInterface
@@ -90,6 +93,14 @@ class UserHolidayScheduleAddRequest extends ComplexType implements ComplexInterf
         $this->setHoliday18($holiday18);
         $this->setHoliday19($holiday19);
         $this->setHoliday20($holiday20);
+    }
+
+    /**
+     * @return UserHolidayScheduleAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

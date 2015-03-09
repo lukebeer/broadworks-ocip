@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskTerminateResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Terminates a service pack migration task that is currently executing.
+ * Terminates a service pack migration task that is currently executing.
  *         Modification is only allowed prior to task execution.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -30,6 +33,14 @@ class ServiceProviderServicePackMigrationTaskTerminateRequest extends ComplexTyp
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
+    }
+
+    /**
+     * @return ServiceProviderServicePackMigrationTaskTerminateResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

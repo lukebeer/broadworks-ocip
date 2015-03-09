@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserCallingLineIdSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserRingTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSubscriberGetCallProcessingParametersResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemSubscriberGetCallProcessingParametersRequest.
+ * Response to the SystemSubscriberGetCallProcessingParametersRequest.
  *         Replaced By: SystemSubscriberGetCallProcessingParametersResponse14sp3
  */
 class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
     protected $isRingTimeOutActive           = null;
     protected $ringTimeoutSeconds            = null;
 
+    /**
+     * @return SystemSubscriberGetCallProcessingParametersResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * System User Calling Line Id Options.
@@ -57,7 +67,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->getValue();
+        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive;
     }
 
     /**
@@ -73,7 +83,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getIsRingTimeOutActive()
     {
-        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->getValue();
+        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive;
     }
 
     /**

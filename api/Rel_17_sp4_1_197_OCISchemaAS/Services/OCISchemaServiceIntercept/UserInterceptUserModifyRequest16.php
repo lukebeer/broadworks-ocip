@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\UserInterceptUserModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's intercept user service settings.
+ * Modify the user's intercept user service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInterface
@@ -76,6 +79,14 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
     }
 
     /**
+     * @return UserInterceptUserModifyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -114,7 +125,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -184,7 +195,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
     }
 
     /**
@@ -218,7 +229,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
     }
 
     /**
@@ -256,7 +267,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getRerouteOutboundCalls()
     {
-        return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls->getValue();
+        return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls;
     }
 
     /**
@@ -304,7 +315,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getAllowOutboundLocalCalls()
     {
-        return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls->getValue();
+        return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls;
     }
 
     /**
@@ -338,7 +349,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getAlternateBlockingAnnouncement()
     {
-        return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement->getValue();
+        return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement;
     }
 
     /**
@@ -354,6 +365,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getRouteToVoiceMail()
     {
-        return (!$this->routeToVoiceMail) ?: $this->routeToVoiceMail->getValue();
+        return (!$this->routeToVoiceMail) ?: $this->routeToVoiceMail;
     }
 }

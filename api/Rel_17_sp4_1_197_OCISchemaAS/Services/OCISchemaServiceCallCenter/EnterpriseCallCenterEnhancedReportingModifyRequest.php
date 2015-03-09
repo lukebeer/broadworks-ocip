@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportWebStatisticsSource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServerChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify enterprise level call center enhanced reporting settings.
+ * Request to modify enterprise level call center enhanced reporting settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
         $this->setServiceProviderId($serviceProviderId);
         $this->setReportingServer($reportingServer);
         $this->setWebStatisticSource($webStatisticSource);
+    }
+
+    /**
+     * @return EnterpriseCallCenterEnhancedReportingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceMaximumAppearances;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceBridgeWarningTone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSharedCallAppearanceGetResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSharedCallAppearanceGetRequest14.
+ * Response to the UserSharedCallAppearanceGetRequest14.
  *         The endpointTable contains columns:
  *           "Device Level", "Device Name", "Device Type", "Line/Port", "SIP Contact".
  *         The "Device Level" column contains one of the AccessDeviceLevel enumerated constants.
@@ -31,6 +34,13 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
     protected $allowBridgingBetweenLocations          = null;
     protected $bridgeWarningTone                      = null;
 
+    /**
+     * @return UserSharedCallAppearanceGetResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
-        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls->getValue();
+        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls;
     }
 
     /**
@@ -79,7 +89,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
      */
     public function getEnableMultipleCallArrangement()
     {
-        return (!$this->enableMultipleCallArrangement) ?: $this->enableMultipleCallArrangement->getValue();
+        return (!$this->enableMultipleCallArrangement) ?: $this->enableMultipleCallArrangement;
     }
 
     /**
@@ -95,7 +105,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
      */
     public function getMultipleCallArrangementIsActive()
     {
-        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive->getValue();
+        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive;
     }
 
     /**
@@ -127,7 +137,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
      */
     public function getAllowBridgingBetweenLocations()
     {
-        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations->getValue();
+        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations;
     }
 
     /**

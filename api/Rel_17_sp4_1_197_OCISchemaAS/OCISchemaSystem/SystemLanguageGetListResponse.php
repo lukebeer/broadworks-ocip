@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLanguageGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemLanguageGetListRequest.
+ * Response to SystemLanguageGetListRequest.
  *         The language table column headings are: "Language", "Locale" and "Encoding".
  */
 class SystemLanguageGetListResponse extends ComplexType implements ComplexInterface
@@ -22,6 +25,13 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
     protected $defaultLanguage = null;
     protected $languageTable   = null;
 
+    /**
+     * @return SystemLanguageGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Language identifies the language of a user or an administrator.

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the EnterpriseCallCenterAgentUnavailableCodeGetListRequest.
+ * Response to the EnterpriseCallCenterAgentUnavailableCodeGetListRequest.
  *         Contains a table with column headings: "Is Active", "Code", "Description".
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexTyp
     public    $name                  = __CLASS__;
     protected $unavailableCodesTable = null;
 
+    /**
+     * @return EnterpriseCallCenterAgentUnavailableCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

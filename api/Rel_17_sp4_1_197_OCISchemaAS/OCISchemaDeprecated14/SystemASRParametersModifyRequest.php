@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRRetransm
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRMaxTransmissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemASRParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Application Server Registration system parameters.
+ * Request to modify Application Server Registration system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemASRParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
         $this->setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
         $this->setListeningPort($listeningPort);
         $this->setSourceAddress($sourceAddress);
+    }
+
+    /**
+     * @return SystemASRParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

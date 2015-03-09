@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ConnectedLineIdentificationPrivacyOnRedirectedCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\CallBeingForwardedResponseCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCallPoliciesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Call Policies.
+ * Modify the user level data associated with Call Policies.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
         $this->setUserId($userId);
         $this->setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy);
         $this->setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
+    }
+
+    /**
+     * @return UserCallPoliciesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

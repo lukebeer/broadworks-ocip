@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallTransfer\CallTransferRecallNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallTransferGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallTransferGetRequest.
+ * Response to UserCallTransferGetRequest.
  */
 class UserCallTransferGetResponse extends ComplexType implements ComplexInterface
 {
@@ -23,6 +26,13 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
     protected $useDiversionInhibitorForBlindTransfer     = null;
     protected $useDiversionInhibitorForConsultativeCalls = null;
 
+    /**
+     * @return UserCallTransferGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsRecallActive()
     {
-        return (!$this->isRecallActive) ?: $this->isRecallActive->getValue();
+        return (!$this->isRecallActive) ?: $this->isRecallActive;
     }
 
     /**
@@ -71,7 +81,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->getValue();
+        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer;
     }
 
     /**
@@ -87,6 +97,6 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->getValue();
+        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls;
     }
 }

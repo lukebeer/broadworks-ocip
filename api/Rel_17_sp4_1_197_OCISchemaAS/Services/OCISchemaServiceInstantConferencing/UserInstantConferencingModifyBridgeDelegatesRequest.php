@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingModifyBridgeDelegatesResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Assign a bridge administrator to be a user's delegates.
+ * Assign a bridge administrator to be a user's delegates.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
         $this->setUserId($userId);
         $this->setBridgeServiceUserId($bridgeServiceUserId);
         $this->setBridgeDelegatesUserIdList($bridgeDelegatesUserIdList);
+    }
+
+    /**
+     * @return UserInstantConferencingModifyBridgeDelegatesResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a department of a group.
+ * Modify a department of a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
         $this->setDepartmentName($departmentName);
         $this->setNewDepartmentName($newDepartmentName);
         $this->setNewParentDepartmentKey($newParentDepartmentKey);
+    }
+
+    /**
+     * @return GroupDepartmentModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainAssignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Assign a list of domains to a service provider.
+ * Assign a list of domains to a service provider.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderDomainAssignListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDomain($domain);
+    }
+
+    /**
+     * @return ServiceProviderDomainAssignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

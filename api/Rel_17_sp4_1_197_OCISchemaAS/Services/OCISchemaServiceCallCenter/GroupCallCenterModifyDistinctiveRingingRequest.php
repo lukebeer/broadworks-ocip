@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyDistinctiveRingingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the distinctive ringing configuration values for call center.
+ * Modify the distinctive ringing configuration values for call center.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType implements ComplexInterface
@@ -35,6 +38,14 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
         $this->setDistinctiveRingingCallCenterCalls($distinctiveRingingCallCenterCalls);
         $this->setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter);
         $this->setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern);
+    }
+
+    /**
+     * @return GroupCallCenterModifyDistinctiveRingingResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -76,7 +87,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function getDistinctiveRingingCallCenterCalls()
     {
-        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls->getValue();
+        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls;
     }
 
     /**

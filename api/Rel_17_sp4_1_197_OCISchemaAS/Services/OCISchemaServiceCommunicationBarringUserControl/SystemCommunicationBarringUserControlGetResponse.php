@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommu
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlNumberOfAttempts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlLockoutMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl\SystemCommunicationBarringUserControlGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemCommunicationBarringUserControlGetRequest.
+ * Response to the SystemCommunicationBarringUserControlGetRequest.
  *         Contains the settings to whole system for Communication Barring User-Control
  */
 class SystemCommunicationBarringUserControlGetResponse extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
     protected $maxNumberOfFailedAttempts = null;
     protected $lockoutMinutes            = null;
 
+    /**
+     * @return SystemCommunicationBarringUserControlGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
      */
     public function getEnableLockout()
     {
-        return (!$this->enableLockout) ?: $this->enableLockout->getValue();
+        return (!$this->enableLockout) ?: $this->enableLockout;
     }
 
     /**

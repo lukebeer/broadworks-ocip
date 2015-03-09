@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetSummaryListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupDnGetSummaryListRequest.
+ * Response to the GroupDnGetSummaryListRequest.
  *         The response contains a table with columns: "Phone Numbers", "Assigned".
  *         The "Phone Numbers" column contains either a single DN or a range of DNs.
  *         The "Assigned" column contains a boolean flag indicating if the DN(s) are
@@ -25,6 +28,13 @@ class GroupDnGetSummaryListResponse extends ComplexType implements ComplexInterf
     public    $name    = __CLASS__;
     protected $dnTable = null;
 
+    /**
+     * @return GroupDnGetSummaryListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

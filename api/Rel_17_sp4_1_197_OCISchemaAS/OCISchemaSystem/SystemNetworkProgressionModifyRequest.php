@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkProgressionWaitPeriodSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkProgressionModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with network progression.
+ * Modify the system level data associated with network progression.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemNetworkProgressionModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class SystemNetworkProgressionModifyRequest extends ComplexType implements Compl
     }
 
     /**
+     * @return SystemNetworkProgressionModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setIsActive($isActive = null)
@@ -43,7 +54,7 @@ class SystemNetworkProgressionModifyRequest extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

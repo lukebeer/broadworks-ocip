@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallingLineIdModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the calling line id settings for a group.
+ * Modify the calling line id settings for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
         $this->setUseGroupNumber($useGroupNumber);
         $this->setUseGroupName($useGroupName);
         $this->setCallingLineIdPhoneNumber($callingLineIdPhoneNumber);
+    }
+
+    /**
+     * @return GroupCallingLineIdModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -94,7 +105,7 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUseGroupNumber()
     {
-        return (!$this->useGroupNumber) ?: $this->useGroupNumber->getValue();
+        return (!$this->useGroupNumber) ?: $this->useGroupNumber;
     }
 
     /**
@@ -110,7 +121,7 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUseGroupName()
     {
-        return (!$this->useGroupName) ?: $this->useGroupName->getValue();
+        return (!$this->useGroupName) ?: $this->useGroupName;
     }
 
     /**

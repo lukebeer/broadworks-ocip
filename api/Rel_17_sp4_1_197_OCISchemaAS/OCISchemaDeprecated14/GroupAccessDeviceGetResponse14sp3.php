@@ -23,12 +23,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupAccessDeviceGetResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAccessDeviceGetRequest14sp3.
+ * Response to GroupAccessDeviceGetRequest14sp3.
  *         Replaced By: GroupAccessDeviceGetResponse14sp6
  */
 class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexInterface
@@ -55,6 +58,13 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
     protected $mobilityManagerDefaultOriginatingServiceKey = null;
     protected $mobilityManagerDefaultTerminatingServiceKey = null;
 
+    /**
+     * @return GroupAccessDeviceGetResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Access device type.
@@ -247,7 +257,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
      */
     public function getNumberOfAssignedPorts()
     {
-        return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts->getValue();
+        return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts;
     }
 
     /**

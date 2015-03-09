@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserBroadWorksAnywhereGetRequest16sp2.
+ * Response to the UserBroadWorksAnywhereGetRequest16sp2.
  *         The phoneNumberTable contains columns: "Phone Number", "Description"
  */
 class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
     protected $alertAllLocationsForGroupPagingCalls = null;
     protected $phoneNumberTable                     = null;
 
+    /**
+     * @return UserBroadWorksAnywhereGetResponse16sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls->getValue();
+        return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls;
     }
 
     /**
@@ -53,7 +63,7 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function getAlertAllLocationsForGroupPagingCalls()
     {
-        return (!$this->alertAllLocationsForGroupPagingCalls) ?: $this->alertAllLocationsForGroupPagingCalls->getValue();
+        return (!$this->alertAllLocationsForGroupPagingCalls) ?: $this->alertAllLocationsForGroupPagingCalls;
     }
 
     /**

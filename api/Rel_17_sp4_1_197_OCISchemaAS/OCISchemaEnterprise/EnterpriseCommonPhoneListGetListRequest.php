@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaEnterpriseCommonPhoneListName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get an enterprise's common phone list.
+ * Get an enterprise's common phone list.
  *         The response is either a EnterpriseCommonPhoneListGetListResponse or an ErrorResponse.
  *         The search can be done using multiple criterion.
  *         If the searchCriteriaModeOr is present, any result matching any one criteria is included in the results. 
@@ -28,7 +31,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse';
+    public    $responseType                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse';
     public    $name                                          = __CLASS__;
     protected $serviceProviderId                             = null;
     protected $responseSizeLimit                             = null;
@@ -48,6 +51,14 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
         $this->setSearchCriteriaModeOr($searchCriteriaModeOr);
         $this->setSearchCriteriaEnterpriseCommonPhoneListName($searchCriteriaEnterpriseCommonPhoneListName);
         $this->setSearchCriteriaEnterpriseCommonPhoneListNumber($searchCriteriaEnterpriseCommonPhoneListNumber);
+    }
+
+    /**
+     * @return EnterpriseCommonPhoneListGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -105,7 +116,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
     }
 
     /**

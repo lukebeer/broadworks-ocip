@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a home zone from the BroadWorks Mobile Manager.
+ * Get a home zone from the BroadWorks Mobile Manager.
  *         The response is either EnterpriseBroadWorksMobileManagerGetHomeZoneResponse or ErrorResponse.
  */
 class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneResponse';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneResponse';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $homeZoneId        = null;
@@ -29,6 +32,14 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setHomeZoneId($homeZoneId);
+    }
+
+    /**
+     * @return EnterpriseBroadWorksMobileManagerGetHomeZoneResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -64,6 +75,6 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
      */
     public function getHomeZoneId()
     {
-        return (!$this->homeZoneId) ?: $this->homeZoneId->getValue();
+        return (!$this->homeZoneId) ?: $this->homeZoneId;
     }
 }

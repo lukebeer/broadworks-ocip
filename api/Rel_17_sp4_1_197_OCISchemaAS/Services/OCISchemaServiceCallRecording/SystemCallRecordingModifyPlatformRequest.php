@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingModifyPlatformResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the specified Call Recording platform.
+ * Modify the specified Call Recording platform.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallRecordingModifyPlatformRequest extends ComplexType implements ComplexInterface
@@ -48,6 +51,14 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
         $this->setBecomeSystemDefault($becomeSystemDefault);
         $this->setTransportType($transportType);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemCallRecordingModifyPlatformResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -135,7 +146,7 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getBecomeSystemDefault()
     {
-        return (!$this->becomeSystemDefault) ?: $this->becomeSystemDefault->getValue();
+        return (!$this->becomeSystemDefault) ?: $this->becomeSystemDefault;
     }
 
     /**

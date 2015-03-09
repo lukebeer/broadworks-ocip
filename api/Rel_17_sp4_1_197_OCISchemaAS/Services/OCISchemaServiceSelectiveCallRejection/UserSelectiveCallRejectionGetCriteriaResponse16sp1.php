@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelec
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\SelectiveCallRejectionCriteriaCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionGetCriteriaResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSelectiveCallRejectionGetCriteriaRequest16sp1.
+ * Response to the UserSelectiveCallRejectionGetCriteriaRequest16sp1.
  *         Private Phone Numbers are omitted from the fromDnCriteria.
  */
 class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType implements ComplexInterface
@@ -27,6 +30,13 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
     protected $holidaySchedule = null;
     protected $private         = null;
 
+    /**
+     * @return UserSelectiveCallRejectionGetCriteriaResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.
@@ -73,7 +83,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**
@@ -105,6 +115,6 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function getPrivate()
     {
-        return (!$this->private) ?: $this->private->getValue();
+        return (!$this->private) ?: $this->private;
     }
 }

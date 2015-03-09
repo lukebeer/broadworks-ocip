@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete an Application Server set.
+ * Delete an Application Server set.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemApplicationServerSetDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemApplicationServerSetDeleteRequest extends ComplexType implements Com
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemApplicationServerSetDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

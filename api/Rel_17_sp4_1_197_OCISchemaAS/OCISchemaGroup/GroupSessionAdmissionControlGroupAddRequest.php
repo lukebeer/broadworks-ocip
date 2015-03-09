@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGroupAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a session admission control group for the group.
+ * Request to add a session admission control group for the group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupSessionAdmissionControlGroupAddRequest extends ComplexType implements ComplexInterface
@@ -62,6 +65,14 @@ class GroupSessionAdmissionControlGroupAddRequest extends ComplexType implements
         $this->setBecomeDefaultGroup($becomeDefaultGroup);
         $this->setCountIntraSACGroupSessions($countIntraSACGroupSessions);
         $this->setDevices($devices);
+    }
+
+    /**
+     * @return GroupSessionAdmissionControlGroupAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -245,7 +256,7 @@ class GroupSessionAdmissionControlGroupAddRequest extends ComplexType implements
      */
     public function getBecomeDefaultGroup()
     {
-        return (!$this->becomeDefaultGroup) ?: $this->becomeDefaultGroup->getValue();
+        return (!$this->becomeDefaultGroup) ?: $this->becomeDefaultGroup;
     }
 
     /**
@@ -261,7 +272,7 @@ class GroupSessionAdmissionControlGroupAddRequest extends ComplexType implements
      */
     public function getCountIntraSACGroupSessions()
     {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->getValue();
+        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions;
     }
 
     /**

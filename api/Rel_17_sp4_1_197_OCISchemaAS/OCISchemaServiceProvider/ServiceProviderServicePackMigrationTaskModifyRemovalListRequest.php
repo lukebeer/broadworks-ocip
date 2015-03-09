@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\Se
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementServicePackNameList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserServiceList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskModifyRemovalListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replace the list of services and packs to be removed from users during the service pack migration.
+ * Replace the list of services and packs to be removed from users during the service pack migration.
  *         Modification is only allowed prior to task execution.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -38,6 +41,14 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         $this->setTaskName($taskName);
         $this->setUserServiceNameList($userServiceNameList);
         $this->setServicePackNameList($servicePackNameList);
+    }
+
+    /**
+     * @return ServiceProviderServicePackMigrationTaskModifyRemovalListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

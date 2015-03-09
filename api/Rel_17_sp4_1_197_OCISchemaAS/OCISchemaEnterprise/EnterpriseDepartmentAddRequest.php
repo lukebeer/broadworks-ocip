@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseDepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a department to enterprise.
+ * Add a department to enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
         $this->setEnterpriseId($enterpriseId);
         $this->setDepartmentName($departmentName);
         $this->setParentDepartmentKey($parentDepartmentKey);
+    }
+
+    /**
+     * @return EnterpriseDepartmentAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

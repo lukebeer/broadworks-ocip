@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupMeetMeConferencingGetInstanceListRequest.
+ * Response to the GroupMeetMeConferencingGetInstanceListRequest.
  *         Contains a table with column headings: "Service User Id", "Name", "Phone Number", "Extension", "Department", "Ports", and "Is Active".
  *         The column values for "Is Active" can either be true, or false.
  */
@@ -22,6 +25,13 @@ class GroupMeetMeConferencingGetInstanceListResponse extends ComplexType impleme
     public    $name                  = __CLASS__;
     protected $conferenceBridgeTable = null;
 
+    /**
+     * @return GroupMeetMeConferencingGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

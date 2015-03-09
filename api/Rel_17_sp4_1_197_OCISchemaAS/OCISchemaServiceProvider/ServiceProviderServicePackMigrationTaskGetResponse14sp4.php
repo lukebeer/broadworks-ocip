@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderServicePackMigrationTaskGetRequest14sp4.
+ * Response to ServiceProviderServicePackMigrationTaskGetRequest14sp4.
  *         The groupTable column headings are: "Group Id", "Group Name", "User Count".
  */
 class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexType implements ComplexInterface
@@ -51,6 +54,13 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
     protected $assignServicePackName                 = null;
     protected $assignServiceName                     = null;
 
+    /**
+     * @return ServiceProviderServicePackMigrationTaskGetResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service pack migration task name.
@@ -117,7 +127,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getSendReportEmail()
     {
-        return (!$this->sendReportEmail) ?: $this->sendReportEmail->getValue();
+        return (!$this->sendReportEmail) ?: $this->sendReportEmail;
     }
 
     /**
@@ -151,7 +161,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getAbortOnError()
     {
-        return (!$this->abortOnError) ?: $this->abortOnError->getValue();
+        return (!$this->abortOnError) ?: $this->abortOnError;
     }
 
     /**
@@ -185,7 +195,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getReportAllUsers()
     {
-        return (!$this->reportAllUsers) ?: $this->reportAllUsers->getValue();
+        return (!$this->reportAllUsers) ?: $this->reportAllUsers;
     }
 
     /**
@@ -201,7 +211,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {
-        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity->getValue();
+        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity;
     }
 
     /**
@@ -217,7 +227,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getErrorCount()
     {
-        return (!$this->errorCount) ?: $this->errorCount->getValue();
+        return (!$this->errorCount) ?: $this->errorCount;
     }
 
     /**
@@ -251,7 +261,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getGroupsProcessed()
     {
-        return (!$this->groupsProcessed) ?: $this->groupsProcessed->getValue();
+        return (!$this->groupsProcessed) ?: $this->groupsProcessed;
     }
 
     /**
@@ -267,7 +277,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getGroupsTotal()
     {
-        return (!$this->groupsTotal) ?: $this->groupsTotal->getValue();
+        return (!$this->groupsTotal) ?: $this->groupsTotal;
     }
 
     /**
@@ -283,7 +293,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getUsersProcessed()
     {
-        return (!$this->usersProcessed) ?: $this->usersProcessed->getValue();
+        return (!$this->usersProcessed) ?: $this->usersProcessed;
     }
 
     /**
@@ -299,7 +309,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getUsersTotal()
     {
-        return (!$this->usersTotal) ?: $this->usersTotal->getValue();
+        return (!$this->usersTotal) ?: $this->usersTotal;
     }
 
     /**

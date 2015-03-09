@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\GroupAutoAttendantModifyInstanceResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify an Auto Attendant instance.
+ * Request to modify an Auto Attendant instance.
  *         Only Group and Enterprise level schedules are accepted.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -59,6 +62,14 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
         $this->setNameDialingEntries($nameDialingEntries);
         $this->setBusinessHoursMenu($businessHoursMenu);
         $this->setAfterHoursMenu($afterHoursMenu);
+    }
+
+    /**
+     * @return GroupAutoAttendantModifyInstanceResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -116,7 +127,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**

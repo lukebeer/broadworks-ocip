@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupTrunkGroupUserCreationTaskGetListRequest.
+ * Response to GroupTrunkGroupUserCreationTaskGetListRequest.
  *         Contains a table with a row for each user creation task and column headings :
  *         "Name", "Status", "Users Created", "Total Users To Create", "Error Count".
  */
@@ -22,6 +25,13 @@ class GroupTrunkGroupUserCreationTaskGetListResponse extends ComplexType impleme
     public    $name      = __CLASS__;
     protected $taskTable = null;
 
+    /**
+     * @return GroupTrunkGroupUserCreationTaskGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

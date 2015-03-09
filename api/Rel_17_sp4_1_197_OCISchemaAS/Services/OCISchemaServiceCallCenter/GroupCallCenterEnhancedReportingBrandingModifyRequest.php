@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingBrandingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the group branding configuration.
+ * Request to modify the group branding configuration.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
         $this->setGroupId($groupId);
         $this->setBrandingChoice($brandingChoice);
         $this->setBrandingFile($brandingFile);
+    }
+
+    /**
+     * @return GroupCallCenterEnhancedReportingBrandingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetAvailableCallCenterListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * This request gets a list of all call centers which the user can be assigned to as an agent. 
+ * This request gets a list of all call centers which the user can be assigned to as an agent. 
  *         Some of the call centers may already have the user as an agent.  It is the clients 
  *         responsibility to discard the call centers that the user is already an agent of.
  *         The response is either a UserCallCenterGetAvailableCallCenterListResponse or an ErrorResponse.
  */
 class UserCallCenterGetAvailableCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetAvailableCallCenterListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetAvailableCallCenterListResponse';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -28,6 +31,14 @@ class UserCallCenterGetAvailableCallCenterListRequest extends ComplexType implem
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserCallCenterGetAvailableCallCenterListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

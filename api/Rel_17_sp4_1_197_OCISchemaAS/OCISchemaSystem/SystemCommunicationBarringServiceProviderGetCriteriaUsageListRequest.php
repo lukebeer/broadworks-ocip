@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCriteriaName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of Service Providers that use a specific
+ * Get the list of Service Providers that use a specific
  *         Communication Barring Criteria.
  *         The response is either a SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse
  *         or an ErrorResponse.
  */
 class SystemCommunicationBarringServiceProviderGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse';
     public    $name = __CLASS__;
     protected $name = null;
 
@@ -28,6 +31,14 @@ class SystemCommunicationBarringServiceProviderGetCriteriaUsageListRequest exten
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

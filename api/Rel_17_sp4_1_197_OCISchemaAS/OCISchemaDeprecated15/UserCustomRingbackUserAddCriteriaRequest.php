@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Criteria
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserAddCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a criteria to the user's custom ringback service.
+ * Add a criteria to the user's custom ringback service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements ComplexInterface
@@ -63,6 +66,14 @@ class UserCustomRingbackUserAddCriteriaRequest extends ComplexType implements Co
         $this->setCallWaitingAudioFile($callWaitingAudioFile);
         $this->setCallWaitingVideoSelection($callWaitingVideoSelection);
         $this->setCallWaitingVideoFile($callWaitingVideoFile);
+    }
+
+    /**
+     * @return UserCustomRingbackUserAddCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

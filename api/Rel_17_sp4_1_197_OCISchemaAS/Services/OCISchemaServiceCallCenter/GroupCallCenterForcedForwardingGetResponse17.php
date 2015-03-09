@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterForcedForwardingGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterForcedForwardingGetRequest17.
+ * Response to the GroupCallCenterForcedForwardingGetRequest17.
  */
 class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -35,6 +38,13 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
     protected $videoFileList                    = null;
     protected $videoMediaTypeList               = null;
 
+    /**
+     * @return GroupCallCenterForcedForwardingGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -49,7 +59,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -97,7 +107,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function getAllowEnableViaFAC()
     {
-        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC->getValue();
+        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC;
     }
 
     /**
@@ -113,7 +123,7 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding->getValue();
+        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding;
     }
 
     /**

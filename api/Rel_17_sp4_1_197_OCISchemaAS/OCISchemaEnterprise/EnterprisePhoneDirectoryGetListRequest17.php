@@ -19,12 +19,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterprisePhoneDirectoryGetListResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a table containing the phone directory for an enterprise.
+ * Request a table containing the phone directory for an enterprise.
  *         The directory includes all users in the enterprise and all entries in the enterprise common phone list.
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         Multiple search criteria are logically ANDed together.
@@ -32,7 +35,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterprisePhoneDirectoryGetListResponse17';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterprisePhoneDirectoryGetListResponse17';
     public    $name                              = __CLASS__;
     protected $enterpriseId                      = null;
     protected $isExtendedInfoRequested           = null;
@@ -79,6 +82,14 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
     }
 
     /**
+     * @return EnterprisePhoneDirectoryGetListResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -111,7 +122,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function getIsExtendedInfoRequested()
     {
-        return (!$this->isExtendedInfoRequested) ?: $this->isExtendedInfoRequested->getValue();
+        return (!$this->isExtendedInfoRequested) ?: $this->isExtendedInfoRequested;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\TutorialFlagModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the tutorial flag setting for a user or admin.
+ * Modify the tutorial flag setting for a user or admin.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
     ) {
         $this->setUserId($userId);
         $this->setEnableTutorial($enableTutorial);
+    }
+
+    /**
+     * @return TutorialFlagModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,6 +80,6 @@ class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getEnableTutorial()
     {
-        return (!$this->enableTutorial) ?: $this->enableTutorial->getValue();
+        return (!$this->enableTutorial) ?: $this->enableTutorial;
     }
 }

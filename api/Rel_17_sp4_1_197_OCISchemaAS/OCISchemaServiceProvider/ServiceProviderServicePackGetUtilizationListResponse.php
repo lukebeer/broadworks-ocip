@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetUtilizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderServicePackGetUtilizationListRequest.
+ * Response to ServiceProviderServicePackGetUtilizationListRequest.
  *         For each service pack, a table of groups utilizing the pack is returned.
  *         The utilization table column headings are "Group", "Total Packs" and "Assigned".
  */
@@ -23,6 +26,13 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
     protected $servicePackName         = null;
     protected $serviceUtilizationTable = null;
 
+    /**
+     * @return ServiceProviderServicePackGetUtilizationListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Pack name.

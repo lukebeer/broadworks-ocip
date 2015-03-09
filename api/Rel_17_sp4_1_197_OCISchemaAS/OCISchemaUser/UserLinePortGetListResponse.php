@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserLinePortGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserLinePortGetListRequest.
+ * Response to UserLinePortGetListRequest.
  *           Contains a table of line ports configured for a user
  *           The column headings are: "Line Port", "Line Port Type", "In Trunk Group",
  *           "Contact", "Contact2", "Contact3", "Contact4", "Contact5", " Authentication Mode ",
@@ -24,6 +27,13 @@ class UserLinePortGetListResponse extends ComplexType implements ComplexInterfac
     public    $name          = __CLASS__;
     protected $linePortTable = null;
 
+    /**
+     * @return UserLinePortGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

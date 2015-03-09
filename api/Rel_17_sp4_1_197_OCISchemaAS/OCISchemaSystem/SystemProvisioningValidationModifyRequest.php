@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ProvisioningValidationTimeoutSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemProvisioningValidationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the system's provisioning validation attributes.
+ * Request to modify the system's provisioning validation attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemProvisioningValidationModifyRequest extends ComplexType implements ComplexInterface
@@ -34,6 +37,14 @@ class SystemProvisioningValidationModifyRequest extends ComplexType implements C
     }
 
     /**
+     * @return SystemProvisioningValidationModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setIsActive($isActive = null)
@@ -46,7 +57,7 @@ class SystemProvisioningValidationModifyRequest extends ComplexType implements C
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -62,7 +73,7 @@ class SystemProvisioningValidationModifyRequest extends ComplexType implements C
      */
     public function getIsNetworkServerQueryActive()
     {
-        return (!$this->isNetworkServerQueryActive) ?: $this->isNetworkServerQueryActive->getValue();
+        return (!$this->isNetworkServerQueryActive) ?: $this->isNetworkServerQueryActive;
     }
 
     /**

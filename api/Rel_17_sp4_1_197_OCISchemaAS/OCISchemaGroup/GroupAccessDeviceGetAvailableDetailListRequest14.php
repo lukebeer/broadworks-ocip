@@ -9,19 +9,22 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the list of available access devices for assignment to a user
+ * Requests the list of available access devices for assignment to a user
  *         within a group. The list includes devices created at the system, service provider, and group levels.
  *         The response is either GroupAccessDeviceGetAvailableDetailListResponse14 or
  *         ErrorResponse.
  */
 class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $groupId           = null;
@@ -38,6 +41,14 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
         $this->setGroupId($groupId);
         $this->setIsMusicOnHold($isMusicOnHold);
         $this->setOnlyVideoCapable($onlyVideoCapable);
+    }
+
+    /**
+     * @return GroupAccessDeviceGetAvailableDetailListResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -93,7 +104,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function getIsMusicOnHold()
     {
-        return (!$this->isMusicOnHold) ?: $this->isMusicOnHold->getValue();
+        return (!$this->isMusicOnHold) ?: $this->isMusicOnHold;
     }
 
     /**
@@ -109,6 +120,6 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function getOnlyVideoCapable()
     {
-        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable->getValue();
+        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable;
     }
 }

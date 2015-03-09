@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\EnterprisePhoneDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterprisePhoneDirectoryGetListRequest.
+ * Response to EnterprisePhoneDirectoryGetListRequest.
  *          Contains a table with  a row for each phone number and column headings :
  *          "Name", "Number", "Extension", "Mobile", "Email Address", "Department", "Hiragana Name", "Group Id", "Yahoo Id".
  *          If extended directory information is requested, the following columns are also included:
@@ -27,6 +30,13 @@ class EnterprisePhoneDirectoryGetListResponse extends ComplexType implements Com
     public    $name           = __CLASS__;
     protected $directoryTable = null;
 
+    /**
+     * @return EnterprisePhoneDirectoryGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

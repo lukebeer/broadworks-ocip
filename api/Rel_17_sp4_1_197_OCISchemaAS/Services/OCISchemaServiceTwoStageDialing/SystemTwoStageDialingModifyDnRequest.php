@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoSt
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\TwoStageDialingDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingModifyDnResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a Two Stage Dialing number's description in the system.
+ * Request to modify a Two Stage Dialing number's description in the system.
  *           The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTwoStageDialingModifyDnRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemTwoStageDialingModifyDnRequest extends ComplexType implements Comple
     ) {
         $this->setPhoneNumber($phoneNumber);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemTwoStageDialingModifyDnResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

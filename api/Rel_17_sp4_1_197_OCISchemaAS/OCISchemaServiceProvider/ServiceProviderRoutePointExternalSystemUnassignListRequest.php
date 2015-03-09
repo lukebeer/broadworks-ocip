@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemUnassignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Unassign a list of route point external systems from a service provider.
+ * Unassign a list of route point external systems from a service provider.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderRoutePointExternalSystemUnassignListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderRoutePointExternalSystemUnassignListRequest extends Complex
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setRoutePointExternalSystem($routePointExternalSystem);
+    }
+
+    /**
+     * @return ServiceProviderRoutePointExternalSystemUnassignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

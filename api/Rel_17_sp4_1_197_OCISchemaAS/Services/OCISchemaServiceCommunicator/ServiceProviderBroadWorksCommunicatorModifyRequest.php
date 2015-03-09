@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommu
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicator\ServiceProviderBroadWorksCommunicatorModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the Configuration URL. The response is either a SuccessResponse or an ErrorResponse.
+ * Request to modify the Configuration URL. The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType implements ComplexInterface
 {
@@ -28,6 +31,14 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setConfigurationServerURL($configurationServerURL);
+    }
+
+    /**
+     * @return ServiceProviderBroadWorksCommunicatorModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

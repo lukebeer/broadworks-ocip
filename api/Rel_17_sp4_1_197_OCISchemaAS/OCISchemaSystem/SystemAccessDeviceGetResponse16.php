@@ -22,12 +22,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddre
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAccessDeviceGetRequest16
+ * Response to SystemAccessDeviceGetRequest16
  */
 class SystemAccessDeviceGetResponse16 extends ComplexType implements ComplexInterface
 {
@@ -53,6 +56,13 @@ class SystemAccessDeviceGetResponse16 extends ComplexType implements ComplexInte
     protected $useCustomUserNamePassword                   = null;
     protected $userName                                    = null;
 
+    /**
+     * @return SystemAccessDeviceGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Access device type.
@@ -245,7 +255,7 @@ class SystemAccessDeviceGetResponse16 extends ComplexType implements ComplexInte
      */
     public function getNumberOfAssignedPorts()
     {
-        return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts->getValue();
+        return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts;
     }
 
     /**
@@ -387,7 +397,7 @@ class SystemAccessDeviceGetResponse16 extends ComplexType implements ComplexInte
      */
     public function getUseCustomUserNamePassword()
     {
-        return (!$this->useCustomUserNamePassword) ?: $this->useCustomUserNamePassword->getValue();
+        return (!$this->useCustomUserNamePassword) ?: $this->useCustomUserNamePassword;
     }
 
     /**

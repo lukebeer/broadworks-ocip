@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDigitCollectionModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the group's digit collection attributes.
+ * Modifies the group's digit collection attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
@@ -44,6 +47,14 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->setAccessCode($accessCode);
         $this->setPublicDigitMap($publicDigitMap);
         $this->setPrivateDigitMap($privateDigitMap);
+    }
+
+    /**
+     * @return GroupDigitCollectionModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

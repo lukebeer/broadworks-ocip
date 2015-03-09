@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\Voice
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\VoiceMessagingPasscodeExpiresDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemVoiceMessagingGroupGetPasscodeRulesResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemVoiceMessagingGroupGetPasscodeRulesRequest14.
+ * Response to SystemVoiceMessagingGroupGetPasscodeRulesRequest14.
  *         Contains the system voice portal passcode rules setting.
  *         Replaced By: SystemPortalPasscodeRulesGetResponse
  */
@@ -40,6 +43,13 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
     protected $loginDisabledNotifyEmailAddress         = null;
     protected $defaultPassword                         = null;
 
+    /**
+     * @return SystemVoiceMessagingGroupGetPasscodeRulesResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -54,7 +64,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getDisallowRepeatedDigits()
     {
-        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits->getValue();
+        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits;
     }
 
     /**
@@ -70,7 +80,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getDisallowUserNumber()
     {
-        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber->getValue();
+        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber;
     }
 
     /**
@@ -86,7 +96,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getDisallowReversedUserNumber()
     {
-        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber->getValue();
+        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber;
     }
 
     /**
@@ -102,7 +112,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getDisallowOldPasscode()
     {
-        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode->getValue();
+        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode;
     }
 
     /**
@@ -118,7 +128,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getDisallowReversedOldPasscode()
     {
-        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode->getValue();
+        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode;
     }
 
     /**
@@ -170,7 +180,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
-        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts->getValue();
+        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts;
     }
 
     /**
@@ -204,7 +214,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getExpirePassword()
     {
-        return (!$this->expirePassword) ?: $this->expirePassword->getValue();
+        return (!$this->expirePassword) ?: $this->expirePassword;
     }
 
     /**
@@ -238,7 +248,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail->getValue();
+        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
     }
 
     /**

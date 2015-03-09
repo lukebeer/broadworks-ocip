@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringCriteriaAssignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Assign a list of Communication Barring Criteria to a service provider.
+ * Assign a list of Communication Barring Criteria to a service provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends Compl
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCriteriaName($criteriaName);
+    }
+
+    /**
+     * @return ServiceProviderCommunicationBarringCriteriaAssignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

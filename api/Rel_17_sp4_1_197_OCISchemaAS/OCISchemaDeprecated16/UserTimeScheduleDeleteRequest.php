@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserTimeScheduleDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a user time schedule.
+ * Delete a user time schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
     ) {
         $this->setUserId($userId);
         $this->setTimeScheduleName($timeScheduleName);
+    }
+
+    /**
+     * @return UserTimeScheduleDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

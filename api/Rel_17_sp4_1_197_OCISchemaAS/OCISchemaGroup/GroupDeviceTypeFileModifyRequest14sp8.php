@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileModifyResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a specified device type file for a group.
+ * Request to modify a specified device type file for a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
@@ -45,6 +48,14 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
         $this->setFileFormat($fileFormat);
         $this->setFileSource($fileSource);
         $this->setUploadFile($uploadFile);
+    }
+
+    /**
+     * @return GroupDeviceTypeFileModifyResponse14sp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterDeleteSupervisorListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete supervisor(s) from a call center.
+ * Delete supervisor(s) from a call center.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterDeleteSupervisorListRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class GroupCallCenterDeleteSupervisorListRequest extends ComplexType implements 
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setSupervisorUserId($supervisorUserId);
+    }
+
+    /**
+     * @return GroupCallCenterDeleteSupervisorListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

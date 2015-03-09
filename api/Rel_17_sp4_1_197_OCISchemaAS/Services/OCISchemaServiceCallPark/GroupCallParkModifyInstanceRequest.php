@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies a Call Park group. Replaces the entire list of users in the group.  
+ * Modifies a Call Park group. Replaces the entire list of users in the group.  
  *         The users are in the list are in the order they will try to be parked on.
  *         The response is either SuccessResponse or ErrorResponse.
  *         
@@ -53,6 +56,14 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
         $this->setUserIdList($userIdList);
         $this->setRecallAlternateUserId($recallAlternateUserId);
         $this->setRecallTo($recallTo);
+    }
+
+    /**
+     * @return GroupCallParkModifyInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

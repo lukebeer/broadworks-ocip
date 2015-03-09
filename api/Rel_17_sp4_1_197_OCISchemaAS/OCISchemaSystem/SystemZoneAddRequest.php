@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Physical
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Zone and optional Net Addresses and Physical Locations.
+ * Add a Zone and optional Net Addresses and Physical Locations.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemZoneAddRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         $this->setNetAddressRange($netAddressRange);
         $this->setLocationBasedPhysicalLocation($locationBasedPhysicalLocation);
         $this->setCallingZonePhysicalLocation($callingZonePhysicalLocation);
+    }
+
+    /**
+     * @return SystemZoneAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

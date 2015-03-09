@@ -8,16 +8,19 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * One time conference schedule used in the context of a conference add.
+ * One time conference schedule used in the context of a conference add.
  */
 class InstantConferencingScheduleOneTime extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime';
     public    $name      = __CLASS__;
     protected $startTime = null;
     protected $duration  = null;
@@ -28,6 +31,14 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
     ) {
         $this->setStartTime($startTime);
         $this->setDuration($duration);
+    }
+
+    /**
+     * @return InstantConferencingScheduleOneTime
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

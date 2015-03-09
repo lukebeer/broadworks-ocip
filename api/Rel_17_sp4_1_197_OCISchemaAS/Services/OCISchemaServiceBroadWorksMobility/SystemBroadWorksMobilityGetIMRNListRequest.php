@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaIMRN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get the list of BroadWorks Mobility IMRN numbers defined in the system.
+ * Request to get the list of BroadWorks Mobility IMRN numbers defined in the system.
  *         The response is either a SystemBroadWorksMobilityIMRNGetListResponse
  *         or an ErrorResponse.
  */
 class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
     public    $name               = __CLASS__;
     protected $searchCriteriaIMRN = null;
 
@@ -27,6 +30,14 @@ class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements 
           $searchCriteriaIMRN = null
     ) {
         $this->setSearchCriteriaIMRN($searchCriteriaIMRN);
+    }
+
+    /**
+     * @return SystemBroadWorksMobilityGetIMRNListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

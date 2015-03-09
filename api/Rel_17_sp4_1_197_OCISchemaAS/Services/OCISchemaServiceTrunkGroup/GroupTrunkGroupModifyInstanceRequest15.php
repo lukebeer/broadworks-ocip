@@ -39,12 +39,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainNa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupModifyInstanceResponse15;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Trunk Group Instance in a group.
+ * Modify a Trunk Group Instance in a group.
  *         The access device cannot be modified or cleared if there are any users assigned to the Trunk Group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -222,6 +225,14 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
     }
 
     /**
+     * @return GroupTrunkGroupModifyInstanceResponse15
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Uniquely identifies a Trunk Group system-wide.
      *         The trunkGroupName is unique within a group, but not unique system-wide.
      */
@@ -396,7 +407,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getEnableBursting()
     {
-        return (!$this->enableBursting) ?: $this->enableBursting->getValue();
+        return (!$this->enableBursting) ?: $this->enableBursting;
     }
 
     /**
@@ -658,7 +669,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**
@@ -778,7 +789,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getAllowTerminationToTrunkGroupIdentity()
     {
-        return (!$this->allowTerminationToTrunkGroupIdentity) ?: $this->allowTerminationToTrunkGroupIdentity->getValue();
+        return (!$this->allowTerminationToTrunkGroupIdentity) ?: $this->allowTerminationToTrunkGroupIdentity;
     }
 
     /**
@@ -794,7 +805,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getAllowTerminationToDtgIdentity()
     {
-        return (!$this->allowTerminationToDtgIdentity) ?: $this->allowTerminationToDtgIdentity->getValue();
+        return (!$this->allowTerminationToDtgIdentity) ?: $this->allowTerminationToDtgIdentity;
     }
 
     /**
@@ -810,7 +821,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getIncludeTrunkGroupIdentity()
     {
-        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity->getValue();
+        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity;
     }
 
     /**
@@ -826,7 +837,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getIncludeDtgIdentity()
     {
-        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity->getValue();
+        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity;
     }
 
     /**
@@ -842,7 +853,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getIncludeTrunkGroupIdentityForNetworkCalls()
     {
-        return (!$this->includeTrunkGroupIdentityForNetworkCalls) ?: $this->includeTrunkGroupIdentityForNetworkCalls->getValue();
+        return (!$this->includeTrunkGroupIdentityForNetworkCalls) ?: $this->includeTrunkGroupIdentityForNetworkCalls;
     }
 
     /**
@@ -858,7 +869,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getIncludeOtgIdentityForNetworkCalls()
     {
-        return (!$this->includeOtgIdentityForNetworkCalls) ?: $this->includeOtgIdentityForNetworkCalls->getValue();
+        return (!$this->includeOtgIdentityForNetworkCalls) ?: $this->includeOtgIdentityForNetworkCalls;
     }
 
     /**
@@ -874,7 +885,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getEnableNetworkAddressIdentity()
     {
-        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity->getValue();
+        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity;
     }
 
     /**
@@ -890,7 +901,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getAllowUnscreenedCalls()
     {
-        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls->getValue();
+        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls;
     }
 
     /**
@@ -906,7 +917,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
-        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls->getValue();
+        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls;
     }
 
     /**
@@ -1044,7 +1055,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getRouteToPeeringDomain()
     {
-        return (!$this->routeToPeeringDomain) ?: $this->routeToPeeringDomain->getValue();
+        return (!$this->routeToPeeringDomain) ?: $this->routeToPeeringDomain;
     }
 
     /**
@@ -1060,7 +1071,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getPrefixEnabled()
     {
-        return (!$this->prefixEnabled) ?: $this->prefixEnabled->getValue();
+        return (!$this->prefixEnabled) ?: $this->prefixEnabled;
     }
 
     /**
@@ -1094,7 +1105,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getStatefulReroutingEnabled()
     {
-        return (!$this->statefulReroutingEnabled) ?: $this->statefulReroutingEnabled->getValue();
+        return (!$this->statefulReroutingEnabled) ?: $this->statefulReroutingEnabled;
     }
 
     /**
@@ -1110,7 +1121,7 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getSendContinuousOptionsMessage()
     {
-        return (!$this->sendContinuousOptionsMessage) ?: $this->sendContinuousOptionsMessage->getValue();
+        return (!$this->sendContinuousOptionsMessage) ?: $this->sendContinuousOptionsMessage;
     }
 
     /**
@@ -1252,6 +1263,6 @@ class GroupTrunkGroupModifyInstanceRequest15 extends ComplexType implements Comp
      */
     public function getUseSystemCallingLineAssertedIdentityPolicy()
     {
-        return (!$this->useSystemCallingLineAssertedIdentityPolicy) ?: $this->useSystemCallingLineAssertedIdentityPolicy->getValue();
+        return (!$this->useSystemCallingLineAssertedIdentityPolicy) ?: $this->useSystemCallingLineAssertedIdentityPolicy;
     }
 }

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceModifyUserResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify attributes for line/ports assigned on the group device profile.
+ * Request to modify attributes for line/ports assigned on the group device profile.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         $this->setDeviceName($deviceName);
         $this->setLinePort($linePort);
         $this->setIsPrimaryLinePort($isPrimaryLinePort);
+    }
+
+    /**
+     * @return GroupAccessDeviceModifyUserResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -149,6 +160,6 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getIsPrimaryLinePort()
     {
-        return (!$this->isPrimaryLinePort) ?: $this->isPrimaryLinePort->getValue();
+        return (!$this->isPrimaryLinePort) ?: $this->isPrimaryLinePort;
     }
 }

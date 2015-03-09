@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSeque
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingLocation14sp4;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSequentialRing\UserSequentialRingGetResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSequentialRingGetRequest14sp4. The criteria table's column headings are:
+ * Response to the UserSequentialRingGetRequest14sp4. The criteria table's column headings are:
  *         "Is Active", "Criteria Name", "Time Schedule", "Calls From", "Blacklisted" and "Holiday Schedule".
  */
 class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexInterface
@@ -31,6 +34,13 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
     protected $Location05                   = null;
     protected $criteriaTable                = null;
 
+    /**
+     * @return UserSequentialRingGetResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function getRingBaseLocationFirst()
     {
-        return (!$this->ringBaseLocationFirst) ?: $this->ringBaseLocationFirst->getValue();
+        return (!$this->ringBaseLocationFirst) ?: $this->ringBaseLocationFirst;
     }
 
     /**
@@ -79,7 +89,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function getContinueIfBaseLocationIsBusy()
     {
-        return (!$this->continueIfBaseLocationIsBusy) ?: $this->continueIfBaseLocationIsBusy->getValue();
+        return (!$this->continueIfBaseLocationIsBusy) ?: $this->continueIfBaseLocationIsBusy;
     }
 
     /**
@@ -95,7 +105,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function getCallerMayStopSearch()
     {
-        return (!$this->callerMayStopSearch) ?: $this->callerMayStopSearch->getValue();
+        return (!$this->callerMayStopSearch) ?: $this->callerMayStopSearch;
     }
 
     /**

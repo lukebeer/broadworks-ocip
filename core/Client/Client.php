@@ -11,6 +11,7 @@ namespace Broadworks_OCIP\core\Client;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationRequest;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginRequest14sp4;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LogoutRequest;
+use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Client\Transport\TransportInterface;
 use Broadworks_OCIP\core\Console\CommandGenerator;
 use Broadworks_OCIP\core\Console\Console;
@@ -29,6 +30,7 @@ class Client
     private $timeout = 4;
     private $autoLogout = true;
     private $requestMsg = null;
+    private $responseType = null;
 
 
     public function __construct(TransportInterface $transport)
@@ -59,8 +61,9 @@ class Client
 
     public function send($msg)
     {
-        $msg = $this->ociBuilder->build($msg);
         $this->requestMsg = $msg;
+        $this->responseType = (is_object($this->requestMsg)) ? $msg->getResponseType() : null;
+        $msg = $this->ociBuilder->build($msg);
         $this->errorControl->clearLastError();
         return $this->transport->send($msg);
     }
@@ -85,15 +88,15 @@ class Client
         if ($userId) $this->session->setUserId($userId);
         $msg = new AuthenticationRequest($this->session->getUserId());
         if (($this->send($msg)) && ($this->getResponse())) {
-            $this->session->setNonce($this->getResponse()->nonce);
+            $this->session->setNonce($this->getResponse()->getNonce());
             return true;
         }
         return false;
     }
 
     public function getResponse($outputType = ResponseOutput::STD)
-    {
-        return $this->transport->getResponse($outputType);
+    {;
+        return $this->transport->getResponse($this->responseType, $outputType);
     }
 
     public function getSession()

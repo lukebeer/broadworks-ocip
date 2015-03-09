@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterNightServiceModifyResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's night service settings.
+ * Modify a call center's night service settings.
  *         Only Group and Enterprise level schedules are accepted.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -90,6 +93,14 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
         $this->setManualVideoMessageSelection($manualVideoMessageSelection);
         $this->setManualVideoUrlList($manualVideoUrlList);
         $this->setManualVideoFileList($manualVideoFileList);
+    }
+
+    /**
+     * @return GroupCallCenterNightServiceModifyResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -165,7 +176,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getForceNightService()
     {
-        return (!$this->forceNightService) ?: $this->forceNightService->getValue();
+        return (!$this->forceNightService) ?: $this->forceNightService;
     }
 
     /**
@@ -181,7 +192,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getAllowManualOverrideViaFAC()
     {
-        return (!$this->allowManualOverrideViaFAC) ?: $this->allowManualOverrideViaFAC->getValue();
+        return (!$this->allowManualOverrideViaFAC) ?: $this->allowManualOverrideViaFAC;
     }
 
     /**
@@ -229,7 +240,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction->getValue();
+        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction;
     }
 
     /**

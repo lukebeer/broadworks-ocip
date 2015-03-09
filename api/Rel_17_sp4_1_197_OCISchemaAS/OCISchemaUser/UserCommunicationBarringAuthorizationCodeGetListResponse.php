@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAuthorizationCodeEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCommunicationBarringAuthorizationCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCommunicationBarringAuthorizationCodeGetListRequest.
+ * Response to UserCommunicationBarringAuthorizationCodeGetListRequest.
  *         Contains a list of Communication Barring Authorization Codes
  *         assigned to the user.
  */
@@ -22,6 +25,13 @@ class UserCommunicationBarringAuthorizationCodeGetListResponse extends ComplexTy
     public    $name = __CLASS__;
     protected $code = null;
 
+    /**
+     * @return UserCommunicationBarringAuthorizationCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Communication Barring Authorization Code entry.

@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLD
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchBase;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\GroupLDAPIntegrationGetDirectoryResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupLDAPIntegrationGetDirectoryRequest.
+ * Response to GroupLDAPIntegrationGetDirectoryRequest.
  */
 class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements ComplexInterface
 {
@@ -49,6 +52,13 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
     protected $column4Label                         = null;
     protected $searchColumn                         = null;
 
+    /**
+     * @return GroupLDAPIntegrationGetDirectoryResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Choices for the group LDAP directory settings to decide which type of settings to use.
@@ -135,7 +145,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getUseSSL()
     {
-        return (!$this->useSSL) ?: $this->useSSL->getValue();
+        return (!$this->useSSL) ?: $this->useSSL;
     }
 
     /**
@@ -151,7 +161,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**
@@ -203,7 +213,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getIsSortEnabled()
     {
-        return (!$this->isSortEnabled) ?: $this->isSortEnabled->getValue();
+        return (!$this->isSortEnabled) ?: $this->isSortEnabled;
     }
 
     /**
@@ -219,7 +229,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getIsPagedResultEnabled()
     {
-        return (!$this->isPagedResultEnabled) ?: $this->isPagedResultEnabled->getValue();
+        return (!$this->isPagedResultEnabled) ?: $this->isPagedResultEnabled;
     }
 
     /**
@@ -253,7 +263,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getIncludeSearchAttributeInSearchFilter()
     {
-        return (!$this->includeSearchAttributeInSearchFilter) ?: $this->includeSearchAttributeInSearchFilter->getValue();
+        return (!$this->includeSearchAttributeInSearchFilter) ?: $this->includeSearchAttributeInSearchFilter;
     }
 
     /**

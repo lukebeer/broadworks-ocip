@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system-level intercept user service settings.
+ * Modify the system-level intercept user service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
          $emergencyAndRepairIntercept = null
     ) {
         $this->setEmergencyAndRepairIntercept($emergencyAndRepairIntercept);
+    }
+
+    /**
+     * @return SystemInterceptUserModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function getEmergencyAndRepairIntercept()
     {
-        return (!$this->emergencyAndRepairIntercept) ?: $this->emergencyAndRepairIntercept->getValue();
+        return (!$this->emergencyAndRepairIntercept) ?: $this->emergencyAndRepairIntercept;
     }
 }

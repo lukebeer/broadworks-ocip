@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderSessionAdmissionControlGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderSessionAdmissionControlGetRequest.
+ * Response to the ServiceProviderSessionAdmissionControlGetRequest.
  *         The response contains the session admission control capacity allocated for the service provider.
  */
 class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
     protected $maxUserTerminatingSessions        = null;
     protected $countIntraServiceProviderSessions = null;
 
+    /**
+     * @return ServiceProviderSessionAdmissionControlGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -39,7 +49,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function getRestrictAggregateSessions()
     {
-        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions->getValue();
+        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions;
     }
 
     /**
@@ -109,6 +119,6 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function getCountIntraServiceProviderSessions()
     {
-        return (!$this->countIntraServiceProviderSessions) ?: $this->countIntraServiceProviderSessions->getValue();
+        return (!$this->countIntraServiceProviderSessions) ?: $this->countIntraServiceProviderSessions;
     }
 }

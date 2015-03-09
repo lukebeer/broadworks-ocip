@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderAnswerConfirmationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderAnswerConfirmationGetRequest.
+ * Response to the ServiceProviderAnswerConfirmationGetRequest.
  *         Replaced By: ServiceProviderAnswerConfirmationGetResponse16
  */
 class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
     protected $confirmationMessageAudioFileDescription = null;
     protected $confirmationTimoutSeconds               = null;
 
+    /**
+     * @return ServiceProviderAnswerConfirmationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Anser Confirmation Announcement Selection.

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformUsageResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallRecordingGetPlatformUsageRequest.
+ * Response to SystemCallRecordingGetPlatformUsageRequest.
  *         The response contains a table with columns headings "Service Provider Id", "Group Id".
  */
 class SystemCallRecordingGetPlatformUsageResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemCallRecordingGetPlatformUsageResponse extends ComplexType implements
     public    $name       = __CLASS__;
     protected $groupTable = null;
 
+    /**
+     * @return SystemCallRecordingGetPlatformUsageResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRemot
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRemoteOffice\UserRemoteOfficeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Remote Office.
+ * Modify the user level data associated with Remote Office.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
         $this->setUserId($userId);
         $this->setIsActive($isActive);
         $this->setRemoteOfficePhoneNumber($remoteOfficePhoneNumber);
+    }
+
+    /**
+     * @return UserRemoteOfficeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

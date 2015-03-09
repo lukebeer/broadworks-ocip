@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTh
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportMailServer;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceThirdPartyVoiceMailSupport\UserThirdPartyVoiceMailSupportModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Third Party Voice Mail Support settings for a user.
+ * Modify the Third Party Voice Mail Support settings for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements ComplexInterface
@@ -63,6 +66,14 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
     }
 
     /**
+     * @return UserThirdPartyVoiceMailSupportModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -101,7 +112,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -117,7 +128,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getBusyRedirectToVoiceMail()
     {
-        return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail->getValue();
+        return (!$this->busyRedirectToVoiceMail) ?: $this->busyRedirectToVoiceMail;
     }
 
     /**
@@ -133,7 +144,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
-        return (!$this->noAnswerRedirectToVoiceMail) ?: $this->noAnswerRedirectToVoiceMail->getValue();
+        return (!$this->noAnswerRedirectToVoiceMail) ?: $this->noAnswerRedirectToVoiceMail;
     }
 
     /**
@@ -253,7 +264,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getAlwaysRedirectToVoiceMail()
     {
-        return (!$this->alwaysRedirectToVoiceMail) ?: $this->alwaysRedirectToVoiceMail->getValue();
+        return (!$this->alwaysRedirectToVoiceMail) ?: $this->alwaysRedirectToVoiceMail;
     }
 
     /**
@@ -269,6 +280,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getOutOfPrimaryZoneRedirectToVoiceMail()
     {
-        return (!$this->outOfPrimaryZoneRedirectToVoiceMail) ?: $this->outOfPrimaryZoneRedirectToVoiceMail->getValue();
+        return (!$this->outOfPrimaryZoneRedirectToVoiceMail) ?: $this->outOfPrimaryZoneRedirectToVoiceMail;
     }
 }

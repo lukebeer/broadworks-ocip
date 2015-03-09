@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentSignOutResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * This request signs-out a call center agent. Administrator, supervisor and agent itself can sign-out an agent. 
+ * This request signs-out a call center agent. Administrator, supervisor and agent itself can sign-out an agent. 
  *         An empty OCI table in OCI-P response indicates success and the agent has been signed out. This sign-out 
  *         command will fail if the agent is the last signed-in agent of any standard or premium call center to 
  *         which she is currently joined. If the sign-out fails, the OCI-P response will contain a list of 
@@ -24,7 +27,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentSignOutResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentSignOutResponse';
     public    $name        = __CLASS__;
     protected $agentUserId = null;
 
@@ -32,6 +35,14 @@ class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexIn
          $agentUserId
     ) {
         $this->setAgentUserId($agentUserId);
+    }
+
+    /**
+     * @return UserCallCenterAgentSignOutResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

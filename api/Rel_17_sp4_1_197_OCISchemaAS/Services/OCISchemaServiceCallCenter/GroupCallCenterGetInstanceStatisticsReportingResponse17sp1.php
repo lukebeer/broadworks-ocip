@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsCollectionPeriodMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsSource17sp1;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsReportingResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupCallCenterGetInstanceStatisticsReportingRequest17sp1.
+ * Response to GroupCallCenterGetInstanceStatisticsReportingRequest17sp1.
  *         Contains Call Center statistics reporting settings.
  */
 class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends ComplexType implements ComplexInterface
@@ -27,6 +30,13 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
     protected $reportingEmailAddress2  = null;
     protected $statisticsSource        = null;
 
+    /**
+     * @return GroupCallCenterGetInstanceStatisticsReportingResponse17sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -41,7 +51,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function getGenerateDailyReport()
     {
-        return (!$this->generateDailyReport) ?: $this->generateDailyReport->getValue();
+        return (!$this->generateDailyReport) ?: $this->generateDailyReport;
     }
 
     /**

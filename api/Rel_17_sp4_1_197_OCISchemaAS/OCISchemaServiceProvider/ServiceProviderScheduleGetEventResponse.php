@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderScheduleGetEventRequest.
+ * Response to ServiceProviderScheduleGetEventRequest.
  *         The response contains the event of the service provider schedule.
  */
 class ServiceProviderScheduleGetEventResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
     protected $endDate    = null;
     protected $recurrence = null;
 
+    /**
+     * @return ServiceProviderScheduleGetEventResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

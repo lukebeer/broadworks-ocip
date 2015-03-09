@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Dialable
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the groups Dialable Caller ID settings and criteria list.
+ * Modify the groups Dialable Caller ID settings and criteria list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         $this->setUseGroupCriteria($useGroupCriteria);
         $this->setNsScreeningFailurePolicy($nsScreeningFailurePolicy);
         $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
+    }
+
+    /**
+     * @return GroupDialableCallerIDModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -95,7 +106,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getUseGroupCriteria()
     {
-        return (!$this->useGroupCriteria) ?: $this->useGroupCriteria->getValue();
+        return (!$this->useGroupCriteria) ?: $this->useGroupCriteria;
     }
 
     /**

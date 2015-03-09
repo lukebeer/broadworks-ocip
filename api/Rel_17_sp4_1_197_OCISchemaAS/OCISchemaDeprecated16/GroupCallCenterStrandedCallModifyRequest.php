@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterStrandedCallModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's stranded call settings.
+ * Modify a call center's stranded call settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements ComplexInterface
@@ -47,6 +50,14 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->setAudioFile($audioFile);
         $this->setVideoMessageSelection($videoMessageSelection);
         $this->setVideoFile($videoFile);
+    }
+
+    /**
+     * @return GroupCallCenterStrandedCallModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\Music
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupMusicOnHoldAddInstanceResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Music on Hold Instance to a department.
+ * Add a Music on Hold Instance to a department.
  *         The response is either SuccessResponse or ErrorResponse.
  *         Replaced By: GroupMusicOnHoldAddInstanceRequest16
  */
@@ -53,6 +56,14 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
         $this->setSource($source);
         $this->setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls);
         $this->setInternalSource($internalSource);
+    }
+
+    /**
+     * @return GroupMusicOnHoldAddInstanceResponse14sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -136,7 +147,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold->getValue();
+        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold;
     }
 
     /**
@@ -152,7 +163,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark->getValue();
+        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark;
     }
 
     /**
@@ -168,7 +179,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getIsActiveDuringBusyCampOn()
     {
-        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn->getValue();
+        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn;
     }
 
     /**
@@ -200,7 +211,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls->getValue();
+        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls;
     }
 
     /**

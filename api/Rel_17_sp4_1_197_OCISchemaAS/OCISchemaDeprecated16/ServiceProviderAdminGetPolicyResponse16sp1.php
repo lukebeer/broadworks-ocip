@@ -19,12 +19,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminGroupAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminUserAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderAdminGetPolicyResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderAdminGetPolicyRequest16sp1.
+ * Response to ServiceProviderAdminGetPolicyRequest16sp1.
  *         Contains the policy settings for the service provider administrator.
  *         The networkPolicyAccess is returned only for the enterprise administrator.
  *         Replaced by: ServiceProviderAdminGetPolicyResponse17
@@ -45,6 +48,13 @@ class ServiceProviderAdminGetPolicyResponse16sp1 extends ComplexType implements 
     protected $webBrandingAccess             = null;
     protected $networkPolicyAccess           = null;
 
+    /**
+     * @return ServiceProviderAdminGetPolicyResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Provider Administrator's policy for accessing

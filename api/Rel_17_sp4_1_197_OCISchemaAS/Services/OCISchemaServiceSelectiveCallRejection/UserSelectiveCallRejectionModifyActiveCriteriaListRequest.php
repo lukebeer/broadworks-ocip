@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelec
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionModifyActiveCriteriaListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Activate the user's selective call rejection criteria list.
+ * Activate the user's selective call rejection criteria list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSelectiveCallRejectionModifyActiveCriteriaListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserSelectiveCallRejectionModifyActiveCriteriaListRequest extends ComplexT
     ) {
         $this->setUserId($userId);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserSelectiveCallRejectionModifyActiveCriteriaListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

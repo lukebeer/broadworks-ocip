@@ -20,12 +20,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupPhoneDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a table containing the phone directory for a group.
+ * Request a table containing the phone directory for a group.
  *         If the specified group is part of an enterprise, the directory includes all users in the enterprise
  *         and all entries in the enterprise common phone list and the common phone list of the specified group.
  *         If the specified group is part of a service provider, the directory includes all users in the group
@@ -38,7 +41,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupPhoneDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupPhoneDirectoryGetListResponse';
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupPhoneDirectoryGetListResponse';
     public    $name                              = __CLASS__;
     protected $serviceProviderId                 = null;
     protected $groupId                           = null;
@@ -85,6 +88,14 @@ class GroupPhoneDirectoryGetListRequest extends ComplexType implements ComplexIn
         $this->setSearchCriteriaYahooId($searchCriteriaYahooId);
         $this->setSearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
         $this->setSearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
+    }
+
+    /**
+     * @return GroupPhoneDirectoryGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -140,7 +151,7 @@ class GroupPhoneDirectoryGetListRequest extends ComplexType implements ComplexIn
      */
     public function getIsExtendedInfoRequested()
     {
-        return (!$this->isExtendedInfoRequested) ?: $this->isExtendedInfoRequested->getValue();
+        return (!$this->isExtendedInfoRequested) ?: $this->isExtendedInfoRequested;
     }
 
     /**

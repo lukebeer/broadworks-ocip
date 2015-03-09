@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupDeleteInstanceResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Trunk Group Instance from a group.
+ * Delete a Trunk Group Instance from a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements C
           $trunkGroupKey
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
+    }
+
+    /**
+     * @return GroupTrunkGroupDeleteInstanceResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

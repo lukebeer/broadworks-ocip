@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a GroupTrunkGroupUserCreationTaskGetRequest14sp4.
+ * Response to a GroupTrunkGroupUserCreationTaskGetRequest14sp4.
  */
 class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
@@ -42,6 +45,13 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
     protected $taskSummary        = null;
     protected $reportFileKey      = null;
 
+    /**
+     * @return GroupTrunkGroupUserCreationTaskGetResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * User Id format for Trunk Group User Creation.
@@ -92,7 +102,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
      */
     public function getPopulateExtension()
     {
-        return (!$this->populateExtension) ?: $this->populateExtension->getValue();
+        return (!$this->populateExtension) ?: $this->populateExtension;
     }
 
     /**
@@ -144,7 +154,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
      */
     public function getPopulateContact()
     {
-        return (!$this->populateContact) ?: $this->populateContact->getValue();
+        return (!$this->populateContact) ?: $this->populateContact;
     }
 
     /**
@@ -196,7 +206,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
      */
     public function getUsersCreated()
     {
-        return (!$this->usersCreated) ?: $this->usersCreated->getValue();
+        return (!$this->usersCreated) ?: $this->usersCreated;
     }
 
     /**
@@ -212,7 +222,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
      */
     public function getTotalUsersToCreate()
     {
-        return (!$this->totalUsersToCreate) ?: $this->totalUsersToCreate->getValue();
+        return (!$this->totalUsersToCreate) ?: $this->totalUsersToCreate;
     }
 
     /**
@@ -228,7 +238,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
      */
     public function getErrorCount()
     {
-        return (!$this->errorCount) ?: $this->errorCount->getValue();
+        return (!$this->errorCount) ?: $this->errorCount;
     }
 
     /**
@@ -316,7 +326,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
      */
     public function getTaskSummary()
     {
-        return (!$this->taskSummary) ?: $this->taskSummary->getValue();
+        return (!$this->taskSummary) ?: $this->taskSummary;
     }
 
     /**
@@ -332,6 +342,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
      */
     public function getReportFileKey()
     {
-        return (!$this->reportFileKey) ?: $this->reportFileKey->getValue();
+        return (!$this->reportFileKey) ?: $this->reportFileKey;
     }
 }

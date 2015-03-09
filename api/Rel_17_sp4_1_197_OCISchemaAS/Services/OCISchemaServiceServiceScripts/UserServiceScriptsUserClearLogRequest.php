@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\UserServiceScriptsUserClearLogResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Clear the Service Script User Log.
+ * Clear the Service Script User Log.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserServiceScriptsUserClearLogRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class UserServiceScriptsUserClearLogRequest extends ComplexType implements Compl
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserServiceScriptsUserClearLogResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

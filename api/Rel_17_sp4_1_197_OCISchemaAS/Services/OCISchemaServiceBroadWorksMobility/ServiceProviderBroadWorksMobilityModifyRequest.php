@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroad
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityServiceProviderSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\ServiceProviderBroadWorksMobilityModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the service provider level BroadWorks Mobility service settings.
+ * Modify the service provider level BroadWorks Mobility service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
@@ -44,6 +47,14 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
         $this->setEnableMobileStateChecking($enableMobileStateChecking);
         $this->setDenyCallOriginations($denyCallOriginations);
         $this->setDenyCallTerminations($denyCallTerminations);
+    }
+
+    /**
+     * @return ServiceProviderBroadWorksMobilityModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -97,7 +108,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableLocationServices()
     {
-        return (!$this->enableLocationServices) ?: $this->enableLocationServices->getValue();
+        return (!$this->enableLocationServices) ?: $this->enableLocationServices;
     }
 
     /**
@@ -113,7 +124,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableMSRNLookup()
     {
-        return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup->getValue();
+        return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup;
     }
 
     /**
@@ -129,7 +140,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableMobileStateChecking()
     {
-        return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking->getValue();
+        return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking;
     }
 
     /**
@@ -145,7 +156,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getDenyCallOriginations()
     {
-        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations->getValue();
+        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations;
     }
 
     /**
@@ -161,6 +172,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getDenyCallTerminations()
     {
-        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations->getValue();
+        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations;
     }
 }

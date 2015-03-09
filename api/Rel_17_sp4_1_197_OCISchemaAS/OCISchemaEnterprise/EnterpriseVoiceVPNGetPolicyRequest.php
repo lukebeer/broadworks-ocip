@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNLocationCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the enterprise level data associated with Voice VPN location code.
+ * Request the enterprise level data associated with Voice VPN location code.
  *         The response is either a EnterpriseVoiceVPNGetPolicyResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
     public    $name                = __CLASS__;
     protected $serviceProviderId   = null;
     protected $locationDialingCode = null;
@@ -30,6 +33,14 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setLocationDialingCode($locationDialingCode);
+    }
+
+    /**
+     * @return EnterpriseVoiceVPNGetPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

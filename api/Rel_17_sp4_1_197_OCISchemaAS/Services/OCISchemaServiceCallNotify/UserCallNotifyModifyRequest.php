@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallN
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's call notify service setting.
+ * Modify the user's call notify service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
         $this->setUserId($userId);
         $this->setCallNotifyEmailAddress($callNotifyEmailAddress);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserCallNotifyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

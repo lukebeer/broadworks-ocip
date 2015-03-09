@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAnonymousCallRejection; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAnonymousCallRejection\SystemAnonymousCallRejectionModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a system Anonymous Call Rejection parameter.
+ * Modify a system Anonymous Call Rejection parameter.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
     }
 
     /**
+     * @return SystemAnonymousCallRejectionModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setPaiRequired($paiRequired = null)
@@ -43,7 +54,7 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
      */
     public function getPaiRequired()
     {
-        return (!$this->paiRequired) ?: $this->paiRequired->getValue();
+        return (!$this->paiRequired) ?: $this->paiRequired;
     }
 
     /**
@@ -59,6 +70,6 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
      */
     public function getScreenOnlyLocalCalls()
     {
-        return (!$this->screenOnlyLocalCalls) ?: $this->screenOnlyLocalCalls->getValue();
+        return (!$this->screenOnlyLocalCalls) ?: $this->screenOnlyLocalCalls;
     }
 }

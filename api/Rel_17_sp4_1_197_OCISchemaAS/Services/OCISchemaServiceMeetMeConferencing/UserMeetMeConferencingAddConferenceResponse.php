@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePassCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserMeetMeConferencingAddConferenceRequest.
+ * Response to UserMeetMeConferencingAddConferenceRequest.
  */
 class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
     protected $conferenceId = null;
     protected $moderatorPin = null;
 
+    /**
+     * @return UserMeetMeConferencingAddConferenceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Conference Id or moderator pin.

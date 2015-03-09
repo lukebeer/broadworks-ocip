@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Contains a simple list of all service provider domain names.
+ * Contains a simple list of all service provider domain names.
  */
 class ServiceProviderDomainGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
     protected $serviceProviderDefaultDomain = null;
     protected $domain                       = null;
 
+    /**
+     * @return ServiceProviderDomainGetAssignedListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * IP Address, hostname, or domain.

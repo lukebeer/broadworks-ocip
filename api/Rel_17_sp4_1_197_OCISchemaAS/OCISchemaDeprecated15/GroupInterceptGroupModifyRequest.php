@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupInterceptGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group's intercept group service settings.
+ * Modify the group's intercept group service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced By: GroupInterceptGroupModifyRequest16
  */
@@ -58,6 +61,14 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
         $this->setNewPhoneNumber($newPhoneNumber);
         $this->setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber);
         $this->setTransferPhoneNumber($transferPhoneNumber);
+    }
+
+    /**
+     * @return GroupInterceptGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -113,7 +124,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -183,7 +194,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
     }
 
     /**
@@ -217,7 +228,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
     }
 
     /**

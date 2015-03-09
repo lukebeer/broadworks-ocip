@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCAPModifyACLEntryResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an entry from the CAP access control list.
+ * Modify an entry from the CAP access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCAPModifyACLEntryRequest14 extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemCAPModifyACLEntryRequest14 extends ComplexType implements ComplexInt
     ) {
         $this->setNetAddress($netAddress);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemCAPModifyACLEntryResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

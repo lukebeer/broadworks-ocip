@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemExternalAuthenticationAddACLEntryResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add an entry to the external authentication access control list.
+ * Add an entry to the external authentication access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExternalAuthenticationAddACLEntryRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemExternalAuthenticationAddACLEntryRequest extends ComplexType impleme
     ) {
         $this->setNetAddress($netAddress);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemExternalAuthenticationAddACLEntryResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

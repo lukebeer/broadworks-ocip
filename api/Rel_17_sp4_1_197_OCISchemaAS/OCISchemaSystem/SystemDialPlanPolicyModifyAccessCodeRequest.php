@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyModifyAccessCodeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a system-level Dial Plan Access Code and its attribues.
+ * Request to modify a system-level Dial Plan Access Code and its attribues.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements ComplexInterface
@@ -38,6 +41,14 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
         $this->setIncludeCodeForScreeningServices($includeCodeForScreeningServices);
         $this->setEnableSecondaryDialTone($enableSecondaryDialTone);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemDialPlanPolicyModifyAccessCodeResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
-        return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting->getValue();
+        return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting;
     }
 
     /**
@@ -89,7 +100,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getIncludeCodeForScreeningServices()
     {
-        return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices->getValue();
+        return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices;
     }
 
     /**
@@ -105,7 +116,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getEnableSecondaryDialTone()
     {
-        return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone->getValue();
+        return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone;
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCIReportingMessageName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingAddMessageNameListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a list of reported messages for a host in the OCI Reporting
+ * Add a list of reported messages for a host in the OCI Reporting
  *         Access Control List. The response is either a SuccessResponse or an
  *         ErrorResponse.
  */
@@ -30,6 +33,14 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
     ) {
         $this->setNetAddress($netAddress);
         $this->setMessageNameStartsWith($messageNameStartsWith);
+    }
+
+    /**
+     * @return SystemOCIReportingAddMessageNameListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

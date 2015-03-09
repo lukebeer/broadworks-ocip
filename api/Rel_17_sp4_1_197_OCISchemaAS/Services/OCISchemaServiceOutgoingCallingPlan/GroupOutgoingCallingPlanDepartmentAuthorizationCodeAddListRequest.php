@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a list of authorization codes to the group's default or a department. When department is not
+ * Add a list of authorization codes to the group's default or a department. When department is not
  *         specified, it is for the group default.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -38,6 +41,14 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
         $this->setGroupId($groupId);
         $this->setDepartmentKey($departmentKey);
         $this->setCodeEntry($codeEntry);
+    }
+
+    /**
+     * @return GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointForcedForwardingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointForcedForwardingGetRequest.
+ * Response to the GroupRoutePointForcedForwardingGetRequest.
  */
 class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -34,6 +37,13 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
     protected $videoFileList                    = null;
     protected $videoMediaTypeList               = null;
 
+    /**
+     * @return GroupRoutePointForcedForwardingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -48,7 +58,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -96,7 +106,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding->getValue();
+        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding;
     }
 
     /**

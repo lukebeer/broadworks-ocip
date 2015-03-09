@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AgentACDAutomaticState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AudioFileCodec;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a Route Point instance.
+ * Request to modify a Route Point instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupRoutePointModifyInstanceRequest extends ComplexType implements ComplexInterface
@@ -79,6 +82,14 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
         $this->setAgentUnavailableCode($agentUnavailableCode);
         $this->setForceDeliveryOfCalls($forceDeliveryOfCalls);
         $this->setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
+    }
+
+    /**
+     * @return GroupRoutePointModifyInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -226,7 +237,7 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -242,7 +253,7 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getPlayRingingWhenOfferingCall()
     {
-        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->getValue();
+        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall;
     }
 
     /**
@@ -258,7 +269,7 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->getValue();
+        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime;
     }
 
     /**
@@ -292,7 +303,7 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableAutomaticStateChangeForAgents()
     {
-        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents->getValue();
+        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents;
     }
 
     /**
@@ -346,7 +357,7 @@ class GroupRoutePointModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getForceDeliveryOfCalls()
     {
-        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->getValue();
+        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls;
     }
 
     /**

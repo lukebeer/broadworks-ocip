@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\ErrorResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * The ErrorResponse is concrete response sent whenever a transaction fails and does not return any data.
+ * The ErrorResponse is concrete response sent whenever a transaction fails and does not return any data.
  */
 class ErrorResponse extends ComplexType implements ComplexInterface
 {
@@ -23,6 +26,13 @@ class ErrorResponse extends ComplexType implements ComplexInterface
     protected $summaryEnglish = null;
     protected $detail         = null;
 
+    /**
+     * @return ErrorResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getErrorCode()
     {
-        return (!$this->errorCode) ?: $this->errorCode->getValue();
+        return (!$this->errorCode) ?: $this->errorCode;
     }
 
     /**
@@ -53,7 +63,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getSummary()
     {
-        return (!$this->summary) ?: $this->summary->getValue();
+        return (!$this->summary) ?: $this->summary;
     }
 
     /**
@@ -69,7 +79,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getSummaryEnglish()
     {
-        return (!$this->summaryEnglish) ?: $this->summaryEnglish->getValue();
+        return (!$this->summaryEnglish) ?: $this->summaryEnglish;
     }
 
     /**
@@ -85,6 +95,6 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getDetail()
     {
-        return (!$this->detail) ?: $this->detail->getValue();
+        return (!$this->detail) ?: $this->detail;
     }
 }

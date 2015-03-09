@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest.
+ * Response to ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest.
  *         The groupTable column headings are: "Group Id", "Group Name", "User Count".
  */
 class ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse exten
     public    $name       = __CLASS__;
     protected $groupTable = null;
 
+    /**
+     * @return ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleDeleteEventListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a list of events from a group schedule.
+ * Delete a list of events from a group schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupScheduleDeleteEventListRequest extends ComplexType implements Complex
         $this->setGroupId($groupId);
         $this->setScheduleKey($scheduleKey);
         $this->setEventName($eventName);
+    }
+
+    /**
+     * @return GroupScheduleDeleteEventListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

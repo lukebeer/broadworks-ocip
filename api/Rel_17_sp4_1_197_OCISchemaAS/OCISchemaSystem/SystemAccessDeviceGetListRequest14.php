@@ -12,19 +12,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the list of access devices defined at the System-level.
+ * Requests the list of access devices defined at the System-level.
  *         Prior to release 14, this command requested a list of all devices in the entire system. That
  *         functionality is now moved to the SystemAccessDeviceGetAllRequest.
  *         The response is either SystemAccessDeviceGetListResponse14 or ErrorResponse.
  */
 class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetListResponse14';
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetListResponse14';
     public    $name                           = __CLASS__;
     protected $responseSizeLimit              = null;
     protected $searchCriteriaDeviceName       = null;
@@ -44,6 +47,14 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
         $this->setSearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
         $this->setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
         $this->setSearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
+    }
+
+    /**
+     * @return SystemAccessDeviceGetListResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\GroupCallRecordingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallRecordingGetRequest.
+ * Response to the GroupCallRecordingGetRequest.
  *          The response contains the group's Call Recording platform information.
  */
 class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterf
     public    $name = __CLASS__;
     protected $name = null;
 
+    /**
+     * @return GroupCallRecordingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call Recording Platform Name.

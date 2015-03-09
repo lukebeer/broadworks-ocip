@@ -20,12 +20,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCLIDPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallProcessingModifyPolicyResponse14sp7;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group level data associated with Call Procesing Policy.
+ * Modify the group level data associated with Call Procesing Policy.
  *             The response is either a SuccessResponse or an ErrorResponse.
  *             The useGroupCLIDSetting attribute controls the CLID settings
  *             (clidPolicy, emergencyClidPolicy, allowAlternateNumbersForRedirectingIdentity, useGroupName)
@@ -150,6 +153,14 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
     }
 
     /**
+     * @return GroupCallProcessingModifyPolicyResponse14sp7
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -202,7 +213,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseGroupCLIDSetting()
     {
-        return (!$this->useGroupCLIDSetting) ?: $this->useGroupCLIDSetting->getValue();
+        return (!$this->useGroupCLIDSetting) ?: $this->useGroupCLIDSetting;
     }
 
     /**
@@ -218,7 +229,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseGroupMediaSetting()
     {
-        return (!$this->useGroupMediaSetting) ?: $this->useGroupMediaSetting->getValue();
+        return (!$this->useGroupMediaSetting) ?: $this->useGroupMediaSetting;
     }
 
     /**
@@ -234,7 +245,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseGroupCallLimitsSetting()
     {
-        return (!$this->useGroupCallLimitsSetting) ?: $this->useGroupCallLimitsSetting->getValue();
+        return (!$this->useGroupCallLimitsSetting) ?: $this->useGroupCallLimitsSetting;
     }
 
     /**
@@ -250,7 +261,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseGroupTranslationRoutingSetting()
     {
-        return (!$this->useGroupTranslationRoutingSetting) ?: $this->useGroupTranslationRoutingSetting->getValue();
+        return (!$this->useGroupTranslationRoutingSetting) ?: $this->useGroupTranslationRoutingSetting;
     }
 
     /**
@@ -266,7 +277,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseMaxSimultaneousCalls()
     {
-        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->getValue();
+        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls;
     }
 
     /**
@@ -300,7 +311,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
-        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->getValue();
+        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls;
     }
 
     /**
@@ -334,7 +345,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
-        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->getValue();
+        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls;
     }
 
     /**
@@ -368,7 +379,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
-        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->getValue();
+        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls;
     }
 
     /**
@@ -456,7 +467,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {
-        return (!$this->enforceGroupCallingLineIdentityRestriction) ?: $this->enforceGroupCallingLineIdentityRestriction->getValue();
+        return (!$this->enforceGroupCallingLineIdentityRestriction) ?: $this->enforceGroupCallingLineIdentityRestriction;
     }
 
     /**
@@ -472,7 +483,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getAllowEnterpriseGroupCallTypingForPrivateDialingPlan()
     {
-        return (!$this->allowEnterpriseGroupCallTypingForPrivateDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPrivateDialingPlan->getValue();
+        return (!$this->allowEnterpriseGroupCallTypingForPrivateDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPrivateDialingPlan;
     }
 
     /**
@@ -488,7 +499,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getAllowEnterpriseGroupCallTypingForPublicDialingPlan()
     {
-        return (!$this->allowEnterpriseGroupCallTypingForPublicDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPublicDialingPlan->getValue();
+        return (!$this->allowEnterpriseGroupCallTypingForPublicDialingPlan) ?: $this->allowEnterpriseGroupCallTypingForPublicDialingPlan;
     }
 
     /**
@@ -504,7 +515,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getOverrideCLIDRestrictionForExternalCallsViaPrivateDialingPlan()
     {
-        return (!$this->overrideCLIDRestrictionForExternalCallsViaPrivateDialingPlan) ?: $this->overrideCLIDRestrictionForExternalCallsViaPrivateDialingPlan->getValue();
+        return (!$this->overrideCLIDRestrictionForExternalCallsViaPrivateDialingPlan) ?: $this->overrideCLIDRestrictionForExternalCallsViaPrivateDialingPlan;
     }
 
     /**
@@ -520,7 +531,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getEnableEnterpriseExtensionDialing()
     {
-        return (!$this->enableEnterpriseExtensionDialing) ?: $this->enableEnterpriseExtensionDialing->getValue();
+        return (!$this->enableEnterpriseExtensionDialing) ?: $this->enableEnterpriseExtensionDialing;
     }
 
     /**
@@ -536,7 +547,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseMaxConcurrentRedirectedCalls()
     {
-        return (!$this->useMaxConcurrentRedirectedCalls) ?: $this->useMaxConcurrentRedirectedCalls->getValue();
+        return (!$this->useMaxConcurrentRedirectedCalls) ?: $this->useMaxConcurrentRedirectedCalls;
     }
 
     /**
@@ -570,7 +581,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseMaxFindMeFollowMeDepth()
     {
-        return (!$this->useMaxFindMeFollowMeDepth) ?: $this->useMaxFindMeFollowMeDepth->getValue();
+        return (!$this->useMaxFindMeFollowMeDepth) ?: $this->useMaxFindMeFollowMeDepth;
     }
 
     /**
@@ -622,7 +633,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
-        return (!$this->useMaxConcurrentFindMeFollowMeInvocations) ?: $this->useMaxConcurrentFindMeFollowMeInvocations->getValue();
+        return (!$this->useMaxConcurrentFindMeFollowMeInvocations) ?: $this->useMaxConcurrentFindMeFollowMeInvocations;
     }
 
     /**
@@ -692,7 +703,7 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getAllowAlternateNumbersForRedirectingIdentity()
     {
-        return (!$this->allowAlternateNumbersForRedirectingIdentity) ?: $this->allowAlternateNumbersForRedirectingIdentity->getValue();
+        return (!$this->allowAlternateNumbersForRedirectingIdentity) ?: $this->allowAlternateNumbersForRedirectingIdentity;
     }
 
     /**
@@ -708,6 +719,6 @@ class GroupCallProcessingModifyPolicyRequest14sp7 extends ComplexType implements
      */
     public function getUseGroupName()
     {
-        return (!$this->useGroupName) ?: $this->useGroupName->getValue();
+        return (!$this->useGroupName) ?: $this->useGroupName;
     }
 }

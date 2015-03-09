@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaBandwi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MediaType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CodecName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemMediaAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a Media to the system.
+ * Request to add a Media to the system.
  *             The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMediaAddRequest extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class SystemMediaAddRequest extends ComplexType implements ComplexInterface
         $this->setMediaType($mediaType);
         $this->setBandwidthEnforcementType($bandwidthEnforcementType);
         $this->setMediaBandwidth($mediaBandwidth);
+    }
+
+    /**
+     * @return SystemMediaAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

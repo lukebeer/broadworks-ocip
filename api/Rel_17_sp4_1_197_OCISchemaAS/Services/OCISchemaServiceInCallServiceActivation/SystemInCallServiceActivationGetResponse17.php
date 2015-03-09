@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InCallServiceActivationDigits;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation\SystemInCallServiceActivationGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemInCallServiceActivationGetRequest17.
+ * Response to SystemInCallServiceActivationGetRequest17.
  */
 class SystemInCallServiceActivationGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class SystemInCallServiceActivationGetResponse17 extends ComplexType implements 
     protected $defaultFlashActivationDigits        = null;
     protected $defaultCallTransferActivationDigits = null;
 
+    /**
+     * @return SystemInCallServiceActivationGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * In Call Service Activation DigitMap.

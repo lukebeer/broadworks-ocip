@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AudioFileCodec;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DtmfDigit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterGetInstanceResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupCallCenterGetInstanceRequest16.
+ * Response to GroupCallCenterGetInstanceRequest16.
  */
 class GroupCallCenterGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
@@ -46,6 +49,13 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     protected $internalPreferredAudioCodec         = null;
     protected $playRingingWhenOfferingCall         = null;
 
+    /**
+     * @return GroupCallCenterGetInstanceResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -116,7 +126,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -168,7 +178,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowCallerToDialEscapeDigit()
     {
-        return (!$this->allowCallerToDialEscapeDigit) ?: $this->allowCallerToDialEscapeDigit->getValue();
+        return (!$this->allowCallerToDialEscapeDigit) ?: $this->allowCallerToDialEscapeDigit;
     }
 
     /**
@@ -202,7 +212,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getResetCallStatisticsUponEntryInQueue()
     {
-        return (!$this->resetCallStatisticsUponEntryInQueue) ?: $this->resetCallStatisticsUponEntryInQueue->getValue();
+        return (!$this->resetCallStatisticsUponEntryInQueue) ?: $this->resetCallStatisticsUponEntryInQueue;
     }
 
     /**
@@ -218,7 +228,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->getValue();
+        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff;
     }
 
     /**
@@ -234,7 +244,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 
     /**
@@ -250,7 +260,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->getValue();
+        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp;
     }
 
     /**
@@ -266,7 +276,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime->getValue();
+        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime;
     }
 
     /**
@@ -300,7 +310,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getForceDeliveryOfCalls()
     {
-        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls->getValue();
+        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls;
     }
 
     /**
@@ -370,6 +380,6 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getPlayRingingWhenOfferingCall()
     {
-        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall->getValue();
+        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall;
     }
 }

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunk
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\ServiceProviderTrunkGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the maximum and bursting maximum permissible active Trunk Group calls for the service provider.
+ * Modify the maximum and bursting maximum permissible active Trunk Group calls for the service provider.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
         $this->setServiceProviderId($serviceProviderId);
         $this->setMaxActiveCalls($maxActiveCalls);
         $this->setBurstingMaxActiveCalls($burstingMaxActiveCalls);
+    }
+
+    /**
+     * @return ServiceProviderTrunkGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

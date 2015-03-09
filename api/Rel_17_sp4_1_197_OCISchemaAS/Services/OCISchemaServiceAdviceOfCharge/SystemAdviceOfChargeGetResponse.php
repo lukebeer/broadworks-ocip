@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdvic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeDelayBetweenNotificationSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeIncomingAocHandling;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge\SystemAdviceOfChargeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAdviceOfChargeGetRequest.
+ * Response to SystemAdviceOfChargeGetRequest.
  *         Contains a list of system Advice of Charge parameters.
  */
 class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInte
     protected $incomingAocHandling             = null;
     protected $costInformationSource           = null;
 
+    /**
+     * @return SystemAdviceOfChargeGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The time in seconds used for the interval for sending AoC-D information to the caller.

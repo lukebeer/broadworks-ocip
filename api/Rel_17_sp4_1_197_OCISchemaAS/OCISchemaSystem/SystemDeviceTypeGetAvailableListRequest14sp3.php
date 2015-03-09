@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests a list of non-obsolete Identity/device profile types defined in the system. It is possible
+ * Requests a list of non-obsolete Identity/device profile types defined in the system. It is possible
  *         to get either all conference device types or all non-conferernce types. This command is similar
  *         to the SystemSIPDeviceTypeGetListRequest and SystemMGCPDeviceTypeGetListRequest
  *         but gets both SIP and MGCP types.
@@ -21,7 +24,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3';
     public    $name                  = __CLASS__;
     protected $allowConference       = null;
     protected $allowMusicOnHold      = null;
@@ -44,6 +47,14 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
     }
 
     /**
+     * @return SystemDeviceTypeGetAvailableListResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setAllowConference($allowConference = null)
@@ -56,7 +67,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getAllowConference()
     {
-        return (!$this->allowConference) ?: $this->allowConference->getValue();
+        return (!$this->allowConference) ?: $this->allowConference;
     }
 
     /**
@@ -72,7 +83,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getAllowMusicOnHold()
     {
-        return (!$this->allowMusicOnHold) ?: $this->allowMusicOnHold->getValue();
+        return (!$this->allowMusicOnHold) ?: $this->allowMusicOnHold;
     }
 
     /**
@@ -88,7 +99,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getOnlyConference()
     {
-        return (!$this->onlyConference) ?: $this->onlyConference->getValue();
+        return (!$this->onlyConference) ?: $this->onlyConference;
     }
 
     /**
@@ -104,7 +115,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getOnlyVideoCapable()
     {
-        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable->getValue();
+        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable;
     }
 
     /**
@@ -120,6 +131,6 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getOnlyOptionalIpAddress()
     {
-        return (!$this->onlyOptionalIpAddress) ?: $this->onlyOptionalIpAddress->getValue();
+        return (!$this->onlyOptionalIpAddress) ?: $this->onlyOptionalIpAddress;
     }
 }

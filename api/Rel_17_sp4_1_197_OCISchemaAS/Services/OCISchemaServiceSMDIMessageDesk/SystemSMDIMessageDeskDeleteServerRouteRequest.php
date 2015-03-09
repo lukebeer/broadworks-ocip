@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIServerRouteDestination;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskDeleteServerRouteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a SMDI Server route from the system.
+ * Request to delete a SMDI Server route from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implemen
          $routeDestination
     ) {
         $this->setRouteDestination($routeDestination);
+    }
+
+    /**
+     * @return SystemSMDIMessageDeskDeleteServerRouteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

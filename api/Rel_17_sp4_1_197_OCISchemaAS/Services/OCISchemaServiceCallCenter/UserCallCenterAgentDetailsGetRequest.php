@@ -8,18 +8,21 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get the detail information of a Call Center Agent. Administrator, supervisor and agent
+ * Request to get the detail information of a Call Center Agent. Administrator, supervisor and agent
  *         itself can send this command.
  *         The response is either UserCallCenterAgentDetailsGetResponse or ErrorResponse.
  */
 class UserCallCenterAgentDetailsGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse';
     public    $name        = __CLASS__;
     protected $agentUserId = null;
 
@@ -27,6 +30,14 @@ class UserCallCenterAgentDetailsGetRequest extends ComplexType implements Comple
          $agentUserId
     ) {
         $this->setAgentUserId($agentUserId);
+    }
+
+    /**
+     * @return UserCallCenterAgentDetailsGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

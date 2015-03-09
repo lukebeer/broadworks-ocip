@@ -12,19 +12,22 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of Route Point instances within a group. 
+ * Get a list of Route Point instances within a group. 
  *         It is possible to search by various criteria to restrict the number of rows returned.
  *         The response is either GroupRoutePointGetInstanceListResponse or ErrorResponse.
  *         It is possible to get the instances within a specified department.
  */
 class GroupRoutePointGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse';
+    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse';
     public    $name                         = __CLASS__;
     protected $serviceProviderId            = null;
     protected $groupId                      = null;
@@ -44,6 +47,14 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         $this->setGroupDepartmentName($groupDepartmentName);
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaRoutePointName($searchCriteriaRoutePointName);
+    }
+
+    /**
+     * @return GroupRoutePointGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

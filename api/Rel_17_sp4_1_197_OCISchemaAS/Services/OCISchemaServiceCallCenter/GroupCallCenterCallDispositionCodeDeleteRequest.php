@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCallDispositionCodeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Call Center Call Disposition Code.
+ * Delete a Call Center Call Disposition Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterCallDispositionCodeDeleteRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupCallCenterCallDispositionCodeDeleteRequest extends ComplexType implem
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setCode($code);
+    }
+
+    /**
+     * @return GroupCallCenterCallDispositionCodeDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

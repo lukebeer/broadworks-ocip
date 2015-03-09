@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAtten
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleReplacementDisplayColumnList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole\UserAttendantConsoleModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify user's attendant console settings.
+ * Modify user's attendant console settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexInterface
@@ -42,6 +45,14 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         $this->setAllowUserViewCallDetails($allowUserViewCallDetails);
         $this->setDisplayColumnList($displayColumnList);
         $this->setMonitoredUserIdList($monitoredUserIdList);
+    }
+
+    /**
+     * @return UserAttendantConsoleModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,7 +94,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin->getValue();
+        return (!$this->launchOnLogin) ?: $this->launchOnLogin;
     }
 
     /**
@@ -99,7 +110,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getAllowUserConfigCallDetails()
     {
-        return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails->getValue();
+        return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails;
     }
 
     /**
@@ -115,7 +126,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getAllowUserViewCallDetails()
     {
-        return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails->getValue();
+        return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails;
     }
 
     /**

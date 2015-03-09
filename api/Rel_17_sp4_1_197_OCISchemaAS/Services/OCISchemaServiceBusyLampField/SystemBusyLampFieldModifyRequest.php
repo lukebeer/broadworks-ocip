@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField\SystemBusyLampFieldModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with the Busy Lamp Field
+ * Modify the system level data associated with the Busy Lamp Field
  *         Service. The response is either a SuccessResponse or an 
  *         ErrorResponse.
  */
@@ -29,6 +32,14 @@ class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
+     * @return SystemBusyLampFieldModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst = null)
@@ -41,6 +52,6 @@ class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInt
      */
     public function getDisplayLocalUserIdentityLastNameFirst()
     {
-        return (!$this->displayLocalUserIdentityLastNameFirst) ?: $this->displayLocalUserIdentityLastNameFirst->getValue();
+        return (!$this->displayLocalUserIdentityLastNameFirst) ?: $this->displayLocalUserIdentityLastNameFirst;
     }
 }

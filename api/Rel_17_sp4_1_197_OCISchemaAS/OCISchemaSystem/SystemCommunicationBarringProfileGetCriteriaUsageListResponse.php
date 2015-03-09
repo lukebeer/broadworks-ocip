@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetCriteriaUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemCommunicationBarringProfileGetCriteriaUsageListRequest.
+ * Response to the SystemCommunicationBarringProfileGetCriteriaUsageListRequest.
  *         The response contains a table of system Communication Barring Profiles that
  *         use the specific Communication Barring Criteria. The column headings 
  *         are "Name" and "Description"
@@ -23,6 +26,13 @@ class SystemCommunicationBarringProfileGetCriteriaUsageListResponse extends Comp
     public    $name         = __CLASS__;
     protected $profileTable = null;
 
+    /**
+     * @return SystemCommunicationBarringProfileGetCriteriaUsageListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

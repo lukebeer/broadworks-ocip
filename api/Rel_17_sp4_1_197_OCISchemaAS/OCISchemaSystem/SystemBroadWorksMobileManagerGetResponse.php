@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAdd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBroadWorksMobileManagerGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemBroadWorksMobileManagerGetRequest
+ * Response to the SystemBroadWorksMobileManagerGetRequest
  */
 class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements ComplexInterface
 {
@@ -30,6 +33,13 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
     protected $signalingIPAddress = null;
     protected $signalingPort      = null;
 
+    /**
+     * @return SystemBroadWorksMobileManagerGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * IP Address, hostname, or domain.
@@ -116,7 +126,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getScfIMSOnly()
     {
-        return (!$this->scfIMSOnly) ?: $this->scfIMSOnly->getValue();
+        return (!$this->scfIMSOnly) ?: $this->scfIMSOnly;
     }
 
     /**

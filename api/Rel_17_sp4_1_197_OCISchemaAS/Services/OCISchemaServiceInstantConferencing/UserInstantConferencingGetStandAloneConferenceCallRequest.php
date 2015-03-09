@@ -10,18 +10,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the information of a conference call owned or delegated by the user.
+ * Get the information of a conference call owned or delegated by the user.
  *         The response is either UserInstantConferencingGetStandAloneConferenceCallResponse
  *         or ErrorResponse.
  */
 class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse';
     public    $name                  = __CLASS__;
     protected $conferenceOwnerUserId = null;
     protected $conferenceKey         = null;
@@ -35,6 +38,14 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setConferenceKey($conferenceKey);
         $this->setConferenceCallId($conferenceCallId);
+    }
+
+    /**
+     * @return UserInstantConferencingGetStandAloneConferenceCallResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

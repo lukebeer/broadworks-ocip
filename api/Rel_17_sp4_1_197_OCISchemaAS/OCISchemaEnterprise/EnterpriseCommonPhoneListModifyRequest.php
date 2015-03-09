@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an entry in an enterprise's common phone list.
+ * Modify an entry in an enterprise's common phone list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
         $this->setEntryName($entryName);
         $this->setNewEntryName($newEntryName);
         $this->setPhoneNumber($phoneNumber);
+    }
+
+    /**
+     * @return EnterpriseCommonPhoneListModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

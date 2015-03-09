@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierIdCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a SystemPreferredCarrierGetRequest.
+ * Response to a SystemPreferredCarrierGetRequest.
  *         Contains the attributes of a carrier.
  */
 class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexInterface
@@ -26,6 +29,13 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
     protected $isInterLata     = null;
     protected $isInternational = null;
 
+    /**
+     * @return SystemPreferredCarrierGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * A digit code used by network signaling to identifiy a carrier.
@@ -76,7 +86,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsIntraLata()
     {
-        return (!$this->isIntraLata) ?: $this->isIntraLata->getValue();
+        return (!$this->isIntraLata) ?: $this->isIntraLata;
     }
 
     /**
@@ -92,7 +102,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsInterLata()
     {
-        return (!$this->isInterLata) ?: $this->isInterLata->getValue();
+        return (!$this->isInterLata) ?: $this->isInterLata;
     }
 
     /**
@@ -108,6 +118,6 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsInternational()
     {
-        return (!$this->isInternational) ?: $this->isInternational->getValue();
+        return (!$this->isInternational) ?: $this->isInternational;
     }
 }

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallCenterGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallCentersLoginGetListRequest.
+ * Response to the UserCallCentersLoginGetListRequest.
  *         Indicates whether the agent is current available (logged in) to each call center in the list.
  *         Contains a table with column headings: "Service User Id", "Phone Number", "Extension", "Available", "Logoff Allowed".
  *         ***** NOTE: Prior to release 14sp1, the AppServer had a bug that caused it to emit column heading "Service User ID" with
@@ -26,6 +29,13 @@ class UserCallCenterGetListResponse extends ComplexType implements ComplexInterf
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return UserCallCenterGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

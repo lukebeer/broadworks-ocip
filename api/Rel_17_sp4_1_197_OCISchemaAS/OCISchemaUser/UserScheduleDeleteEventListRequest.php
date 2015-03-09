@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleDeleteEventListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a list of events from a user schedule.
+ * Delete a list of events from a user schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
         $this->setUserId($userId);
         $this->setScheduleKey($scheduleKey);
         $this->setEventName($eventName);
+    }
+
+    /**
+     * @return UserScheduleDeleteEventListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

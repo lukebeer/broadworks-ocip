@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkTranslationIndex;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new Network Class of Service.
+ * Add a new Network Class of Service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemNetworkClassOfServiceAddRequest extends ComplexType implements ComplexInterface
@@ -64,6 +67,14 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
         $this->setCommunicationBarringProfile8($communicationBarringProfile8);
         $this->setCommunicationBarringProfile9($communicationBarringProfile9);
         $this->setNetworkTranslationIndex($networkTranslationIndex);
+    }
+
+    /**
+     * @return SystemNetworkClassOfServiceAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

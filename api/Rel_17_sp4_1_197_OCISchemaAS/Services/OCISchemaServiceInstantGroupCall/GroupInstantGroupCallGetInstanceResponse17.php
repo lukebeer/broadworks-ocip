@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\InstantGroupCallAnswerTimeoutMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupInstantGroupCallGetInstanceRequest17.
+ * Response to GroupInstantGroupCallGetInstanceRequest17.
  *         Contains the service profile information and a list of phone numbers.
  */
 class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements ComplexInterface
@@ -26,6 +29,13 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
     protected $isAnswerTimeoutEnabled = null;
     protected $answerTimeoutMinutes   = null;
 
+    /**
+     * @return GroupInstantGroupCallGetInstanceResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -90,7 +100,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function getIsAnswerTimeoutEnabled()
     {
-        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->getValue();
+        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled;
     }
 
     /**

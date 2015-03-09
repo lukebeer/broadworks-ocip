@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirec
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaces a list of users as agents for a directory number hunting group.
+ * Replaces a list of users as agents for a directory number hunting group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDirectoryNumberHuntingModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class GroupDirectoryNumberHuntingModifyRequest extends ComplexType implements Co
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentUserIdList($agentUserIdList);
+    }
+
+    /**
+     * @return GroupDirectoryNumberHuntingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

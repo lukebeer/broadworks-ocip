@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the enterprise level data associated with Call Center
+ * Modify the enterprise level data associated with Call Center
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexInterface
@@ -54,6 +57,14 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
+     * @return EnterpriseCallCenterModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -86,7 +97,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUseSystemDefaultGuardTimer()
     {
-        return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer->getValue();
+        return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer;
     }
 
     /**
@@ -102,7 +113,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -136,7 +147,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->getValue();
+        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings;
     }
 
     /**
@@ -152,7 +163,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
     }
 
     /**
@@ -168,7 +179,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
-        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->getValue();
+        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls;
     }
 
     /**
@@ -184,7 +195,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
     }
 
     /**

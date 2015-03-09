@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLocationBasedCallingRestrictions\PhysicalLocationIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemLocationBasedCallingRestrictionsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemLocationBasedCallingRestrictionsGetRequest.
+ * Response to SystemLocationBasedCallingRestrictionsGetRequest.
  */
 class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType impl
     protected $enforceMscValidation         = null;
     protected $enableOfficeZoneAnnouncement = null;
 
+    /**
+     * @return SystemLocationBasedCallingRestrictionsGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Choices for how to extract the physical location from the P-Camel-CellDorLAI or P-Access-Network-Info header.
@@ -60,7 +70,7 @@ class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType impl
      */
     public function getEnforceMscValidation()
     {
-        return (!$this->enforceMscValidation) ?: $this->enforceMscValidation->getValue();
+        return (!$this->enforceMscValidation) ?: $this->enforceMscValidation;
     }
 
     /**
@@ -76,6 +86,6 @@ class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType impl
      */
     public function getEnableOfficeZoneAnnouncement()
     {
-        return (!$this->enableOfficeZoneAnnouncement) ?: $this->enableOfficeZoneAnnouncement->getValue();
+        return (!$this->enableOfficeZoneAnnouncement) ?: $this->enableOfficeZoneAnnouncement;
     }
 }

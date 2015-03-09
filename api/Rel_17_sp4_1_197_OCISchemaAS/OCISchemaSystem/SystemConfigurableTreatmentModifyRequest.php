@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ChargeIndic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Q850CauseValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Q850Text;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the fields for a configurable treatment.
+ * Modify the fields for a configurable treatment.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemConfigurableTreatmentModifyRequest extends ComplexType implements ComplexInterface
@@ -85,6 +88,14 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
         $this->setInternalReleaseCause($internalReleaseCause);
         $this->setAccessSendReasonHeader($accessSendReasonHeader);
         $this->setNetworkSendReasonHeader($networkSendReasonHeader);
+    }
+
+    /**
+     * @return SystemConfigurableTreatmentModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -352,7 +363,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getRouteAdvance()
     {
-        return (!$this->routeAdvance) ?: $this->routeAdvance->getValue();
+        return (!$this->routeAdvance) ?: $this->routeAdvance;
     }
 
     /**
@@ -386,7 +397,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getAccessSendReasonHeader()
     {
-        return (!$this->accessSendReasonHeader) ?: $this->accessSendReasonHeader->getValue();
+        return (!$this->accessSendReasonHeader) ?: $this->accessSendReasonHeader;
     }
 
     /**
@@ -402,6 +413,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getNetworkSendReasonHeader()
     {
-        return (!$this->networkSendReasonHeader) ?: $this->networkSendReasonHeader->getValue();
+        return (!$this->networkSendReasonHeader) ?: $this->networkSendReasonHeader;
     }
 }

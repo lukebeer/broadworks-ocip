@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\Voice
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemVoiceMessagingGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Voice Messaging.
+ * Modify the system level data associated with Voice Messaging.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
@@ -91,6 +94,14 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     }
 
     /**
+     * @return SystemVoiceMessagingGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setRealDeleteForImap($realDeleteForImap = null)
@@ -103,7 +114,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getRealDeleteForImap()
     {
-        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap->getValue();
+        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap;
     }
 
     /**
@@ -119,7 +130,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseDnInMailBody()
     {
-        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody->getValue();
+        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody;
     }
 
     /**
@@ -135,7 +146,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseShortSubjectLine()
     {
-        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine->getValue();
+        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine;
     }
 
     /**
@@ -205,7 +216,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getDoesMessageAge()
     {
-        return (!$this->doesMessageAge) ?: $this->doesMessageAge->getValue();
+        return (!$this->doesMessageAge) ?: $this->doesMessageAge;
     }
 
     /**
@@ -329,7 +340,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseOutgoingMWIOnSMDI()
     {
-        return (!$this->useOutgoingMWIOnSMDI) ?: $this->useOutgoingMWIOnSMDI->getValue();
+        return (!$this->useOutgoingMWIOnSMDI) ?: $this->useOutgoingMWIOnSMDI;
     }
 
     /**
@@ -387,7 +398,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getNetworkWideMessaging()
     {
-        return (!$this->networkWideMessaging) ?: $this->networkWideMessaging->getValue();
+        return (!$this->networkWideMessaging) ?: $this->networkWideMessaging;
     }
 
     /**
@@ -403,7 +414,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseExternalRouting()
     {
-        return (!$this->useExternalRouting) ?: $this->useExternalRouting->getValue();
+        return (!$this->useExternalRouting) ?: $this->useExternalRouting;
     }
 
     /**

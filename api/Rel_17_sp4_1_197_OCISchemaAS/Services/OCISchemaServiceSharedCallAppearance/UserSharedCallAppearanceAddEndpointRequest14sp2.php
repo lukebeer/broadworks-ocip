@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceShare
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointAdd;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceAddEndpointResponse14sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Associate an access device instance to the user's Shared Call Appearance.
+ * Associate an access device instance to the user's Shared Call Appearance.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implements ComplexInterface
@@ -38,6 +41,14 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
         $this->setIsActive($isActive);
         $this->setAllowOrigination($allowOrigination);
         $this->setAllowTermination($allowTermination);
+    }
+
+    /**
+     * @return UserSharedCallAppearanceAddEndpointResponse14sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -95,7 +106,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -111,7 +122,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
      */
     public function getAllowOrigination()
     {
-        return (!$this->allowOrigination) ?: $this->allowOrigination->getValue();
+        return (!$this->allowOrigination) ?: $this->allowOrigination;
     }
 
     /**
@@ -127,6 +138,6 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
      */
     public function getAllowTermination()
     {
-        return (!$this->allowTermination) ?: $this->allowTermination->getValue();
+        return (!$this->allowTermination) ?: $this->allowTermination;
     }
 }

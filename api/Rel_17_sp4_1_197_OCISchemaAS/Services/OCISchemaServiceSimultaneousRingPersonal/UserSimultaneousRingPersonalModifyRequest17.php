@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimul
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingReplacementNumberList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingPersonal\UserSimultaneousRingPersonalModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's simultaneous ring personal service setting.
+ * Modify the user's simultaneous ring personal service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
         $this->setDoNotRingIfOnCall($doNotRingIfOnCall);
         $this->setSimultaneousRingNumberList($simultaneousRingNumberList);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserSimultaneousRingPersonalModifyResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -80,7 +91,7 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -96,7 +107,7 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
      */
     public function getDoNotRingIfOnCall()
     {
-        return (!$this->doNotRingIfOnCall) ?: $this->doNotRingIfOnCall->getValue();
+        return (!$this->doNotRingIfOnCall) ?: $this->doNotRingIfOnCall;
     }
 
     /**

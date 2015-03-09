@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupServiceGetAuthorizationListRequest.
+ * Response to GroupServiceGetAuthorizationListRequest.
  *         Contains three tables, one for the service packs, one for the group services, and one for
  *         the user services.
  *         The user table has the following column headings:
@@ -30,6 +33,13 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
     protected $groupServicesAuthorizationTable = null;
     protected $userServicesAuthorizationTable  = null;
 
+    /**
+     * @return GroupServiceGetAuthorizationListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

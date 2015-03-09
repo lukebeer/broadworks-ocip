@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a group file repository user.
+ * Modify a group file repository user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements ComplexInterface
@@ -50,6 +53,14 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
         $this->setAllowPut($allowPut);
         $this->setAllowDelete($allowDelete);
         $this->setAllowGet($allowGet);
+    }
+
+    /**
+     * @return GroupFileRepositoryDeviceUserModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -159,7 +170,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getAllowPut()
     {
-        return (!$this->allowPut) ?: $this->allowPut->getValue();
+        return (!$this->allowPut) ?: $this->allowPut;
     }
 
     /**
@@ -175,7 +186,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getAllowDelete()
     {
-        return (!$this->allowDelete) ?: $this->allowDelete->getValue();
+        return (!$this->allowDelete) ?: $this->allowDelete;
     }
 
     /**
@@ -191,6 +202,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getAllowGet()
     {
-        return (!$this->allowGet) ?: $this->allowGet->getValue();
+        return (!$this->allowGet) ?: $this->allowGet;
     }
 }

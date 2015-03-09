@@ -9,19 +9,22 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetStandAloneConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the information of a conference owned or delegated by the user.
+ * Get the information of a conference owned or delegated by the user.
  *         The response is either UserInstantConferencingGetStandAloneConferenceResponse
  *         or ErrorResponse.
  *         Replaced by: UserInstantConferencingGetStandAloneConferenceRequest14sp6
  */
 class UserInstantConferencingGetStandAloneConferenceRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetStandAloneConferenceResponse';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetStandAloneConferenceResponse';
     public    $name                  = __CLASS__;
     protected $conferenceOwnerUserId = null;
     protected $conferenceKey         = null;
@@ -32,6 +35,14 @@ class UserInstantConferencingGetStandAloneConferenceRequest extends ComplexType 
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setConferenceKey($conferenceKey);
+    }
+
+    /**
+     * @return UserInstantConferencingGetStandAloneConferenceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

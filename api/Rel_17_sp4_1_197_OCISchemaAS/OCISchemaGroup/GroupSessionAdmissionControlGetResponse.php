@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupSessionAdmissionControlGetRequest.
+ * Response to the GroupSessionAdmissionControlGetRequest.
  *         The response contains the session admission control capacity allocated for the group.
  */
 class GroupSessionAdmissionControlGetResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
     protected $maxUserTerminatingSessions = null;
     protected $countIntraGroupSessions    = null;
 
+    /**
+     * @return GroupSessionAdmissionControlGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -39,7 +49,7 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
      */
     public function getRestrictAggregateSessions()
     {
-        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions->getValue();
+        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions;
     }
 
     /**
@@ -109,6 +119,6 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
      */
     public function getCountIntraGroupSessions()
     {
-        return (!$this->countIntraGroupSessions) ?: $this->countIntraGroupSessions->getValue();
+        return (!$this->countIntraGroupSessions) ?: $this->countIntraGroupSessions;
     }
 }

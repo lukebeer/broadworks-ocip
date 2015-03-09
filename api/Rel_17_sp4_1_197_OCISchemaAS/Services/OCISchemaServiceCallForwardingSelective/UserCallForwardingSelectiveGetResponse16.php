@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective\UserCallForwardingSelectiveGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallForwardingSelectiveGetRequest16. The criteria table's column headings are:
+ * Response to the UserCallForwardingSelectiveGetRequest16. The criteria table's column headings are:
  *         "Is Active", "Criteria Name", "Time Schedule", "Calls From", "Forward To", "Blacklisted", "Holiday Schedule".
  */
 class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
     protected $playRingReminder            = null;
     protected $criteriaTable               = null;
 
+    /**
+     * @return UserCallForwardingSelectiveGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -86,7 +96,7 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function getPlayRingReminder()
     {
-        return (!$this->playRingReminder) ?: $this->playRingReminder->getValue();
+        return (!$this->playRingReminder) ?: $this->playRingReminder;
     }
 
     /**

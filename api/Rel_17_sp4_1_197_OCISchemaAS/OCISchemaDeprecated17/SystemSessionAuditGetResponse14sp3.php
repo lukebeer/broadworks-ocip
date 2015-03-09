@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPSessionE
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPSessionExpiresTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionAuditIntervalSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionTimerRefresher;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemSessionAuditGetResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemSessionAuditGetRequest14sp3.
+ * Response to SystemSessionAuditGetRequest14sp3.
  */
 class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
@@ -37,6 +40,13 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
     protected $alwaysUseSessionTimerWhenSupported = null;
     protected $preferredSessionTimerRefresher     = null;
 
+    /**
+     * @return SystemSessionAuditGetResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -51,7 +61,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getIsAuditActive()
     {
-        return (!$this->isAuditActive) ?: $this->isAuditActive->getValue();
+        return (!$this->isAuditActive) ?: $this->isAuditActive;
     }
 
     /**
@@ -103,7 +113,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getReleaseCallOnAuditFailure()
     {
-        return (!$this->releaseCallOnAuditFailure) ?: $this->releaseCallOnAuditFailure->getValue();
+        return (!$this->releaseCallOnAuditFailure) ?: $this->releaseCallOnAuditFailure;
     }
 
     /**
@@ -119,7 +129,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getIsSIPRefreshAllowedOnAudit()
     {
-        return (!$this->isSIPRefreshAllowedOnAudit) ?: $this->isSIPRefreshAllowedOnAudit->getValue();
+        return (!$this->isSIPRefreshAllowedOnAudit) ?: $this->isSIPRefreshAllowedOnAudit;
     }
 
     /**
@@ -135,7 +145,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getAllowUpdateForSIPRefresh()
     {
-        return (!$this->allowUpdateForSIPRefresh) ?: $this->allowUpdateForSIPRefresh->getValue();
+        return (!$this->allowUpdateForSIPRefresh) ?: $this->allowUpdateForSIPRefresh;
     }
 
     /**
@@ -151,7 +161,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getIsSIPSessionTimerActive()
     {
-        return (!$this->isSIPSessionTimerActive) ?: $this->isSIPSessionTimerActive->getValue();
+        return (!$this->isSIPSessionTimerActive) ?: $this->isSIPSessionTimerActive;
     }
 
     /**
@@ -185,7 +195,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getEnforceSIPSessionExpiresMaximum()
     {
-        return (!$this->enforceSIPSessionExpiresMaximum) ?: $this->enforceSIPSessionExpiresMaximum->getValue();
+        return (!$this->enforceSIPSessionExpiresMaximum) ?: $this->enforceSIPSessionExpiresMaximum;
     }
 
     /**
@@ -237,7 +247,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getAlwaysUseSessionTimerWhenSupported()
     {
-        return (!$this->alwaysUseSessionTimerWhenSupported) ?: $this->alwaysUseSessionTimerWhenSupported->getValue();
+        return (!$this->alwaysUseSessionTimerWhenSupported) ?: $this->alwaysUseSessionTimerWhenSupported;
     }
 
     /**

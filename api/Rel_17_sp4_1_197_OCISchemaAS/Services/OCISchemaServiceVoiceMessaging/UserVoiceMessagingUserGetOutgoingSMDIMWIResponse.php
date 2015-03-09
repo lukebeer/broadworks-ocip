@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetOutgoingSMDIMWIResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserVoiceMessagingUserGetOutgoingSMDIMWIRequest.
+ * Response to the UserVoiceMessagingUserGetOutgoingSMDIMWIRequest.
  */
 class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
     protected $isActive                   = null;
     protected $outgoingSMDIMWIPhoneNumber = null;
 
+    /**
+     * @return UserVoiceMessagingUserGetOutgoingSMDIMWIResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

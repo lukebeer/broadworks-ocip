@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingDeleteDnResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a Two Stage Dialing number from the system.
+ * Request to delete a Two Stage Dialing number from the system.
  *           The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
          $phoneNumber
     ) {
         $this->setPhoneNumber($phoneNumber);
+    }
+
+    /**
+     * @return SystemTwoStageDialingDeleteDnResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

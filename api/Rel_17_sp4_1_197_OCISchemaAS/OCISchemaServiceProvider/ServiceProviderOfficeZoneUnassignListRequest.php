@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneUnassignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Unassign a list of OfficeZones from a service provider.  Note: a new default must be provided if unassigning the current default.
+ * Unassign a list of OfficeZones from a service provider.  Note: a new default must be provided if unassigning the current default.
  *         Office Zones can only be unassigned if the Location-Based Calling Restrictions has been authorized to the service provider otherwise the request will fail.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -33,6 +36,14 @@ class ServiceProviderOfficeZoneUnassignListRequest extends ComplexType implement
         $this->setServiceProviderId($serviceProviderId);
         $this->setOfficeZoneName($officeZoneName);
         $this->setDefaultOfficeZoneName($defaultOfficeZoneName);
+    }
+
+    /**
+     * @return ServiceProviderOfficeZoneUnassignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

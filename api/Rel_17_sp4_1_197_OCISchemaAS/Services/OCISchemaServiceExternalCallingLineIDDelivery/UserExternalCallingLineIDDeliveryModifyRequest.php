@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCallingLineIDDelivery; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCallingLineIDDelivery\UserExternalCallingLineIDDeliveryModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with External Calling Line ID Delivery.
+ * Modify the user level data associated with External Calling Line ID Delivery.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserExternalCallingLineIDDeliveryModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserExternalCallingLineIDDeliveryModifyRequest extends ComplexType impleme
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
+    }
+
+    /**
+     * @return UserExternalCallingLineIDDeliveryModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,6 +80,6 @@ class UserExternalCallingLineIDDeliveryModifyRequest extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 }

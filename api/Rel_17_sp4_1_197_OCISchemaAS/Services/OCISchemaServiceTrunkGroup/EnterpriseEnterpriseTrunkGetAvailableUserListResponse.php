@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseEnterpriseTrunkGetAvailableUserListRequest.
+ * Response to EnterpriseEnterpriseTrunkGetAvailableUserListRequest.
  *         The column headings for the enterpriseTrunkUserTable are: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
  */
 class EnterpriseEnterpriseTrunkGetAvailableUserListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListResponse extends ComplexType 
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return EnterpriseEnterpriseTrunkGetAvailableUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

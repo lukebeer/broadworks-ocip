@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AvailabilityTestResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * AvailabilityTestRequest is for high-availability support. Response is either SuccessResponse
+ * AvailabilityTestRequest is for high-availability support. Response is either SuccessResponse
  *         or ErrorResponse.
  */
 class AvailabilityTestRequest extends ComplexType implements ComplexInterface
@@ -21,5 +24,13 @@ class AvailabilityTestRequest extends ComplexType implements ComplexInterface
     public    $name = __CLASS__;
 
     public function __construct(    ) {
+    }
+
+    /**
+     * @return AvailabilityTestResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 }

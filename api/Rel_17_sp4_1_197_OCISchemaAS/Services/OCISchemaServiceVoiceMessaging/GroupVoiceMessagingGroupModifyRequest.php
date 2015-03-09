@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the group's voice messaging settings.
+ * Request to modify the group's voice messaging settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
@@ -64,6 +67,14 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->setMaxMailboxLengthMinutes($maxMailboxLengthMinutes);
         $this->setDoesMessageAge($doesMessageAge);
         $this->setHoldPeriodDays($holdPeriodDays);
+    }
+
+    /**
+     * @return GroupVoiceMessagingGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -137,7 +148,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getWarnCallerBeforeRecordingVoiceMessage()
     {
-        return (!$this->warnCallerBeforeRecordingVoiceMessage) ?: $this->warnCallerBeforeRecordingVoiceMessage->getValue();
+        return (!$this->warnCallerBeforeRecordingVoiceMessage) ?: $this->warnCallerBeforeRecordingVoiceMessage;
     }
 
     /**
@@ -153,7 +164,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getAllowUsersConfiguringAdvancedSettings()
     {
-        return (!$this->allowUsersConfiguringAdvancedSettings) ?: $this->allowUsersConfiguringAdvancedSettings->getValue();
+        return (!$this->allowUsersConfiguringAdvancedSettings) ?: $this->allowUsersConfiguringAdvancedSettings;
     }
 
     /**
@@ -169,7 +180,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getAllowComposeOrForwardMessageToEntireGroup()
     {
-        return (!$this->allowComposeOrForwardMessageToEntireGroup) ?: $this->allowComposeOrForwardMessageToEntireGroup->getValue();
+        return (!$this->allowComposeOrForwardMessageToEntireGroup) ?: $this->allowComposeOrForwardMessageToEntireGroup;
     }
 
     /**
@@ -221,7 +232,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getRealDeleteForImap()
     {
-        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap->getValue();
+        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap;
     }
 
     /**
@@ -255,7 +266,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getDoesMessageAge()
     {
-        return (!$this->doesMessageAge) ?: $this->doesMessageAge->getValue();
+        return (!$this->doesMessageAge) ?: $this->doesMessageAge;
     }
 
     /**

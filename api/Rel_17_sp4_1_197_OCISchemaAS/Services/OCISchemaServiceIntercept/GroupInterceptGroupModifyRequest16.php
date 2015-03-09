@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\GroupInterceptGroupModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group's intercept group service settings.
+ * Modify the group's intercept group service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexInterface
@@ -80,6 +83,14 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
     }
 
     /**
+     * @return GroupInterceptGroupModifyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -132,7 +143,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -202,7 +213,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getPlayNewPhoneNumber()
     {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber->getValue();
+        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
     }
 
     /**
@@ -236,7 +247,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber->getValue();
+        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
     }
 
     /**
@@ -274,7 +285,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getRerouteOutboundCalls()
     {
-        return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls->getValue();
+        return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls;
     }
 
     /**
@@ -322,7 +333,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getAllowOutboundLocalCalls()
     {
-        return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls->getValue();
+        return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls;
     }
 
     /**
@@ -356,7 +367,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getAlternateBlockingAnnouncement()
     {
-        return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement->getValue();
+        return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement;
     }
 
     /**
@@ -372,6 +383,6 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getRouteToVoiceMail()
     {
-        return (!$this->routeToVoiceMail) ?: $this->routeToVoiceMail->getValue();
+        return (!$this->routeToVoiceMail) ?: $this->routeToVoiceMail;
     }
 }

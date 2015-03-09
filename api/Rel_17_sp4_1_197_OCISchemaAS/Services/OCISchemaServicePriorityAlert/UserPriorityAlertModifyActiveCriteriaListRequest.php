@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrior
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePriorityAlert\UserPriorityAlertModifyActiveCriteriaListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Activate the user's priority alert criteria list.
+ * Activate the user's priority alert criteria list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPriorityAlertModifyActiveCriteriaListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserPriorityAlertModifyActiveCriteriaListRequest extends ComplexType imple
     ) {
         $this->setUserId($userId);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserPriorityAlertModifyActiveCriteriaListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

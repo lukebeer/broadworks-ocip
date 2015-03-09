@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingDeleteConferenceRecordingListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete one or more conference recordings owned by the user.
+ * Request to delete one or more conference recordings owned by the user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserMeetMeConferencingDeleteConferenceRecordingListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserMeetMeConferencingDeleteConferenceRecordingListRequest extends Complex
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
+    }
+
+    /**
+     * @return UserMeetMeConferencingDeleteConferenceRecordingListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

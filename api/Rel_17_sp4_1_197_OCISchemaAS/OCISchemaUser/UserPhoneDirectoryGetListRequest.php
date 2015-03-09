@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a table containing the phone directory for a user's group.
+ * Request a table containing the phone directory for a user's group.
  *         If the user's group is part of an enterprise, the directory includes all users in the enterprise
  *         and all entries in the enterprise common phone list and the common phone list of the specified
  *         group  (if includeCommonPhoneList is set to true).
@@ -40,7 +43,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse';
+    public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse';
     public    $name                                      = __CLASS__;
     protected $userId                                    = null;
     protected $includeCommonPhoneList                    = null;
@@ -87,6 +90,14 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
     }
 
     /**
+     * @return UserPhoneDirectoryGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -125,7 +136,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getIncludeCommonPhoneList()
     {
-        return (!$this->includeCommonPhoneList) ?: $this->includeCommonPhoneList->getValue();
+        return (!$this->includeCommonPhoneList) ?: $this->includeCommonPhoneList;
     }
 
     /**
@@ -163,7 +174,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
     }
 
     /**

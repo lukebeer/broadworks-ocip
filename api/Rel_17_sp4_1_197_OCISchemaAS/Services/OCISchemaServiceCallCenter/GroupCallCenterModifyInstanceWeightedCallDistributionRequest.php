@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntAgentWeight;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyInstanceWeightedCallDistributionResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the weighted call distribution of a Call Center instance.
+ * Request to modify the weighted call distribution of a Call Center instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifyInstanceWeightedCallDistributionRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class GroupCallCenterModifyInstanceWeightedCallDistributionRequest extends Compl
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentWeight($agentWeight);
+    }
+
+    /**
+     * @return GroupCallCenterModifyInstanceWeightedCallDistributionResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

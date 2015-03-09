@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointQueueCallDispositionCodeGetRequest
+ * Response to the GroupRoutePointQueueCallDispositionCodeGetRequest
  */
 class GroupRoutePointQueueCallDispositionCodeGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class GroupRoutePointQueueCallDispositionCodeGetResponse extends ComplexType imp
     protected $isActive    = null;
     protected $description = null;
 
+    /**
+     * @return GroupRoutePointQueueCallDispositionCodeGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class GroupRoutePointQueueCallDispositionCodeGetResponse extends ComplexType imp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingL
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointAddDNISResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Route Point DNIS.        
+ * Add a Route Point DNIS.        
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupRoutePointAddDNISRequest extends ComplexType implements ComplexInterface
@@ -53,6 +56,14 @@ class GroupRoutePointAddDNISRequest extends ComplexType implements ComplexInterf
         $this->setCallingLineIdFirstName($callingLineIdFirstName);
         $this->setUseCustomDnisAnnouncementSettings($useCustomDnisAnnouncementSettings);
         $this->setAllowOutgoingACDCall($allowOutgoingACDCall);
+    }
+
+    /**
+     * @return GroupRoutePointAddDNISResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -120,7 +131,7 @@ class GroupRoutePointAddDNISRequest extends ComplexType implements ComplexInterf
      */
     public function getUseCustomCLIDSettings()
     {
-        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings->getValue();
+        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings;
     }
 
     /**
@@ -190,7 +201,7 @@ class GroupRoutePointAddDNISRequest extends ComplexType implements ComplexInterf
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
-        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings->getValue();
+        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings;
     }
 
     /**
@@ -206,6 +217,6 @@ class GroupRoutePointAddDNISRequest extends ComplexType implements ComplexInterf
      */
     public function getAllowOutgoingACDCall()
     {
-        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall->getValue();
+        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall;
     }
 }

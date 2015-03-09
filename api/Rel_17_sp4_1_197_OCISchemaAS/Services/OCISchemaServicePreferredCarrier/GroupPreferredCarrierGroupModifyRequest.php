@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\GroupPreferredCarrierNameModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\GroupPreferredCarrierGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the currently configured carriers for a group.
+ * Modifies the currently configured carriers for a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         $this->setIntraLataCarrier($intraLataCarrier);
         $this->setInterLataCarrier($interLataCarrier);
         $this->setInternationalCarrier($internationalCarrier);
+    }
+
+    /**
+     * @return GroupPreferredCarrierGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

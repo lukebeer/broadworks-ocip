@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceQueueStatusResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Contains Call Center queue status and a table with column headings: "User Id", "First Name", "Last Name"
+ * Contains Call Center queue status and a table with column headings: "User Id", "First Name", "Last Name"
  */
 class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
     protected $numberOfCallsQueuedNow = null;
     protected $agentsCurrentlyStaffed = null;
 
+    /**
+     * @return GroupCallCenterGetInstanceQueueStatusResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function getNumberOfCallsQueuedNow()
     {
-        return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow->getValue();
+        return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow;
     }
 
     /**

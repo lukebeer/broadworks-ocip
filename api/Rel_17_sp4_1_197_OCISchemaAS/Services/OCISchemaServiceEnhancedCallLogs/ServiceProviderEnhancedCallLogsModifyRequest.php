@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhan
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsMaxLoggedCalls17sp4;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsCallExpirationDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Service Provider level data associated with Enhanced Call Logs.
+ * Modify the Service Provider level data associated with Enhanced Call Logs.
  *         Configures the maximum number of logged calls and maximum age of your user's call logs.
  *         Log entries are deleted when either of the two limits is reached.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -35,6 +38,14 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
         $this->setServiceProviderId($serviceProviderId);
         $this->setMaxLoggedCalls($maxLoggedCalls);
         $this->setCallExpirationDays($callExpirationDays);
+    }
+
+    /**
+     * @return ServiceProviderEnhancedCallLogsModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

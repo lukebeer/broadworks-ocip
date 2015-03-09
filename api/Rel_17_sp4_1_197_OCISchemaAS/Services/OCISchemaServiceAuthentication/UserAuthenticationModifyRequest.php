@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAuthe
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAuthentication\UserAuthenticationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's authentication service information.
+ * Modify the user's authentication service information.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAuthenticationModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
     ) {
         $this->setUserId($userId);
         $this->setUserName($userName);
+    }
+
+    /**
+     * @return UserAuthenticationModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

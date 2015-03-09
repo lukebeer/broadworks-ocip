@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrefe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierIdCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the attributes of a carrier.
+ * Modify the attributes of a carrier.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         An ErrorResponse is returned if countryCode modification is attempted while the carrier is assigned to a service provider.
  *         An ErrorResponse is returned if an attempt to set isIntraLata to false is made while the carrier is used as an intra-LATA carrier.
@@ -45,6 +48,14 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
         $this->setIsIntraLata($isIntraLata);
         $this->setIsInterLata($isInterLata);
         $this->setIsInternational($isInternational);
+    }
+
+    /**
+     * @return SystemPreferredCarrierModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -114,7 +125,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
      */
     public function getIsIntraLata()
     {
-        return (!$this->isIntraLata) ?: $this->isIntraLata->getValue();
+        return (!$this->isIntraLata) ?: $this->isIntraLata;
     }
 
     /**
@@ -130,7 +141,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
      */
     public function getIsInterLata()
     {
-        return (!$this->isInterLata) ?: $this->isInterLata->getValue();
+        return (!$this->isInterLata) ?: $this->isInterLata;
     }
 
     /**
@@ -146,6 +157,6 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
      */
     public function getIsInternational()
     {
-        return (!$this->isInternational) ?: $this->isInternational->getValue();
+        return (!$this->isInternational) ?: $this->isInternational;
     }
 }

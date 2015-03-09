@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMTPFromAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMTPSubject;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMailParametersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemMailParametersGetListRequest.
+ * Response to SystemMailParametersGetListRequest.
  *         Contains a list of system Mail parameters.
  */
 class SystemMailParametersGetResponse extends ComplexType implements ComplexInterface
@@ -27,6 +30,13 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
     protected $defaultSubject                   = null;
     protected $supportDNSSRVForMailServerAccess = null;
 
+    /**
+     * @return SystemMailParametersGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * IP Address, hostname, or domain.
@@ -113,6 +123,6 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
      */
     public function getSupportDNSSRVForMailServerAccess()
     {
-        return (!$this->supportDNSSRVForMailServerAccess) ?: $this->supportDNSSRVForMailServerAccess->getValue();
+        return (!$this->supportDNSSRVForMailServerAccess) ?: $this->supportDNSSRVForMailServerAccess;
     }
 }

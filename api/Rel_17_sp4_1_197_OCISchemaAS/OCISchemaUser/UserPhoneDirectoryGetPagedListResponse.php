@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserPhoneDirectoryGetPagedListRequest.
+ * Response to UserPhoneDirectoryGetPagedListRequest.
  *         Returns the number of entries that would be returned if the response 
  *         Was not page size restricted.
  *         Contains a table with a row for each user and column headings:
@@ -31,6 +34,13 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
     protected $totalNumberOfRows = null;
     protected $directoryTable    = null;
 
+    /**
+     * @return UserPhoneDirectoryGetPagedListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
      */
     public function getTotalNumberOfRows()
     {
-        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows->getValue();
+        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows;
     }
 
     /**

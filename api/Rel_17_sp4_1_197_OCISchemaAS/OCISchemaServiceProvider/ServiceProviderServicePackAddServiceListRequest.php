@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackAddServiceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add services to a service pack if the pack has not been authorized to a group.
+ * Request to add services to a service pack if the pack has not been authorized to a group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderServicePackAddServiceListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
         $this->setServiceProviderId($serviceProviderId);
         $this->setServicePackName($servicePackName);
         $this->setServiceName($serviceName);
+    }
+
+    /**
+     * @return ServiceProviderServicePackAddServiceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

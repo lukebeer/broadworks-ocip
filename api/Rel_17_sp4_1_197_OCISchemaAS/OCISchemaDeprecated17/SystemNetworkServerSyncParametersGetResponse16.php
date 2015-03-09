@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemNetworkServerSyncParametersGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemNetworkServerSyncParametersGetRequest16.
+ * Response to SystemNetworkServerSyncParametersGetRequest16.
  *         Contains a list of system Network Server Sync parameters.
  *         Replaced By: SystemNetworkServerSyncParametersGetResponse17sp4
  */
@@ -24,6 +27,13 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
     protected $syncLinePorts            = null;
     protected $syncDeviceManagementInfo = null;
 
+    /**
+     * @return SystemNetworkServerSyncParametersGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function getEnableSync()
     {
-        return (!$this->enableSync) ?: $this->enableSync->getValue();
+        return (!$this->enableSync) ?: $this->enableSync;
     }
 
     /**
@@ -54,7 +64,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function getSyncLinePorts()
     {
-        return (!$this->syncLinePorts) ?: $this->syncLinePorts->getValue();
+        return (!$this->syncLinePorts) ?: $this->syncLinePorts;
     }
 
     /**
@@ -70,6 +80,6 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function getSyncDeviceManagementInfo()
     {
-        return (!$this->syncDeviceManagementInfo) ?: $this->syncDeviceManagementInfo->getValue();
+        return (!$this->syncDeviceManagementInfo) ?: $this->syncDeviceManagementInfo;
     }
 }

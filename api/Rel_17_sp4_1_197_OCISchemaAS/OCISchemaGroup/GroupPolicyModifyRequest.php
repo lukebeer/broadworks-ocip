@@ -21,12 +21,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCal
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPolicyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the policies for a Group.
+ * Request to modify the policies for a Group.
  *           The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
@@ -77,6 +80,14 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
         $this->setUserGroupDirectoryAccess($userGroupDirectoryAccess);
         $this->setUserProfileAccess($userProfileAccess);
         $this->setUserEnhancedCallLogAccess($userEnhancedCallLogAccess);
+    }
+
+    /**
+     * @return GroupPolicyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

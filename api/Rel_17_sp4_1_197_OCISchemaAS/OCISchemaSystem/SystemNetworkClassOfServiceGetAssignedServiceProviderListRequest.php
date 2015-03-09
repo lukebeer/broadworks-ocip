@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a list of service providers that have a given Network Class
+ * Request a list of service providers that have a given Network Class
  *         of Service assigned.
  *         The response is either a
  *         SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse or 
@@ -21,7 +24,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class SystemNetworkClassOfServiceGetAssignedServiceProviderListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse';
     public    $name = __CLASS__;
     protected $name = null;
 
@@ -29,6 +32,14 @@ class SystemNetworkClassOfServiceGetAssignedServiceProviderListRequest extends C
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

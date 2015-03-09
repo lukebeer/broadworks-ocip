@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderApplicationServerSetModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the Application Server set assigned to the service provider or enterprise.
+ * Modify the Application Server set assigned to the service provider or enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setApplicationServerSetName($applicationServerSetName);
+    }
+
+    /**
+     * @return ServiceProviderApplicationServerSetModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

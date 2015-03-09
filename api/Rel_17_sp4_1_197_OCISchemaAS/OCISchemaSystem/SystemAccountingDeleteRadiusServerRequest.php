@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingDeleteRadiusServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a Radius Server from the system.
+ * Request to delete a Radius Server from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
     ) {
         $this->setNetAddress($netAddress);
         $this->setPort($port);
+    }
+
+    /**
+     * @return SystemAccountingDeleteRadiusServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

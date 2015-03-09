@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallHandlingMinimumSamplingSize;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCallCenterGetRequest17.
+ * Response to SystemCallCenterGetRequest17.
  */
 class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -40,6 +43,13 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
     protected $playToneToAgentForEmergencyCall                      = null;
     protected $emergencyCallCLIDPrefix                              = null;
 
+    /**
+     * @return SystemCallCenterGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Email Address
@@ -90,7 +100,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getDefaultEnableGuardTimer()
     {
-        return (!$this->defaultEnableGuardTimer) ?: $this->defaultEnableGuardTimer->getValue();
+        return (!$this->defaultEnableGuardTimer) ?: $this->defaultEnableGuardTimer;
     }
 
     /**
@@ -124,7 +134,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
     }
 
     /**
@@ -140,7 +150,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
-        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->getValue();
+        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls;
     }
 
     /**
@@ -156,7 +166,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
     }
 
     /**
@@ -190,7 +200,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getDefaultPlayRingWhenOfferCall()
     {
-        return (!$this->defaultPlayRingWhenOfferCall) ?: $this->defaultPlayRingWhenOfferCall->getValue();
+        return (!$this->defaultPlayRingWhenOfferCall) ?: $this->defaultPlayRingWhenOfferCall;
     }
 
     /**
@@ -260,7 +270,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getPlayToneToAgentForEmergencyCall()
     {
-        return (!$this->playToneToAgentForEmergencyCall) ?: $this->playToneToAgentForEmergencyCall->getValue();
+        return (!$this->playToneToAgentForEmergencyCall) ?: $this->playToneToAgentForEmergencyCall;
     }
 
     /**

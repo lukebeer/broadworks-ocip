@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetHomeZoneListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupBroadWorksMobileManagerGetHomeZoneListRequest.
+ * Response to the GroupBroadWorksMobileManagerGetHomeZoneListRequest.
  *         Contains a table with column headings: 
  *         "Home Zone Id", "Domain Name", "Mobile Country Code",
  *         "Mobile Network Code", "Local Area Code" and "Cell Identity".
@@ -23,6 +26,13 @@ class GroupBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexType im
     public    $name           = __CLASS__;
     protected $homeZonesTable = null;
 
+    /**
+     * @return GroupBroadWorksMobileManagerGetHomeZoneListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

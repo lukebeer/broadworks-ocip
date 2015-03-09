@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntel
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntelligentNetworkServiceControl\IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Treatment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl\SystemIntelligentNetworkServiceControlGetResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemIntelligentNetworkServiceControlGetRequest14.
+ * Response to SystemIntelligentNetworkServiceControlGetRequest14.
  */
 class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType implements ComplexInterface
 {
@@ -30,6 +33,13 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
     protected $msgForwardLoop                = null;
     protected $msgTemporarilyUnavailable     = null;
 
+    /**
+     * @return SystemIntelligentNetworkServiceControlGetResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Pre-answer action timeout seconds.

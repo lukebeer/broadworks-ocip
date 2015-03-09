@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntG
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntAgentWeight;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\GroupHuntGroupModifyInstanceWeightedCallDistributionResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the weighted call distribution of a Hunt Group instance.
+ * Request to modify the weighted call distribution of a Hunt Group instance.
  *         The response is either SuccessResponse or ErrorResponse.
  *         NOTE: Prior to release 14, any agents who were not in the list kept their
  *         existing weight setting. In release 14, any agents who are not in the list
@@ -32,6 +35,14 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentWeight($agentWeight);
+    }
+
+    /**
+     * @return GroupHuntGroupModifyInstanceWeightedCallDistributionResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

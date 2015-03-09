@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackActivationDigit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMonitorMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMethod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackModifyResponse15;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's automatic callback attributes.
+ * Modifies the system's automatic callback attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements ComplexInterface
@@ -53,6 +56,14 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
         $this->setCallbackMethod($callbackMethod);
         $this->setPollingIntervalSeconds($pollingIntervalSeconds);
         $this->setActivationDigit($activationDigit);
+    }
+
+    /**
+     * @return SystemAutomaticCallbackModifyResponse15
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

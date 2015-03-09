@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserDisp
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceResponse14Sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingGetStandAloneConferenceRequest14Sp6.
+ * Response to UserInstantConferencingGetStandAloneConferenceRequest14Sp6.
  *         Contains the information of a conference.
  */
 class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends ComplexType implements ComplexInterface
@@ -50,6 +53,13 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
     protected $bridgeCountryCode              = null;
     protected $bridgeNationalPrefix           = null;
 
+    /**
+     * @return UserInstantConferencingGetStandAloneConferenceResponse14Sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Conference call Id.
@@ -118,7 +128,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getLeaderRequired()
     {
-        return (!$this->leaderRequired) ?: $this->leaderRequired->getValue();
+        return (!$this->leaderRequired) ?: $this->leaderRequired;
     }
 
     /**
@@ -134,7 +144,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getLeaderReleaseDropsParticipants()
     {
-        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants->getValue();
+        return (!$this->leaderReleaseDropsParticipants) ?: $this->leaderReleaseDropsParticipants;
     }
 
     /**
@@ -150,7 +160,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getAnnounceCallers()
     {
-        return (!$this->announceCallers) ?: $this->announceCallers->getValue();
+        return (!$this->announceCallers) ?: $this->announceCallers;
     }
 
     /**
@@ -254,7 +264,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getIsCallActive()
     {
-        return (!$this->isCallActive) ?: $this->isCallActive->getValue();
+        return (!$this->isCallActive) ?: $this->isCallActive;
     }
 
     /**
@@ -270,7 +280,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired->getValue();
+        return (!$this->isExpired) ?: $this->isExpired;
     }
 
     /**
@@ -286,7 +296,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getIsFuture()
     {
-        return (!$this->isFuture) ?: $this->isFuture->getValue();
+        return (!$this->isFuture) ?: $this->isFuture;
     }
 
     /**
@@ -302,7 +312,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getHasPresentation()
     {
-        return (!$this->hasPresentation) ?: $this->hasPresentation->getValue();
+        return (!$this->hasPresentation) ?: $this->hasPresentation;
     }
 
     /**
@@ -336,7 +346,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
     }
 
     /**

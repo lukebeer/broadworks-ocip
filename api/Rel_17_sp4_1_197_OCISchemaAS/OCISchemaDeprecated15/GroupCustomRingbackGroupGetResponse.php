@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCustomRingbackGroupGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCustomRingbackGroupGetRequest.
+ * Response to the GroupCustomRingbackGroupGetRequest.
  *         Replaced By: GroupCustomRingbackGroupGetResponse16
  */
 class GroupCustomRingbackGroupGetResponse extends ComplexType implements ComplexInterface
@@ -29,6 +32,13 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
     protected $videoFileDescription = null;
     protected $videoFileUrl         = null;
 
+    /**
+     * @return GroupCustomRingbackGroupGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -43,7 +53,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

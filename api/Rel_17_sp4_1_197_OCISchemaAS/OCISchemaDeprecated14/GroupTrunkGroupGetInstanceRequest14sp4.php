@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a Trunk Group Instance's profile.
+ * Get a Trunk Group Instance's profile.
  *         The response is either a GroupTrunkGroupGetInstanceResponse14sp4 or an ErrorResponse.
  */
 class GroupTrunkGroupGetInstanceRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp4';
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp4';
     public    $name          = __CLASS__;
     protected $trunkGroupKey = null;
 
@@ -26,6 +29,14 @@ class GroupTrunkGroupGetInstanceRequest14sp4 extends ComplexType implements Comp
           $trunkGroupKey
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
+    }
+
+    /**
+     * @return GroupTrunkGroupGetInstanceResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

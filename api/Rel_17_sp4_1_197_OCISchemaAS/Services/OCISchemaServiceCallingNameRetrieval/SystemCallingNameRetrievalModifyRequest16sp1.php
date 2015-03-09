@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameRetrieval\SystemCallingNameRetrievalModifyResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's calling name retrieval attributes.
+ * Modifies the system's calling name retrieval attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implements ComplexInterface
@@ -60,6 +63,14 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
     }
 
     /**
+     * @return SystemCallingNameRetrievalModifyResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setTriggerCNAMQueriesForAllNetworkCalls($triggerCNAMQueriesForAllNetworkCalls = null)
@@ -72,7 +83,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
      */
     public function getTriggerCNAMQueriesForAllNetworkCalls()
     {
-        return (!$this->triggerCNAMQueriesForAllNetworkCalls) ?: $this->triggerCNAMQueriesForAllNetworkCalls->getValue();
+        return (!$this->triggerCNAMQueriesForAllNetworkCalls) ?: $this->triggerCNAMQueriesForAllNetworkCalls;
     }
 
     /**
@@ -88,7 +99,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
      */
     public function getTriggerCNAMQueriesForGroupAndEnterpriseCalls()
     {
-        return (!$this->triggerCNAMQueriesForGroupAndEnterpriseCalls) ?: $this->triggerCNAMQueriesForGroupAndEnterpriseCalls->getValue();
+        return (!$this->triggerCNAMQueriesForGroupAndEnterpriseCalls) ?: $this->triggerCNAMQueriesForGroupAndEnterpriseCalls;
     }
 
     /**
@@ -212,7 +223,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
      */
     public function getSoapSupportsDNSSRV()
     {
-        return (!$this->soapSupportsDNSSRV) ?: $this->soapSupportsDNSSRV->getValue();
+        return (!$this->soapSupportsDNSSRV) ?: $this->soapSupportsDNSSRV;
     }
 
     /**

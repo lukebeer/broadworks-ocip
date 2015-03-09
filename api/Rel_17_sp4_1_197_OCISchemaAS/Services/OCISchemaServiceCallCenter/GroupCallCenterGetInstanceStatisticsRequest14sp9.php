@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get Call Center queue and agent statistics.
+ * Get Call Center queue and agent statistics.
  *         The response is either GroupCallCenterGetInstanceStatisticsResponse14sp9 or ErrorResponse.
  */
 class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9';
+    public    $responseType    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9';
     public    $name            = __CLASS__;
     protected $serviceUserId   = null;
     protected $statisticsRange = null;
@@ -30,6 +33,14 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setStatisticsRange($statisticsRange);
+    }
+
+    /**
+     * @return GroupCallCenterGetInstanceStatisticsResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

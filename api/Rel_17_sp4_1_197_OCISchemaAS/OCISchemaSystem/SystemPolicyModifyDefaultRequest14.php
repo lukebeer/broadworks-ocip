@@ -49,12 +49,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCal
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPolicyModifyDefaultResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the system's default policy settings.
+ * Request to modify the system's default policy settings.
  *         The response is either SuccessResponse or ErrorResponse.
  *         The following elements are only used in AS data mode:
  *             GroupAdminDialableCallerIDAccess
@@ -194,6 +197,14 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
         $this->setServiceProviderAdminCommunicationBarringAccess($serviceProviderAdminCommunicationBarringAccess);
         $this->setEnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess);
         $this->setServiceProviderAdminDialableCallerIDAccess($serviceProviderAdminDialableCallerIDAccess);
+    }
+
+    /**
+     * @return SystemPolicyModifyDefaultResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

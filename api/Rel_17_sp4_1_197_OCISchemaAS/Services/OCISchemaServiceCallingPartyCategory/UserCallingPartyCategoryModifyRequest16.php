@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCalli
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\UserCallingPartyCategoryModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Calling Party Category.
+ * Modify the user level data associated with Calling Party Category.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
     ) {
         $this->setUserId($userId);
         $this->setCategory($category);
+    }
+
+    /**
+     * @return UserCallingPartyCategoryModifyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

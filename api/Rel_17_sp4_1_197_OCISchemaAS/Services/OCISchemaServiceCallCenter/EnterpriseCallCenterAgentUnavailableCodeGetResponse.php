@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the EnterpriseCallCenterAgentUnavailableCodeGetRequest
+ * Response to the EnterpriseCallCenterAgentUnavailableCodeGetRequest
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class EnterpriseCallCenterAgentUnavailableCodeGetResponse extends ComplexType im
     protected $isActive    = null;
     protected $description = null;
 
+    /**
+     * @return EnterpriseCallCenterAgentUnavailableCodeGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class EnterpriseCallCenterAgentUnavailableCodeGetResponse extends ComplexType im
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

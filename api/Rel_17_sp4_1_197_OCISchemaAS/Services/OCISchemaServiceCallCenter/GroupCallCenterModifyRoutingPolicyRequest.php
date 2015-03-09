@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyRoutingPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group call center routing policy.
+ * Modify the group call center routing policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
         $this->setGroupId($groupId);
         $this->setRoutingPolicy($routingPolicy);
         $this->setRoutingPriorityOrder($routingPriorityOrder);
+    }
+
+    /**
+     * @return GroupCallCenterModifyRoutingPolicyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemMaliciousCallTraceGetRequest.
+ * Response to the SystemMaliciousCallTraceGetRequest.
  *         The response contains the Malicious Call Trace system parameters and the list of users
  *         that use the Malicious Call Trace feature.
  * 
@@ -27,6 +30,13 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
     protected $playMCTWarningAnnouncement = null;
     protected $userTable                  = null;
 
+    /**
+     * @return SystemMaliciousCallTraceGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -41,7 +51,7 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->getValue();
+        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement;
     }
 
     /**

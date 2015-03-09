@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a SystemPreferredCarrierGetUserListRequest.
+ * Response to a SystemPreferredCarrierGetUserListRequest.
  *         Contains a table with one row per user.
  *         The table columns are: "User Id", "Service Provider Id", "Group Id", "Last Name", "First Name", "Phone Number", "Email Address",
  *         "Hiragana Last Name", and "Hiragana First Name".
@@ -23,6 +26,13 @@ class SystemPreferredCarrierGetUserListResponse extends ComplexType implements C
     public    $name                   = __CLASS__;
     protected $usersUsingCarrierTable = null;
 
+    /**
+     * @return SystemPreferredCarrierGetUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

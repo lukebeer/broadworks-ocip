@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncom
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanDepartmentPermissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissions;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan\GroupIncomingCallingPlanGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupIncomingCallingPlanGetListRequest.
+ * Response to GroupIncomingCallingPlanGetListRequest.
  */
 class GroupIncomingCallingPlanGetListResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupIncomingCallingPlanGetListResponse extends ComplexType implements Com
     protected $groupPermissions      = null;
     protected $departmentPermissions = null;
 
+    /**
+     * @return GroupIncomingCallingPlanGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Allows or disallows various types of incoming calls for a user or group -- not any particular department.

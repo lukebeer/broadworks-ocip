@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemMGCPDeviceTypeGetListRequest.
+ * Response to SystemMGCPDeviceTypeGetListRequest.
  *         Contains a table of identity/ device profile types configured in the system.
  *         The column headings are: "Device Type", "Profile", "Is Obsolete".
  */
@@ -22,6 +25,13 @@ class SystemMGCPDeviceTypeGetListResponse extends ComplexType implements Complex
     public    $name            = __CLASS__;
     protected $deviceTypeTable = null;
 
+    /**
+     * @return SystemMGCPDeviceTypeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

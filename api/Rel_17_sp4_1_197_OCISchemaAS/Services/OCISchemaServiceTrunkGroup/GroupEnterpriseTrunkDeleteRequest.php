@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunk
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete an enterprise trunk in a group.
+ * Request to delete an enterprise trunk in a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexIn
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
+    }
+
+    /**
+     * @return GroupEnterpriseTrunkDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

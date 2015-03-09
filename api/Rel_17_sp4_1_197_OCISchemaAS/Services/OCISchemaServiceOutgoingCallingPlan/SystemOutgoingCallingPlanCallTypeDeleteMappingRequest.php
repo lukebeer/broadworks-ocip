@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgo
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallTypeDigitMap;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeDeleteMappingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a system outgoing calling plan call type mapping.
+ * Delete a system outgoing calling plan call type mapping.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType 
     ) {
         $this->setCountryCode($countryCode);
         $this->setDigitMap($digitMap);
+    }
+
+    /**
+     * @return SystemOutgoingCallingPlanCallTypeDeleteMappingResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

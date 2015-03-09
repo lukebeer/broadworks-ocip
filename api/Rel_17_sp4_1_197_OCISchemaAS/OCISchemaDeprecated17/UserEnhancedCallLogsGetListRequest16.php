@@ -10,19 +10,22 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request user's call logs.
+ * Request user's call logs.
  *         If the callLogType is not specified, all types of calls logs (placed, received, missed) are returned.
  *         It is possible to restrict the number of rows returned using responsePagingControl.
  *         The response is either a UserEnhancedCallLogsGetListResponse16 or an ErrorResponse.
  */
 class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16';
     public    $name                  = __CLASS__;
     protected $userId                = null;
     protected $callLogType           = null;
@@ -36,6 +39,14 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);
         $this->setResponsePagingControl($responsePagingControl);
+    }
+
+    /**
+     * @return UserEnhancedCallLogsGetListResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

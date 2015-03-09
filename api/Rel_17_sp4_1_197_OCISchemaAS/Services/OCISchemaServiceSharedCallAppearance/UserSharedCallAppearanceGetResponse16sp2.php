@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceShare
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceMaximumAppearances;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceBridgeWarningTone;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSharedCallAppearanceGetRequest16sp2.
+ * Response to the UserSharedCallAppearanceGetRequest16sp2.
  *         The endpointTable contains columns:
  *           "Device Level", "Device Name", "Device Type", "Line/Port", "SIP Contact".
  *         The "Device Level" column contains one of the AccessDeviceLevel enumerated constants.
@@ -36,6 +39,13 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
     protected $bridgeWarningTone                      = null;
     protected $enableCallParkNotification             = null;
 
+    /**
+     * @return UserSharedCallAppearanceGetResponse16sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -50,7 +60,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
-        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls->getValue();
+        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls;
     }
 
     /**
@@ -66,7 +76,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function getAlertAllAppearancesForGroupPagingCalls()
     {
-        return (!$this->alertAllAppearancesForGroupPagingCalls) ?: $this->alertAllAppearancesForGroupPagingCalls->getValue();
+        return (!$this->alertAllAppearancesForGroupPagingCalls) ?: $this->alertAllAppearancesForGroupPagingCalls;
     }
 
     /**
@@ -100,7 +110,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function getAllowSCACallRetrieve()
     {
-        return (!$this->allowSCACallRetrieve) ?: $this->allowSCACallRetrieve->getValue();
+        return (!$this->allowSCACallRetrieve) ?: $this->allowSCACallRetrieve;
     }
 
     /**
@@ -116,7 +126,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function getEnableMultipleCallArrangement()
     {
-        return (!$this->enableMultipleCallArrangement) ?: $this->enableMultipleCallArrangement->getValue();
+        return (!$this->enableMultipleCallArrangement) ?: $this->enableMultipleCallArrangement;
     }
 
     /**
@@ -132,7 +142,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function getMultipleCallArrangementIsActive()
     {
-        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive->getValue();
+        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive;
     }
 
     /**
@@ -164,7 +174,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function getAllowBridgingBetweenLocations()
     {
-        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations->getValue();
+        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations;
     }
 
     /**
@@ -200,6 +210,6 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification->getValue();
+        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
     }
 }

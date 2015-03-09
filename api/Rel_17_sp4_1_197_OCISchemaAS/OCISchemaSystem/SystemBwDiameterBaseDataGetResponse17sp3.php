@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterT
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterTcTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterBaseDataGetResponse17sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemBwDiameterBaseDataGetRequest17sp3.
+ * Response to SystemBwDiameterBaseDataGetRequest17sp3.
  *         Contains a list of System Diameter base parameters.
  */
 class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements ComplexInterface
@@ -41,6 +44,13 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
     protected $advertisedOfflineBillingApplication  = null;
     protected $advertisedOnlineBillingApplication   = null;
 
+    /**
+     * @return SystemBwDiameterBaseDataGetResponse17sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Network domain name.
@@ -127,7 +137,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getPsRelayThroughXs()
     {
-        return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs->getValue();
+        return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs;
     }
 
     /**

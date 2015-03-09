@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the user level data associated with Privacy.
+ * Request the user level data associated with Privacy.
  *         This command is supported for regular users only.
  *         The response is either a UserPrivacyGetResponse13mp17
  *         or an ErrorResponse.
  */
 class UserPrivacyGetRequest13mp17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17';
     public    $name   = __CLASS__;
     protected $userId = null;
 
@@ -28,6 +31,14 @@ class UserPrivacyGetRequest13mp17 extends ComplexType implements ComplexInterfac
          $userId
     ) {
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return UserPrivacyGetResponse13mp17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

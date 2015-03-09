@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingDocumentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingSetPresentationSlideNameResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Set presentation slide name of a conference document.
+ * Set presentation slide name of a conference document.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
         $this->setAccessCode($accessCode);
         $this->setPreviousSlideName($previousSlideName);
         $this->setNewSlideName($newSlideName);
+    }
+
+    /**
+     * @return UserInstantConferencingSetPresentationSlideNameResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

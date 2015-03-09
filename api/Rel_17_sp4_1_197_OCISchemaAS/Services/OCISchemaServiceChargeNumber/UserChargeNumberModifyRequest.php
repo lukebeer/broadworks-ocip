@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCharg
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceChargeNumber\UserChargeNumberModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Charge Number.
+ * Modify the user level data associated with Charge Number.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterface
@@ -35,6 +38,14 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
         $this->setPhoneNumber($phoneNumber);
         $this->setUseChargeNumberForEnhancedTranslations($useChargeNumberForEnhancedTranslations);
         $this->setSendChargeNumberToNetwork($sendChargeNumberToNetwork);
+    }
+
+    /**
+     * @return UserChargeNumberModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -94,7 +105,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUseChargeNumberForEnhancedTranslations()
     {
-        return (!$this->useChargeNumberForEnhancedTranslations) ?: $this->useChargeNumberForEnhancedTranslations->getValue();
+        return (!$this->useChargeNumberForEnhancedTranslations) ?: $this->useChargeNumberForEnhancedTranslations;
     }
 
     /**
@@ -110,6 +121,6 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getSendChargeNumberToNetwork()
     {
-        return (!$this->sendChargeNumberToNetwork) ?: $this->sendChargeNumberToNetwork->getValue();
+        return (!$this->sendChargeNumberToNetwork) ?: $this->sendChargeNumberToNetwork;
     }
 }

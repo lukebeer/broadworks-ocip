@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDnGetAvailableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderDnGetAvailableListRequest.
+ * Response to ServiceProviderDnGetAvailableListRequest.
  *         Contains a list of available DNs not yet assigned to any group.
  */
 class ServiceProviderDnGetAvailableListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class ServiceProviderDnGetAvailableListResponse extends ComplexType implements C
     public    $name        = __CLASS__;
     protected $availableDn = null;
 
+    /**
+     * @return ServiceProviderDnGetAvailableListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,6 +45,6 @@ class ServiceProviderDnGetAvailableListResponse extends ComplexType implements C
      */
     public function getAvailableDn()
     {
-        return (!$this->availableDn) ?: $this->availableDn->getValue();
+        return (!$this->availableDn) ?: $this->availableDn;
     }
 }

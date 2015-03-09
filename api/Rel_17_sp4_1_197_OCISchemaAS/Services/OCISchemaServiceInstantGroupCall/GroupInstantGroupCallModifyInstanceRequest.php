@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNorSIPURIList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify an Instant Group Call service instance.
+ * Request to modify an Instant Group Call service instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
         $this->setDestinationPhoneNumberList($destinationPhoneNumberList);
         $this->setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled);
         $this->setAnswerTimeoutMinutes($answerTimeoutMinutes);
+    }
+
+    /**
+     * @return GroupInstantGroupCallModifyInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -115,7 +126,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
      */
     public function getIsAnswerTimeoutEnabled()
     {
-        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled->getValue();
+        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled;
     }
 
     /**

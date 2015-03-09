@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFeatureAccessCodeModifyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a list of feature access codes for a service provider or enterprise.
+ * Modify a list of feature access codes for a service provider or enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderFeatureAccessCodeModifyListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderFeatureAccessCodeModifyListRequest extends ComplexType impl
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setFeatureAccessCode($featureAccessCode);
+    }
+
+    /**
+     * @return ServiceProviderFeatureAccessCodeModifyListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

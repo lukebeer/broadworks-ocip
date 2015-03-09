@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemTwoStageDialingGetDnListRequest.
+ * Response to SystemTwoStageDialingGetDnListRequest.
  *           The Two Stage Dialing DN List table column
  *           headings are: "Phone Number",  "Description".
  */
@@ -22,6 +25,13 @@ class SystemTwoStageDialingGetDnListResponse extends ComplexType implements Comp
     public    $name             = __CLASS__;
     protected $phoneNumberTable = null;
 
+    /**
+     * @return SystemTwoStageDialingGetDnListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

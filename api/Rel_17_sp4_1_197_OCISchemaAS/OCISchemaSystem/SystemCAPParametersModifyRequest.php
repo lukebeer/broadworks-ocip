@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPConnecti
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CCC2MaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPMaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCAPParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify CAP system parameters.
+ * Request to modify CAP system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -50,6 +53,14 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->setCCC2MaxClientConnections($CCC2MaxClientConnections);
         $this->setCapServerCallCenterPort($capServerCallCenterPort);
         $this->setCapServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections);
+    }
+
+    /**
+     * @return SystemCAPParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -101,7 +112,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getEnableConnectionPing()
     {
-        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing->getValue();
+        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing;
     }
 
     /**

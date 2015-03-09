@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommu
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlNumberOfAttempts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlLockoutMinutes;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl\SystemCommunicationBarringUserControlModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's Communication Barring User-Control settings.
+ * Modifies the system's Communication Barring User-Control settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
@@ -35,6 +38,14 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
     }
 
     /**
+     * @return SystemCommunicationBarringUserControlModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setEnableLockout($enableLockout = null)
@@ -47,7 +58,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
      */
     public function getEnableLockout()
     {
-        return (!$this->enableLockout) ?: $this->enableLockout->getValue();
+        return (!$this->enableLockout) ?: $this->enableLockout;
     }
 
     /**

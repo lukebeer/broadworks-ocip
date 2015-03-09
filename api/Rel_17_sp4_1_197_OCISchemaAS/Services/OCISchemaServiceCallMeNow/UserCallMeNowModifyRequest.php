@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallM
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowAnswerConfirmation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\UserCallMeNowModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's call me now service setting.
+ * Modify the user's call me now service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
         $this->setIsActive($isActive);
         $this->setAnswerConfirmation($answerConfirmation);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserCallMeNowModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -77,7 +88,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

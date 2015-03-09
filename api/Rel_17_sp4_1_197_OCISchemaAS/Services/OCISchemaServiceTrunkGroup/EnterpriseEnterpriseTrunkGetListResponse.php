@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseEnterpriseTrunkGetListRequest.
+ * Response to EnterpriseEnterpriseTrunkGetListRequest.
  *         Contains a table of enterprise trunks defined in the enterprise
  *         The column headings are: "Enterprise Trunk Name", "Routing Type"
  */
@@ -22,6 +25,13 @@ class EnterpriseEnterpriseTrunkGetListResponse extends ComplexType implements Co
     public    $name                 = __CLASS__;
     protected $enterpriseTrunkTable = null;
 
+    /**
+     * @return EnterpriseEnterpriseTrunkGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

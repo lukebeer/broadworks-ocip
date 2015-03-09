@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetFutureConferenceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserInstantConferencingGetFutureConferenceListRequest.
+ * Response to the UserInstantConferencingGetFutureConferenceListRequest.
  *         Contains a table with column headings:
  *         "Bridge Service User Id", "Bridge Name", "Conference Id",
  *         "Owner User Id", "Owner Last Name", "Owner First Name", "Owner Hiragana Last Name", "Owner Hiragana First Name",
@@ -24,6 +27,13 @@ class UserInstantConferencingGetFutureConferenceListResponse extends ComplexType
     public    $name            = __CLASS__;
     protected $conferenceTable = null;
 
+    /**
+     * @return UserInstantConferencingGetFutureConferenceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

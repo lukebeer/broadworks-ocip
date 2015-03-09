@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingBusy; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingBusy\UserCallForwardingBusyGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallForwardingBusyGetRequest.
+ * Response to UserCallForwardingBusyGetRequest.
  */
 class UserCallForwardingBusyGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserCallForwardingBusyGetResponse extends ComplexType implements ComplexIn
     protected $isActive             = null;
     protected $forwardToPhoneNumber = null;
 
+    /**
+     * @return UserCallForwardingBusyGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserCallForwardingBusyGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

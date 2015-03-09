@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNNonMatchingE164NumberSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDefaultSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the enterprise voice VPN level data associated with voice VPN.
+ * Modify the enterprise voice VPN level data associated with voice VPN.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
         $this->setDefaultSelection($defaultSelection);
         $this->setE164Selection($e164Selection);
         $this->setUsePhoneContext($usePhoneContext);
+    }
+
+    /**
+     * @return EnterpriseVoiceVPNModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -74,7 +85,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -126,6 +137,6 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUsePhoneContext()
     {
-        return (!$this->usePhoneContext) ?: $this->usePhoneContext->getValue();
+        return (!$this->usePhoneContext) ?: $this->usePhoneContext;
     }
 }

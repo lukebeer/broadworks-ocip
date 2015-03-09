@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallF
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingNoAnswer\CallForwardingNoAnswerNumberOfRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingNoAnswer\UserCallForwardingNoAnswerGetResponse13mp16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallForwardingNoAnswerGetRequest13mp16.
+ * Response to UserCallForwardingNoAnswerGetRequest13mp16.
  */
 class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
@@ -23,6 +26,13 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
     protected $forwardToPhoneNumber = null;
     protected $numberOfRings        = null;
 
+    /**
+     * @return UserCallForwardingNoAnswerGetResponse13mp16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

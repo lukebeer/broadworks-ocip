@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemEnhancedCallLogsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemEnhancedCallLogsGetRequest.
+ * Response to SystemEnhancedCallLogsGetRequest.
  */
 class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
@@ -36,6 +39,13 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
     protected $maxTransmissions                = null;
     protected $soapTimeoutSeconds              = null;
 
+    /**
+     * @return SystemEnhancedCallLogsGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -50,7 +60,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsSendEnabled()
     {
-        return (!$this->isSendEnabled) ?: $this->isSendEnabled->getValue();
+        return (!$this->isSendEnabled) ?: $this->isSendEnabled;
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCIReportingConnectionPingIntervalSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify OCI Reporting system parameters.
+ * Request to modify OCI Reporting system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemOCIReportingParametersModifyRequest extends ComplexType implements ComplexInterface
@@ -38,6 +41,14 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
         $this->setConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
         $this->setAlterPasswords($alterPasswords);
         $this->setEnablePublicIdentityReporting($enablePublicIdentityReporting);
+    }
+
+    /**
+     * @return SystemOCIReportingParametersModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -71,7 +82,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getEnableConnectionPing()
     {
-        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing->getValue();
+        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing;
     }
 
     /**
@@ -105,7 +116,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getAlterPasswords()
     {
-        return (!$this->alterPasswords) ?: $this->alterPasswords->getValue();
+        return (!$this->alterPasswords) ?: $this->alterPasswords;
     }
 
     /**
@@ -121,6 +132,6 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getEnablePublicIdentityReporting()
     {
-        return (!$this->enablePublicIdentityReporting) ?: $this->enablePublicIdentityReporting->getValue();
+        return (!$this->enablePublicIdentityReporting) ?: $this->enablePublicIdentityReporting;
     }
 }

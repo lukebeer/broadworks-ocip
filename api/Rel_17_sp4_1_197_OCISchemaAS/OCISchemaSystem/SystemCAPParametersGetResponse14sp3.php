@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPConnecti
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CCC2MaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPMaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCAPParametersGetResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCAPParametersGetListRequest14sp3.
+ * Response to SystemCAPParametersGetListRequest14sp3.
  *         Contains a list of system CAP parameters.
  */
 class SystemCAPParametersGetResponse14sp3 extends ComplexType implements ComplexInterface
@@ -32,6 +35,13 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
     protected $capServerCallCenterPort                 = null;
     protected $capServerCallCenterMaxClientConnections = null;
 
+    /**
+     * @return SystemCAPParametersGetResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * TCP/IP Port number above the well-known range.
@@ -82,7 +92,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
      */
     public function getEnableConnectionPing()
     {
-        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing->getValue();
+        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing;
     }
 
     /**

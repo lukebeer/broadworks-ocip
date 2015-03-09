@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of Network Classes of Service that contain a specific
+ * Get the list of Network Classes of Service that contain a specific
  *         Communication Barring Profile.
  *         The response is either a SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse
  *         or an ErrorResponse.
  */
 class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse';
     public    $name = __CLASS__;
     protected $name = null;
 
@@ -28,6 +31,14 @@ class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListRequest 
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetDeviceListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemInstantConferencingGetDeviceListRequest14. The table column headings are: "Device Name",
+ * Response to SystemInstantConferencingGetDeviceListRequest14. The table column headings are: "Device Name",
  *         "Device Type", "Integrated" and "Cluster Net Address".
  */
 class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType imple
     public    $name                           = __CLASS__;
     protected $instantConferencingDeviceTable = null;
 
+    /**
+     * @return SystemInstantConferencingGetDeviceListResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

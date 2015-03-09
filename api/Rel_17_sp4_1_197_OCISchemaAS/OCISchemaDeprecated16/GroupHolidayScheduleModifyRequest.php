@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\Holiday;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHolidayScheduleModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a holiday schedule in a group.
+ * Modify a holiday schedule in a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexInterface
@@ -97,6 +100,14 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->setHoliday18($holiday18);
         $this->setHoliday19($holiday19);
         $this->setHoliday20($holiday20);
+    }
+
+    /**
+     * @return GroupHolidayScheduleModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetEventResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupScheduleGetEventRequest.
+ * Response to GroupScheduleGetEventRequest.
  *         The response contains the event of the group schedule.
  */
 class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterf
     protected $endDate    = null;
     protected $recurrence = null;
 
+    /**
+     * @return GroupScheduleGetEventResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

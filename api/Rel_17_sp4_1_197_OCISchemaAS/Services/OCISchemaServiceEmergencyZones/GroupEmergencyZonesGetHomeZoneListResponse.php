@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmerg
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesGetHomeZoneListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupEmergencyZonesGetHomeZoneListRequest.
+ * Response to GroupEmergencyZonesGetHomeZoneListRequest.
  */
 class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
     protected $homeZoneIpAddress      = null;
     protected $homeZoneIpAddressRange = null;
 
+    /**
+     * @return GroupEmergencyZonesGetHomeZoneListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Numeric IP Address.

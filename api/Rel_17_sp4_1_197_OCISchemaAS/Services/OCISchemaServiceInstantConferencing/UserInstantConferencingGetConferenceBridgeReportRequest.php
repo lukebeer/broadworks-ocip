@@ -10,17 +10,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get conference details reports.
+ * Get conference details reports.
  *         The response is either UserInstantConferencingGetConferenceBridgeReportResponse or ErrorResponse.
  */
 class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse';
+    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse';
     public    $name                       = __CLASS__;
     protected $userId                     = null;
     protected $bridgeServiceUserId        = null;
@@ -43,6 +46,14 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
         $this->setReportEndDate($reportEndDate);
         $this->setBillingCode($billingCode);
         $this->setReportDeliveryEmailAddress($reportDeliveryEmailAddress);
+    }
+
+    /**
+     * @return UserInstantConferencingGetConferenceBridgeReportResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

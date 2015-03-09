@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemMediaServerGetListRequest. The Media Server table column
+ * Response to SystemMediaServerGetListRequest. The Media Server table column
  *         headings are: "Net Address", "Port", "Transport", "Description".
  */
 class SystemMediaServerGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemMediaServerGetListResponse extends ComplexType implements ComplexInt
     public    $name             = __CLASS__;
     protected $mediaServerTable = null;
 
+    /**
+     * @return SystemMediaServerGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

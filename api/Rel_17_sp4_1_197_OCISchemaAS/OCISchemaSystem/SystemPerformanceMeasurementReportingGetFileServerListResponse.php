@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetFileServerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemPerformanceMeasurementReportingGetFileServerListRequest. The table columns are:
+ * Response to SystemPerformanceMeasurementReportingGetFileServerListRequest. The table columns are:
  *         "FTP Host Net Address", "FTP User Id", "Passive FTP".
  */
 class SystemPerformanceMeasurementReportingGetFileServerListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemPerformanceMeasurementReportingGetFileServerListResponse extends Com
     public    $name            = __CLASS__;
     protected $fileServerTable = null;
 
+    /**
+     * @return SystemPerformanceMeasurementReportingGetFileServerListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

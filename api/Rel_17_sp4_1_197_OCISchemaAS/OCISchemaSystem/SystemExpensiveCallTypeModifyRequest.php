@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an existing call indicator in the list of expensive alternate call indicators.
+ * Modify an existing call indicator in the list of expensive alternate call indicators.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExpensiveCallTypeModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemExpensiveCallTypeModifyRequest extends ComplexType implements Comple
          $alternateCallIndicator
     ) {
         $this->setAlternateCallIndicator($alternateCallIndicator);
+    }
+
+    /**
+     * @return SystemExpensiveCallTypeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

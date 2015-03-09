@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the service provider?s Dialable Caller ID settings and criteria list.
+ * Modify the service provider?s Dialable Caller ID settings and criteria list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         $this->setUseServiceProviderCriteria($useServiceProviderCriteria);
         $this->setNsScreeningFailurePolicy($nsScreeningFailurePolicy);
         $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
+    }
+
+    /**
+     * @return ServiceProviderDialableCallerIDModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -71,7 +82,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
      */
     public function getUseServiceProviderCriteria()
     {
-        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria->getValue();
+        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria;
     }
 
     /**

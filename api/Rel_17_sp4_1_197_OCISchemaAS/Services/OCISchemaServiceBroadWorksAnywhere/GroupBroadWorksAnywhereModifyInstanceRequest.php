@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywhereScope;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a BroadWorks Anywhere instance.
+ * Request to modify a BroadWorks Anywhere instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
         $this->setPromptForCLID($promptForCLID);
         $this->setSilentPromptMode($silentPromptMode);
         $this->setPromptForPasscode($promptForPasscode);
+    }
+
+    /**
+     * @return GroupBroadWorksAnywhereModifyInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -136,7 +147,7 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
      */
     public function getSilentPromptMode()
     {
-        return (!$this->silentPromptMode) ?: $this->silentPromptMode->getValue();
+        return (!$this->silentPromptMode) ?: $this->silentPromptMode;
     }
 
     /**
@@ -152,6 +163,6 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
      */
     public function getPromptForPasscode()
     {
-        return (!$this->promptForPasscode) ?: $this->promptForPasscode->getValue();
+        return (!$this->promptForPasscode) ?: $this->promptForPasscode;
     }
 }

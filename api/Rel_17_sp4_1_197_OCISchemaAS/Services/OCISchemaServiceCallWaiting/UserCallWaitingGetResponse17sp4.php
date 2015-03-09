@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\UserCallWaitingGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallWaitingGetRequest17sp4.
+ * Response to UserCallWaitingGetRequest17sp4.
  *         
  *         The following elements are only used in AS data mode:
  *           disableCallingLineIdDelivery
@@ -24,6 +27,13 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
     protected $isActive                     = null;
     protected $disableCallingLineIdDelivery = null;
 
+    /**
+     * @return UserCallWaitingGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -54,6 +64,6 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function getDisableCallingLineIdDelivery()
     {
-        return (!$this->disableCallingLineIdDelivery) ?: $this->disableCallingLineIdDelivery->getValue();
+        return (!$this->disableCallingLineIdDelivery) ?: $this->disableCallingLineIdDelivery;
     }
 }

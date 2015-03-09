@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationControllerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemApplicationControllerGetListRequest.
+ * Response to the SystemApplicationControllerGetListRequest.
  *       Contains a table with column headings: "Name", "Subscriber Id", "Channel Set Id", "Status".
  *       The column values for "Status" can either be "ready" or "notReady".
  */
@@ -22,6 +25,13 @@ class SystemApplicationControllerGetListResponse extends ComplexType implements 
     public    $name                       = __CLASS__;
     protected $applicationControllerTable = null;
 
+    /**
+     * @return SystemApplicationControllerGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

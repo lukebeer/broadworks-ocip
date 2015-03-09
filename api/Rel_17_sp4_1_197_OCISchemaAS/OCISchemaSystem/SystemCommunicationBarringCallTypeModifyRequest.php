@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCallTypeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Communication Barring Call Type.
+ * Modify a Communication Barring Call Type.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
     ) {
         $this->setCallType($callType);
         $this->setNetworkServerCallType($networkServerCallType);
+    }
+
+    /**
+     * @return SystemCommunicationBarringCallTypeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

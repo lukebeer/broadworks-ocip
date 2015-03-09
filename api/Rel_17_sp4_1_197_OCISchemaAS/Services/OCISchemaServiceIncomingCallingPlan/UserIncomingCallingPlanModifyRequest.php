@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncom
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissionsModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan\UserIncomingCallingPlanModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Change the user's incoming calling plan settings.
+ * Change the user's incoming calling plan settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserIncomingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);
         $this->setUserPermissions($userPermissions);
+    }
+
+    /**
+     * @return UserIncomingCallingPlanModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function getUseCustomSettings()
     {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings->getValue();
+        return (!$this->useCustomSettings) ?: $this->useCustomSettings;
     }
 
     /**

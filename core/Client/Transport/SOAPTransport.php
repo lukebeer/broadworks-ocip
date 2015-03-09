@@ -7,6 +7,9 @@
 
 namespace Broadworks_OCIP\core\Client\Transport;
 
+use Broadworks_OCIP\core\Response\Response;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+
 
 class SOAPTransport implements TransportInterface
 {
@@ -47,11 +50,11 @@ class SOAPTransport implements TransportInterface
         $this->session = &$session;
     }
 
-    public function getResponse($outputType = OCIResponseOutput::STD)
+    public function getResponse($responseType=false, $outputType = ResponseOutput::STD)
     {
         if (is_object($this->response)) {
             $response = html_entity_decode($this->response->getBody());
-            $response = new OCIResponse($response, $outputType);
+            $response = new Response($response, $responseType, $outputType);
             return $response->getResponse();
         }
         return null;

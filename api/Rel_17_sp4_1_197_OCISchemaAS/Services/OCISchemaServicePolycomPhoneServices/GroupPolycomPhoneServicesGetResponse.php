@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices\GroupPolycomPhoneServicesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupPolycomPhoneServicesGetRequest.
+ * Response to GroupPolycomPhoneServicesGetRequest.
  */
 class GroupPolycomPhoneServicesGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
     protected $includeGroupCustomContactDirectoryInDirectory = null;
     protected $groupCustomContactDirectory                   = null;
 
+    /**
+     * @return GroupPolycomPhoneServicesGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
      */
     public function getIncludeGroupCommonPhoneListInDirectory()
     {
-        return (!$this->includeGroupCommonPhoneListInDirectory) ?: $this->includeGroupCommonPhoneListInDirectory->getValue();
+        return (!$this->includeGroupCommonPhoneListInDirectory) ?: $this->includeGroupCommonPhoneListInDirectory;
     }
 
     /**
@@ -52,7 +62,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
-        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->getValue();
+        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory;
     }
 
     /**

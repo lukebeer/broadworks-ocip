@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Deletes a service pack migration task. It is not possible to delete a task while it is
+ * Deletes a service pack migration task. It is not possible to delete a task while it is
  *         currently executing.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -30,6 +33,14 @@ class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType i
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
+    }
+
+    /**
+     * @return ServiceProviderServicePackMigrationTaskDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

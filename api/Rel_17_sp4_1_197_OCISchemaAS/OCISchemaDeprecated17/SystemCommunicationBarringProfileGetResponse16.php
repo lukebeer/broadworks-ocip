@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Communicati
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CommunicationBarringRedirectingRule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCommunicationBarringProfileGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemCommunicationBarringProfileGetRequest16.
+ * Response to the SystemCommunicationBarringProfileGetRequest16.
  *         The response contains the Communication Barring Profile information.
  */
 class SystemCommunicationBarringProfileGetResponse16 extends ComplexType implements ComplexInterface
@@ -36,6 +39,13 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
     protected $redirectingDefaultCallTimeout    = null;
     protected $redirectingRule                  = null;
 
+    /**
+     * @return SystemCommunicationBarringProfileGetResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Communication Barring Profile description

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\UserSMDIMessageDeskDeleteServerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a list of SMDI Servers for a user.
+ * Request to delete a list of SMDI Servers for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
     ) {
         $this->setUserId($userId);
         $this->setDeviceName($deviceName);
+    }
+
+    /**
+     * @return UserSMDIMessageDeskDeleteServerListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

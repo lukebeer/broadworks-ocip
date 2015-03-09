@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetVoicePortalResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserVoiceMessagingUserGetVoicePortalRequest16.
+ * Response to UserVoiceMessagingUserGetVoicePortalRequest16.
  */
 class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
     protected $personalizedNameAudioFileDescription = null;
     protected $personalizedNameMediaType            = null;
 
+    /**
+     * @return UserVoiceMessagingUserGetVoicePortalResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function getUsePersonalizedName()
     {
-        return (!$this->usePersonalizedName) ?: $this->usePersonalizedName->getValue();
+        return (!$this->usePersonalizedName) ?: $this->usePersonalizedName;
     }
 
     /**
@@ -54,7 +64,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function getVoicePortalAutoLogin()
     {
-        return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin->getValue();
+        return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin;
     }
 
     /**

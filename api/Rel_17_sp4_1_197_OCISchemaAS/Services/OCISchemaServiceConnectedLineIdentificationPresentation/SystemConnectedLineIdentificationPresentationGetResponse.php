@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation\SystemConnectedLineIdentificationPresentationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemConnectedLineIdentificationPresentationGetRequest.
+ * Response to SystemConnectedLineIdentificationPresentationGetRequest.
  */
 class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name                         = __CLASS__;
     protected $enforceUserServiceAssignment = null;
 
+    /**
+     * @return SystemConnectedLineIdentificationPresentationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -34,6 +44,6 @@ class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexTy
      */
     public function getEnforceUserServiceAssignment()
     {
-        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment->getValue();
+        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment;
     }
 }

@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsNumberFilter;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsTimeRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request users' call logs within an enterprise
+ * Request users' call logs within an enterprise
  *         If the callLogType is not specified, all types of calls logs (placed, received, missed) are returned.
  *         It is possible to restrict the number of rows returned using responsePagingControl. If responsePagingControl
  *         is not specified, the value of Enhanced Call Logs system parameter maxNonPagedResponseSize will control
@@ -29,7 +32,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse';
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse';
     public    $name                           = __CLASS__;
     protected $serviceProviderId              = null;
     protected $callLogType                    = null;
@@ -58,6 +61,14 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
         $this->setAccountAuthorizationCodeFilter($accountAuthorizationCodeFilter);
         $this->setSubscriberType($subscriberType);
         $this->setResponsePagingControl($responsePagingControl);
+    }
+
+    /**
+     * @return EnterpriseEnhancedCallLogsGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

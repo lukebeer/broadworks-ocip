@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCPEConfigReorderDeviceLinePortsResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Reorder the lines of a Service Provider device. You can not add or delete line ports, only
+ * Reorder the lines of a Service Provider device. You can not add or delete line ports, only
  *         re-ordering the list is allowed. The ordered list of line ports can be obtained
  *         with the ServiceProviderAccessDeviceGetRequest command.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -35,6 +38,14 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
         $this->setOrderedLinePortList($orderedLinePortList);
+    }
+
+    /**
+     * @return ServiceProviderCPEConfigReorderDeviceLinePortsResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

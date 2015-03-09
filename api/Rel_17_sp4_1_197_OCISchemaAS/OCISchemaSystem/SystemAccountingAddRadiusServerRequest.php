@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RadiusServerDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingAddRadiusServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a Radius Server to the system.
+ * Request to add a Radius Server to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingAddRadiusServerRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
         $this->setNetAddress($netAddress);
         $this->setPort($port);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemAccountingAddRadiusServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

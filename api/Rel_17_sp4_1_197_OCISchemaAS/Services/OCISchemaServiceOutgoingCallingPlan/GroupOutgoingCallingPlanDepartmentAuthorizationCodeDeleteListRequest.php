@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDepartmentAuthorizationCodeDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a list of authorization codes from the group's default or a department. When department is not
+ * Delete a list of authorization codes from the group's default or a department. When department is not
  *         specified, it is for the group default.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -38,6 +41,14 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeDeleteListRequest exten
         $this->setGroupId($groupId);
         $this->setDepartmentKey($departmentKey);
         $this->setCode($code);
+    }
+
+    /**
+     * @return GroupOutgoingCallingPlanDepartmentAuthorizationCodeDeleteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifySupervisorListResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the supervisor list for a call center.
+ * Request to modify the supervisor list for a call center.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implement
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setSupervisorUserIdList($supervisorUserIdList);
+    }
+
+    /**
+     * @return GroupCallCenterModifySupervisorListResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

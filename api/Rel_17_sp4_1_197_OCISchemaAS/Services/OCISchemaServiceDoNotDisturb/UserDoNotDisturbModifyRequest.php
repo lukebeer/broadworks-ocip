@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDoNotDisturb; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDoNotDisturb\UserDoNotDisturbModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Do Not Disturb.
+ * Modify the user level data associated with Do Not Disturb.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Engineering Note: This command is used internally by Call Processing.
  */
@@ -32,6 +35,14 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
         $this->setUserId($userId);
         $this->setIsActive($isActive);
         $this->setRingSplash($ringSplash);
+    }
+
+    /**
+     * @return UserDoNotDisturbModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -89,6 +100,6 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getRingSplash()
     {
-        return (!$this->ringSplash) ?: $this->ringSplash->getValue();
+        return (!$this->ringSplash) ?: $this->ringSplash;
     }
 }

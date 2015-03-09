@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupServiceInstancePrivacyGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupServiceInstancePrivacyGetRequest.
+ * Response to GroupServiceInstancePrivacyGetRequest.
  *         Replaced by: GroupServiceInstancePrivacyGetResponse17sp4
  */
 class GroupServiceInstancePrivacyGetResponse extends ComplexType implements ComplexInterface
@@ -22,6 +25,13 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
     protected $enableDirectoryPrivacy                     = null;
     protected $enableAutoAttendantExtensionDialingPrivacy = null;
 
+    /**
+     * @return GroupServiceInstancePrivacyGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->getValue();
+        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy;
     }
 
     /**
@@ -52,6 +62,6 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
+        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy;
     }
 }

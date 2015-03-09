@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\SelectiveCallRejectionCriteriaCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSelectiveCallRejectionGetCriteriaResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSelectiveCallRejectionGetCriteriaRequest16.
+ * Response to the UserSelectiveCallRejectionGetCriteriaRequest16.
  *         Replaced by: UserSelectiveCallRejectionGetCriteriaResponse16sp1
  */
 class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implements ComplexInterface
@@ -26,6 +29,13 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
     protected $blacklisted     = null;
     protected $holidaySchedule = null;
 
+    /**
+     * @return UserSelectiveCallRejectionGetCriteriaResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The from dn criteria.
@@ -72,7 +82,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted->getValue();
+        return (!$this->blacklisted) ?: $this->blacklisted;
     }
 
     /**

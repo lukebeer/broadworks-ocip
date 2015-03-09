@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\CommPilotCallManagerGroupDirectoryDisplaySelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager\GroupCommPilotCallManagerModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group level data associated with CommPilot Call Manager.
+ * Modify the group level data associated with CommPilot Call Manager.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCommPilotCallManagerModifyRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupCommPilotCallManagerModifyRequest extends ComplexType implements Comp
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setGroupDirectory($groupDirectory);
+    }
+
+    /**
+     * @return GroupCommPilotCallManagerModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

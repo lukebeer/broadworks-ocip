@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupModifyVoicePortalBrandingResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group's voice portal branding settings.
+ * Modify the group's voice portal branding settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends ComplexType implements ComplexInterface
@@ -43,6 +46,14 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
         $this->setVoicePortalGreetingFile($voicePortalGreetingFile);
         $this->setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection);
         $this->setVoiceMessagingGreetingFile($voiceMessagingGreetingFile);
+    }
+
+    /**
+     * @return GroupVoiceMessagingGroupModifyVoicePortalBrandingResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

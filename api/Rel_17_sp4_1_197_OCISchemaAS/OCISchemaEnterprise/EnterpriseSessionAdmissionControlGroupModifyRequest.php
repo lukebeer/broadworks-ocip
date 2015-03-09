@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\Replace
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionAdmissionControlGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a session admission control group for the enterprise.
+ * Request to modify a session admission control group for the enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType implements ComplexInterface
@@ -61,6 +64,14 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
         $this->setBecomeDefaultGroup($becomeDefaultGroup);
         $this->setCountIntraSACGroupSessions($countIntraSACGroupSessions);
         $this->setDeviceList($deviceList);
+    }
+
+    /**
+     * @return EnterpriseSessionAdmissionControlGroupModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -244,7 +255,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
      */
     public function getBecomeDefaultGroup()
     {
-        return (!$this->becomeDefaultGroup) ?: $this->becomeDefaultGroup->getValue();
+        return (!$this->becomeDefaultGroup) ?: $this->becomeDefaultGroup;
     }
 
     /**
@@ -260,7 +271,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
      */
     public function getCountIntraSACGroupSessions()
     {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions->getValue();
+        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions;
     }
 
     /**

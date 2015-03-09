@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterAddAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add agent(s) to a call center.
+ * Add agent(s) to a call center.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupCallCenterAddAgentListRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class GroupCallCenterAddAgentListRequest extends ComplexType implements ComplexI
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentUserId($agentUserId);
+    }
+
+    /**
+     * @return GroupCallCenterAddAgentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolyc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's Polycom Phone Services attributes.
+ * Modify the user's Polycom Phone Services attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserPolycomPhoneServicesModifyRequest extends ComplexType implements ComplexInterface
@@ -42,6 +45,14 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
         $this->setIncludeUserPersonalPhoneListInDirectory($includeUserPersonalPhoneListInDirectory);
         $this->setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory);
         $this->setGroupCustomContactDirectory($groupCustomContactDirectory);
+    }
+
+    /**
+     * @return UserPolycomPhoneServicesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -99,7 +110,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getIntegratePhoneDirectoryWithBroadWorks()
     {
-        return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks->getValue();
+        return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks;
     }
 
     /**
@@ -115,7 +126,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getIncludeUserPersonalPhoneListInDirectory()
     {
-        return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory->getValue();
+        return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory;
     }
 
     /**
@@ -131,7 +142,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
-        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory->getValue();
+        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory;
     }
 
     /**

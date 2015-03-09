@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Transpor
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RouteName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingAddRouteDeviceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a routing device to a route.
+ * Request to add a routing device to a route.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements ComplexInterface
@@ -41,6 +44,14 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
         $this->setPort($port);
         $this->setTransportProtocol($transportProtocol);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemRoutingAddRouteDeviceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

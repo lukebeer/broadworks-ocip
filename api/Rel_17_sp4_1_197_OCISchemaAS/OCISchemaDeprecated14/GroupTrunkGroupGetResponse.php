@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupTrunkGroupGetRequest.
+ * Response to the GroupTrunkGroupGetRequest.
  *         The response contains the maximum permissible active trunk group calls for the group.
  */
 class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
@@ -22,6 +25,13 @@ class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
     protected $maxActiveCalls          = null;
     protected $maxAvailableActiveCalls = null;
 
+    /**
+     * @return GroupTrunkGroupGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.

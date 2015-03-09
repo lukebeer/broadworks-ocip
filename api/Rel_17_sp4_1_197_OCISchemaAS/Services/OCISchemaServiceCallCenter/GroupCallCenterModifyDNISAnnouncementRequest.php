@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLListModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyDNISAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center DNIS announcement settings.
+ * Modify a call center DNIS announcement settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implements ComplexInterface
@@ -112,6 +115,14 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
     }
 
     /**
+     * @return GroupCallCenterModifyDNISAnnouncementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Uniquely identifies a Call Center DNIS.
      */
     public function setDnisKey(DNISKey $dnisKey = null)
@@ -140,7 +151,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function getPlayEntranceMessage()
     {
-        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage->getValue();
+        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage;
     }
 
     /**
@@ -156,7 +167,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function getMandatoryEntranceMessage()
     {
-        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage->getValue();
+        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage;
     }
 
     /**
@@ -272,7 +283,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function getPlayPeriodicComfortMessage()
     {
-        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage->getValue();
+        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage;
     }
 
     /**
@@ -406,7 +417,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function getEnableMediaOnHoldForQueuedCalls()
     {
-        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls->getValue();
+        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls;
     }
 
     /**
@@ -438,7 +449,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function getPlayWhisperMessage()
     {
-        return (!$this->playWhisperMessage) ?: $this->playWhisperMessage->getValue();
+        return (!$this->playWhisperMessage) ?: $this->playWhisperMessage;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\AlternateNumberEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserAlternateNumbersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserAlternateNumbersGetRequest.
+ * Response to UserAlternateNumbersGetRequest.
  */
 class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInterface
 {
@@ -30,6 +33,13 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
     protected $alternateEntry09 = null;
     protected $alternateEntry10 = null;
 
+    /**
+     * @return UserAlternateNumbersGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -44,7 +54,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function getDistinctiveRing()
     {
-        return (!$this->distinctiveRing) ?: $this->distinctiveRing->getValue();
+        return (!$this->distinctiveRing) ?: $this->distinctiveRing;
     }
 
     /**

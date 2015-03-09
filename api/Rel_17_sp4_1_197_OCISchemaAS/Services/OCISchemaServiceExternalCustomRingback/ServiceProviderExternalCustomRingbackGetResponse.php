@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEx
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackPrefixDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback\ServiceProviderExternalCustomRingbackGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderExternalCustomRingbackGetRequest.
+ * Response to ServiceProviderExternalCustomRingbackGetRequest.
  */
 class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
@@ -26,6 +29,13 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
     protected $serverPort       = null;
     protected $timeoutSeconds   = null;
 
+    /**
+     * @return ServiceProviderExternalCustomRingbackGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Prefix digits prepended to the address to reach the external ringback server.

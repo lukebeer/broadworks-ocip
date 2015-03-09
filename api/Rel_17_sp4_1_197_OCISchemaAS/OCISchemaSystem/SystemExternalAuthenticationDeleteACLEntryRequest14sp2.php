@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalAuthenticationDeleteACLEntryResponse14sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete an entry from the external authentication access control list.
+ * Delete an entry from the external authentication access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExternalAuthenticationDeleteACLEntryRequest14sp2 extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemExternalAuthenticationDeleteACLEntryRequest14sp2 extends ComplexType
          $netAddress
     ) {
         $this->setNetAddress($netAddress);
+    }
+
+    /**
+     * @return SystemExternalAuthenticationDeleteACLEntryResponse14sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

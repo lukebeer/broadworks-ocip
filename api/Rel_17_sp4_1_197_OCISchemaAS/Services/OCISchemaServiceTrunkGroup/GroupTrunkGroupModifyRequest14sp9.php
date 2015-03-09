@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunk
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupModifyResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the maximum and bursting maximum permissible active Trunk Group calls for the group.
+ * Modify the maximum and bursting maximum permissible active Trunk Group calls for the group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
         $this->setGroupId($groupId);
         $this->setMaxActiveCalls($maxActiveCalls);
         $this->setBurstingMaxActiveCalls($burstingMaxActiveCalls);
+    }
+
+    /**
+     * @return GroupTrunkGroupModifyResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -91,7 +102,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
+        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls;
     }
 
     /**

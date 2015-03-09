@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileD
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FTPUserPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FTPUserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCPEConfigAddFileServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a device CPE config file server.
+ * Add a device CPE config file server.
  *         The response is either SuccessResponse or ErrorResponse.
  *         Replaced By: SystemCPEConfigAddFileServerRequest14sp6
  */
@@ -45,6 +48,14 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
         $this->setFtpUserPassword($ftpUserPassword);
         $this->setCpeFileDirectory($cpeFileDirectory);
         $this->setPassiveFTP($passiveFTP);
+    }
+
+    /**
+     * @return SystemCPEConfigAddFileServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -150,6 +161,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function getPassiveFTP()
     {
-        return (!$this->passiveFTP) ?: $this->passiveFTP->getValue();
+        return (!$this->passiveFTP) ?: $this->passiveFTP;
     }
 }

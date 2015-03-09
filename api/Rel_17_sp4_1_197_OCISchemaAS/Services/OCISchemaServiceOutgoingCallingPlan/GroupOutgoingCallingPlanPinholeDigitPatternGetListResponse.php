@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest.
+ * Response to GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest.
  *         Contains a table with column headings: "Name", "Digit Pattern".
  */
 class GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse extends Complex
     public    $name              = __CLASS__;
     protected $digitPatternTable = null;
 
+    /**
+     * @return GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

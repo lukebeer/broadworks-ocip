@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a system domain to the system.
+ * Add a system domain to the system.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemDomainAddRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemDomainAddRequest extends ComplexType implements ComplexInterface
          $domain
     ) {
         $this->setDomain($domain);
+    }
+
+    /**
+     * @return SystemDomainAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

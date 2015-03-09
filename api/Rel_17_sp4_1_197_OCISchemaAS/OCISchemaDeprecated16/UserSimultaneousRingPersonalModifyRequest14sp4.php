@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingPersonalModifyResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's simultaneous ring personal service setting.
+ * Modify the user's simultaneous ring personal service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSimultaneousRingPersonalModifyRequest14sp4 extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserSimultaneousRingPersonalModifyRequest14sp4 extends ComplexType impleme
         $this->setUserId($userId);
         $this->setIsActive($isActive);
         $this->setIncomingCalls($incomingCalls);
+    }
+
+    /**
+     * @return UserSimultaneousRingPersonalModifyResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserSimultaneousRingPersonalModifyRequest14sp4 extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

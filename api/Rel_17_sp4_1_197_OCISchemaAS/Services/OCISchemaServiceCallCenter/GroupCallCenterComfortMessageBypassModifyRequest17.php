@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLListModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterComfortMessageBypassModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's comfort message bypass settings.
+ * Modify a call center's comfort message bypass settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType implements ComplexInterface
@@ -63,6 +66,14 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
     }
 
     /**
+     * @return GroupCallCenterComfortMessageBypassModifyResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -101,7 +112,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -137,7 +148,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
      */
     public function getPlayAnnouncementAfterRinging()
     {
-        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging->getValue();
+        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging;
     }
 
     /**

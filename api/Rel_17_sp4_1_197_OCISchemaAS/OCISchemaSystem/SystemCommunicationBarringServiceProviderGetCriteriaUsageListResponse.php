@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemCommunicationBarringServiceProviderGetCriteriaUsageListRequest.
+ * Response to the SystemCommunicationBarringServiceProviderGetCriteriaUsageListRequest.
  *         The response contains a table of all Service Providers that use the specific Communication Barring criteria. The column headings are "Service Provider Id", "Service Provider Name" and "Is Enterprise"
  */
 class SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse exte
     public    $name                 = __CLASS__;
     protected $serviceProviderTable = null;
 
+    /**
+     * @return SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\GroupUserLi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseStrictness;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServerHostId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicensingGetResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemLicensingGetRequest14sp3. The subscriber license table columns are: "Name", "Licensed", "Used" and "Available".
+ * Response to SystemLicensingGetRequest14sp3. The subscriber license table columns are: "Name", "Licensed", "Used" and "Available".
  *         The group service license table columns are: "Name", "Licensed", "Used" and "Available".
  *         The virtual service license table columns are: "Name", "Licensed", "Used" and "Available".
  *         The user service license table columns are: "Name", "Licensed", "Used", "Used By Hosted Users", "Used By Trunk Users", "Available" and "Expiration Date".
@@ -37,6 +40,13 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     protected $userServiceLicenseTable    = null;
     protected $systemParamLicenseTable    = null;
 
+    /**
+     * @return SystemLicensingGetResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * License type.
@@ -145,7 +155,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getNumberOfTrunkUsers()
     {
-        return (!$this->numberOfTrunkUsers) ?: $this->numberOfTrunkUsers->getValue();
+        return (!$this->numberOfTrunkUsers) ?: $this->numberOfTrunkUsers;
     }
 
     /**

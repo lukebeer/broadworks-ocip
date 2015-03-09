@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntel
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntelligentNetworkServiceControl\IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Treatment;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl\SystemIntelligentNetworkServiceControlModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Intelligent Network Service Control.
+ * Modify the system level data associated with Intelligent Network Service Control.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType implements ComplexInterface
@@ -53,6 +56,14 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
         $this->setMsgOCPReject($msgOCPReject);
         $this->setMsgForwardLoop($msgForwardLoop);
         $this->setMsgTemporarilyUnavailable($msgTemporarilyUnavailable);
+    }
+
+    /**
+     * @return SystemIntelligentNetworkServiceControlModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

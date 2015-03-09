@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExternalEmergencyRoutingConnectionTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalEmergencyRoutingParametersModifyResponse13mp13;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Call External Emergency Routing system parameters.
+ * Request to modify Call External Emergency Routing system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         $this->setIsActive($isActive);
         $this->setSupportsDNSSRV($supportsDNSSRV);
         $this->setConnectionTimeoutSeconds($connectionTimeoutSeconds);
+    }
+
+    /**
+     * @return SystemExternalEmergencyRoutingParametersModifyResponse13mp13
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -94,7 +105,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -110,7 +121,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function getSupportsDNSSRV()
     {
-        return (!$this->supportsDNSSRV) ?: $this->supportsDNSSRV->getValue();
+        return (!$this->supportsDNSSRV) ?: $this->supportsDNSSRV;
     }
 
     /**

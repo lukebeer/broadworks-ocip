@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNewUserTemplateUnassignUserServiceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests to unassign the user services and service packs for all new users created within the group
+ * Requests to unassign the user services and service packs for all new users created within the group
  *         after the completion of this request.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -38,6 +41,14 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
         $this->setGroupId($groupId);
         $this->setServiceName($serviceName);
         $this->setServicePackName($servicePackName);
+    }
+
+    /**
+     * @return GroupNewUserTemplateUnassignUserServiceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

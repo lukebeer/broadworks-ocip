@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAdminGetListRequest.
+ * Response to GroupAdminGetListRequest.
  *         Contains a 5 column table with column headings "Administrator ID",
  *         "Last Name", "First Name", "Department", "Language".
  */
@@ -22,6 +25,13 @@ class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
     public    $name            = __CLASS__;
     protected $groupAdminTable = null;
 
+    /**
+     * @return GroupAdminGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

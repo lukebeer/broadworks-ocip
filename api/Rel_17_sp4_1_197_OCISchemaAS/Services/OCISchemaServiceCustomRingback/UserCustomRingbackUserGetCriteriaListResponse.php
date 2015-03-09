@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback\UserCustomRingbackUserGetCriteriaListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCustomRingbackUserGetCriteriaListRequest.
+ * Response to the UserCustomRingbackUserGetCriteriaListRequest.
  *         The criteria table's column headings are: "Is Active", "Criteria Name", 
  *         "Time Schedule", "Calls From", "Blacklisted" and "Holiday Schedule".
  */
@@ -22,6 +25,13 @@ class UserCustomRingbackUserGetCriteriaListResponse extends ComplexType implemen
     public    $name          = __CLASS__;
     protected $criteriaTable = null;
 
+    /**
+     * @return UserCustomRingbackUserGetCriteriaListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

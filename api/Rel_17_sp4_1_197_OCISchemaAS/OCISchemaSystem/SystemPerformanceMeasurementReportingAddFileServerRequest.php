@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FTPUserPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FTPUserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingAddFileServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a performance measurements reporting ftp server.
+ * Add a performance measurements reporting ftp server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
         $this->setFtpUserId($ftpUserId);
         $this->setFtpUserPassword($ftpUserPassword);
         $this->setPassiveFTP($passiveFTP);
+    }
+
+    /**
+     * @return SystemPerformanceMeasurementReportingAddFileServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -105,6 +116,6 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
      */
     public function getPassiveFTP()
     {
-        return (!$this->passiveFTP) ?: $this->passiveFTP->getValue();
+        return (!$this->passiveFTP) ?: $this->passiveFTP;
     }
 }

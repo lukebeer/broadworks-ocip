@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupInstantConferencingGetInstanceResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupInstantConferencingGetInstanceRequest.
+ * Response to GroupInstantConferencingGetInstanceRequest.
  *             Contains the service profile information and a table of assigned users.
  *             The table has column headings: "User Id", "Last Name", "First Name",
  *             "Hiragana Last Name", "Hiragana First Name".
@@ -32,6 +35,13 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
     protected $allowDocumentDownload          = null;
     protected $bridgeAdministratorUserTable   = null;
 
+    /**
+     * @return GroupInstantConferencingGetInstanceResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -138,7 +148,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation->getValue();
+        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
     }
 
     /**
@@ -154,7 +164,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
      */
     public function getAllowDocumentDownload()
     {
-        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload->getValue();
+        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload;
     }
 
     /**

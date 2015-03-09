@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDCriteriaDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Dialable Caller ID Criteria.
+ * Delete a Dialable Caller ID Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderDialableCallerIDCriteriaDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderDialableCallerIDCriteriaDeleteRequest extends ComplexType i
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
+    }
+
+    /**
+     * @return ServiceProviderDialableCallerIDCriteriaDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

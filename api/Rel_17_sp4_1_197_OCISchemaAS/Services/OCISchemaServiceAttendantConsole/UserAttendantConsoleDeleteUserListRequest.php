@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAttendantConsole\UserAttendantConsoleDeleteUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Remove users from the Attendant Console monitored users list.
+ * Remove users from the Attendant Console monitored users list.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserAttendantConsoleDeleteUserListRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserAttendantConsoleDeleteUserListRequest extends ComplexType implements C
     ) {
         $this->setUserId($userId);
         $this->setMonitoredUserId($monitoredUserId);
+    }
+
+    /**
+     * @return UserAttendantConsoleDeleteUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

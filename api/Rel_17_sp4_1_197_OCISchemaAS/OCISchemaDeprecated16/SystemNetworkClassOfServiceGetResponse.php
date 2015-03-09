@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceCommunicationBarringProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemNetworkClassOfServiceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemNetworkClassOfServiceGetRequest.
+ * Response to the SystemNetworkClassOfServiceGetRequest.
  *         The response contains the Network Class of Service information.
  *         Replaced by: SystemNetworkClassOfServiceGetResponse17
  */
@@ -33,6 +36,13 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
     protected $communicationBarringProfile8 = null;
     protected $communicationBarringProfile9 = null;
 
+    /**
+     * @return SystemNetworkClassOfServiceGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Network Class of Service description.

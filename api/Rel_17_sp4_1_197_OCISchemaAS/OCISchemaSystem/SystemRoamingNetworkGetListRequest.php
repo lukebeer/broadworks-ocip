@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaRoamingMscAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of all Roaming Networks.
+ * Get the list of all Roaming Networks.
  *         The response is either a SystemRoamingNetworkGetListResponse or an ErrorResponse.
  */
 class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkGetListResponse';
+    public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkGetListResponse';
     public    $name                            = __CLASS__;
     protected $responseSizeLimit               = null;
     protected $searchCriteriaRoamingMscAddress = null;
@@ -30,6 +33,14 @@ class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexI
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaRoamingMscAddress($searchCriteriaRoamingMscAddress);
+    }
+
+    /**
+     * @return SystemRoamingNetworkGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

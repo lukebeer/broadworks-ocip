@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Malicious Call Trace system parameter.
+ * Modify a Malicious Call Trace system parameter.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemMaliciousCallTraceModifyRequest extends ComplexType implements Compl
          $playMCTWarningAnnouncement = null
     ) {
         $this->setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement);
+    }
+
+    /**
+     * @return SystemMaliciousCallTraceModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -40,6 +51,6 @@ class SystemMaliciousCallTraceModifyRequest extends ComplexType implements Compl
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement->getValue();
+        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement;
     }
 }

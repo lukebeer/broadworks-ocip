@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Change the group's account/authorization codes setting.
+ * Change the group's account/authorization codes setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements ComplexInterface
@@ -47,6 +50,14 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls);
         $this->setMandatoryUsageUserIdList($mandatoryUsageUserIdList);
         $this->setOptionalUsageUserIdList($optionalUsageUserIdList);
+    }
+
+    /**
+     * @return GroupAccountAuthorizationCodesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -138,7 +149,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls->getValue();
+        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls;
     }
 
     /**

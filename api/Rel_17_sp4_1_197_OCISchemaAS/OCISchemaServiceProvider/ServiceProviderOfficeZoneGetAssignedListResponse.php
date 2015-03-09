@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneGetAssignedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderOfficeZoneGetAssignedListRequest.
+ * Response to ServiceProviderOfficeZoneGetAssignedListRequest.
  *         Contains a table of all Office Zones assigned to the
  *         service provider. The column headings are: "Name", "Description" and "Default".
  */
@@ -22,6 +25,13 @@ class ServiceProviderOfficeZoneGetAssignedListResponse extends ComplexType imple
     public    $name            = __CLASS__;
     protected $officeZoneTable = null;
 
+    /**
+     * @return ServiceProviderOfficeZoneGetAssignedListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

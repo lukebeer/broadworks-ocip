@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointExternalSystemGetAssignedListRequest.
+ * Response to the GroupRoutePointExternalSystemGetAssignedListRequest.
  *         Contains a table of all Route Point External Systems assigned to the
  * 	group.  The column headings are: "Name" and "Description".
  */
@@ -22,6 +25,13 @@ class GroupRoutePointExternalSystemGetAssignedListResponse extends ComplexType i
     public    $name                = __CLASS__;
     protected $externalSystemTable = null;
 
+    /**
+     * @return GroupRoutePointExternalSystemGetAssignedListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

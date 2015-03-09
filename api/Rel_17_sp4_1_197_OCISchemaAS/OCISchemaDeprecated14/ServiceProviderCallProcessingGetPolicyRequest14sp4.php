@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderCallProcessingGetPolicyResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the service provider level data associated with Call Processing
+ * Request the service provider level data associated with Call Processing
  *         Policy. The response is either a
  *         ServiceProviderCallProcessingGetPolicyResponse14sp4 or an ErrorResponse.
  *         Replaced By : ServiceProviderCallProcessingGetPolicyRequest15
  */
 class ServiceProviderCallProcessingGetPolicyRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderCallProcessingGetPolicyResponse14sp4';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderCallProcessingGetPolicyResponse14sp4';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
 
@@ -28,6 +31,14 @@ class ServiceProviderCallProcessingGetPolicyRequest14sp4 extends ComplexType imp
          $serviceProviderId
     ) {
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return ServiceProviderCallProcessingGetPolicyResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the profile for a service provider or enterprise.
+ * Modify the profile for a service provider or enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderModifyRequest extends ComplexType implements ComplexInterface
@@ -48,6 +51,14 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
         $this->setContact($contact);
         $this->setAddress($address);
         $this->setUseServiceProviderLanguages($useServiceProviderLanguages);
+    }
+
+    /**
+     * @return ServiceProviderModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -169,6 +180,6 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUseServiceProviderLanguages()
     {
-        return (!$this->useServiceProviderLanguages) ?: $this->useServiceProviderLanguages->getValue();
+        return (!$this->useServiceProviderLanguages) ?: $this->useServiceProviderLanguages;
     }
 }

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWor
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerMaxTxPerSecond;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the BroadWorks Mobile Manager settings.
+ * Modify the BroadWorks Mobile Manager settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements ComplexInterface
@@ -59,6 +62,14 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
         $this->setGenericNumberEnabled($genericNumberEnabled);
         $this->setMobileStateCheckEnabled($mobileStateCheckEnabled);
         $this->setLocationBasedServicesEnabled($locationBasedServicesEnabled);
+    }
+
+    /**
+     * @return GroupBroadWorksMobileManagerModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -150,7 +161,7 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
      */
     public function getLocalToCarrier()
     {
-        return (!$this->localToCarrier) ?: $this->localToCarrier->getValue();
+        return (!$this->localToCarrier) ?: $this->localToCarrier;
     }
 
     /**
@@ -166,7 +177,7 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
      */
     public function getMaxTxPerSecondEnabled()
     {
-        return (!$this->maxTxPerSecondEnabled) ?: $this->maxTxPerSecondEnabled->getValue();
+        return (!$this->maxTxPerSecondEnabled) ?: $this->maxTxPerSecondEnabled;
     }
 
     /**
@@ -202,7 +213,7 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
      */
     public function getTldnEnabled()
     {
-        return (!$this->tldnEnabled) ?: $this->tldnEnabled->getValue();
+        return (!$this->tldnEnabled) ?: $this->tldnEnabled;
     }
 
     /**
@@ -218,7 +229,7 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
      */
     public function getGenericNumberEnabled()
     {
-        return (!$this->genericNumberEnabled) ?: $this->genericNumberEnabled->getValue();
+        return (!$this->genericNumberEnabled) ?: $this->genericNumberEnabled;
     }
 
     /**
@@ -234,7 +245,7 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
      */
     public function getMobileStateCheckEnabled()
     {
-        return (!$this->mobileStateCheckEnabled) ?: $this->mobileStateCheckEnabled->getValue();
+        return (!$this->mobileStateCheckEnabled) ?: $this->mobileStateCheckEnabled;
     }
 
     /**
@@ -250,6 +261,6 @@ class GroupBroadWorksMobileManagerModifyRequest extends ComplexType implements C
      */
     public function getLocationBasedServicesEnabled()
     {
-        return (!$this->locationBasedServicesEnabled) ?: $this->locationBasedServicesEnabled->getValue();
+        return (!$this->locationBasedServicesEnabled) ?: $this->locationBasedServicesEnabled;
     }
 }

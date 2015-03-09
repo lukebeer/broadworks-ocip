@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldDeleteInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Music On Hold department instance.
+ * Delete a Music On Hold department instance.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setDepartment($department);
+    }
+
+    /**
+     * @return GroupMusicOnHoldDeleteInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallT
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallTransfer\CallTransferRecallNumberOfRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallTransfer\CallTransferBusyCampOnSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallTransfer\UserCallTransferModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Call Transfer.
+ * Modify the user level data associated with Call Transfer.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallTransferModifyRequest extends ComplexType implements ComplexInterface
@@ -45,6 +48,14 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
         $this->setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls);
         $this->setEnableBusyCampOn($enableBusyCampOn);
         $this->setBusyCampOnSeconds($busyCampOnSeconds);
+    }
+
+    /**
+     * @return UserCallTransferModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -86,7 +97,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsRecallActive()
     {
-        return (!$this->isRecallActive) ?: $this->isRecallActive->getValue();
+        return (!$this->isRecallActive) ?: $this->isRecallActive;
     }
 
     /**
@@ -120,7 +131,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer->getValue();
+        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer;
     }
 
     /**
@@ -136,7 +147,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls->getValue();
+        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls;
     }
 
     /**
@@ -152,7 +163,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getEnableBusyCampOn()
     {
-        return (!$this->enableBusyCampOn) ?: $this->enableBusyCampOn->getValue();
+        return (!$this->enableBusyCampOn) ?: $this->enableBusyCampOn;
     }
 
     /**

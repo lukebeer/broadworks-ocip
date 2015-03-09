@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingLineIdName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallingLineIdGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallingLineIdGetRequest.
+ * Response to the GroupCallingLineIdGetRequest.
  *         The response contains the group's calling line id settings.
  */
 class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
     protected $callingLineIdPhoneNumber = null;
     protected $callingLineIdName        = null;
 
+    /**
+     * @return GroupCallingLineIdGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -39,7 +49,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
      */
     public function getUseGroupNumber()
     {
-        return (!$this->useGroupNumber) ?: $this->useGroupNumber->getValue();
+        return (!$this->useGroupNumber) ?: $this->useGroupNumber;
     }
 
     /**
@@ -55,7 +65,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
      */
     public function getUseGroupName()
     {
-        return (!$this->useGroupName) ?: $this->useGroupName->getValue();
+        return (!$this->useGroupName) ?: $this->useGroupName;
     }
 
     /**

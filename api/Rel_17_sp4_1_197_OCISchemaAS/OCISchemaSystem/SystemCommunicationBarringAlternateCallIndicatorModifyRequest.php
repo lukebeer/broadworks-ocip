@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAlternateCallIndicator;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringAlternateCallIndicatorModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Communication Barring Alternate Call Indicator.
+ * Modify a Communication Barring Alternate Call Indicator.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCommunicationBarringAlternateCallIndicatorModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemCommunicationBarringAlternateCallIndicatorModifyRequest extends Comp
     ) {
         $this->setAlternateCallIndicator($alternateCallIndicator);
         $this->setNetworkServerAlternateCallIndicator($networkServerAlternateCallIndicator);
+    }
+
+    /**
+     * @return SystemCommunicationBarringAlternateCallIndicatorModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigDeleteFileServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a device CPE config file server.
+ * Delete a device CPE config file server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCPEConfigDeleteFileServerRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCPEConfigDeleteFileServerRequest extends ComplexType implements Comp
          $deviceType
     ) {
         $this->setDeviceType($deviceType);
+    }
+
+    /**
+     * @return SystemCPEConfigDeleteFileServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

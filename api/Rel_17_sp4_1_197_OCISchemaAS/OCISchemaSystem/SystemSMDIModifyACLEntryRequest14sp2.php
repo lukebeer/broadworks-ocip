@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMDIModifyACLEntryResponse14sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify an entry from the SMDI access control list.
+ * Modify an entry from the SMDI access control list.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemSMDIModifyACLEntryRequest14sp2 extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemSMDIModifyACLEntryRequest14sp2 extends ComplexType implements Comple
     ) {
         $this->setNetAddress($netAddress);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemSMDIModifyACLEntryResponse14sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

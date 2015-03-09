@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Unbounde
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetDetailListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderServicePackGetDetailListRequest. It contains the service pack details
+ * Response to ServiceProviderServicePackGetDetailListRequest. It contains the service pack details
  *         and the list of services in a table format. The column headings are "Service", "Authorized"
  *         "Allocated" and "Available".
  */
@@ -31,6 +34,13 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
     protected $allowedQuantity        = null;
     protected $userServiceTable       = null;
 
+    /**
+     * @return ServiceProviderServicePackGetDetailListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Pack name.
@@ -81,7 +91,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function getIsAvailableForUse()
     {
-        return (!$this->isAvailableForUse) ?: $this->isAvailableForUse->getValue();
+        return (!$this->isAvailableForUse) ?: $this->isAvailableForUse;
     }
 
     /**

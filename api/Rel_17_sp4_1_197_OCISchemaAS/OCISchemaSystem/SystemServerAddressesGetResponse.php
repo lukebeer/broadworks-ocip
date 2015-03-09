@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServerAddressesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemServerAddressesGetRequest.
+ * Response to SystemServerAddressesGetRequest.
  *         Contains a list of system Server Addresses.
  *         See also:
  *           PrimaryInfoGetResponse
@@ -29,6 +32,13 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
     protected $applicationServerClusterPrimaryPrivateFQDN   = null;
     protected $applicationServerClusterSecondaryPrivateFQDN = null;
 
+    /**
+     * @return SystemServerAddressesGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * IP Address, hostname, or domain.

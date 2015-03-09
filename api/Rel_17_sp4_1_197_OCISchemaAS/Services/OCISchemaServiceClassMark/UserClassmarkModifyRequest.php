@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClass
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\UserClassmarkModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Class Mark.
+ * Modify the user level data associated with Class Mark.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
     ) {
         $this->setUserId($userId);
         $this->setClassmark($classmark);
+    }
+
+    /**
+     * @return UserClassmarkModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

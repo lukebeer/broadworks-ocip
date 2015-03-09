@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceAssignListToAllGroupsResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Assign a list of Network Classes of Service to all groups with in a 
+ * Assign a list of Network Classes of Service to all groups with in a 
  *         service provider. If it is the first assigned Network Class of Service in 
  *         the group, it will be set as the default one.
  *         The Network Classes of Service must be currently
@@ -33,6 +36,14 @@ class ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest extends C
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setNetworkClassOfService($networkClassOfService);
+    }
+
+    /**
+     * @return ServiceProviderNetworkClassOfServiceAssignListToAllGroupsResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

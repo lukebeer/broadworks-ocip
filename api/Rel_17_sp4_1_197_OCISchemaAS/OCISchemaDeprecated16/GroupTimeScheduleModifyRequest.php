@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\TimeInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupTimeScheduleModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a specified time schedule in a group.
+ * Modify a specified time schedule in a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupTimeScheduleModifyRequest extends ComplexType implements ComplexInterface
@@ -97,6 +100,14 @@ class GroupTimeScheduleModifyRequest extends ComplexType implements ComplexInter
         $this->setTimeInterval18($timeInterval18);
         $this->setTimeInterval19($timeInterval19);
         $this->setTimeInterval20($timeInterval20);
+    }
+
+    /**
+     * @return GroupTimeScheduleModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

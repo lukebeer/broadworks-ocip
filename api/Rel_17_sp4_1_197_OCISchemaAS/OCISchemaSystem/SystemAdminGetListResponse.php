@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemAdminGetListRequest.
+ * Response to SystemAdminGetListRequest.
  *         Contains a 6 column table with column headings "Administrator ID",
  *         "Last Name", "First Name", "Type", "Read Only", "Language".
  */
@@ -22,6 +25,13 @@ class SystemAdminGetListResponse extends ComplexType implements ComplexInterface
     public    $name             = __CLASS__;
     protected $systemAdminTable = null;
 
+    /**
+     * @return SystemAdminGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

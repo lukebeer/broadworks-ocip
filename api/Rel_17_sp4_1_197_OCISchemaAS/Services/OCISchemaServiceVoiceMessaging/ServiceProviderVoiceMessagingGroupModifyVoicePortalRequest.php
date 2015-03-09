@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoice
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\ServiceProviderVoicePortalScope;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupModifyVoicePortalResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to change the service provider's or enterprise's voice portal settings.
+ * Request to change the service provider's or enterprise's voice portal settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setVoicePortalScope($voicePortalScope);
+    }
+
+    /**
+     * @return ServiceProviderVoiceMessagingGroupModifyVoicePortalResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

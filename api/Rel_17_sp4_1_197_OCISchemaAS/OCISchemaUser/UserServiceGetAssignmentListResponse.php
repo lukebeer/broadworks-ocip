@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceGetAssignmentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserServiceGetAssignmentListRequest.
+ * Response to UserServiceGetAssignmentListRequest.
  *         Contains two tables, one for the service packs, and one for the user services.
  *         The user table has the column headings: "Service Name", "Assigned",
  *         The service pack table's column headings are: "Service Pack Name", "Assigned", "Description".
@@ -25,6 +28,13 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
     protected $servicePacksAssignmentTable = null;
     protected $userServicesAssignmentTable = null;
 
+    /**
+     * @return UserServiceGetAssignmentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

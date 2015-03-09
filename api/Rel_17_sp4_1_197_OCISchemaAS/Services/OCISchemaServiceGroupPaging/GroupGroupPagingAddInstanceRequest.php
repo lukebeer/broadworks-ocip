@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingAddInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Group Paging instance to a group.
+ * Add a Group Paging instance to a group.
  *         The domain is required in the serviceUserId.
  *         The response is either SuccessResponse or ErrorResponse.
  */
@@ -49,6 +52,14 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
         $this->setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead);
         $this->setOriginatorCLIDPrefix($originatorCLIDPrefix);
+    }
+
+    /**
+     * @return GroupGroupPagingAddInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -166,7 +177,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead->getValue();
+        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead;
     }
 
     /**

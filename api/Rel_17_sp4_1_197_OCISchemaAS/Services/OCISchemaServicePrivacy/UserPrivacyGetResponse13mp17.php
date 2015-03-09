@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserPrivacyGetRequest13mp17.  The
+ * Response to UserPrivacyGetRequest13mp17.  The
  *         permittedMonitorUserIdTable contains the members of
  *         the enterprise or group allowed to monitor the phone
  *         status of the user specified in the request.  Members
@@ -32,6 +35,13 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
     protected $enablePhoneStatusPrivacy                   = null;
     protected $permittedMonitorUserIdTable                = null;
 
+    /**
+     * @return UserPrivacyGetResponse13mp17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -46,7 +56,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy->getValue();
+        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy;
     }
 
     /**
@@ -62,7 +72,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
+        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy;
     }
 
     /**
@@ -78,7 +88,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy->getValue();
+        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy;
     }
 
     /**
@@ -94,7 +104,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnablePhoneStatusPrivacy()
     {
-        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy->getValue();
+        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the ServiceProviderDialableCallerIDGetRequest.
+ * Response to the ServiceProviderDialableCallerIDGetRequest.
  *         The criteria table?s column headings are ?Active?, "Name", "Description", ?Prefix Digits?, and ?Priority?.
  */
 class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
     protected $nsScreeningFailurePolicy   = null;
     protected $criteriaTable              = null;
 
+    /**
+     * @return ServiceProviderDialableCallerIDGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -37,7 +47,7 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function getUseServiceProviderCriteria()
     {
-        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria->getValue();
+        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria;
     }
 
     /**

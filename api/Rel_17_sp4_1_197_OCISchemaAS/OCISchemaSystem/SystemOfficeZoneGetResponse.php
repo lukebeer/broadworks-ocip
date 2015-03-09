@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OfficeZoneDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemOfficeZoneGetRequest.
+ * Response to the SystemOfficeZoneGetRequest.
  *         The response contains the Office Zone information.
  */
 class SystemOfficeZoneGetResponse extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class SystemOfficeZoneGetResponse extends ComplexType implements ComplexInterfac
     protected $zoneName        = null;
     protected $primaryZoneName = null;
 
+    /**
+     * @return SystemOfficeZoneGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Office Zone description.

@@ -23,12 +23,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncom
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupTrunkGroupGetInstanceRequest14sp1.
+ * Response to GroupTrunkGroupGetInstanceRequest14sp1.
  *         The publicUserIdentity in the ServiceInstanceReadProfile is not used for trunk groups.
  *         Returns the profile information for the Trunk Group.
  */
@@ -58,6 +61,13 @@ class GroupTrunkGroupGetInstanceResponse14sp1 extends ComplexType implements Com
     protected $requireAuthentication                     = null;
     protected $sipAuthenticationUserName                 = null;
 
+    /**
+     * @return GroupTrunkGroupGetInstanceResponse14sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Service Profile Information for group service.
@@ -162,7 +172,7 @@ class GroupTrunkGroupGetInstanceResponse14sp1 extends ComplexType implements Com
      */
     public function getEnableBursting()
     {
-        return (!$this->enableBursting) ?: $this->enableBursting->getValue();
+        return (!$this->enableBursting) ?: $this->enableBursting;
     }
 
     /**
@@ -478,7 +488,7 @@ class GroupTrunkGroupGetInstanceResponse14sp1 extends ComplexType implements Com
      */
     public function getRequireAuthentication()
     {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication->getValue();
+        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
     }
 
     /**

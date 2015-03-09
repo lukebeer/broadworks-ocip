@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingAddOriginatorListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add originator(s) to a paging group.
+ * Add originator(s) to a paging group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupGroupPagingAddOriginatorListRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class GroupGroupPagingAddOriginatorListRequest extends ComplexType implements Co
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setOriginatorUserId($originatorUserId);
+    }
+
+    /**
+     * @return GroupGroupPagingAddOriginatorListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

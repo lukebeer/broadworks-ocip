@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement\EnterprisePreAlertingAnnouncementModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the enterprise level pre-alerting service settings.
+ * Modify the enterprise level pre-alerting service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
@@ -47,6 +50,14 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->setAudioFile($audioFile);
         $this->setVideoSelection($videoSelection);
         $this->setVideoFile($videoFile);
+    }
+
+    /**
+     * @return EnterprisePreAlertingAnnouncementModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

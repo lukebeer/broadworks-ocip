@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\TimeInterval;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemTimeScheduleGetRequest.
+ * Response to the SystemTimeScheduleGetRequest.
  *         The response contains the system time schedule's information.
  */
 class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterface
@@ -40,6 +43,13 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
     protected $timeInterval19 = null;
     protected $timeInterval20 = null;
 
+    /**
+     * @return SystemTimeScheduleGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Time Interval.

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroad
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereDeleteSelectiveCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a criteria from the user's BroadWorks Anywhere phone number.
+ * Delete a criteria from the user's BroadWorks Anywhere phone number.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
         $this->setCriteriaName($criteriaName);
+    }
+
+    /**
+     * @return UserBroadWorksAnywhereDeleteSelectiveCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

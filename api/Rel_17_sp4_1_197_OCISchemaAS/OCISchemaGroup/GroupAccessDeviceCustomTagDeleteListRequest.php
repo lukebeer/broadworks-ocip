@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceMa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceCustomTagDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete static configuration tags for a group access device.
+ * Request to delete static configuration tags for a group access device.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
         $this->setGroupId($groupId);
         $this->setDeviceName($deviceName);
         $this->setTagName($tagName);
+    }
+
+    /**
+     * @return GroupAccessDeviceCustomTagDeleteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

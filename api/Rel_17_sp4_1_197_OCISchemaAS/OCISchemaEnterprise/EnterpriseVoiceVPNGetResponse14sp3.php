@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNNonMatchingE164NumberSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDefaultSelection;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseVoiceVPNGetRequest14sp3.
+ * Response to EnterpriseVoiceVPNGetRequest14sp3.
  */
 class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
     protected $e164Selection    = null;
     protected $usePhoneContext  = null;
 
+    /**
+     * @return EnterpriseVoiceVPNGetResponse14sp3
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -90,6 +100,6 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getUsePhoneContext()
     {
-        return (!$this->usePhoneContext) ?: $this->usePhoneContext->getValue();
+        return (!$this->usePhoneContext) ?: $this->usePhoneContext;
     }
 }

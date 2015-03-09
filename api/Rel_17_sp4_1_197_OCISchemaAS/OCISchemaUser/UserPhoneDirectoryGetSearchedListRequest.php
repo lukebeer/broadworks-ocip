@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\PhoneDirectoryNameSearchString;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request a table containing the phone directory for a user.
+ * Request a table containing the phone directory for a user.
  *         If the specified user is part of an enterprise, the directory includes all users in the enterprise
  *         and all entries in the enterprise common phone list and the common phone list of the specified user's group.
  *         If the specified user is part of a service provider, the directory includes all users in the user's group
@@ -25,7 +28,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse';
+    public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse';
     public    $name             = __CLASS__;
     protected $userId           = null;
     protected $nameSearchString = null;
@@ -36,6 +39,14 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
     ) {
         $this->setUserId($userId);
         $this->setNameSearchString($nameSearchString);
+    }
+
+    /**
+     * @return UserPhoneDirectoryGetSearchedListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

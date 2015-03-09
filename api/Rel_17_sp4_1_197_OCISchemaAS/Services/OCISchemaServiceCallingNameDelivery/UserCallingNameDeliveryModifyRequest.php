@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery\UserCallingNameDeliveryModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Calling Name Delivery.
+ * Modify the user level data associated with Calling Name Delivery.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallingNameDeliveryModifyRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
         $this->setUserId($userId);
         $this->setIsActiveForExternalCalls($isActiveForExternalCalls);
         $this->setIsActiveForInternalCalls($isActiveForInternalCalls);
+    }
+
+    /**
+     * @return UserCallingNameDeliveryModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -72,7 +83,7 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function getIsActiveForExternalCalls()
     {
-        return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls->getValue();
+        return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls;
     }
 
     /**
@@ -88,6 +99,6 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function getIsActiveForInternalCalls()
     {
-        return (!$this->isActiveForInternalCalls) ?: $this->isActiveForInternalCalls->getValue();
+        return (!$this->isActiveForInternalCalls) ?: $this->isActiveForInternalCalls;
     }
 }

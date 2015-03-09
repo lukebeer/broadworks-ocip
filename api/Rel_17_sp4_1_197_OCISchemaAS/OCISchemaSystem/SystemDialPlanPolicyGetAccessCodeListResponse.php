@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyGetAccessCodeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemDialPlanPolicyGetAccessCodeListRequest.
+ * Response to SystemDialPlanPolicyGetAccessCodeListRequest.
  *         Contains a table with column headings: "Access Code", "Enable Secondary Dial Tone", "Description"
  */
 class SystemDialPlanPolicyGetAccessCodeListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemDialPlanPolicyGetAccessCodeListResponse extends ComplexType implemen
     public    $name            = __CLASS__;
     protected $accessCodeTable = null;
 
+    /**
+     * @return SystemDialPlanPolicyGetAccessCodeListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

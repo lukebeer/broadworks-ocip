@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetAdvancedVoiceManagementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserVoiceMessagingUserGetAdvancedVoiceManagementRequest.
+ * Response to the UserVoiceMessagingUserGetAdvancedVoiceManagementRequest.
  *         Replaced By: UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3
  */
 class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexType implements ComplexInterface
@@ -35,6 +38,13 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
     protected $personalMailServerUserId            = null;
     protected $personalMailServerPassword          = null;
 
+    /**
+     * @return UserVoiceMessagingUserGetAdvancedVoiceManagementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Voice Messaging user-level mail server choices.
@@ -157,7 +167,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
-        return (!$this->personalMailServerRealDeleteForImap) ?: $this->personalMailServerRealDeleteForImap->getValue();
+        return (!$this->personalMailServerRealDeleteForImap) ?: $this->personalMailServerRealDeleteForImap;
     }
 
     /**

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a group's common phone list.
+ * Get a group's common phone list.
  *         The response is either a GroupCommonPhoneListGetListResponse or an ErrorResponse.
  *         The search can be done using multiple criterion.
  *         If the searchCriteriaModeOr is present, any result matching any one criteria is included in the results. 
@@ -29,7 +32,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse';
+    public    $responseType                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse';
     public    $name                                     = __CLASS__;
     protected $serviceProviderId                        = null;
     protected $groupId                                  = null;
@@ -52,6 +55,14 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
         $this->setSearchCriteriaModeOr($searchCriteriaModeOr);
         $this->setSearchCriteriaGroupCommonPhoneListName($searchCriteriaGroupCommonPhoneListName);
         $this->setSearchCriteriaGroupCommonPhoneListNumber($searchCriteriaGroupCommonPhoneListNumber);
+    }
+
+    /**
+     * @return GroupCommonPhoneListGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -129,7 +140,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
     }
 
     /**

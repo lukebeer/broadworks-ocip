@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationRestriction; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationRestriction\UserConnectedLineIdentificationRestrictionModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Connected Line ID Restriction.
+ * Modify the user level data associated with Connected Line ID Restriction.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserConnectedLineIdentificationRestrictionModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserConnectedLineIdentificationRestrictionModifyRequest extends ComplexTyp
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
+    }
+
+    /**
+     * @return UserConnectedLineIdentificationRestrictionModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,6 +80,6 @@ class UserConnectedLineIdentificationRestrictionModifyRequest extends ComplexTyp
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 }

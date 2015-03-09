@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupDnGetAssignmentListRequest.
+ * Response to the GroupDnGetAssignmentListRequest.
  *         The response contains a table with columns: "Phone Numbers", "Assigned To", "Department".
  *         The "Phone Numbers" column contains either a single DN or a range of DNs.
  *         The "Assigned To" column contains the user name or service instance name possessing the DN(s).
@@ -25,6 +28,13 @@ class GroupDnGetAssignmentListResponse extends ComplexType implements ComplexInt
     public    $name    = __CLASS__;
     protected $dnTable = null;
 
+    /**
+     * @return GroupDnGetAssignmentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

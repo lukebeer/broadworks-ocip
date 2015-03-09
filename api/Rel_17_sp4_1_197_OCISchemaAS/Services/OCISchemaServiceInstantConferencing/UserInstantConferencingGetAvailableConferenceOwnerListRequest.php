@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableConferenceOwnerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of users who could are eligible to be owner of a conference.
+ * Get the list of users who could are eligible to be owner of a conference.
  *         Returns a list of instant conferencing bridges and the possible conference owners for
  *         the bridges owned by the user or the user is delegated to.
  *         The response is either UserInstantConferencingGetAvailableConferenceOwnerListResponse or ErrorResponse.
@@ -23,7 +26,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserInstantConferencingGetAvailableConferenceOwnerListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableConferenceOwnerListResponse';
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableConferenceOwnerListResponse';
     public    $name                = __CLASS__;
     protected $userId              = null;
     protected $bridgeServiceUserId = null;
@@ -34,6 +37,14 @@ class UserInstantConferencingGetAvailableConferenceOwnerListRequest extends Comp
     ) {
         $this->setUserId($userId);
         $this->setBridgeServiceUserId($bridgeServiceUserId);
+    }
+
+    /**
+     * @return UserInstantConferencingGetAvailableConferenceOwnerListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

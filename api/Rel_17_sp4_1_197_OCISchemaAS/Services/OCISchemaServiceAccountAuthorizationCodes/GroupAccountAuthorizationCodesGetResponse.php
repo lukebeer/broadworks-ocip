@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccou
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeNumberOfDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAccountAuthorizationCodesGetRequest.
+ * Response to GroupAccountAuthorizationCodesGetRequest.
  *         The tables has the following column headings:
  *         "User Id", "Last Name", "First Name", "Hiragana Last Name" and "Hiragana First Name".
  */
@@ -27,6 +30,13 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     protected $mandatoryUsageUserTable    = null;
     protected $optionalUsageUserTable     = null;
 
+    /**
+     * @return GroupAccountAuthorizationCodesGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Account/Authorization Code Type.
@@ -77,7 +87,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls->getValue();
+        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls;
     }
 
     /**

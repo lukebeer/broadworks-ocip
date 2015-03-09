@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNumberActivationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemNumberActivationGetRequest.
+ * Response to SystemNumberActivationGetRequest.
  *         Contains the system number activation setting.
  */
 class SystemNumberActivationGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemNumberActivationGetResponse extends ComplexType implements ComplexIn
     public    $name                = __CLASS__;
     protected $useNumberActivation = null;
 
+    /**
+     * @return SystemNumberActivationGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,6 +45,6 @@ class SystemNumberActivationGetResponse extends ComplexType implements ComplexIn
      */
     public function getUseNumberActivation()
     {
-        return (!$this->useNumberActivation) ?: $this->useNumberActivation->getValue();
+        return (!$this->useNumberActivation) ?: $this->useNumberActivation;
     }
 }

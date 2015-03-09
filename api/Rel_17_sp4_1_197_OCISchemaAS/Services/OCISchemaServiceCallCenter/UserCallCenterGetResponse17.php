@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AgentACDState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallCenterGetRequest17.
+ * Response to the UserCallCenterGetRequest17.
  *         Contains the user's call center settings.
  *         Indicates whether the agent is current available (logged in) to each call center in the list.
  *         Contains a table with column headings: "Service User Id", "Phone Number", "Extension", "Available", "Logoff Allowed", "Type", and "Priority".
@@ -39,6 +42,13 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
     protected $outgoingCallDNIS                                     = null;
     protected $callCenterTable                                      = null;
 
+    /**
+     * @return UserCallCenterGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Agent Automatic Call Distribution (ACD) State.
@@ -89,7 +99,7 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getUseDefaultGuardTimer()
     {
-        return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer->getValue();
+        return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer;
     }
 
     /**
@@ -105,7 +115,7 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -139,7 +149,7 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->getValue();
+        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings;
     }
 
     /**
@@ -155,7 +165,7 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
     }
 
     /**
@@ -171,7 +181,7 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getForceUnavailableOnPersonalCalls()
     {
-        return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls->getValue();
+        return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls;
     }
 
     /**
@@ -187,7 +197,7 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
     }
 
     /**
@@ -221,7 +231,7 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getMakeOutgoingCallsAsCallCenter()
     {
-        return (!$this->makeOutgoingCallsAsCallCenter) ?: $this->makeOutgoingCallsAsCallCenter->getValue();
+        return (!$this->makeOutgoingCallsAsCallCenter) ?: $this->makeOutgoingCallsAsCallCenter;
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceUnassignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Unassign one or more of the group's assigned services.
+ * Unassign one or more of the group's assigned services.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupServiceUnassignListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupServiceUnassignListRequest extends ComplexType implements ComplexInte
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setServiceName($serviceName);
+    }
+
+    /**
+     * @return GroupServiceUnassignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

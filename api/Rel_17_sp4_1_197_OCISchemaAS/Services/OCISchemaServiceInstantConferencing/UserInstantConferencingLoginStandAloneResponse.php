@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocal
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserInstantConferencingLoginStandAloneRequest.
+ * Response to UserInstantConferencingLoginStandAloneRequest.
  *         Contains the information of the conference owner.
  */
 class UserInstantConferencingLoginStandAloneResponse extends ComplexType implements ComplexInterface
@@ -29,6 +32,13 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
     protected $timeZoneDisplayName = null;
     protected $phoneNumber         = null;
 
+    /**
+     * @return UserInstantConferencingLoginStandAloneResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.

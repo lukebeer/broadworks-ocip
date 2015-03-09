@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNetworkClassOfServiceGetAssignedUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupNetworkClassOfServiceGetAssignedUserListRequest.
+ * Response to GroupNetworkClassOfServiceGetAssignedUserListRequest.
  *         Contains a table of users that have the Network Class of Service 
  *         assigned. The column headings are: "User Id", "User Type", "Last Name", "First Name",
  *         "Department", "Phone Number", "Email Address", "Service Provider Id", 
@@ -24,6 +27,13 @@ class GroupNetworkClassOfServiceGetAssignedUserListResponse extends ComplexType 
     public    $name      = __CLASS__;
     protected $userTable = null;
 
+    /**
+     * @return GroupNetworkClassOfServiceGetAssignedUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

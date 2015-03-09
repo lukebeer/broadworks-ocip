@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\Calli
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCallingNameRetrievalModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modifies the system's calling name retrieval attributes.
+ * Modifies the system's calling name retrieval attributes.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallingNameRetrievalModifyRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
         $this->setServerNetAddress($serverNetAddress);
         $this->setServerPort($serverPort);
         $this->setServerTransportProtocol($serverTransportProtocol);
+    }
+
+    /**
+     * @return SystemCallingNameRetrievalModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

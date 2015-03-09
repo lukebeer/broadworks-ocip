@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkServerSyncParametersGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemNetworkServerSyncParametersGetRequest17sp4.
+ * Response to SystemNetworkServerSyncParametersGetRequest17sp4.
  *         Contains a list of system Network Server Sync parameters.
  *         The following elements are only used in AS data mode:
  *           syncTrunkGroups
@@ -26,6 +29,13 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
     protected $syncDeviceManagementInfo = null;
     protected $syncTrunkGroups          = null;
 
+    /**
+     * @return SystemNetworkServerSyncParametersGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -40,7 +50,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getEnableSync()
     {
-        return (!$this->enableSync) ?: $this->enableSync->getValue();
+        return (!$this->enableSync) ?: $this->enableSync;
     }
 
     /**
@@ -56,7 +66,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getSyncLinePorts()
     {
-        return (!$this->syncLinePorts) ?: $this->syncLinePorts->getValue();
+        return (!$this->syncLinePorts) ?: $this->syncLinePorts;
     }
 
     /**
@@ -72,7 +82,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getSyncDeviceManagementInfo()
     {
-        return (!$this->syncDeviceManagementInfo) ?: $this->syncDeviceManagementInfo->getValue();
+        return (!$this->syncDeviceManagementInfo) ?: $this->syncDeviceManagementInfo;
     }
 
     /**
@@ -88,6 +98,6 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getSyncTrunkGroups()
     {
-        return (!$this->syncTrunkGroups) ?: $this->syncTrunkGroups->getValue();
+        return (!$this->syncTrunkGroups) ?: $this->syncTrunkGroups;
     }
 }

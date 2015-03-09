@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\SystemEnhancedCallLogsGetResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemEnhancedCallLogsGetRequest17sp4.
+ * Response to SystemEnhancedCallLogsGetRequest17sp4.
  */
 class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
@@ -39,6 +42,13 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
     protected $useDBS                          = null;
     protected $maxNonPagedResponseSize         = null;
 
+    /**
+     * @return SystemEnhancedCallLogsGetResponse17sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -53,7 +63,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
      */
     public function getIsSendEnabled()
     {
-        return (!$this->isSendEnabled) ?: $this->isSendEnabled->getValue();
+        return (!$this->isSendEnabled) ?: $this->isSendEnabled;
     }
 
     /**
@@ -249,7 +259,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
      */
     public function getUseDBS()
     {
-        return (!$this->useDBS) ?: $this->useDBS->getValue();
+        return (!$this->useDBS) ?: $this->useDBS;
     }
 
     /**

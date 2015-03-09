@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupRoutePointQueueCallDispositionCodeGetListRequest.
+ * Response to the GroupRoutePointQueueCallDispositionCodeGetListRequest.
  *         Contains a table with column headings: "Is Active", "Code", "Description" and "Level".
  *         Level column can be any of the values in the data type CallDispositionCodeLevel.
  */
@@ -22,6 +25,13 @@ class GroupRoutePointQueueCallDispositionCodeGetListResponse extends ComplexType
     public    $name                  = __CLASS__;
     protected $dispositionCodesTable = null;
 
+    /**
+     * @return GroupRoutePointQueueCallDispositionCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

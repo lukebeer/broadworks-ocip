@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\LoginResponse13mp10;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * LoginRequest13mp10/Response13mp10 is 2nd stage of the 2 stage OCI login process.
+ * LoginRequest13mp10/Response13mp10 is 2nd stage of the 2 stage OCI login process.
  */
 class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
     protected $locale    = null;
     protected $encoding  = null;
 
+    /**
+     * @return LoginResponse13mp10
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The login type of the admin/user.

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMalic
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceCallTypeSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceTimePeriod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\UserMaliciousCallTraceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserMaliciousCallTraceGetRequest.
+ * Response to UserMaliciousCallTraceGetRequest.
  */
 class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
     protected $traceForTimePeriod = null;
     protected $traceTimePeriod    = null;
 
+    /**
+     * @return UserMaliciousCallTraceGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -72,7 +82,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
      */
     public function getTraceForTimePeriod()
     {
-        return (!$this->traceForTimePeriod) ?: $this->traceForTimePeriod->getValue();
+        return (!$this->traceForTimePeriod) ?: $this->traceForTimePeriod;
     }
 
     /**

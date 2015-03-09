@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAdd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBroadWorksMobileManagerModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the BroadWorks Mobile Manager service system settings.
+ * Modify the BroadWorks Mobile Manager service system settings.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements ComplexInterface
@@ -51,6 +54,14 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
         $this->setScfIMSOnly($scfIMSOnly);
         $this->setSignalingIPAddress($signalingIPAddress);
         $this->setSignalingPort($signalingPort);
+    }
+
+    /**
+     * @return SystemBroadWorksMobileManagerModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -156,7 +167,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
      */
     public function getScfIMSOnly()
     {
-        return (!$this->scfIMSOnly) ?: $this->scfIMSOnly->getValue();
+        return (!$this->scfIMSOnly) ?: $this->scfIMSOnly;
     }
 
     /**

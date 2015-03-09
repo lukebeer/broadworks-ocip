@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallF
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective\UserCallForwardingSelectiveModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's call forwarding selective service setting.
+ * Modify the user's call forwarding selective service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallForwardingSelectiveModifyRequest extends ComplexType implements ComplexInterface
@@ -39,6 +42,14 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         $this->setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber);
         $this->setPlayRingReminder($playRingReminder);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserCallForwardingSelectiveModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -80,7 +91,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -128,7 +139,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getPlayRingReminder()
     {
-        return (!$this->playRingReminder) ?: $this->playRingReminder->getValue();
+        return (!$this->playRingReminder) ?: $this->playRingReminder;
     }
 
     /**

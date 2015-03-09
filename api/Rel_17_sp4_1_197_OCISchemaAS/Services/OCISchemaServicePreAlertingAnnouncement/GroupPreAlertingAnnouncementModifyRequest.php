@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement\GroupPreAlertingAnnouncementModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group level pre-alerting service settings.
+ * Modify the group level pre-alerting service settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
@@ -51,6 +54,14 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->setAudioFile($audioFile);
         $this->setVideoSelection($videoSelection);
         $this->setVideoFile($videoFile);
+    }
+
+    /**
+     * @return GroupPreAlertingAnnouncementModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

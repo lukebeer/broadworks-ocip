@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreAlertingAnnouncement\GroupPreAlertingAnnouncementGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the group level pre-alerting service settings.
+ * Get the group level pre-alerting service settings.
  *         The response is either a GroupPreAlertingAnnouncementGetResponse or an ErrorResponse.
  */
 class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements ComplexInterface
@@ -35,6 +38,13 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
     protected $videoMediaType            = null;
     protected $videoFileUrl              = null;
 
+    /**
+     * @return GroupPreAlertingAnnouncementGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Pre-alerting Announcement interrupt type.

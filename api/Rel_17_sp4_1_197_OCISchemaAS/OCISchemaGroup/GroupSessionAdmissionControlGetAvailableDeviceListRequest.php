@@ -15,17 +15,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get the list of devices can be assigned to session admission control group for the group.
+ * Request to get the list of devices can be assigned to session admission control group for the group.
  *         The response is either an GroupSessionAdmissionControlGetAvailableDeviceListResponse or an ErrorResponse.
  */
 class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse';
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse';
     public    $name                           = __CLASS__;
     protected $serviceProviderId              = null;
     protected $groupId                        = null;
@@ -54,6 +57,14 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
         $this->setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
         $this->setSearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
         $this->setSearchCriteriaExactDeviceLevel($searchCriteriaExactDeviceLevel);
+    }
+
+    /**
+     * @return GroupSessionAdmissionControlGetAvailableDeviceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

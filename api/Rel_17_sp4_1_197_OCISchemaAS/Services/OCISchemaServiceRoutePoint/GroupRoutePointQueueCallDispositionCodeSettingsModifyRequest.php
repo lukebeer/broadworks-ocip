@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoute
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeSettingsModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the queue level data associated with Route Point Agents Unavailable Code Settings.
+ * Modify the queue level data associated with Route Point Agents Unavailable Code Settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends ComplexType implements ComplexInterface
@@ -42,6 +45,14 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
         $this->setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes);
         $this->setDefaultCallDispositionCode($defaultCallDispositionCode);
         $this->setCallDispositionCodeActivation($callDispositionCodeActivation);
+    }
+
+    /**
+     * @return GroupRoutePointQueueCallDispositionCodeSettingsModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,7 +94,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function getEnableCallDispositionCodes()
     {
-        return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes->getValue();
+        return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes;
     }
 
     /**
@@ -99,7 +110,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function getIncludeOrganizationCodes()
     {
-        return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes->getValue();
+        return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes;
     }
 
     /**
@@ -115,7 +126,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function getForceUseOfCallDispositionCodes()
     {
-        return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes->getValue();
+        return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes;
     }
 
     /**

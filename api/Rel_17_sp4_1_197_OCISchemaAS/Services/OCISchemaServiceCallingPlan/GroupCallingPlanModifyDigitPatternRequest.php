@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPlanDigitPatternName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPlan\GroupCallingPlanModifyDigitPatternResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a calling plan digit string. The name is a key; it cannot be changed.
+ * Modify a calling plan digit string. The name is a key; it cannot be changed.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallingPlanModifyDigitPatternRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class GroupCallingPlanModifyDigitPatternRequest extends ComplexType implements C
         $this->setGroupId($groupId);
         $this->setName($name);
         $this->setDigitPattern($digitPattern);
+    }
+
+    /**
+     * @return GroupCallingPlanModifyDigitPatternResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

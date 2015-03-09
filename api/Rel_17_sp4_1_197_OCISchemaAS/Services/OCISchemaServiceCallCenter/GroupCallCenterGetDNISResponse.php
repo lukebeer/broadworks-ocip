@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingL
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterGetDNISResponse.
+ * Response to the GroupCallCenterGetDNISResponse.
  */
 class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInterface
 {
@@ -32,6 +35,13 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
     protected $priority                          = null;
     protected $allowOutgoingACDCall              = null;
 
+    /**
+     * @return GroupCallCenterGetDNISResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Directory Number in E164 Format.
@@ -82,7 +92,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getUseCustomCLIDSettings()
     {
-        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings->getValue();
+        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings;
     }
 
     /**
@@ -152,7 +162,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
-        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings->getValue();
+        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings;
     }
 
     /**
@@ -186,6 +196,6 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getAllowOutgoingACDCall()
     {
-        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall->getValue();
+        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall;
     }
 }

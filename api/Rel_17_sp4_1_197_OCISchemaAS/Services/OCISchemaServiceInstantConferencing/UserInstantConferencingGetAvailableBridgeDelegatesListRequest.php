@@ -8,17 +8,20 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of available bridge administrators who could be delegates of a user.
+ * Get a list of available bridge administrators who could be delegates of a user.
  *         The response is either UserInstantConferencingGetAvailableBridgeDelegatesListResponse or ErrorResponse.
  */
 class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse';
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse';
     public    $name                = __CLASS__;
     protected $userId              = null;
     protected $bridgeServiceUserId = null;
@@ -29,6 +32,14 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
     ) {
         $this->setUserId($userId);
         $this->setBridgeServiceUserId($bridgeServiceUserId);
+    }
+
+    /**
+     * @return UserInstantConferencingGetAvailableBridgeDelegatesListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

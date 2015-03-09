@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleDeleteEventListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a list of events from a system schedule.
+ * Delete a list of events from a system schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
     ) {
         $this->setScheduleKey($scheduleKey);
         $this->setEventName($eventName);
+    }
+
+    /**
+     * @return SystemScheduleDeleteEventListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

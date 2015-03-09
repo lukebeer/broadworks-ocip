@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneUnassignListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Unassign a list of OfficeZones from a group.  Note: a new default must be provided if unassigning the current default.
+ * Unassign a list of OfficeZones from a group.  Note: a new default must be provided if unassigning the current default.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
         $this->setGroupId($groupId);
         $this->setOfficeZoneName($officeZoneName);
         $this->setDefaultOfficeZoneName($defaultOfficeZoneName);
+    }
+
+    /**
+     * @return GroupOfficeZoneUnassignListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

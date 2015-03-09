@@ -9,17 +9,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetUnlicensedAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of unlicensed users who are preventing the Call Center from upgrading to another type.
+ * Get a list of unlicensed users who are preventing the Call Center from upgrading to another type.
  *         The response is either GroupCallCenterGetUnlicensedAgentListRequest or ErrorResponse.
  */
 class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetUnlicensedAgentListResponse';
+    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetUnlicensedAgentListResponse';
     public    $name           = __CLASS__;
     protected $serviceUserId  = null;
     protected $callCenterType = null;
@@ -30,6 +33,14 @@ class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implement
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setCallCenterType($callCenterType);
+    }
+
+    /**
+     * @return GroupCallCenterGetUnlicensedAgentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

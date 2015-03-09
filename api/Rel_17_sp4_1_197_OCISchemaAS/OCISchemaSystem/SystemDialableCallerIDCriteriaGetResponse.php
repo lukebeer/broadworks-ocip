@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Communic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDPrefixDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDCriteriaGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the SystemDialableCallerIDCriteriaGetRequest.
+ * Response to the SystemDialableCallerIDCriteriaGetRequest.
  *         The response contains the Dialable Caller ID Criteria information.
  */
 class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements ComplexInterface
@@ -35,6 +38,13 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
     protected $matchEmergencyCategory      = null;
     protected $matchOtherCategory          = null;
 
+    /**
+     * @return SystemDialableCallerIDCriteriaGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Dialable Caller ID Criteria description.
@@ -123,7 +133,7 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchLocalCategory()
     {
-        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory->getValue();
+        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory;
     }
 
     /**
@@ -139,7 +149,7 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchNationalCategory()
     {
-        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory->getValue();
+        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory;
     }
 
     /**
@@ -155,7 +165,7 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchInterlataCategory()
     {
-        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory->getValue();
+        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory;
     }
 
     /**
@@ -171,7 +181,7 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchIntralataCategory()
     {
-        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory->getValue();
+        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory;
     }
 
     /**
@@ -187,7 +197,7 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchInternationalCategory()
     {
-        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory->getValue();
+        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory;
     }
 
     /**
@@ -203,7 +213,7 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchPrivateCategory()
     {
-        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory->getValue();
+        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory;
     }
 
     /**
@@ -219,7 +229,7 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchEmergencyCategory()
     {
-        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory->getValue();
+        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory;
     }
 
     /**
@@ -235,6 +245,6 @@ class SystemDialableCallerIDCriteriaGetResponse extends ComplexType implements C
      */
     public function getMatchOtherCategory()
     {
-        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory->getValue();
+        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory;
     }
 }

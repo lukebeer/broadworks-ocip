@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeed
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SpeedDial100Code;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\UserSpeedDial100DeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete one or more speed dial 100 settings for a user.
+ * Delete one or more speed dial 100 settings for a user.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSpeedDial100DeleteListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserSpeedDial100DeleteListRequest extends ComplexType implements ComplexIn
     ) {
         $this->setUserId($userId);
         $this->setSpeedCode($speedCode);
+    }
+
+    /**
+     * @return UserSpeedDial100DeleteListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

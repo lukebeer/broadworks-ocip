@@ -24,12 +24,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminUserAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminModifyPolicyResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the service provider administrator's policy settings.
+ * Request to modify the service provider administrator's policy settings.
  *         The response is either SuccessResponse or ErrorResponse.
  *         The networkPolicyAccess is only modified for the enterprise administrator.
  *         The following elements are only used in AS data mode:
@@ -94,6 +97,14 @@ class ServiceProviderAdminModifyPolicyRequest14 extends ComplexType implements C
         $this->setCommunicationBarringAccess($communicationBarringAccess);
         $this->setNetworkPolicyAccess($networkPolicyAccess);
         $this->setDialableCallerIDAccess($dialableCallerIDAccess);
+    }
+
+    /**
+     * @return ServiceProviderAdminModifyPolicyResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

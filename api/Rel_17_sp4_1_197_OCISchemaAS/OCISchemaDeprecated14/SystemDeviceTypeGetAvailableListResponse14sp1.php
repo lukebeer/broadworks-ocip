@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetAvailableListResponse14sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemDeviceTypeGetAvailableListRequest14sp1.
+ * Response to SystemDeviceTypeGetAvailableListRequest14sp1.
  *         Replaced By: SystemDeviceTypeGetAvailableListResponse14sp3
  */
 class SystemDeviceTypeGetAvailableListResponse14sp1 extends ComplexType implements ComplexInterface
@@ -22,6 +25,13 @@ class SystemDeviceTypeGetAvailableListResponse14sp1 extends ComplexType implemen
     protected $deviceType = null;
     protected $typeInfo   = null;
 
+    /**
+     * @return SystemDeviceTypeGetAvailableListResponse14sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Access device type.
@@ -54,6 +64,6 @@ class SystemDeviceTypeGetAvailableListResponse14sp1 extends ComplexType implemen
      */
     public function getTypeInfo()
     {
-        return (!$this->typeInfo) ?: $this->typeInfo->getValue();
+        return (!$this->typeInfo) ?: $this->typeInfo;
     }
 }

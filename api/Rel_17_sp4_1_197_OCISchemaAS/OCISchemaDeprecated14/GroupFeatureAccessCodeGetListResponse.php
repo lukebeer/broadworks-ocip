@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupFeatureAccessCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupFeatureAccessCodeGetListRequest.
+ * Response to the GroupFeatureAccessCodeGetListRequest.
  *         Replaced by: GroupFeatureAccessCodeGetResponse
  */
 class GroupFeatureAccessCodeGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class GroupFeatureAccessCodeGetListResponse extends ComplexType implements Compl
     public    $name              = __CLASS__;
     protected $featureAccessCode = null;
 
+    /**
+     * @return GroupFeatureAccessCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Feature Access Code Entry

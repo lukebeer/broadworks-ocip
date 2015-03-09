@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeStateModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeSettingsModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the enterprise level data associated with Call Center Agents Unavailable Code Settings.
+ * Modify the enterprise level data associated with Call Center Agents Unavailable Code Settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexType implements ComplexInterface
@@ -51,6 +54,14 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
     }
 
     /**
+     * @return EnterpriseCallCenterAgentUnavailableCodeSettingsModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * Service Provider Id uniquely identifies a service provider.
      *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
      */
@@ -83,7 +94,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getEnableAgentUnavailableCodes()
     {
-        return (!$this->enableAgentUnavailableCodes) ?: $this->enableAgentUnavailableCodes->getValue();
+        return (!$this->enableAgentUnavailableCodes) ?: $this->enableAgentUnavailableCodes;
     }
 
     /**
@@ -153,7 +164,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
-        return (!$this->forceUseOfAgentUnavailableCodes) ?: $this->forceUseOfAgentUnavailableCodes->getValue();
+        return (!$this->forceUseOfAgentUnavailableCodes) ?: $this->forceUseOfAgentUnavailableCodes;
     }
 
     /**

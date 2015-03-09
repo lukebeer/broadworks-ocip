@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Call Center Reporting Server.
+ * Delete a Call Center Reporting Server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCallCenterReportingServerDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCallCenterReportingServerDeleteRequest extends ComplexType implement
          $name
     ) {
         $this->setName($name);
+    }
+
+    /**
+     * @return SystemCallCenterReportingServerDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

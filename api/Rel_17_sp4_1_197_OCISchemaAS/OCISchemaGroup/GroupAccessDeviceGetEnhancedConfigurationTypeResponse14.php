@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationType14;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupAccessDeviceGetEnhancedConfigurationTypeRequest14.
+ * Response to GroupAccessDeviceGetEnhancedConfigurationTypeRequest14.
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexType implements ComplexInterface
 {
@@ -24,6 +27,13 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
     protected $configurationType             = null;
     protected $configurationFileName         = null;
 
+    /**
+     * @return GroupAccessDeviceGetEnhancedConfigurationTypeResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function getSupportsEnhancedConfiguration()
     {
-        return (!$this->supportsEnhancedConfiguration) ?: $this->supportsEnhancedConfiguration->getValue();
+        return (!$this->supportsEnhancedConfiguration) ?: $this->supportsEnhancedConfiguration;
     }
 
     /**
@@ -54,7 +64,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function getSupportsReset()
     {
-        return (!$this->supportsReset) ?: $this->supportsReset->getValue();
+        return (!$this->supportsReset) ?: $this->supportsReset;
     }
 
     /**

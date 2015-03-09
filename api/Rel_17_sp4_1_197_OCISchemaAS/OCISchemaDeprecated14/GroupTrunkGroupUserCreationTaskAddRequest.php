@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a user creation task for a trunk group.
+ * Add a user creation task for a trunk group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements ComplexInterface
@@ -64,6 +67,14 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
         $this->setContactDomain($contactDomain);
         $this->setServicePackName($servicePackName);
         $this->setUserService($userService);
+    }
+
+    /**
+     * @return GroupTrunkGroupUserCreationTaskAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -159,7 +170,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
      */
     public function getPopulateExtension()
     {
-        return (!$this->populateExtension) ?: $this->populateExtension->getValue();
+        return (!$this->populateExtension) ?: $this->populateExtension;
     }
 
     /**
@@ -211,7 +222,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
      */
     public function getPopulateContact()
     {
-        return (!$this->populateContact) ?: $this->populateContact->getValue();
+        return (!$this->populateContact) ?: $this->populateContact;
     }
 
     /**

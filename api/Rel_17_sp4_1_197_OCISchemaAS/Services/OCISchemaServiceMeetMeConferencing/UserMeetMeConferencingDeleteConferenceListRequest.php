@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetM
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingDeleteConferenceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete one or more conferences which are owned by the user.
+ * Request to delete one or more conferences which are owned by the user.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType impl
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
+    }
+
+    /**
+     * @return UserMeetMeConferencingDeleteConferenceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

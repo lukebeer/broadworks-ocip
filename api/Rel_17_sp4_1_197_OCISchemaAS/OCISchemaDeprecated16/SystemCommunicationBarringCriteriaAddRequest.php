@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Communic
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\HolidayScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\TimeScheduleName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCommunicationBarringCriteriaAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a new Communication Barring Criteria.
+ * Add a new Communication Barring Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  *         Replaced by: SystemCommunicationBarringCriteriaAddRequest17
  */
@@ -119,6 +122,14 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
         $this->setMatchInternalCalls($matchInternalCalls);
         $this->setTimeSchedule($timeSchedule);
         $this->setHolidaySchedule($holidaySchedule);
+    }
+
+    /**
+     * @return SystemCommunicationBarringCriteriaAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -224,7 +235,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchPublicNetwork()
     {
-        return (!$this->matchPublicNetwork) ?: $this->matchPublicNetwork->getValue();
+        return (!$this->matchPublicNetwork) ?: $this->matchPublicNetwork;
     }
 
     /**
@@ -240,7 +251,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchPrivateNetwork()
     {
-        return (!$this->matchPrivateNetwork) ?: $this->matchPrivateNetwork->getValue();
+        return (!$this->matchPrivateNetwork) ?: $this->matchPrivateNetwork;
     }
 
     /**
@@ -256,7 +267,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchLocalCategory()
     {
-        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory->getValue();
+        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory;
     }
 
     /**
@@ -272,7 +283,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchNationalCategory()
     {
-        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory->getValue();
+        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory;
     }
 
     /**
@@ -288,7 +299,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchInterlataCategory()
     {
-        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory->getValue();
+        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory;
     }
 
     /**
@@ -304,7 +315,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchIntralataCategory()
     {
-        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory->getValue();
+        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory;
     }
 
     /**
@@ -320,7 +331,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchInternationalCategory()
     {
-        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory->getValue();
+        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory;
     }
 
     /**
@@ -336,7 +347,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchPrivateCategory()
     {
-        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory->getValue();
+        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory;
     }
 
     /**
@@ -352,7 +363,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchEmergencyCategory()
     {
-        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory->getValue();
+        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory;
     }
 
     /**
@@ -368,7 +379,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchOtherCategory()
     {
-        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory->getValue();
+        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory;
     }
 
     /**
@@ -384,7 +395,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchInterNetwork()
     {
-        return (!$this->matchInterNetwork) ?: $this->matchInterNetwork->getValue();
+        return (!$this->matchInterNetwork) ?: $this->matchInterNetwork;
     }
 
     /**
@@ -400,7 +411,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchInterHostingNE()
     {
-        return (!$this->matchInterHostingNE) ?: $this->matchInterHostingNE->getValue();
+        return (!$this->matchInterHostingNE) ?: $this->matchInterHostingNE;
     }
 
     /**
@@ -416,7 +427,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchInterAS()
     {
-        return (!$this->matchInterAS) ?: $this->matchInterAS->getValue();
+        return (!$this->matchInterAS) ?: $this->matchInterAS;
     }
 
     /**
@@ -432,7 +443,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchIntraAS()
     {
-        return (!$this->matchIntraAS) ?: $this->matchIntraAS->getValue();
+        return (!$this->matchIntraAS) ?: $this->matchIntraAS;
     }
 
     /**
@@ -448,7 +459,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchChargeCalls()
     {
-        return (!$this->matchChargeCalls) ?: $this->matchChargeCalls->getValue();
+        return (!$this->matchChargeCalls) ?: $this->matchChargeCalls;
     }
 
     /**
@@ -464,7 +475,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchNoChargeCalls()
     {
-        return (!$this->matchNoChargeCalls) ?: $this->matchNoChargeCalls->getValue();
+        return (!$this->matchNoChargeCalls) ?: $this->matchNoChargeCalls;
     }
 
     /**
@@ -480,7 +491,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchGroupCalls()
     {
-        return (!$this->matchGroupCalls) ?: $this->matchGroupCalls->getValue();
+        return (!$this->matchGroupCalls) ?: $this->matchGroupCalls;
     }
 
     /**
@@ -496,7 +507,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchEnterpriseCalls()
     {
-        return (!$this->matchEnterpriseCalls) ?: $this->matchEnterpriseCalls->getValue();
+        return (!$this->matchEnterpriseCalls) ?: $this->matchEnterpriseCalls;
     }
 
     /**
@@ -512,7 +523,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchNetworkCalls()
     {
-        return (!$this->matchNetworkCalls) ?: $this->matchNetworkCalls->getValue();
+        return (!$this->matchNetworkCalls) ?: $this->matchNetworkCalls;
     }
 
     /**
@@ -528,7 +539,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchNetworkURLCalls()
     {
-        return (!$this->matchNetworkURLCalls) ?: $this->matchNetworkURLCalls->getValue();
+        return (!$this->matchNetworkURLCalls) ?: $this->matchNetworkURLCalls;
     }
 
     /**
@@ -544,7 +555,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchRepairCalls()
     {
-        return (!$this->matchRepairCalls) ?: $this->matchRepairCalls->getValue();
+        return (!$this->matchRepairCalls) ?: $this->matchRepairCalls;
     }
 
     /**
@@ -560,7 +571,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchEmergencyCalls()
     {
-        return (!$this->matchEmergencyCalls) ?: $this->matchEmergencyCalls->getValue();
+        return (!$this->matchEmergencyCalls) ?: $this->matchEmergencyCalls;
     }
 
     /**
@@ -576,7 +587,7 @@ class SystemCommunicationBarringCriteriaAddRequest extends ComplexType implement
      */
     public function getMatchInternalCalls()
     {
-        return (!$this->matchInternalCalls) ?: $this->matchInternalCalls->getValue();
+        return (!$this->matchInternalCalls) ?: $this->matchInternalCalls;
     }
 
     /**

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentFullPathName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetAvailableParentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseDepartmentGetAvailableParentListRequest.
+ * Response to EnterpriseDepartmentGetAvailableParentListRequest.
  *         The response includes two parallel arrays of department keys and department display names.
  */
 class EnterpriseDepartmentGetAvailableParentListResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class EnterpriseDepartmentGetAvailableParentListResponse extends ComplexType imp
     protected $departmentKey = null;
     protected $fullPathName  = null;
 
+    /**
+     * @return EnterpriseDepartmentGetAvailableParentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Uniquely identifies a department system-wide.

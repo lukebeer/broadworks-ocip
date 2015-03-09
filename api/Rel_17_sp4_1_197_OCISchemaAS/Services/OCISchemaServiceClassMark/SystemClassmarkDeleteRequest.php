@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\SystemClassmarkDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Class Mark from system. It cannot be deleted if it is in use by any users.
+ * Delete a Class Mark from system. It cannot be deleted if it is in use by any users.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterfa
          $classmark
     ) {
         $this->setClassmark($classmark);
+    }
+
+    /**
+     * @return SystemClassmarkDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,19 +8,22 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderPasswordRulesGetResponse13mp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the service provider's password rules setting applicable to
+ * Requests the service provider's password rules setting applicable to
  *         Administrators (Group and Department) and Users.
  *         The response is either ServiceProviderPasswordRulesGetResponse13mp2 or ErrorResponse.
  *         Replaced By: ServiceProviderPasswordRulesGetRequest16
  */
 class ServiceProviderPasswordRulesGetRequest13mp2 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderPasswordRulesGetResponse13mp2';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderPasswordRulesGetResponse13mp2';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
 
@@ -28,6 +31,14 @@ class ServiceProviderPasswordRulesGetRequest13mp2 extends ComplexType implements
          $serviceProviderId
     ) {
         $this->setServiceProviderId($serviceProviderId);
+    }
+
+    /**
+     * @return ServiceProviderPasswordRulesGetResponse13mp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

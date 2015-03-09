@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Call Center Agent Unavailable Code.
+ * Delete a Call Center Agent Unavailable Code.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCode($code);
+    }
+
+    /**
+     * @return EnterpriseCallCenterAgentUnavailableCodeDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

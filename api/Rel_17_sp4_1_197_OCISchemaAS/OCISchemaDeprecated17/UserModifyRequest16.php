@@ -31,12 +31,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Replaced by: UserModifyRequest17sp4
+ * Replaced by: UserModifyRequest17sp4
  *       
  *         Request to modify a user. 
  *         When oldPassword is specified, all password rule applies. If oldPassword in not specified,
@@ -131,6 +134,14 @@ class UserModifyRequest16 extends ComplexType implements ComplexInterface
         $this->setNetworkClassOfService($networkClassOfService);
         $this->setOfficeZoneName($officeZoneName);
         $this->setPrimaryZoneName($primaryZoneName);
+    }
+
+    /**
+     * @return UserModifyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -452,7 +463,7 @@ class UserModifyRequest16 extends ComplexType implements ComplexInterface
      */
     public function getEndpoint()
     {
-        return (!$this->endpoint) ?: $this->endpoint->getValue();
+        return (!$this->endpoint) ?: $this->endpoint;
     }
 
     /**

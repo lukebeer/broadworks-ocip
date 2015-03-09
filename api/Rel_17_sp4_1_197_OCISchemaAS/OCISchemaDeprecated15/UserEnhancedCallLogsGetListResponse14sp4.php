@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsEntry;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserEnhancedCallLogsGetListRequest14sp4.
+ * Response to UserEnhancedCallLogsGetListRequest14sp4.
  *             Replaced by: UserEnhancedCallLogsGetListResponse16
  */
 class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
     protected $received = null;
     protected $missed   = null;
 
+    /**
+     * @return UserEnhancedCallLogsGetListResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call Log entry describing a placed, received, or missed call.

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ScheduleCombinationType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSelectiveServicesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with SystemSelectiveServicesRequest.
+ * Modify the system level data associated with SystemSelectiveServicesRequest.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSelectiveServicesModifyRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemSelectiveServicesModifyRequest extends ComplexType implements Comple
          $scheduleCombination = null
     ) {
         $this->setScheduleCombination($scheduleCombination);
+    }
+
+    /**
+     * @return SystemSelectiveServicesModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

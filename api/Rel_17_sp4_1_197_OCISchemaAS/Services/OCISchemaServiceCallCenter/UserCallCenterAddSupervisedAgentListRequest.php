@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAddSupervisedAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Assign agent(s) to a call center supervisor.
+ * Assign agent(s) to a call center supervisor.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallCenterAddSupervisedAgentListRequest extends ComplexType implements ComplexInterface
@@ -31,6 +34,14 @@ class UserCallCenterAddSupervisedAgentListRequest extends ComplexType implements
         $this->setSupervisorUserId($supervisorUserId);
         $this->setServiceUserId($serviceUserId);
         $this->setAgentUserId($agentUserId);
+    }
+
+    /**
+     * @return UserCallCenterAddSupervisedAgentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

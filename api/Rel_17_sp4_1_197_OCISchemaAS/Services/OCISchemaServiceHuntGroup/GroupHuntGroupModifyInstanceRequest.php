@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\GroupHuntGroupModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a Hunt Group instance.
+ * Request to modify a Hunt Group instance.
  *         The response is either SuccessResponse or ErrorResponse.
  *         The following elements are only used in AS data mode:
  *            useSystemHuntGroupCLIDSetting
@@ -80,6 +83,14 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->setEnableNotReachableForwarding($enableNotReachableForwarding);
         $this->setNotReachableForwardToPhoneNumber($notReachableForwardToPhoneNumber);
         $this->setMakeBusyWhenNotReachable($makeBusyWhenNotReachable);
+    }
+
+    /**
+     * @return GroupHuntGroupModifyInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -155,7 +166,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
     }
 
     /**
@@ -191,7 +202,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
     }
 
     /**
@@ -265,7 +276,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 
     /**
@@ -281,7 +292,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getUseSystemHuntGroupCLIDSetting()
     {
-        return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting->getValue();
+        return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting;
     }
 
     /**
@@ -297,7 +308,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getIncludeHuntGroupNameInCLID()
     {
-        return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID->getValue();
+        return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID;
     }
 
     /**
@@ -313,7 +324,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getEnableNotReachableForwarding()
     {
-        return (!$this->enableNotReachableForwarding) ?: $this->enableNotReachableForwarding->getValue();
+        return (!$this->enableNotReachableForwarding) ?: $this->enableNotReachableForwarding;
     }
 
     /**
@@ -361,6 +372,6 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getMakeBusyWhenNotReachable()
     {
-        return (!$this->makeBusyWhenNotReachable) ?: $this->makeBusyWhenNotReachable->getValue();
+        return (!$this->makeBusyWhenNotReachable) ?: $this->makeBusyWhenNotReachable;
     }
 }

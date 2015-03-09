@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportDataTemplateFilterNumber;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingReportTemplateAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a system level call center report template.
+ * Request to add a system level call center report template.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexType implements ComplexInterface
@@ -82,6 +85,14 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
         $this->setServiceLevelThresholdParamNumber($serviceLevelThresholdParamNumber);
         $this->setAbandonedCallThresholdParamNumber($abandonedCallThresholdParamNumber);
         $this->setFilterValue($filterValue);
+    }
+
+    /**
+     * @return SystemCallCenterEnhancedReportingReportTemplateAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -205,7 +216,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
      */
     public function getIsEnabled()
     {
-        return (!$this->isEnabled) ?: $this->isEnabled->getValue();
+        return (!$this->isEnabled) ?: $this->isEnabled;
     }
 
     /**
@@ -221,7 +232,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
      */
     public function getIsRealtimeReport()
     {
-        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport->getValue();
+        return (!$this->isRealtimeReport) ?: $this->isRealtimeReport;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaximumMonitoredUsers;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\SystemBroadWorksReceptionistEnterpriseGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemBroadWorksReceptionistEnterpriseGetRequest.
+ * Response to SystemBroadWorksReceptionistEnterpriseGetRequest.
  *         Contains a list of BroadWorks Receptionist - Enterprise parameters.
  */
 class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType impl
     public    $name              = __CLASS__;
     protected $maxMonitoredUsers = null;
 
+    /**
+     * @return SystemBroadWorksReceptionistEnterpriseGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Maximum number of users allowed in a monitored user list.

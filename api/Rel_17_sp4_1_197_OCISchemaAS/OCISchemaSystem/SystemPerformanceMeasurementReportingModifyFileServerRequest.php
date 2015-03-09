@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingModifyFileServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a performance measurements reporting ftp server.
+ * Modify a performance measurements reporting ftp server.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemPerformanceMeasurementReportingModifyFileServerRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
     ) {
         $this->setFtpHostNetAddress($ftpHostNetAddress);
         $this->setPassiveFTP($passiveFTP);
+    }
+
+    /**
+     * @return SystemPerformanceMeasurementReportingModifyFileServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -61,6 +72,6 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
      */
     public function getPassiveFTP()
     {
-        return (!$this->passiveFTP) ?: $this->passiveFTP->getValue();
+        return (!$this->passiveFTP) ?: $this->passiveFTP;
     }
 }

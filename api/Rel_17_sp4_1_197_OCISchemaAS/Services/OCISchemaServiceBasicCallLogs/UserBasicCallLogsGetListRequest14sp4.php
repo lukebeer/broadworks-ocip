@@ -9,18 +9,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasic
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request user's call logs.
+ * Request user's call logs.
  *           If the callLogType is not specified, all types of calls are returned.
  *           The response is either a UserBasicCallLogsGetListResponse14sp4 or an ErrorResponse.
  */
 class UserBasicCallLogsGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4';
     public    $name        = __CLASS__;
     protected $userId      = null;
     protected $callLogType = null;
@@ -31,6 +34,14 @@ class UserBasicCallLogsGetListRequest14sp4 extends ComplexType implements Comple
     ) {
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);
+    }
+
+    /**
+     * @return UserBasicCallLogsGetListResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

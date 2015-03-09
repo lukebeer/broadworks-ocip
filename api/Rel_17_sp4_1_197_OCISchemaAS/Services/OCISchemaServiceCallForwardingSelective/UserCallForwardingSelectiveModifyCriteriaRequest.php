@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidayS
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective\UserCallForwardingSelectiveModifyCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a criteria for the user's call forwarding selective service.
+ * Modify a criteria for the user's call forwarding selective service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType implements ComplexInterface
@@ -52,6 +55,14 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->setForwardToNumberSelection($forwardToNumberSelection);
         $this->setForwardToPhoneNumber($forwardToPhoneNumber);
         $this->setFromDnCriteria($fromDnCriteria);
+    }
+
+    /**
+     * @return UserCallForwardingSelectiveModifyCriteriaResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

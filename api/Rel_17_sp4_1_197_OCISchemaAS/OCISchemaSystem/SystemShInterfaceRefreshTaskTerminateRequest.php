@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceRefreshTaskTerminateResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Terminates the system refresh task in progress on the local Application Server node.
+ * Terminates the system refresh task in progress on the local Application Server node.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemShInterfaceRefreshTaskTerminateRequest extends ComplexType implements ComplexInterface
@@ -21,5 +24,13 @@ class SystemShInterfaceRefreshTaskTerminateRequest extends ComplexType implement
     public    $name = __CLASS__;
 
     public function __construct(    ) {
+    }
+
+    /**
+     * @return SystemShInterfaceRefreshTaskTerminateResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 }

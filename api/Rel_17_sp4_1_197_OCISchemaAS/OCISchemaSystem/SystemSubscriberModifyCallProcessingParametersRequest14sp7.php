@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemUserRingTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IncomingCallToUserAliasMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxNoAnswerNumberOfRings;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSubscriberModifyCallProcessingParametersResponse14sp7;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system call processing configuration for all subscribers.
+ * Modify the system call processing configuration for all subscribers.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends ComplexType implements ComplexInterface
@@ -51,6 +54,14 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
     }
 
     /**
+     * @return SystemSubscriberModifyCallProcessingParametersResponse14sp7
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive = null)
@@ -63,7 +74,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive->getValue();
+        return (!$this->isExtendedCallingLineIdActive) ?: $this->isExtendedCallingLineIdActive;
     }
 
     /**
@@ -79,7 +90,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getIsRingTimeOutActive()
     {
-        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive->getValue();
+        return (!$this->isRingTimeOutActive) ?: $this->isRingTimeOutActive;
     }
 
     /**
@@ -113,7 +124,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations->getValue();
+        return (!$this->allowEmergencyRemoteOfficeOriginations) ?: $this->allowEmergencyRemoteOfficeOriginations;
     }
 
     /**
@@ -165,7 +176,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getBypassTerminationLoopDetection()
     {
-        return (!$this->bypassTerminationLoopDetection) ?: $this->bypassTerminationLoopDetection->getValue();
+        return (!$this->bypassTerminationLoopDetection) ?: $this->bypassTerminationLoopDetection;
     }
 
     /**
@@ -181,6 +192,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getHonorCLIDBlockingForEmergencyCalls()
     {
-        return (!$this->honorCLIDBlockingForEmergencyCalls) ?: $this->honorCLIDBlockingForEmergencyCalls->getValue();
+        return (!$this->honorCLIDBlockingForEmergencyCalls) ?: $this->honorCLIDBlockingForEmergencyCalls;
     }
 }

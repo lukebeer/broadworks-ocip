@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ChargingFunctionElementServerDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ChargingFunctionElementServerType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetAddressExtended;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingAddChargingFunctionElementServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add a ChargingFunctionElement Server to the system.
+ * Request to add a ChargingFunctionElement Server to the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
         $this->setIsNetAddressExtended($isNetAddressExtended);
         $this->setType($type);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemAccountingAddChargingFunctionElementServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -71,7 +82,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
      */
     public function getIsNetAddressExtended()
     {
-        return (!$this->isNetAddressExtended) ?: $this->isNetAddressExtended->getValue();
+        return (!$this->isNetAddressExtended) ?: $this->isNetAddressExtended;
     }
 
     /**

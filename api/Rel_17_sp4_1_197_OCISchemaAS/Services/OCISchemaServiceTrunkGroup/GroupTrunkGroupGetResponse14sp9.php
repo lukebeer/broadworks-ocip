@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupTrunkGroupGetRequest14sp1.
+ * Response to the GroupTrunkGroupGetRequest14sp1.
  *         The response contains the maximum and bursting maximum permissible active trunk group calls for the group.
  */
 class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInterface
@@ -24,6 +27,13 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
     protected $burstingMaxActiveCalls          = null;
     protected $burstingMaxAvailableActiveCalls = null;
 
+    /**
+     * @return GroupTrunkGroupGetResponse14sp9
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -38,7 +48,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
      */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
+        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls;
     }
 
     /**

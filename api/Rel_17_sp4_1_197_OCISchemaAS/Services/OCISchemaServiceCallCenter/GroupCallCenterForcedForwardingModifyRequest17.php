@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterForcedForwardingModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a call center's forced forwarding settings.
+ * Modify a call center's forced forwarding settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType implements ComplexInterface
@@ -62,6 +65,14 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
     }
 
     /**
+     * @return GroupCallCenterForcedForwardingModifyResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -100,7 +111,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -148,7 +159,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getAllowEnableViaFAC()
     {
-        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC->getValue();
+        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC;
     }
 
     /**
@@ -164,7 +175,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding->getValue();
+        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding;
     }
 
     /**

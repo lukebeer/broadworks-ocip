@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastDNISGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterCurrentAndPastDNISGetListRequest.
+ * Response to the GroupCallCenterCurrentAndPastDNISGetListRequest.
  */
 class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType imple
     protected $name        = null;
     protected $deletedName = null;
 
+    /**
+     * @return GroupCallCenterCurrentAndPastDNISGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call Center DNIS Name.

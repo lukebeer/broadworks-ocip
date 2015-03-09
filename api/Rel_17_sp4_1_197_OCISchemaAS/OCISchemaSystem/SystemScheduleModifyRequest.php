@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a system schedule.
+ * Modify a system schedule.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemScheduleModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
     ) {
         $this->setScheduleKey($scheduleKey);
         $this->setNewScheduleName($newScheduleName);
+    }
+
+    /**
+     * @return SystemScheduleModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackReleaseCause;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackDeleteReleaseCauseListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Deletes automatic callback release causes from the release cause attribute.
+ * Deletes automatic callback release causes from the release cause attribute.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType i
          $releaseCause = null
     ) {
         $this->setReleaseCause($releaseCause);
+    }
+
+    /**
+     * @return SystemAutomaticCallbackDeleteReleaseCauseListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

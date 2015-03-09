@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaTreatmentFileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add an alternate call indicator to the list of expensive alternate call indicators.
+ * Add an alternate call indicator to the list of expensive alternate call indicators.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
     ) {
         $this->setAlternateCallIndicator($alternateCallIndicator);
         $this->setTreatmentAudioFile($treatmentAudioFile);
+    }
+
+    /**
+     * @return SystemExpensiveCallTypeAddResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyL
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField\UserBusyLampFieldModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the settings for the busy lamp field service.
+ * Modify the settings for the busy lamp field service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInterface
@@ -36,6 +39,14 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
         $this->setListURI($listURI);
         $this->setMonitoredUserIdList($monitoredUserIdList);
         $this->setEnableCallParkNotification($enableCallParkNotification);
+    }
+
+    /**
+     * @return UserBusyLampFieldModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -127,6 +138,6 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification->getValue();
+        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
     }
 }

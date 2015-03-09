@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a user creation task for a trunk group.
+ * Delete a user creation task for a trunk group.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setTaskName($taskName);
+    }
+
+    /**
+     * @return GroupTrunkGroupUserCreationTaskDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

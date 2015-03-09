@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlApplicationGetACLListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemOCICallControlApplicationGetACLListRequest. The table columns are:
+ * Response to SystemOCICallControlApplicationGetACLListRequest. The table columns are:
  *         "Net Address" and "Description".
  */
 class SystemOCICallControlApplicationGetACLListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemOCICallControlApplicationGetACLListResponse extends ComplexType impl
     public    $name     = __CLASS__;
     protected $aclTable = null;
 
+    /**
+     * @return SystemOCICallControlApplicationGetACLListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

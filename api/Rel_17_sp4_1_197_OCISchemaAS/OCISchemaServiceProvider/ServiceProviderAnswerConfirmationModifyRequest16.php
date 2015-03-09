@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\An
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAnswerConfirmationModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a service provider or enterprise's answer confirmation settings.
+ * Modify a service provider or enterprise's answer confirmation settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
         $this->setAnnouncementMessageSelection($announcementMessageSelection);
         $this->setConfirmationMessageAudioFile($confirmationMessageAudioFile);
         $this->setConfirmationTimoutSeconds($confirmationTimoutSeconds);
+    }
+
+    /**
+     * @return ServiceProviderAnswerConfirmationModifyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Criteria
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereModifyPhoneNumberResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a BroadWorks Anywhere phone number
+ * Modify a BroadWorks Anywhere phone number
  *           The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType implements ComplexInterface
@@ -56,6 +59,14 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
         $this->setUseDiversionInhibitor($useDiversionInhibitor);
         $this->setAnswerConfirmationRequired($answerConfirmationRequired);
         $this->setCriteriaActivation($criteriaActivation);
+    }
+
+    /**
+     * @return UserBroadWorksAnywhereModifyPhoneNumberResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -151,7 +162,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -199,7 +210,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getBroadworksCallControl()
     {
-        return (!$this->broadworksCallControl) ?: $this->broadworksCallControl->getValue();
+        return (!$this->broadworksCallControl) ?: $this->broadworksCallControl;
     }
 
     /**
@@ -215,7 +226,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getUseDiversionInhibitor()
     {
-        return (!$this->useDiversionInhibitor) ?: $this->useDiversionInhibitor->getValue();
+        return (!$this->useDiversionInhibitor) ?: $this->useDiversionInhibitor;
     }
 
     /**
@@ -231,7 +242,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getAnswerConfirmationRequired()
     {
-        return (!$this->answerConfirmationRequired) ?: $this->answerConfirmationRequired->getValue();
+        return (!$this->answerConfirmationRequired) ?: $this->answerConfirmationRequired;
     }
 
     /**

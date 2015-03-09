@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetAddressExtended;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingReorderChargingFunctionElementServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Reorder the charging function element servers. You can not add or delete addresses,
+ * Reorder the charging function element servers. You can not add or delete addresses,
  *         only re-ordering the list is allowed. The ordered list of addresses can be obtained
  *         with the SystemAccountingGetChargingFunctionElementServerListRequest command.
  *         The response is either a SuccessResponse or an ErrorResponse.
@@ -27,6 +30,14 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
          $orderedAddressList = null
     ) {
         $this->setOrderedAddressList($orderedAddressList);
+    }
+
+    /**
+     * @return SystemAccountingReorderChargingFunctionElementServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

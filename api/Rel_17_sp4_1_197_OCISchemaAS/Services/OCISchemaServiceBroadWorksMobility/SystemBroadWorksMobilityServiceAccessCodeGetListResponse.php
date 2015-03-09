@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityServiceAccessCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemBroadWorksMobilityServiceAccessCodeGetListRequest.
+ * Response to SystemBroadWorksMobilityServiceAccessCodeGetListRequest.
  *         Contains a table with column headings: "Country Code", "Service Access Code", "Description"
  */
 class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexTy
     public    $name                   = __CLASS__;
     protected $serviceAccessCodeTable = null;
 
+    /**
+     * @return SystemBroadWorksMobilityServiceAccessCodeGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

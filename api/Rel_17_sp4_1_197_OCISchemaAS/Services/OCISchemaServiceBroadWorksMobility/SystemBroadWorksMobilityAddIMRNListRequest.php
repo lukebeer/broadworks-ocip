@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroad
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityAddIMRNListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Adds BroadWorks Mobility IMRN numbers to the system. It is possible to add either: 
+ * Adds BroadWorks Mobility IMRN numbers to the system. It is possible to add either: 
  *         a single number, a list of numbers, or a range of numbers, or any combination thereof.
  *         The response is either a SuccessResponse or ErrorResponse.
  */
@@ -30,6 +33,14 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
     ) {
         $this->setImrnNumber($imrnNumber);
         $this->setNumberRange($numberRange);
+    }
+
+    /**
+     * @return SystemBroadWorksMobilityAddIMRNListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

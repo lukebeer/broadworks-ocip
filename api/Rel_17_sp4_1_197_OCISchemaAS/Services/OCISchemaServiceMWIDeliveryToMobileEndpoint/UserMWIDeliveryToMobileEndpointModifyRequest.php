@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDe
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMWIDeliveryToMobileEndpoint\UserMWIDeliveryToMobileEndpointModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the user level data associated with MWI Delivery to Mobile Endpoint service.
+ * Request to modify the user level data associated with MWI Delivery to Mobile Endpoint service.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implements ComplexInterface
@@ -32,6 +35,14 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
         $this->setUserId($userId);
         $this->setIsActive($isActive);
         $this->setMobilePhoneNumber($mobilePhoneNumber);
+    }
+
+    /**
+     * @return UserMWIDeliveryToMobileEndpointModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -73,7 +84,7 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

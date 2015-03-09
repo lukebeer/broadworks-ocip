@@ -17,12 +17,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaPolicySelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCLIDPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserCallProcessingGetPolicyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserCallProcessingGetPolicyRequest16.
+ * Response to UserCallProcessingGetPolicyRequest16.
  * 	      The useUserCLIDSetting attribute controls the CLID settings 
  * 	      (clidPolicy, emergencyClidPolicy, allowAlternateNumbersForRedirectingIdentity, useGroupName)
  * 	      
@@ -60,6 +63,13 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
     protected $allowAlternateNumbersForRedirectingIdentity = null;
     protected $useGroupName                                = null;
 
+    /**
+     * @return UserCallProcessingGetPolicyResponse16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -74,7 +84,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseUserCLIDSetting()
     {
-        return (!$this->useUserCLIDSetting) ?: $this->useUserCLIDSetting->getValue();
+        return (!$this->useUserCLIDSetting) ?: $this->useUserCLIDSetting;
     }
 
     /**
@@ -90,7 +100,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseUserMediaSetting()
     {
-        return (!$this->useUserMediaSetting) ?: $this->useUserMediaSetting->getValue();
+        return (!$this->useUserMediaSetting) ?: $this->useUserMediaSetting;
     }
 
     /**
@@ -106,7 +116,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseUserCallLimitsSetting()
     {
-        return (!$this->useUserCallLimitsSetting) ?: $this->useUserCallLimitsSetting->getValue();
+        return (!$this->useUserCallLimitsSetting) ?: $this->useUserCallLimitsSetting;
     }
 
     /**
@@ -122,7 +132,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseMaxSimultaneousCalls()
     {
-        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls->getValue();
+        return (!$this->useMaxSimultaneousCalls) ?: $this->useMaxSimultaneousCalls;
     }
 
     /**
@@ -156,7 +166,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
-        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls->getValue();
+        return (!$this->useMaxSimultaneousVideoCalls) ?: $this->useMaxSimultaneousVideoCalls;
     }
 
     /**
@@ -190,7 +200,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
-        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls->getValue();
+        return (!$this->useMaxCallTimeForAnsweredCalls) ?: $this->useMaxCallTimeForAnsweredCalls;
     }
 
     /**
@@ -224,7 +234,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
-        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls->getValue();
+        return (!$this->useMaxCallTimeForUnansweredCalls) ?: $this->useMaxCallTimeForUnansweredCalls;
     }
 
     /**
@@ -294,7 +304,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseMaxConcurrentRedirectedCalls()
     {
-        return (!$this->useMaxConcurrentRedirectedCalls) ?: $this->useMaxConcurrentRedirectedCalls->getValue();
+        return (!$this->useMaxConcurrentRedirectedCalls) ?: $this->useMaxConcurrentRedirectedCalls;
     }
 
     /**
@@ -328,7 +338,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseMaxFindMeFollowMeDepth()
     {
-        return (!$this->useMaxFindMeFollowMeDepth) ?: $this->useMaxFindMeFollowMeDepth->getValue();
+        return (!$this->useMaxFindMeFollowMeDepth) ?: $this->useMaxFindMeFollowMeDepth;
     }
 
     /**
@@ -380,7 +390,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
-        return (!$this->useMaxConcurrentFindMeFollowMeInvocations) ?: $this->useMaxConcurrentFindMeFollowMeInvocations->getValue();
+        return (!$this->useMaxConcurrentFindMeFollowMeInvocations) ?: $this->useMaxConcurrentFindMeFollowMeInvocations;
     }
 
     /**
@@ -450,7 +460,7 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getAllowAlternateNumbersForRedirectingIdentity()
     {
-        return (!$this->allowAlternateNumbersForRedirectingIdentity) ?: $this->allowAlternateNumbersForRedirectingIdentity->getValue();
+        return (!$this->allowAlternateNumbersForRedirectingIdentity) ?: $this->allowAlternateNumbersForRedirectingIdentity;
     }
 
     /**
@@ -466,6 +476,6 @@ class UserCallProcessingGetPolicyResponse16 extends ComplexType implements Compl
      */
     public function getUseGroupName()
     {
-        return (!$this->useGroupName) ?: $this->useGroupName->getValue();
+        return (!$this->useGroupName) ?: $this->useGroupName;
     }
 }

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Calling Party Category from system. The category cannot be deleted if it is the default or is in use by any users.
+ * Delete a Calling Party Category from system. The category cannot be deleted if it is the default or is in use by any users.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements Com
          $category
     ) {
         $this->setCategory($category);
+    }
+
+    /**
+     * @return SystemCallingPartyCategoryDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

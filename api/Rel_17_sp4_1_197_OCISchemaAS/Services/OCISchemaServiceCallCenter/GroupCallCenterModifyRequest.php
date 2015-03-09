@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the group level data associated with Call Center and
+ * Modify the group level data associated with Call Center and
  *         the active status of Call Center instances.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
@@ -56,6 +59,14 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
         $this->setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls);
         $this->setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit);
         $this->setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+    }
+
+    /**
+     * @return GroupCallCenterModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -111,7 +122,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUseSystemDefaultGuardTimer()
     {
-        return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer->getValue();
+        return (!$this->useSystemDefaultGuardTimer) ?: $this->useSystemDefaultGuardTimer;
     }
 
     /**
@@ -127,7 +138,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -161,7 +172,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings->getValue();
+        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings;
     }
 
     /**
@@ -177,7 +188,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
     }
 
     /**
@@ -193,7 +204,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
-        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls->getValue();
+        return (!$this->forceAgentUnavailableOnPersonalCalls) ?: $this->forceAgentUnavailableOnPersonalCalls;
     }
 
     /**
@@ -209,7 +220,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
     }
 
     /**

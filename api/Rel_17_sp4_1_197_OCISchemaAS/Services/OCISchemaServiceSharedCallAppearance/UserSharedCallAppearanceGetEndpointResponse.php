@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserSharedCallAppearanceGetEndpointRequest.
+ * Response to the UserSharedCallAppearanceGetEndpointRequest.
  */
 class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
     protected $allowOrigination = null;
     protected $allowTermination = null;
 
+    /**
+     * @return UserSharedCallAppearanceGetEndpointResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -36,7 +46,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -52,7 +62,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function getAllowOrigination()
     {
-        return (!$this->allowOrigination) ?: $this->allowOrigination->getValue();
+        return (!$this->allowOrigination) ?: $this->allowOrigination;
     }
 
     /**
@@ -68,6 +78,6 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function getAllowTermination()
     {
-        return (!$this->allowTermination) ?: $this->allowTermination->getValue();
+        return (!$this->allowTermination) ?: $this->allowTermination;
     }
 }

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallP
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallParkGetInstanceRequest16sp2.
+ * Response to the GroupCallParkGetInstanceRequest16sp2.
  *         Contains a table with column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", 
  *         "Hiragana First Name".  The users are in the table are in the order they will try to be parked on.
  *         
@@ -29,6 +32,13 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
     protected $recallTo              = null;
     protected $userTable             = null;
 
+    /**
+     * @return GroupCallParkGetInstanceResponse16sp2
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.

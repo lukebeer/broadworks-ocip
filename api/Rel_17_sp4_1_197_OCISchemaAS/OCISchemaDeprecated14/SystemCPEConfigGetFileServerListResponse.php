@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCPEConfigGetFileServerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemCPEConfigGetFileServerListRequest. The table columns are:
+ * Response to SystemCPEConfigGetFileServerListRequest. The table columns are:
  *         "Device Type", "FTP Host Net Address", "FTP User Id", "Directory" and "Passive FTP".
  *         Replaced By: SystemCPEConfigGetFileServerListResponse14sp6
  */
@@ -22,6 +25,13 @@ class SystemCPEConfigGetFileServerListResponse extends ComplexType implements Co
     public    $name            = __CLASS__;
     protected $fileServerTable = null;
 
+    /**
+     * @return SystemCPEConfigGetFileServerListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

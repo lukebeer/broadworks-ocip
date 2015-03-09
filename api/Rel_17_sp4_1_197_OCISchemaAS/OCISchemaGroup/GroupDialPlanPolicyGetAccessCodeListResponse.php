@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyGetAccessCodeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupDialPlanPolicyGetAccessCodeListRequest
+ * Response to GroupDialPlanPolicyGetAccessCodeListRequest
  *         Contains a table with column headings: "Access Code",
  *         "Enable Secondary Dial Tone", "Description"
  */
@@ -22,6 +25,13 @@ class GroupDialPlanPolicyGetAccessCodeListResponse extends ComplexType implement
     public    $name            = __CLASS__;
     protected $accessCodeTable = null;
 
+    /**
+     * @return GroupDialPlanPolicyGetAccessCodeListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

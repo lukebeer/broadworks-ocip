@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocal
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * LoginRequest14sp4/Response14sp4 is 2nd stage of the 2 stage OCI login process.
+ * LoginRequest14sp4/Response14sp4 is 2nd stage of the 2 stage OCI login process.
  */
 class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 {
@@ -32,6 +35,13 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
     protected $passwordExpiresDays = null;
     protected $userDomain          = null;
 
+    /**
+     * @return LoginResponse14sp4
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The login type of the admin/user.
@@ -140,7 +150,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getIsEnterprise()
     {
-        return (!$this->isEnterprise) ?: $this->isEnterprise->getValue();
+        return (!$this->isEnterprise) ?: $this->isEnterprise;
     }
 
     /**
@@ -156,7 +166,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getPasswordExpiresDays()
     {
-        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->getValue();
+        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays;
     }
 
     /**

@@ -8,16 +8,26 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCIDataResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * The OCIDataResponse is an abstract base type for all responses containing some sort of data other than
+ * The OCIDataResponse is an abstract base type for all responses containing some sort of data other than
  *         merely a success or failure indication.
  */
 class OCIDataResponse extends ComplexType implements ComplexInterface
 {
     public    $name = __CLASS__;
 
+    /**
+     * @return OCIDataResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 }

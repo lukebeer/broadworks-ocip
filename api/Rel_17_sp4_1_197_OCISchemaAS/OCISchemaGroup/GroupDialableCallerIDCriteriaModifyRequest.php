@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Dialable
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDPrefixDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDCriteriaModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a Dialable Caller ID Criteria.
+ * Modify a Dialable Caller ID Criteria.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements ComplexInterface
@@ -76,6 +79,14 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
         $this->setMatchPrivateCategory($matchPrivateCategory);
         $this->setMatchEmergencyCategory($matchEmergencyCategory);
         $this->setMatchOtherCategory($matchOtherCategory);
+    }
+
+    /**
+     * @return GroupDialableCallerIDCriteriaModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -245,7 +256,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchLocalCategory()
     {
-        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory->getValue();
+        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory;
     }
 
     /**
@@ -261,7 +272,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchNationalCategory()
     {
-        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory->getValue();
+        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory;
     }
 
     /**
@@ -277,7 +288,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchInterlataCategory()
     {
-        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory->getValue();
+        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory;
     }
 
     /**
@@ -293,7 +304,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchIntralataCategory()
     {
-        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory->getValue();
+        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory;
     }
 
     /**
@@ -309,7 +320,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchInternationalCategory()
     {
-        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory->getValue();
+        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory;
     }
 
     /**
@@ -325,7 +336,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchPrivateCategory()
     {
-        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory->getValue();
+        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory;
     }
 
     /**
@@ -341,7 +352,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchEmergencyCategory()
     {
-        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory->getValue();
+        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory;
     }
 
     /**
@@ -357,6 +368,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchOtherCategory()
     {
-        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory->getValue();
+        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory;
     }
 }

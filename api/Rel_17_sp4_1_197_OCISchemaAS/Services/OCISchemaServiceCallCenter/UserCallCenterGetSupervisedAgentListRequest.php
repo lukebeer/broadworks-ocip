@@ -13,12 +13,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisedAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of agents supervised by a supervisor on a given call
+ * Get a list of agents supervised by a supervisor on a given call
  *        center.  The response is either a UserCallCenterGetSupervisedAgentListResponse
  *        or an ErrorResponse.
  *        The search can be done using multiple criterias.
@@ -31,7 +34,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisedAgentListResponse';
+    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisedAgentListResponse';
     public    $name                        = __CLASS__;
     protected $supervisorUserId            = null;
     protected $serviceUserId               = null;
@@ -60,6 +63,14 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->setSearchCriteriaUserFirstName($searchCriteriaUserFirstName);
         $this->setSearchCriteriaDn($searchCriteriaDn);
         $this->setSearchCriteriaExtension($searchCriteriaExtension);
+    }
+
+    /**
+     * @return UserCallCenterGetSupervisedAgentListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -149,7 +160,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
     }
 
     /**

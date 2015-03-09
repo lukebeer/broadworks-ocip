@@ -13,17 +13,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Add a Meet-Me conference.
+ * Add a Meet-Me conference.
  *         The response is either UserMeetMeConferencingAddConferenceResponse or ErrorResponse.
  */
 class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse';
+    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse';
     public    $name                         = __CLASS__;
     protected $userId                       = null;
     protected $bridgeId                     = null;
@@ -58,6 +61,14 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->setModeratorRequired($moderatorRequired);
         $this->setAttendeeNotification($attendeeNotification);
         $this->setConferenceSchedule($conferenceSchedule);
+    }
+
+    /**
+     * @return UserMeetMeConferencingAddConferenceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -179,7 +190,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getMuteAllAttendeesOnEntry()
     {
-        return (!$this->muteAllAttendeesOnEntry) ?: $this->muteAllAttendeesOnEntry->getValue();
+        return (!$this->muteAllAttendeesOnEntry) ?: $this->muteAllAttendeesOnEntry;
     }
 
     /**
@@ -195,7 +206,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getEndConferenceOnModeratorExit()
     {
-        return (!$this->endConferenceOnModeratorExit) ?: $this->endConferenceOnModeratorExit->getValue();
+        return (!$this->endConferenceOnModeratorExit) ?: $this->endConferenceOnModeratorExit;
     }
 
     /**
@@ -211,7 +222,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getModeratorRequired()
     {
-        return (!$this->moderatorRequired) ?: $this->moderatorRequired->getValue();
+        return (!$this->moderatorRequired) ?: $this->moderatorRequired;
     }
 
     /**

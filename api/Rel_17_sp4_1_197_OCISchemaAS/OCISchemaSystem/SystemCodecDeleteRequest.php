@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Codec;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCodecDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to delete a supported codec from the system.
+ * Request to delete a supported codec from the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
@@ -25,6 +28,14 @@ class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
          $codec
     ) {
         $this->setCodec($codec);
+    }
+
+    /**
+     * @return SystemCodecDeleteResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotel
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingHost\HotelingHostAccessLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost\UserHotelingHostModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Hoteling Host.
+ * Modify the user level data associated with Hoteling Host.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterface
@@ -42,6 +45,14 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         $this->setAssociationLimitHours($associationLimitHours);
         $this->setAccessLevel($accessLevel);
         $this->setRemoveGuestAssociation($removeGuestAssociation);
+    }
+
+    /**
+     * @return UserHotelingHostModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,7 +94,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -99,7 +110,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getEnforceAssociationLimit()
     {
-        return (!$this->enforceAssociationLimit) ?: $this->enforceAssociationLimit->getValue();
+        return (!$this->enforceAssociationLimit) ?: $this->enforceAssociationLimit;
     }
 
     /**
@@ -151,6 +162,6 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getRemoveGuestAssociation()
     {
-        return (!$this->removeGuestAssociation) ?: $this->removeGuestAssociation->getValue();
+        return (!$this->removeGuestAssociation) ?: $this->removeGuestAssociation;
     }
 }

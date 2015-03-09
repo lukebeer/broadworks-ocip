@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl\UserIntelligentNetworkServiceControlModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user level data associated with Intelligent Network Service Control.
+ * Modify the user level data associated with Intelligent Network Service Control.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType implements ComplexInterface
@@ -28,6 +31,14 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
     ) {
         $this->setUserId($userId);
         $this->setPreAnswerActionsEnabled($preAnswerActionsEnabled);
+    }
+
+    /**
+     * @return UserIntelligentNetworkServiceControlModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -69,6 +80,6 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
      */
     public function getPreAnswerActionsEnabled()
     {
-        return (!$this->preAnswerActionsEnabled) ?: $this->preAnswerActionsEnabled->getValue();
+        return (!$this->preAnswerActionsEnabled) ?: $this->preAnswerActionsEnabled;
     }
 }

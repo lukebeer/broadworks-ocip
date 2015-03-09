@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingGetACLListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemOCIReportingACLListGetRequest.
+ * Response to SystemOCIReportingACLListGetRequest.
  *         Contains a table with one row per access control list entry.
  *         The table columns are "Net Address", "Description" and "Restrict Messages".
  */
@@ -22,6 +25,13 @@ class SystemOCIReportingGetACLListResponse extends ComplexType implements Comple
     public    $name                 = __CLASS__;
     protected $ociReportingACLTable = null;
 
+    /**
+     * @return SystemOCIReportingGetACLListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ReplacementOCICallControlApplicationIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserOCICallControlApplicationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify which OCI Call Control Applications are enabled on a user
+ * Modify which OCI Call Control Applications are enabled on a user
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class UserOCICallControlApplicationModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
     ) {
         $this->setUserId($userId);
         $this->setApplicationIdList($applicationIdList);
+    }
+
+    /**
+     * @return UserOCICallControlApplicationModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

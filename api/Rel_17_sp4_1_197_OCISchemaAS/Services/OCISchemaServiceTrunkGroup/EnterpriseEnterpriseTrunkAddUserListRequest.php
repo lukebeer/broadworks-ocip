@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunk
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkAddUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to add users to an enterprise trunk in an enterprise.
+ * Request to add users to an enterprise trunk in an enterprise.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements
         $this->setServiceProviderId($serviceProviderId);
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
         $this->setUserId($userId);
+    }
+
+    /**
+     * @return EnterpriseEnterpriseTrunkAddUserListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

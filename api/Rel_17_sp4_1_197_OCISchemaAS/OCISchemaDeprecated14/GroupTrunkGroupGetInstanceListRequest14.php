@@ -9,18 +9,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get a list of Trunk Groups for the group or enterprise.
+ * Get a list of Trunk Groups for the group or enterprise.
  *         It is possible to restrict the results to a particular department, or expand the list to the entire enterprise.
  *         The response is either a GroupTrunkGroupGetInstanceListResponse14 or an ErrorResponse.
  */
 class GroupTrunkGroupGetInstanceListRequest14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceListResponse14';
+    public    $responseType              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceListResponse14';
     public    $name                      = __CLASS__;
     protected $serviceProviderId         = null;
     protected $groupId                   = null;
@@ -34,6 +37,14 @@ class GroupTrunkGroupGetInstanceListRequest14 extends ComplexType implements Com
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setOnlyTrunkGroupsWithDevice($onlyTrunkGroupsWithDevice);
+    }
+
+    /**
+     * @return GroupTrunkGroupGetInstanceListResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -89,6 +100,6 @@ class GroupTrunkGroupGetInstanceListRequest14 extends ComplexType implements Com
      */
     public function getOnlyTrunkGroupsWithDevice()
     {
-        return (!$this->onlyTrunkGroupsWithDevice) ?: $this->onlyTrunkGroupsWithDevice->getValue();
+        return (!$this->onlyTrunkGroupsWithDevice) ?: $this->onlyTrunkGroupsWithDevice;
     }
 }

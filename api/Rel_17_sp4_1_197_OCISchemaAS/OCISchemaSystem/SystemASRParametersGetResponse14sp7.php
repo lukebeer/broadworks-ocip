@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRRetransmissionDelayMilliSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRMaxTransmissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemASRParametersGetResponse14sp7;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemASRParametersGetRequest14sp7.
+ * Response to SystemASRParametersGetRequest14sp7.
  *         Contains a list of system Application Server Registration parameters.
  */
 class SystemASRParametersGetResponse14sp7 extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class SystemASRParametersGetResponse14sp7 extends ComplexType implements Complex
     protected $retransmissionDelayMilliSeconds = null;
     protected $listeningPort                   = null;
 
+    /**
+     * @return SystemASRParametersGetResponse14sp7
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Maximum number of transmissions.

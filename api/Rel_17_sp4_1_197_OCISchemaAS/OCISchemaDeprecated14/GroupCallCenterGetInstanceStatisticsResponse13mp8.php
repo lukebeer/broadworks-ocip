@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterQueueStatistics13mp8;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterAgentStatistics13mp8;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceStatisticsResponse13mp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Contains Call Center statistics.
+ * Contains Call Center statistics.
  *         Replaced By: GroupCallCenterGetInstanceStatisticsResponse14sp9
  */
 class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType implements ComplexInterface
@@ -31,6 +34,13 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
     protected $queueStatisticsToday     = null;
     protected $agentStatistics          = null;
 
+    /**
+     * @return GroupCallCenterGetInstanceStatisticsResponse13mp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -45,7 +55,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getNumberOfCallsQueuedNow()
     {
-        return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow->getValue();
+        return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow;
     }
 
     /**
@@ -61,7 +71,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getGenerateDailyReport()
     {
-        return (!$this->generateDailyReport) ?: $this->generateDailyReport->getValue();
+        return (!$this->generateDailyReport) ?: $this->generateDailyReport;
     }
 
     /**

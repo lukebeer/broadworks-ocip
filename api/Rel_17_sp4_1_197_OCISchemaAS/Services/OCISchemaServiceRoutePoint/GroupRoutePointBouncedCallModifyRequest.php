@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoute
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointBouncedCallModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify a route point's bounced call settings.
+ * Modify a route point's bounced call settings.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements ComplexInterface
@@ -42,6 +45,14 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         $this->setEnableTransfer($enableTransfer);
         $this->setTransferPhoneNumber($transferPhoneNumber);
         $this->setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable);
+    }
+
+    /**
+     * @return GroupRoutePointBouncedCallModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -83,7 +94,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**
@@ -119,7 +130,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getEnableTransfer()
     {
-        return (!$this->enableTransfer) ?: $this->enableTransfer->getValue();
+        return (!$this->enableTransfer) ?: $this->enableTransfer;
     }
 
     /**
@@ -167,6 +178,6 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable->getValue();
+        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable;
     }
 }

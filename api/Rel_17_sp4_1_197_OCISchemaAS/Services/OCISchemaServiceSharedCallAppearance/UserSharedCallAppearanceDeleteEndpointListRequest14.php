@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceShare
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceDeleteEndpointListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Disassociate one or more of a user's Shared Call Appearance endpoints.
+ * Disassociate one or more of a user's Shared Call Appearance endpoints.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType im
     ) {
         $this->setUserId($userId);
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
+    }
+
+    /**
+     * @return UserSharedCallAppearanceDeleteEndpointListResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

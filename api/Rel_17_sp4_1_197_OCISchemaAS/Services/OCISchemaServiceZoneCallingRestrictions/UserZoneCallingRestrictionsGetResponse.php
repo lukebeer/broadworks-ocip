@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions\UserZoneCallingRestrictionsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Gets the home zone for a user
+ * Gets the home zone for a user
  *         Response to a UserZoneCallingRestrictionsGetRequest
  */
 class UserZoneCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
@@ -21,6 +24,13 @@ class UserZoneCallingRestrictionsGetResponse extends ComplexType implements Comp
     public    $name         = __CLASS__;
     protected $homeZoneName = null;
 
+    /**
+     * @return UserZoneCallingRestrictionsGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Zone Name.

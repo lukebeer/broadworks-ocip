@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserPhoneDirectoryGetSearchedListRequest.
+ * Response to UserPhoneDirectoryGetSearchedListRequest.
  *         Contains a table with  a row for each phone number and column headings :
  *         "Name", "Number", "Extension", "Mobile", "Email Address", "Department", "Hiragana Name", "Group Id", "Yahoo Id".
  */
@@ -22,6 +25,13 @@ class UserPhoneDirectoryGetSearchedListResponse extends ComplexType implements C
     public    $name           = __CLASS__;
     protected $directoryTable = null;
 
+    /**
+     * @return UserPhoneDirectoryGetSearchedListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

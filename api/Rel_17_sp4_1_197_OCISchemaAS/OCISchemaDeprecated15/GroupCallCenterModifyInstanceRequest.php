@@ -18,12 +18,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a Call Center instance.
+ * Request to modify a Call Center instance.
  *         The response is either SuccessResponse or ErrorResponse.
  *         
  *         Replaced By: GroupCallCenterModifyInstanceRequest16
@@ -100,6 +103,14 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
     }
 
     /**
+     * @return GroupCallCenterModifyInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
      *         If the domain is not specified, it is assumed to be the system default domain.
      *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
@@ -172,7 +183,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getHuntAfterNoAnswer()
     {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer->getValue();
+        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
     }
 
     /**
@@ -208,7 +219,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getForwardAfterTimeout()
     {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout->getValue();
+        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
     }
 
     /**
@@ -264,7 +275,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo->getValue();
+        return (!$this->enableVideo) ?: $this->enableVideo;
     }
 
     /**
@@ -298,7 +309,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff->getValue();
+        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff;
     }
 
     /**
@@ -314,7 +325,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getPlayMusicOnHold()
     {
-        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold->getValue();
+        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold;
     }
 
     /**
@@ -330,7 +341,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getPlayComfortMessage()
     {
-        return (!$this->playComfortMessage) ?: $this->playComfortMessage->getValue();
+        return (!$this->playComfortMessage) ?: $this->playComfortMessage;
     }
 
     /**
@@ -364,7 +375,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableGuardTimer()
     {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer->getValue();
+        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
     }
 
     /**
@@ -416,7 +427,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents->getValue();
+        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
     }
 
     /**
@@ -432,7 +443,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp->getValue();
+        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp;
     }
 
     /**
@@ -448,7 +459,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {
-        return (!$this->enableCallQueueWhenNoAgentsAvailable) ?: $this->enableCallQueueWhenNoAgentsAvailable->getValue();
+        return (!$this->enableCallQueueWhenNoAgentsAvailable) ?: $this->enableCallQueueWhenNoAgentsAvailable;
     }
 
     /**

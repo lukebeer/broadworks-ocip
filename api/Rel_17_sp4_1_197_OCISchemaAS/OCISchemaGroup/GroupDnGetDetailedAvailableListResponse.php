@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetDetailedAvailableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupDnGetDetailedAvailableListRequest.
+ * Response to the GroupDnGetDetailedAvailableListRequest.
  *         The response contains a table with columns: "Phone Number", "Department".
  *         The "Phone Numbers" column contains a single DN.
  *         The "Department" column contains the department of the DN if the DN is part of the department.
@@ -23,6 +26,13 @@ class GroupDnGetDetailedAvailableListResponse extends ComplexType implements Com
     public    $name    = __CLASS__;
     protected $dnTable = null;
 
+    /**
+     * @return GroupDnGetDetailedAvailableListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

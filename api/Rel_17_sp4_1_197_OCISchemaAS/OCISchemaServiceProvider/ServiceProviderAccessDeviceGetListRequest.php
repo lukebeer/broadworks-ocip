@@ -13,17 +13,20 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Requests the list of access devices in a service provider.
+ * Requests the list of access devices in a service provider.
  *         The response is either ServiceProviderAccessDeviceGetListResponse or ErrorResponse.
  */
 class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse';
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse';
     public    $name                           = __CLASS__;
     protected $serviceProviderId              = null;
     protected $responseSizeLimit              = null;
@@ -46,6 +49,14 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
         $this->setSearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
         $this->setSearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
         $this->setSearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
+    }
+
+    /**
+     * @return ServiceProviderAccessDeviceGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

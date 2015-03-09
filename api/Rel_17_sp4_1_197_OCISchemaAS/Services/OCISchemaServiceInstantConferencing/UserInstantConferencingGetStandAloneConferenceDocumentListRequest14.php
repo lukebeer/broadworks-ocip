@@ -9,18 +9,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the list of conference documents.
+ * Get the list of conference documents.
  *         The response is either UserInstantConferencingGetStandAloneConferenceDocumentListResponse14
  *         or ErrorResponse.
  */
 class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14';
     public    $name                  = __CLASS__;
     protected $conferenceOwnerUserId = null;
     protected $conferenceKey         = null;
@@ -34,6 +37,14 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setConferenceKey($conferenceKey);
         $this->setIsWebServerCollocated($isWebServerCollocated);
+    }
+
+    /**
+     * @return UserInstantConferencingGetStandAloneConferenceDocumentListResponse14
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -91,6 +102,6 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
      */
     public function getIsWebServerCollocated()
     {
-        return (!$this->isWebServerCollocated) ?: $this->isWebServerCollocated->getValue();
+        return (!$this->isWebServerCollocated) ?: $this->isWebServerCollocated;
     }
 }

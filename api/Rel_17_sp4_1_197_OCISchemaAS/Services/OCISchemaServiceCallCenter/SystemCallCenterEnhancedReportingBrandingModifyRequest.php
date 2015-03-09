@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingSystemBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingBrandingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify the system branding configuration.
+ * Request to modify the system branding configuration.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
@@ -29,6 +32,14 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
     ) {
         $this->setBrandingChoice($brandingChoice);
         $this->setCustomBrandingFile($customBrandingFile);
+    }
+
+    /**
+     * @return SystemCallCenterEnhancedReportingBrandingModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

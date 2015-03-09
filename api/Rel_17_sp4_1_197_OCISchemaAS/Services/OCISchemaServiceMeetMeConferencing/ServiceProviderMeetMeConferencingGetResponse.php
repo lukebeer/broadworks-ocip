@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePorts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\ServiceProviderMeetMeConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to ServiceProviderMeetMeConferencingGetRequest.
+ * Response to ServiceProviderMeetMeConferencingGetRequest.
  */
 class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name           = __CLASS__;
     protected $allocatedPorts = null;
 
+    /**
+     * @return ServiceProviderMeetMeConferencingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.

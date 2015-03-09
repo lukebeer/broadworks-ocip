@@ -11,12 +11,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSM
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskModifyServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify a SMDI Server in the system.
+ * Request to modify a SMDI Server in the system.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         $this->setNetAddress($netAddress);
         $this->setPort($port);
         $this->setDescription($description);
+    }
+
+    /**
+     * @return SystemSMDIMessageDeskModifyServerResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

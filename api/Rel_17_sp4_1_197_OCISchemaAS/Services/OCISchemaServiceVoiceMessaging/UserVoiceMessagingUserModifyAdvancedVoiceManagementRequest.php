@@ -14,12 +14,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAdd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserModifyAdvancedVoiceManagementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the user's voice messaging advanced voice management service setting.
+ * Modify the user's voice messaging advanced voice management service setting.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends ComplexType implements ComplexInterface
@@ -61,6 +64,14 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
         $this->setPersonalMailServerEmailAddress($personalMailServerEmailAddress);
         $this->setPersonalMailServerUserId($personalMailServerUserId);
         $this->setPersonalMailServerPassword($personalMailServerPassword);
+    }
+
+    /**
+     * @return UserVoiceMessagingUserModifyAdvancedVoiceManagementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -210,7 +221,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
-        return (!$this->personalMailServerRealDeleteForImap) ?: $this->personalMailServerRealDeleteForImap->getValue();
+        return (!$this->personalMailServerRealDeleteForImap) ?: $this->personalMailServerRealDeleteForImap;
     }
 
     /**

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceMonitorDeleteDeviceTypeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Remove a device type to be monitored.
+ * Remove a device type to be monitored.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemAccessDeviceMonitorDeleteDeviceTypeRequest extends ComplexType implements ComplexInterface
@@ -21,5 +24,13 @@ class SystemAccessDeviceMonitorDeleteDeviceTypeRequest extends ComplexType imple
     public    $name = __CLASS__;
 
     public function __construct(    ) {
+    }
+
+    /**
+     * @return SystemAccessDeviceMonitorDeleteDeviceTypeResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 }

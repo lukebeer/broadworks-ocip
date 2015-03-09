@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallC
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportWebStatisticsSource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServerChoice;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to EnterpriseCallCenterEnhancedReportingGetRequest.
+ * Response to EnterpriseCallCenterEnhancedReportingGetRequest.
  */
 class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
     protected $reportingServer    = null;
     protected $webStatisticSource = null;
 
+    /**
+     * @return EnterpriseCallCenterEnhancedReportingGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call center report server choice.

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the UserCallCenterGetSupervisorCallCenterListRequest.
+ * Response to the UserCallCenterGetSupervisorCallCenterListRequest.
  *         Contains a table with column headings: "Service User Id", "Phone Number", 
  *         "Extension", "Type" and "Priority".
  */
@@ -22,6 +25,13 @@ class UserCallCenterGetSupervisorCallCenterListResponse extends ComplexType impl
     public    $name            = __CLASS__;
     protected $callCenterTable = null;
 
+    /**
+     * @return UserCallCenterGetSupervisorCallCenterListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

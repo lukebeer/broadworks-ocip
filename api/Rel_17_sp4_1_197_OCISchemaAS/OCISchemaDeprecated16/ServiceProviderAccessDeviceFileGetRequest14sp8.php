@@ -10,18 +10,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderAccessDeviceFileGetResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to get a service provider device profile file.
+ * Request to get a service provider device profile file.
  *         The response is either ServiceProviderAccessDeviceFileGetResponse14sp8 or ErrorResponse.
  *         Replaced by: ServiceProviderAccessDeviceFileGetRequest16sp1
  */
 class ServiceProviderAccessDeviceFileGetRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderAccessDeviceFileGetResponse14sp8';
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderAccessDeviceFileGetResponse14sp8';
     public    $name              = __CLASS__;
     protected $serviceProviderId = null;
     protected $deviceName        = null;
@@ -35,6 +38,14 @@ class ServiceProviderAccessDeviceFileGetRequest14sp8 extends ComplexType impleme
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
         $this->setFileFormat($fileFormat);
+    }
+
+    /**
+     * @return ServiceProviderAccessDeviceFileGetResponse14sp8
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

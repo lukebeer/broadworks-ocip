@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupCallCenterGetAnnouncementRequest.
+ * Response to the GroupCallCenterGetAnnouncementRequest.
  */
 class GroupCallCenterGetAnnouncementResponse extends ComplexType implements ComplexInterface
 {
@@ -29,6 +32,13 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
     protected $onHoldMessageAudioFileDescription          = null;
     protected $onHoldMessageVideoFileDescription          = null;
 
+    /**
+     * @return GroupCallCenterGetAnnouncementResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Call Center Announcement Selection.

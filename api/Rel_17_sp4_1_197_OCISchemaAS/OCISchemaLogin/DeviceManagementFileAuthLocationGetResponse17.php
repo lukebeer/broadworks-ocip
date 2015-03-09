@@ -15,12 +15,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Return the address and credentials of the File Repository hosting the requested access device file. 
+ * Return the address and credentials of the File Repository hosting the requested access device file. 
  *         Also return the file name and path on the File Repository. 
  *         This is a response to DeviceManagementFileAuthLocationGetRequest17.
  */
@@ -43,6 +46,13 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
     protected $completionNotification             = null;
     protected $fileCategory                       = null;
 
+    /**
+     * @return DeviceManagementFileAuthLocationGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * A user id for a File Repository.
@@ -183,7 +193,7 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function getSecure()
     {
-        return (!$this->secure) ?: $this->secure->getValue();
+        return (!$this->secure) ?: $this->secure;
     }
 
     /**
@@ -199,7 +209,7 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function getMacInNonRequestURI()
     {
-        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI->getValue();
+        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI;
     }
 
     /**
@@ -233,7 +243,7 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function getUseHttpDigestAuthentication()
     {
-        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication->getValue();
+        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication;
     }
 
     /**
@@ -249,7 +259,7 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function getMacBasedFileAuthentication()
     {
-        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication->getValue();
+        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication;
     }
 
     /**
@@ -265,7 +275,7 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication->getValue();
+        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication;
     }
 
     /**
@@ -281,7 +291,7 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function getCompletionNotification()
     {
-        return (!$this->completionNotification) ?: $this->completionNotification->getValue();
+        return (!$this->completionNotification) ?: $this->completionNotification;
     }
 
     /**

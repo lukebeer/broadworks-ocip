@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsNetAddressGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemZoneCallingRestrictionsNetAddressGetListRequest.
+ * Response to SystemZoneCallingRestrictionsNetAddressGetListRequest.
  *         Replaced by: SystemZoneNetAddressGetListResponse
  */
 class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType implements ComplexInterface
@@ -23,6 +26,13 @@ class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType
     protected $netAddress      = null;
     protected $netAddressRange = null;
 
+    /**
+     * @return SystemZoneCallingRestrictionsNetAddressGetListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Numeric IP Address.

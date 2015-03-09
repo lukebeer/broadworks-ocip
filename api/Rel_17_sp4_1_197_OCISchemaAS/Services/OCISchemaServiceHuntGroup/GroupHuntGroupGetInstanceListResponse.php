@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\GroupHuntGroupGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupHuntGroupGetInstanceListRequest.
+ * Response to the GroupHuntGroupGetInstanceListRequest.
  *         Contains a table with column headings:
  *         "Service User Id", "Name", "Phone Number", "Extension", "Department", "Is Active", "Policy".
  *         The column values for "Is Active" can either be true, or false.
@@ -24,6 +27,13 @@ class GroupHuntGroupGetInstanceListResponse extends ComplexType implements Compl
     public    $name           = __CLASS__;
     protected $huntGroupTable = null;
 
+    /**
+     * @return GroupHuntGroupGetInstanceListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 

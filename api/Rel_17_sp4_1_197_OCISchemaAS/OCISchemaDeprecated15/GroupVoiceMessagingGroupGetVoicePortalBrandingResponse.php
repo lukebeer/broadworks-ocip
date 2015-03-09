@@ -9,12 +9,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingBrandingSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to the GroupVoiceMessagingGroupGetVoicePortalBrandingRequest.
+ * Response to the GroupVoiceMessagingGroupGetVoicePortalBrandingRequest.
  *         Replaced By: GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16
  */
 class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType implements ComplexInterface
@@ -25,6 +28,13 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType
     protected $voiceMessagingGreetingSelection       = null;
     protected $voiceMessagingGreetingFileDescription = null;
 
+    /**
+     * @return GroupVoiceMessagingGroupGetVoicePortalBrandingResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Branding Selection.

@@ -16,12 +16,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Gets a Custom Contact Directory in a group.
+ * Gets a Custom Contact Directory in a group.
  *         The response is either GroupCustomContactDirectoryGetResponse17 or 
  *         ErrorResponse.
  *         The search can be done using multiple criterion.
@@ -34,7 +37,7 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
  */
 class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetResponse17';
+    public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetResponse17';
     public    $name                            = __CLASS__;
     protected $serviceProviderId               = null;
     protected $groupId                         = null;
@@ -69,6 +72,14 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->setSearchCriteriaDn($searchCriteriaDn);
         $this->setSearchCriteriaExtension($searchCriteriaExtension);
         $this->setSearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
+    }
+
+    /**
+     * @return GroupCustomContactDirectoryGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -164,7 +175,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function getSearchCriteriaModeOr()
     {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr->getValue();
+        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
     }
 
     /**

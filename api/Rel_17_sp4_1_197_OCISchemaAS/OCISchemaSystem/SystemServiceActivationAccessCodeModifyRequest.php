@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServiceActivationAccessCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceActivationAccessCodeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request to modify Service Activation Access Code system parameters.
+ * Request to modify Service Activation Access Code system parameters.
  *         The response is either SuccessResponse or ErrorResponse.
  */
 class SystemServiceActivationAccessCodeModifyRequest extends ComplexType implements ComplexInterface
@@ -37,6 +40,14 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
     }
 
     /**
+     * @return SystemServiceActivationAccessCodeModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setIsActive($isActive = null)
@@ -49,7 +60,7 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

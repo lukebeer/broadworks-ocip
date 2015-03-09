@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to a ServiceProviderPreferredCarrierGetAvailableCountryCodeListRequest.
+ * Response to a ServiceProviderPreferredCarrierGetAvailableCountryCodeListRequest.
  *         Contains the default country code and the list of unused country codes for a service provider / enterprise.
  */
 class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends ComplexType implements ComplexInterface
@@ -22,6 +25,13 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
     protected $defaultCountryCode = null;
     protected $countryCode        = null;
 
+    /**
+     * @return ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Country dialing code.

@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticHoldRetrieve; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticHoldRetrieve\AutomaticHoldRetrieveRecallTimerSeconds;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticHoldRetrieve\UserAutomaticHoldRetrieveGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserAutomaticHoldRetrieveGetRequest.
+ * Response to UserAutomaticHoldRetrieveGetRequest.
  */
 class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements ComplexInterface
 {
@@ -21,6 +24,13 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
     protected $isActive           = null;
     protected $recallTimerSeconds = null;
 
+    /**
+     * @return UserAutomaticHoldRetrieveGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -35,7 +45,7 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive->getValue();
+        return (!$this->isActive) ?: $this->isActive;
     }
 
     /**

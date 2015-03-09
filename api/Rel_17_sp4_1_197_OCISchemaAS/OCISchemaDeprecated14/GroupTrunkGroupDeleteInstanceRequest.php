@@ -10,12 +10,15 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupDeleteInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Delete a Trunk Group Instance from a group.
+ * Delete a Trunk Group Instance from a group.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements ComplexInterface
@@ -33,6 +36,14 @@ class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements Comple
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
         $this->setServiceUserId($serviceUserId);
+    }
+
+    /**
+     * @return GroupTrunkGroupDeleteInstanceResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

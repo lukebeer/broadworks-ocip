@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtensionLength;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupExtensionLengthGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to GroupExtensionLengthGetRequest17.
+ * Response to GroupExtensionLengthGetRequest17.
  */
 class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexInterface
 {
@@ -22,6 +25,13 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
     protected $maxExtensionLength     = null;
     protected $defaultExtensionLength = null;
 
+    /**
+     * @return GroupExtensionLengthGetResponse17
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * The group's extension length.

@@ -12,12 +12,15 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\VoiceMessagingAlternateNoAnswerGreetingRead;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserVoiceMessagingUserGetGreetingResponse13mp16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to UserVoiceMessagingUserGetGreetingRequest13mp16.
+ * Response to UserVoiceMessagingUserGetGreetingRequest13mp16.
  *         Contains the greeting configuration for a user's voice messaging.
  *         Replaced By: UserVoiceMessagingUserGetGreetingResponse16
  */
@@ -35,6 +38,13 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
     protected $noAnswerAlternateGreeting03   = null;
     protected $noAnswerNumberOfRings         = null;
 
+    /**
+     * @return UserVoiceMessagingUserGetGreetingResponse13mp16
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * Announcement Selection.

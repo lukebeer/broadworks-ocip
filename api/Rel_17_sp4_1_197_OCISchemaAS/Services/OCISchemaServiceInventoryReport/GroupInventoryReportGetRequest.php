@@ -10,17 +10,20 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInven
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Request the group's inventory report.
+ * Request the group's inventory report.
  *         The response is either a GroupInventoryReportGetResponse or an ErrorResponse.
  */
 class GroupInventoryReportGetRequest extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
+    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
     public    $name                       = __CLASS__;
     protected $serviceProviderId          = null;
     protected $groupId                    = null;
@@ -49,6 +52,14 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
         $this->setIncludeAccessDevices($includeAccessDevices);
         $this->setIncludeDepartments($includeDepartments);
         $this->setReportDeliveryEmailAddress($reportDeliveryEmailAddress);
+    }
+
+    /**
+     * @return GroupInventoryReportGetResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**
@@ -104,7 +115,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeUsers()
     {
-        return (!$this->includeUsers) ?: $this->includeUsers->getValue();
+        return (!$this->includeUsers) ?: $this->includeUsers;
     }
 
     /**
@@ -120,7 +131,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeServices()
     {
-        return (!$this->includeServices) ?: $this->includeServices->getValue();
+        return (!$this->includeServices) ?: $this->includeServices;
     }
 
     /**
@@ -136,7 +147,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeDns()
     {
-        return (!$this->includeDns) ?: $this->includeDns->getValue();
+        return (!$this->includeDns) ?: $this->includeDns;
     }
 
     /**
@@ -152,7 +163,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeAccessDevices()
     {
-        return (!$this->includeAccessDevices) ?: $this->includeAccessDevices->getValue();
+        return (!$this->includeAccessDevices) ?: $this->includeAccessDevices;
     }
 
     /**
@@ -168,7 +179,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeDepartments()
     {
-        return (!$this->includeDepartments) ?: $this->includeDepartments->getValue();
+        return (!$this->includeDepartments) ?: $this->includeDepartments;
     }
 
     /**

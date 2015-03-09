@@ -9,18 +9,21 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInsta
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceResponse14Sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Get the information of a conference owned or delegated by the user.
+ * Get the information of a conference owned or delegated by the user.
  *         The response is either UserInstantConferencingGetStandAloneConferenceResponse14Sp6
  *         or ErrorResponse.
  */
 class UserInstantConferencingGetStandAloneConferenceRequest14Sp6 extends ComplexType implements ComplexInterface
 {
-    const     RESPONSE_TYPE          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceResponse14Sp6';
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceResponse14Sp6';
     public    $name                  = __CLASS__;
     protected $conferenceOwnerUserId = null;
     protected $conferenceKey         = null;
@@ -31,6 +34,14 @@ class UserInstantConferencingGetStandAloneConferenceRequest14Sp6 extends Complex
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setConferenceKey($conferenceKey);
+    }
+
+    /**
+     * @return UserInstantConferencingGetStandAloneConferenceResponse14Sp6
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
     }
 
     /**

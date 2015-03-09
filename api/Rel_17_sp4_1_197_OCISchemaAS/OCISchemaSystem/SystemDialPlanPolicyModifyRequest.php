@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Modify the system level data associated with Dial Plan Policy.
+ * Modify the system level data associated with Dial Plan Policy.
  *         The response is either a SuccessResponse or an ErrorResponse.
  */
 class SystemDialPlanPolicyModifyRequest extends ComplexType implements ComplexInterface
@@ -40,6 +43,14 @@ class SystemDialPlanPolicyModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
+     * @return SystemDialPlanPolicyModifyResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
      * 
      */
     public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls = null)
@@ -52,7 +63,7 @@ class SystemDialPlanPolicyModifyRequest extends ComplexType implements ComplexIn
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls->getValue();
+        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
     }
 
     /**
@@ -68,7 +79,7 @@ class SystemDialPlanPolicyModifyRequest extends ComplexType implements ComplexIn
      */
     public function getAllowE164PublicCalls()
     {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls->getValue();
+        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
     }
 
     /**
@@ -84,7 +95,7 @@ class SystemDialPlanPolicyModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPreferE164NumberFormatForCallbackServices()
     {
-        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices->getValue();
+        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices;
     }
 
     /**

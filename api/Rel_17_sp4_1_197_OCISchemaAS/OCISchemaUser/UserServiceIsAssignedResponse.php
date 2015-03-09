@@ -8,18 +8,28 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceIsAssignedResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Returns true if the UserService or service pack is assigned, otherwise false.
+ * Returns true if the UserService or service pack is assigned, otherwise false.
  */
 class UserServiceIsAssignedResponse extends ComplexType implements ComplexInterface
 {
     public    $name       = __CLASS__;
     protected $isAssigned = null;
 
+    /**
+     * @return UserServiceIsAssignedResponse
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
@@ -34,6 +44,6 @@ class UserServiceIsAssignedResponse extends ComplexType implements ComplexInterf
      */
     public function getIsAssigned()
     {
-        return (!$this->isAssigned) ?: $this->isAssigned->getValue();
+        return (!$this->isAssigned) ?: $this->isAssigned;
     }
 }

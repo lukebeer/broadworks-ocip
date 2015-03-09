@@ -8,12 +8,15 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeGetListResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
 
 
 /**
-     * Response to SystemExpensiveCallTypeGetListRequest16sp1. 
+ * Response to SystemExpensiveCallTypeGetListRequest16sp1. 
  *         The column headings are:
  *         "Alternate Call Indicator", "Treatment Audio File".
  */
@@ -22,6 +25,13 @@ class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements
     public    $name                        = __CLASS__;
     protected $alternateCallIndicatorTable = null;
 
+    /**
+     * @return SystemExpensiveCallTypeGetListResponse16sp1
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
 
     /**
      * 
